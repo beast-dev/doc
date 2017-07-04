@@ -2,7 +2,7 @@
 title: Introduction
 keywords: beast mcmc documentation tutorial
 tags: [getting_started]
-sidebar: mydoc_sidebar
+sidebar: beast_sidebar
 permalink: index.html
 summary: This site provides documentation and tutorials for running BEAST.
 ---
