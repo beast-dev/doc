@@ -1,5 +1,5 @@
 ---
-title: BEAST Documentation
+title: Introduction
 keywords: beast mcmc documentation tutorial
 tags: [getting_started]
 sidebar: mydoc_sidebar
