@@ -9,8 +9,6 @@ summary: This site provides documentation and tutorials for running BEAST.
 
 ## Introduction
 
-{% include image.html file="beast.png" url="http://beast-dev.github.io/doc" alt="BEAST" caption="This is a sample caption" %"}
-
 BEAST is ...
 
 ### 1. Blah
