@@ -1,7 +1,7 @@
 ---
 title: BEAST &mdash; Bayesian Evolutionary Analysis Sampling Trees
 keywords: beast mcmc documentation tutorial
-tags: [getting_started]
+tags: [getting-started]
 sidebar: beast_sidebar
 permalink: index.html
 summary: This site provides documentation and tutorials for running BEAST.
@@ -47,5 +47,7 @@ Users are strongly advised to join the BEAST mailing-list. This will be used to 
 Send an email to beast-users-subscribe@googlegroups.com or go to the mailing list site: 
 
 http://groups.google.com/group/beast-users
+
+{{site.data.alerts.note}} This is work in progress to produce a central repository for BEAST v1.x documentation.{{site.data.alerts.end}}
 
 {% include links.html %}
