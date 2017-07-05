@@ -1,3 +1,13 @@
+:root{
+    --main-color:#06c;
+    --hilite-color:#adb24e; /* #ED1951 */
+}
+
+html {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+}
+
 body {
     font-size:15px;
 }
@@ -511,7 +521,7 @@ table.profile thead tr th {
 }
 
 table.request thead tr th {
-    background-color: #ED1951;
+    background-color: var(--hilite-color);
 }
 
 .audienceLabel {
@@ -577,7 +587,7 @@ a[data-toggle] {
     font-size:120%;
     color: #808080;
     margin:20px 0px 20px 0px;
-    border-left: 5px solid #ED1951;
+    border-left: 5px solid var(--hilite-color);
     padding-left: 10px;
 
 }
@@ -592,7 +602,7 @@ a.fa.fa-envelope-o.mailto {
     font-weight: 600;
 }
 
-h3 {color: #ED1951; font-weight:normal; font-size:130%;}
+h3 {color: var(--hilite-color); font-weight:normal; font-size:130%;}
 h4 {color: #808080; font-weight:normal; font-size:120%; font-style:italic;}
 
 .alert, .callout {

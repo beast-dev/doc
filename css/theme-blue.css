@@ -1,21 +1,11 @@
-:root{
-    --main-color:#06c;
-    --hilite-color:#adb24e; /* #ED1951 */
-}
-
-html {
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-   font-weight: 300;
-}
-
 .summary {
     color: #808080;
-    border-left: 5px solid var(--hilite-color);
+    border-left: 5px solid #ED1951;
     font-size:16px;
 }
 
-h1 {font-size: 24pt; font-weight: 
-h3 {color: var(--hilite-color); }
+
+h3 {color: #ED1951; }
 h4 {color: #808080; }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
@@ -116,7 +106,7 @@ li.sidebarTitle {
   margin-top:20px;
     font-weight:normal;
     font-size:130%;
-    color: var(--hilite-color);
+    color: #ED1951;
     margin-bottom:10px;
     margin-left: 5px;
 
