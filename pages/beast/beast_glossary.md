@@ -15,13 +15,13 @@ Glossary of terms used in BEAST:
 <dl class="dl-horizontal">
 
 <dt id="haughty">Bayesian</dt>
-<dd>{{site.data.glossary.bayesian}}</dd>
+<dd>{{site.data.definitions.bayesian}}</dd>
 
 <dt id="beast">BEAST</dt>
-<dd>{{site.data.glossary.beast}}</dd>
+<dd>{{site.data.definitions.beast}}</dd>
 
 <dt id="gratuitous">MCMC</dt>
-<dd>{{site.data.glossary.mcmc}}</dd>
+<dd>{{site.data.definitions.mcmc}}</dd>
 
 </dl>
 
