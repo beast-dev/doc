@@ -1,6 +1,6 @@
 :root{
     --background-color:#4388a8; /* #347DBE var(--background-color) */
-	--button-color:#265368; /* #015CAE */
+	--darker-color:#265368; /* #015CAE */
     --hilite-color:#adb24e; /* #ED1951 */
 }
 
@@ -33,7 +33,7 @@ h3 {
 h4 { color: #808080; }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-    background-color: #248ec2;
+    background-color: var(--darker-color);
     color: white;
 }
 
@@ -42,7 +42,7 @@ h4 { color: #808080; }
 }
 
 .nav > li > a:hover {
-    background-color: #248ec2;
+    background-color: var(--darker-color);
 }
 
 div.navbar-collapse .dropdown-menu > li > a:hover {
@@ -63,7 +63,7 @@ a[data-toggle="tooltip"] {
 
 .navbar-inverse {
     background-color: var(--background-color);
-    border-color: var(--button-color);
+    border-color: var(--darker-color);
 }
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand {
     color: white;
@@ -78,11 +78,11 @@ a.navbar-brand:hover {
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-    color: var(--button-color);
+    color: var(--darker-color);
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-    background-color: var(--button-color);
+    background-color: var(--darker-color);
     color: #ffffff;
 }
 
@@ -110,7 +110,7 @@ a.navbar-brand:hover {
 }
 
 .printTitle {
-    color: var(--button-color) !important;
+    color: var(--darker-color) !important;
 }
 
 body.print h1 {color: #015CAE !important; font-size:28px !important;}
@@ -123,7 +123,7 @@ body.print h4 {color: #679DCE !important; font-size:14px; font-style: italic !im
 }
 
 div.sidebarTitle {
-    color: var(--button-color);
+    color: var(--darker-color);
 }
 
 li.sidebarTitle {
@@ -137,9 +137,9 @@ li.sidebarTitle {
 }
 
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
-    background-color: var(--button-color);
+    background-color: var(--darker-color);
 }
 
 .navbar-inverse .navbar-toggle {
-    border-color: var(--button-color);
+    border-color: var(--darker-color);
 }
