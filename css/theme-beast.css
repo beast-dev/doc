@@ -1,5 +1,5 @@
 :root{
-    --main-color:#06c;
+    --background-color:#4388a8; /* #347DBE var(--background-color) */
     --hilite-color:#adb24e; /* #ED1951 */
 }
 
@@ -29,7 +29,7 @@ h4 { color: #808080; }
 }
 
 .nav > li.active > a {
-    background-color: #347DBE;
+    background-color: var(--background-color);
 }
 
 .nav > li > a:hover {
@@ -37,7 +37,7 @@ h4 { color: #808080; }
 }
 
 div.navbar-collapse .dropdown-menu > li > a:hover {
-    background-color: #347DBE;
+    background-color: var(--background-color);
 }
 
 .nav li.thirdlevel > a {
@@ -53,7 +53,7 @@ a[data-toggle="tooltip"] {
 }
 
 .navbar-inverse {
-    background-color: #347DBE;
+    background-color: var(--background-color);
     border-color: #015CAE;
 }
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand {
@@ -83,12 +83,12 @@ a.navbar-brand:hover {
 
 .btn-primary {
     color: #ffffff;
-    background-color: #347DBE;
-    border-color: #347DBE;
+    background-color: var(--background-color);
+    border-color: var(--background-color);
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-    background-color: #347DBE;
+    background-color: var(--background-color);
 }
 
 .btn-primary:hover,
@@ -97,7 +97,7 @@ a.navbar-brand:hover {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
     background-color: #248ec2;
-    border-color: #347DBE;
+    border-color: var(--background-color);
 }
 
 .printTitle {
