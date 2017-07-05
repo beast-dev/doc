@@ -25,7 +25,11 @@ h2 {
 	font-weight: 300; 
 	font-size: 18pt;
 }
-h3 { color: var(--hilite-color); }
+h3 { 
+	color: var(--hilite-color); 
+	font-weight: 300; 
+	font-size: 14pt;
+}
 h4 { color: #808080; }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
