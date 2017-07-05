@@ -21,7 +21,10 @@ h1 {
 	font-weight: 300; 
 	font-size: 20pt;
 }
-h2 { font-weight: 300; }
+h2 {
+	font-weight: 300; 
+	font-size: 18pt;
+}
 h3 { color: var(--hilite-color); }
 h4 { color: #808080; }
 
