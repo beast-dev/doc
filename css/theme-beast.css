@@ -2,6 +2,7 @@
     --background-color:#4388a8; /* #347DBE var(--background-color) */
 	--darker-color:#265368; /* #015CAE */
     --hilite-color:#adb24e; /* #ED1951 */
+    --grey-color:#808080; 
 }
 
 html {
@@ -10,7 +11,7 @@ html {
 }
 
 .summary {
-    color: #808080;
+    color: var(--grey-color);
     border-left: 5px solid var(--hilite-color);
     font-size:16px;
 }
@@ -30,7 +31,7 @@ h3 {
 	font-weight: 300; 
 	font-size: 14pt;
 }
-h4 { color: #808080; }
+h4 { color: var(--grey-color); }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
     background-color: var(--darker-color);
@@ -160,7 +161,7 @@ li.sidebarTitle {
 
 hr.shaded {
     height: 1px;
-    color: #808080
+    color: var(--grey-color)
     border: 0;
     margin-top: 70px;
     background: white;
