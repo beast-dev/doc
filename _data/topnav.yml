@@ -3,7 +3,9 @@
 topnav:
 - title: Topnav
   items:
-    - title: GitHub
+    - title: Glossary
+      url: /beast_glossary.html
+    - title: Source Code
       external_url: https://github.com/beast-dev/beast-mcmc
     - title: News
       url: /news
