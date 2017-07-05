@@ -1,5 +1,6 @@
 :root{
     --background-color:#4388a8; /* #347DBE var(--background-color) */
+	--button-color:#265368; /* #015CAE */
     --hilite-color:#adb24e; /* #ED1951 */
 }
 
@@ -54,7 +55,7 @@ a[data-toggle="tooltip"] {
 
 .navbar-inverse {
     background-color: var(--background-color);
-    border-color: #015CAE;
+    border-color: var(--button-color);
 }
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand {
     color: white;
@@ -69,11 +70,11 @@ a.navbar-brand:hover {
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-    color: #015CAE;
+    color: var(--button-color);
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-    background-color: #015CAE;
+    background-color: var(--button-color);
     color: #ffffff;
 }
 
@@ -101,7 +102,7 @@ a.navbar-brand:hover {
 }
 
 .printTitle {
-    color: #015CAE !important;
+    color: var(--button-color) !important;
 }
 
 body.print h1 {color: #015CAE !important; font-size:28px !important;}
