@@ -42,4 +42,9 @@ entries:
       url: /beast_faq.html
       output: web, pdf
 
+    - title: Topics
+      url: /beast_topics.html
+      output: web, pdf
+
+
 
