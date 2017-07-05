@@ -3,6 +3,10 @@
 topnav:
 - title: Topnav
   items:
+    - title: FAQ
+      url: /beast_faq.html
+    - title: Topics
+      url: /beast_topics.html
     - title: Glossary
       url: /beast_glossary.html
     - title: Source Code
