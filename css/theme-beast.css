@@ -15,8 +15,10 @@ html {
 }
 
 
-h3 {color: var(--hilite-color); }
-h4 {color: #808080; }
+h1 { font-weight: 300; }
+h2 { font-weight: 300; }
+h3 { color: var(--hilite-color); }
+h4 { color: #808080; }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
     background-color: #248ec2;
