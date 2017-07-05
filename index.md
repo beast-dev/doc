@@ -1,5 +1,5 @@
 ---
-title: BEAST --- Bayesian Evolutionary Analysis Sampling Trees
+title: BEAST &mdash; Bayesian Evolutionary Analysis Sampling Trees
 keywords: beast mcmc documentation tutorial
 tags: [getting_started]
 sidebar: beast_sidebar
