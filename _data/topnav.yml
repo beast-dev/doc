@@ -4,11 +4,11 @@ topnav:
 - title: Topnav
   items:
     - title: FAQ
-      url: /beast_faq.html
+      url: /faq.html
     - title: Topics
-      url: /beast_topics.html
+      url: /topics.html
     - title: Glossary
-      url: /beast_glossary.html
+      url: /glossary.html
     - title: Source Code
       external_url: https://github.com/beast-dev/beast-mcmc
     - title: News
