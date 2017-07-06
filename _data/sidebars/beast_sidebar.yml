@@ -28,7 +28,7 @@ entries:
       output: web, pdf
 
     - title: Installing
-      url: /beast_installing.html
+      url: /installing.html
       output: web, pdf
 
     - title: First Tutorial
