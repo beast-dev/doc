@@ -16,7 +16,7 @@ folder: beast
 		<div class="panel-heading">
 			<div class="panel-title">
 				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-				`Parsing error - the input file is not a valid XML file`
+Parsing error - the input file is not a valid XML file
 				</a>
 			</div>
 		</div>
@@ -31,13 +31,13 @@ folder: beast
 		<div class="panel-heading">
 			<div class="panel-title">
 				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-				"Parsing error - poorly formed XML (possibly not an XML file):: The markup in the document following the root element must be well-formed."
+Parsing error - poorly formed XML (possibly not an XML file):: The markup in the document following the root element must be well-formed.
 				</a>
 			</div>
 		</div>
 		<div id="collapseTwo" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
-				The input file was recognized as an XML document but the document broke some fundemental rules for XML (it was not "well-formed").
+The input file was recognized as an XML document but the document broke some fundemental rules for XML (it was not "well-formed").
 			</div>
 		</div>
 	</div>
@@ -46,13 +46,13 @@ folder: beast
 		<div class="panel-heading">
 			<div class="panel-title">
 				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-				"Parsing error - poorly formed BEAST file"
+Parsing error - poorly formed BEAST file
 				</a>
 			</div>
 		</div>
 		<div id="collapseTwo" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
-The input file was recognized as an XML file but the content was not as expected by BEAST. The exact element in the file will be listed along with details of the problem. For example,
+The input file was recognized as an XML file but the content was not as expected by BEAST. The exact element in the file will be listed along with details of the problem. For example:
 ```
 Parsing error - poorly formed BEAST file:
   The '<alignment>' element with id, 'alignment1', is incorrectly constructed.
@@ -61,7 +61,8 @@ Parsing error - poorly formed BEAST file:
     ATTRIBUTE String dataType REQUIRED
     ELEMENT of type dataType REQUIRED
 ```
-In this case, although the input file was a valid XML document, there was an error in the syntax that BEAST requires. For example, above, an element of type <alignment> does not conform to the requirement that it either has an attribute called 'dataType' or contains an element called '<dataType>'.			</div>
+In this case, although the input file was a valid XML document, there was an error in the syntax that BEAST requires. For example, above, an element of type <alignment> does not conform to the requirement that it either has an attribute called 'dataType' or contains an element called '<dataType>'.
+			</div>
 		</div>
 	</div>
 </div>
