@@ -6,7 +6,7 @@ tags: [help, trouble-shooting]
 keywords: frequently asked questions, FAQ, question and answer, help
 last_updated: July 5, 2017
 summary: "Frequently asked questions about BEAST."
-toc: false
+toc: true
 folder: beast
 ---
 
