@@ -1,6 +1,7 @@
 :root{
     --background-color:#4388a8; /* #347DBE var(--background-color) */
 	--darker-color:#265368; /* #015CAE */
+	--lighter-color:#0000FF; 
     --hilite-color:#adb24e; /* #ED1951 */
     --grey-color:#808080; 
 }
@@ -100,8 +101,8 @@ a.navbar-brand:hover {
 
 .btn-primary {
     color: #ffffff;
-    background-color: var(--background-color);
-    border-color: var(--background-color);
+    background-color: var(--lighter-color);
+    border-color: var(--lighter-color);
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
@@ -113,7 +114,7 @@ a.navbar-brand:hover {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-    background-color: #248ec2;
+    background-color: var(--darker-color);
     border-color: var(--background-color);
 }
 
