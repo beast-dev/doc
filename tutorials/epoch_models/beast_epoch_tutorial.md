@@ -219,10 +219,10 @@ There is probably no difference between the parameters of the first and the thir
 
 ### References
 
-F. Bielejec, P. Lemey, G. Baele, A. Rambaut, and M. A. Suchard. Inferring heterogeneous evolutionary processes through time: from sequence substitution to phylogeography. Syst. Biol. 63(4):493–504. 
+F. Bielejec, P. Lemey, G. Baele, A. Rambaut, and M. A. Suchard (2014)) Inferring heterogeneous evolutionary processes through time: from sequence substitution to phylogeography. Syst. Biol. 63(4):493–504. 
 
-A. Drummond and M. Suchard. Bayesian random local clocks, or one rate to rule them all. BMC Biology, 8(1):114, 2010. 
+A. Drummond and M. Suchard (2010) Bayesian random local clocks, or one rate to rule them all. BMC Biology, 8(1):114.
 
-M. Hasegawa, H. Kishino, and T. Yano. Dating of the human-ape splitting by a molecular clock of mitochondrial DNA. J. Mol. Evol. 22:160–174, 1985. 
+M. Hasegawa, H. Kishino, and T. Yano (1985) Dating of the human-ape splitting by a molecular clock of mitochondrial DNA. J. Mol. Evol. 22:160–174. 
 
 {% include links.html %}

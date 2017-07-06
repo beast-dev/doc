@@ -46,6 +46,10 @@ entries:
       url: /epoch_tutorial.html
       output: web, pdf
 
+    - title: Adaptive MCMC Tutorial
+      url: /adaptive_mcmc_tutorial.html
+      output: web, pdf
+
   - title: Help and Documentation
     output: web, pdf
     folderitems:
