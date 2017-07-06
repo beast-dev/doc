@@ -46,6 +46,10 @@ entries:
       url: /beast_second_tutorial.html
       output: web, pdf
 
+    - title: Epoch Tutorial
+      url: /beast_epoch_tutorial.html
+      output: web, pdf
+
   - title: Help and Documentation
     output: web, pdf
     folderitems:
