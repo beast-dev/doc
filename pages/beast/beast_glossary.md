@@ -1,6 +1,6 @@
 ---
 title: Glossary
-tags: [glossary help]
+tags: [help]
 keywords: definitions, glossaries, terms
 last_updated: July 5, 2017
 summary: "A glossary of terms used in BEAST and Bayesian MCMC."

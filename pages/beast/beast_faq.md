@@ -2,7 +2,7 @@
 title: Frequently Asked Questions
 permalink: beast_faq.html
 sidebar: beast_sidebar
-tags: [FAQ help]
+tags: [help]
 keywords: frequently asked questions, FAQ, question and answer, help
 last_updated: July 5, 2017
 summary: "Frequently asked questions about BEAST."
