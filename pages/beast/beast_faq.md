@@ -60,10 +60,10 @@ folder: beast
 	<!-- /.panel -->
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h4 class="panel-title">
+			<div class="panel-title">
 				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
 				What is BEAGLE and should I use it?</a>
-			</h4>
+			</div>
 		</div>
 		<div id="collapseFour" class="panel-collapse collapse">
 			<div class="panel-body">
