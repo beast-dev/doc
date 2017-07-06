@@ -43,7 +43,7 @@ entries:
       output: web, pdf
 
     - title: Epoch Tutorial
-      url: /beast_epoch_tutorial.html
+      url: /epoch_tutorial.html
       output: web, pdf
 
   - title: Help and Documentation
