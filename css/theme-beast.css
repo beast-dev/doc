@@ -78,6 +78,11 @@ a[data-toggle="tooltip"] {
     color: white;
 }
 .navbar-title  {
+	float: left;
+	height: 50px;
+	padding-left: 15px;
+	font-size: 18px;
+	line-height: 20px;
     vertical-align: middle;
 }
 .navbar-inverse .navbar-nav>li>a:hover, a.fa.fa-home.fa-lg.navbar-brand:hover {
