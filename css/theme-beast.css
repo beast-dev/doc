@@ -111,11 +111,15 @@ a.navbar-brand:hover {
 
 .btn-primary:hover,
 .btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
 .open .dropdown-toggle.btn-primary {
     background-color: var(--darker-color);
-    border-color: var(--background-color);
+    border-color: var(--darker-color);
+}
+
+.btn-primary:active,
+.btn-primary.active {
+    background-color: var(--background-color);
+    border-color: var(--darker-color);
 }
 
 .printTitle {
