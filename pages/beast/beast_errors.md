@@ -53,14 +53,14 @@ Parsing error - poorly formed BEAST file
 		<div id="collapseThree" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
 The input file was recognized as an XML file but the content was not as expected by BEAST. The exact element in the file will be listed along with details of the problem. For example:
-```
+<div class="language-xml highlighter-rouge">
 Parsing error - poorly formed BEAST file:
   The '<alignment>' element with id, 'alignment1', is incorrectly constructed.
   The following was expected:
   One of
     ATTRIBUTE String dataType REQUIRED
     ELEMENT of type dataType REQUIRED
-```
+<div/>
 In this case, although the input file was a valid XML document, there was an error in the syntax that BEAST requires. For example, above, an element of type <alignment> does not conform to the requirement that it either has an attribute called 'dataType' or contains an element called '<dataType>'.
 			</div>
 		</div>
