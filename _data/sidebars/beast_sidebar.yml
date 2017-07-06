@@ -53,6 +53,10 @@ entries:
       url: /faq.html
       output: web, pdf
 
+    - title: Error Messages
+      url: /errors.html
+      output: web, pdf
+
     - title: Topics
       url: /topics.html
       output: web, pdf
