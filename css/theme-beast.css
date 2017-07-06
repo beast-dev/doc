@@ -77,6 +77,9 @@ a[data-toggle="tooltip"] {
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand {
     color: white;
 }
+.navbar-title {
+    color: white;
+}
 
 .navbar-inverse .navbar-nav>li>a:hover, a.fa.fa-home.fa-lg.navbar-brand:hover {
      color: #f0f0f0;
