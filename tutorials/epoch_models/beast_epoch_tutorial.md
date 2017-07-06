@@ -29,7 +29,7 @@ See the BEAGLE website for details on how to install and use the BEAGLE library.
 
 ### Data
 
-{% include image.html file="epoch1.png" url="http://beast-dev.github.io/doc/tutorials/epoch_models/images/" alt="Tree topology" caption="Tree topology for time-heterogeneous analysis." %}
+{% include image.html file="images/epoch1.png" alt="Tree topology" caption="Tree topology for time-heterogeneous analysis." %}
 
 
 
