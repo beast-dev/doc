@@ -14,9 +14,9 @@ folder: beast
 <div class="panel-group" id="accordion">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h5 class="panel-title">
+			<div class="panel-title">
 				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">What is BEAST?</a>
-			</h5>
+			</div>
 		</div>
 		<div id="collapseOne" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
@@ -27,9 +27,9 @@ folder: beast
 	<!-- /.panel -->
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h5 class="panel-title">
+			<div class="panel-title">
 				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">What can BEAST do?</a>
-			</h5>
+			</div>
 		</div>
 		<div id="collapseTwo" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
@@ -46,10 +46,10 @@ folder: beast
 	<!-- /.panel -->
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h5 class="panel-title">
+			<div class="panel-title">
 				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
 				How do I install and run BEAST?</a>
-			</h5>
+			</div>
 		</div>
 		<div id="collapseThree" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
@@ -60,10 +60,10 @@ folder: beast
 	<!-- /.panel -->
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h5 class="panel-title">
+			<div class="panel-title">
 				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
 				What is BEAGLE and should I use it?</a>
-			</h5>
+			</div>
 		</div>
 		<div id="collapseFour" class="panel-collapse collapse">
 			<div class="panel-body">
