@@ -38,10 +38,6 @@ entries:
   - title: Tutorials
     output: web, pdf
     folderitems:
-    - title: First Tutorial
-      url: /beast_first_tutorial.html
-      output: web, pdf
-
     - title: Second Tutorial
       url: /beast_second_tutorial.html
       output: web, pdf
