@@ -1,8 +1,8 @@
 ---
-title: "Tutorials"
-tagName: tutorial
+title: "Getting Started"
+tagName: getting-started
 search: exclude
-permalink: tag_tutorial.html
+permalink: tag_getting-started.html
 sidebar: beast_sidebar
 folder: tags
 ---

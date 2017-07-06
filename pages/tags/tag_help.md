@@ -1,8 +1,8 @@
 ---
-title: "Tutorials"
-tagName: tutorial
+title: "Help"
+tagName: help
 search: exclude
-permalink: tag_tutorial.html
+permalink: tag_help.html
 sidebar: beast_sidebar
 folder: tags
 ---
