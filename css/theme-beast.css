@@ -77,7 +77,8 @@ a[data-toggle="tooltip"] {
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand {
     color: white;
 }
-.navbar-title  {
+a.navbar-title {
+    color: white;
 	float: left;
 	height: 50px;
 	padding-left: 15px;
@@ -87,6 +88,7 @@ a[data-toggle="tooltip"] {
     vertical-align: middle;
 }
 a.navbar-title:hover a.navbar-title:focus {
+	text-decoration: none;
     color: white;
 }
 .navbar-inverse .navbar-nav>li>a:hover, a.fa.fa-home.fa-lg.navbar-brand:hover {
