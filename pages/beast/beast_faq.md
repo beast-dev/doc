@@ -1,6 +1,6 @@
 ---
 title: Frequently Asked Questions
-permalink: beast_faq.html
+permalink: faq.html
 sidebar: beast_sidebar
 tags: [help, trouble-shooting]
 keywords: frequently asked questions, FAQ, question and answer, help

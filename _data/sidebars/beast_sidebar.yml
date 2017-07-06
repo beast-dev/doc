@@ -24,7 +24,7 @@ entries:
     output: web, pdf
     folderitems:
     - title: About
-      url: /beast_about.html
+      url: /about.html
       output: web, pdf
 
     - title: Installing
@@ -32,7 +32,7 @@ entries:
       output: web, pdf
 
     - title: First Tutorial
-      url: /beast_first_tutorial.html
+      url: /first_tutorial.html
       output: web, pdf
 
   - title: Tutorials
@@ -50,15 +50,15 @@ entries:
     output: web, pdf
     folderitems:
     - title: FAQ
-      url: /beast_faq.html
+      url: /faq.html
       output: web, pdf
 
     - title: Topics
-      url: /beast_topics.html
+      url: /topics.html
       output: web, pdf
 
     - title: Glossary
-      url: /beast_glossary.html
+      url: /glossary.html
       output: web, pdf
 
 

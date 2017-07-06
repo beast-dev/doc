@@ -5,7 +5,7 @@ keywords: definitions, glossaries, terms
 last_updated: July 5, 2017
 summary: "A glossary of terms used in BEAST and Bayesian MCMC."
 sidebar: beast_sidebar
-permalink: beast_glossary.html
+permalink: glossary.html
 toc: false
 folder: beast
 ---
