@@ -78,7 +78,7 @@ a[data-toggle="tooltip"] {
     color: white;
 }
 .navbar-title .navbar-title:hover .navbar-title:focus  {
-	height: 50px
+	height: 38px;
     color: white;
     float: left;
     vertical-align: middle;
