@@ -27,6 +27,7 @@ Parsing error - the input file is not a valid XML file
 		</div>
 	</div>
 	<!-- /.panel -->
+	
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="panel-title">
@@ -42,6 +43,7 @@ The input file was recognized as an XML document but the document broke some fun
 		</div>
 	</div>
 	<!-- /.panel -->
+	
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="panel-title">
@@ -66,6 +68,39 @@ In this case, although the input file was a valid XML document, there was an err
 		</div>
 	</div>
 	<!-- /.panel -->
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+Initial Likelihood is Zero.
+				</a>
+			</div>
+		</div>
+		<div id="collapseTwo" class="panel-collapse collapse noCrossRef">
+			<div class="panel-body">
+Look at the answer to this FAQ question for possible reasons for this error and solutions.
+			</div>
+		</div>
+	</div>
+	<!-- /.panel -->
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+java.lang.OutofMemoryError Java heap space.
+				</a>
+			</div>
+		</div>
+		<div id="collapseTwo" class="panel-collapse collapse noCrossRef">
+			<div class="panel-body">
+Look at the Increasing Memory Usage page for details of increasing the memory available to BEAST and the other programs.
+			</div>
+		</div>
+	</div>
+	<!-- /.panel -->
+	
 </div>
 <!-- /.panel-group -->
 

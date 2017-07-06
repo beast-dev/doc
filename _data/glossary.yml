@@ -1,5 +1,33 @@
 beast: "Bayesian Evolutionary Analysis Sampling Trees"
 
-mcmc: "Markov chain Monte Carlo - a method for numerically sampling from a posterior probability density"
+bayesian: "Bayesian inference is a branch of statistical inference that permits the use of prior knowledge in assessing the probability of model parameters in the presence of new data. Bayesian inference has been termed 'subjective' inference because it allows a certain subjectivity in the selection of the prior distribution. The prior distribution can strongly affect the posterior (the results). We regard Bayesian inference as a useful tool for exploratory analysis of data and as a way to rigourously compare different sets of assumptions. However use of priors necessarily implies a greater responsibility of the researcher to assure that they are not introducing unintentional biases into their results through their priors. For this reason it is very important to test the sensitivity of your conclusions to different prior distributions."
 
-bayesian: "Statistical inference using Bayes theorem"
+burnin: "The initial part of the MCMC chain where it is approaching the sampling distribution from its starting point. This is usually discarded."
+
+coalescent: "The coalescent is a prior distribution on tree shape that links the divergence times of a genealogy (tree of individuals from the same population) with the demographic history of the population."
+
+convergence: "To be written"
+
+equilibrium: "To be written"
+
+ess: "Effective Sample Size - The number of effectively independent draws from the posterior distribution that the Markov chain is equivalent to."
+
+hpd: "Highest Posterior Density - The x% highest posterior density interval is the shortest interval in parameter space that contains x% of the posterior probability."
+
+likelihood: "The likelihood Pr{D|Parameters, Tree} is the probability of the observed sequence data given the model of evolution (i.e. the tree, the transition/transversion ratio, gamma shape parameter, proportion of invariable sites, mutation rate _et cetera_)."
+
+mcmc: "Markov chain Monte Carlo - this is a stochastic algorithm for drawing samples from a posterior distribution, so as to get an estimate of the distribution."
+
+mixing: "Mixing refers to efficiency with which the MCMC algorithm samples a parameter, or set of a parameters. If an MCMC chain is mixing well, it implies that autocorrelation in the chain is low, ESS is high and the estimates obtained are accurate. A chain that is mixing well will have parameter traces that look like straight hairy catepillars, with the chain fluctuating so rapidly around the equilibrium that their are no obvious trends. Tutorial 2 has a picture of a trace that shows (after burnin) this hairy catepillar expectation."
+
+molecular-clock: "The molecular clock is a hypothesis that mutation rates and substitution rates do not vary among lineages in a tree. Therefore, if all the lineages of a tree are from the same time they should all have the same genetic distance from the root. An extension of the molecular clock concept to sequences from different times implies that the distance of a particular sequence from the root of the tree should be proportional to the amount of time that has accumulated from the root to the sampling time of that sequence. Thus a plot of root-to-tip distances against sampling times should yield a positive linear correlation with a slope equal to the mutation rate. The molecular clock hypothesis is a fundamental assumption of all models in BEAST."
+
+operator: "An operator is a method of proposing a new state in the MCMC chain. Operators act by perturbing the current state. The current state includes the tree topology, node heights, subtitution parameters and population parameters. Most operators change only one of these components when they propose a new state. Thus adjacent states of the Markov chain are highly correlated as they share many aspects of their state. Also known as 'transition kernels' or 'moves'."
+
+posterior: "The posterior probability distribution - The posterior (or posterior probability density) is the entity that an MCMC analysis attempts to obtain an estimate of. The posterior is the probability distribution over the parameter state space, given the data under the chosen model of evolution. The posterior P(Parameters, Tree|Data) is the (normalized) product of the likelihood, Pr{Data|Parameters, Tree}, and the prior P(Parameters, Tree)."
+
+prior: "The prior probability distribution - The prior is the probability distribution over the parameter space, prior to seeing the data. The prior represents your prior belief or prior assumptions about the probabilities of different parameter values before you have analyzed the data. The prior is combined with the likelihood to yield the posterior. In most applications of BEAST the prior is either uniform or a coalescent prior on the tree shape."
+
+sampling: "Sampling is the main function of an MCMC run. An MCMC analysis generates a series of samples from the posterior distribution. These samples are correlated because each sample is generated by a small perturbation of the previous sample. The ESS of the MCMC chain is an estimate of the number of independent samples that an MCMC represents."
+
+sampling-frequency: "To be written"
