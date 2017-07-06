@@ -78,6 +78,9 @@ a[data-toggle="tooltip"] {
     color: white;
 }
 .navbar-title {
+	padding-top: 3px;
+}
+.navbar-logo {
     color: white;
 	float: left;
 	height: 50px;
