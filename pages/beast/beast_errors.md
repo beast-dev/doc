@@ -45,12 +45,12 @@ The input file was recognized as an XML document but the document broke some fun
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="panel-title">
-				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
 Parsing error - poorly formed BEAST file
 				</a>
 			</div>
 		</div>
-		<div id="collapseTwo" class="panel-collapse collapse noCrossRef">
+		<div id="collapseThree" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
 The input file was recognized as an XML file but the content was not as expected by BEAST. The exact element in the file will be listed along with details of the problem. For example:
 ```
