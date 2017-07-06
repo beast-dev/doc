@@ -9,6 +9,6 @@ permalink: first_tutorial.html
 folder: beast
 ---
 
-## First Tutorial
+## Running BEAST for the first time
 
 {% include links.html %}
