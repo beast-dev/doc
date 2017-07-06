@@ -81,11 +81,12 @@ a[data-toggle="tooltip"] {
 	float: left;
 	height: 50px;
 	padding-left: 15px;
+	padding-top: 5px;
 	font-size: 18px;
 	line-height: 20px;
     vertical-align: middle;
 }
-.navbar-title>a:hover  {
+a.navbar-title:hover a.navbar-title:focus {
     color: white;
 }
 .navbar-inverse .navbar-nav>li>a:hover, a.fa.fa-home.fa-lg.navbar-brand:hover {
