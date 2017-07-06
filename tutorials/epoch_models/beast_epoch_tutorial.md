@@ -22,7 +22,7 @@ Example files for this tutorial can be found [here](tutorials/epoch_models/files
 ### Prerequisites
 
 This tutorial assumes that the user has a basic knowledge of the BEAST framework, knows how to generate an XML input file and can interpret basic output information of an MCMC run. 
-BEAST runnables for all major platforms can be found [here][faq]. 
+BEAST runnables for all major platforms can be found [here](https://github.com/beast-dev/beast-mcmc). 
 You will need a Java runtime environment version 1.5 or greater to run the BEAST executable. 
 Due to the computational intensity of the computations involved in the epoch model, the BEAGLE library also needs to be installed and used with the BEAST runs discussed here. 
 See [the BEAGLE website](https://github.com/beagle-dev/beagle-lib) for details on how to install and use the BEAGLE library.
