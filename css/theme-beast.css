@@ -77,7 +77,8 @@ a[data-toggle="tooltip"] {
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand {
     color: white;
 }
-.navbar-title {
+.navbar-title .navbar-title:hover .navbar-title:focus  {
+	height: 50px
     color: white;
     float: left;
     vertical-align: middle;
