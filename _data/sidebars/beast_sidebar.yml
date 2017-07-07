@@ -42,6 +42,17 @@ entries:
       url: /beast_second_tutorial.html
       output: web, pdf
 
+    - title: Effective Sample Size
+      url: /beast_ess_tutorial.html
+      output: web, pdf
+      
+    - title: Analysing BEAST Output
+      url: /beast_analysing_beast_output.html
+      output: web, pdf
+
+  - title: Advanced Tutorials
+    output: web, pdf
+    folderitems:
     - title: Epoch Tutorial
       url: /epoch_tutorial.html
       output: web, pdf
