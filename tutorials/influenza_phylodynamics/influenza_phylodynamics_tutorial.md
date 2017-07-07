@@ -9,8 +9,6 @@ permalink: influenza_phylodynamic_tutorial.html
 folder: beast
 ---
 
-# Revealing the evolutionary dynamics of influenza
-
 ## Introduction
 
 The first step will be to convert a NEXUS file with a DATA or CHARACTERS block into a BEAST XML input file. This is done using the program BEAUti (this stands for Bayesian Evolutionary Analysis Utility). This is a user-friendly program for setting the evolutionary model and options for the MCMC analysis. The second step is to actually run BEAST using the input file that contains the data, model and settings. The final step is to explore the output of BEAST in order to diagnose problems and to summarize the results.
