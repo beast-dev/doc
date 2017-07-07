@@ -50,6 +50,10 @@ entries:
       url: /analysing_beast_output.html
       output: web, pdf
 
+    - title: Summarizing Trees
+      url: /summarizing_trees.html
+      output: web, pdf
+
   - title: Advanced Tutorials
     output: web, pdf
     folderitems:
