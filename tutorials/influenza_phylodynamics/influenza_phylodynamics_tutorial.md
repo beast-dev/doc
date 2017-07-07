@@ -171,9 +171,9 @@ We now want to display bars on the tree to represent the estimated uncertainty i
 
 Finally, open the Appearance panel and alter the Line Weight to draw the tree with thicker lines. None of the options actually alter the tree's topology or branch lengths in anyway so feel free to explore the options and settings. You can also save the tree and this will save most of your settings so that when you load it into FigTree again it will be displayed almost exactly as you selected. The tree can also be exported to a graphics file (pdf, eps, etc.).
 
-## A quick how-to summary for Exercise 1
+### A quick how-to summary for Exercise 1
 
-### Run BEAUti.
+#### Run BEAUti.
 
 Load a NEXUS format alignment by selecting the Import Data... option from the File menu. Select the file called H1N109.nex. 
 
@@ -187,7 +187,7 @@ In the Trees tab, set the option for Tree Prior to Coalescent: Exponential Growt
 
 In the MCMC tab, set the chain length to 1,00,000 and both the sampling frequencies to 100. Set the File name stem to H1N109 and generate the beast file (H1N109.xml).
 
-### Run BEAST and load the xml file.
+#### Run BEAST and load the xml file.
 
 Analyze the output using Tracer. Analyze the output file for the longer runs.
 
@@ -195,7 +195,7 @@ Calculate the growth rate for pandemic influenza H1N1 (see page 12 of this tutor
 
 Summarize the trees of the longer run using treeAnnotator (burn-in = 500,000 states or 100 trees).
 
-### Visualize the tree in FigTree.
+#### Visualize the tree in FigTree.
 
 ## EXERCISE 2: reconstructing H3N2 epidemic dynamics in the New York state.
 
@@ -269,3 +269,5 @@ Tutorials: http://beast.bio.ed.ac.uk/Tutorials/
 Frequently asked questions: http://beast.bio.ed.ac.uk/FAQ/
 
 H1N1/09: http://tree.bio.ed.ac.uk/wiki/projects/influenza/
+
+{% include links.html %}
