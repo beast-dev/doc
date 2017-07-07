@@ -39,15 +39,15 @@ entries:
     output: web, pdf
     folderitems:
     - title: Second Tutorial
-      url: /beast_second_tutorial.html
+      url: /second_tutorial.html
       output: web, pdf
 
     - title: Effective Sample Size
-      url: /beast_ess_tutorial.html
+      url: /ess_tutorial.html
       output: web, pdf
       
     - title: Analysing BEAST Output
-      url: /beast_analysing_beast_output.html
+      url: /analysing_beast_output.html
       output: web, pdf
 
   - title: Advanced Tutorials
