@@ -232,7 +232,7 @@ How do I increase the ESS of a parameter?
 		</div>
 		<div id="q14" class="panel-collapse collapse">
 			<div class="panel-body">
-<a href="ess_tutorial.html">Take a look at this brief tutorial for ways of increasing the ESS.</a>
+(Take a look at this brief tutorial for ways of increasing the ESS.)[ess_tutorial.html]
 			</div>
 		</div>
 	</div>
