@@ -1,11 +1,12 @@
 ---
-title: ESS Tutorial
+title: Effective Sample Size (ESS)
 keywords: ess, tutorial
 last_updated: July 6, 2017
 tags: [tutorial, help]
-summary: "How to increase the Effective Sample Size (ESS)."
+summary: "About the Effective Sample Size (ESS) and how to increase it."
 sidebar: beast_sidebar
 permalink: ess_tutorial.html
+toc: false
 folder: beast
 ---
 
