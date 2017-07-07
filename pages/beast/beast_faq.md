@@ -10,7 +10,7 @@ toc: true
 folder: beast
 ---
 
-### Introduction
+## Introduction
 <div class="panel-group" id="accordion">
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -42,7 +42,7 @@ folder: beast
 </div>
 <!-- /.panel-group -->
 
-### Installing and running BEAST	
+## Installing and running BEAST	
 <div class="panel-group" id="accordion">
 	<!-- /.panel -->
 	<div class="panel panel-default">
@@ -76,7 +76,7 @@ folder: beast
 </div>
 <!-- /.panel-group -->
 
-### Interpreting the results	
+## Interpreting the results	
 <div class="panel-group" id="accordion">
 	<!-- /.panel -->
 	<div class="panel panel-default">
@@ -114,7 +114,7 @@ MCC trees produced by TreeAnnotator can have a descendent node that is older tha
 </div>
 <!-- /.panel-group -->
 
-### Effective Sample Size (ESS) of parameters	
+## Effective Sample Size (ESS) of parameters	
 <div class="panel-group" id="accordion">
 	<!-- /.panel -->
 	<div class="panel panel-default">
