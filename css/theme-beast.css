@@ -189,7 +189,7 @@ hr.shaded {
 }
 
 /* FAQ question */
-a[data-toggle] {
+a {
     color: var(--definition-color);
 }
 
