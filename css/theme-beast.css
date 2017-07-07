@@ -3,6 +3,7 @@
 	--darker-color:#265368; /* #015CAE */
 	--lighter-color:#62b1d6; 
     --hilite-color:#adb24e; /* #ED1951 */
+    --definition-color:#4388a8; /* #248EC2 */
     --grey-color:#808080; 
 }
 
@@ -160,7 +161,6 @@ li.sidebarTitle {
     color: var(--hilite-color);
     margin-bottom:10px;
     margin-left: 5px;
-
 }
 
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
@@ -187,4 +187,10 @@ hr.shaded {
     width: 100%;
     margin-bottom: 10px;
 }
+
+/* FAQ question */
+a[data-toggle] {
+    color: var(--definition-color);
+}
+
 
