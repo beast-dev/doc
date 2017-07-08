@@ -30,6 +30,7 @@ Estimates of \\( R_{0} \\) based on the estimates of \\( r \\)  reported by Andr
 
 
 **Table 1** \| Estimates of \\( R_{0} \\) from the coalescent growth rate, \\( r \\) for the early period of Pandemic H1N1.
+
 | \\( r \\) (per day with 95% HPD) | generation time distribution (and parameters in days) | \\( R_{0} \\)                 |
 |--------------------------:|-------------------------------------------------------|--------------------|
 | 0.053 (0.0014, 0.12)     | gamma (\\( m=3 \\), \\( s=2 \\))                                      | 1.17 (1.00 - 1.40) |
