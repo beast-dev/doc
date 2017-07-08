@@ -69,7 +69,7 @@ Other transition kernels in this example include those that work upon the tree t
 
 ## Adaptive MCMC transition kernels
 
-#### XML Representation #1
+### XML Representation #1
 
 The approach we've taken in our paper (Baele et al., 2017) is to combine all the (continuous) parameters above into one single adaptive MCMC transition kernel.
 One possible approach to achieve this, is to first create a compound parameter - before the ```<operators>...</operators>``` block in the BEAST XML - that contains all the parameters which you want to estimate using an adaptive MCMC approach:
@@ -118,7 +118,7 @@ For example, parameters 1 through 7 - corresponding to 'ND5.CP1.kappa' through '
 Note that it is possible to use multiple adaptable variance multivariate normal operators in a BEAST XML, operating on (not necessarily) different sets of (continuous) parameters.
 For example, in our paper (Baele et al., 2017) we show the possibility of creating a separate operator for the parameters of the tree prior.
 
-#### XML Representation #2
+### XML Representation #2
 
 
 
