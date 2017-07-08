@@ -202,6 +202,7 @@ figure.table {
 	margin-bottom: 20px;
 }
 figcaption {
+	text-align: left;
 	color: var(--grey-color);
 }
 
