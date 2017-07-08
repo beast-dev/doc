@@ -10,7 +10,6 @@ toc: false
 folder: beast
 ---
 
-## Running BEAST for the first time
 Based on an original page posted by Nick Grassly on the [H1N1 pandemic website](https://tree.bio.ed.ac.uk/wiki/pages/t769F5D1/Relationship_between_R0_and_the_epidemic_growth_rate.html).
 
 The basic reproduction number of the swine influenza epidemic, \\( R_{0} \\) can be estimated from its initial rate of spread. If we assume roughly exponential growth then the basic reproductive number is related to the growth rate by the so-called Lotka-Euler estimating equation:
@@ -23,7 +22,7 @@ The estimate of the basic reproductive number is therefore dependent not just on
 
 Analytical solutions for \\( R_{0} \\) can be derived for different assumed generation time distributions using the Lotka-Euler estimating equation (which is essentially a moment generating function). If we assume a generation time distribution that follows the gamma distribution, then
 
-\\[ R_{0}={1+\frac{r}{b}}^{a} \\]
+\\[ R_{0}=(1+\frac{r}{b})^{a} \\]
 
 where a and b are the parameters of the gamma distribution (\\( a = m^{2}/s^{2} \\) and \\( b = m/s^{2} \\) where \\( m \\) and \\( s \\) are the mean and standard deviation of the distribution respectively).
 
