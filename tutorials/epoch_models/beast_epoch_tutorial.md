@@ -217,7 +217,7 @@ There is probably no difference between the parameters of the first and the thir
 
 {% include image.html file="epoch2.png" prefix="tutorials/epoch_models/" alt="Credibility intervals" caption="Figure 2: 95% credibility intervals for the &kappa; parameters. Horizontal lines mark the true value, black dots indicate posterior mean values." %}
 
-### References
+## References
 
 F. Bielejec, P. Lemey, G. Baele, A. Rambaut, and M. A. Suchard (2014)) Inferring heterogeneous evolutionary processes through time: from sequence substitution to phylogeography. Syst. Biol. 63(4):493–504. 
 

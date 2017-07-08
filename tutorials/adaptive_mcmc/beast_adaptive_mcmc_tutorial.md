@@ -122,7 +122,7 @@ For example, in our paper (Baele et al., 2017) we show the possibility of creati
 
 
 
-### References
+## References
 
 G. Baele, P. Lemey, A. Rambaut and M. A. Suchard (2017) Adaptive MCMC in Bayesian phylogenetics: an application to analyzing partitioned data in BEAST. Bioinformatics 33(12): 1798-1805.
 
