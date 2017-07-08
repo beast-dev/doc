@@ -34,7 +34,7 @@ Estimates of \\( R_{0} \\) based on the estimates of \\( r \\)  reported by Andr
 |--------------------------:|-------------------------------------------------------|--------------------|
 | 0.053 (0.0014, 0.12)     | gamma (\\( m=3 \\), \\( s=2 \\))                                      | 1.17 (1.00 - 1.40) |
 | 0.053 (0.0014, 0.12)     | exponential (\\( m=3 \\)) (i.e. SIR model)                    | 1.16 (1.00 - 1.36) |
-"  align="center" caption=" test " %}
+"  align="center" caption=" **Table 1** \| Estimates of \\( R_\{0\} \\) from the coalescent growth rate, \\( r \\) for the early period of Pandemic H1N1. " %}
 <br />
 
 ### Citations
