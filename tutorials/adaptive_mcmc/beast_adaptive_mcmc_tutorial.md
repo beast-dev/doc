@@ -75,7 +75,7 @@ The approach we've taken in our paper (Baele et al., 2017) is to combine all the
 One possible approach to achieve this, is to first create a compound parameter - before the ```<operators>...</operators>``` block in the BEAST XML - that contains all the parameters which you want to estimate using an adaptive MCMC approach:
 
 ```xml
-    <compoundParameter id="allKappasAndAlphasAndMus">
+    <compoundParameter id="allParameters">
         <parameter idref="ND5.CP1.kappa"/>
         <parameter idref="ND5.CP2.kappa"/>
         <parameter idref="ND5.CP3.kappa"/>
