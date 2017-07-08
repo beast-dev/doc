@@ -212,13 +212,13 @@ table > thead > tr > td,
 table > tbody > tr > td,
 table > tfoot > tr > td {
     padding: 8px;
-    line-height: 1.42857143;
     vertical-align: top;
     border-top: none;
 }
 table > thead > tr > th {
     vertical-align: bottom;
     border-bottom: 1px;
+	border-style:none none solid none;
     text-transform: none;
     background-color: transparent;
     color: black;
