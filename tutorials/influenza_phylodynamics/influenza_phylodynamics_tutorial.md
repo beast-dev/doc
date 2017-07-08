@@ -33,7 +33,7 @@ To load a NEXUS format alignment, simply select the Import NEXUS... option from 
 
 Select the file called H1N109.nex. This file contains an alignment of 50 genomes (concatenated segments), 13109 nucleotides in length. Once loaded, the new data will be listed under Partitions as shown in the figure:
 
-{% include image.html file="fig1.png" caption="" %}
+{% include image.html file="fig1.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
 
 Double-click on the row of the table (but not on Partition Name) to display the actual sequence alignment:
 
