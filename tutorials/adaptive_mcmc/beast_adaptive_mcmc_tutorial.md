@@ -69,6 +69,8 @@ Other transition kernels in this example include those that work upon the tree t
 
 ## Adaptive MCMC transition kernels
 
+#### XML Representation #1
+
 The approach we've taken in our paper (Baele et al., 2017) is to combine all the (continuous) parameters above into one single adaptive MCMC transition kernel.
 One possible approach to achieve this, is to first create a compound parameter - before the ```<operators>...</operators>``` block in the BEAST XML - that contains all the parameters which you want to estimate using an adaptive MCMC approach:
 
@@ -87,14 +89,14 @@ One possible approach to achieve this, is to first create a compound parameter -
         <parameter idref="ND5.CP1.mu"/>
         <parameter idref="ND5.CP2.mu"/>
         <parameter idref="ND5.CP3.mu"/>
-
     </compoundParameter>
 ```
 
 The transition kernel on this compound parameter can then be defined - in the ```<operators>...</operators>``` block - as follows:
 
 ```xml
-    <adaptableVarianceMultivariateNormalOperator scaleFactor="1.0" weight="21" initial="5000" burnin="2500" beta="0.05" coefficient="1.0" autoOptimize="true" formXtXInverse="false">
+    <adaptableVarianceMultivariateNormalOperator scaleFactor="1.0" weight="21" initial="5000" 
+            burnin="2500" beta="0.05" coefficient="1.0" autoOptimize="true" formXtXInverse="false">
         <parameter idref="allParameters"/>			
         <transform type="log" start="1" end="7"/>
         <transform type="logConstrainedSum" start="8" end="10"/>
@@ -110,9 +112,15 @@ We also typically set the burn-in phase of the operator at half that value, i.e.
 Apart from the compound parameter that needs to be provided to the operator, a number of transformation - corresponding to the parameters included in the operator - need to be provided.
 Typically, a 'log'-transformation needs to be provided for those parameters with domain [0, +&infin;], whereas the transformation type 'none' can be used for those parameters with domain [-&infin;,+&infin;].
 The transformation type 'logConstrainedSum' should be used for those continuous parameters that sum to a fixed value, such as for example the relative rates between codon positions.
+Note that, in this representation, 'start' and 'end' values need to be provided for the transformations (with the first parameters receiving index 1).
+For example, parameters 1 through 7 - corresponding to 'ND5.CP1.kappa' through 'yule.birthRate' all need to be 'log'-transformed independently from one another.
 
 Note that it is possible to use multiple adaptable variance multivariate normal operators in a BEAST XML, operating on (not necessarily) different sets of (continuous) parameters.
 For example, in our paper (Baele et al., 2017) we show the possibility of creating a separate operator for the parameters of the tree prior.
+
+#### XML Representation #2
+
+
 
 ### References
 
