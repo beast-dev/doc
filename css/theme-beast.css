@@ -219,9 +219,12 @@ table > thead > tr > th {
     vertical-align: bottom;
     border-bottom: 1px;
     text-transform: none;
-    background-color: none;
+    background-color: transparent;
     color: black;
     text-align: left;
+}
+table > thead > tr {
+    background-color: transparent;
 }
 
 
