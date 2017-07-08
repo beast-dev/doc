@@ -1,2 +1,2 @@
 <figure markdown="block" {% if {{include.align}} %}style="text-align: {{include.align}}"{% endif %} >{{include.content}}
-<figcaption markdown="block"> {{include.caption}} </figcaption></figure>
+{% if {{include.caption}} %}<figcaption markdown="block"> {{include.caption}} {% endif %}
