@@ -45,7 +45,7 @@ By default all the taxa are assumed to have a date of zero (i.e. the sequences a
 
 Select the box labelled ‘Use tip dates’. The actual sampling in fractional years is encoded in the name of each taxon and we could simply edit the value in the ‘Date’ column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the ‘Guess Dates’ button at the top of the ‘Data’ panel. Clicking this will make a dialog box appear:
 
-{% include image.html file="fig4.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig4.png" prefix="tutorials/influenza_phylodynamics/"  max-width="50%" align="center" caption="" %}
 
 This operation attempts to guess what the dates are from information contained within the taxon names. It works by trying to find a numerical field within each name. If the taxon names contain more than one numerical field then you can specify how to find the one that corresponds to the date of sampling. You can (1) specify the order that the date field comes (e.g., first, last or various positions in between) or (2) specify a prefix (some characters that come immediately before the date field in each name) and the order of the field, or (3) define a regular expression (REGEX).
 
@@ -123,7 +123,7 @@ The next option allows the user to set the File stem name; if not set to ‘H1N1
 
 Once the BEAST XML file has been created the analysis itself can be performed using BEAST. The exact instructions for running BEAST depends on the computer you are using, but in most cases a dialog box will appear in which you select the XML file:
 
-{% include image.html file="fig12.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig12.png" prefix="tutorials/influenza_phylodynamics/"  max-width="50%" align="center" caption="" %}
 
 Press the ‘Choose File’ button and select the XML file you just created and press ‘Run’. When you have installed the BEAGLE library (https://github.com/beagle-dev/beagle-lib), you can use this in conjunction with BEAST to speed up the calculations. If not installed, unselect the use of the BEAGLE library. If the command line version of BEAST is being used then the name of the XML file is given after the name of the BEAST executable. The analysis will then be performed with detailed information about the progress of the run being written to the screen. When it has finished, the log file and the trees file will have been created in the same location as your XML file. 
 
@@ -171,7 +171,7 @@ We have seen how we can diagnose our MCMC run using Tracer and produce estimates
 
 In this tutorial, however, we are going to use a tool that is provided as part of the BEAST package to summarize the information contained within our sampled trees. The tool is called TreeAnnotator and once running, you will be presented with a window like the one below.
 
-{% include image.html file="fig16.png" max-width="none" align="center" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig16.png" max-width="50%" align="center" prefix="tutorials/influenza_phylodynamics/" caption="" %}
 
 TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree.
 
@@ -247,7 +247,7 @@ Using Tracer, we can analyze the run based on the output files provided (load th
 
 To reconstruct the Bayesian skygrid plot, select ‘SkyGrid reconstruction...’ under the Analysis window. The following window should appear:
 
-{% include image.html file="fig20.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig20.png" prefix="tutorials/influenza_phylodynamics/"  max-width="50%" align="center" caption="" %}
 
 Set the manual bin range from 1999 to 2004 and specify ‘2003.98’ as the ‘Age of the youngest tip’ at the bottom. Press ‘OK’ and after some time, the following Bayesian skyGrid reconstruction should appear (with solid interval selected):
 
