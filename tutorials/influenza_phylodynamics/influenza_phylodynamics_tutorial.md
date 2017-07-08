@@ -15,7 +15,7 @@ The first step will be to convert a NEXUS file with a DATA or CHARACTERS block i
 
 To undertake this tutorial, you will need to download three software packages in a format that is compatible with your computer system (all three are available for Mac OS X, Windows and Linux/UNIX operating systems):
 
-* BEAST - this package contains the BEAST program, BEAUti and a couple of utility programs. At the time of writing, the current version is v1.8.4. BEAST releases are generally available for download from http://beast.bio.ed.ac.uk/, but the latest release can now be found at https://github.com/beast-dev/beast-mcmc/releases. 
+* BEAST - this package contains the BEAST program, BEAUti and a couple of utility programs. At the time of writing, the current version is v1.8.4. BEAST releases are  available for download from [https://github.com/beast-dev/beast-mcmc/releases]. 
 * Tracer - this program is used to explore the output of BEAST (and other Bayesian MCMC programs). It graphically and quantitively summarizes the empirical distributions of continuous parameters and provides diagnostic information. At the time of writing, the current version is v1.6. It is available for download from http://beast.bio.ed.ac.uk/. 
 * FigTree - this is an application for displaying and printing molecular phylogenies, in particular those obtained using BEAST. At the time of writing, the current version is v1.4.2. It is available for download from http://tree.bio.ed.ac.uk/. 
 
@@ -32,6 +32,8 @@ To load a NEXUS format alignment, simply select the Import NEXUS... option from 
 #### The NEXUS alignment
 
 Select the file called H1N109.nex. This file contains an alignment of 50 genomes (concatenated segments), 13109 nucleotides in length. Once loaded, the new data will be listed under Partitions as shown in the figure:
+
+{% include image.html file="fig1.png" caption="" %}
 
 Double-click on the row of the table (but not on Partition Name) to display the actual sequence alignment:
 
