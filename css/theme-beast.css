@@ -193,4 +193,36 @@ a {
     color: var(--definition-color);
 }
 
+caption {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #777;
+    text-align: left;
+}
+table {
+    max-width: 90%;
+    margin-bottom: 20px;
+    border: none;
+}
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: none;
+}
+table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 1px;
+    text-transform: none;
+    background-color: none;
+    color: black;
+    text-align: left;
+}
+
+
 
