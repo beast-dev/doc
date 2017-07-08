@@ -22,7 +22,7 @@ The estimate of the basic reproductive number is therefore dependent not just on
 
 Analytical solutions for \\( R_{0} \\) can be derived for different assumed generation time distributions using the Lotka-Euler estimating equation (which is essentially a moment generating function). If we assume a generation time distribution that follows the gamma distribution, then
 
-\\[ R_{0}=(1+\frac{r}{b})^{a} \\]
+\\[ R_{0}=\left(1+\frac{r}{b}\right)^{a} \\]
 
 where a and b are the parameters of the gamma distribution (\\( a = m^{2}/s^{2} \\) and \\( b = m/s^{2} \\) where \\( m \\) and \\( s \\) are the mean and standard deviation of the distribution respectively).
 
