@@ -200,6 +200,7 @@ caption {
     text-align: left;
 }
 table {
+	align: center;
     max-width: 90%;
     margin-bottom: 20px;
     border: none;
