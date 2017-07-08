@@ -171,7 +171,7 @@ We have seen how we can diagnose our MCMC run using Tracer and produce estimates
 
 In this tutorial, however, we are going to use a tool that is provided as part of the BEAST package to summarize the information contained within our sampled trees. The tool is called TreeAnnotator and once running, you will be presented with a window like the one below.
 
-{% include image.html file="fig16.png" max-width="100%" align="center" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig16.png" max-width="none" align="center" prefix="tutorials/influenza_phylodynamics/" caption="" %}
 
 TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree.
 
