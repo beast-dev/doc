@@ -33,8 +33,7 @@ Estimates of \\( R_{0} \\) based on the estimates of \\( r \\)  reported by Andr
 | 0.053 (0.0014, 0.12)     | gamma (\\( m=3 \\), \\( s=2 \\))                                      | 1.17 (1.00 - 1.40) |
 | "                        | exponential (\\( m=3 \\)) (i.e. SIR model)                    | 1.16 (1.00 - 1.36) |
 
-
-*Table 1* \| Estimates of \\( R_{0} \\) from the coalescent growth rate, \\( r \\) for the early period of Pandemic H1N1.
+**Table 1** \| Estimates of \\( R_{0} \\) from the coalescent growth rate, \\( r \\) for the early period of Pandemic H1N1.
 
 ### Citations
 1. Wallinga J, Lipsitch M. How generation intervals shape the relationship between growth rates and reproductive numbers. Proc Roy Soc Lond B 2007;274:599-604
