@@ -223,7 +223,7 @@ table > thead > tr > th {
     color: black;
     text-align: left;
 }
-table > thead > tr {
+table > tbody > tr:nth-of-type(odd) {
     background-color: transparent;
 }
 
