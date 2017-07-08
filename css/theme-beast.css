@@ -193,6 +193,9 @@ a {
     color: var(--definition-color);
 }
 
+figure {
+	text-align: center;
+}
 figure.table {
 	margin-top: 20px;
 	margin-left: 40px;
