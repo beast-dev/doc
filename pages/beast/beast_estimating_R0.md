@@ -26,13 +26,14 @@ Analytical solutions for \\( R_{0} \\) can be derived for different assumed gene
 
 where a and b are the parameters of the gamma distribution (\\( a = m^{2}/s^{2} \\) and \\( b = m/s^{2} \\) where \\( m \\) and \\( s \\) are the mean and standard deviation of the distribution respectively).
 
-Estimates of \\( R_{0} \\) based on the estimates of \\( r \\)  reported by Andrew Rambaut are given in Table 1. Obviously \\( r \\) can also be estimated from epidemiological case data and this may give different results.
+Estimates of \\( R_{0} \\) based on the estimates of \\( r \\)  reported by Andrew Rambaut are given in **Table 1**. Obviously \\( r \\) can also be estimated from epidemiological case data and this may give different results.
+
 
 | \\( r \\) (per day with 95% HPD) | generation time distribution (and parameters in days) | \\( R_{0} \\)                 |
 |--------------------------:|-------------------------------------------------------|--------------------|
 | 0.053 (0.0014, 0.12)     | gamma (\\( m=3 \\), \\( s=2 \\))                                      | 1.17 (1.00 - 1.40) |
 | 0.053 (0.0014, 0.12)     | exponential (\\( m=3 \\)) (i.e. SIR model)                    | 1.16 (1.00 - 1.36) |
-| **Table 1** \| Estimates of \\( R_{0} \\) from the coalescent growth rate, \\( r \\) for the early period of Pandemic H1N1. |
+| **Table 1** \| Estimates of \\( R_{0} \\) from the coalescent growth rate, \\( r \\) for the early period of Pandemic H1N1. |||
 
 ### Citations
 1. Wallinga J, Lipsitch M. How generation intervals shape the relationship between growth rates and reproductive numbers. Proc Roy Soc Lond B 2007;274:599-604
