@@ -29,14 +29,14 @@ where a and b are the parameters of the gamma distribution (\\( a = m^{2}/s^{2} 
 Estimates of \\( R_{0} \\) based on the estimates of \\( r \\)  reported by Andrew Rambaut are given in **Table 1**. Obviously \\( r \\) can also be estimated from epidemiological case data and this may give different results.
 
 
+**Table 1** \| Estimates of \\( R_{0} \\) from the coalescent growth rate, \\( r \\) for the early period of Pandemic H1N1.
 | \\( r \\) (per day with 95% HPD) | generation time distribution (and parameters in days) | \\( R_{0} \\)                 |
 |--------------------------:|-------------------------------------------------------|--------------------|
 | 0.053 (0.0014, 0.12)     | gamma (\\( m=3 \\), \\( s=2 \\))                                      | 1.17 (1.00 - 1.40) |
 | 0.053 (0.0014, 0.12)     | exponential (\\( m=3 \\)) (i.e. SIR model)                    | 1.16 (1.00 - 1.36) |
-<td colspan=3> **Table 1** \| Estimates of \\( R_{0} \\) from the coalescent growth rate, \\( r \\) for the early period of Pandemic H1N1. </td>
 
 ### Citations
-1. Wallinga J, Lipsitch M. How generation intervals shape the relationship between growth rates and reproductive numbers. Proc Roy Soc Lond B 2007;274:599-604
-2. Grassly NC, Fraser C. Mathematical models of infectious disease transmission. Nat Rev Microbiol. 2008;6:477-487
+1. Wallinga J, Lipsitch M. (2007) How generation intervals shape the relationship between growth rates and reproductive numbers. *Proc Roy Soc Lond B* **274**: 599-604
+2. Grassly NC, Fraser C. (2008) Mathematical models of infectious disease transmission. *Nat Rev Microbiol.* **6**: 477-487
 
 {% include links.html %}
