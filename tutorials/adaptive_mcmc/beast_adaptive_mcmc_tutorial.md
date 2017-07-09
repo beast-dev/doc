@@ -127,7 +127,8 @@ In this section, we present an XML representation of the adaptive MCMC transitio
 Given that a compound parameter for the relative rate parameters is automatically created by BEAUti, the following XML representation of the novel transition kernel on the same set of parameters can be specfied by:
 
 ```xml
-    <adaptableVarianceMultivariateNormalOperator scaleFactor="1.0" weight="21" initial="5000" burnin="2500" beta="0.05" coefficient="1.0" autoOptimize="true" formXtXInverse="false">
+    <adaptableVarianceMultivariateNormalOperator scaleFactor="1.0" weight="21" initial="5000" 
+            burnin="2500" beta="0.05" coefficient="1.0" autoOptimize="true" formXtXInverse="false">
     
         <transform type="log">
             <parameter idref="ND5.CP1.kappa"/>
