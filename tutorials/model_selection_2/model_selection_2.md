@@ -162,23 +162,23 @@ This MCM is constructed using the following XML block, which needs to be placed 
     <exponentialLogistic id="exponentialLogisticReference" units="years" alpha="0.8">
        <populationSize>
             <parameter id="expLogReference.popSize" parameterColumn="expLog.popSize" 
-                                                       fileName="5M.expolog.log" burnin="2500000" />
+                            fileName="5M.expolog.log" burnin="2500000" />
        </populationSize>
        <logisticGrowthRate>
             <parameter id="expLogReference.logGrowth" parameterColumn="expLog.logGrowth" 
-                                                         fileName="5M.expolog.log" burnin="2500000" />
+                            fileName="5M.expolog.log" burnin="2500000" />
        </logisticGrowthRate>
        <logisticShape>
             <parameter id="expLogReference.logT50" parameterColumn="expLog.logT50" 
-                                                      fileName="5M.expolog.log" burnin="2500000" />
+                            fileName="5M.expolog.log" burnin="2500000" />
        </logisticShape>
        <transitionTime>
             <parameter id="expLogReference.time" parameterColumn="expLog.time" 
-                                                    fileName="5M.expolog.log" burnin="2500000" />
+                            fileName="5M.expolog.log" burnin="2500000" />
        </transitionTime>
        <exponentialGrowthRate>
             <parameter id="expLogReference.expGrowth" parameterColumn="expLog.expGrowth" 
-                                                      fileName="5M.expolog.log" burnin="2500000" />
+                            fileName="5M.expolog.log" burnin="2500000" />
        </exponentialGrowthRate>
     </exponentialLogistic>    
     ...
@@ -218,7 +218,8 @@ Note that you will have to change the values for the chainLength (and possibly a
 ```xml
 <beast>
     ...
-    <marginalLikelihoodEstimator chainLength="10000" pathSteps="64" pathScheme="betaquantile" alpha="0.30">
+    <marginalLikelihoodEstimator chainLength="10000" pathSteps="64" pathScheme="betaquantile" 
+            alpha="0.30">
         <samplers>
             <mcmc idref="mcmc"/>
         </samplers>
@@ -230,23 +231,23 @@ Note that you will have to change the values for the chainLength (and possibly a
                 <workingPrior id="workingPrior">
                     ...
                     <logTransformedNormalWorkingPrior fileName="5M.expolog.log" 
-                                                      parameterColumn="expLog.popSize" burnin="2500000">
+                                parameterColumn="expLog.popSize" burnin="2500000">
                         <parameter idref="expLog.popSize"/>
                     </logTransformedNormalWorkingPrior>
                     <normalWorkingPrior fileName="5M.expolog.log" 
-                                        parameterColumn="expLog.logGrowth" burnin="2500000">
+                                parameterColumn="expLog.logGrowth" burnin="2500000">
                         <parameter idref="expLog.logGrowth"/>
                     </normalWorkingPrior>
                     <logTransformedNormalWorkingPrior fileName="5M.expolog.log" 
-                                                      parameterColumn="expLog.logT50" burnin="2500000">
+                                parameterColumn="expLog.logT50" burnin="2500000">
                         <parameter idref="expLog.logT50"/>
                     </logTransformedNormalWorkingPrior>
                     <logTransformedNormalWorkingPrior fileName="5M.expolog.log" 
-                                                      parameterColumn="expLog.time" burnin="2500000">
+                                parameterColumn="expLog.time" burnin="2500000">
                         <parameter idref="expLog.time"/>
                     </logTransformedNormalWorkingPrior>
                     <normalWorkingPrior fileName="5M.expolog.log" 
-                                        parameterColumn="expLog.expGrowth" burnin="2500000">
+                                parameterColumn="expLog.expGrowth" burnin="2500000">
                         <parameter idref="expLog.expGrowth"/>
                     </normalWorkingPrior>
                     <coalescentLikelihood idref="coalescentReference"/>
@@ -331,7 +332,8 @@ Note again that you will have to change the values for the chainLength (and poss
 ```xml
 <beast>
     ...
-    <marginalLikelihoodEstimator chainLength="10000" pathSteps="64" pathScheme="betaquantile" alpha="0.30">
+    <marginalLikelihoodEstimator chainLength="10000" pathSteps="64" pathScheme="betaquantile" 
+            alpha="0.30">
         <samplers>
             <mcmc idref="mcmc"/>
         </samplers>
@@ -343,23 +345,23 @@ Note again that you will have to change the values for the chainLength (and poss
                 <workingPrior id="workingPrior">
                     ...
                     <logTransformedNormalWorkingPrior fileName="5M.expolog.log" 
-                                                      parameterColumn="expLog.popSize" burnin="2500000">
+                                parameterColumn="expLog.popSize" burnin="2500000">
                         <parameter idref="expLog.popSize"/>
                     </logTransformedNormalWorkingPrior>
                     <normalWorkingPrior fileName="5M.expolog.log" 
-                                        parameterColumn="expLog.logGrowth" burnin="2500000">
+                                parameterColumn="expLog.logGrowth" burnin="2500000">
                         <parameter idref="expLog.logGrowth"/>
                     </normalWorkingPrior>
                     <logTransformedNormalWorkingPrior fileName="5M.expolog.log" 
-                                                      parameterColumn="expLog.logT50" burnin="2500000">
+                                parameterColumn="expLog.logT50" burnin="2500000">
                         <parameter idref="expLog.logT50"/>
                     </logTransformedNormalWorkingPrior>
                     <logTransformedNormalWorkingPrior fileName="5M.expolog.log" 
-                                                      parameterColumn="expLog.time" burnin="2500000">
+                                parameterColumn="expLog.time" burnin="2500000">
                         <parameter idref="expLog.time"/>
                     </logTransformedNormalWorkingPrior>
                     <normalWorkingPrior fileName="5M.expolog.log" 
-                                        parameterColumn="expLog.expGrowth" burnin="2500000">
+                                parameterColumn="expLog.expGrowth" burnin="2500000">
                         <parameter idref="expLog.expGrowth"/>
                     </normalWorkingPrior>
                     <productOfExponentialsPosteriorMeansLoess idref="exponentials"/>
@@ -391,7 +393,7 @@ The matching speciation model is constructed using the following XML block, whic
     <yuleModel id="yuleReference" units="years">
         <birthRate>
             <parameter id="yuleReference.birthRate" parameterColumn="yule.birthRate" 
-                                                    fileName="yule.process.log" burnin="2500000"/>
+                        fileName="yule.process.log" burnin="2500000"/>
         </birthRate>
     </yuleModel>
 
@@ -413,7 +415,8 @@ Note again that you will have to change the values for the chainLength (and poss
 ```xml
 <beast>
     ...
-    <marginalLikelihoodEstimator chainLength="10000" pathSteps="64" pathScheme="betaquantile" alpha="0.30">
+    <marginalLikelihoodEstimator chainLength="10000" pathSteps="64" pathScheme="betaquantile" 
+            alpha="0.30">
         <samplers>
             <mcmc idref="mcmc"/>
         </samplers>
