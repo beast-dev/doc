@@ -88,7 +88,7 @@ The smoothed harmonic mean estimation (sHME) on the samples collected in the mcm
 ```xml
 <beast>
     <harmonicMeanAnalysis fileName="intergenic_UCLD_BSP.log" bootstrapLength="0" burnIn="10000000" 
-smoothedEstimate="true">
+            smoothedEstimate="true">
         <likelihoodColumn name="likelihood" />
     </harmonicMeanAnalysis>
 </beast>
@@ -121,7 +121,8 @@ The code below runs a series of 100 power posteriors along the path between prio
 
 ```xml
 <beast>
-    <marginalLikelihoodEstimator chainLength="1000000" pathSteps="100" pathScheme="betaquantile" alpha="0.30">
+    <marginalLikelihoodEstimator chainLength="1000000" pathSteps="100" pathScheme="betaquantile" 
+            alpha="0.30">
         <samplers>
             <mcmc idref="mcmc"/>
         </samplers>
