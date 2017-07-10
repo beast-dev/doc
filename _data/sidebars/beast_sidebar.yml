@@ -65,6 +65,14 @@ entries:
       url: /adaptive_mcmc_tutorial.html
       output: web, pdf
 
+    - title: Model Selection Tutorial
+      url: /model_selection_1.html
+      output: web, pdf
+
+    - title: Model Selection Advanced Tutorial
+      url: /model_selection_2.html
+      output: web, pdf
+
   - title: Workshop Tutorials
     output: web, pdf
     folderitems:
