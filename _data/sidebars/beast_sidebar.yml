@@ -31,6 +31,10 @@ entries:
       url: /installing.html
       output: web, pdf
 
+    - title: Software Packages
+      url: /software.html
+      output: web, pdf
+
     - title: First Tutorial
       url: /first_tutorial.html
       output: web, pdf
