@@ -19,7 +19,7 @@ ADD Gemfile.lock /tmp/
 RUN bundle install
 
 VOLUME /src
-EXPOSE 4000
+EXPOSE 4006
 
 WORKDIR /src
 ENTRYPOINT ["jekyll"]
