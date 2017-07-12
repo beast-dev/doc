@@ -31,6 +31,10 @@ entries:
       url: /installing.html
       output: web, pdf
 
+    - title: Software Packages
+      url: /software.html
+      output: web, pdf
+
     - title: First Tutorial
       url: /first_tutorial.html
       output: web, pdf
@@ -63,6 +67,14 @@ entries:
 
     - title: Adaptive MCMC Tutorial
       url: /adaptive_mcmc_tutorial.html
+      output: web, pdf
+
+    - title: Model Selection Tutorial
+      url: /model_selection_1.html
+      output: web, pdf
+
+    - title: Model Selection Advanced Tutorial
+      url: /model_selection_2.html
       output: web, pdf
 
   - title: Workshop Tutorials

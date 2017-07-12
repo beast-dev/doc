@@ -120,7 +120,40 @@ For example, in our paper (Baele et al., 2017) we show the possibility of creati
 
 ### XML Representation #2
 
+The first XML representation (as used in the XML examples accompanying our paper; Baele et al., 2017) is not very flexible when it comes to dealing with many parameters, each with their own transformation.
+Additionally, there's the need to construct a compound parameter in the XML file, for specific use with the novel transition kernel.
+In this section, we present an XML representation of the adaptive MCMC transition kernel that does not require the construction of a compound parameter nor manual derivation of the indices for the transformation.
 
+Given that a compound parameter for the relative rate parameters is automatically created by BEAUti, the following XML representation of the novel transition kernel on the same set of parameters can be specfied by:
+
+```xml
+    <adaptableVarianceMultivariateNormalOperator scaleFactor="1.0" weight="21" initial="5000" 
+            burnin="2500" beta="0.05" coefficient="1.0" autoOptimize="true" formXtXInverse="false">
+    
+        <transform type="log">
+            <parameter idref="ND5.CP1.kappa"/>
+            <parameter idref="ND5.CP2.kappa"/>
+            <parameter idref="ND5.CP3.kappa"/>
+		
+            <parameter idref="ND5.CP1.alpha"/>
+            <parameter idref="ND5.CP2.alpha"/>
+            <parameter idref="ND5.CP3.alpha"/>
+		
+            <parameter idref="yule.birthRate"/>
+        </transform>
+			
+        <transform type="logConstrainedSum">
+            <compoundParameter idref="allMus"/>
+        </transform>
+			
+    </adaptableVarianceMultivariateNormalOperator>	
+```
+
+While all the parameters that need an individual log-transformation can be specified within one set of ```<transform type="log">...</transform>``` tags, a separate set of ```<transform type="logConstrainedSum">...</transform>``` tags is needed for each set of parameters that sum to a certain constant.
+
+Note that at the moment, the logConstrainedSum-transformation only applies to parameter collections, where that fixed sum is equal to the number of parameters in the collection.
+For example, in the case of relative rates, the fixed total sum is equal to 3 in the case of partitioning by codon position, and there are 3 relative rate parameters.
+This means that, for now (but this is work in progress), a set of base frequencies that need to be estimated cannot yet be included in the adaptive MCMC transition kernel.
 
 ## References
 
