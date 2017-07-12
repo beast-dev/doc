@@ -1,3 +1,8 @@
+sudo: false
 language: ruby
 rvm: 2.0.0
 
+script:
+#  - bundle exec jekyll serve --detach --config _config.yml,pdfconfigs/config_beast_pdf.yml;
+  - bundle exec jekyll build
+  - bundle exec htmlproofer ./_site
