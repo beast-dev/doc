@@ -6,3 +6,5 @@
 *.iws
 
 _site/*
+
+.idea
