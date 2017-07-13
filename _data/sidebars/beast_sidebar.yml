@@ -54,6 +54,10 @@ entries:
       url: /treeloganalyser.html
       output: web, pdf
 
+    - title: BEASTGen
+      url: /beastgen.html
+      output: web, pdf
+
   - title: Tutorials
     output: web, pdf
     folderitems:
