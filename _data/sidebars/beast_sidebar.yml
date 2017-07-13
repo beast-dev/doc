@@ -46,6 +46,10 @@ entries:
       url: /logcombiner.html
       output: web, pdf
 
+    - title: TreeAnnotator
+      url: /treeannotator.html
+      output: web, pdf
+
   - title: Tutorials
     output: web, pdf
     folderitems:
