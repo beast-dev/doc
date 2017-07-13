@@ -50,6 +50,10 @@ entries:
       url: /treeannotator.html
       output: web, pdf
 
+    - title: TreeLogAnalyser
+      url: /treeloganalyser.html
+      output: web, pdf
+
   - title: Tutorials
     output: web, pdf
     folderitems:
