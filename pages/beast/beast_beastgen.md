@@ -100,8 +100,8 @@ The top of the file looks like this:
 ```xml
 <beast>
 
-    <!-- The list of taxa to be analysed (can also include dates/ages).          -->
-    <!-- ntax=${taxon_count}                                                                 -->
+    <!-- The list of taxa to be analysed (can also include dates/ages).   -->
+    <!-- ntax=${taxon_count}   -->
     <taxa id="taxa">
         <#list taxa as taxon>
         <taxon id="${taxon.id}">
@@ -110,8 +110,8 @@ The top of the file looks like this:
         </#list>
     </taxa>
 
-    <!-- The sequence alignment (each sequence refers to a taxon above).         -->
-    <!-- ntax=${taxon_count} nchar=${site_count}                                                      -->
+    <!-- The sequence alignment (each sequence refers to a taxon above).   -->
+    <!-- ntax=${taxon_count} nchar=${site_count}   -->
     <alignment id="${alignment.id}" dataType="nucleotide">
         <#list alignment.sequences as sequence>
         <sequence>
