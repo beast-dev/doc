@@ -36,7 +36,7 @@ For example, the tag ${taxon_count} will be replaced by the number of taxa in th
 Here are the built-in variables that can be used:
 
 <dl>
-  <dt>taxon_count</dl>
+  <dt>taxon_count</dt>
   <dd>The number of taxa in the alignment</dd>
   
   <dt>site_count</dt>
