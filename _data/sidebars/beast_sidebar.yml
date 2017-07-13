@@ -42,6 +42,10 @@ entries:
       url: /beautiandbeast.html
       output: web, pdf
 
+    - title: LogCombiner
+      url: /logcombiner.html
+      output: web, pdf
+
   - title: Tutorials
     output: web, pdf
     folderitems:
