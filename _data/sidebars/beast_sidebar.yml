@@ -31,12 +31,15 @@ entries:
       url: /installing.html
       output: web, pdf
 
-    - title: Software Packages
-      url: /software.html
-      output: web, pdf
-
     - title: First Tutorial
       url: /first_tutorial.html
+      output: web, pdf
+
+  - title: Software Packages
+    output: web, pdf
+    folderitems:
+    - title: BEAUti & The BEAST
+      url: /beautiandbeast.html
       output: web, pdf
 
   - title: Tutorials
