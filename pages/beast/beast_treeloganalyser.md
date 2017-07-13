@@ -41,13 +41,13 @@ This program assists in summarizing the clades information from a sample of tree
 
 ### Running TreeLogAnalyser
 
-1. Simple command to run TreeLogAnalyser from beast.jar which is available in the /lib folder of released BEAST package
+1) Simple command to run TreeLogAnalyser from beast.jar which is available in the /lib folder of released BEAST package
 
 ```bash
 java -cp beast.jar dr.app.tools.TreeLogAnalyser inputTrees.trees
 ```
 
-2. Or create a script file in the /bin folder of released BEAST package
+2) Or create a script file in the /bin folder of released BEAST package
 
 ### Windows
 
