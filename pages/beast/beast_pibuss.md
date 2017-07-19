@@ -1,5 +1,5 @@
 ---
-title: &pi;BUSS
+title: PiBUSS
 permalink: pibuss.html
 sidebar: beast_sidebar
 tags: [getting-started]
