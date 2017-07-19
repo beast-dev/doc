@@ -17,7 +17,7 @@ It can read output files from [MrBayes](http://mrbayes.csit.fsu.edu/) and [BEAST
 
 ### Downloading
 
-You can download Tracer from here: [http://tree.bio.ed.ac.uk/software/tracer/]
+You can download Tracer from here: [http://tree.bio.ed.ac.uk/software/tracer/](http://tree.bio.ed.ac.uk/software/tracer/)
 
 ### Using Tracer
 
@@ -27,6 +27,6 @@ A tutorial is available describing [how to use Tracer to analyse the output from
 
 The recommended citation for this program is:
 
-Rambaut A, Suchard MA, Xie D & Drummond AJ (2014) Tracer v1.6, Available from [http://beast.bio.ed.ac.uk/Tracer]
+Rambaut A, Suchard MA, Xie D & Drummond AJ (2014) Tracer v1.6, Available from [http://tree.bio.ed.ac.uk/software/tracer/](http://tree.bio.ed.ac.uk/software/tracer/)
 
 {% include links.html %}
