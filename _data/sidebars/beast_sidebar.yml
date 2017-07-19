@@ -62,6 +62,14 @@ entries:
       url: /beastgen.html
       output: web, pdf
 
+    - title: Tracer
+      url: /tracer.html
+      output: web, pdf
+
+    - title: FigTree
+      url: /figtree.html
+      output: web, pdf
+
   - title: Tutorials
     output: web, pdf
     folderitems:
