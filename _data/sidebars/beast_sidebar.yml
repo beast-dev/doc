@@ -78,7 +78,7 @@ entries:
       url: /spread3.html
       output: web, pdf
 
-    - title: &pi;BUSS
+    - title: PiBUSS
       url: /pibuss.html
       output: web, pdf
 
