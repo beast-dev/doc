@@ -70,6 +70,14 @@ entries:
       url: /figtree.html
       output: web, pdf
 
+    - title: SPREAD
+      url: /spread.html
+      output: web, pdf
+
+    - title: SPREAD3
+      url: /spread3.html
+      output: web, pdf
+
   - title: Tutorials
     output: web, pdf
     folderitems:
