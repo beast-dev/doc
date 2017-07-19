@@ -1,6 +1,6 @@
 ---
 title: SpreaD3
-permalink: spread.html
+permalink: spread3.html
 sidebar: beast_sidebar
 tags: [getting-started]
 keywords: software, spread3, beast
