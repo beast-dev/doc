@@ -16,6 +16,6 @@ FigTree is a program for viewing trees including summary information produced by
 
 ### Downloading
 
-You can download FigTree from here: [http://tree.bio.ed.ac.uk/software/figtree/]
+You can download FigTree from here: [http://tree.bio.ed.ac.uk/software/figtree/](http://tree.bio.ed.ac.uk/software/figtree/)
 
 {% include links.html %}
