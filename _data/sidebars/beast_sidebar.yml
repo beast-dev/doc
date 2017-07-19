@@ -78,6 +78,10 @@ entries:
       url: /spread3.html
       output: web, pdf
 
+    - title: &pi;BUSS
+      url: /pibuss.html
+      output: web, pdf
+
   - title: Tutorials
     output: web, pdf
     folderitems:
