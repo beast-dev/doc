@@ -1,5 +1,5 @@
 ---
-title: SPREAD3
+title: SpreaD3
 permalink: spread.html
 sidebar: beast_sidebar
 tags: [getting-started]
