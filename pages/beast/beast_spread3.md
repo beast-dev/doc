@@ -18,11 +18,11 @@ SpreaD3 (Spatial Phylogenetics Reconstruction of Evolutionary Dynamics using Dat
 
 You can download SPREAD from here: [https://rega.kuleuven.be/cev/ecv/software/SpreaD3](https://rega.kuleuven.be/cev/ecv/software/SpreaD3)
 
-### Using SPREAD
+### Using SpreaD3
 
 A tutorial on how to use SPREAD is available here: [https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial)
 
-### Citing SPREAD
+### Citing SpreaD3
 
 Bielejec, F., Baele, G., Vrancken, B., Suchard, M. A., Rambaut, A., Lemey, P. SpreaD3: interactive visualisation of spatiotemporal history and trait evolutionary processes. Mol. Biol. Evol., 2016, 33 (8): 2167-2169.
 
