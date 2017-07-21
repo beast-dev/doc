@@ -130,6 +130,10 @@ entries:
   - title: Help and Documentation
     output: web, pdf
     folderitems:
+    - title: Optimizing Performance
+      url: /performance.html
+      output: web, pdf
+
     - title: FAQ
       url: /faq.html
       output: web, pdf
