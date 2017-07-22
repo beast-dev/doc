@@ -34,11 +34,19 @@ BEAGLE resources available:
     Clock speed (Ghz): 0.74
     Number of cores: 2880
     Flags: PRECISION_SINGLE PRECISION_DOUBLE ...
+    
+3 : Tesla K40c
+    Global memory (MB): 11520
+    Clock speed (Ghz): 0.74
+    Number of cores: 2880
+    Flags: PRECISION_SINGLE PRECISION_DOUBLE ...
 ```
 
-In other words, this system contains a CPU, an Intel integrated graphics processor (IGP) and one NVidia Tesla GPU card fit for scientific computing. 
+In other words, this system contains a CPU (resource 0), an Intel integrated graphics processor (IGP; resource 1) and two NVidia Tesla GPU cards (resources 2 and 3) fit for scientific computing. 
 
 #### CPU
+
+By default, the likelihood evaluation for each data partition will occur on CPU (i.e. on resource 0).
 
 In the case of multiple sequence data partitions, a separate BEAGLE instance will be created per partition, ensuring that each partition is run in parallel on a different processor core (as long as the number of available processor cores exceeds the number of data partitions).
 Users can manually limit the number of threads that can be used by BEAGLE (by using the <samp>-threads</samp> option), but in general there is no reason to do so. 
