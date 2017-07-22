@@ -89,10 +89,6 @@ entries:
       url: /second_tutorial.html
       output: web, pdf
 
-    - title: Effective Sample Size
-      url: /ess_tutorial.html
-      output: web, pdf
-      
     - title: Analysing BEAST Output
       url: /analysing_beast_output.html
       output: web, pdf
@@ -127,13 +123,25 @@ entries:
       url: /influenza_phylodynamic_tutorial.html
       output: web, pdf
 
-  - title: Help and Documentation
+  - title: Reference
     output: web, pdf
     folderitems:
+    - title: Effective Sample Size
+      url: /ess_tutorial.html
+      output: web, pdf
+
     - title: Optimizing Performance
       url: /performance.html
       output: web, pdf
 
+    - title: XML Reference
+      url: /xml_reference.html
+      output: web, pdf
+
+
+  - title: Help
+    output: web, pdf
+    folderitems:
     - title: FAQ
       url: /faq.html
       output: web, pdf
