@@ -115,9 +115,9 @@ folder: beast
     			To test the installation, run BEAST and when the options dialog box appears, select "Use BEAGLE library" and "Show list of available BEAGLE resources". 
     			You don't need to specify a BEAST input file as the information about BEAGLE will be displayed and then BEAST will stop.
     			When run, it should show a list of available resources that BEAGLE has detected:
-    			<samp>
-    			BEAGLE resources available:
-                0 : CPU
+    			<samp><br>
+    			BEAGLE resources available:<br>
+                0 : CPU<br>
                     Flags: PRECISION_SINGLE PRECISION_DOUBLE ...
                     
                 1 : Intel(R) HD Graphics 530
