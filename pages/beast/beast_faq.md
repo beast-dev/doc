@@ -278,13 +278,13 @@ How do I increase the ESS of a parameter?
     		<div class="panel-heading">
     			<div class="panel-title">
     				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#q14">
-    Why does the operator analysis continue to suggest that I decrease my <subtreeSlide>'s size attribute in order to improve my acceptance probability?
+    Why does the operator analysis continue to suggest that I decrease my &lt;subtreeSlide&gt;'s size attribute in order to improve my acceptance probability?
     				</a>
     			</div>
     		</div>
     		<div id="q14" class="panel-collapse collapse">
     			<div class="panel-body">
-    The size value in the <subtreeSlide> operator should be proportional to the height of your tree (say about 10% initially). 
+    The size value in the &lt;subtreeSlide&gt; operator should be proportional to the height of your tree (say about 10% initially). 
     If the tree is uncalibrated then the height of the tree is given in substitutions per site which can be very small.
     			</div>
     		</div>
