@@ -20,35 +20,57 @@ folder: beast
 <script src="js/jquery.ba-throttle-debounce.min.js"></script>
 {% endunless %}
 
-      <div class="filter-options">
-      <button class="btn btn-primary" data-group="all">All</button>
-      <button class="btn btn-primary" data-group="getting-started">Getting Started</button>
-      <button class="btn btn-primary" data-group="tutorial">Tutorials</button>
-      <button class="btn btn-primary" data-group="help">Help</button>
-    </div>      
+<div class="filter-options">
+    <button class="btn btn-primary" data-group="all">All</button>
+    <button class="btn btn-primary" data-group="getting-started">Getting Started</button>
+    <button class="btn btn-primary" data-group="programs">Programs</button>
+    <button class="btn btn-primary" data-group="tutorial">Tutorials</button>
+    <button class="btn btn-primary" data-group="reference">Reference</button>
+    <button class="btn btn-primary" data-group="help">Help</button>
+</div>
 
 <div id="grid" class="row">
 
     <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["getting-started"]'>
 
-               <div class="panel panel-default">
-               <div class="panel-heading">Getting started</div>
-               <div class="panel-body">
-                  Pages to help you get started installing and running BEAST and its associated utilities. 
-                  <ul>
-                {% for page in site.pages %}
-                {% for tag in page.tags %}
-                {% if tag == "getting-started" %}
-                  <li><a href="{{page.url | remove: '/'}}">{{page.title}}</a></li>
-                {% endif %}
-                {% endfor %}
-                {% endfor %} 
-                  </ul>
-               </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Getting started</div>
+            <div class="panel-body">
+                Pages to help you get started installing and running BEAST and its associated utilities.
+                <ul>
+                    {% for page in site.pages %}
+                    {% for tag in page.tags %}
+                    {% if tag == "getting-started" %}
+                    <li><a href="{{page.url | remove: '/'}}">{{page.title}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
             </div>
-    
+        </div>
+
     </div>
-   
+
+
+    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["programs"]'>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Programs</div>
+            <div class="panel-body">
+                The programs that make up the BEAST software packages and associated software.
+                <ul>
+                    {% for page in site.pages %}
+                    {% for tag in page.tags %}
+                    {% if tag == "programs" %}
+                    <li><a href="{{page.url | remove: '/'}}">{{page.title}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
 
     <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["tutorial"]'>
 
@@ -67,36 +89,57 @@ folder: beast
                 </ul>
             </div>
         </div>
-        
+
+    </div>
+
+
+    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["reference"]'>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Reference Documents</div>
+            <div class="panel-body">
+                Reference material for using BEAST.
+                <ul>
+                    {% for page in site.pages %}
+                    {% for tag in page.tags %}
+                    {% if tag == "reference" %}
+                    <li><a href="{{page.url | remove: '/'}}">{{page.title}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
     </div>
 
 
 
     <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["help"]'>
 
-                <div class="panel panel-default">
-               <div class="panel-heading">Help</div>
-               <div class="panel-body">
-                  General help pages: 
-                  <ul>
-                {% for page in site.pages %}
-                {% for tag in page.tags %}
-                {% if tag == "help" %}
-                  <li><a href="{{page.url | remove: '/'}}">{{page.title}}</a></li>
-                {% endif %}
-                {% endfor %}
-                {% endfor %}
-                  </ul>
-               </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Help</div>
+            <div class="panel-body">
+                General help pages:
+                <ul>
+                    {% for page in site.pages %}
+                    {% for tag in page.tags %}
+                    {% if tag == "help" %}
+                    <li><a href="{{page.url | remove: '/'}}">{{page.title}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
             </div>
+        </div>
 
     </div>
 
-          <!-- sizer -->
-      <div class="col-xs-6 col-sm-4 col-md-1 shuffle_sizer"></div>          
+    <!-- sizer -->
+    <div class="col-xs-6 col-sm-4 col-md-1 shuffle_sizer"></div>
 
 
-    </div><!-- /#grid -->
+</div><!-- /#grid -->
 
 {% unless site.output == "pdf" %}
 {% include initialize_shuffle.html %}

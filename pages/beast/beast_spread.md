@@ -2,7 +2,7 @@
 title: SPREAD
 permalink: spread.html
 sidebar: beast_sidebar
-tags: [getting-started]
+tags: [programs]
 keywords: software, spread, beast
 last_updated: July 19, 2017
 summary: "SPREAD"

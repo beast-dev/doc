@@ -2,7 +2,7 @@
 title: LogCombiner
 permalink: logcombiner.html
 sidebar: beast_sidebar
-tags: [getting-started]
+tags: [programs]
 keywords: software, logcombiner, beast
 last_updated: July 13, 2017
 summary: "LogCombiner"

@@ -2,7 +2,7 @@
 title: TreeLogAnalyser
 permalink: treeloganalyser.html
 sidebar: beast_sidebar
-tags: [getting-started]
+tags: [programs]
 keywords: software, treeloganalyser, beast
 last_updated: July 13, 2017
 summary: "TreeLogAnalyser"

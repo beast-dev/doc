@@ -2,7 +2,7 @@
 title: Tracer
 permalink: tracer.html
 sidebar: beast_sidebar
-tags: [getting-started]
+tags: [programs]
 keywords: software, tracer, beast
 last_updated: July 19, 2017
 summary: "Tracer"

@@ -2,7 +2,7 @@
 title: BEASTGen
 permalink: beastgen.html
 sidebar: beast_sidebar
-tags: [getting-started]
+tags: [programs]
 keywords: software, beastgen, beast
 last_updated: July 13, 2017
 summary: "BEASTGen"

@@ -2,7 +2,7 @@
 title: TreeAnnotator
 permalink: treeannotator.html
 sidebar: beast_sidebar
-tags: [getting-started]
+tags: [programs]
 keywords: software, treeannotator, beast
 last_updated: July 13, 2017
 summary: "TreeAnnotator"

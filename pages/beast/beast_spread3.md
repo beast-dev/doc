@@ -2,7 +2,7 @@
 title: SpreaD3
 permalink: spread3.html
 sidebar: beast_sidebar
-tags: [getting-started]
+tags: [programs]
 keywords: software, spread3, beast
 last_updated: July 19, 2017
 summary: "SpreaD3"

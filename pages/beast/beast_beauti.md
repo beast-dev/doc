@@ -2,7 +2,7 @@
 title: BEAUti & The BEAST
 permalink: beautiandbeast.html
 sidebar: beast_sidebar
-tags: [getting-started]
+tags: [programs]
 keywords: software, beast, beauti
 last_updated: July 13, 2017
 summary: "The BEAUti & The BEAST software package"

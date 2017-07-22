@@ -2,7 +2,7 @@
 title: PiBUSS
 permalink: pibuss.html
 sidebar: beast_sidebar
-tags: [getting-started]
+tags: [programs]
 keywords: software, pibuss, beast
 last_updated: July 19, 2017
 summary: "&pi;BUSS"

@@ -2,7 +2,7 @@
 title: BEAGLE
 permalink: beagle.html
 sidebar: beast_sidebar
-tags: [getting-started]
+tags: [programs]
 keywords: software, beagle, beast
 last_updated: July 13, 2017
 summary: "BEAGLE"
