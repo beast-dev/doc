@@ -13,7 +13,7 @@ folder: beast
 
 ## Installing BEAST
 
-### On Mac OS X
+### On Mac
 
 ### On Windows
 
