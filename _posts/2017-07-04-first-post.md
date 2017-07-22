@@ -1,7 +1,7 @@
 ---
 title:  "BEAST documentation Site upgrade started"
 categories: documentation update
-permalink: update.html
+permalink: 2017-07-04_first_post.html
 tags: [news]
 ---
 
