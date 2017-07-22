@@ -49,7 +49,7 @@ This shows the CPU (which should always be available), an Intel integrated graph
 ## Running BEAST with BEAGLE 
 
 You are now ready to run BEAST using BEAGLE. Just run BEAST again and select "Use BEAGLE library" but not the "Show list of available BEAGLE resources" option. 
-When running BEAGLE will say what resource it is using:
+When running, BEAGLE will say what resource it is using:
 
 ```bash
 Using BEAGLE TreeLikelihood
@@ -69,5 +69,13 @@ Unless you have a high-specification NVIDIA GPU installed, it is suggested you u
 ## Running BEAST/BEAGLE on command line 
 
 If you are running BEAST on Linux or wish to have more control of the BEAGLE performance options on Mac OS X or Windows you will need to run BEAST from the command line.
+
+Running BEAST from the command line allows you to select which resource needs to be used for your analysis by using a command-line option.
+For example, in order to ensure that resource 1 (see above) will be used when running BEAST, you can use the following command:
+```bash
+java -jar beast.jar -beagle_gpu -beagle_order 1 data.xml
+```
+
+For more information on how to improve computational performance when using BEAST with BEAGLE, we refer to [this page](performance.html).
 
 {% include links.html %}
