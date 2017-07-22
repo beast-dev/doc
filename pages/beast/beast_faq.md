@@ -119,16 +119,16 @@ folder: beast
     			BEAGLE resources available:<br>
                 0 : CPU<br>
                 &nbsp;Flags: PRECISION_SINGLE PRECISION_DOUBLE ...<br><br>
-                &nbsp;1 : Intel(R) HD Graphics 530
-                    Global memory (MB): 1536
-                    Clock speed (Ghz): 1.05
-                    Number of compute units: 24
-                    Flags: PRECISION_SINGLE COMPUTATION_SYNCH ...<br><br>
-                &nbsp;2 : Tesla K40c
-                    Global memory (MB): 11520
-                    Clock speed (Ghz): 0.74
-                    Number of cores: 2880
-                    Flags: PRECISION_SINGLE PRECISION_DOUBLE ...
+                1 : Intel(R) HD Graphics 530<br>
+                &nbsp;Global memory (MB): 1536<br>
+                &nbsp;Clock speed (Ghz): 1.05<br>
+                &nbsp;Number of compute units: 24<br>
+                &nbsp;Flags: PRECISION_SINGLE COMPUTATION_SYNCH ...<br><br>
+                2 : Tesla K40c<br>
+                &nbsp;Global memory (MB): 11520<br>
+                &nbsp;Clock speed (Ghz): 0.74<br>
+                &nbsp;Number of cores: 2880<br>
+                &nbsp;Flags: PRECISION_SINGLE PRECISION_DOUBLE ...
     			</samp>
     			</div>
     		</div>
