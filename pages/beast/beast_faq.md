@@ -39,13 +39,14 @@ folder: beast
 			<div class="panel-body">
 			    BEAST is a software package to perform Bayesian analysis of molecular sequences using MCMC and focuses on estimating phylogenies using a wide range of models.
                 We here list some of BEAST's features and models.
+                <ul>
+                  <li>While BEAST focuses on estimating rooted and time-measured phylogenies, it can analyse both contemporaneous (isochronous) and non-contemporaneous (heterochronous) sequences.</li>
+                  <li>For non-contemporaneous sequences, when the differences in the dates associated with the sequences comprise a significant proportion of the age of the entire tree, these dates can be incorporated into the model providing a source of information about the rate of substitution.</li>
+                  <li>Constant (strict) and variable rate (relaxed) molecular clock models.</li>
+                  <li>Substitution model heterogeneity across sites.</li>
+                </ul>
                 
-                While BEAST focuses on estimating rooted and time-measured phylogenies, it can analyse both contemporaneous (isochronous) and non-contemporaneous (heterochronous) sequences.
-                For non-contemporaneous sequences, when the differences in the dates associated with the sequences comprise a significant proportion of the age of the entire tree, these dates can be incorporated into the model providing a source of information about the rate of substitution.
                 
-                * Constant (strict) and variable rate (relaxed) molecular clock models.			
-				* Substitution model heterogeneity across sites.
-				
 				
 				A description of some of the analyses that can be performed using BEAST can be found here.
 
