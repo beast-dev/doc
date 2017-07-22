@@ -10,9 +10,11 @@ toc: true
 folder: beast
 ---
 
+## BEAST XML Elements   
+
 The following is a list of valid elements in a beast file.
 
-## <code>&lt;adaptableSizeFastMatrixParameter&gt;</code> element
+### <code>&lt;adaptableSizeFastMatrixParameter&gt;</code> element
 
 Returns a blockUpperTriangularMatrixParameter which is a compoundParameter which forces the last element to be of full length, the second to last element to be of full length-1, etc.
 
@@ -42,9 +44,7 @@ Example:
 <adaptableSizeFastMatrixParameter columns="1" rows="1" maxRowSize="1" maxColumnSize="1" startingValue="1.0" lowerTriangle="true"/>
 ```
 
-
-
-## <code>&lt;adaptableVarianceMultivariateNormalOperator&gt;</code> element
+### <code>&lt;adaptableVarianceMultivariateNormalOperator&gt;</code> element
 
 This element returns an adaptable variance multivariate normal operator on a given parameter.
 
@@ -122,7 +122,7 @@ Example:
 
 
 
-## <code>&lt;addremoveARGEvent&gt;</code> element
+### <code>&lt;addremoveARGEvent&gt;</code> element
 
 An operator that slides a subarg.
 
@@ -168,7 +168,7 @@ Example:
 
 
 
-## <code>&lt;aicmAnalysis&gt;</code> element
+### <code>&lt;aicmAnalysis&gt;</code> element
 
 Performs a trace analysis. Estimates the mean of the various statistics in the given log file.
 
@@ -202,7 +202,7 @@ Example:
 
 
 
-## <code>&lt;alignment&gt;</code> element
+### <code>&lt;alignment&gt;</code> element
 
 This element represents an alignment of molecular sequences.
 
@@ -239,7 +239,7 @@ Example:
 
 
 
-## <code>&lt;alloppNetworkPriorModel&gt;</code> element
+### <code>&lt;alloppNetworkPriorModel&gt;</code> element
 
 Model for speciation, extinction, hybridization in allopolyploid network.
 
@@ -304,7 +304,7 @@ Example:
 
 
 
-## <code>&lt;alloppNumHybsStatistic&gt;</code> element
+### <code>&lt;alloppNumHybsStatistic&gt;</code> element
 
 Statistic for number of hybridizations in allopolyploid network
 
@@ -328,7 +328,7 @@ Example:
 
 
 
-## <code>&lt;alloppspecies&gt;</code> element
+### <code>&lt;alloppspecies&gt;</code> element
 
 Binds taxa to gene trees with information about possibly allopolyploid species.
 
@@ -391,7 +391,7 @@ Example:
 
 
 
-## <code>&lt;alloppSpeciesNetwork&gt;</code> element
+### <code>&lt;alloppSpeciesNetwork&gt;</code> element
 
 Species network with population sizes along branches
 
@@ -463,7 +463,7 @@ Example:
 
 
 
-## <code>&lt;alsTreeLikelihood&gt;</code> element
+### <code>&lt;alsTreeLikelihood&gt;</code> element
 
 This element represents the likelihood of a patternlist on a tree given the site model.
 
@@ -566,7 +566,7 @@ Example:
 
 
 
-## <code>&lt;aminoAcidModel&gt;</code> element
+### <code>&lt;aminoAcidModel&gt;</code> element
 
 An empirical amino acid substitution model.
 
@@ -592,7 +592,7 @@ Example:
 
 
 
-## <code>&lt;ancestralTrait&gt;</code> element
+### <code>&lt;ancestralTrait&gt;</code> element
 
 A statistic that has as its value the height of the most recent common ancestor of a set of taxa in a given tree
 
@@ -632,7 +632,7 @@ Example:
 
 
 
-## <code>&lt;ancestralTrait&gt;</code> element
+### <code>&lt;ancestralTrait&gt;</code> element
 
 A statistic that has as its value the height of the most recent common ancestor of a set of taxa in a given tree
 
@@ -710,7 +710,7 @@ Example:
 
 
 
-## <code>&lt;ancestralTreeLikelihood&gt;</code> element
+### <code>&lt;ancestralTreeLikelihood&gt;</code> element
 
 This element represents the likelihood of a patternlist on a tree given the site model.
 
@@ -795,7 +795,7 @@ Example:
 
 
 
-## <code>&lt;antigenicDriftPrior&gt;</code> element
+### <code>&lt;antigenicDriftPrior&gt;</code> element
 
 Provides the likelihood of a vector of coordinates in some multidimensional 'antigenic' space based on an expected relationship with time.
 
@@ -846,7 +846,7 @@ Example:
 
 
 
-## <code>&lt;antigenicLikelihood&gt;</code> element
+### <code>&lt;antigenicLikelihood&gt;</code> element
 
 Provides the likelihood of immunological assay data such as Hemagglutinin inhibition (HI) given vectors of coordinatesfor viruses and sera/antisera in some multidimensional 'antigenic' space.
 
@@ -971,7 +971,7 @@ Example:
 
 
 
-## <code>&lt;appendedPotentialDerivative&gt;</code> element
+### <code>&lt;appendedPotentialDerivative&gt;</code> element
 
 null
 
@@ -1006,7 +1006,7 @@ Example:
 
 
 
-## <code>&lt;approximateFactorAnalysisPrecision&gt;</code> element
+### <code>&lt;approximateFactorAnalysisPrecision&gt;</code> element
 
 A diffusion approximation to a factor analysis
 
@@ -1039,7 +1039,7 @@ Example:
 
 
 
-## <code>&lt;apsp&gt;</code> element
+### <code>&lt;apsp&gt;</code> element
 
 A diploid or allopolyploid species made of individuals
 
@@ -1064,7 +1064,7 @@ Example:
 
 
 
-## <code>&lt;apspCoalescent&gt;</code> element
+### <code>&lt;apspCoalescent&gt;</code> element
 
 Likelihood of a set of gene trees embedded in a allopolyploid species network.
 
@@ -1117,7 +1117,7 @@ Example:
 
 
 
-## <code>&lt;apspNetworkPrior&gt;</code> element
+### <code>&lt;apspNetworkPrior&gt;</code> element
 
 Prior for an allopolyploid species network.
 
@@ -1150,7 +1150,7 @@ Example:
 
 
 
-## <code>&lt;arbitraryBranchRates&gt;</code> element
+### <code>&lt;arbitraryBranchRates&gt;</code> element
 
 This element returns an arbitrary rate model.The branch rates are drawn from an arbitrary distribution determine by the prior.
 
@@ -1224,7 +1224,7 @@ Example:
 
 
 
-## <code>&lt;argCoalescentLikelihood&gt;</code> element
+### <code>&lt;argCoalescentLikelihood&gt;</code> element
 
 A coalescent likelihood for an ARG model
 
@@ -1271,7 +1271,7 @@ Example:
 
 
 
-## <code>&lt;argDiscretizedBranchRates&gt;</code> element
+### <code>&lt;argDiscretizedBranchRates&gt;</code> element
 
 This element returns an discretized relaxed clock model.The branch rates are drawn from a discretized parametric distribution.
 
@@ -1318,7 +1318,7 @@ Example:
 
 
 
-## <code>&lt;ARGEventOperator&gt;</code> element
+### <code>&lt;ARGEventOperator&gt;</code> element
 
 An operator that slides a subarg.
 
@@ -1404,7 +1404,7 @@ Example:
 
 
 
-## <code>&lt;argLocalClock&gt;</code> element
+### <code>&lt;argLocalClock&gt;</code> element
 
 null
 
@@ -1416,7 +1416,7 @@ Example:
 
 
 
-## <code>&lt;argTreeModel&gt;</code> element
+### <code>&lt;argTreeModel&gt;</code> element
 
 This element represents a model of the tree. The tree model includes and attributes of the nodes including the age (or <i>height</i>) and the rate of evolution at each node in the tree.
 
@@ -1473,7 +1473,7 @@ Example:
 
 
 
-## <code>&lt;argNarrowExchange&gt;</code> element
+### <code>&lt;argNarrowExchange&gt;</code> element
 
 This element represents a narrow exchange operator. This operator swaps a random subtree with its uncle.
 
@@ -1513,7 +1513,7 @@ Example:
 
 
 
-## <code>&lt;argPartitionOperator&gt;</code> element
+### <code>&lt;argPartitionOperator&gt;</code> element
 
 An operator that picks a new partitioning uniformly at random.
 
@@ -1550,7 +1550,7 @@ Example:
 
 
 
-## <code>&lt;argRatePrior&gt;</code> element
+### <code>&lt;argRatePrior&gt;</code> element
 
 null
 
@@ -1562,7 +1562,7 @@ Example:
 
 
 
-## <code>&lt;argReassortmentNodeCount&gt;</code> element
+### <code>&lt;argReassortmentNodeCount&gt;</code> element
 
 A statistic that returns the number of reassortment nodes in an ARG
 
@@ -1596,7 +1596,7 @@ Example:
 
 
 
-## <code>&lt;argSubtreeSlide&gt;</code> element
+### <code>&lt;argSubtreeSlide&gt;</code> element
 
 An operator that slides a subtree.
 
@@ -1642,7 +1642,7 @@ Example:
 
 
 
-## <code>&lt;argSwapOperator&gt;</code> element
+### <code>&lt;argSwapOperator&gt;</code> element
 
 Swaps nodes on a tree
 
@@ -1682,7 +1682,7 @@ Example:
 
 
 
-## <code>&lt;argTimingStatistic&gt;</code> element
+### <code>&lt;argTimingStatistic&gt;</code> element
 
 
 
@@ -1713,7 +1713,7 @@ Example:
 
 
 
-## <code>&lt;argTotalLengthStatistic&gt;</code> element
+### <code>&lt;argTotalLengthStatistic&gt;</code> element
 
 null
 
@@ -1725,7 +1725,7 @@ Example:
 
 
 
-## <code>&lt;argTraceAnalysis&gt;</code> element
+### <code>&lt;argTraceAnalysis&gt;</code> element
 
 Analyses and reports on a trace consisting of trees.
 
@@ -1745,7 +1745,7 @@ Example:
 
 
 
-## <code>&lt;argTreeCount&gt;</code> element
+### <code>&lt;argTreeCount&gt;</code> element
 
 Provides number of distinct loci trees
 
@@ -1780,7 +1780,7 @@ Example:
 
 
 
-## <code>&lt;argTreeLikelihood&gt;</code> element
+### <code>&lt;argTreeLikelihood&gt;</code> element
 
 This element represents the likelihood of a patternlist on a tree given the site model.
 
@@ -1836,7 +1836,7 @@ Example:
 
 
 
-## <code>&lt;argTreeModel&gt;</code> element
+### <code>&lt;argTreeModel&gt;</code> element
 
 This element represents a model of the tree. The tree model includes and attributes of the nodes including the age (or <i>height</i>) and the rate of evolution at each node in the tree.
 
@@ -1893,7 +1893,7 @@ Example:
 
 
 
-## <code>&lt;argUniformPrior&gt;</code> element
+### <code>&lt;argUniformPrior&gt;</code> element
 
 A uniform prior for an ARG model
 
@@ -1925,7 +1925,7 @@ Example:
 
 
 
-## <code>&lt;argWideExchange&gt;</code> element
+### <code>&lt;argWideExchange&gt;</code> element
 
 This element represents a wide exchange operator. This operator swaps two random subtrees.
 
@@ -1959,7 +1959,7 @@ Example:
 
 
 
-## <code>&lt;arithmeticMeanAnalysis&gt;</code> element
+### <code>&lt;arithmeticMeanAnalysis&gt;</code> element
 
 Performs a trace analysis. Estimates the mean of the various statistics in the given log file.
 
@@ -1993,7 +1993,7 @@ Example:
 
 
 
-## <code>&lt;array&gt;</code> element
+### <code>&lt;array&gt;</code> element
 
 This element returns an array of the objects it contains.
 
@@ -2015,7 +2015,7 @@ Example:
 
 
 
-## <code>&lt;ascertainedPatterns&gt;</code> element
+### <code>&lt;ascertainedPatterns&gt;</code> element
 
 A weighted list of the unique site patterns (unique columns) in an alignment.
 
@@ -2058,7 +2058,7 @@ Example:
 
 
 
-## <code>&lt;attr&gt;</code> element
+### <code>&lt;attr&gt;</code> element
 
 This element represents a name/value pair.
 
@@ -2086,7 +2086,7 @@ Example:
 
 
 
-## <code>&lt;attributeBranchRateModel&gt;</code> element
+### <code>&lt;attributeBranchRateModel&gt;</code> element
 
 This element returns a branch rate model.The branch rates are specified by an attribute embedded in the nodes of the tree.
 
@@ -2153,7 +2153,7 @@ Example:
 
 
 
-## <code>&lt;attributePatterns&gt;</code> element
+### <code>&lt;attributePatterns&gt;</code> element
 
 A site pattern defined by an attribute in a set of taxa.
 
@@ -2189,7 +2189,7 @@ Example:
 
 
 
-## <code>&lt;attributes&gt;</code> element
+### <code>&lt;attributes&gt;</code> element
 
 This element represents an array of name/value pairs.
 
@@ -2209,7 +2209,7 @@ Example:
 
 
 
-## <code>&lt;bdcNClustersStatistic&gt;</code> element
+### <code>&lt;bdcNClustersStatistic&gt;</code> element
 
 Statistic for number of collapsed nodes in species tree when using birth-death-collapse model.
 
@@ -2247,7 +2247,7 @@ Example:
 
 
 
-## <code>&lt;beagleBranchLikelihood&gt;</code> element
+### <code>&lt;beagleBranchLikelihood&gt;</code> element
 
 beagleBranchLikelihood
 
@@ -2259,7 +2259,7 @@ Example:
 
 
 
-## <code>&lt;beagleOperationReport&gt;</code> element
+### <code>&lt;beagleOperationReport&gt;</code> element
 
 This element represents the likelihood of a patternlist on a tree given the site model.
 
@@ -2323,7 +2323,7 @@ Example:
 
 
 
-## <code>&lt;benchmarker&gt;</code> element
+### <code>&lt;benchmarker&gt;</code> element
 
 This element runs a benchmark on a series of likelihood calculators.
 
@@ -2354,7 +2354,7 @@ Example:
 
 
 
-## <code>&lt;betaDistributionModel&gt;</code> element
+### <code>&lt;betaDistributionModel&gt;</code> element
 
 A model of a beta distribution.
 
@@ -2403,7 +2403,7 @@ Example:
 
 
 
-## <code>&lt;betaPrior&gt;</code> element
+### <code>&lt;betaPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given beta distribution.
 
@@ -2434,7 +2434,7 @@ Example:
 
 
 
-## <code>&lt;betaSplittingModel&gt;</code> element
+### <code>&lt;betaSplittingModel&gt;</code> element
 
 The beta-splitting family of tree branching models (Aldous, 1996;2001).
 
@@ -2468,7 +2468,7 @@ Example:
 
 
 
-## <code>&lt;biasedMultivariateDiffusionModel&gt;</code> element
+### <code>&lt;biasedMultivariateDiffusionModel&gt;</code> element
 
 Describes a multivariate normal diffusion process.
 
@@ -2501,7 +2501,7 @@ Example:
 
 
 
-## <code>&lt;bifractionalDiffusionModel&gt;</code> element
+### <code>&lt;bifractionalDiffusionModel&gt;</code> element
 
 Describes a bivariate diffusion process using a bifractional random walk
 
@@ -2534,7 +2534,7 @@ Example:
 
 
 
-## <code>&lt;binaryCovarionModel&gt;</code> element
+### <code>&lt;binaryCovarionModel&gt;</code> element
 
 A covarion substitution model on binary data and a hidden rate state with two rates.
 
@@ -2586,7 +2586,7 @@ Example:
 
 
 
-## <code>&lt;binarySubstitutionModel&gt;</code> element
+### <code>&lt;binarySubstitutionModel&gt;</code> element
 
 A general reversible model of sequence substitution for binary data type.
 
@@ -2610,7 +2610,7 @@ Example:
 
 
 
-## <code>&lt;binomialLikelihood&gt;</code> element
+### <code>&lt;binomialLikelihood&gt;</code> element
 
 Calculates the likelihood of some data given some parametric or empirical distribution.
 
@@ -2664,7 +2664,7 @@ Example:
 
 
 
-## <code>&lt;birthDeathCollapseModel&gt;</code> element
+### <code>&lt;birthDeathCollapseModel&gt;</code> element
 
 A speciation model aimed at species delimitation, mixing birth-death model with spike near zero for node heights.
 
@@ -2732,7 +2732,7 @@ Example:
 
 
 
-## <code>&lt;birthDeathEpidemiology&gt;</code> element
+### <code>&lt;birthDeathEpidemiology&gt;</code> element
 
 Stadler et al (2011) model of epidemiology.
 
@@ -2786,7 +2786,7 @@ Example:
 
 
 
-## <code>&lt;birthDeathModel&gt;</code> element
+### <code>&lt;birthDeathModel&gt;</code> element
 
 Gernhard (2008) model of speciation (equation at bottom of page 19 of draft).
 
@@ -2836,7 +2836,7 @@ Example:
 
 
 
-## <code>&lt;birthDeathSerialSampling&gt;</code> element
+### <code>&lt;birthDeathSerialSampling&gt;</code> element
 
 Stadler et al (2010) model of speciation.
 
@@ -2907,7 +2907,7 @@ Example:
 
 
 
-## <code>&lt;bitFlipInSubstitutionModelOperator&gt;</code> element
+### <code>&lt;bitFlipInSubstitutionModelOperator&gt;</code> element
 
 This element returns a bit-flip operator on a given indicatorParameter.
 
@@ -2944,7 +2944,7 @@ Example:
 
 
 
-## <code>&lt;bitFlipOperator&gt;</code> element
+### <code>&lt;bitFlipOperator&gt;</code> element
 
 This element returns a bit-flip operator on a given parameter.
 
@@ -2974,7 +2974,7 @@ Example:
 
 
 
-## <code>&lt;bitMoveOperator&gt;</code> element
+### <code>&lt;bitMoveOperator&gt;</code> element
 
 This element returns a bit-move operator on a given parameter.
 
@@ -3013,7 +3013,7 @@ Example:
 
 
 
-## <code>&lt;bitSwapOperator&gt;</code> element
+### <code>&lt;bitSwapOperator&gt;</code> element
 
 This element returns a bit-swap operator on a given parameter and data.
 
@@ -3054,7 +3054,7 @@ Example:
 
 
 
-## <code>&lt;blockUpperTriangularMatrixParameter&gt;</code> element
+### <code>&lt;blockUpperTriangularMatrixParameter&gt;</code> element
 
 Returns a blockUpperTriangularMatrixParameter which is a compoundParameter which forces the last element to be of full length, the second to last element to be of full length-1, etc.
 
@@ -3110,7 +3110,7 @@ Example:
 
 
 
-## <code>&lt;booleanLikelihood&gt;</code> element
+### <code>&lt;booleanLikelihood&gt;</code> element
 
 A function that log likelihood of a set of boolean statistics. If all the statistics are true then it returns 0.0 otherwise -infinity.
 
@@ -3143,7 +3143,7 @@ Example:
 
 
 
-## <code>&lt;branchAssignmentModel&gt;</code> element
+### <code>&lt;branchAssignmentModel&gt;</code> element
 
 This element provides a branch model which assigns substitution models to branches on the tree 
 
@@ -3229,7 +3229,7 @@ Example:
 
 
 
-## <code>&lt;branchCategories&gt;</code> element
+### <code>&lt;branchCategories&gt;</code> element
 
 This element provides a set of branch categories.
 
@@ -3305,7 +3305,7 @@ Example:
 
 
 
-## <code>&lt;branchDirections&gt;</code> element
+### <code>&lt;branchDirections&gt;</code> element
 
 null
 
@@ -3323,7 +3323,7 @@ Example:
 
 
 
-## <code>&lt;branchingLikelihood&gt;</code> element
+### <code>&lt;branchingLikelihood&gt;</code> element
 
 This element represents the likelihood of the tree given the demographic function.
 
@@ -3356,7 +3356,7 @@ Example:
 
 
 
-## <code>&lt;branchMagnitudes&gt;</code> element
+### <code>&lt;branchMagnitudes&gt;</code> element
 
 null
 
@@ -3387,7 +3387,7 @@ Example:
 
 
 
-## <code>&lt;branchSpecificSubstitutionModel&gt;</code> element
+### <code>&lt;branchSpecificSubstitutionModel&gt;</code> element
 
 This element provides a branch model which allows different substitution modelson different parts of the tree.
 
@@ -3461,7 +3461,7 @@ Example:
 
 
 
-## <code>&lt;branchSpecificTrait&gt;</code> element
+### <code>&lt;branchSpecificTrait&gt;</code> element
 
 branchSpecificTrait
 
@@ -3501,7 +3501,7 @@ Example:
 
 
 
-## <code>&lt;BrownianMotion&gt;</code> element
+### <code>&lt;BrownianMotion&gt;</code> element
 
 
 
@@ -3553,7 +3553,7 @@ Example:
 
 
 
-## <code>&lt;buildCompoundSymmetricMatrix&gt;</code> element
+### <code>&lt;buildCompoundSymmetricMatrix&gt;</code> element
 
 Returns a compound symmetric Matrix Parameter that is flexible, i.e. when exposed to a transition kernel can yield a result that is not compound symmetric
 
@@ -3565,7 +3565,7 @@ Example:
 
 
 
-## <code>&lt;cachedPrior&gt;</code> element
+### <code>&lt;cachedPrior&gt;</code> element
 
 Calculates a cached likelihood of some data given some parametric or empirical distribution.
 
@@ -3605,7 +3605,7 @@ Example:
 
 
 
-## <code>&lt;cartogramDiffusionModel&gt;</code> element
+### <code>&lt;cartogramDiffusionModel&gt;</code> element
 
 Describes a bivariate diffusion process using cartogram distances.
 
@@ -3655,7 +3655,7 @@ Example:
 
 
 
-## <code>&lt;caseToCaseTransmissionLikelihood&gt;</code> element
+### <code>&lt;caseToCaseTransmissionLikelihood&gt;</code> element
 
 This element represents a probability distribution for epidemiological parameters of an outbreakgiven a phylogenetic tree
 
@@ -3702,7 +3702,7 @@ Example:
 
 
 
-## <code>&lt;cataclysm&gt;</code> element
+### <code>&lt;cataclysm&gt;</code> element
 
 A demographic model of exponential growth.
 
@@ -3769,7 +3769,7 @@ Example:
 
 
 
-## <code>&lt;categoryOutbreak&gt;</code> element
+### <code>&lt;categoryOutbreak&gt;</code> element
 
 Parses a set of 'category' farm outbreak and the information that they all share
 
@@ -3893,7 +3893,7 @@ Example:
 
 
 
-## <code>&lt;centeredScale&gt;</code> element
+### <code>&lt;centeredScale&gt;</code> element
 
 A centered-scale operator. This operator scales the the values of a multi-dimensional parameter so as to perserve the mean. It does this by expanding or conrtacting the parameter values around the mean.
 
@@ -3922,7 +3922,7 @@ Example:
 
 
 
-## <code>&lt;changeNumHybridizations&gt;</code> element
+### <code>&lt;changeNumHybridizations&gt;</code> element
 
 Operator which changes the number of tetraploid subtrees (hybridizations) by merging and splitting them.
 
@@ -3971,7 +3971,7 @@ Example:
 
 
 
-## <code>&lt;circle&gt;</code> element
+### <code>&lt;circle&gt;</code> element
 
 This element represents a regular circle polygon.
 
@@ -3997,7 +3997,7 @@ Example:
 
 
 
-## <code>&lt;clusterSingleMoveOperator&gt;</code> element
+### <code>&lt;clusterSingleMoveOperator&gt;</code> element
 
 An operator that moves single elements between clusters.
 
@@ -4023,7 +4023,7 @@ Example:
 
 
 
-## <code>&lt;clusterSplitMergeOperator&gt;</code> element
+### <code>&lt;clusterSplitMergeOperator&gt;</code> element
 
 An operator that splits and merges clusters.
 
@@ -4058,7 +4058,7 @@ Example:
 
 
 
-## <code>&lt;cNcSPerSiteAnalysis&gt;</code> element
+### <code>&lt;cNcSPerSiteAnalysis&gt;</code> element
 
 Performs a trace analysis of N and S counts.
 
@@ -4096,7 +4096,7 @@ Example:
 
 
 
-## <code>&lt;cNcSTodNdSPerSiteAnalysis&gt;</code> element
+### <code>&lt;cNcSTodNdSPerSiteAnalysis&gt;</code> element
 
 Performs a trace analysis of N and S counts.
 
@@ -4152,7 +4152,7 @@ Example:
 
 
 
-## <code>&lt;coalescentConstantLikelihood&gt;</code> element
+### <code>&lt;coalescentConstantLikelihood&gt;</code> element
 
 Calculates the number of possible combinations of coalescent events.
 
@@ -4217,7 +4217,7 @@ Example:
 
 
 
-## <code>&lt;coalescentEventsStatistic&gt;</code> element
+### <code>&lt;coalescentEventsStatistic&gt;</code> element
 
 
 
@@ -4246,7 +4246,7 @@ Example:
 
 
 
-## <code>&lt;coalescentHeightsReferencePrior&gt;</code> element
+### <code>&lt;coalescentHeightsReferencePrior&gt;</code> element
 
 Calculates the coalescent height probabilities based on a sample of coalescent heights.
 
@@ -4278,7 +4278,7 @@ Example:
 
 
 
-## <code>&lt;coalescentIntervalStatistic&gt;</code> element
+### <code>&lt;coalescentIntervalStatistic&gt;</code> element
 
 
 
@@ -4307,7 +4307,7 @@ Example:
 
 
 
-## <code>&lt;coalescentLikelihood&gt;</code> element
+### <code>&lt;coalescentLikelihood&gt;</code> element
 
 This element represents the likelihood of the tree given the demographic function.
 
@@ -4359,7 +4359,7 @@ Example:
 
 
 
-## <code>&lt;coalescentSimulator&gt;</code> element
+### <code>&lt;coalescentSimulator&gt;</code> element
 
 This element returns a simulated tree under the given demographic model. The element can be nested to simulate with monophyletic clades. The tree will be rescaled to the given height.
 
@@ -4479,7 +4479,7 @@ Example:
 
 
 
-## <code>&lt;coalescentTree&gt;</code> element
+### <code>&lt;coalescentTree&gt;</code> element
 
 This element returns a simulated tree under the given demographic model.
 
@@ -4600,7 +4600,7 @@ Example:
 
 
 
-## <code>&lt;codonPartitionedRobustCounting&gt;</code> element
+### <code>&lt;codonPartitionedRobustCounting&gt;</code> element
 
 A parser to specify robust counting procedures on codon partitioned models
 
@@ -4688,7 +4688,7 @@ Example:
 
 
 
-## <code>&lt;column&gt;</code> element
+### <code>&lt;column&gt;</code> element
 
 Specifies formating options for one or more columns in a log file.
 
@@ -4730,7 +4730,7 @@ Example:
 
 
 
-## <code>&lt;compatibilityStatistic&gt;</code> element
+### <code>&lt;compatibilityStatistic&gt;</code> element
 
 A statistic that returns true if a pair of trees are compatible
 
@@ -4772,7 +4772,7 @@ Example:
 
 
 
-## <code>&lt;complementParameter&gt;</code> element
+### <code>&lt;complementParameter&gt;</code> element
 
 A element-wise complement of parameters.
 
@@ -4794,7 +4794,7 @@ Example:
 
 
 
-## <code>&lt;completeHistoryLogger&gt;</code> element
+### <code>&lt;completeHistoryLogger&gt;</code> element
 
 A logger to record all transitions in the complete history.
 
@@ -4814,7 +4814,7 @@ Example:
 
 
 
-## <code>&lt;complexSubstitutionModel&gt;</code> element
+### <code>&lt;complexSubstitutionModel&gt;</code> element
 
 A general irreversible model of sequence substitution for any data type.
 
@@ -4883,7 +4883,7 @@ Example:
 
 
 
-## <code>&lt;composedTransform&gt;</code> element
+### <code>&lt;composedTransform&gt;</code> element
 
 null
 
@@ -4916,7 +4916,7 @@ Example:
 
 
 
-## <code>&lt;compositeDataType&gt;</code> element
+### <code>&lt;compositeDataType&gt;</code> element
 
 Defines a composite DataType consisting of multiple data types
 
@@ -4939,7 +4939,7 @@ Example:
 
 
 
-## <code>&lt;compoundBranchRateModel&gt;</code> element
+### <code>&lt;compoundBranchRateModel&gt;</code> element
 
 This element provides a strict clock model. All branches have the same rate of molecular evolution.
 
@@ -4987,7 +4987,7 @@ Example:
 
 
 
-## <code>&lt;compoundFastMatrixParameter&gt;</code> element
+### <code>&lt;compoundFastMatrixParameter&gt;</code> element
 
 A compound matrix parameter constructed from its component parameters.
 
@@ -5013,7 +5013,7 @@ Example:
 
 
 
-## <code>&lt;compoundGaussianProcess&gt;</code> element
+### <code>&lt;compoundGaussianProcess&gt;</code> element
 
 Returned a Gaussian process formed from an ordered list of independent Gaussian processes
 
@@ -5033,7 +5033,7 @@ Example:
 
 
 
-## <code>&lt;appendedPotentialDerivative&gt;</code> element
+### <code>&lt;appendedPotentialDerivative&gt;</code> element
 
 null
 
@@ -5073,7 +5073,7 @@ Example:
 
 
 
-## <code>&lt;compoundLikelihood&gt;</code> element
+### <code>&lt;compoundLikelihood&gt;</code> element
 
 A likelihood function which is simply the product of its component likelihood functions.
 
@@ -5103,7 +5103,7 @@ Example:
 
 
 
-## <code>&lt;compoundMatrixParameter&gt;</code> element
+### <code>&lt;compoundMatrixParameter&gt;</code> element
 
 A compound matrix parameter constructed from its component parameters.
 
@@ -5132,7 +5132,7 @@ Example:
 
 
 
-## <code>&lt;compoundParameter&gt;</code> element
+### <code>&lt;compoundParameter&gt;</code> element
 
 A multidimensional parameter constructed from its component parameters.
 
@@ -5150,7 +5150,7 @@ Example:
 
 
 
-## <code>&lt;compoundSymmetricMatrix&gt;</code> element
+### <code>&lt;compoundSymmetricMatrix&gt;</code> element
 
 A diagonal matrix parameter constructed from its diagonals.
 
@@ -5188,7 +5188,7 @@ Example:
 
 
 
-## <code>&lt;compoundTransform&gt;</code> element
+### <code>&lt;compoundTransform&gt;</code> element
 
 null
 
@@ -5237,7 +5237,7 @@ Example:
 
 
 
-## <code>&lt;conditionalCladeProbability&gt;</code> element
+### <code>&lt;conditionalCladeProbability&gt;</code> element
 
 Calculates the conditional clade probability of a tree based on a sample of tree space.
 
@@ -5310,7 +5310,7 @@ Example:
 
 
 
-## <code>&lt;ConditionalCladeProbabilityAnalysis&gt;</code> element
+### <code>&lt;ConditionalCladeProbabilityAnalysis&gt;</code> element
 
 Calculates posterior of a tree on a trace consisting of trees.
 
@@ -5339,7 +5339,7 @@ Example:
 
 
 
-## <code>&lt;constantDecreasedVariancePrior&gt;</code> element
+### <code>&lt;constantDecreasedVariancePrior&gt;</code> element
 
 Calculates a product of exponentials based on a set of posterior sample means.
 
@@ -5391,7 +5391,7 @@ Example:
 
 
 
-## <code>&lt;constantExponential&gt;</code> element
+### <code>&lt;constantExponential&gt;</code> element
 
 A demographic model of constant population size followed by exponential growth.
 
@@ -5448,7 +5448,7 @@ Example:
 
 
 
-## <code>&lt;constantLikelihood&gt;</code> element
+### <code>&lt;constantLikelihood&gt;</code> element
 
 A function that returns a constant value as a likelihood.
 
@@ -5465,7 +5465,7 @@ Example:
 
 
 
-## <code>&lt;constantLogistic&gt;</code> element
+### <code>&lt;constantLogistic&gt;</code> element
 
 A demographic model of constant population size followed by logistic growth.
 
@@ -5524,7 +5524,7 @@ Example:
 
 
 
-## <code>&lt;constantPatterns&gt;</code> element
+### <code>&lt;constantPatterns&gt;</code> element
 
 Creates a set of patterns for constant sites with weights as provided.
 
@@ -5556,7 +5556,7 @@ Example:
 
 
 
-## <code>&lt;constantSize&gt;</code> element
+### <code>&lt;constantSize&gt;</code> element
 
 A demographic model representing a constant population size through time.
 
@@ -5585,7 +5585,7 @@ Example:
 
 
 
-## <code>&lt;constantTreeTopologyPrior&gt;</code> element
+### <code>&lt;constantTreeTopologyPrior&gt;</code> element
 
 Calculates the constant tree topology prior, i.e. 1 over the total number of rooted bifurcating trees.
 
@@ -5629,7 +5629,7 @@ Example:
 
 
 
-## <code>&lt;constExpConst&gt;</code> element
+### <code>&lt;constExpConst&gt;</code> element
 
 A demographic model of constant population size followed by exponential growth.
 
@@ -5696,7 +5696,7 @@ Example:
 
 
 
-## <code>&lt;contemporaneousCoalescentConstantLikelihood&gt;</code> element
+### <code>&lt;contemporaneousCoalescentConstantLikelihood&gt;</code> element
 
 Calculates the number of possible combinations of coalescent events.
 
@@ -5716,7 +5716,7 @@ Example:
 
 
 
-## <code>&lt;continuousBranchRates&gt;</code> element
+### <code>&lt;continuousBranchRates&gt;</code> element
 
 This element returns a continuous quantile uncorrelated relaxed clock model.
 
@@ -5824,7 +5824,7 @@ Example:
 
 
 
-## <code>&lt;continuousDiffusionStatistic&gt;</code> element
+### <code>&lt;continuousDiffusionStatistic&gt;</code> element
 
 A statistic that returns the average of the branch diffusion rates
 
@@ -5905,7 +5905,7 @@ Example:
 
 
 
-## <code>&lt;continuousTraitRateModel&gt;</code> element
+### <code>&lt;continuousTraitRateModel&gt;</code> element
 
 This element returns an trait rate model.The branch rates are an average of the rates provided by a node trait.
 
@@ -5940,7 +5940,7 @@ Example:
 
 
 
-## <code>&lt;convert&gt;</code> element
+### <code>&lt;convert&gt;</code> element
 
 Converts an alignment to the given data type.
 
@@ -5967,7 +5967,7 @@ Example:
 
 
 
-## <code>&lt;coordinates&gt;</code> element
+### <code>&lt;coordinates&gt;</code> element
 
 This element represents a set of (X,Y,Z) coordinates in KML format
 
@@ -5985,7 +5985,7 @@ Example:
 
 
 
-## <code>&lt;copyParameterValues&gt;</code> element
+### <code>&lt;copyParameterValues&gt;</code> element
 
 Copy parameter values from source to destination
 
@@ -6018,7 +6018,7 @@ Example:
 
 
 
-## <code>&lt;correlation&gt;</code> element
+### <code>&lt;correlation&gt;</code> element
 
 This element returns a precision that is the element-wise reciprocal of the child precision.
 
@@ -6046,7 +6046,7 @@ Example:
 
 
 
-## <code>&lt;countableMixtureBranchRates&gt;</code> element
+### <code>&lt;countableMixtureBranchRates&gt;</code> element
 
 This element provides a clock consisting of a mixture of fixed effects and random effects.
 
@@ -6171,7 +6171,7 @@ Example:
 
 
 
-## <code>&lt;CSVexport&gt;</code> element
+### <code>&lt;CSVexport&gt;</code> element
 
 Write tabular data as an CSV file.
 
@@ -6220,7 +6220,7 @@ Example:
 
 
 
-## <code>&lt;ctmcScalePrior&gt;</code> element
+### <code>&lt;ctmcScalePrior&gt;</code> element
 
 This element represents the prior for CTMC scale parameter.
 
@@ -6259,7 +6259,7 @@ Example:
 
 
 
-## <code>&lt;dataFromTreeTips&gt;</code> element
+### <code>&lt;dataFromTreeTips&gt;</code> element
 
 Takes the data from the tips of a tree and puts it into a MatrixParameter
 
@@ -6300,7 +6300,7 @@ Example:
 
 
 
-## <code>&lt;dataLikelihood&gt;</code> element
+### <code>&lt;dataLikelihood&gt;</code> element
 
 null
 
@@ -6318,7 +6318,7 @@ Example:
 
 
 
-## <code>&lt;date&gt;</code> element
+### <code>&lt;date&gt;</code> element
 
 Specifies a date on a given timescale
 
@@ -6351,7 +6351,7 @@ Example:
 
 
 
-## <code>&lt;deltaExchange&gt;</code> element
+### <code>&lt;deltaExchange&gt;</code> element
 
 This element returns a delta exchange operator on a given parameter.
 
@@ -6393,7 +6393,7 @@ Example:
 
 
 
-## <code>&lt;deltaMixOperator&gt;</code> element
+### <code>&lt;deltaMixOperator&gt;</code> element
 
 This element returns a scale operator on a given parameter.
 
@@ -6425,7 +6425,7 @@ Example:
 
 
 
-## <code>&lt;designMatrix&gt;</code> element
+### <code>&lt;designMatrix&gt;</code> element
 
 A matrix parameter constructed from its component parameters.
 
@@ -6466,7 +6466,7 @@ Example:
 
 
 
-## <code>&lt;diagonalContrainedMatrixView&gt;</code> element
+### <code>&lt;diagonalContrainedMatrixView&gt;</code> element
 
 A diagonal matrix parameter constructed from its diagonals.
 
@@ -6503,7 +6503,7 @@ Example:
 
 
 
-## <code>&lt;diagonalMatrix&gt;</code> element
+### <code>&lt;diagonalMatrix&gt;</code> element
 
 A diagonal matrix parameter constructed from its diagonals.
 
@@ -6528,7 +6528,7 @@ Example:
 
 
 
-## <code>&lt;differenceStatistic&gt;</code> element
+### <code>&lt;differenceStatistic&gt;</code> element
 
 This element returns a statistic that is the difference of the 2 child statistics.
 
@@ -6562,7 +6562,7 @@ Example:
 
 
 
-## <code>&lt;differenceMatrixParameter&gt;</code> element
+### <code>&lt;differenceMatrixParameter&gt;</code> element
 
 differenceMatrixParameter
 
@@ -6574,7 +6574,7 @@ Example:
 
 
 
-## <code>&lt;differenceParameter&gt;</code> element
+### <code>&lt;differenceParameter&gt;</code> element
 
 A element-wise difference of parameters.
 
@@ -6604,7 +6604,7 @@ Example:
 
 
 
-## <code>&lt;differenceStatistic&gt;</code> element
+### <code>&lt;differenceStatistic&gt;</code> element
 
 This element returns a statistic that is the difference of the 2 child statistics.
 
@@ -6633,7 +6633,7 @@ Example:
 
 
 
-## <code>&lt;diffusionRateCovarianceStatistic&gt;</code> element
+### <code>&lt;diffusionRateCovarianceStatistic&gt;</code> element
 
 A statistic that returns the average of the branch rates
 
@@ -6689,7 +6689,7 @@ Example:
 
 
 
-## <code>&lt;continuousDiffusionStatistic&gt;</code> element
+### <code>&lt;continuousDiffusionStatistic&gt;</code> element
 
 A statistic that returns the average of the branch diffusion rates
 
@@ -6762,7 +6762,7 @@ Example:
 
 
 
-## <code>&lt;dirichletParameterPrior&gt;</code> element
+### <code>&lt;dirichletParameterPrior&gt;</code> element
 
 Calculates the likelihood of some data under a Dirichlet distribution.
 
@@ -6803,7 +6803,7 @@ Example:
 
 
 
-## <code>&lt;dirichletPrior&gt;</code> element
+### <code>&lt;dirichletPrior&gt;</code> element
 
 Calculates the prior probability of some data under a Dirichlet distribution.
 
@@ -6853,7 +6853,7 @@ Example:
 
 
 
-## <code>&lt;dirichletProcessLikelihood&gt;</code> element
+### <code>&lt;dirichletProcessLikelihood&gt;</code> element
 
 Calculates the likelihood of some items distributed into a number of classes under a Dirichlet drocess.
 
@@ -6888,7 +6888,7 @@ Example:
 
 
 
-## <code>&lt;dirichletProcessOperator&gt;</code> element
+### <code>&lt;dirichletProcessOperator&gt;</code> element
 
 An operator that picks a new allocation of an item to a cluster under the Dirichlet process.
 
@@ -6930,7 +6930,7 @@ Example:
 
 
 
-## <code>&lt;dirtyLikelihood&gt;</code> element
+### <code>&lt;dirtyLikelihood&gt;</code> element
 
 This element returns a operator that forces the entire model likelihood recomputation
 
@@ -6955,7 +6955,7 @@ Example:
 
 
 
-## <code>&lt;discreteTraitRateModel&gt;</code> element
+### <code>&lt;discreteTraitRateModel&gt;</code> element
 
 This Branch Rate Model takes a discrete trait reconstruction (provided by a TreeTraitProvider) and gives the rate for each branch of the tree based on the child trait of that branch. The rates for each trait value are specified in a multidimensional parameter.
 
@@ -7048,7 +7048,7 @@ Example:
 
 
 
-## <code>&lt;discreteUniformPrior&gt;</code> element
+### <code>&lt;discreteUniformPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given discrete uniform distribution.
 
@@ -7079,7 +7079,7 @@ Example:
 
 
 
-## <code>&lt;discretizedBranchRates&gt;</code> element
+### <code>&lt;discretizedBranchRates&gt;</code> element
 
 This element returns an discretized relaxed clock model.The branch rates are drawn from a discretized parametric distribution.
 
@@ -7160,7 +7160,7 @@ Example:
 
 
 
-## <code>&lt;discretizedLocationOperator&gt;</code> element
+### <code>&lt;discretizedLocationOperator&gt;</code> element
 
 This element returns a multivariate Gibbs operator on traits for possible all nodes.
 
@@ -7201,7 +7201,7 @@ Example:
 
 
 
-## <code>&lt;distanceDependentCRPGibbsOperator&gt;</code> element
+### <code>&lt;distanceDependentCRPGibbsOperator&gt;</code> element
 
 An operator that picks a new allocation of an item to a cluster under the Dirichlet process.
 
@@ -7254,7 +7254,7 @@ Example:
 
 
 
-## <code>&lt;distanceMatrix&gt;</code> element
+### <code>&lt;distanceMatrix&gt;</code> element
 
 Constructs a distance matrix from a pattern list or alignment
 
@@ -7279,7 +7279,7 @@ Example:
 
 
 
-## <code>&lt;distributionLikelihood&gt;</code> element
+### <code>&lt;distributionLikelihood&gt;</code> element
 
 Calculates the likelihood of some data given some parametric or empirical distribution.
 
@@ -7318,7 +7318,7 @@ Example:
 
 
 
-## <code>&lt;dNdSLogger&gt;</code> element
+### <code>&lt;dNdSLogger&gt;</code> element
 
 null
 
@@ -7378,7 +7378,7 @@ Example:
 
 
 
-## <code>&lt;dNdSPerSiteAnalysis&gt;</code> element
+### <code>&lt;dNdSPerSiteAnalysis&gt;</code> element
 
 Performs a trace dN/dS analysis.
 
@@ -7431,7 +7431,7 @@ Example:
 
 
 
-## <code>&lt;double&gt;</code> element
+### <code>&lt;double&gt;</code> element
 
 returns a Double. If a prompt attribute exists then the user is prompted for input, otherwise the character contents of the element are returned as a Double.
 
@@ -7452,7 +7452,7 @@ Example:
 
 
 
-## <code>&lt;driftedLocationsStatistic&gt;</code> element
+### <code>&lt;driftedLocationsStatistic&gt;</code> element
 
 This element returns a statistic that shifts a matrix of locations by location drift in the first dimension.
 
@@ -7494,7 +7494,7 @@ Example:
 
 
 
-## <code>&lt;driftedTraits&gt;</code> element
+### <code>&lt;driftedTraits&gt;</code> element
 
 null
 
@@ -7526,7 +7526,7 @@ Example:
 
 
 
-## <code>&lt;dummyLikelihood&gt;</code> element
+### <code>&lt;dummyLikelihood&gt;</code> element
 
 A function wraps a component model that would otherwise not be registered with the MCMC. Always returns a log likelihood of zero.
 
@@ -7558,7 +7558,7 @@ Example:
 
 
 
-## <code>&lt;dummyModel&gt;</code> element
+### <code>&lt;dummyModel&gt;</code> element
 
 A function wraps a component model that would otherwise not be registered with the MCMC. Always returns a log likelihood of zero.
 
@@ -7590,7 +7590,7 @@ Example:
 
 
 
-## <code>&lt;duplicatedParameter&gt;</code> element
+### <code>&lt;duplicatedParameter&gt;</code> element
 
 A duplicated parameter.
 
@@ -7620,7 +7620,7 @@ Example:
 
 
 
-## <code>&lt;elementWiseMatrixMultiplicationParameter&gt;</code> element
+### <code>&lt;elementWiseMatrixMultiplicationParameter&gt;</code> element
 
 Returns element wise matrix multiplication of a series of matrices
 
@@ -7632,7 +7632,7 @@ Example:
 
 
 
-## <code>&lt;ellipticalSliceSampler&gt;</code> element
+### <code>&lt;ellipticalSliceSampler&gt;</code> element
 
 An elliptical slice sampler for parameters with Gaussian priors.
 
@@ -7686,7 +7686,7 @@ Example:
 
 
 
-## <code>&lt;emergingEpidemic&gt;</code> element
+### <code>&lt;emergingEpidemic&gt;</code> element
 
 A self-consistent model of emerging epidemics.
 
@@ -7751,7 +7751,7 @@ Example:
 
 
 
-## <code>&lt;empiricalCodonModel&gt;</code> element
+### <code>&lt;empiricalCodonModel&gt;</code> element
 
 This element represents the empirical model of codon evolution.
 
@@ -7808,7 +7808,7 @@ Example:
 
 
 
-## <code>&lt;empiricalDistributionLikelihood&gt;</code> element
+### <code>&lt;empiricalDistributionLikelihood&gt;</code> element
 
 Calculates the likelihood of some data given some empirically-generated distribution.
 
@@ -7866,7 +7866,7 @@ Example:
 
 
 
-## <code>&lt;empiricalPiecewise&gt;</code> element
+### <code>&lt;empiricalPiecewise&gt;</code> element
 
 This element represents a piecewise population model
 
@@ -7934,7 +7934,7 @@ Example:
 
 
 
-## <code>&lt;empiricalTreeDistributionModel&gt;</code> element
+### <code>&lt;empiricalTreeDistributionModel&gt;</code> element
 
 Read a list of trees from a NEXUS file.
 
@@ -7965,7 +7965,7 @@ Example:
 
 
 
-## <code>&lt;empiricalTreeDistributionOperator&gt;</code> element
+### <code>&lt;empiricalTreeDistributionOperator&gt;</code> element
 
 Operator which switches between trees in an empirical distribution.
 
@@ -7993,7 +7993,7 @@ Example:
 
 
 
-## <code>&lt;epochBranchModel&gt;</code> element
+### <code>&lt;epochBranchModel&gt;</code> element
 
 This element provides a branch model which has multiple epoch. All branches (or portions of them) have the same substitution model within a given epoch. If parameters are used to sample transition times, these must be kept in ascending order by judicious use of bounds or priors.
 
@@ -8086,7 +8086,7 @@ Example:
 
 
 
-## <code>&lt;exponentialStatistic&gt;</code> element
+### <code>&lt;exponentialStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise exponentiation of the child statistic.
 
@@ -8111,7 +8111,7 @@ Example:
 
 
 
-## <code>&lt;expansion&gt;</code> element
+### <code>&lt;expansion&gt;</code> element
 
 A demographic model of constant population size followed by exponential growth.
 
@@ -8168,7 +8168,7 @@ Example:
 
 
 
-## <code>&lt;expConstExp&gt;</code> element
+### <code>&lt;expConstExp&gt;</code> element
 
 A demographic model of exponential growth.
 
@@ -8237,7 +8237,7 @@ Example:
 
 
 
-## <code>&lt;exponentialDistributionModel&gt;</code> element
+### <code>&lt;exponentialDistributionModel&gt;</code> element
 
 A model of an exponential distribution.
 
@@ -8274,7 +8274,7 @@ Example:
 
 
 
-## <code>&lt;exponentialExponential&gt;</code> element
+### <code>&lt;exponentialExponential&gt;</code> element
 
 A demographic model of exponential growth followed by a different exponential growth.
 
@@ -8330,7 +8330,7 @@ Example:
 
 
 
-## <code>&lt;exponentialGrowth&gt;</code> element
+### <code>&lt;exponentialGrowth&gt;</code> element
 
 A demographic model of exponential growth.
 
@@ -8378,7 +8378,7 @@ Example:
 
 
 
-## <code>&lt;exponentialLogistic&gt;</code> element
+### <code>&lt;exponentialLogistic&gt;</code> element
 
 A demographic model of exponential growth followed by logistic growth.
 
@@ -8446,7 +8446,7 @@ Example:
 
 
 
-## <code>&lt;exponentialMarkovLikelihood&gt;</code> element
+### <code>&lt;exponentialMarkovLikelihood&gt;</code> element
 
 A continuous state, discrete time markov chain in which each new state is an exponentially distributed variable with a mean of the previous state.
 
@@ -8478,7 +8478,7 @@ Example:
 
 
 
-## <code>&lt;exponentialPrior&gt;</code> element
+### <code>&lt;exponentialPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given exponential distribution.
 
@@ -8511,7 +8511,7 @@ Example:
 
 
 
-## <code>&lt;exponentialSawtooth&gt;</code> element
+### <code>&lt;exponentialSawtooth&gt;</code> element
 
 A demographic model of succesive exponential growth and periodic population crashes.
 
@@ -8570,7 +8570,7 @@ Example:
 
 
 
-## <code>&lt;exponentialStatistic&gt;</code> element
+### <code>&lt;exponentialStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise exponentiation of the child statistic.
 
@@ -8590,7 +8590,7 @@ Example:
 
 
 
-## <code>&lt;expressionStatistic&gt;</code> element
+### <code>&lt;expressionStatistic&gt;</code> element
 
 This element returns a statistic that is the mean of the child statistics.
 
@@ -8624,7 +8624,7 @@ Example:
 
 
 
-## <code>&lt;extendedDataType&gt;</code> element
+### <code>&lt;extendedDataType&gt;</code> element
 
 This element represents an instance of the MutationDeathType which extends a base datatype with an additional "death" state.
 
@@ -8660,7 +8660,7 @@ Example:
 
 
 
-## <code>&lt;externalInternalBranchModel&gt;</code> element
+### <code>&lt;externalInternalBranchModel&gt;</code> element
 
 This element provides a branch model which allows different substitution modelson internal and external branches of the tree.
 
@@ -8723,7 +8723,7 @@ Example:
 
 
 
-## <code>&lt;externalLengthStatistic&gt;</code> element
+### <code>&lt;externalLengthStatistic&gt;</code> element
 
 A statistic that has as its value(s) the length of the external branch length(s) of a set of one or more taxa in a given tree
 
@@ -8802,7 +8802,7 @@ Example:
 
 
 
-## <code>&lt;fastBlockUpperTriangularMatrixParameterParser&gt;</code> element
+### <code>&lt;fastBlockUpperTriangularMatrixParameterParser&gt;</code> element
 
 Returns a blockUpperTriangularMatrixParameter which is a compoundParameter which forces the last element to be of full length, the second to last element to be of full length-1, etc.
 
@@ -8825,7 +8825,7 @@ Example:
 
 
 
-## <code>&lt;fastMatrixParameter&gt;</code> element
+### <code>&lt;fastMatrixParameter&gt;</code> element
 
 A fast matrix parameter constructed from a single parameter.
 
@@ -8861,7 +8861,7 @@ Example:
 
 
 
-## <code>&lt;fireParameterChanged&gt;</code> element
+### <code>&lt;fireParameterChanged&gt;</code> element
 
 This element returns a operator that forces the entire model likelihood recomputation
 
@@ -8888,7 +8888,7 @@ Example:
 
 
 
-## <code>&lt;fixedDriftModel&gt;</code> element
+### <code>&lt;fixedDriftModel&gt;</code> element
 
 This element returns a relaxed drift model.
 
@@ -8923,7 +8923,7 @@ Example:
 
 
 
-## <code>&lt;FixedNodeheightSubtreePruneRegraft&gt;</code> element
+### <code>&lt;FixedNodeheightSubtreePruneRegraft&gt;</code> element
 
 This element represents a FNPR operator. This operator swaps a random subtree with its uncle.
 
@@ -8969,7 +8969,7 @@ Example:
 
 
 
-## <code>&lt;flatGeoSpatialPrior&gt;</code> element
+### <code>&lt;flatGeoSpatialPrior&gt;</code> element
 
 Calculates the likelihood of some data under a 2D geospatial distribution.
 
@@ -9016,7 +9016,7 @@ Example:
 
 
 
-## <code>&lt;frequencyModel&gt;</code> element
+### <code>&lt;frequencyModel&gt;</code> element
 
 A model of equilibrium base frequencies.
 
@@ -9061,7 +9061,7 @@ Example:
 
 
 
-## <code>&lt;gammaDistributionModel&gt;</code> element
+### <code>&lt;gammaDistributionModel&gt;</code> element
 
 The gamma probability distribution.
 
@@ -9110,7 +9110,7 @@ Example:
 
 
 
-## <code>&lt;gammaPrior&gt;</code> element
+### <code>&lt;gammaPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given gamma distribution.
 
@@ -9148,7 +9148,7 @@ Example:
 
 
 
-## <code>&lt;gammaReferencePrior&gt;</code> element
+### <code>&lt;gammaReferencePrior&gt;</code> element
 
 Calculates the reference prior probability of some data under a given normal distribution.
 
@@ -9182,7 +9182,7 @@ Example:
 
 
 
-## <code>&lt;gammaReferencePrior&gt;</code> element
+### <code>&lt;gammaReferencePrior&gt;</code> element
 
 Calculates the reference prior probability of some data under a given normal distribution.
 
@@ -9214,7 +9214,7 @@ Example:
 
 
 
-## <code>&lt;gaussianProcessFromTree&gt;</code> element
+### <code>&lt;gaussianProcessFromTree&gt;</code> element
 
 Returns a random draw of traits given a trait model and a prior
 
@@ -9232,7 +9232,7 @@ Example:
 
 
 
-## <code>&lt;gaussianProcessOperator&gt;</code> element
+### <code>&lt;gaussianProcessOperator&gt;</code> element
 
 This element returns a multivariate normal random walk operator on a given parameter.
 
@@ -9277,7 +9277,7 @@ Example:
 
 
 
-## <code>&lt;generalDataType&gt;</code> element
+### <code>&lt;generalDataType&gt;</code> element
 
 Defines a general DataType for any number of states
 
@@ -9307,7 +9307,7 @@ Example:
 
 
 
-## <code>&lt;generalizedSkylineGibbsOperator&gt;</code> element
+### <code>&lt;generalizedSkylineGibbsOperator&gt;</code> element
 
 This element returns a Gibbs operator for the joint distribution of population sizes.
 
@@ -9366,7 +9366,7 @@ Example:
 
 
 
-## <code>&lt;generalizedSkyLineLikelihood&gt;</code> element
+### <code>&lt;generalizedSkyLineLikelihood&gt;</code> element
 
 This element represents the likelihood of the tree given the population size vector.
 
@@ -9416,7 +9416,7 @@ Example:
 
 
 
-## <code>&lt;generalizedSkylinePopSizeStatistic&gt;</code> element
+### <code>&lt;generalizedSkylinePopSizeStatistic&gt;</code> element
 
 The pop sizes at the given times
 
@@ -9428,7 +9428,7 @@ Example:
 
 
 
-## <code>&lt;generalizedSteppingStoneSamplingAnalysis&gt;</code> element
+### <code>&lt;generalizedSteppingStoneSamplingAnalysis&gt;</code> element
 
 Performs a trace analysis.
 
@@ -9475,7 +9475,7 @@ Example:
 
 
 
-## <code>&lt;generalSubstitutionModel&gt;</code> element
+### <code>&lt;generalSubstitutionModel&gt;</code> element
 
 A general reversible model of sequence substitution for any data type.
 
@@ -9527,7 +9527,7 @@ Example:
 
 
 
-## <code>&lt;geoDistributionCollection&gt;</code> element
+### <code>&lt;geoDistributionCollection&gt;</code> element
 
 An operator that picks new parameter values uniformly at random.
 
@@ -9568,7 +9568,7 @@ Example:
 
 
 
-## <code>&lt;GibbsIndependentCoalescentOperator&gt;</code> element
+### <code>&lt;GibbsIndependentCoalescentOperator&gt;</code> element
 
 This element returns an independence coalescent sampler, disguised as a Gibbs operator, from a demographic model.
 
@@ -9672,7 +9672,7 @@ Example:
 
 
 
-## <code>&lt;GibbsIndependentGammaOperator&gt;</code> element
+### <code>&lt;GibbsIndependentGammaOperator&gt;</code> element
 
 This element returns an independence sampler, disguised as a Gibbs operator, from a provided gamma prior.
 
@@ -9703,7 +9703,7 @@ Example:
 
 
 
-## <code>&lt;GibbsIndependentNormalDistributionOperator&gt;</code> element
+### <code>&lt;GibbsIndependentNormalDistributionOperator&gt;</code> element
 
 This element returns an independence sampler, disguised as a Gibbs operator, from a provided normal distribution model.
 
@@ -9740,7 +9740,7 @@ Example:
 
 
 
-## <code>&lt;GibbsPruneAndRegraft&gt;</code> element
+### <code>&lt;GibbsPruneAndRegraft&gt;</code> element
 
 This element represents a Gibbs sampler implemented through a prune and regraft operator. This operator prunes a random subtree and regrafts it below a node chosen by an importance distribution which is the proportion of the likelihoods of the proposals.
 
@@ -9813,7 +9813,7 @@ Example:
 
 
 
-## <code>&lt;gibbsSampleMissingTraitsOperator&gt;</code> element
+### <code>&lt;gibbsSampleMissingTraitsOperator&gt;</code> element
 
 This element returns an independence coalescent sampler from a demographic model.
 
@@ -9859,7 +9859,7 @@ Example:
 
 
 
-## <code>&lt;GibbsSubtreeSwap&gt;</code> element
+### <code>&lt;GibbsSubtreeSwap&gt;</code> element
 
 This element represents a Gibbs wide exchange operator. This operator swaps two subtrees chosen to their posterior probaility.
 
@@ -9896,7 +9896,7 @@ Example:
 
 
 
-## <code>&lt;glmModel&gt;</code> element
+### <code>&lt;glmModel&gt;</code> element
 
 Calculates the generalized linear model likelihood of the dependent parameters given one or more blocks of independent parameters and their design matrix.
 
@@ -9960,7 +9960,7 @@ Example:
 
 
 
-## <code>&lt;glmModelNew&gt;</code> element
+### <code>&lt;glmModelNew&gt;</code> element
 
 Calculates the generalized linear model likelihood of the dependent parameters given one or more blocks of independent parameters and their design matrix.
 
@@ -10033,7 +10033,7 @@ Example:
 
 
 
-## <code>&lt;glmSubstitutionModel&gt;</code> element
+### <code>&lt;glmSubstitutionModel&gt;</code> element
 
 A general model of sequence substitution for any data type where the rates come from the generalized linear model.
 
@@ -10082,7 +10082,7 @@ Example:
 
 
 
-## <code>&lt;glmSubstitutionModelNew&gt;</code> element
+### <code>&lt;glmSubstitutionModelNew&gt;</code> element
 
 A general model of sequence substitution for any data type where the rates come from the generalized linear model.
 
@@ -10135,7 +10135,7 @@ Example:
 
 
 
-## <code>&lt;gmrfBivariateCurveAnalysis&gt;</code> element
+### <code>&lt;gmrfBivariateCurveAnalysis&gt;</code> element
 
 Integrates two curves
 
@@ -10161,7 +10161,7 @@ Example:
 
 
 
-## <code>&lt;gmrfBlockUpdateOperator&gt;</code> element
+### <code>&lt;gmrfBlockUpdateOperator&gt;</code> element
 
 This element returns a GMRF block-update operator for the joint distribution of the population sizes and precision parameter.
 
@@ -10209,7 +10209,7 @@ Example:
 
 
 
-## <code>&lt;gmrfFixedEffectsGibbsOperator&gt;</code> element
+### <code>&lt;gmrfFixedEffectsGibbsOperator&gt;</code> element
 
 This element returns a Gibbs operator for regression coefficients in a GMRF.
 
@@ -10259,7 +10259,7 @@ Example:
 
 
 
-## <code>&lt;gmrfBlockUpdateOperator&gt;</code> element
+### <code>&lt;gmrfBlockUpdateOperator&gt;</code> element
 
 This element returns a GMRF block-update operator for the joint distribution of the population sizes and precision parameter.
 
@@ -10307,7 +10307,7 @@ Example:
 
 
 
-## <code>&lt;gmrfHeightsStatistic&gt;</code> element
+### <code>&lt;gmrfHeightsStatistic&gt;</code> element
 
 A statistic that returns the heights of each internal node in increasing order (or groups them by a group size parameter)
 
@@ -10340,7 +10340,7 @@ Example:
 
 
 
-## <code>&lt;gmrfPopSizeStatistic&gt;</code> element
+### <code>&lt;gmrfPopSizeStatistic&gt;</code> element
 
 The pop sizes at the given times
 
@@ -10382,7 +10382,7 @@ Example:
 
 
 
-## <code>&lt;gmrfSkyrideLikelihood&gt;</code> element
+### <code>&lt;gmrfSkyrideLikelihood&gt;</code> element
 
 This element represents the likelihood of the tree given the population size vector.
 
@@ -10458,7 +10458,7 @@ Example:
 
 
 
-## <code>&lt;gmrfSkyrideLikelihood&gt;</code> element
+### <code>&lt;gmrfSkyrideLikelihood&gt;</code> element
 
 This element represents the likelihood of the tree given the population size vector.
 
@@ -10533,7 +10533,7 @@ Example:
 
 
 
-## <code>&lt;gmrfTestLikelihood&gt;</code> element
+### <code>&lt;gmrfTestLikelihood&gt;</code> element
 
 This element represents the likelihood of the tree given the population size vector.
 
@@ -10575,7 +10575,7 @@ Example:
 
 
 
-## <code>&lt;gradient&gt;</code> element
+### <code>&lt;gradient&gt;</code> element
 
 null
 
@@ -10604,7 +10604,7 @@ Example:
 
 
 
-## <code>&lt;greatCircleDiffusionModel&gt;</code> element
+### <code>&lt;greatCircleDiffusionModel&gt;</code> element
 
 Describes a bivariate diffusion process using great circle distances.
 
@@ -10630,7 +10630,7 @@ Example:
 
 
 
-## <code>&lt;gtrModel&gt;</code> element
+### <code>&lt;gtrModel&gt;</code> element
 
 A general reversible model of nucleotide sequence substitution.
 
@@ -10703,7 +10703,7 @@ Example:
 
 
 
-## <code>&lt;halfNormalPrior&gt;</code> element
+### <code>&lt;halfNormalPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given half-normal distribution.
 
@@ -10742,7 +10742,7 @@ Example:
 
 
 
-## <code>&lt;halfTPrior&gt;</code> element
+### <code>&lt;halfTPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given half-T distribution.
 
@@ -10774,7 +10774,7 @@ Example:
 
 
 
-## <code>&lt;HamiltonianMonteCarloOperator&gt;</code> element
+### <code>&lt;HamiltonianMonteCarloOperator&gt;</code> element
 
 Returns a Hamiltonian Monte Carlo transition kernel
 
@@ -10826,7 +10826,7 @@ Example:
 
 
 
-## <code>&lt;harmonicMeanAnalysis&gt;</code> element
+### <code>&lt;harmonicMeanAnalysis&gt;</code> element
 
 Performs a trace analysis. Estimates the mean of the various statistics in the given log file.
 
@@ -10863,7 +10863,7 @@ Example:
 
 
 
-## <code>&lt;hiddenClassRewardParameter&gt;</code> element
+### <code>&lt;hiddenClassRewardParameter&gt;</code> element
 
 Generates a reward parameter to log hidden classes in Markov-modulated substitutionProcess
 
@@ -10896,7 +10896,7 @@ Example:
 
 
 
-## <code>&lt;hiddenNucleotides&gt;</code> element
+### <code>&lt;hiddenNucleotides&gt;</code> element
 
 A nucleotide data type that allows hidden substitution classes
 
@@ -10913,7 +10913,7 @@ Example:
 
 
 
-## <code>&lt;HierarchicalBitFlipOperator&gt;</code> element
+### <code>&lt;HierarchicalBitFlipOperator&gt;</code> element
 
 This element returns a bit-flip operator on a set of hierarchical and strata parameters simulatneously.
 
@@ -10956,7 +10956,7 @@ Example:
 
 
 
-## <code>&lt;hierarchicalGraphLikelihood&gt;</code> element
+### <code>&lt;hierarchicalGraphLikelihood&gt;</code> element
 
 Calculates the likelihood of strata graph given hierarchical graph and p.
 
@@ -11001,7 +11001,7 @@ Example:
 
 
 
-## <code>&lt;hierarchicalPartitionLikelihood&gt;</code> element
+### <code>&lt;hierarchicalPartitionLikelihood&gt;</code> element
 
 null
 
@@ -11036,7 +11036,7 @@ Example:
 
 
 
-## <code>&lt;hierarchicalTransmissionModel&gt;</code> element
+### <code>&lt;hierarchicalTransmissionModel&gt;</code> element
 
 A SiteModel that has a gamma distributed rates across sites
 
@@ -11143,7 +11143,7 @@ Example:
 
 
 
-## <code>&lt;historyFilter&gt;</code> element
+### <code>&lt;historyFilter&gt;</code> element
 
 A logger to filter transitions in the complete history.
 
@@ -11187,7 +11187,7 @@ Example:
 
 
 
-## <code>&lt;hkyModel&gt;</code> element
+### <code>&lt;hkyModel&gt;</code> element
 
 This element represents an instance of the HKY85 (Hasegawa, Kishino & Yano, 1985) model of nucleotide evolution.
 
@@ -11220,7 +11220,7 @@ Example:
 
 
 
-## <code>&lt;hybPopSizesScaleOperator&gt;</code> element
+### <code>&lt;hybPopSizesScaleOperator&gt;</code> element
 
 Operator which scales the population size of a newly formed hybrid.
 
@@ -11276,7 +11276,7 @@ Example:
 
 
 
-## <code>&lt;hypermutantAlignment&gt;</code> element
+### <code>&lt;hypermutantAlignment&gt;</code> element
 
 Converts an alignment so that 'A's at specific APOBEC targeted contexts are set to an A/G ambiguity code.
 
@@ -11302,7 +11302,7 @@ Example:
 
 
 
-## <code>&lt;hypermutantErrorModel&gt;</code> element
+### <code>&lt;hypermutantErrorModel&gt;</code> element
 
 This element returns a model that allows for APOBEC-type RNA editing.
 
@@ -11345,7 +11345,7 @@ Example:
 
 
 
-## <code>&lt;immutableParameter&gt;</code> element
+### <code>&lt;immutableParameter&gt;</code> element
 
 An immutable parameter generated from a statistic.
 
@@ -11365,7 +11365,7 @@ Example:
 
 
 
-## <code>&lt;ImportanceNarrowExchange&gt;</code> element
+### <code>&lt;ImportanceNarrowExchange&gt;</code> element
 
 This element represents a swap operator. This operator swaps a random subtree with its uncle.
 
@@ -11438,7 +11438,7 @@ Example:
 
 
 
-## <code>&lt;ImportancePruneAndRegraft&gt;</code> element
+### <code>&lt;ImportancePruneAndRegraft&gt;</code> element
 
 This element represents a importance guided prune and regraft operator. This operator prunes a random subtree and regrafts it below a node chosen by an importance distribution.
 
@@ -11475,7 +11475,7 @@ Example:
 
 
 
-## <code>&lt;ImportanceSubtreeSwap&gt;</code> element
+### <code>&lt;ImportanceSubtreeSwap&gt;</code> element
 
 This element represents a importance guided subtree swap operator. This operator swaps a random subtree with a second subtree guided by an importance distribution.
 
@@ -11503,7 +11503,7 @@ Example:
 
 
 
-## <code>&lt;individual&gt;</code> element
+### <code>&lt;individual&gt;</code> element
 
 Individual specimen from a species, possibly containing multiple genomes.
 
@@ -11532,7 +11532,7 @@ Example:
 
 
 
-## <code>&lt;individualPrior&gt;</code> element
+### <code>&lt;individualPrior&gt;</code> element
 
 Calculates the probability of a set of doubles all being drawn from the specified prior distribution
 
@@ -11561,7 +11561,7 @@ Example:
 
 
 
-## <code>&lt;infectionBranchMovementOperator&gt;</code> element
+### <code>&lt;infectionBranchMovementOperator&gt;</code> element
 
 This operator switches the painting of a random eligible internal node from the painting of one of its children to the painting of the other
 
@@ -11595,7 +11595,7 @@ Example:
 
 
 
-## <code>&lt;inhibitionLikelihood&gt;</code> element
+### <code>&lt;inhibitionLikelihood&gt;</code> element
 
 Provides the likelihood of a continuous trait evolving on a tree by a given diffusion model.
 
@@ -11634,7 +11634,7 @@ Example:
 
 
 
-## <code>&lt;integer&gt;</code> element
+### <code>&lt;integer&gt;</code> element
 
 returns an Integer. If a prompt attribute exists then the user is prompted for input, otherwise the character contents of the element are returned as an Integer.
 
@@ -11655,7 +11655,7 @@ Example:
 
 
 
-## <code>&lt;integerParameter&gt;</code> element
+### <code>&lt;integerParameter&gt;</code> element
 
 An integer-valued parameter only for staircase bound.
 
@@ -11675,7 +11675,7 @@ Example:
 
 
 
-## <code>&lt;integratedFactorModel&gt;</code> element
+### <code>&lt;integratedFactorModel&gt;</code> element
 
 null
 
@@ -11769,7 +11769,7 @@ Example:
 
 
 
-## <code>&lt;integratedMixtureModel&gt;</code> element
+### <code>&lt;integratedMixtureModel&gt;</code> element
 
 This element represents a finite mixture of likelihood models.
 
@@ -11803,7 +11803,7 @@ Example:
 
 
 
-## <code>&lt;traitGibbsOperator&gt;</code> element
+### <code>&lt;traitGibbsOperator&gt;</code> element
 
 This element returns a multivariate Gibbs operator on traits for possible all nodes.
 
@@ -11861,7 +11861,7 @@ Example:
 
 
 
-## <code>&lt;intervalLatentLiabilityLikelihood&gt;</code> element
+### <code>&lt;intervalLatentLiabilityLikelihood&gt;</code> element
 
 Provides the likelihood of a latent liability model on multivariate-binary trait data
 
@@ -11902,7 +11902,7 @@ Example:
 
 
 
-## <code>&lt;invariantOperator&gt;</code> element
+### <code>&lt;invariantOperator&gt;</code> element
 
 This element returns a operator that forces the entire model likelihood recomputation
 
@@ -11939,7 +11939,7 @@ Example:
 
 
 
-## <code>&lt;inverseGammaDistributionModel&gt;</code> element
+### <code>&lt;inverseGammaDistributionModel&gt;</code> element
 
 A model of an inverese gamma distribution.
 
@@ -11988,7 +11988,7 @@ Example:
 
 
 
-## <code>&lt;invgammaPrior&gt;</code> element
+### <code>&lt;invgammaPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given inverse gamma distribution.
 
@@ -12023,7 +12023,7 @@ Example:
 
 
 
-## <code>&lt;inverseGaussianDistributionModel&gt;</code> element
+### <code>&lt;inverseGaussianDistributionModel&gt;</code> element
 
 Describes a inverse gaussian distribution with a given mean and shape (or standard deviation) that can be used in a distributionLikelihood element
 
@@ -12076,7 +12076,7 @@ Example:
 
 
 
-## <code>&lt;inverseTransform&gt;</code> element
+### <code>&lt;inverseTransform&gt;</code> element
 
 null
 
@@ -12101,7 +12101,7 @@ Example:
 
 
 
-## <code>&lt;invgammaPrior&gt;</code> element
+### <code>&lt;invgammaPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given inverse gamma distribution.
 
@@ -12140,7 +12140,7 @@ Example:
 
 
 
-## <code>&lt;oneOnXPrior&gt;</code> element
+### <code>&lt;oneOnXPrior&gt;</code> element
 
 Calculates the (improper) prior proportional to Prod_i (1/x_i) for the given statistic x.
 
@@ -12169,7 +12169,7 @@ Example:
 
 
 
-## <code>&lt;jitter&gt;</code> element
+### <code>&lt;jitter&gt;</code> element
 
 This element returns a random walk operator on a given parameter.
 
@@ -12198,7 +12198,7 @@ Example:
 
 
 
-## <code>&lt;sumDerivative&gt;</code> element
+### <code>&lt;sumDerivative&gt;</code> element
 
 null
 
@@ -12221,7 +12221,7 @@ Example:
 
 
 
-## <code>&lt;jointOperator&gt;</code> element
+### <code>&lt;jointOperator&gt;</code> element
 
 This element represents an arbitrary list of operators; only the first is optimizable
 
@@ -12261,7 +12261,7 @@ Example:
 
 
 
-## <code>&lt;jointParameter&gt;</code> element
+### <code>&lt;jointParameter&gt;</code> element
 
 A parameter that synchronises its component parameters.
 
@@ -12287,7 +12287,7 @@ Example:
 
 
 
-## <code>&lt;knownVarianceNormalPeriodPriorDistribution&gt;</code> element
+### <code>&lt;knownVarianceNormalPeriodPriorDistribution&gt;</code> element
 
 Calculates the probability of a set of doubles being drawn from the prior posterior distributionof a normal distribution of unknown mean and known standard deviation sigma
 
@@ -12316,7 +12316,7 @@ Example:
 
 
 
-## <code>&lt;kStateType&gt;</code> element
+### <code>&lt;kStateType&gt;</code> element
 
 Parser for k-state model.
 
@@ -12336,7 +12336,7 @@ Example:
 
 
 
-## <code>&lt;laplacePrior&gt;</code> element
+### <code>&lt;laplacePrior&gt;</code> element
 
 Calculates the prior probability of some data under a given laplace distribution.
 
@@ -12374,7 +12374,7 @@ Example:
 
 
 
-## <code>&lt;latentFactorModel&gt;</code> element
+### <code>&lt;latentFactorModel&gt;</code> element
 
 Sets up a latent factor model, with starting guesses for the loadings and factor matrices as well as the data for the factor analysis
 
@@ -12466,7 +12466,7 @@ Example:
 
 
 
-## <code>&lt;latentLiabilityGibbsOperator&gt;</code> element
+### <code>&lt;latentLiabilityGibbsOperator&gt;</code> element
 
 This element returns a gibbs sampler on tip latent trais for latent liability model.
 
@@ -12508,7 +12508,7 @@ Example:
 
 
 
-## <code>&lt;latentLiabilityLikelihood&gt;</code> element
+### <code>&lt;latentLiabilityLikelihood&gt;</code> element
 
 Provides the likelihood of a latent liability model on multivariate-binary trait data
 
@@ -12594,7 +12594,7 @@ Example:
 
 
 
-## <code>&lt;latentStateBranchRateModel&gt;</code> element
+### <code>&lt;latentStateBranchRateModel&gt;</code> element
 
 This element provides a model with a latent state where no evolution occurs but condition on being non-latent at the nodes.
 
@@ -12704,7 +12704,7 @@ Example:
 
 
 
-## <code>&lt;leafTraitParameter&gt;</code> element
+### <code>&lt;leafTraitParameter&gt;</code> element
 
 Parses the leaf trait parameter out of the compound parameter of an integrated trait likelihood
 
@@ -12780,7 +12780,7 @@ Example:
 
 
 
-## <code>&lt;lewisMk&gt;</code> element
+### <code>&lt;lewisMk&gt;</code> element
 
 A parser for Lewis's Mk model
 
@@ -12823,7 +12823,7 @@ Example:
 
 
 
-## <code>&lt;compoundLikelihood&gt;</code> element
+### <code>&lt;compoundLikelihood&gt;</code> element
 
 A likelihood function which is simply the product of its component likelihood functions.
 
@@ -12862,7 +12862,7 @@ Example:
 
 
 
-## <code>&lt;likelihoodProfile&gt;</code> element
+### <code>&lt;likelihoodProfile&gt;</code> element
 
 This element represents a tool to profile a likelihood surface
 
@@ -12910,7 +12910,7 @@ Example:
 
 
 
-## <code>&lt;lineageCountStatistic&gt;</code> element
+### <code>&lt;lineageCountStatistic&gt;</code> element
 
 
 
@@ -12938,7 +12938,7 @@ Example:
 
 
 
-## <code>&lt;lineageSpecificBranchModel&gt;</code> element
+### <code>&lt;lineageSpecificBranchModel&gt;</code> element
 
 This element provides a branch model which has branches assigned to specific substitution models.These assignments can then be changed in course of MCMC.
 
@@ -12984,7 +12984,7 @@ Example:
 
 
 
-## <code>&lt;localClockModel&gt;</code> element
+### <code>&lt;localClockModel&gt;</code> element
 
 This element returns a branch rate model that adds a delta to each terminal branch length.
 
@@ -13093,7 +13093,7 @@ Example:
 
 
 
-## <code>&lt;location&gt;</code> element
+### <code>&lt;location&gt;</code> element
 
 Specifies a location with an optional longitude and latitude
 
@@ -13116,7 +13116,7 @@ Example:
 
 
 
-## <code>&lt;log&gt;</code> element
+### <code>&lt;log&gt;</code> element
 
 Logs one or more items at a given frequency to the screen or to a file
 
@@ -13169,7 +13169,7 @@ Example:
 
 
 
-## <code>&lt;logAllTraits&gt;</code> element
+### <code>&lt;logAllTraits&gt;</code> element
 
 null
 
@@ -13190,7 +13190,7 @@ Example:
 
 
 
-## <code>&lt;logArg&gt;</code> element
+### <code>&lt;logArg&gt;</code> element
 
 Logs an ARG to a file
 
@@ -13224,7 +13224,7 @@ Example:
 
 
 
-## <code>&lt;logArgTree&gt;</code> element
+### <code>&lt;logArgTree&gt;</code> element
 
 Logs a tree to a file
 
@@ -13270,7 +13270,7 @@ Example:
 
 
 
-## <code>&lt;logarithmStatistic&gt;</code> element
+### <code>&lt;logarithmStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise natural logarithm of the child statistic.
 
@@ -13297,7 +13297,7 @@ Example:
 
 
 
-## <code>&lt;logarithmStatistic&gt;</code> element
+### <code>&lt;logarithmStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise natural logarithm of the child statistic.
 
@@ -13323,7 +13323,7 @@ Example:
 
 
 
-## <code>&lt;logFileTrace&gt;</code> element
+### <code>&lt;logFileTrace&gt;</code> element
 
 reconstruct population graph from variable dimension run.
 
@@ -13343,7 +13343,7 @@ Example:
 
 
 
-## <code>&lt;loggableStatistic&gt;</code> element
+### <code>&lt;loggableStatistic&gt;</code> element
 
 Allows you to choose specific dimensions of a given statistic
 
@@ -13366,7 +13366,7 @@ Example:
 
 
 
-## <code>&lt;logisticGrowth&gt;</code> element
+### <code>&lt;logisticGrowth&gt;</code> element
 
 Logistic growth demographic model.
 
@@ -13425,7 +13425,7 @@ Example:
 
 
 
-## <code>&lt;logitTransformedNormalReferencePrior&gt;</code> element
+### <code>&lt;logitTransformedNormalReferencePrior&gt;</code> element
 
 Calculates the reference prior probability of some data under logit transformed normal distribution.
 
@@ -13460,7 +13460,7 @@ Example:
 
 
 
-## <code>&lt;logitTransformedNormalReferencePrior&gt;</code> element
+### <code>&lt;logitTransformedNormalReferencePrior&gt;</code> element
 
 Calculates the reference prior probability of some data under logit transformed normal distribution.
 
@@ -13507,7 +13507,7 @@ Example:
 
 
 
-## <code>&lt;logML&gt;</code> element
+### <code>&lt;logML&gt;</code> element
 
 Logs one or more items every time the given likelihood improves
 
@@ -13554,7 +13554,7 @@ Example:
 
 
 
-## <code>&lt;logNormalDistributionModel&gt;</code> element
+### <code>&lt;logNormalDistributionModel&gt;</code> element
 
 Describes a normal distribution with a given mean and standard deviation that can be used in a distributionLikelihood element
 
@@ -13618,7 +13618,7 @@ Example:
 
 
 
-## <code>&lt;logNormalPrior&gt;</code> element
+### <code>&lt;logNormalPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given lognormal distribution.
 
@@ -13662,7 +13662,7 @@ Example:
 
 
 
-## <code>&lt;logPartitionedTree&gt;</code> element
+### <code>&lt;logPartitionedTree&gt;</code> element
 
 Logs a partitioned tree (phylogenetic tree and transmission tree)
 
@@ -13739,7 +13739,7 @@ Example:
 
 
 
-## <code>&lt;logRandomWalkOperator&gt;</code> element
+### <code>&lt;logRandomWalkOperator&gt;</code> element
 
 This element returns a scale operator on a given parameter.
 
@@ -13774,7 +13774,7 @@ Example:
 
 
 
-## <code>&lt;logTransformedNormalReferencePrior&gt;</code> element
+### <code>&lt;logTransformedNormalReferencePrior&gt;</code> element
 
 Calculates the reference prior probability of some data under log transformed normal distribution.
 
@@ -13808,7 +13808,7 @@ Example:
 
 
 
-## <code>&lt;logTransformedNormalReferencePrior&gt;</code> element
+### <code>&lt;logTransformedNormalReferencePrior&gt;</code> element
 
 Calculates the reference prior probability of some data under log transformed normal distribution.
 
@@ -13845,7 +13845,7 @@ Example:
 
 
 
-## <code>&lt;logTree&gt;</code> element
+### <code>&lt;logTree&gt;</code> element
 
 Logs a tree to a file
 
@@ -13920,7 +13920,7 @@ Example:
 
 
 
-## <code>&lt;marginalLikelihoodAnalysis&gt;</code> element
+### <code>&lt;marginalLikelihoodAnalysis&gt;</code> element
 
 Performs a trace analysis. Estimates the mean of the various statistics in the given log file.
 
@@ -13951,7 +13951,7 @@ Example:
 
 
 
-## <code>&lt;marginalLikelihoodEstimator&gt;</code> element
+### <code>&lt;marginalLikelihoodEstimator&gt;</code> element
 
 This element returns an MCMC chain and runs the chain as a side effect.
 
@@ -14033,7 +14033,7 @@ Example:
 
 
 
-## <code>&lt;markovJumpsTreeLikelihood&gt;</code> element
+### <code>&lt;markovJumpsTreeLikelihood&gt;</code> element
 
 This element represents the likelihood of a patternlist on a tree given the site model.
 
@@ -14188,7 +14188,7 @@ Example:
 
 
 
-## <code>&lt;markovModulatedSubstitutionModel&gt;</code> element
+### <code>&lt;markovModulatedSubstitutionModel&gt;</code> element
 
 This element represents the a Markov-modulated substitution model.
 
@@ -14257,7 +14257,7 @@ Example:
 
 
 
-## <code>&lt;markovModulatedYangCodonModel&gt;</code> element
+### <code>&lt;markovModulatedYangCodonModel&gt;</code> element
 
 This element represents the a Markov-modulated Yang model of codon evolution.
 
@@ -14318,7 +14318,7 @@ Example:
 
 
 
-## <code>&lt;markovRandomFieldMatrix&gt;</code> element
+### <code>&lt;markovRandomFieldMatrix&gt;</code> element
 
 A MRF matrix parameter constructed from its diagonals and first-order off diagonal.
 
@@ -14372,7 +14372,7 @@ Example:
 
 
 
-## <code>&lt;maskedGradient&gt;</code> element
+### <code>&lt;maskedGradient&gt;</code> element
 
 null
 
@@ -14402,7 +14402,7 @@ Example:
 
 
 
-## <code>&lt;maskedMatrixParameter&gt;</code> element
+### <code>&lt;maskedMatrixParameter&gt;</code> element
 
 A masked matrix parameter.
 
@@ -14450,7 +14450,7 @@ Example:
 
 
 
-## <code>&lt;maskedParameter&gt;</code> element
+### <code>&lt;maskedParameter&gt;</code> element
 
 A masked parameter.
 
@@ -14498,7 +14498,7 @@ Example:
 
 
 
-## <code>&lt;maskedPatterns&gt;</code> element
+### <code>&lt;maskedPatterns&gt;</code> element
 
 A weighted list of the unique site patterns (unique columns) in an alignment.
 
@@ -14533,7 +14533,7 @@ Example:
 
 
 
-## <code>&lt;matrixInverse&gt;</code> element
+### <code>&lt;matrixInverse&gt;</code> element
 
 This element returns a statistic that is the matrix inverse of the child statistic.
 
@@ -14553,7 +14553,7 @@ Example:
 
 
 
-## <code>&lt;matrixMatrixProduct&gt;</code> element
+### <code>&lt;matrixMatrixProduct&gt;</code> element
 
 Gets Latent Factor Model to return data with residuals computed
 
@@ -14600,7 +14600,7 @@ Example:
 
 
 
-## <code>&lt;matrixParameter&gt;</code> element
+### <code>&lt;matrixParameter&gt;</code> element
 
 A matrix parameter constructed from its component parameters.
 
@@ -14643,7 +14643,7 @@ Example:
 
 
 
-## <code>&lt;matrixVectorProductParameter&gt;</code> element
+### <code>&lt;matrixVectorProductParameter&gt;</code> element
 
 A matrix-vector product of parameters.
 
@@ -14676,7 +14676,7 @@ Example:
 
 
 
-## <code>&lt;mcmc&gt;</code> element
+### <code>&lt;mcmc&gt;</code> element
 
 This element returns an MCMC chain and runs the chain as a side effect.
 
@@ -14750,7 +14750,7 @@ Example:
 
 
 
-## <code>&lt;mdsModeFinder&gt;</code> element
+### <code>&lt;mdsModeFinder&gt;</code> element
 
 Provides a mode finder for a MDS model on a tree
 
@@ -14782,7 +14782,7 @@ Example:
 
 
 
-## <code>&lt;meanStatistic&gt;</code> element
+### <code>&lt;meanStatistic&gt;</code> element
 
 This element returns a statistic that is the mean of the child statistics.
 
@@ -14822,7 +14822,7 @@ Example:
 
 
 
-## <code>&lt;mergePatterns&gt;</code> element
+### <code>&lt;mergePatterns&gt;</code> element
 
 A weighted list of the unique site patterns (unique columns) in an alignment.
 
@@ -14846,7 +14846,7 @@ Example:
 
 
 
-## <code>&lt;MetagenomeData&gt;</code> element
+### <code>&lt;MetagenomeData&gt;</code> element
 
 Data representing metagenome reads aligned to reference sequences and a reference tree
 
@@ -14885,7 +14885,7 @@ Example:
 
 
 
-## <code>&lt;microsatellite&gt;</code> element
+### <code>&lt;microsatellite&gt;</code> element
 
 This element represents a microsatellite data type.
 
@@ -14913,7 +14913,7 @@ Example:
 
 
 
-## <code>&lt;microsatellitePattern&gt;</code> element
+### <code>&lt;microsatellitePattern&gt;</code> element
 
 This element represents a microsatellite pattern.
 
@@ -14959,7 +14959,7 @@ Example:
 
 
 
-## <code>&lt;microsatelliteSamplerTreeModel&gt;</code> element
+### <code>&lt;microsatelliteSamplerTreeModel&gt;</code> element
 
 This parser returns a TreeMicrosatelliteSamplerModel Object
 
@@ -15006,7 +15006,7 @@ Example:
 
 
 
-## <code>&lt;microsatelliteSimulator&gt;</code> element
+### <code>&lt;microsatelliteSimulator&gt;</code> element
 
 This parser facilliates simulation of microsatellites given a tree and infinitesimal rate model
 
@@ -15080,7 +15080,7 @@ Example:
 
 
 
-## <code>&lt;microsatUpDownOperator&gt;</code> element
+### <code>&lt;microsatUpDownOperator&gt;</code> element
 
 This element represents an operator that scales two parameters in different directions. Each operation involves selecting a scale uniformly at random between scaleFactor and 1/scaleFactor. The up parameter is multipled by this scale and the down parameter is divided by this scale.
 
@@ -15125,7 +15125,7 @@ Example:
 
 
 
-## <code>&lt;mixedDistributionLikelihood&gt;</code> element
+### <code>&lt;mixedDistributionLikelihood&gt;</code> element
 
 Calculates the likelihood of some data given some mix of parametric distributions.
 
@@ -15176,7 +15176,7 @@ Example:
 
 
 
-## <code>&lt;mixtureCartogramDiffusionModel&gt;</code> element
+### <code>&lt;mixtureCartogramDiffusionModel&gt;</code> element
 
 Describes a bivariate diffusion process using cartogram distances.
 
@@ -15222,7 +15222,7 @@ Example:
 
 
 
-## <code>&lt;mixtureModel&gt;</code> element
+### <code>&lt;mixtureModel&gt;</code> element
 
 This element represents a finite mixture of likelihood models.
 
@@ -15271,7 +15271,7 @@ Example:
 
 
 
-## <code>&lt;mixtureModelBranchRates&gt;</code> element
+### <code>&lt;mixtureModelBranchRates&gt;</code> element
 
 This element returns a random discretized relaxed clock model.The branch rates are drawn from a continuous parametric distribution.
 
@@ -15341,7 +15341,7 @@ Example:
 
 
 
-## <code>&lt;mixtureModelLikelihood&gt;</code> element
+### <code>&lt;mixtureModelLikelihood&gt;</code> element
 
 This element represents a finite mixture of likelihood models.
 
@@ -15381,7 +15381,7 @@ Example:
 
 
 
-## <code>&lt;modeFindOperator&gt;</code> element
+### <code>&lt;modeFindOperator&gt;</code> element
 
 This element returns a mode finder that always accepts.
 
@@ -15413,7 +15413,7 @@ Example:
 
 
 
-## <code>&lt;modeIndependenceOperator&gt;</code> element
+### <code>&lt;modeIndependenceOperator&gt;</code> element
 
 This element returns a multivariate normal random walk operator on a given parameter.
 
@@ -15461,7 +15461,7 @@ Example:
 
 
 
-## <code>&lt;modelSpecificPseudoPrior&gt;</code> element
+### <code>&lt;modelSpecificPseudoPrior&gt;</code> element
 
 Calculates the likelihood of some data given some parametric or empirical distribution.
 
@@ -15473,7 +15473,7 @@ Example:
 
 
 
-## <code>&lt;monophylyStatistic&gt;</code> element
+### <code>&lt;monophylyStatistic&gt;</code> element
 
 A statistic that returns true if a given set of taxa are monophyletic for a given tree
 
@@ -15525,7 +15525,7 @@ Example:
 
 
 
-## <code>&lt;monotonicStatistic&gt;</code> element
+### <code>&lt;monotonicStatistic&gt;</code> element
 
 
 
@@ -15557,7 +15557,7 @@ Example:
 
 
 
-## <code>&lt;moveLegs&gt;</code> element
+### <code>&lt;moveLegs&gt;</code> element
 
 Operator which changes the way a tetraploid subtree joins the diploid tree.
 
@@ -15604,7 +15604,7 @@ Example:
 
 
 
-## <code>&lt;mrcaTraitStatistic&gt;</code> element
+### <code>&lt;mrcaTraitStatistic&gt;</code> element
 
 A statistic that has as its value the height of the most recent common ancestor of a set of taxa in a given tree
 
@@ -15680,7 +15680,7 @@ Example:
 
 
 
-## <code>&lt;MsatFullAncestryImportanceSamplingOperator&gt;</code> element
+### <code>&lt;MsatFullAncestryImportanceSamplingOperator&gt;</code> element
 
 This element represents an operator that samples the full ancestry given a microsatellite pattern and a tree
 
@@ -15734,7 +15734,7 @@ Example:
 
 
 
-## <code>&lt;msatModelSelectOperator&gt;</code> element
+### <code>&lt;msatModelSelectOperator&gt;</code> element
 
 This element returns a microsatellite averaging operator on a given parameter.
 
@@ -15775,7 +15775,7 @@ Example:
 
 
 
-## <code>&lt;msatModelSwitchOperator&gt;</code> element
+### <code>&lt;msatModelSwitchOperator&gt;</code> element
 
 This element returns a microsatellite averaging operator on a given parameter.
 
@@ -15819,7 +15819,7 @@ Example:
 
 
 
-## <code>&lt;msatPatternStatistic&gt;</code> element
+### <code>&lt;msatPatternStatistic&gt;</code> element
 
 Returns MsatPatternStatistic object
 
@@ -15848,7 +15848,7 @@ Example:
 
 
 
-## <code>&lt;MsatSingleAncestralStateGibbsOperator&gt;</code> element
+### <code>&lt;MsatSingleAncestralStateGibbsOperator&gt;</code> element
 
 This element represents an operator that samples the state of a single ancestor given a microsatellite pattern and a tree
 
@@ -15901,7 +15901,7 @@ Example:
 
 
 
-## <code>&lt;mulMSCoalescent&gt;</code> element
+### <code>&lt;mulMSCoalescent&gt;</code> element
 
 Compute coalecent log-liklihood of a set of gene trees embedded inside one species tree.
 
@@ -15946,7 +15946,7 @@ Example:
 
 
 
-## <code>&lt;mulSpecies&gt;</code> element
+### <code>&lt;mulSpecies&gt;</code> element
 
 Binds taxa to gene trees with information about possibly allopolyploid species.
 
@@ -15997,7 +15997,7 @@ Example:
 
 
 
-## <code>&lt;mulSpeciesTree&gt;</code> element
+### <code>&lt;mulSpeciesTree&gt;</code> element
 
 Multiply-labelled species tree which includes demographic function per branch.
 
@@ -16043,7 +16043,7 @@ Example:
 
 
 
-## <code>&lt;mulSpeciesTreePrior&gt;</code> element
+### <code>&lt;mulSpeciesTreePrior&gt;</code> element
 
 Prior for a multiply-labelled species tree for allopolyploids.
 
@@ -16076,7 +16076,7 @@ Example:
 
 
 
-## <code>&lt;multiDimensionalScalingLikelihood&gt;</code> element
+### <code>&lt;multiDimensionalScalingLikelihood&gt;</code> element
 
 Provides the likelihood of pairwise distance given vectors of coordinatesfor points according to the multidimensional scaling scheme of XXX & Rafferty (xxxx).
 
@@ -16126,7 +16126,7 @@ Example:
 
 
 
-## <code>&lt;multiEpochExponential&gt;</code> element
+### <code>&lt;multiEpochExponential&gt;</code> element
 
 A demographic model of multi-phae exponential growth.
 
@@ -16173,7 +16173,7 @@ Example:
 
 
 
-## <code>&lt;multiLociDistance&gt;</code> element
+### <code>&lt;multiLociDistance&gt;</code> element
 
 Constructs a distance matrix from a pattern list or alignment
 
@@ -16202,7 +16202,7 @@ Example:
 
 
 
-## <code>&lt;multivariateDiffusionModel&gt;</code> element
+### <code>&lt;multivariateDiffusionModel&gt;</code> element
 
 Describes a multivariate normal diffusion process.
 
@@ -16226,7 +16226,7 @@ Example:
 
 
 
-## <code>&lt;multivariateDistributionLikelihood&gt;</code> element
+### <code>&lt;multivariateDistributionLikelihood&gt;</code> element
 
 Calculates the likelihood of some data under a given multivariate distribution.
 
@@ -16279,7 +16279,7 @@ Example:
 
 
 
-## <code>&lt;multivariateGammaPrior&gt;</code> element
+### <code>&lt;multivariateGammaPrior&gt;</code> element
 
 Calculates the likelihood of some data under a given multivariate-gamma distribution.
 
@@ -16339,7 +16339,7 @@ Example:
 
 
 
-## <code>&lt;multivariateInverseWishartPrior&gt;</code> element
+### <code>&lt;multivariateInverseWishartPrior&gt;</code> element
 
 Calculates the likelihood of some data under an Inverse-Wishart distribution.
 
@@ -16368,7 +16368,7 @@ Example:
 
 
 
-## <code>&lt;multivariateNormalDistributionModel&gt;</code> element
+### <code>&lt;multivariateNormalDistributionModel&gt;</code> element
 
 Describes a normal distribution with a given mean and precision that can be used in a distributionLikelihood element
 
@@ -16401,7 +16401,7 @@ Example:
 
 
 
-## <code>&lt;multivariateNormalPrior&gt;</code> element
+### <code>&lt;multivariateNormalPrior&gt;</code> element
 
 Calculates the likelihood of some data under a given multivariate-normal distribution.
 
@@ -16458,7 +16458,7 @@ Example:
 
 
 
-## <code>&lt;multivariateOUModel&gt;</code> element
+### <code>&lt;multivariateOUModel&gt;</code> element
 
 Describes a multivariate OU process
 
@@ -16519,7 +16519,7 @@ Example:
 
 
 
-## <code>&lt;multivariateTDiffusionModel&gt;</code> element
+### <code>&lt;multivariateTDiffusionModel&gt;</code> element
 
 Describes a multivariate t-distribution diffusion process.
 
@@ -16552,7 +16552,7 @@ Example:
 
 
 
-## <code>&lt;multivariateTraitLikelihood&gt;</code> element
+### <code>&lt;multivariateTraitLikelihood&gt;</code> element
 
 Provides the likelihood of a continuous trait evolving on a tree by a given diffusion model.
 
@@ -16701,7 +16701,7 @@ Example:
 
 
 
-## <code>&lt;multivariateWishartPrior&gt;</code> element
+### <code>&lt;multivariateWishartPrior&gt;</code> element
 
 Calculates the likelihood of some data under a Wishart distribution.
 
@@ -16742,7 +16742,7 @@ Example:
 
 
 
-## <code>&lt;mulTreeNodeReHeight&gt;</code> element
+### <code>&lt;mulTreeNodeReHeight&gt;</code> element
 
 Specialized Species tree operator, transform tree without breaking embedding of gene trees.
 
@@ -16785,7 +16785,7 @@ Example:
 
 
 
-## <code>&lt;mulTreeSequenceReassignment&gt;</code> element
+### <code>&lt;mulTreeSequenceReassignment&gt;</code> element
 
 Operator which reassigns sequences within an allopolyploid species.
 
@@ -16832,7 +16832,7 @@ Example:
 
 
 
-## <code>&lt;museGautCodonModel&gt;</code> element
+### <code>&lt;museGautCodonModel&gt;</code> element
 
 This element represents the Yang model of codon evolution.
 
@@ -16922,7 +16922,7 @@ Example:
 
 
 
-## <code>&lt;mutationDeathModel&gt;</code> element
+### <code>&lt;mutationDeathModel&gt;</code> element
 
 This element represents an instance of the MutationDeath model of CTMC evolution with deletions.
 
@@ -16951,7 +16951,7 @@ Example:
 
 
 
-## <code>&lt;mvnOperator&gt;</code> element
+### <code>&lt;mvnOperator&gt;</code> element
 
 This element returns a multivariate normal random walk operator on a given parameter.
 
@@ -16997,7 +16997,7 @@ Example:
 
 
 
-## <code>&lt;mvouOperator&gt;</code> element
+### <code>&lt;mvouOperator&gt;</code> element
 
 This element returns junk.
 
@@ -17031,7 +17031,7 @@ Example:
 
 
 
-## <code>&lt;mvPolyaLikelihood&gt;</code> element
+### <code>&lt;mvPolyaLikelihood&gt;</code> element
 
 A matrix parameter constructed from its component parameters.
 
@@ -17078,7 +17078,7 @@ Example:
 
 
 
-## <code>&lt;narrowExchange&gt;</code> element
+### <code>&lt;narrowExchange&gt;</code> element
 
 This element represents a narrow exchange operator. This operator swaps a random subtree with its uncle.
 
@@ -17103,7 +17103,7 @@ Example:
 
 
 
-## <code>&lt;NearestNeighborInterchange&gt;</code> element
+### <code>&lt;NearestNeighborInterchange&gt;</code> element
 
 This element represents a NNI operator. This operator swaps a random subtree with its uncle.
 
@@ -17155,7 +17155,7 @@ Example:
 
 
 
-## <code>&lt;negativeStatistic&gt;</code> element
+### <code>&lt;negativeStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise negation of the child statistic.
 
@@ -17175,7 +17175,7 @@ Example:
 
 
 
-## <code>&lt;negationOperator&gt;</code> element
+### <code>&lt;negationOperator&gt;</code> element
 
 null
 
@@ -17187,7 +17187,7 @@ Example:
 
 
 
-## <code>&lt;negativeStatistic&gt;</code> element
+### <code>&lt;negativeStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise negation of the child statistic.
 
@@ -17207,7 +17207,7 @@ Example:
 
 
 
-## <code>&lt;negativeBinomialDistributionModel&gt;</code> element
+### <code>&lt;negativeBinomialDistributionModel&gt;</code> element
 
 Describes a Negative Binomial distribution with a given mean and scale that can be used in a distributionLikelihood element
 
@@ -17248,7 +17248,7 @@ Example:
 
 
 
-## <code>&lt;negativeBinomialPrior&gt;</code> element
+### <code>&lt;negativeBinomialPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given negative binomial distribution.
 
@@ -17276,7 +17276,7 @@ Example:
 
 
 
-## <code>&lt;negativeStatistic&gt;</code> element
+### <code>&lt;negativeStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise negation of the child statistic.
 
@@ -17299,7 +17299,7 @@ Example:
 
 
 
-## <code>&lt;neighborJoiningTree&gt;</code> element
+### <code>&lt;neighborJoiningTree&gt;</code> element
 
 This element returns a neighbour-joining tree generated from the given distances.
 
@@ -17319,7 +17319,7 @@ Example:
 
 
 
-## <code>&lt;networkNodeReHeight&gt;</code> element
+### <code>&lt;networkNodeReHeight&gt;</code> element
 
 Operator for allopolyploid species network: transforms network without breaking embedding of gene trees.
 
@@ -17369,7 +17369,7 @@ Example:
 
 
 
-## <code>&lt;newARGEvent&gt;</code> element
+### <code>&lt;newARGEvent&gt;</code> element
 
 An operator that slides a subarg.
 
@@ -17415,7 +17415,7 @@ Example:
 
 
 
-## <code>&lt;newick&gt;</code> element
+### <code>&lt;newick&gt;</code> element
 
 Constructs a tree from a NEWICK format tree description
 
@@ -17448,7 +17448,7 @@ Example:
 
 
 
-## <code>&lt;newTreeDataLikelihood&gt;</code> element
+### <code>&lt;newTreeDataLikelihood&gt;</code> element
 
 This element represents the likelihood of data on a tree given the site model.
 
@@ -17497,7 +17497,7 @@ Example:
 
 
 
-## <code>&lt;node&gt;</code> element
+### <code>&lt;node&gt;</code> element
 
 This element represents a node in a tree.
 
@@ -17534,7 +17534,7 @@ Example:
 
 
 
-## <code>&lt;nodeHeightsStatistic&gt;</code> element
+### <code>&lt;nodeHeightsStatistic&gt;</code> element
 
 A statistic that returns the heights of each internal node in increasing order (or groups them by a group size parameter)
 
@@ -17561,7 +17561,7 @@ Example:
 
 
 
-## <code>&lt;nodeReHeight&gt;</code> element
+### <code>&lt;nodeReHeight&gt;</code> element
 
 Specialized Species tree operator, transform tree without breaking embedding of gene trees.
 
@@ -17600,7 +17600,7 @@ Example:
 
 
 
-## <code>&lt;normalDistributionModel&gt;</code> element
+### <code>&lt;normalDistributionModel&gt;</code> element
 
 Describes a normal distribution with a given mean and standard deviation that can be used in a distributionLikelihood element
 
@@ -17665,7 +17665,7 @@ Example:
 
 
 
-## <code>&lt;normalGammaPrecisionGibbsOperator&gt;</code> element
+### <code>&lt;normalGammaPrecisionGibbsOperator&gt;</code> element
 
 This element returns a operator on the precision parameter of a normal model with gamma prior.
 
@@ -17703,7 +17703,7 @@ Example:
 
 
 
-## <code>&lt;normalNormalMeanGibbsOperator&gt;</code> element
+### <code>&lt;normalNormalMeanGibbsOperator&gt;</code> element
 
 This element returns a operator on the mean parameter of a normal model with normal prior.
 
@@ -17741,7 +17741,7 @@ Example:
 
 
 
-## <code>&lt;normalPeriodPriorDistribution&gt;</code> element
+### <code>&lt;normalPeriodPriorDistribution&gt;</code> element
 
 Calculates the probability of a set of doubles being drawn from the prior posterior distributionof a normal distribution of unknown mean and variance
 
@@ -17773,7 +17773,7 @@ Example:
 
 
 
-## <code>&lt;normalPrior&gt;</code> element
+### <code>&lt;normalPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given normal distribution.
 
@@ -17799,7 +17799,7 @@ Example:
 
 
 
-## <code>&lt;normalReferencePrior&gt;</code> element
+### <code>&lt;normalReferencePrior&gt;</code> element
 
 Calculates the reference prior probability of some data under a given normal distribution.
 
@@ -17837,7 +17837,7 @@ Example:
 
 
 
-## <code>&lt;normalReferencePrior&gt;</code> element
+### <code>&lt;normalReferencePrior&gt;</code> element
 
 Calculates the reference prior probability of some data under a given normal distribution.
 
@@ -17868,7 +17868,7 @@ Example:
 
 
 
-## <code>&lt;notStatistic&gt;</code> element
+### <code>&lt;notStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise inverse of the child statistic.
 
@@ -17889,7 +17889,7 @@ Example:
 
 
 
-## <code>&lt;notBooleanStatistic&gt;</code> element
+### <code>&lt;notBooleanStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise negation of the child boolean statistic.
 
@@ -17909,7 +17909,7 @@ Example:
 
 
 
-## <code>&lt;notStatistic&gt;</code> element
+### <code>&lt;notStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise inverse of the child statistic.
 
@@ -17929,7 +17929,7 @@ Example:
 
 
 
-## <code>&lt;NPAntigenicLikelihood&gt;</code> element
+### <code>&lt;NPAntigenicLikelihood&gt;</code> element
 
 conditional likelihood ddCRP
 
@@ -18089,7 +18089,7 @@ Example:
 
 
 
-## <code>&lt;oldLatentLiabilityGibbsOperator&gt;</code> element
+### <code>&lt;oldLatentLiabilityGibbsOperator&gt;</code> element
 
 This element returns a multivariate Gibbs operator on traits for tip nodes under a latent liability model.
 
@@ -18122,7 +18122,7 @@ Example:
 
 
 
-## <code>&lt;oneOnXPrior&gt;</code> element
+### <code>&lt;oneOnXPrior&gt;</code> element
 
 Calculates the (improper) prior proportional to Prod_i (1/x_i) for the given statistic x.
 
@@ -18158,7 +18158,7 @@ Example:
 
 
 
-## <code>&lt;oneOverStDevPeriodPriorDistribution&gt;</code> element
+### <code>&lt;oneOverStDevPeriodPriorDistribution&gt;</code> element
 
 Calculates the probability of observing a list of doubles with probability proportional to1 over their standard deviation (the Jeffreys prior for normally distributed data)
 
@@ -18178,7 +18178,7 @@ Example:
 
 
 
-## <code>&lt;onePGammaDistributionModel&gt;</code> element
+### <code>&lt;onePGammaDistributionModel&gt;</code> element
 
 A model of a one parameter gamma distribution.
 
@@ -18210,7 +18210,7 @@ Example:
 
 
 
-## <code>&lt;operators&gt;</code> element
+### <code>&lt;operators&gt;</code> element
 
 A simple operator scheduler
 
@@ -18252,7 +18252,7 @@ Example:
 
 
 
-## <code>&lt;optimizedBeagleTreeLikelihood&gt;</code> element
+### <code>&lt;optimizedBeagleTreeLikelihood&gt;</code> element
 
 Parses a collection of BeagleTreeLikelihoods and determines the number of partitions.
 
@@ -18279,7 +18279,7 @@ Example:
 
 
 
-## <code>&lt;optimizer&gt;</code> element
+### <code>&lt;optimizer&gt;</code> element
 
 This element returns a maximum likelihood heuristic optimizer and runs the optimization as a side effect.
 
@@ -18339,7 +18339,7 @@ Example:
 
 
 
-## <code>&lt;orderedLatentLiabilityLikelihood&gt;</code> element
+### <code>&lt;orderedLatentLiabilityLikelihood&gt;</code> element
 
 Provides the likelihood of a latent liability model on multivariate ordered trait data
 
@@ -18417,7 +18417,7 @@ Example:
 
 
 
-## <code>&lt;orderedLatentLiabilityTransform&gt;</code> element
+### <code>&lt;orderedLatentLiabilityTransform&gt;</code> element
 
 null
 
@@ -18453,7 +18453,7 @@ Example:
 
 
 
-## <code>&lt;originDestinationDesignMatrix&gt;</code> element
+### <code>&lt;originDestinationDesignMatrix&gt;</code> element
 
 A matrix parameter constructed from its component parameters.
 
@@ -18485,7 +18485,7 @@ Example:
 
 
 
-## <code>&lt;Ornstein-Uhlenbeck&gt;</code> element
+### <code>&lt;Ornstein-Uhlenbeck&gt;</code> element
 
 
 
@@ -18573,7 +18573,7 @@ Example:
 
 
 
-## <code>&lt;ovariableSkyLineLikelihood&gt;</code> element
+### <code>&lt;ovariableSkyLineLikelihood&gt;</code> element
 
 This element represents the likelihood of the tree given the population size vector.
 
@@ -18623,7 +18623,7 @@ Example:
 
 
 
-## <code>&lt;parameter&gt;</code> element
+### <code>&lt;parameter&gt;</code> element
 
 A real-valued parameter of one or more dimensions.
 
@@ -18666,7 +18666,7 @@ Example:
 
 
 
-## <code>&lt;parsimonyStateStatistic&gt;</code> element
+### <code>&lt;parsimonyStateStatistic&gt;</code> element
 
 A statistic that has as its value the parsimony state reconstruction of a binary state defined by a set of taxa at a given MRCA of a tree
 
@@ -18709,7 +18709,7 @@ Example:
 
 
 
-## <code>&lt;parsimonyStatistic&gt;</code> element
+### <code>&lt;parsimonyStatistic&gt;</code> element
 
 A statistic that has as its value the parsimony tree length of a set of a binary state defined by a set of taxa for a given tree
 
@@ -18743,7 +18743,7 @@ Example:
 
 
 
-## <code>&lt;partitionedTreeModel&gt;</code> element
+### <code>&lt;partitionedTreeModel&gt;</code> element
 
 This element represents a model of a phylogenetic tree together with the partitioning of its nodes into connected subgraphs to represent the transmission tree.
 
@@ -18917,7 +18917,7 @@ Example:
 
 
 
-## <code>&lt;partitionStatistic&gt;</code> element
+### <code>&lt;partitionStatistic&gt;</code> element
 
 null
 
@@ -18929,7 +18929,7 @@ Example:
 
 
 
-## <code>&lt;pathLikelihood&gt;</code> element
+### <code>&lt;pathLikelihood&gt;</code> element
 
 A likelihood function used for estimating marginal likelihoods and Bayes factors using path sampling.
 
@@ -18974,7 +18974,7 @@ Example:
 
 
 
-## <code>&lt;pathSamplingAnalysis&gt;</code> element
+### <code>&lt;pathSamplingAnalysis&gt;</code> element
 
 Performs a trace analysis.
 
@@ -19013,7 +19013,7 @@ Example:
 
 
 
-## <code>&lt;patterns&gt;</code> element
+### <code>&lt;patterns&gt;</code> element
 
 A weighted list of the unique site patterns (unique columns) in an alignment.
 
@@ -19062,7 +19062,7 @@ Example:
 
 
 
-## <code>&lt;patternSubSet&gt;</code> element
+### <code>&lt;patternSubSet&gt;</code> element
 
 A weighted list of the unique site patterns (unique columns) in an alignment.
 
@@ -19094,7 +19094,7 @@ Example:
 
 
 
-## <code>&lt;pcaCodonModel&gt;</code> element
+### <code>&lt;pcaCodonModel&gt;</code> element
 
 This element represents the PCA model of codon evolution.
 
@@ -19131,7 +19131,7 @@ Example:
 
 
 
-## <code>&lt;piecewisePopulation&gt;</code> element
+### <code>&lt;piecewisePopulation&gt;</code> element
 
 This element represents a piecewise population model
 
@@ -19185,7 +19185,7 @@ Example:
 
 
 
-## <code>&lt;plinkImport&gt;</code> element
+### <code>&lt;plinkImport&gt;</code> element
 
 Provides the likelihood of pairwise distance given vectors of coordinatesfor points according to the multidimensional scaling scheme of XXX & Rafferty (xxxx).
 
@@ -19220,7 +19220,7 @@ Example:
 
 
 
-## <code>&lt;poissonDistributionModel&gt;</code> element
+### <code>&lt;poissonDistributionModel&gt;</code> element
 
 Describes a Poisson distribution with a given mean that can be used in a distributionLikelihood element
 
@@ -19248,7 +19248,7 @@ Example:
 
 
 
-## <code>&lt;poissonPartitionLikelihood&gt;</code> element
+### <code>&lt;poissonPartitionLikelihood&gt;</code> element
 
 null
 
@@ -19288,7 +19288,7 @@ Example:
 
 
 
-## <code>&lt;poissonPrior&gt;</code> element
+### <code>&lt;poissonPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given poisson distribution.
 
@@ -19316,7 +19316,7 @@ Example:
 
 
 
-## <code>&lt;polygon&gt;</code> element
+### <code>&lt;polygon&gt;</code> element
 
 This element represents a polygon.
 
@@ -19348,7 +19348,7 @@ Example:
 
 
 
-## <code>&lt;poolSwapOperator&gt;</code> element
+### <code>&lt;poolSwapOperator&gt;</code> element
 
 .
 
@@ -19371,7 +19371,7 @@ Example:
 
 
 
-## <code>&lt;popGraph&gt;</code> element
+### <code>&lt;popGraph&gt;</code> element
 
 This element returns a statistic that is the population size at evenly spaced intervals over tree.
 
@@ -19412,7 +19412,7 @@ Example:
 
 
 
-## <code>&lt;positiveDefiniteSubstitutionModel&gt;</code> element
+### <code>&lt;positiveDefiniteSubstitutionModel&gt;</code> element
 
 A general reversible model of sequence substitution for any data type with stochastic variable selection.
 
@@ -19430,7 +19430,7 @@ Example:
 
 
 
-## <code>&lt;compoundLikelihood&gt;</code> element
+### <code>&lt;compoundLikelihood&gt;</code> element
 
 A likelihood function which is simply the product of its component likelihood functions.
 
@@ -19451,7 +19451,7 @@ Example:
 
 
 
-## <code>&lt;precisionGibbsOperator&gt;</code> element
+### <code>&lt;precisionGibbsOperator&gt;</code> element
 
 This element returns a multivariate normal random walk operator on a given parameter.
 
@@ -19483,7 +19483,7 @@ Example:
 
 
 
-## <code>&lt;compoundLikelihood&gt;</code> element
+### <code>&lt;compoundLikelihood&gt;</code> element
 
 A likelihood function which is simply the product of its component likelihood functions.
 
@@ -19516,7 +19516,7 @@ Example:
 
 
 
-## <code>&lt;productStatistic&gt;</code> element
+### <code>&lt;productStatistic&gt;</code> element
 
 This element returns a statistic that is the product of the child statistics.
 
@@ -19544,7 +19544,7 @@ Example:
 
 
 
-## <code>&lt;productOfExponentials&gt;</code> element
+### <code>&lt;productOfExponentials&gt;</code> element
 
 Calculates a product of exponentials based on a (set of) fixed log population sizes.
 
@@ -19608,7 +19608,7 @@ Example:
 
 
 
-## <code>&lt;productOfExponentialsPosteriorMeans&gt;</code> element
+### <code>&lt;productOfExponentialsPosteriorMeans&gt;</code> element
 
 Calculates a product of exponentials based on a set of posterior sample means.
 
@@ -19654,7 +19654,7 @@ Example:
 
 
 
-## <code>&lt;productOfExponentialsPosteriorMeansLoess&gt;</code> element
+### <code>&lt;productOfExponentialsPosteriorMeansLoess&gt;</code> element
 
 Calculates a product of exponentials based on a set of posterior sample means, undergoing loess smoothing.
 
@@ -19727,7 +19727,7 @@ Example:
 
 
 
-## <code>&lt;productOfExponentialsSufficientStatistics&gt;</code> element
+### <code>&lt;productOfExponentialsSufficientStatistics&gt;</code> element
 
 Calculates a product of exponentials based on a set of posterior sample means, using sufficient statistics.
 
@@ -19794,7 +19794,7 @@ Example:
 
 
 
-## <code>&lt;productOfGammas&gt;</code> element
+### <code>&lt;productOfGammas&gt;</code> element
 
 Calculates a product of gamma distributions.
 
@@ -19885,7 +19885,7 @@ Example:
 
 
 
-## <code>&lt;productParameter&gt;</code> element
+### <code>&lt;productParameter&gt;</code> element
 
 A element-wise product of parameters.
 
@@ -19906,7 +19906,7 @@ Example:
 
 
 
-## <code>&lt;productStatistic&gt;</code> element
+### <code>&lt;productStatistic&gt;</code> element
 
 This element returns a statistic that is the product of the child statistics.
 
@@ -19938,7 +19938,7 @@ Example:
 
 
 
-## <code>&lt;property&gt;</code> element
+### <code>&lt;property&gt;</code> element
 
 This element returns an object representing the named property of the given child object.
 
@@ -19966,7 +19966,7 @@ Example:
 
 
 
-## <code>&lt;compoundLikelihood&gt;</code> element
+### <code>&lt;compoundLikelihood&gt;</code> element
 
 A likelihood function which is simply the product of its component likelihood functions.
 
@@ -20004,7 +20004,7 @@ Example:
 
 
 
-## <code>&lt;randomBranchModel&gt;</code> element
+### <code>&lt;randomBranchModel&gt;</code> element
 
 randomBranchModel
 
@@ -20056,7 +20056,7 @@ Example:
 
 
 
-## <code>&lt;randomLocalClockModel&gt;</code> element
+### <code>&lt;randomLocalClockModel&gt;</code> element
 
 This element returns an random local clock (RLC) model.Each branch either has a new rate or inherits the rate of the branch above it depending on the indicator vector, which is itself sampled.
 
@@ -20111,7 +20111,7 @@ Example:
 
 
 
-## <code>&lt;randomLocalLogger&gt;</code> element
+### <code>&lt;randomLocalLogger&gt;</code> element
 
 A speciation model of a Yule process whose rate can evolve down the tree.
 
@@ -20188,7 +20188,7 @@ Example:
 
 
 
-## <code>&lt;randomLocalLoggerOnTree&gt;</code> element
+### <code>&lt;randomLocalLoggerOnTree&gt;</code> element
 
 A parser to log changed == 0 : 1 in a tree log
 
@@ -20216,7 +20216,7 @@ Example:
 
 
 
-## <code>&lt;randomLocalYuleModel&gt;</code> element
+### <code>&lt;randomLocalYuleModel&gt;</code> element
 
 A speciation model of a Yule process whose rate can change at random nodes in the tree.
 
@@ -20269,7 +20269,7 @@ Example:
 
 
 
-## <code>&lt;randomTaxaSample&gt;</code> element
+### <code>&lt;randomTaxaSample&gt;</code> element
 
 Randomly samples n taxa from a collection of N taxa
 
@@ -20294,7 +20294,7 @@ Example:
 
 
 
-## <code>&lt;randomWalk&gt;</code> element
+### <code>&lt;randomWalk&gt;</code> element
 
 Describes a first-order random walk. No prior is assumed on the first data element
 
@@ -20333,7 +20333,7 @@ Example:
 
 
 
-## <code>&lt;randomWalkIntegerNodeHeightWeightedOperator&gt;</code> element
+### <code>&lt;randomWalkIntegerNodeHeightWeightedOperator&gt;</code> element
 
 This element returns a random walk node height weighted operator on a given parameter.
 
@@ -20370,7 +20370,7 @@ Example:
 
 
 
-## <code>&lt;randomWalkIntegerOperator&gt;</code> element
+### <code>&lt;randomWalkIntegerOperator&gt;</code> element
 
 This element returns a random walk operator on a given parameter.
 
@@ -20398,7 +20398,7 @@ Example:
 
 
 
-## <code>&lt;randomWalkIntegerSetSizeWeightedOperator&gt;</code> element
+### <code>&lt;randomWalkIntegerSetSizeWeightedOperator&gt;</code> element
 
 This element returns a random walk set size weighted operator on a given parameter.
 
@@ -20442,7 +20442,7 @@ Example:
 
 
 
-## <code>&lt;randomWalkOnMapOperator&gt;</code> element
+### <code>&lt;randomWalkOnMapOperator&gt;</code> element
 
 This element returns a random walk operator on a given map.
 
@@ -20479,7 +20479,7 @@ Example:
 
 
 
-## <code>&lt;randomWalkOperator&gt;</code> element
+### <code>&lt;randomWalkOperator&gt;</code> element
 
 This element returns a random walk operator on a given parameter.
 
@@ -20530,7 +20530,7 @@ Example:
 
 
 
-## <code>&lt;rateBitExchangeOperator&gt;</code> element
+### <code>&lt;rateBitExchangeOperator&gt;</code> element
 
 This element returns a bit-flip operator on a given parameter.
 
@@ -20571,7 +20571,7 @@ Example:
 
 
 
-## <code>&lt;rateCovarianceStatistic&gt;</code> element
+### <code>&lt;rateCovarianceStatistic&gt;</code> element
 
 A statistic that has as its value the covariance of parent and child branch rates
 
@@ -20607,7 +20607,7 @@ Example:
 
 
 
-## <code>&lt;rateEpochBranchRates&gt;</code> element
+### <code>&lt;rateEpochBranchRates&gt;</code> element
 
 This element provides a multiple epoch molecular clock model. All branches (or portions of them) have the same rate of molecular evolution within a given epoch. If parameters are used to sample transition times, these must be kept in ascending order by judicious use of bounds or priors.
 
@@ -20672,7 +20672,7 @@ Example:
 
 
 
-## <code>&lt;rateExchange&gt;</code> element
+### <code>&lt;rateExchange&gt;</code> element
 
 An operator that exchanges rates and traits on a tree.
 
@@ -20712,7 +20712,7 @@ Example:
 
 
 
-## <code>&lt;rateSampleOperator&gt;</code> element
+### <code>&lt;rateSampleOperator&gt;</code> element
 
 This element returns a rateSample operator on a given parameter.
 
@@ -20748,7 +20748,7 @@ Example:
 
 
 
-## <code>&lt;rateScaleOperator&gt;</code> element
+### <code>&lt;rateScaleOperator&gt;</code> element
 
 This element returns a rateScale operator on a given parameter.
 
@@ -20809,7 +20809,7 @@ Example:
 
 
 
-## <code>&lt;rateStatistic&gt;</code> element
+### <code>&lt;rateStatistic&gt;</code> element
 
 A statistic that returns the average of the branch rates
 
@@ -20898,7 +20898,7 @@ Example:
 
 
 
-## <code>&lt;rateVarianceScaleOperator&gt;</code> element
+### <code>&lt;rateVarianceScaleOperator&gt;</code> element
 
 This element returns a rateScale operator on a given parameter.
 
@@ -20963,7 +20963,7 @@ Example:
 
 
 
-## <code>&lt;ratioStatistic&gt;</code> element
+### <code>&lt;ratioStatistic&gt;</code> element
 
 This element returns a statistic that is the ratio of the 2 child statistics.
 
@@ -20990,7 +20990,7 @@ Example:
 
 
 
-## <code>&lt;ratioStatistic&gt;</code> element
+### <code>&lt;ratioStatistic&gt;</code> element
 
 This element returns a statistic that is the ratio of the 2 child statistics.
 
@@ -21015,7 +21015,7 @@ Example:
 
 
 
-## <code>&lt;reciprocalStatistic&gt;</code> element
+### <code>&lt;reciprocalStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise reciprocal of the child statistic.
 
@@ -21036,7 +21036,7 @@ Example:
 
 
 
-## <code>&lt;reciprocalStatistic&gt;</code> element
+### <code>&lt;reciprocalStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise reciprocal of the child statistic.
 
@@ -21057,7 +21057,7 @@ Example:
 
 
 
-## <code>&lt;compoundLikelihood&gt;</code> element
+### <code>&lt;compoundLikelihood&gt;</code> element
 
 A likelihood function which is simply the product of its component likelihood functions.
 
@@ -21089,7 +21089,7 @@ Example:
 
 
 
-## <code>&lt;regressionGibbsEffectOperator&gt;</code> element
+### <code>&lt;regressionGibbsEffectOperator&gt;</code> element
 
 This element returns a multivariate Gibbs operator on an internal node trait.
 
@@ -21129,7 +21129,7 @@ Example:
 
 
 
-## <code>&lt;regressionGibbsPrecisionOperator&gt;</code> element
+### <code>&lt;regressionGibbsPrecisionOperator&gt;</code> element
 
 This element returns a multivariate Gibbs operator on an internal node trait.
 
@@ -21160,7 +21160,7 @@ Example:
 
 
 
-## <code>&lt;regressionMetropolizedIndicatorOperator&gt;</code> element
+### <code>&lt;regressionMetropolizedIndicatorOperator&gt;</code> element
 
 This element returns a multivariate Gibbs operator on an internal node trait.
 
@@ -21216,7 +21216,7 @@ Example:
 
 
 
-## <code>&lt;relaxedDriftModel&gt;</code> element
+### <code>&lt;relaxedDriftModel&gt;</code> element
 
 This element returns a relaxed drift model.
 
@@ -21263,7 +21263,7 @@ Example:
 
 
 
-## <code>&lt;report&gt;</code> element
+### <code>&lt;report&gt;</code> element
 
 Generates a report using the given text and elements
 
@@ -21298,7 +21298,7 @@ Example:
 
 
 
-## <code>&lt;rescaledTree&gt;</code> element
+### <code>&lt;rescaledTree&gt;</code> element
 
 This element rescales a given tree with a set of clade heights.
 
@@ -21342,7 +21342,7 @@ Example:
 
 
 
-## <code>&lt;RPNcalculator&gt;</code> element
+### <code>&lt;RPNcalculator&gt;</code> element
 
 This element returns a statistic evaluated from arbitrary expression.
 
@@ -21381,7 +21381,7 @@ Example:
 
 
 
-## <code>&lt;sampleNonActiveOperator&gt;</code> element
+### <code>&lt;sampleNonActiveOperator&gt;</code> element
 
 This element returns a Gibbs operator for the joint distribution of population sizes.
 
@@ -21428,7 +21428,7 @@ Example:
 
 
 
-## <code>&lt;scaleData&gt;</code> element
+### <code>&lt;scaleData&gt;</code> element
 
 Standardizes the rows of a data matrix
 
@@ -21457,7 +21457,7 @@ Example:
 
 
 
-## <code>&lt;scaledBetaDistributionModel&gt;</code> element
+### <code>&lt;scaledBetaDistributionModel&gt;</code> element
 
 A model of a beta distribution allowing offset and scale.
 
@@ -21528,7 +21528,7 @@ Example:
 
 
 
-## <code>&lt;scaledPiecewisePopulation&gt;</code> element
+### <code>&lt;scaledPiecewisePopulation&gt;</code> element
 
 This element represents a piecewise population model
 
@@ -21569,7 +21569,7 @@ Example:
 
 
 
-## <code>&lt;scaledTreeLengthModel&gt;</code> element
+### <code>&lt;scaledTreeLengthModel&gt;</code> element
 
 This element returns a branch rate model that scales the total length of the tree to specified valued (default=1.0).
 
@@ -21628,7 +21628,7 @@ Example:
 
 
 
-## <code>&lt;scaleOperator&gt;</code> element
+### <code>&lt;scaleOperator&gt;</code> element
 
 This element returns a scale operator on a given parameter.
 
@@ -21675,7 +21675,7 @@ Example:
 
 
 
-## <code>&lt;selectorOperator&gt;</code> element
+### <code>&lt;selectorOperator&gt;</code> element
 
 .
 
@@ -21705,7 +21705,7 @@ Example:
 
 
 
-## <code>&lt;sequence&gt;</code> element
+### <code>&lt;sequence&gt;</code> element
 
 A biomolecular sequence.
 
@@ -21729,7 +21729,7 @@ Example:
 
 
 
-## <code>&lt;sequenceErrorModel&gt;</code> element
+### <code>&lt;sequenceErrorModel&gt;</code> element
 
 This element returns a model that allows for post-mortem DNA damage.
 
@@ -21789,7 +21789,7 @@ Example:
 
 
 
-## <code>&lt;sequenceReassignment&gt;</code> element
+### <code>&lt;sequenceReassignment&gt;</code> element
 
 Operator which reassigns sequences within an allopolyploid species.
 
@@ -21848,7 +21848,7 @@ Example:
 
 
 
-## <code>&lt;sequenceSimulator&gt;</code> element
+### <code>&lt;sequenceSimulator&gt;</code> element
 
 A SequenceSimulator that generates random sequences for a given tree, siteratemodel and branch rate model
 
@@ -21889,7 +21889,7 @@ Example:
 
 
 
-## <code>&lt;setOperator&gt;</code> element
+### <code>&lt;setOperator&gt;</code> element
 
 This element represents an operator on a set.
 
@@ -21920,7 +21920,7 @@ Example:
 
 
 
-## <code>&lt;siteModel&gt;</code> element
+### <code>&lt;siteModel&gt;</code> element
 
 A SiteModel that has a gamma distributed rates across sites
 
@@ -21984,7 +21984,7 @@ Example:
 
 
 
-## <code>&lt;skewNormalDistributionModel&gt;</code> element
+### <code>&lt;skewNormalDistributionModel&gt;</code> element
 
 A model of a skew normal distribution.
 
@@ -22050,7 +22050,7 @@ Example:
 
 
 
-## <code>&lt;gmrfSkyrideLikelihood&gt;</code> element
+### <code>&lt;gmrfSkyrideLikelihood&gt;</code> element
 
 This element represents the likelihood of the tree given the population size vector.
 
@@ -22127,7 +22127,7 @@ Example:
 
 
 
-## <code>&lt;slidingPatternsOperator&gt;</code> element
+### <code>&lt;slidingPatternsOperator&gt;</code> element
 
 This element returns a sliding window operator on alignment sites.
 
@@ -22168,7 +22168,7 @@ Example:
 
 
 
-## <code>&lt;sp&gt;</code> element
+### <code>&lt;sp&gt;</code> element
 
 Taxon in a species tree
 
@@ -22199,7 +22199,7 @@ Example:
 
 
 
-## <code>&lt;spatialKernelFunction&gt;</code> element
+### <code>&lt;spatialKernelFunction&gt;</code> element
 
 This element represents a spatial kernel function with a single parameter.
 
@@ -22233,7 +22233,7 @@ Example:
 
 
 
-## <code>&lt;speciationLikelihood&gt;</code> element
+### <code>&lt;speciationLikelihood&gt;</code> element
 
 This element represents the likelihood of the tree given the speciation.
 
@@ -22312,7 +22312,7 @@ Example:
 
 
 
-## <code>&lt;species&gt;</code> element
+### <code>&lt;species&gt;</code> element
 
 Binds taxa in gene trees with species information.
 
@@ -22357,7 +22357,7 @@ Example:
 
 
 
-## <code>&lt;speciesCoalescent&gt;</code> element
+### <code>&lt;speciesCoalescent&gt;</code> element
 
 Compute coalecent log-liklihood of a set of gene trees embedded inside one species tree.
 
@@ -22389,7 +22389,7 @@ Example:
 
 
 
-## <code>&lt;speciesTree&gt;</code> element
+### <code>&lt;speciesTree&gt;</code> element
 
 Species tree which includes demographic function per branch.
 
@@ -22464,7 +22464,7 @@ Example:
 
 
 
-## <code>&lt;speciesTreePopulationPrior&gt;</code> element
+### <code>&lt;speciesTreePopulationPrior&gt;</code> element
 
 
 
@@ -22505,7 +22505,7 @@ Example:
 
 
 
-## <code>&lt;speciesTreeStatistic&gt;</code> element
+### <code>&lt;speciesTreeStatistic&gt;</code> element
 
 A statistic that returns true if the given population tree is compatible with the species tree. Compatibility is defined as the compatibility of the timings of the events, so that incompatibility arises if two individuals in the population tree coalescent before their species do in the species tree.
 
@@ -22543,7 +22543,7 @@ Example:
 
 
 
-## <code>&lt;splitTraitBySite&gt;</code> element
+### <code>&lt;splitTraitBySite&gt;</code> element
 
 null
 
@@ -22570,7 +22570,7 @@ Example:
 
 
 
-## <code>&lt;standardizeTraits&gt;</code> element
+### <code>&lt;standardizeTraits&gt;</code> element
 
 null
 
@@ -22588,7 +22588,7 @@ Example:
 
 
 
-## <code>&lt;starTreeModel&gt;</code> element
+### <code>&lt;starTreeModel&gt;</code> element
 
 This element represents a model of the tree. The tree model includes and attributes of the nodes including the age (or <i>height</i>) and the rate of evolution at each node in the tree.
 
@@ -22658,7 +22658,7 @@ Example:
 
 
 
-## <code>&lt;statistic&gt;</code> element
+### <code>&lt;statistic&gt;</code> element
 
 A statistic of a given name from the specified object.  
 
@@ -22728,7 +22728,7 @@ Example:
 
 
 
-## <code>&lt;steppingStoneSamplingAnalysis&gt;</code> element
+### <code>&lt;steppingStoneSamplingAnalysis&gt;</code> element
 
 Performs a trace analysis.
 
@@ -22767,7 +22767,7 @@ Example:
 
 
 
-## <code>&lt;STPopulationPrior&gt;</code> element
+### <code>&lt;STPopulationPrior&gt;</code> element
 
 
 
@@ -22819,7 +22819,7 @@ Example:
 
 
 
-## <code>&lt;stratifiedTraitLogger&gt;</code> element
+### <code>&lt;stratifiedTraitLogger&gt;</code> element
 
 A parser to stratify traits to be logged
 
@@ -22865,7 +22865,7 @@ Example:
 
 
 
-## <code>&lt;strictClockBranchRates&gt;</code> element
+### <code>&lt;strictClockBranchRates&gt;</code> element
 
 This element provides a strict clock model. All branches have the same rate of molecular evolution.
 
@@ -22890,7 +22890,7 @@ Example:
 
 
 
-## <code>&lt;string&gt;</code> element
+### <code>&lt;string&gt;</code> element
 
 returns a String. If a prompt attribute exists then the user is prompted for input, otherwise the character contents of the element are returned.
 
@@ -22911,7 +22911,7 @@ Example:
 
 
 
-## <code>&lt;subStatistic&gt;</code> element
+### <code>&lt;subStatistic&gt;</code> element
 
 Allows you to choose specific dimensions of a given statistic
 
@@ -22938,7 +22938,7 @@ Example:
 
 
 
-## <code>&lt;subtreeJump&gt;</code> element
+### <code>&lt;subtreeJump&gt;</code> element
 
 An operator that jumps a subtree to another edge at the same height.
 
@@ -22972,7 +22972,7 @@ Example:
 
 
 
-## <code>&lt;subtreeLeap&gt;</code> element
+### <code>&lt;subtreeLeap&gt;</code> element
 
 An operator that moves subtree a certain distance.
 
@@ -23039,7 +23039,7 @@ Example:
 
 
 
-## <code>&lt;subtreeSlide&gt;</code> element
+### <code>&lt;subtreeSlide&gt;</code> element
 
 An operator that slides a subtree.
 
@@ -23082,7 +23082,7 @@ Example:
 
 
 
-## <code>&lt;sumStatistic&gt;</code> element
+### <code>&lt;sumStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise sum of the child statistics.
 
@@ -23122,7 +23122,7 @@ Example:
 
 
 
-## <code>&lt;sumDerivative&gt;</code> element
+### <code>&lt;sumDerivative&gt;</code> element
 
 null
 
@@ -23155,7 +23155,7 @@ Example:
 
 
 
-## <code>&lt;sumParameter&gt;</code> element
+### <code>&lt;sumParameter&gt;</code> element
 
 A element-wise sum of parameters.
 
@@ -23188,7 +23188,7 @@ Example:
 
 
 
-## <code>&lt;sumStatistic&gt;</code> element
+### <code>&lt;sumStatistic&gt;</code> element
 
 This element returns a statistic that is the element-wise sum of the child statistics.
 
@@ -23218,7 +23218,7 @@ Example:
 
 
 
-## <code>&lt;complexSubstitutionModel&gt;</code> element
+### <code>&lt;complexSubstitutionModel&gt;</code> element
 
 A general irreversible model of sequence substitution for any data type.
 
@@ -23287,7 +23287,7 @@ Example:
 
 
 
-## <code>&lt;swapOperator&gt;</code> element
+### <code>&lt;swapOperator&gt;</code> element
 
 This element represents an operator that swaps values in a multi-dimensional parameter.
 
@@ -23323,7 +23323,7 @@ Example:
 
 
 
-## <code>&lt;taxa&gt;</code> element
+### <code>&lt;taxa&gt;</code> element
 
 Defines a set of taxon objects.
 
@@ -23359,7 +23359,7 @@ Example:
 
 
 
-## <code>&lt;taxon&gt;</code> element
+### <code>&lt;taxon&gt;</code> element
 
 
 
@@ -23384,7 +23384,7 @@ Example:
 
 
 
-## <code>&lt;teamOperator&gt;</code> element
+### <code>&lt;teamOperator&gt;</code> element
 
 An arbitrary list of operators; A random subset of size N is aggregated in one operation. Operators may have unequal weights - in that case a subset probability of selection is proportional to the sum of it's members weights.
 
@@ -23424,7 +23424,7 @@ Example:
 
 
 
-## <code>&lt;test&gt;</code> element
+### <code>&lt;test&gt;</code> element
 
 This element represents a boolean statistic that returns 1 if the conditions are met and 0 otherwise.
 
@@ -23485,7 +23485,7 @@ Example:
 
 
 
-## <code>&lt;threadedCompoundLikelihood&gt;</code> element
+### <code>&lt;threadedCompoundLikelihood&gt;</code> element
 
 A likelihood function which is simply the product of its component likelihood functions.
 
@@ -23512,7 +23512,7 @@ Example:
 
 
 
-## <code>&lt;thresholdStatistic&gt;</code> element
+### <code>&lt;thresholdStatistic&gt;</code> element
 
 This element returns a statistic that thresholds the child statistics.
 
@@ -23540,7 +23540,7 @@ Example:
 
 
 
-## <code>&lt;tipHeightLikelihood&gt;</code> element
+### <code>&lt;tipHeightLikelihood&gt;</code> element
 
 Calculates the likelihood of the tipHeights given some parametric or empirical distribution.
 
@@ -23573,7 +23573,7 @@ Example:
 
 
 
-## <code>&lt;tipStateSwapOperator&gt;</code> element
+### <code>&lt;tipStateSwapOperator&gt;</code> element
 
 This element represents an operator to swap tip states between two random tips.
 
@@ -23596,7 +23596,7 @@ Example:
 
 
 
-## <code>&lt;tipTraitSwapOperator&gt;</code> element
+### <code>&lt;tipTraitSwapOperator&gt;</code> element
 
 This element represents an operator to swap tip traits between two random tips.
 
@@ -23622,7 +23622,7 @@ Example:
 
 
 
-## <code>&lt;tmrcaStatistic&gt;</code> element
+### <code>&lt;tmrcaStatistic&gt;</code> element
 
 A statistic that has as its value the height of the most recent common ancestor of a set of taxa in a given tree. 
 
@@ -23710,7 +23710,7 @@ Example:
 
 
 
-## <code>&lt;TN93Model&gt;</code> element
+### <code>&lt;TN93Model&gt;</code> element
 
 This element represents an instance of the TN93 (Tamura and Nei 1993) model of nucleotide evolution.
 
@@ -23752,7 +23752,7 @@ Example:
 
 
 
-## <code>&lt;argPartitionOperator&gt;</code> element
+### <code>&lt;argPartitionOperator&gt;</code> element
 
 An operator that picks a new partitioning uniformly at random.
 
@@ -23798,7 +23798,7 @@ Example:
 
 
 
-## <code>&lt;traceAnalysis&gt;</code> element
+### <code>&lt;traceAnalysis&gt;</code> element
 
 Performs a trace analysis. Estimates the mean of the various statistics in the given log file.
 
@@ -23839,7 +23839,7 @@ Example:
 
 
 
-## <code>&lt;traitDataLikelihood&gt;</code> element
+### <code>&lt;traitDataLikelihood&gt;</code> element
 
 This element represents the likelihood of trait data on a tree given a diffusion model.
 
@@ -23947,7 +23947,7 @@ Example:
 
 
 
-## <code>&lt;traitGibbsOperator&gt;</code> element
+### <code>&lt;traitGibbsOperator&gt;</code> element
 
 This element returns a multivariate Gibbs operator on traits for possible all nodes.
 
@@ -24008,7 +24008,7 @@ Example:
 
 
 
-## <code>&lt;traitRateGibbsOperator&gt;</code> element
+### <code>&lt;traitRateGibbsOperator&gt;</code> element
 
 This element returns a multivariate Gibbs operator on traits for possible all nodes.
 
@@ -24057,7 +24057,7 @@ Example:
 
 
 
-## <code>&lt;transform&gt;</code> element
+### <code>&lt;transform&gt;</code> element
 
 null
 
@@ -24092,7 +24092,7 @@ Example:
 
 
 
-## <code>&lt;transformedTreeModel&gt;</code> element
+### <code>&lt;transformedTreeModel&gt;</code> element
 
 This element represents a transformed model of the tree.
 
@@ -24153,7 +24153,7 @@ Example:
 
 
 
-## <code>&lt;transmissionExchangeOperatorA&gt;</code> element
+### <code>&lt;transmissionExchangeOperatorA&gt;</code> element
 
 This element represents a exchange operator, swapping two random subtrees in such a way that thetransmission tree is unaffected.
 
@@ -24187,7 +24187,7 @@ Example:
 
 
 
-## <code>&lt;transmissionExchangeOperatorB&gt;</code> element
+### <code>&lt;transmissionExchangeOperatorB&gt;</code> element
 
 This element represents a exchange operator, swapping two random subtrees in such a way that subtrees of the transmission tree are also exchanged.
 
@@ -24221,7 +24221,7 @@ Example:
 
 
 
-## <code>&lt;transmissionHistory&gt;</code> element
+### <code>&lt;transmissionHistory&gt;</code> element
 
 Defines a transmission history
 
@@ -24268,7 +24268,7 @@ Example:
 
 
 
-## <code>&lt;transmissionLikelihood&gt;</code> element
+### <code>&lt;transmissionLikelihood&gt;</code> element
 
 This element represents a likelihood function for transmission.
 
@@ -24329,7 +24329,7 @@ Example:
 
 
 
-## <code>&lt;transmissionModel&gt;</code> element
+### <code>&lt;transmissionModel&gt;</code> element
 
 A SiteModel that has a gamma distributed rates across sites
 
@@ -24433,7 +24433,7 @@ Example:
 
 
 
-## <code>&lt;transmissionStatistic&gt;</code> element
+### <code>&lt;transmissionStatistic&gt;</code> element
 
 A statistic that returns true if the given parasite tree is compatible with the host tree.
 
@@ -24493,7 +24493,7 @@ Example:
 
 
 
-## <code>&lt;transmissionSubtreeSlideA&gt;</code> element
+### <code>&lt;transmissionSubtreeSlideA&gt;</code> element
 
 An operator that slides a phylogenetic subtree, preserving the transmission tree topology.
 
@@ -24545,7 +24545,7 @@ Example:
 
 
 
-## <code>&lt;transmissionSubtreeSlideB&gt;</code> element
+### <code>&lt;transmissionSubtreeSlideB&gt;</code> element
 
 An operator that slides a phylogenetic subtree and a transmission subtree simultaneously.
 
@@ -24597,7 +24597,7 @@ Example:
 
 
 
-## <code>&lt;transmissionWilsonBaldingA&gt;</code> element
+### <code>&lt;transmissionWilsonBaldingA&gt;</code> element
 
 This element represents a Wilson-Balding move operator, such that the transplantation of the subtree does not affect the topology of the transmission tree.
 
@@ -24631,7 +24631,7 @@ Example:
 
 
 
-## <code>&lt;transmissionWilsonBaldingB&gt;</code> element
+### <code>&lt;transmissionWilsonBaldingB&gt;</code> element
 
 This element represents a Wilson-Balding move operator, such that the transplantation of the phylogenetic subtree is also transplantation of a transmission subtree.
 
@@ -24665,7 +24665,7 @@ Example:
 
 
 
-## <code>&lt;tree&gt;</code> element
+### <code>&lt;tree&gt;</code> element
 
 This element represents a rooted binary tree and associated attributes.
 
@@ -24690,7 +24690,7 @@ Example:
 
 
 
-## <code>&lt;treeBitMoveOperator&gt;</code> element
+### <code>&lt;treeBitMoveOperator&gt;</code> element
 
 This element returns a bit-move operator on a given parameter.
 
@@ -24721,7 +24721,7 @@ Example:
 
 
 
-## <code>&lt;treeBitRandomWalk&gt;</code> element
+### <code>&lt;treeBitRandomWalk&gt;</code> element
 
 This element returns a bit-random walk operator on a random indicator/variable pair in the tree.
 
@@ -24785,7 +24785,7 @@ Example:
 
 
 
-## <code>&lt;treeDataLikelihood&gt;</code> element
+### <code>&lt;treeDataLikelihood&gt;</code> element
 
 This element represents the likelihood of data on a tree given the site model.
 
@@ -24895,7 +24895,7 @@ Example:
 
 
 
-## <code>&lt;diffusionRateCovarianceStatistic&gt;</code> element
+### <code>&lt;diffusionRateCovarianceStatistic&gt;</code> element
 
 A statistic that returns the average of the branch rates
 
@@ -24943,7 +24943,7 @@ Example:
 
 
 
-## <code>&lt;continuousDiffusionStatistic&gt;</code> element
+### <code>&lt;continuousDiffusionStatistic&gt;</code> element
 
 A statistic that returns the average of the branch diffusion rates
 
@@ -25016,7 +25016,7 @@ Example:
 
 
 
-## <code>&lt;treeHeightStatistic&gt;</code> element
+### <code>&lt;treeHeightStatistic&gt;</code> element
 
 A statistic that returns the height of the tree
 
@@ -25041,7 +25041,7 @@ Example:
 
 
 
-## <code>&lt;treeLengthStatistic&gt;</code> element
+### <code>&lt;treeLengthStatistic&gt;</code> element
 
 A statistic that returns the average of the branch rates
 
@@ -25090,7 +25090,7 @@ Example:
 
 
 
-## <code>&lt;treeLikelihood&gt;</code> element
+### <code>&lt;treeLikelihood&gt;</code> element
 
 This element represents the likelihood of a patternlist on a tree given the site model.
 
@@ -25171,7 +25171,7 @@ Example:
 
 
 
-## <code>&lt;treeMetricStatistic&gt;</code> element
+### <code>&lt;treeMetricStatistic&gt;</code> element
 
 A statistic that returns the distance between two trees.  with method="topology", return a 0 for identity and a 1 for difference. With other methods return the distance metric associated with that method.
 
@@ -25212,7 +25212,7 @@ Example:
 
 
 
-## <code>&lt;treeModel&gt;</code> element
+### <code>&lt;treeModel&gt;</code> element
 
 This element represents a model of the tree. The tree model includes and attributes of the nodes including the age (or <i>height</i>) and the rate of evolution at each node in the tree.
 
@@ -25355,7 +25355,7 @@ Example:
 
 
 
-## <code>&lt;treeShapeStatistics&gt;</code> element
+### <code>&lt;treeShapeStatistics&gt;</code> element
 
 A statistic that reports a handful of tree shape statistics on the given target tree.
 
@@ -25384,7 +25384,7 @@ Example:
 
 
 
-## <code>&lt;treeTraceAnalysis&gt;</code> element
+### <code>&lt;treeTraceAnalysis&gt;</code> element
 
 Analyses and reports on a trace consisting of trees.
 
@@ -25416,7 +25416,7 @@ Example:
 
 
 
-## <code>&lt;treeTraitNormalDistribution&gt;</code> element
+### <code>&lt;treeTraitNormalDistribution&gt;</code> element
 
 Parses TreeTraitNormalDistributionModel
 
@@ -25439,7 +25439,7 @@ Example:
 
 
 
-## <code>&lt;treeTraitNormalDistributionLikelihood&gt;</code> element
+### <code>&lt;treeTraitNormalDistributionLikelihood&gt;</code> element
 
 Calculates the likelihood of some data under a given multivariate-gamma distribution.
 
@@ -25469,7 +25469,7 @@ Example:
 
 
 
-## <code>&lt;treeUniform&gt;</code> element
+### <code>&lt;treeUniform&gt;</code> element
 
 Simultanouesly change height of two nodes.
 
@@ -25497,7 +25497,7 @@ Example:
 
 
 
-## <code>&lt;twoEpoch&gt;</code> element
+### <code>&lt;twoEpoch&gt;</code> element
 
 A demographic model of two epochs.
 
@@ -25547,7 +25547,7 @@ Example:
 
 
 
-## <code>&lt;twoPartDistribution&gt;</code> element
+### <code>&lt;twoPartDistribution&gt;</code> element
 
 Calculates the likelihood of some data given some parametric or empirical distribution.
 
@@ -25559,7 +25559,7 @@ Example:
 
 
 
-## <code>&lt;uniformDistributionModel&gt;</code> element
+### <code>&lt;uniformDistributionModel&gt;</code> element
 
 Describes a uniform distribution with a given lower and upper bounds 
 
@@ -25600,7 +25600,7 @@ Example:
 
 
 
-## <code>&lt;uniformGeoSpatialOperator&gt;</code> element
+### <code>&lt;uniformGeoSpatialOperator&gt;</code> element
 
 An operator that picks new parameter values uniformly at random.
 
@@ -25637,7 +25637,7 @@ Example:
 
 
 
-## <code>&lt;uniformIntegerOperator&gt;</code> element
+### <code>&lt;uniformIntegerOperator&gt;</code> element
 
 An operator that picks new parameter values uniformly at random.
 
@@ -25671,7 +25671,7 @@ Example:
 
 
 
-## <code>&lt;uniformNodeHeightPrior&gt;</code> element
+### <code>&lt;uniformNodeHeightPrior&gt;</code> element
 
 This element represents the likelihood of the tree given the demographic function.
 
@@ -25708,7 +25708,7 @@ Example:
 
 
 
-## <code>&lt;uniformOperator&gt;</code> element
+### <code>&lt;uniformOperator&gt;</code> element
 
 An operator that picks new parameter values uniformly at random.
 
@@ -25740,7 +25740,7 @@ Example:
 
 
 
-## <code>&lt;uniformPartitionLikelihood&gt;</code> element
+### <code>&lt;uniformPartitionLikelihood&gt;</code> element
 
 null
 
@@ -25772,7 +25772,7 @@ Example:
 
 
 
-## <code>&lt;uniformPrior&gt;</code> element
+### <code>&lt;uniformPrior&gt;</code> element
 
 Calculates the prior probability of some data under a given uniform distribution.
 
@@ -25805,7 +25805,7 @@ Example:
 
 
 
-## <code>&lt;uniformNodeHeightPrior&gt;</code> element
+### <code>&lt;uniformNodeHeightPrior&gt;</code> element
 
 This element represents the likelihood of the tree given the demographic function.
 
@@ -25842,7 +25842,7 @@ Example:
 
 
 
-## <code>&lt;upDownOperator&gt;</code> element
+### <code>&lt;upDownOperator&gt;</code> element
 
 This element represents an operator that scales two parameters in different directions. Each operation involves selecting a scale uniformly at random between scaleFactor and 1/scaleFactor. The up parameter is multipled by this scale and the down parameter is divided by this scale.
 
@@ -25915,7 +25915,7 @@ Example:
 
 
 
-## <code>&lt;upgmaTree&gt;</code> element
+### <code>&lt;upgmaTree&gt;</code> element
 
 This element returns a UPGMA tree generated from the given distances.
 
@@ -25946,7 +25946,7 @@ Example:
 
 
 
-## <code>&lt;variableDemographic&gt;</code> element
+### <code>&lt;variableDemographic&gt;</code> element
 
 This element represents the likelihood of the tree given the population size vector.
 
@@ -26008,7 +26008,7 @@ Example:
 
 
 
-## <code>&lt;varianceStatistic&gt;</code> element
+### <code>&lt;varianceStatistic&gt;</code> element
 
 This element returns a statistic that is the variance of the child statistics.
 
@@ -26033,7 +26033,7 @@ Example:
 
 
 
-## <code>&lt;VDAnalysis&gt;</code> element
+### <code>&lt;VDAnalysis&gt;</code> element
 
 reconstruct population graph from EBSP run.
 
@@ -26147,7 +26147,7 @@ Example:
 
 
 
-## <code>&lt;vectorSlice&gt;</code> element
+### <code>&lt;vectorSlice&gt;</code> element
 
 A vector parameter constructed from a slice of component parameters.
 
@@ -26171,7 +26171,7 @@ Example:
 
 
 
-## <code>&lt;vonMisesFisherDiffusionModel&gt;</code> element
+### <code>&lt;vonMisesFisherDiffusionModel&gt;</code> element
 
 Describes a von Mises-Fisher distributed diffusion process on a sphere.
 
@@ -26195,7 +26195,7 @@ Example:
 
 
 
-## <code>&lt;wideExchange&gt;</code> element
+### <code>&lt;wideExchange&gt;</code> element
 
 This element represents a wide exchange operator. This operator swaps two random subtrees.
 
@@ -26277,7 +26277,7 @@ Example:
 
 
 
-## <code>&lt;wilsonBalding&gt;</code> element
+### <code>&lt;wilsonBalding&gt;</code> element
 
 An operator which performs the Wilson-Balding move on a tree
 
@@ -26344,7 +26344,7 @@ Example:
 
 
 
-## <code>&lt;wishartGammaDistributionModel&gt;</code> element
+### <code>&lt;wishartGammaDistributionModel&gt;</code> element
 
 more magic
 
@@ -26391,7 +26391,7 @@ Example:
 
 
 
-## <code>&lt;wishartStatistics&gt;</code> element
+### <code>&lt;wishartStatistics&gt;</code> element
 
 null
 
@@ -26428,7 +26428,7 @@ Example:
 
 
 
-## <code>&lt;withinCaseCoalescent&gt;</code> element
+### <code>&lt;withinCaseCoalescent&gt;</code> element
 
 This element provides a tree prior for a partitioned tree, with each partitioned tree generatedby a coalescent process
 
@@ -26511,7 +26511,7 @@ Example:
 
 
 
-## <code>&lt;compoundLikelihood&gt;</code> element
+### <code>&lt;compoundLikelihood&gt;</code> element
 
 A likelihood function which is simply the product of its component likelihood functions.
 
@@ -26544,7 +26544,7 @@ Example:
 
 
 
-## <code>&lt;yangCodonModel&gt;</code> element
+### <code>&lt;yangCodonModel&gt;</code> element
 
 This element represents the Yang model of codon evolution.
 
@@ -26589,7 +26589,7 @@ Example:
 
 
 
-## <code>&lt;yuleModel&gt;</code> element
+### <code>&lt;yuleModel&gt;</code> element
 
 A speciation model of a simple constant rate Birth-death process.
 
