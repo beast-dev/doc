@@ -262,12 +262,12 @@ Definitely. At the moment we don't have anyway of directly examining the ESS of 
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="panel-title">
-				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#q14">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#q15">
 How do I increase the ESS of a parameter?
 				</a>
 			</div>
 		</div>
-		<div id="q14" class="panel-collapse collapse">
+		<div id="q15" class="panel-collapse collapse">
 			<div class="panel-body">
 <a href="ess_tutorial.html">Take a look at this brief tutorial for ways of increasing the ESS.</a>
 			</div>
@@ -277,12 +277,12 @@ How do I increase the ESS of a parameter?
     	<div class="panel panel-default">
     		<div class="panel-heading">
     			<div class="panel-title">
-    				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#q14">
+    				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#q16">
     Why does the operator analysis continue to suggest that I decrease my &lt;subtreeSlide&gt;'s size attribute in order to improve my acceptance probability?
     				</a>
     			</div>
     		</div>
-    		<div id="q14" class="panel-collapse collapse">
+    		<div id="q16" class="panel-collapse collapse">
     			<div class="panel-body">
     The size value in the &lt;subtreeSlide&gt; operator should be proportional to the height of your tree (say about 10% initially). 
     If the tree is uncalibrated then the height of the tree is given in substitutions per site which can be very small.
