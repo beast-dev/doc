@@ -110,26 +110,7 @@ folder: beast
     		</div>
     		<div id="q17" class="panel-collapse collapse">
     			<div class="panel-body">
-                How BEAGLE is installed and used with BEAST depends on the platform (and hence the operating system).
-                Binary installers, source code and installation instructions can be found here: <a href="https://github.com/beagle-dev/beagle-lib">https://github.com/beagle-dev/beagle-lib</a>
-    			To test the installation, run BEAST and when the options dialog box appears, select "Use BEAGLE library" and "Show list of available BEAGLE resources". 
-    			You don't need to specify a BEAST input file as the information about BEAGLE will be displayed and then BEAST will stop.
-    			When run, it should show a list of available resources that BEAGLE has detected:
-    			<samp><br>
-    			BEAGLE resources available:<br>
-                0 : CPU<br>
-                &nbsp;Flags: PRECISION_SINGLE PRECISION_DOUBLE ...<br><br>
-                1 : Intel(R) HD Graphics 530<br>
-                &nbsp;Global memory (MB): 1536<br>
-                &nbsp;Clock speed (Ghz): 1.05<br>
-                &nbsp;Number of compute units: 24<br>
-                &nbsp;Flags: PRECISION_SINGLE COMPUTATION_SYNCH ...<br><br>
-                2 : Tesla K40c<br>
-                &nbsp;Global memory (MB): 11520<br>
-                &nbsp;Clock speed (Ghz): 0.74<br>
-                &nbsp;Number of cores: 2880<br>
-                &nbsp;Flags: PRECISION_SINGLE PRECISION_DOUBLE ...
-    			</samp>
+                A tutorial on how to use BEAGLE with BEAST can be found <a href="beagle.html">here</a>.
     			</div>
     		</div>
     	</div>

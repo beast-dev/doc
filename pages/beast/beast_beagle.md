@@ -17,7 +17,7 @@ It can make use of highly-parallel processors such as those in graphics processi
 
 **The current version of BEAGLE will only work with BEAST v1.6 or later**
 
-BEAGLE is an independent project and its website is [https://github.com/beagle-dev/beagle-lib], where binary installers and installation instructions for different operating systems are available.
+BEAGLE is an independent project and its website is [https://github.com/beagle-dev/beagle-lib](https://github.com/beagle-dev/beagle-lib), where binary installers and installation instructions for different operating systems are available.
 
 ## Testing the BEAGLE installation 
 
