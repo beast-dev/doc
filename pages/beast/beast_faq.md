@@ -114,6 +114,20 @@ folder: beast
     			</div>
     		</div>
     	</div>
+    <!-- /.panel -->
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+        			<div class="panel-title">
+        				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#q18">
+        				How do I achieve optimal performance when using BEAGLE with BEAST? </a>
+        			</div>
+        		</div>
+        		<div id="q18" class="panel-collapse collapse">
+        			<div class="panel-body">
+                    A tutorial on how to optimize performance when using BEAGLE with BEAST can be found <a href="performance.html">here</a>.
+        			</div>
+        		</div>
+        	</div>
 	<!-- /.panel -->
 </div>
 <!-- /.panel-group -->
