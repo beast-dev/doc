@@ -12,7 +12,7 @@ folder: beast
 
 ## Optimizing Performance
 
-### Default transition kernels
+### Nucleotide data sets
 
 Before commencing this guide, we refer to the page on [how to use BEAGLE with BEAST](beagle.html).
 
@@ -38,9 +38,26 @@ BEAGLE resources available:
 
 In other words, this system contains a CPU, an Intel integrated graphics processor (IGP) and one NVidia Tesla GPU card fit for scientific computing. 
 
+#### CPU
+
+In the case of multiple sequence data partitions, a separate BEAGLE instance will be created per partition, ensuring that each partition is run in parallel on a different processor core (as long as the number of available processor cores exceeds the number of data partitions).
+Users can manually limit the number of threads that can be used by BEAGLE (by using the <samp>-threads</samp> option), but in general there is no reason to do so. 
+
+In the case of sufficiently large data partitions (in terms of the number of unique site patterns), each partition can be split into 2 or more subpartitions for matters of efficiency using the <samp>-beagle_instances</samp> option.
+Note that the  <samp>-beagle_instances</samp> option holds for every partition, i.e. every data partition will be split into the same specified amount of subpartitions.
+This option is hence the most popular when analysing a single large data partition or multiple large data partitions of similar size (again in terms of their number of unique site patterns).
 
 
 
-### Adaptive MCMC
+
+#### GPU
+
+
+#### CPU & GPU
+
+
+### Codon data sets
+
+
 
 {% include links.html %}
