@@ -115,7 +115,7 @@ folder: beast
     			To test the installation, run BEAST and when the options dialog box appears, select "Use BEAGLE library" and "Show list of available BEAGLE resources". 
     			You don't need to specify a BEAST input file as the information about BEAGLE will be displayed and then BEAST will stop.
     			When run, it should show a list of available resources that BEAGLE has detected:
-    			<code>
+    			<samp>
     			BEAGLE resources available:
                 0 : CPU
                     Flags: PRECISION_SINGLE PRECISION_DOUBLE ...
@@ -131,7 +131,7 @@ folder: beast
                     Clock speed (Ghz): 0.74
                     Number of cores: 2880
                     Flags: PRECISION_SINGLE PRECISION_DOUBLE ...
-    			</code>
+    			</samp>
     			</div>
     		</div>
     	</div>
