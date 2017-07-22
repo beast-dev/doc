@@ -76,7 +76,8 @@ folder: beast
 		</div>
 		<div id="q3" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
-			
+			That depends on the operating system you are using. 
+			Please look at the README file that was included in the package you downloaded.
 			</div>
 		</div>
 	</div>
@@ -90,10 +91,50 @@ folder: beast
 		</div>
 		<div id="q4" class="panel-collapse collapse">
 			<div class="panel-body">
-
+            BEAGLE is a high-performance computational library that can perform the core calculations at the heart of most Bayesian and Maximum Likelihood phylogenetics packages. 
+            It can make use of highly-parallel processors such as those in 3D graphics boards (referred to as Graphics Processing Units or GPUs) found in many PCs. 
+            In general using it (even if not using a GPU) will improve the performance of BEAST. 
+            However, it is not necessarily going to benefit all data sets. 
+            In particular, for the use of a GPU to be efficient, long partitions are required (perhaps >500 unique site patterns). 
+            Only high-end GPUs such as the GTX590 or Tesla boards will provide sufficient benefits. 
 			</div>
 		</div>
 	</div>
+	<!-- /.panel -->
+    	<div class="panel panel-default">
+    		<div class="panel-heading">
+    			<div class="panel-title">
+    				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#q17">
+    				How do I use BEAGLE with BEAST? </a>
+    			</div>
+    		</div>
+    		<div id="q17" class="panel-collapse collapse">
+    			<div class="panel-body">
+                How BEAGLE is installed and used with BEAST depends on the platform (and hence the operating system).
+                Binary installers, source code and installation instructions can be found here: <a href="https://github.com/beagle-dev/beagle-lib">https://github.com/beagle-dev/beagle-lib</a>
+    			To test the installation, run BEAST and when the options dialog box appears, select "Use BEAGLE library" and "Show list of available BEAGLE resources". 
+    			You don't need to specify a BEAST input file as the information about BEAGLE will be displayed and then BEAST will stop.
+    			When run, it should show a list of available resources that BEAGLE has detected:
+    			<code>
+    			BEAGLE resources available:
+                0 : CPU
+                    Flags: PRECISION_SINGLE PRECISION_DOUBLE ...
+                    
+                1 : Intel(R) HD Graphics 530
+                    Global memory (MB): 1536
+                    Clock speed (Ghz): 1.05
+                    Number of compute units: 24
+                    Flags: PRECISION_SINGLE COMPUTATION_SYNCH ...
+                
+                2 : Tesla K40c
+                    Global memory (MB): 11520
+                    Clock speed (Ghz): 0.74
+                    Number of cores: 2880
+                    Flags: PRECISION_SINGLE PRECISION_DOUBLE ...
+    			</code>
+    			</div>
+    		</div>
+    	</div>
 	<!-- /.panel -->
 </div>
 <!-- /.panel-group -->
