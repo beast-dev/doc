@@ -19,6 +19,21 @@ This will download a disk image (a '.dmg' file) probably into your Downloads fol
 
 {% include callout.html content="The latest version of BEAST can always be found here: [https://github.com/beast-dev/beast-mcmc/releases/latest](https://github.com/beast-dev/beast-mcmc/releases/latest)" %}
 
+## Installing JAVA
+
+To run BEAST on Mac OS X, you will need to have [Java](http://go.java.com) installed. Older versions of Mac OS had Java installed by default but this is no longer the case. BEAST currently requires at least version 6 of Java and this can still be installed as an optional package from Apple. Alternatively, you can install the latest version of Java which is distributed free by [Oracle](http://java.com). The former option is easier but the latest Java may give slightly better performance.
+  
+### Installing Apple Java 6
+
+You can download the 'legacy' Java 6 from here: [https://support.apple.com/kb/dl1572](https://support.apple.com/kb/dl1572).
+This will download an installer which will install Java and you are ready to go (you won't need to restart the machine).
+
+### Installing Oracle Java 8
+
+To get the latest version of Java you will need to download the Java JDK from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Download and install the 'JRE' - this is the Java Runtime Environment. If you want to compile Java code you can install the JDK (Java Development Kit) instead. Once installed, you will automatically get updates to the latest version.
+
+{% include note.html content="Do not install the Java software offered on the http://java.com website. This will install java only as a plug in to your web browser. This version of Java will not be able to run BEAST." %}
+
 ## Installing BEAST
 
 Double-clicking the disk image file will open the a virtual 'disk' in a Finder window. At this point the applications are still on the 'disk' created by the disk image. We suggest that you drag the entire folder into your ```Applications``` folder (either the main Applications folder or the one in your user folder). You can drag the folder by clicking, holding and then dragging the little white icon at the top of the disk image finder window.

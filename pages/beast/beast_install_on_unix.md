@@ -1,5 +1,5 @@
 ---
-title: Installing BEAST on UNIX/Linux
+title: Downloading and installing BEAST on UNIX/Linux
 keywords: beast, install, download, unix, linux
 last_updated: July 12, 2017
 tags: [getting_started]
@@ -20,6 +20,8 @@ BEAST can be downloaded from the following link:
 This will download a compressed tar archive (a '.tgz' file). 
 
 {% include callout.html content="The latest version of BEAST can always be found here: [https://github.com/beast-dev/beast-mcmc/releases/latest](https://github.com/beast-dev/beast-mcmc/releases/latest)" %}
+
+## Installing JAVA
 
 ## Installing BEAST
 
