@@ -17,9 +17,7 @@ BEAST can be downloaded from the following link:
 
 This will download a disk image (a '.dmg' file) probably into your Downloads folder. 
 
-The latest version of BEAST can always be found here:
-
-- [https://github.com/beast-dev/beast-mcmc/releases/latest](https://github.com/beast-dev/beast-mcmc/releases/latest)
+{% include callout.html content="The latest version of BEAST can always be found here: [https://github.com/beast-dev/beast-mcmc/releases/latest](https://github.com/beast-dev/beast-mcmc/releases/latest)" %}
 
 ## Installing BEAST
 
@@ -42,23 +40,5 @@ We also strongly recommend that you install the BEAGLE library to accelerate BEA
 ### Installing a command-line version of BEAST
 
 Mac OS X is particularly popular in computational biology because it is built upon a UNIX operating system which gives it access to a wide range of scientific software. BEAST can also be installed to run within the command-line environment provided by the Mac OS X Terminal.app. [For instructions on installing BEAST for a UNIX command line see this page](install_on_unix).
-
-#### Homebrew package manager
-
-If you use the Mac OS X command-line you are probably familiar with [HomeBrew](https://brew.sh). This is a simple and convenient way of installing and updating command-line software on the Mac. [HomeBrew](https://brew.sh) provides a huge range of science and bioinformatics software [and a list of packages can be found here](https://github.com/Homebrew/homebrew-science/wiki/List-of-homebrew-science-formulae). [See the HomeBrew website to get it installed](https://brew.sh).
-
-To install BEAST using HomeBrew type:
-
-```bash
-brew tap homebrew/science
-brew install beast
-```
-
-To check BEAST is installed type:
-
-```bash
-beast -help
-```
-
 
 {% include links.html %}
