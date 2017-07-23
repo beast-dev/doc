@@ -2,7 +2,7 @@
 title: Estimating R0 from coalescent growth rates
 keywords: beast, tutorial
 last_updated: July 8, 2017
-tags: [tutorial]
+tags: [reference]
 summary: 
 sidebar: beast_sidebar
 permalink: estimating_R0.html

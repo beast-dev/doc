@@ -6,7 +6,7 @@ tags: [getting_started installing]
 summary: "BEAST is a software package for phylogenetic analysis with an emphasis on time-scaled trees."
 sidebar: beast_sidebar
 permalink: install_on_windows.html
-folder: beast
+folder: beast/installing
 ---
 
 ## Downloading BEAST

@@ -7,7 +7,7 @@ keywords: software, spread, beast
 last_updated: July 19, 2017
 summary: "SPREAD"
 toc: true
-folder: beast
+folder: beast/programs
 ---
 
 ## SPREAD

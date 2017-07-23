@@ -7,7 +7,7 @@ keywords: software, pibuss, beast
 last_updated: July 19, 2017
 summary: "&pi;BUSS"
 toc: true
-folder: beast
+folder: beast/programs
 ---
 
 ## &pi;BUSS

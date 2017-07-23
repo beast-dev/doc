@@ -7,7 +7,7 @@ keywords: software, beast, beauti
 last_updated: July 13, 2017
 summary: "The BEAUti & The BEAST software package"
 toc: true
-folder: beast
+folder: beast/programs
 ---
 
 ## Bayesian Evolutionary Analysis Sampling Trees (BEAST)

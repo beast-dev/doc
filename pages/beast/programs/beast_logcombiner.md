@@ -7,7 +7,7 @@ keywords: software, logcombiner, beast
 last_updated: July 13, 2017
 summary: "LogCombiner"
 toc: true
-folder: beast
+folder: beast/programs
 ---
 
 ## LogCombiner

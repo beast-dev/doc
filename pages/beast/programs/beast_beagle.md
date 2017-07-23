@@ -7,7 +7,7 @@ keywords: software, beagle, beast
 last_updated: July 13, 2017
 summary: "BEAGLE"
 toc: true
-folder: beast
+folder: beast/programs
 ---
 
 ## Using BEAGLE with BEAST

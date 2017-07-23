@@ -6,7 +6,7 @@ tags: [getting-started installing]
 summary: "How to download and install BEAST on your computer."
 sidebar: beast_sidebar
 permalink: installing.html
-folder: beast
+folder: beast/installing
 ---
 
 ## Installing BEAST

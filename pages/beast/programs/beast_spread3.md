@@ -7,7 +7,7 @@ keywords: software, spread3, beast
 last_updated: July 19, 2017
 summary: "SpreaD3"
 toc: true
-folder: beast
+folder: beast/programs
 ---
 
 ## SpreaD3

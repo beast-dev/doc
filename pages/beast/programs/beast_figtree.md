@@ -7,7 +7,7 @@ keywords: software, figtree, beast
 last_updated: July 19, 2017
 summary: 
 toc: false
-folder: beast
+folder: beast/programs
 ---
 
 <div style="float: left;" >

@@ -7,7 +7,7 @@ keywords: software, beastgen, beast
 last_updated: July 13, 2017
 summary: "BEASTGen"
 toc: true
-folder: beast
+folder: beast/programs
 ---
 
 ## BEASTGen

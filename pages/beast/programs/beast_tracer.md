@@ -7,7 +7,7 @@ keywords: software, tracer, beast
 last_updated: July 19, 2017
 summary: "Tracer"
 toc: true
-folder: beast
+folder: beast/programs
 ---
 
 ## Tracer

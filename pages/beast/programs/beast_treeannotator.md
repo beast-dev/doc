@@ -7,7 +7,7 @@ keywords: software, treeannotator, beast
 last_updated: July 13, 2017
 summary: "TreeAnnotator"
 toc: true
-folder: beast
+folder: beast/programs
 ---
 
 ## TreeAnnotator

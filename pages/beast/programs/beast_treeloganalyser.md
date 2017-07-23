@@ -7,7 +7,7 @@ keywords: software, treeloganalyser, beast
 last_updated: July 13, 2017
 summary: "TreeLogAnalyser"
 toc: true
-folder: beast
+folder: beast/programs
 ---
 
 ## TreeLogAnalyser
