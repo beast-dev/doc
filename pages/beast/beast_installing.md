@@ -9,16 +9,24 @@ permalink: installing.html
 folder: beast
 ---
 
-## Downloading BEAST
-
 ## Installing BEAST
+
+BEAST has been developed in [Java](https://go.java/index.html), which allows the same code to run on any platform that has the Java software installed. We have also created packages for each of the common operating systems to provide a user-interface that is 'native' and familiar. 
 
 ### On Mac
 
+[How to install BEAST on Mac OS X](install_on_mac.html) 
+
 ### On Windows
+
+[How to install BEAST on Windows](install_on_windows.html) 
 
 ### On Linux, Unix or Mac OS X Command Line
 
+[How to install BEAST on Linux or UNIX based operating systems](install_on_unix.html) 
+
 ## Installing BEAGLE
+
+BEAGLE is an independently developed software library that BEAST uses to accelerate its core calculations. [See here for more details about BEAGLE and installing it](beagle).
 
 {% include links.html %}
