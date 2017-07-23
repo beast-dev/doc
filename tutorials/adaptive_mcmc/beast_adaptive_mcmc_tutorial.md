@@ -155,6 +155,10 @@ Note that at the moment, the logConstrainedSum-transformation only applies to pa
 For example, in the case of relative rates, the fixed total sum is equal to 3 in the case of partitioning by codon position, and there are 3 relative rate parameters.
 This means that, for now (but this is work in progress), a set of base frequencies that need to be estimated cannot yet be included in the adaptive MCMC transition kernel.
 
+## Automated load balancing
+
+
+
 ## References
 
 G. Baele, P. Lemey, A. Rambaut and M. A. Suchard (2017) Adaptive MCMC in Bayesian phylogenetics: an application to analyzing partitioned data in BEAST. Bioinformatics 33(12): 1798-1805.

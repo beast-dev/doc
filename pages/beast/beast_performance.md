@@ -54,11 +54,19 @@ Users can manually limit the number of threads that can be used by BEAGLE (by us
 In the case of sufficiently large data partitions (in terms of the number of unique site patterns), each partition can be split into 2 or more subpartitions for matters of efficiency using the <samp>-beagle_instances</samp> option.
 Note that the  <samp>-beagle_instances</samp> option holds for every partition, i.e. every data partition will be split into the same specified amount of subpartitions.
 This option is hence the most popular when analysing a single large data partition or multiple large data partitions of similar size (again in terms of their number of unique site patterns).
+For example, to split one or more data partitions into 4 subpartitions, the likelihood of which will be computed in parallel on a separate processor, the following command can be used:
 
+```bash
+beast -beagle_instances 4
+```
 
-
+For analysing nucleotide data sets of small to mediocre size, using multi-core CPU configurations will deliver adequate computational efficiency.
+Performance gains may be achieved by using automated load balancing, which tries to determine the optimal subpartitioning strategy to deliver optimal performance on a multi-core CPU setup.
+This feature is typically used within an [adaptive MCMC framework](adaptive_mcmc_tutorial.html) (and is explained in the respective [tutorial](adaptive_mcmc_tutorial.html)), but can also be applied to single-partition data sets.
+While there is nothing to prevent this approach from working with a partitioned data set, transition kernels that work on a single partition at a time will not fully benefit from such a strategy.
 
 #### GPU
+
 
 
 #### CPU & GPU
