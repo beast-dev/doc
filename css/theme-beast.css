@@ -213,12 +213,13 @@ figure.table {
 figcaption {
 	text-align: left;
 	color: var(--grey-color);
+    max-width: 100%;
 }
 
 caption {
     padding-top: 8px;
     padding-bottom: 8px;
-    color: #777;
+    color: var(--grey-color);
     text-align: left;
 }
 
