@@ -134,7 +134,7 @@ entries:
       url: /performance.html
       output: web, pdf
 
-    - Molecular Clocks
+    - title: Molecular Clocks
       url: /clocks.html
       output: web, pdf
 
