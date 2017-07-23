@@ -134,6 +134,14 @@ entries:
       url: /performance.html
       output: web, pdf
 
+    - title: Molecular Clocks
+      url: /clocks.html
+      output: web, pdf
+
+    - title: Tree Priors
+      url: /treepriors.html
+      output: web, pdf
+
     - title: XML Reference
       url: /xml_reference.html
       output: web, pdf
