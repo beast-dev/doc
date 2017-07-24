@@ -21,7 +21,7 @@ You can download Tracer from here: [http://tree.bio.ed.ac.uk/software/tracer/](h
 
 ### Using Tracer
 
-A tutorial is available describing [how to use Tracer to analyse the output from BEAST](analysing_beast_output.html).
+A tutorial is available describing [how to use Tracer to analyse the output from BEAST](analysing_beast_output).
 
 ### Citing Tracer
 

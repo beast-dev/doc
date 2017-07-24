@@ -12,7 +12,7 @@ folder: beast/programs
 
 ## SpreaD3
 
-SpreaD3 (Spatial Phylogenetics Reconstruction of Evolutionary Dynamics using Data-Driven Documents (D3)) is a major update to [SPREAD](spread.html) and constitutes a package for analysis and visualisation of pathogen pylodynamic reconstructions.
+SpreaD3 (Spatial Phylogenetics Reconstruction of Evolutionary Dynamics using Data-Driven Documents (D3)) is a major update to [SPREAD](spread) and constitutes a package for analysis and visualisation of pathogen pylodynamic reconstructions.
 
 ### Downloading
 

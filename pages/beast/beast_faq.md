@@ -97,7 +97,7 @@ folder: beast
         		</div>
         		<div id="q18" class="panel-collapse collapse">
         			<div class="panel-body">
-                    <a href="performance.html">See this page on how to optimize performance when using BEAGLE with BEAST.</a>.
+                    <a href="performance">See this page on how to optimize performance when using BEAGLE with BEAST.</a>.
         			</div>
         		</div>
         	</div>
@@ -261,7 +261,7 @@ How do I increase the ESS of a parameter?
 		</div>
 		<div id="q15" class="panel-collapse collapse">
 			<div class="panel-body">
-<a href="ess_tutorial.html">Take a look at this brief tutorial for ways of increasing the ESS.</a>
+<a href="ess_tutorial">Take a look at this brief tutorial for ways of increasing the ESS.</a>
 			</div>
 		</div>
 	</div>

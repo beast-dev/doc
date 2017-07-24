@@ -14,7 +14,7 @@ folder: beast/programs
 <img style="max-width: 64px; margin: 4px 10px 0px 0px" src="/images/figtree-icon.png" alt="logo" />
 </div>
 <div class="summary" style="border-left: none">
-FigTree is a program for viewing trees, including summary information produced by <a href="treeannotator.html">TreeAnnotator</a>, and producing publication quality figures.
+FigTree is a program for viewing trees, including summary information produced by <a href="treeannotator">TreeAnnotator</a>, and producing publication quality figures.
 </div>
 
 ### Downloading

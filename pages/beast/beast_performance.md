@@ -14,7 +14,7 @@ folder: beast
 
 ### Nucleotide data sets
 
-Before commencing this guide, we refer to the page on [how to use BEAGLE with BEAST](beagle.html).
+Before commencing this guide, we refer to the page on [how to use BEAGLE with BEAST](beagle).
 
 We will here assume the following system setup, which is shown by BEAGLE to be the following: 
 
@@ -67,7 +67,7 @@ If your data set has 3 partitions, a total of 12 subpartitions will be created, 
 
 For analysing nucleotide data sets of small to mediocre size, using multi-core CPU configurations will deliver adequate computational efficiency.
 Performance gains may be achieved by using automated load balancing, which tries to determine the optimal subpartitioning strategy to deliver optimal performance on a multi-core CPU setup.
-This feature is typically used within an [adaptive MCMC framework](adaptive_mcmc_tutorial.html) (and is explained in the respective [tutorial](adaptive_mcmc_tutorial.html)), but can also be applied to single-partition data sets.
+This feature is typically used within an [adaptive MCMC framework](adaptive_mcmc_tutorial) (and is explained in the respective [tutorial](adaptive_mcmc_tutorial)), but can also be applied to single-partition data sets.
 While there is nothing to prevent this approach from working with a partitioned data set, transition kernels that work on a single partition at a time will not fully benefit from such a strategy.
 
 #### GPU
