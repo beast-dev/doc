@@ -18,6 +18,6 @@ It is entirely orientated towards rooted, time-measured phylogenies inferred usi
 Apart from a strict molecular clock, a variety of models for relaxing the molecular clock assumption have been developed and implemented in BEAST.
 These are accessible in the 'Clocks' pane in BEAUti:
 
-{% include image.html file="clockModels.png" prefix="clocks/" caption="" %}
+{% include image.html file="clockModels.png" prefix="images/clocks/" caption="" %}
 
 {% include links.html %}
