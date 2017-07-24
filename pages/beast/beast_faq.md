@@ -61,8 +61,7 @@ folder: beast
 		</div>
 		<div id="q3" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
-			That depends on the operating system you are using. 
-			Please look at the README file that was included in the package you downloaded.
+			<a href="installing">Look at this page for instructions about installing BEAST on different operating systems</a>
 			</div>
 		</div>
 	</div>
@@ -76,29 +75,18 @@ folder: beast
 		</div>
 		<div id="q4" class="panel-collapse collapse">
 			<div class="panel-body">
+            <p>
             BEAGLE is a high-performance computational library that can perform the core calculations at the heart of most Bayesian and Maximum Likelihood phylogenetics packages. 
             It can make use of highly-parallel processors such as those in 3D graphics boards (referred to as Graphics Processing Units or GPUs) found in many PCs. 
             In general using it (even if not using a GPU) will improve the performance of BEAST. 
             However, it is not necessarily going to benefit all data sets. 
             In particular, for the use of a GPU to be efficient, long partitions are required (perhaps >500 unique site patterns). 
             Only high-end GPUs such as the GTX590 or Tesla boards will provide sufficient benefits. 
-			</div>
+            </p>
+            <p><a href="beagle">See this page for more information about BEAGLE.</a></p>
+            </div>
 		</div>
 	</div>
-	<!-- /.panel -->
-    	<div class="panel panel-default">
-    		<div class="panel-heading">
-    			<div class="panel-title">
-    				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#q17">
-    				How do I use BEAGLE with BEAST? </a>
-    			</div>
-    		</div>
-    		<div id="q17" class="panel-collapse collapse">
-    			<div class="panel-body">
-                A tutorial on how to use BEAGLE with BEAST can be found <a href="beagle.html">here</a>.
-    			</div>
-    		</div>
-    	</div>
     <!-- /.panel -->
         	<div class="panel panel-default">
         		<div class="panel-heading">
@@ -109,7 +97,7 @@ folder: beast
         		</div>
         		<div id="q18" class="panel-collapse collapse">
         			<div class="panel-body">
-                    A tutorial on how to optimize performance when using BEAGLE with BEAST can be found <a href="performance.html">here</a>.
+                    <a href="performance.html">See this page on how to optimize performance when using BEAGLE with BEAST.</a>.
         			</div>
         		</div>
         	</div>
@@ -130,9 +118,9 @@ What is the maximum clade credibility (MCC) tree produced by TreeAnnotator?
 		</div>
 		<div id="q5" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
-The tree produced by TreeAnnotator (denoted the maximum clade credibility or MCC tree) is not a consensus tree such as that produced by the 'sumt' command in MrBayes. Instead, TreeAnnotator picks one of the trees actually present in the sample produced by BEAST - thus it is a tree that was actually visited by the MCMC sampler. The tree it picks is the one that has the highest product of all the clade credibilities (posterior probabilities) for all the clades in the tree. The motivation with this is to find a single 'point estimate' tree that is in some way central to the distribution of trees. This tree is then given (annotated with) summary information for the full set of trees from the sample. For example, it is given average node heights, credible intervals for the node heights, rates, etc. 
-
-See this page for various other approaches to summarizing trees.
+<p>The tree produced by TreeAnnotator (denoted the maximum clade credibility or MCC tree) is not a consensus tree such as that produced by the 'sumt' command in MrBayes. Instead, TreeAnnotator picks one of the trees actually present in the sample produced by BEAST - thus it is a tree that was actually visited by the MCMC sampler. The tree it picks is the one that has the highest product of all the clade credibilities (posterior probabilities) for all the clades in the tree. The motivation with this is to find a single 'point estimate' tree that is in some way central to the distribution of trees. This tree is then given (annotated with) summary information for the full set of trees from the sample. For example, it is given average node heights, credible intervals for the node heights, rates, etc. 
+</p>
+<p><a href="beagle">See this page for an explanation of various approaches to summarizing trees.</a></p>
 			</div>
 		</div>
 	</div>
@@ -197,21 +185,6 @@ Why do I need to increase it?
 			</div>
 		</div>
 		<div id="q9" class="panel-collapse collapse">
-			<div class="panel-body">
-If the ESS of a parameter is small then the estimate of the posterior distribution of that parameter will be poor. In Tracer you can calculate the standard deviation of the estimated mean of a parameter. If the ESS is small then the standard deviation will be large. This is exactly the same as the sample size of an experiment consisting of measurements.
-			</div>
-		</div>
-	</div>
-	<!-- /.panel -->
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<div class="panel-title">
-				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#q10">
-Why do I need to increase it?
-				</a>
-			</div>
-		</div>
-		<div id="q10" class="panel-collapse collapse">
 			<div class="panel-body">
 If the ESS of a parameter is small then the estimate of the posterior distribution of that parameter will be poor. In Tracer you can calculate the standard deviation of the estimated mean of a parameter. If the ESS is small then the standard deviation will be large. This is exactly the same as the sample size of an experiment consisting of measurements.
 			</div>
