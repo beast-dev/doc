@@ -78,34 +78,50 @@ As an Open Source project, BEAST has benefited from contributions and assistance
 BEAST has been supported at various times by:
 
 {% include callout.html content='
+<a href="http://erc.europa.eu">
 <img src="images/logos/erc-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
-<img src="images/logos/eu-flag.png" style="max-height: 64px; margin: 0px 10px 0px 10px;"/>European Research Council grants XXX
+<img src="images/logos/eu-flag.png" style="max-height: 64px; margin: 0px 10px 0px 10px;"/>
+</a>
+European Research Council grants XXX
 ' %}
 
 {% include callout.html content='
-<img src="images/logos/nih-logo-wide.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" /> grants XXX
+<a href="http://nih.gov">
+<img src="images/logos/nih-logo-wide.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
+</a>
+ grants XXX
 ' %}
 
 {% include callout.html content='
-<img src="images/logos/wellcome-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />The Wellcome Trust grants XXX
+<a href="http://wellcome.ac.uk">
+<img src="images/logos/wellcome-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
+</a>
+The Wellcome Trust grants XXX
 ' %}
 
 {% include callout.html content='
-<img src="images/logos/bbsrc-logo-wide.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" /> grants XXX
+<a href="http://bbsrc.ac.uk">
+<img src="images/logos/bbsrc-logo-wide.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
+</a>
+ grants XXX
 ' %}
 
 {% include callout.html content='
-<img src="images/logos/roysoc-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />The Royal Society of London XXX
+<a href="http://royalsociety.org">
+<img src="images/logos/roysoc-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
+</a>
+The Royal Society of London XXX
 ' %}
 
 {% include callout.html content='
-<img src="images/logos/marsden-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />The Marsden Fund XXX
+<a href="http://royalsociety.org.nz/what-we-do/funds-and-opportunities/marsden/">
+<img src="images/logos/marsden-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
+</a>
+The Marsden Fund XXX
 ' %}
 
 ### The BEAST logo
 
-<div style="max-width: 320; margin: auto">
-{% include image.html file="beast-medium.png" url="http://beast-dev.github.io/doc" alt="logo" caption="The BEAST logo is from a plate in Ernst Haeckel's Kunstformen der Natur (Artforms of nature) (1904)." %}
-</div>
+{% include image.html file="beast-medium.png" width="320px" url="http://beast-dev.github.io/doc" alt="logo" caption="The BEAST logo is from a plate in Ernst Haeckel's Kunstformen der Natur (Artforms of nature) (1904)." %}
 
 {% include links.html %}
