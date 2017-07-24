@@ -77,24 +77,30 @@ As an Open Source project, BEAST has benefited from contributions and assistance
 
 BEAST has been supported at various times by:
 
-<div style="display: inline; border-right: 1px solid #4388a8; margin: 0px 10px 0px 10px;">
-<img src="images/logos/erc-logo.png">European Research Council grants XXX
-</div>
-<div style="display: inline; border-right: 1px solid #4388a8; margin: 0px 10px 0px 10px;">
-<img src="images/logos/nih-logo.png">National Institutes of Health grants XXX
-</div>
-<div style="display: inline; border-right: 1px solid #4388a8; margin: 0px 10px 0px 10px;">
-<img src="images/logos/wellcome-logo.png">The Wellcome Trust grants XXX
-</div>
-<div style="display: inline; border-right: 1px solid #4388a8; margin: 0px 10px 0px 10px;">
-<img src="images/logos/bbsrc-logo.png">The BBRC grants XXX
-</div>
-<div style="display: inline; border-right: 1px solid #4388a8; margin: 0px 10px 0px 10px;">
-<img src="images/logos/roysoc-logo.png">The Royal Society of London XXX
-</div>
-<div style="display: inline; border-right: 1px solid #4388a8; margin: 0px 10px 0px 10px;">
-<img src="images/logos/marsden-logo.png">The Marsden Fund XXX
-</div>
+{% include callout.html content='
+<img src="images/logos/erc-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
+<img src="images/logos/eu-flag.png" style="max-height: 64px; margin: 0px 10px 0px 10px;"/>European Research Council grants XXX
+' %}
+
+{% include callout.html content='
+<img src="images/logos/nih-logo-wide.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" /> grants XXX
+' %}
+
+{% include callout.html content='
+<img src="images/logos/wellcome-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />The Wellcome Trust grants XXX
+' %}
+
+{% include callout.html content='
+<img src="images/logos/bbsrc-logo-wide.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" /> grants XXX
+' %}
+
+{% include callout.html content='
+<img src="images/logos/roysoc-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />The Royal Society of London XXX
+' %}
+
+{% include callout.html content='
+<img src="images/logos/marsden-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />The Marsden Fund XXX
+' %}
 
 ### The BEAST logo
 
