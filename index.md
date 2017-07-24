@@ -27,7 +27,7 @@ BEAST is a cross-platform program for Bayesian analysis of molecular sequences u
 
 This website is for BEAST v1.X (currently version v1.8.4). For details about BEAST2, an independent project led by the University of Auckland, [please look here](http://beast2.org).
 
-What can BEAST do?
+[What can BEAST do?](about)
 
 ## Getting started with BEAST
 
