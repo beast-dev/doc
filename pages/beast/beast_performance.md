@@ -49,7 +49,7 @@ In other words, this system contains a CPU (resource 0), an Intel integrated gra
 By default, the likelihood evaluation for each data partition will occur on CPU (i.e. on resource 0).
 
 In the case of multiple sequence data partitions, a separate BEAGLE instance will be created per partition, ensuring that each partition is run in parallel on a different processor core (as long as the number of available processor cores exceeds the number of data partitions).
-Users can manually limit the number of threads that can be used by BEAGLE (by using the <samp>-threads</samp> option), but in general there is no reason to do so. 
+Users can manually limit the number of threads that can be used by BEAGLE (by using the <samp>-threads</samp> option), but in general there is no reason to do so (unless to prevent the BEAST analysis taking up too much resources). 
 
 In the case of sufficiently large data partitions (in terms of the number of unique site patterns), each partition can be split into 2 or more subpartitions for matters of efficiency using the <samp>-beagle_instances</samp> option.
 Note that the <samp>-beagle_instances</samp> option holds for every partition, i.e. every data partition will be split into the same specified amount of subpartitions.
@@ -59,6 +59,9 @@ For example, to split one or more data partitions into 4 subpartitions, the like
 ```bash
 beast -beagle_instances 4
 ```
+
+In other words, if your data set has 1 partition, the command above will create 4 subpartitions.
+If your data set has 3 partitions, a total of 12 subpartitions will be created, which will only be useful when each partition is sufficiently large and in the presence of a large multi-core CPU system.
 
 #### Automated load balancing (CPU)
 
@@ -88,13 +91,13 @@ The idea then is to put the smallest partition(s) on the CPU and the large(r) pa
 For example, in the case of a small first partitions and four larger subsequent partitions, we suggest to use the following command:
 
 ```bash
-beast -beagle_order 0,2,3,2,3
+beast -beagle_gpu -beagle_order 0,2,3,2,3
 ```
 
 or:
 
 ```bash
-beast -beagle_order 0,2,2,3,3
+beast -beagle_gpu -beagle_order 0,2,2,3,3
 ```
 
 ### Codon data sets
@@ -120,5 +123,32 @@ On a system configuration with multiple GPUs, independent analyses can be run si
 beast -beagle_gpu -beagle_order 2 dataset_1.xml
 beast -beagle_gpu -beagle_order 3 dataset_2.xml
 ```
+
+### Discrete trait data
+
+When performing phylogeographic or phylodynamic analyses, one or more discrete trait partitions can be part of the overall data with specific parameters that need to be estimated.
+The most popular example is a set of discrete location states, such as countries or districts.
+In the case of only a limited number of possible states (i.e. &lt; 15), CPUs are able to outperform powerful GPUs when evaluating the likelihood of such a trait partition.
+This makes sense, as only a single column of trait data needs to be evaluated (compared to hundreds or thousands of sequence data columns) and this will not outweigh the overhead of off-loading the computations onto a GPU.
+
+When multiple discrete trait partitions and multiple GPUs are present, it can be very useful to split those partitions across different GPUs so they can be evaluated in parallel.
+This is no different than dealing with sequence data partitions.
+For example, in the case of 1 sequence data partitions and 2 discrete trait partitions, a sensible approach would be to evaluate the sequence data likelihood on the CPU (resource 0) and each of the discrete trait data likelihoods on a separate GPU (resources 2 and 3) as follows:
+
+```bash
+beast -beagle_gpu -beagle_order 0,2,3
+```
+
+**Important:** the <samp>-beagle_instances</samp> option only divides up sequence data partitions.
+In any case, as there is typically only a single column of trait data, splitting such a trait partition would not be possible any way.
+
+## Running BEAST on an Amazon AWS GPU instance
+
+Eric J. Ma has created a very nice tutorial on how to install and run BEAST on an Amazon AWS GPU instance.
+The tutorial can be found here: [https://ericmjl.github.io/beast-gpu-tutorial/](https://ericmjl.github.io/beast-gpu-tutorial/)
+
+## References
+
+G. Baele, D. L. Ayres, A. Rambaut, M. A. Suchard and P. Lemey (2017) High-performance computing in Bayesian phylogenetics and phylodynamics. (in preparation)
 
 {% include links.html %}
