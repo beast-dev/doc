@@ -52,13 +52,15 @@ In the case of multiple sequence data partitions, a separate BEAGLE instance wil
 Users can manually limit the number of threads that can be used by BEAGLE (by using the <samp>-threads</samp> option), but in general there is no reason to do so. 
 
 In the case of sufficiently large data partitions (in terms of the number of unique site patterns), each partition can be split into 2 or more subpartitions for matters of efficiency using the <samp>-beagle_instances</samp> option.
-Note that the  <samp>-beagle_instances</samp> option holds for every partition, i.e. every data partition will be split into the same specified amount of subpartitions.
+Note that the <samp>-beagle_instances</samp> option holds for every partition, i.e. every data partition will be split into the same specified amount of subpartitions.
 This option is hence the most popular when analysing a single large data partition or multiple large data partitions of similar size (again in terms of their number of unique site patterns).
 For example, to split one or more data partitions into 4 subpartitions, the likelihood of which will be computed in parallel on a separate processor, the following command can be used:
 
 ```bash
 beast -beagle_instances 4
 ```
+
+#### Automated load balancing (CPU)
 
 For analysing nucleotide data sets of small to mediocre size, using multi-core CPU configurations will deliver adequate computational efficiency.
 Performance gains may be achieved by using automated load balancing, which tries to determine the optimal subpartitioning strategy to deliver optimal performance on a multi-core CPU setup.
@@ -67,13 +69,56 @@ While there is nothing to prevent this approach from working with a partitioned 
 
 #### GPU
 
+For analysing large nucleotide data sets, the use of one or more GPUs may prove more efficient than using multi-core CPUs.
+In the case of multiple partitions, it's highly advised to split the likelihood computations over multiple GPU devices.
+For example, in the case of 4 partitions, the following options would evaluate the likelihoods of partitions 1 and 3 on a first GPU (resource 2) and the likelihoods of partitions 2 and 4 on a second GPU (resource 3):
 
+```bash
+beast -beagle_gpu -beagle_order 2,3,2,3
+```
+
+**Important:** likelihood computations for different partitions are performed in sequential fashion on a single GPU, not in parallel.
+Hence, in the case of a single partition, the use of the <samp>-beagle_instances</samp> option will result in a decrease in performance compared to not artificially partitioning the data.
 
 #### CPU & GPU
 
+For a single-partition data set, we do not advise to use the <samp>-beagle_instances</samp> option and then split the resulting calculations across a mixture of CPU and GPU.
+However, if your data already has multiple partitions, it may be possible to attain performance gains by using both the CPU and one or more GPUs.
+The idea then is to put the smallest partition(s) on the CPU and the large(r) partitions on the GPU(s).
+For example, in the case of a small first partitions and four larger subsequent partitions, we suggest to use the following command:
+
+```bash
+beast -beagle_order 0,2,3,2,3
+```
+
+or:
+
+```bash
+beast -beagle_order 0,2,2,3,3
+```
 
 ### Codon data sets
 
+Codon data sets benefit the most from using one or more GPUs, drastically and consistently outperforming multi-core CPU configurations.
+While artificially dividing the data into subpartitions to run on a single GPU (this will actually deteriorate performance), the data can be split into a number of subpartitions equal to the number of GPU devices for optimal performance.
+In the case of the system setup in this tutorial, one could use the following options for a single-partition data set:
 
+```bash
+beast -beagle_instances 2 -beagle_order 2,3
+```
+
+When dealing with multiple data partitions, each of which need to be analysed using a codon model, it's best to balance the number of unique site patterns evenly across the GPU devices.
+Again, for example, in the case of 4 partitions, the following options would evaluate the likelihoods of partitions 1 and 3 on a first GPU (resource 2) and the likelihoods of partitions 2 and 4 on a second GPU (resource 3):
+
+```bash
+beast -beagle_gpu -beagle_order 2,3,2,3
+```
+
+On a system configuration with multiple GPUs, independent analyses can be run simultaneously on the individual GPUs as follows:
+
+```bash
+beast -beagle_gpu -beagle_order 2 dataset_1.xml
+beast -beagle_gpu -beagle_order 3 dataset_2.xml
+```
 
 {% include links.html %}
