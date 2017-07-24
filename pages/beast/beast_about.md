@@ -77,74 +77,104 @@ As an Open Source project, BEAST has benefited from contributions and assistance
 
 BEAST has been supported at various times by:
 
-<div class="bs-callout">
-<div style="float: left; padding-right: 10px">
+<div class="bs-callout bs-callout-primary">
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="width: 30%; display: table-cell; text-align: right">
 <a class="noCrossRef" href="http://erc.europa.eu">
 <img src="images/logos/erc-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
 <img src="images/logos/eu-flag.png" style="max-height: 64px; margin: 0px 10px 0px 10px;"/>
 </a>
-</div>
+        </div>
+        <div style="width: 70%; display: table-cell; vertical-align: top;">
 <div style="font-size: 150%; padding-top: 40px; margin-top: -45px">The European Research Council</div>
 <div style="font-size: 80%; font-weight: normal; font-style: italic;">"Phylo" to Philippe Lemey, Marc Suchard and Andrew Rambaut</div>
 <div style="font-size: 80%; font-weight: normal; font-style: italic;">"ReservoirDOCs" to Philippe Lemey, Marc Suchard and Andrew Rambaut</div>
+        </div>
+    </div>
+</div>
 </div>
 
- <div class="bs-callout">
- <div style="float: left; padding-right: 10px">
+<div class="bs-callout bs-callout-default">
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="width: 30%; display: table-cell; text-align: right">
  <a class="noCrossRef" href="http://nih.gov">
  <img src="images/logos/nih-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;"/>
  </a>
- </div>
+        </div>
+        <div style="width: 70%; display: table-cell; vertical-align: top;">
 <div style="font-size: 150%; padding-top: 40px; margin-top: -45px">The National Institutes of Health</div>
 <div style="font-size: 80%; font-weight: normal; font-style: italic;">XXX and XXX to Marc Suchard</div>
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">–</div>
- </div>
+        </div>
+    </div>
+</div>
+</div>
 
-<div class="bs-callout">
-<div style="float: left; padding-right: 10px">
+<div class="bs-callout bs-callout-danger">
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="width: 30%; display: table-cell; text-align: right">
 <a class="noCrossRef" href="http://wellcome.ac.uk">
 <img src="images/logos/wellcome-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;"/>
 </a>
-</div>
+        </div>
+        <div style="width: 70%; display: table-cell; vertical-align: top;">
 <div style="font-size: 150%; padding-top: 40px; margin-top: -45px">The Wellcome Trust</div>
 <div style="font-size: 80%; font-weight: normal; font-style: italic;">"XXXX" to Andrew Rambaut</div>
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">–</div>
+        </div>
+    </div>
+</div>
 </div>
 
-<div class="bs-callout">
-<div style="float: left; padding-right: 10px">
+<div class="bs-callout bs-callout-primary">
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="width: 30%; display: table-cell; text-align: right">
 <a class="noCrossRef" href="http://bbsrc.ac.uk">
-<img src="images/logos/bbsrc-logo-wide.png" style="max-height: 64px; margin: 0px 10px 0px 10px;"/>
+<img src="images/logos/bbsrc-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;"/>
 </a>
-</div>
+        </div>
+        <div style="width: 70%; display: table-cell; vertical-align: top;">
 <div style="font-size: 150%; padding-top: 40px; margin-top: -45px">BBSRC</div>
 <div style="font-size: 80%; font-weight: normal; font-style: italic;">"XXXX" to Andrew Rambaut</div>
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">–</div>
+        </div>
+    </div>
+</div>
 </div>
 
-<div class="bs-callout">
-<div style="float: left; padding-right: 10px">
+<div class="bs-callout bs-callout-danger">
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="width: 30%; display: table-cell; text-align: right">
 <a class="noCrossRef" href="http://royalsociety.org">
 <img src="images/logos/roysoc-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">–</div>
 </a>
-</div>
+        </div>
+        <div style="width: 70%; display: table-cell; vertical-align: top;">
 <div style="font-size: 150%; padding-top: 40px; margin-top: -45px">The Royal Society of London</div>
 <div style="font-size: 80%; font-weight: normal; font-style: italic;">University Research Fellowship to Andrew Rambaut</div>
 <div style="font-size: 80%; font-weight: normal; font-style: italic;">Newton Fellowship to Trevor Bedford</div>
+        </div>
+    </div>
+</div>
 </div>
 
-<div class="bs-callout">
-<div style="float: left; padding-right: 10px">
+<div class="bs-callout bs-callout-warning">
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="width: 30%; display: table-cell; text-align: right">
 <a class="noCrossRef" href="http://royalsociety.org.nz/what-we-do/funds-and-opportunities/marsden/">
 <img src="images/logos/marsden-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
 </a>
-</div>
+        </div>
+        <div style="width: 70%; display: table-cell; vertical-align: top;">
 <div style="font-size: 150%; padding-top: 40px; margin-top: -45px">The Marsden Fund</div>
 <div style="font-size: 80%; font-weight: normal; font-style: italic;">Grant to Alexei Drummond & Marc Suchard</div>
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">–</div>
+        </div>
+    </div>
 </div>
-
+</div>
 
 ### The BEAST logo
 
