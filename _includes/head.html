@@ -3,7 +3,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{% if page.summary %}{{ page.summary | strip_html | strip_newlines | truncate: 160 }}{% endif %}">
 <meta name="keywords" content="{{page.tags}}{% if page.tags %}, {% endif %} {{page.keywords}}">
+{% if page.browser_title %}
+<title>{{ page.browser_title }} | {{ site.site_title }}</title>
+{% else %}
 <title>{{ page.title }} | {{ site.site_title }}</title>
+{% endif %}
 <link rel="stylesheet" href="{{ "css/syntax.css" }}">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">

@@ -24,126 +24,130 @@ entries:
     output: web, pdf
     folderitems:
     - title: About
-      url: /about.html
+      url: /about
       output: web, pdf
 
     - title: Installing
-      url: /installing.html
+      url: /installing
       output: web, pdf
 
     - title: First Tutorial
-      url: /first_tutorial.html
+      url: /first_tutorial
       output: web, pdf
 
   - title: Software Packages
     output: web, pdf
     folderitems:
-    - title: BEAUti & The BEAST
-      url: /beautiandbeast.html
+    - title: BEAST
+      url: /beast
+      output: web, pdf
+
+    - title: BEAUti
+      url: /beauti
       output: web, pdf
 
     - title: BEAGLE Library
-      url: /beagle.html
+      url: /beagle
       output: web, pdf
 
     - title: LogCombiner
-      url: /logcombiner.html
+      url: /logcombiner
       output: web, pdf
 
     - title: TreeAnnotator
-      url: /treeannotator.html
+      url: /treeannotator
       output: web, pdf
 
     - title: TreeLogAnalyser
-      url: /treeloganalyser.html
+      url: /treeloganalyser
       output: web, pdf
 
     - title: BEASTGen
-      url: /beastgen.html
+      url: /beastgen
       output: web, pdf
 
     - title: Tracer
-      url: /tracer.html
+      url: /tracer
       output: web, pdf
 
     - title: FigTree
-      url: /figtree.html
+      url: /figtree
       output: web, pdf
 
     - title: SPREAD
-      url: /spread.html
+      url: /spread
       output: web, pdf
 
     - title: SPREAD3
-      url: /spread3.html
+      url: /spread3
       output: web, pdf
 
     - title: PiBUSS
-      url: /pibuss.html
+      url: /pibuss
       output: web, pdf
 
   - title: Tutorials
     output: web, pdf
     folderitems:
     - title: Second Tutorial
-      url: /second_tutorial.html
+      url: /second_tutorial
       output: web, pdf
 
     - title: Analysing BEAST Output
-      url: /analysing_beast_output.html
+      url: /analysing_beast_output
       output: web, pdf
 
     - title: Summarizing Trees
-      url: /summarizing_trees.html
+      url: /summarizing_trees
       output: web, pdf
 
   - title: Advanced Tutorials
     output: web, pdf
     folderitems:
     - title: Epoch Tutorial
-      url: /epoch_tutorial.html
+      url: /epoch_tutorial
       output: web, pdf
 
     - title: Adaptive MCMC Tutorial
-      url: /adaptive_mcmc_tutorial.html
+      url: /adaptive_mcmc_tutorial
       output: web, pdf
 
     - title: Model Selection Tutorial
-      url: /model_selection_1.html
+      url: /model_selection_1
       output: web, pdf
 
     - title: Model Selection Advanced Tutorial
-      url: /model_selection_2.html
+      url: /model_selection_2
       output: web, pdf
 
   - title: Workshop Tutorials
     output: web, pdf
     folderitems:
     - title: Evolutionary Dynamics of Influenza
-      url: /influenza_phylodynamic_tutorial.html
+      url: /influenza_phylodynamic_tutorial
       output: web, pdf
 
   - title: Reference
     output: web, pdf
     folderitems:
     - title: Effective Sample Size
-      url: /ess_tutorial.html
+      url: /ess_tutorial
       output: web, pdf
 
     - title: Optimizing Performance
-      url: /performance.html
+      url: /performance
       output: web, pdf
 
     - title: Molecular Clocks
-      url: /clocks.html
+      url: /clocks
       output: web, pdf
 
     - title: Tree Priors
-      url: /treepriors.html
+      url: /treepriors
       output: web, pdf
 
     - title: XML Reference
-      url: /xml_reference.html
+      url: /xml_reference
       output: web, pdf
 
 

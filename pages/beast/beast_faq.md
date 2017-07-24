@@ -37,27 +37,12 @@ folder: beast
 		</div>
 		<div id="q2" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
-			    BEAST is a software package to perform Bayesian analysis of molecular sequences using MCMC and focuses on estimating phylogenies using a wide range of models.
-                We here list some of BEAST's features and models.
-                <ul>
-                  <li>While BEAST focuses on estimating rooted and time-measured phylogenies, it can analyse both contemporaneous (isochronous) and non-contemporaneous (heterochronous) sequences.</li>
-                  <li>For non-contemporaneous sequences, when the differences in the dates associated with the sequences comprise a significant proportion of the age of the entire tree, these dates can be incorporated into the model providing a source of information about the rate of substitution.</li>
-                  <li>Constant (strict), variable rate (relaxed) and randol local (allowing different clades in the tree to have different rates) molecular clock models.</li>
-                  <li>Wide range of substitution models: available substitution models include JC, HKY, TN93 and GTR for nucleotides, Blosum62, CPREV, JTT, MTREV, WAG, LG and Dayhoff for amino acids and the models of Goldman and Yang (1994) and Muse and Gaut (1994) for codons.</li>
-                  <li>Substitution model heterogeneity across sites: different substitution models can be specified for different sets of sites. 
-                  For example, each codon position can be allowed a different substitution matrix and gamma model of rate heterogeneity.</li>
-                  <li>Flexible model specification: the model-specification file format allows considerable flexibility. 
-                  For example, it is possible to specify that each codon position has a different rate, a different degree of rate heterogeneity but the same transition/transversion ratio.</li>
-                  <li>Flexible choice of priors on parameters: any estimable parameter can and should be given a prior. 
-                  For example, the age of the root of the tree can be given an exponential prior with a given mean.</li>
-                  <li>Coalescent models of population size and growth: various models of coalescent population growth can be used.
-                  Parametric coalesent models include: constant population size, expansion growth, exponential growth, logistic growth.
-                  Additionally, multi-phase parametric coalescent models are also available: constant-logistic, constant-exponential-constant, exponential-constant, ...
-                  Several non-parametric coalescent models are available such as the Bayesian skyride and Bayesian skygrid (with or without covariates).
-                  These models basically act as priors on the ages of nodes in the tree but their parameters can be sampled and estimated.</li>
-                 <li>Multi-locus coalescent models: two unlinked genes can be given the same coalescent population model but a different substitution process and tree, allowing the production of multi-locus coalescent inference.</li>
-                </ul>
-				Introductory, advanced and workshop tutorials can be found on this website.
+			    <div>BEAST is a software package to perform Bayesian analysis of molecular sequences using MCMC and focuses on estimating phylogenies using a wide range of models.
+			    </div>
+			    
+                <div><a href="about">Here is list some of BEAST's features and models.</a></div>
+                
+                <div><a href="tutorials">Introductory, advanced and workshop tutorials can be found on this website.</a></div>
 			</div>
 		</div>
 	</div>

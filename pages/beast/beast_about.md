@@ -3,73 +3,103 @@ title: About BEAST
 keywords: beast, authors, developers
 last_updated: July 4, 2017
 tags: [getting-started]
-summary:
+summary: BEAST is a software package for phylogenetic analysis with an emphasis on time-scaled trees.
 sidebar: beast_sidebar
 permalink: about.html
-toc: false
+toc: true
 folder: beast
 ---
 
-BEAST is a software package for phylogenetic analysis with an emphasis on time-scaled trees.
+
+[Details about the individual programs that make up the BEAST package can be found here.](programs)
 
 ## What does BEAST do?
 This is a list of some of the models and features in BEAST:
 
-- **Constant rate molecular clock models** |
-This is the default model. The tree can be calibrated by specifying a mutation rate.
+: **Time-scaled phylogenies** \| While BEAST focuses on estimating rooted and time-measured phylogenies, it can analyse both contemporaneous (isochronous) and non-contemporaneous (heterochronous) sequences.
 
-- **Variable rate (relaxed) molecular clock models** |
-Implements the uncorrelated relaxed clock models of Drummond, Ho, Phillips & Rambaut (2006, PLoS Biology) see below for full citation.
+: **Tip-dated analyses** \| For non-contemporaneous sequences, when the differences in the dates associated with the sequences comprise a significant proportion of the age of the entire tree, these dates can be incorporated into the model providing a source of information about the rate of substitution.
 
-- **Divergence date estimates** |
-Dates of divergence for specific most recent common ancestors (MRCA) can be estimated.
+: **Relaxed molecular clocks** \| Constant (strict), variable rate (relaxed) and local (allowing different clades in the tree to have different rates) molecular clock models.
 
-- **Non-contemporaneous sequences (TipDate) molecular clock models** |
-When the differences in the dates associated with the sequences comprise a significant proportion of the age of the entire tree, these dates can be incorporated into the model providing a source of information about the rate of substitution.
+: **Wide range of substitution models** \| Available substitution models include JC, HKY, TN93 and GTR for nucleotides, Blosum62, CPREV, JTT, MTREV, WAG, LG and Dayhoff for amino acids and the models of Goldman and Yang (1994) and Muse and Gaut (1994) for codons.
 
-- **Substitution model heterogeneity across sites** |
-Different substitution models can be specified for different sets of sites. For example, each codon position can be allowed a different substitution matrix and gamma model of rate heterogeneity.
+: **Substitution model heterogeneity across sites** \| Different substitution models can be specified for different sets of sites. For example, each codon position can be allowed a different substitution matrix and gamma model of rate heterogeneity.
 
-- **Flexible model specification** |
-The model-specification file format allows considerable flexibility. For example, it is possible to specify that each codon position has a different rate, a different degree of rate heterogeneity but the same transition/transversion ratio.
+: **Flexible model specification** \| The model-specification file format allows considerable flexibility. 
+For example, it is possible to specify that each codon position has a different rate, a different degree of rate heterogeneity but the same transition/transversion ratio.
 
-- **Range of substitution models** |
-Available substitution models include HKY and GTR for nucleotides, Blosum62, CPREV, JTT, MTREV, WAG and Dayhoff for amino acids and the model of Yang and Nielsen (1998) for codons.
+: **Flexible choice of priors on parameters** \| Any estimable parameter can be given a prior probability distribution from a wide range of options. Priors can also be used to introduce information --- i.e., a known distribution for a substitution rate.
 
-- **Flexible choice of priors on parameters** |
-Any parameter can be given a prior. For example, the age of the root of the tree can be given an exponential prior with a given mean.
+: **Coalescent models of population size and growth** \| Various parametric models of coalescent population growth can be used including constant population size, expansion growth, exponential growth, and logistic growth. Additionally, multi-epoch parametric coalescent models are also available: constant-logistic, constant-exponential-constant, exponential-constant, etc.
+                  
+    A range of implementations of multi-change-point, non-parametric coalescent models are available such as the Bayesian skyline, skyride, and skygrid (the latter, with or without covariates).
 
-- **Coalescent models of population size and growth** |
-Various models of coalescent population growth can be used. At present, constant size and exponential growth are available but more will be added soon. These models basically act as priors on the ages of nodes in the tree but the parameters (population size and growth rate) can be sampled and estimated.
+    These models basically act as priors on the ages of nodes in the tree but their parameters can be sampled and estimated.
 
-- **Multi-locus coalescent models** |
-Two unlinked genes can be given the same coalescent population model but a different substitution process and tree, allowing the production of multi-locus coalescent inference.
+: **Multi-locus coalescent models** \| Two or more unlinked genes can be given the same coalescent population model but a different substitution process and tree, allowing the production of multi-locus coalescent inference.
 
-- **Local clock molecular clock models** |
-Allowing different clades in the tree to have different rates (or indeed, completely different substitution processes).
+: **Phylogeographic models** \| .
+
+: **Discrete and continuous traits and the comparative method** \| .
+
+: **Hierarchical models** \| .
+
+: **Bayesian model selection and testing** \| .
+
 
 ## Acknowledgements
 
 ### Developers
 
-As an Open Source project, BEAST has been has has contributions and assistance from a large number of people over the years. In particular we would like to thank:
+BEAST was designed and developed by Alexei J. Drummond, Andrew Rambaut and Marc A. Suchard:
+: **Alexei J. Drummond** \| Department of Computer Science \| University of Auckland <br />
+[http://compevol.auckland.ac.nz](http://compevol.auckland.ac.nz) <br />
+alexei--at-cs.auckland.ac.nz
+                              
+: **Andrew Rambaut** \| Institute of Evolutionary Biology \| University of Edinburgh <br />
+[http://tree.bio.ed.ac.uk](http://tree.bio.ed.ac.uk) <br />
+a.rambaut---at---ed.ac.uk
+                              
+: **Marc A. Suchard** \| David Geffen School of Medicine \| University of California, Los Angeles <br />
+[http://faculty.biomath.ucla.edu/msuchard/](http://faculty.biomath.ucla.edu/msuchard/) (Warning: 1990's style)<br />
+msuchard--@--ucla.edu                              
 
-Alex Alekseyenko, Daniel Ayres, Guy Baele, Trevor Bedford, Peter Beerli, Filip Bielejec, Erik Bloomquist, Aaron Darling, Gytis Dudas, Roald Forsberg, Matthew Hall, Jess Hedge, Joseph Heled, Simon Ho, Sebastian Hoehna, Mark Holder, Denise Kuehnert, Philippe Lemey, Paul Lewis, Wai Lok Sibon Li, Gerton Lunter, Sam Lycett, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, Oliver Pybus, Tulio de Oliveira, Jayna Ragwani, Beth Shapiro, Korbinian Strimmer, David Swofford, Chieh-Hsi Wu, Walter Xie, Ziheng Yang
+BEAST and modules within it have developed by
+
+: Alex Alekseyenko, Daniel Ayres, Guy Baele, Trevor Bedford, Filip Bielejec, Erik Bloomquist, Aaron Darling, Matthew Hall, Joseph Heled, Sebastian Hoehna, Philippe Lemey, Wai Lok Sibon Li, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, Walter Xie
+
+As an Open Source project, BEAST has benefited from contributions and assistance from a large number of people over the years. In particular we would like to thank:
+
+: Peter Beerli, Gytis Dudas, Roald Forsberg, Jess Hedge, Simon Ho, Mark Holder, Denise Kuehnert, Paul Lewis, Gerton Lunter, Sam Lycett, Oliver Pybus, Tulio de Oliveira, Jayna Ragwani, Beth Shapiro, Korbinian Strimmer, David Swofford, Ziheng Yang
 
 ### Funding
 
 BEAST has been supported at various times by:
 
-ERC
+<div style="display: inline; border-right: 1px solid #4388a8; margin: 0px 10px 0px 10px;">
+<img src="images/logos/erc-logo.png">European Research Council grants XXX
+</div>
+<div style="display: inline; border-right: 1px solid #4388a8; margin: 0px 10px 0px 10px;">
+<img src="images/logos/nih-logo.png">National Institutes of Health grants XXX
+</div>
+<div style="display: inline; border-right: 1px solid #4388a8; margin: 0px 10px 0px 10px;">
+<img src="images/logos/wellcome-logo.png">The Wellcome Trust grants XXX
+</div>
+<div style="display: inline; border-right: 1px solid #4388a8; margin: 0px 10px 0px 10px;">
+<img src="images/logos/bbsrc-logo.png">The BBRC grants XXX
+</div>
+<div style="display: inline; border-right: 1px solid #4388a8; margin: 0px 10px 0px 10px;">
+<img src="images/logos/roysoc-logo.png">The Royal Society of London XXX
+</div>
+<div style="display: inline; border-right: 1px solid #4388a8; margin: 0px 10px 0px 10px;">
+<img src="images/logos/marsden-logo.png">The Marsden Fund XXX
+</div>
 
-NIH
+### The BEAST logo
 
-The Wellcome Trust
-
-BBSRC
-
-The Royal Society of London
-
-{% include image.html file="beast.png" url="http://beast-dev.github.io/doc" max-width="128px" alt="logo" caption="The BEAST logo is from a plate in Ernst Haeckel's Kunstformen der Natur (Artforms of nature) (1904)." %}
+<div style="max-width: 320; margin: auto">
+{% include image.html file="beast-medium.png" url="http://beast-dev.github.io/doc" alt="logo" caption="The BEAST logo is from a plate in Ernst Haeckel's Kunstformen der Natur (Artforms of nature) (1904)." %}
+</div>
 
 {% include links.html %}

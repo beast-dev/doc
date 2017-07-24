@@ -1,15 +1,29 @@
 ---
-title: BEAST &mdash; Bayesian Evolutionary Analysis Sampling Trees
 keywords: beast mcmc documentation tutorial
+browser_title: BEAST Bayesian Evolutionary Analysis Sampling Trees
 tags: [getting-started]
 sidebar: beast_sidebar
 permalink: index.html
-summary: This site provides documentation and tutorials for running BEAST.
+toc: false
+summary: 
 ---
+
+
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="display: table-cell;">
+            <img style="max-width: 192px" src="images/beast-medium.png" />
+        </div>
+        <div style="display: table-cell;">
+            <h1 style="font-size: 96pt; margin: 0px;">BEAST</h1>
+            <h3 style="font-size: 18pt; font-weight: 500; padding: 20px 5px;">Bayesian Evolutionary Analysis Sampling Trees</h3>
+        </div>
+    </div>
+</div>    
 
 ## What is BEAST?
 
-<a href="#" data-toggle="tooltip" data-original-title="{{site.data.definitions.beast}}">BEAST</a> is a cross-platform program for Bayesian analysis of molecular sequences using MCMC. It is entirely orientated towards rooted, time-measured phylogenies inferred using strict or relaxed molecular clock models. It can be used as a method of reconstructing phylogenies but is also a framework for testing evolutionary hypotheses without conditioning on a single tree topology. BEAST uses MCMC to average over tree space, so that each tree is weighted proportional to its posterior probability. We include a simple to use user-interface program for setting up standard analyses and a suit of programs for analysing the results. 
+BEAST is a cross-platform program for Bayesian analysis of molecular sequences using MCMC. It is entirely orientated towards rooted, time-measured phylogenies inferred using strict or relaxed molecular clock models. It can be used as a method of reconstructing phylogenies but is also a framework for testing evolutionary hypotheses without conditioning on a single tree topology. BEAST uses MCMC to average over tree space, so that each tree is weighted proportional to its posterior probability. We include a simple to use user-interface program for setting up standard analyses and a suit of programs for analysing the results. 
 
 This website is for BEAST v1.X (currently version v1.8.4). For details about BEAST2, an independent project led by the University of Auckland, [please look here](http://beast2.org).
 

@@ -180,7 +180,7 @@ li.sidebarTitle {
 
 hr.shaded {
     height: 1px;
-    color: var(--grey-color)
+    color: var(--grey-color);
     border: 0;
     margin-top: 70px;
     background: white;
