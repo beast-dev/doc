@@ -157,7 +157,37 @@ This means that, for now (but this is work in progress), a set of base frequenci
 
 ## Automated load balancing
 
+Using multi-core CPUs, BEAST can perform automated load balancing through XML specification.
+The example in this tutorial contains 3 partitions, leading to 3 likelihoods that need to be evaluated.
+These likelihoods can be subjected to load balancing, which will allow BEAST to determine which partitions should be split into subpartitions for optimal performance:
+One only has to put the likelihood elements into an &lt;optimizedBeagleTreeLikelihood&gt; XML element as follows:
 
+```xml
+<optimizedBeagleTreeLikelihood id="optimalLikelihood">
+    <treeLikelihood idref="ND5.CP1.treeLikelihood"/>
+    <treeLikelihood idref="ND5.CP2.treeLikelihood"/>
+    <treeLikelihood idref="ND5.CP3.treeLikelihood"/>
+</optimizedBeagleTreeLikelihood>
+```
+
+BEAST will display on screen which partitions are being split and what the result of that split is in terms of performance.
+Note that you will have to use this new XML element in the &lt;likelihood&gt; block within the &lt;mcmc&gt; XML element as well:
+
+```xml
+<mcmc id="mcmc" chainLength="1000000" fullEvaluation="0" autoOptimize="true">
+    <posterior id="posterior">
+        <prior id="prior">
+        ...
+        </prior>
+        <likelihood id="likelihood">
+            <optimizedBeagleTreeLikelihood idref="optimalLikelihood"/>
+        </likelihood>
+    </posterior>
+</mcmc>
+```
+
+Given that, when using GPUs, the likelihood evaluation of each unique site pattern ends up being evaluated on the same device.
+Hence, this load-balancing approach is only useful on multi-core CPUs.
 
 ## References
 
