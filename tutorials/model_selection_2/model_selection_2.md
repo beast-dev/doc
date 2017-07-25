@@ -17,8 +17,38 @@ Further, our proposed approach also has lower variance and yields accurate estim
 
 ### Coalescent models
 
+#### BEAUti
+
+Generalized stepping-stone sampling can be set up in BEAUti, resulting in a set of power posteriors to be explored and sampled by BEAST.
+The collected samples will be used to construct the generalized stepping-stone sampling estimator for the log marginal likelihood.
+
+There is also tutorial available on [how to set up log marginal likelihood estimation using path sampling and stepping-stone sampling](model_selection_1).
+
+In BEAUti, and after loading a data set, go to the 'MCMC' panel.
+At the bottom, you can select your method of choice to estimate the log marginal likelihood for your selection of models on this data set.
+By default, no (log) marginal likelihood estimation will be performed and the option 'None' will be selected.
+
+{% include image.html file="MCMCTab.png" prefix="tutorials/model_selection_1/" indent="64px" width="640px" alt="MCMC Panel" caption="" %}
+
+Upon selecting 'generalized stepping-stone sampling', clicking the 'Settings' button will open a new window where the settings for the log marginal likelihood estimation can be entered.
+
+{% include image.html file="GSSMLESettings.png" prefix="tutorials/model_selection_2/" indent="64px" width="640px" alt="GSS MLE settings" caption="" %}
+
+Two choices are available for a suitable 'Tree working prior': either a 'Product of exponential distributions' or a 'Matching coalescent model'.
+[test link][#A first genealogical working distribution]
+
+
+
+
+We suggest to specify a number of path steps of either 50 or 100, with the lenght of each chain being at least 250.000 iterations.
+In general, it's probably a good idea to run a total amount of iterations (i.e. number of path steps times chain length) equal to the length of the standard BEAST analysis performed to estimate the various parameters.
+Given that the Beta(0.3; 1.0) distribution to determine the power posteriors has been shown to deliver adequate performance (Xie et al., 2011), we currently only allow this distribution to be used.
+Through XML specification (see below), other options for this distribution can be specified.
+
+#### XML Specification
+
 Here, we show how to use generalized stepping-stone sampling (or simply GSS) while still accommodating phylogenetic uncertainty in the case of an exponential-logistic growth model (Faria et al., Science, 2014). 
-This is one of the coalescent models that are not present in BEAUti and hence require XML editing to set up.
+This is one of the coalescent models that are not present in BEAUti and hence requires XML editing to set up.
 
 For starters, the XML block that declares the exponential-logistic growth model looks like this (you can change the initial values if you so choose):
 
