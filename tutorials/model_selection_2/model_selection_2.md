@@ -35,7 +35,7 @@ Upon selecting 'generalized stepping-stone sampling', clicking the 'Settings' bu
 {% include image.html file="GSSMLESettings.png" prefix="tutorials/model_selection_2/" indent="64px" width="640px" alt="GSS MLE settings" caption="" %}
 
 Two choices are available for a suitable 'Tree working prior': either a 'Product of exponential distributions' or a 'Matching coalescent model'.
-[test link][#firstworkingprior]
+[test link](#firstworkingprior)
 
 
 
