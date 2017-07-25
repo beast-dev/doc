@@ -35,7 +35,7 @@ Upon selecting 'generalized stepping-stone sampling', clicking the 'Settings' bu
 {% include image.html file="GSSMLESettings.png" prefix="tutorials/model_selection_2/" indent="64px" width="640px" alt="GSS MLE settings" caption="" %}
 
 Two choices are available for a suitable 'Tree working prior': either a 'Product of exponential distributions' or a 'Matching coalescent model'.
-[test link][#A first genealogical working distribution]
+[test link][#firstworkingprior]
 
 
 
@@ -180,7 +180,7 @@ And a set of priors for all the parameters of the model (note that you can use o
 </beast>
 ```
 
-#### A first genealogical working distribution
+#### A first genealogical working distribution {#firstworkingprior}
 
 The first genealogical working distribution constructs what we call a 'matching coalescent model' or MCM. 
 The same coalescent model is hence constructed, but its parameters are not set at some initial values, but are estimated from the posterior, i.e. from the file containing the parameter estimates (5M.expolog.log in our example here). 
