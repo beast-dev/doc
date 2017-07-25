@@ -15,7 +15,7 @@ Recent years have seen the development of several new approaches to perform mode
 We aim to relax this latter assumption by providing two working distributions in a genealogical framework (Baele et al., 2016, Syst. Biol.), showing that a generalized stepping-stone sampling approach which accommodates phylogenetic uncertainty avoids possible numerical issues that may plague path sampling and stepping-stone sampling. 
 Further, our proposed approach also has lower variance and yields accurate estimates of the (log) marginal likelihood, whereas PS and SS tend to overestimate the (log) marginal likelihood when vague priors are used (which is almost always the case).
 
-### Coalescent models
+### Coalescent models {#coalescent}
 
 #### BEAUti
 
@@ -34,8 +34,13 @@ Upon selecting 'generalized stepping-stone sampling', clicking the 'Settings' bu
 
 {% include image.html file="GSSMLESettings.png" prefix="tutorials/model_selection_2/" indent="64px" width="640px" alt="GSS MLE settings" caption="" %}
 
-Two choices are available for a suitable 'Tree working prior': either a 'Product of exponential distributions' or a 'Matching coalescent model'.
-More information on these working priors can be found below, in the sections ['Product of exponential distributions'](#firstworkingprior) and ['Matching coalescent model'](#secondworkingprior).
+Three choices (the initial choice 'None' cannot be chosen to generate an XML) are available for a suitable 'Tree working prior': either a 'Product of exponential distributions', a 'Matching coalescent model' or a 'Matching speciation model'.
+If the default selection 'None' is not adjusted, BEAUti will issue a warning message, instructing you to choose an appropriate tree working prior.
+
+{% include image.html file="SuitableTreeWorkingPrior.png" prefix="tutorials/model_selection_2/" indent="64px" width="640px" alt="Tree working prior warning message" caption="" %}
+
+More information on these working priors can be found below, in the sections ['Product of exponential distributions'](#firstworkingprior), ['Matching coalescent model'](#secondworkingprior) and ['Matching speciation model'](#speciation).
+**Important:** when a coalescent model has been selected for the BEAST analysis, the 'Matching speciation model' option **cannot** be selected as a tree working prior.
 
 We suggest to specify a number of path steps of either 50 or 100, with the lenght of each chain being at least 250.000 iterations.
 In general, it's probably a good idea to run a total amount of iterations (i.e. number of path steps times chain length) equal to the length of the standard BEAST analysis performed to estimate the various parameters.
@@ -405,15 +410,19 @@ Note again that you will have to change the values for the chainLength (and poss
 
 The other XML blocks remain identical compared to the first genealogical working distribution approach.
 
-### Speciation models
+### Speciation models {#speciation}
+
+### BEAUti
+
+While we don't discuss it in our paper (Baele et al., 2016, Syst. Biol.), a similar procedure can be used to estimate the model fit of speciation models, such as the Yule pure birth model. 
+BEAUti now supports a 'Matching speciation model' for a Yule pure birth process prior.
+The procedure for selecting such a tree working prior in BEAUti is the same [as for coalescent models](#coalescent).
+Users have to be aware that when a Yule pure birth model has been selected for their analysis, only the 'Matching speciation model' is valid when performing GSS.
 
 #### XML Specification
 
-While we don't discuss it in our paper (Baele et al., 2016, Syst. Biol.), a similar procedure can be used to estimate the model fit of speciation models, such as the Yule pure birth model. 
-The XML specification is very similar to that discussed above for coalescent models. 
+The XML specification for using GSS with such a speciation model is very similar to that discussed above for coalescent models. 
 For example, for a Yule pure birth model, the birth rate will be estimated and written to file during the initial MCMC estimation.
-
-**Note:** currently BEAUti doesn't yet support the construction of a tree working prior for speciation models, but will do so in a future release.
 
 The working distribution constructs can then be a 'matching speciation model', which involves constructing the same speciation model as for the MCMC analysis, but setting its parameters using estimates from the posterior, i.e. from the file containing the parameter estimates (yule.process.log in our example here). 
 The matching speciation model is constructed using the following XML block, which needs to be placed below the mcmc-block:
