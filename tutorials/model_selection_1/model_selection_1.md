@@ -48,7 +48,7 @@ As shown in Baele et al. (2013), it is important to specify proper priors for al
         </posterior>
         ...
          <!-- write log to file -->
-        <log id="fileLog" logEvery="1000" fileName="intergenic_UCLD_BSP.log">
+        <log id="fileLog" logEvery="1000" fileName="intergenic_UCLD_con.log">
             <posterior idref="posterior"/>
             <prior idref="prior"/>
             <likelihood idref="likelihood"/>
@@ -70,14 +70,35 @@ As shown in Baele et al. (2013), it is important to specify proper priors for al
 
 ### HME, sHME and AICM
 
-First off: the harmonic mean estimator (HME). 
+#### Tracer
+
+The HME and AICM can be readily computed in Tracer v1.6, after a .log file has been successfully loaded.
+**Important:** given the poor performance and reliability of the HME and AICM, these estimators will no longer be available in future versions of Tracer.
+
+In Tracer v1.6, after loading a .log file, go to 'Analysis' and select 'Model Comparison...'
+
+{% include image.html file="tracerModelComparison.png" prefix="tutorials/model_selection_1/" indent="64px" width="640px" alt="Tracer model comparison" caption="" %}
+
+This opens a new window, allowing to select an estimator of choice, i.e. AICM or HME (sHME not available).
+In the 'Likelihood trace' field, the likelihood column **has** to be selected as other columns will only produce non-interpretable results.
+Performing 'Bootstrap replicates' is essentially useless for such poor estimators, hence we suggest to set this value to zero.
+
+{% include image.html file="AICMHME.png" prefix="tutorials/model_selection_1/" indent="64px" width="640px" alt="AICM and HME" caption="" %}
+
+**Note:** marginal likelihood estimation using path sampling, stepping-stone sampling or generalized stepping-stone sampling cannot be performed in Tracer.
+Additional calculations are necessary to perform accurate model selection, and will be performed by BEAST.
+
+#### XML Specification
+
+Through XML specification, the estimation of the HME, sHME and AICM will still be supported in future versions of BEAST.
+
 The following code runs the harmonic mean estimation on the samples collected in the mcmc and hence does not require additional calculations to be performed in order to estimate the marginal likelihood, which is considered a major advantage of this approach. 
 
-NOTE: given that additional model selection approaches are available as of BEAST v1.7.0, the mcmc element for the harmonic mean estimator is now assumed to be the following for clarity purposes (although the previous XML-element is still supported):
+**Note:** given that additional model selection approaches are available as of BEAST v1.7.0, the mcmc element for the harmonic mean estimator is now assumed to be the following for clarity purposes (although the previous XML-element is still supported):
 
 ```xml
 <beast>
-    <harmonicMeanAnalysis fileName="intergenic_UCLD_BSP.log" bootstrapLength="0" burnIn="10000000">
+    <harmonicMeanAnalysis fileName="intergenic_UCLD_con.log" bootstrapLength="0" burnIn="10000000">
         <likelihoodColumn name="likelihood" />
     </harmonicMeanAnalysis>
 </beast>
@@ -87,7 +108,7 @@ The smoothed harmonic mean estimation (sHME) on the samples collected in the mcm
 
 ```xml
 <beast>
-    <harmonicMeanAnalysis fileName="intergenic_UCLD_BSP.log" bootstrapLength="0" burnIn="10000000" 
+    <harmonicMeanAnalysis fileName="intergenic_UCLD_con.log" bootstrapLength="0" burnIn="10000000" 
             smoothedEstimate="true">
         <likelihoodColumn name="likelihood" />
     </harmonicMeanAnalysis>
@@ -95,14 +116,13 @@ The smoothed harmonic mean estimation (sHME) on the samples collected in the mcm
 ```
 
 Another approach that is able to perform model selection using the samples collected during the MCMC run is the AICM. 
-The AICM is also available in Tracer v1.6.0. 
 
-NOTE: the AICM is NOT a marginal likelihood estimator. 
+**Note:** the AICM is NOT a marginal likelihood estimator. 
 The AICM estimation on the samples collected in the mcmc is run using the following code:
 
 ```xml
 <beast>
-    <aicmAnalysis fileName="intergenic_UCLD_BSP.log" bootstrapLength="0" burnIn="10000000">
+    <aicmAnalysis fileName="intergenic_UCLD_con.log" bootstrapLength="0" burnIn="10000000">
         <likelihoodColumn name="likelihood" />
     </aicmAnalysis>
 </beast>
