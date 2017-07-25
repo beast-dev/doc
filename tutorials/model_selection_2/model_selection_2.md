@@ -35,10 +35,7 @@ Upon selecting 'generalized stepping-stone sampling', clicking the 'Settings' bu
 {% include image.html file="GSSMLESettings.png" prefix="tutorials/model_selection_2/" indent="64px" width="640px" alt="GSS MLE settings" caption="" %}
 
 Two choices are available for a suitable 'Tree working prior': either a 'Product of exponential distributions' or a 'Matching coalescent model'.
-[test link](#firstworkingprior)
-
-
-
+More information on these working priors can be found below, in the sections ['Product of exponential distributions'](#firstworkingprior) and ['Matching coalescent model'](#secondworkingprior).
 
 We suggest to specify a number of path steps of either 50 or 100, with the lenght of each chain being at least 250.000 iterations.
 In general, it's probably a good idea to run a total amount of iterations (i.e. number of path steps times chain length) equal to the length of the standard BEAST analysis performed to estimate the various parameters.
@@ -309,7 +306,7 @@ This is done as follows:
 
 After running this final bit of XML code, the log marginal likelihood estimate will be written to screen.
 
-#### A second genealogical working distribution
+#### A second genealogical working distribution {#secondworkingprior}
 
 A second genealogical working distribution constructs a product of exponential (tail) distributions and applies LOESS smoothing on the logged values; we call this approach the POEL approach in our manuscript. 
 It is however necessary to log an additional statistic while performing the initial posterior exploration run, i.e. a coalescentEventsStatistic as shown below: 
@@ -410,9 +407,13 @@ The other XML blocks remain identical compared to the first genealogical working
 
 ### Speciation models
 
+#### XML Specification
+
 While we don't discuss it in our paper (Baele et al., 2016, Syst. Biol.), a similar procedure can be used to estimate the model fit of speciation models, such as the Yule pure birth model. 
 The XML specification is very similar to that discussed above for coalescent models. 
 For example, for a Yule pure birth model, the birth rate will be estimated and written to file during the initial MCMC estimation.
+
+**Note:** currently BEAUti doesn't yet support the construction of a tree working prior for speciation models, but will do so in a future release.
 
 The working distribution constructs can then be a 'matching speciation model', which involves constructing the same speciation model as for the MCMC analysis, but setting its parameters using estimates from the posterior, i.e. from the file containing the parameter estimates (yule.process.log in our example here). 
 The matching speciation model is constructed using the following XML block, which needs to be placed below the mcmc-block:
