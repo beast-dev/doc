@@ -135,9 +135,34 @@ Both approaches use the same collection of samples to estimate the marginal like
 They both construct a path between prior and posterior (both defined in the mcmc block above) but, since path sampling uses Simpson's triangulation formula, it converges less quickly to the true value than does stepping-stone sampling. 
 However, when a lot of samples along this path are collected, this difference becomes negligible. 
 
-NOTE: while the HME and AICM are available in Tracer, path sampling and stepping-stone sampling are not, as they require additional calculations. 
+**Note:** while the HME and AICM are available in Tracer, path sampling and stepping-stone sampling are not, as they require additional calculations. 
 
-The code below runs a series of 100 power posteriors along the path between prior en posterior, with the powers being determined according to evenly spaced quantiles of a Beta(0.3,1.0) distribution:
+#### BEAUti
+
+Path sampling and stepping-stone sampling can be set up in BEAUti, resulting in a set of power posteriors to be explored and sampled by BEAST.
+The collected samples will be used to construct both the path sampling and the stepping-stone sampling estimator for the log marginal likelihood.
+In other words, one set of additional calculations will result in two log marginal likelihood estimates and both will be printed to screen.
+
+There is also tutorial available on [how to set up log marginal likelihood estimation using generalized stepping-stone sampling](model_selection_2).
+
+In BEAUti, and after loading a data set, go to the 'MCMC' panel.
+At the bottom, you can select your method of choice to estimate the log marginal likelihood for your selection of models on this data set.
+By default, no (log) marginal likelihood estimation will be performed and the option 'None' will be selected.
+
+{% include image.html file="MCMCTab.png" prefix="tutorials/model_selection_1/" indent="64px" width="640px" alt="MCMC Panel" caption="" %}
+
+Upon selecting 'path sampling/stepping-stone sampling', clicking the 'Settings' button will open a new window where the settings for the log marginal likelihood estimation can be entered.
+
+{% include image.html file="MLESettings.png" prefix="tutorials/model_selection_1/" indent="64px" width="640px" alt="MLE settings" caption="" %}
+
+We suggest to specify a number of path steps of either 50 or 100, with the lenght of each chain being at least 250.000 iterations.
+In general, it's probably a good idea to run a total amount of iterations (i.e. number of path steps times chain length) equal to the length of the standard BEAST analysis performed to estimate the various parameters.
+Given that the Beta(0.3; 1.0) distribution to determine the power posteriors has been shown to deliver adequate performance (Xie et al., 2011), we currently only allow this distribution to be used.
+Through XML specification (see below), other options for this distribution can be specified.
+
+#### XML Specification
+
+The XML code below, to be entered after the &lt;mcmc&gt; block (but still within the &lt;beast&gt; tags), runs a series of 100 power posteriors along the path between prior en posterior, with the powers being determined according to evenly spaced quantiles of a Beta(0.3,1.0) distribution:
 
 ```xml
 <beast>
