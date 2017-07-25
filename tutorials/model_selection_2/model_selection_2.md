@@ -34,12 +34,13 @@ Upon selecting 'generalized stepping-stone sampling', clicking the 'Settings' bu
 
 {% include image.html file="GSSMLESettings.png" prefix="tutorials/model_selection_2/" indent="64px" width="640px" alt="GSS MLE settings" caption="" %}
 
-Three choices (the initial choice 'None' cannot be chosen to generate an XML) are available for a suitable 'Tree working prior': either a 'Product of exponential distributions', a 'Matching coalescent model' or a 'Matching speciation model'.
+Three choices (the initial choice 'None' cannot be chosen to generate an XML and will have to be altered) are available for a suitable 'Tree working prior': either a 'Product of exponential distributions', a 'Matching coalescent model' or a 'Matching speciation model'.
 If the default selection 'None' is not adjusted, BEAUti will issue a warning message, instructing you to choose an appropriate tree working prior.
 
 {% include image.html file="SuitableTreeWorkingPrior.png" prefix="tutorials/model_selection_2/" indent="224px" width="320px" alt="Tree working prior warning message" caption="" %}
 
 More information on these working priors can be found below, in the sections ['Product of exponential distributions'](#firstworkingprior), ['Matching coalescent model'](#secondworkingprior) and ['Matching speciation model'](#speciation).
+
 **Important:** when a coalescent model has been selected for the BEAST analysis, the 'Matching speciation model' option **cannot** be selected as a tree working prior.
 
 We suggest to specify a number of path steps of either 50 or 100, with the lenght of each chain being at least 250.000 iterations.
@@ -412,7 +413,7 @@ The other XML blocks remain identical compared to the first genealogical working
 
 ### Speciation models {#speciation}
 
-### BEAUti
+#### BEAUti
 
 While we don't discuss it in our paper (Baele et al., 2016, Syst. Biol.), a similar procedure can be used to estimate the model fit of speciation models, such as the Yule pure birth model. 
 BEAUti now supports a 'Matching speciation model' for a Yule pure birth process prior.
