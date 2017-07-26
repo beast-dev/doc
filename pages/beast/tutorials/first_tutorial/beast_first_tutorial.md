@@ -3,7 +3,7 @@ title: First Tutorial
 keywords: beast, tutorial
 last_updated: July 22, 2017
 tags: [getting-started, tutorial]
-summary: "An introductory tutorial to getting started with BEAST. This tutorial describes the use of BEAUti and BEAST to analyse some primate sequences and estimate a phylogenetic tree. It will take you through the process of importing an alignment, making choices about the model, generating a BEAST XML file. You will then run BEAST and summarize the output."
+summary: "An introductory tutorial to getting started with BEAST. This tutorial describes the use of BEAUti and BEAST to analyse some primate sequences and estimate a phylogenetic tree. It will take you through the process of importing an alignment, making choices about the model, generating a BEAST XML file. You will then run BEAST."
 sidebar: beast_sidebar
 permalink: first_tutorial.html
 folder: beast
@@ -304,5 +304,7 @@ scale(yule.birthRate)                             0.126   40749      305      0.
 The table at the end lists each of the operators, how many times each was used, how much time they took and some other details. This information can be useful for optimising the performance of runs but generally it can be ignored.
 
 This took 40 seconds to run on a low-performance MacBook. Clearly we would be able to run it for much longer whilst getting a coffee but with such a small data set we may not need to. We will find out when we start to look at the output files from BEAST. 
+
+{% include callout.html type="primary" content="**[The second tutorial will look at summarizing the output, diagnosing problems and building a tree](second_tutorial).**" %}
 
 {% include links.html %}

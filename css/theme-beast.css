@@ -253,5 +253,8 @@ table > tbody > tr:nth-of-type(odd) {
     background-color: transparent;
 }
 
-
-
+.alert-info {
+    color: var(--darker-color);
+    background-color: #b1cfde;
+    border-color: var(--definition-color);
+}

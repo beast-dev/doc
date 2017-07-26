@@ -89,6 +89,10 @@ entries:
   - title: Tutorials
     output: web, pdf
     folderitems:
+    - title: First Tutorial
+      url: /first_tutorial
+      output: web, pdf
+
     - title: Second Tutorial
       url: /second_tutorial
       output: web, pdf

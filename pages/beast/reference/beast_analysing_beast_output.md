@@ -2,7 +2,7 @@
 title: Analysing BEAST Output
 keywords: tracer, tutorial
 last_updated: July 6, 2017
-tags: [tutorial, help]
+tags: [tutorial]
 summary: "Analysing BEAST output files"
 sidebar: beast_sidebar
 permalink: analysing_beast_output.html

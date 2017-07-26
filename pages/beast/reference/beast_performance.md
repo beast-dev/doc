@@ -2,7 +2,7 @@
 title: Optimizing Performance
 permalink: performance.html
 sidebar: beast_sidebar
-tags: [reference, tutorial, help]
+tags: [reference, tutorial]
 keywords: software, performance, GPU, multi-core, beast
 last_updated: July 24, 2017
 summary: "Optimizing Performance"
