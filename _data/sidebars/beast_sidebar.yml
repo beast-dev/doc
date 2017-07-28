@@ -66,6 +66,10 @@ entries:
       url: /beastgen
       output: web, pdf
 
+    - title: TempEst
+      url: /tempest
+      output: web, pdf
+
     - title: Tracer
       url: /tracer
       output: web, pdf
