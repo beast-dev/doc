@@ -65,8 +65,11 @@ However, a limited amount of duplicates are allowed so that the uncorrelated rel
 
 ### Random local clock
 
-
-
+Random local clocks permit an amount of variation in evolutionary rate across a tree which is more than the strict clock (which has no variation) but less than the relaxed clock (which has a different rate for each branch) (Drummond and Suchard, 2010).
+They work by proposing a series of local molecular clocks, each extending over a subregion of the full phylogeny.
+Each branch in a phylogeny (subtending a clade) is a possible location for a change of rate from one local clock to a new one.
+The number of changes may hence be zero (in which case the resulting clock is a strict clock), or it may be equal to the number of branches (in which case the resulting clock is a relaxed clock), or it may be somewhere in between. 
+This is entirely determined by the data, as the MCMC chain samples over both the number of changes and their locations on the tree. 
 
 
 ## References
@@ -78,5 +81,7 @@ A. J. Drummond, S. Y. W. Ho, M. J. Phillips and A. Rambaut (2006) Relaxed phylog
 A. Yoder and Z. Yang (2000) Estimation of primate speciation dates using local molecular clocks. Mol. Biol. Evol. 17(7):1081-1090.
 
 W. L. S. Li and A. J. Drummond (2012) Model averaging and Bayes factor calculation of relaxed molecular clocks in Bayesian phylogenetics. Mol. Biol. Evol. 29(2):751-761.
+
+A. J. Drummond and M. A. Suchard (2010) Bayesian random local clocks, or one rate to rule them all. BMC Biology 2010, 8:114
 
 {% include links.html %}
