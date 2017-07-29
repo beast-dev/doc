@@ -57,7 +57,7 @@ The different rates are sampled from a probability distribution, whose parameter
 In BEAUti, the supported distributions are log-normal, exponential and gamma distributions.
 Through XML specification, an inverse Gaussian distribution can also be specified (Li and Drummond, 2012).
 
-{% include image.html file="clocks/relaxedClockBeauti.png" indent="64px" width="640px" alt="strict clock model" caption="" %}
+{% include image.html file="clocks/relaxedClockBeauti.png" indent="64px" width="640px" alt="relaxed clock distributions" caption="" %}
 
 The relaxed clock implementation in BEAST works by assigning each branch one rate from a fixed number of discrete rates. 
 Basically, the underlying distribution is discretized into a number of categories equal to the number of branches and each branch receives a unique evolutionary rate from that discretization.
