@@ -109,6 +109,10 @@ entries:
       url: /summarizing_trees
       output: web, pdf
 
+    - title: Analysing Continuous Traits
+      url: /continuous_traits
+      output: web, pdf
+
   - title: Advanced Tutorials
     output: web, pdf
     folderitems:
