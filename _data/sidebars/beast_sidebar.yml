@@ -101,6 +101,10 @@ entries:
       url: /second_tutorial
       output: web, pdf
 
+    - title: Rates and Dates
+       url: /rates_and_dates
+       output: web, pdf
+
     - title: Analysing BEAST Output
       url: /analysing_beast_output
       output: web, pdf
