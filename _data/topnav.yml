@@ -9,8 +9,6 @@ topnav:
       url: /faq.html
     - title: Help
       url: /tag_help.html
-    - title: Trouble Shooting
-      url: /tag_trouble-shooting.html
     - title: Source Code
       external_url: https://github.com/beast-dev/beast-mcmc
     - title: News
