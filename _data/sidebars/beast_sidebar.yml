@@ -109,6 +109,10 @@ entries:
       url: /summarizing_trees
       output: web, pdf
 
+    - title: Rates and Dates
+      url: /rates_and_dates
+      output: web, pdf
+
   - title: Advanced Tutorials
     output: web, pdf
     folderitems:
