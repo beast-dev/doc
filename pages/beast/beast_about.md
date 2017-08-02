@@ -77,104 +77,60 @@ As an Open Source project, BEAST has benefited from contributions and assistance
 
 BEAST has been supported at various times by:
 
-<div class="bs-callout bs-callout-primary">
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="width: 30%; display: table-cell; text-align: right">
-<a class="noCrossRef" href="http://erc.europa.eu">
-<img src="images/logos/erc-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
-<img src="images/logos/eu-flag.png" style="max-height: 64px; margin: 0px 10px 0px 10px;"/>
-</a>
-        </div>
-        <div style="width: 70%; display: table-cell; vertical-align: top;">
-<div style="font-size: 150%; padding-top: 40px; margin-top: -45px">The European Research Council</div>
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">"Phylo" to Philippe Lemey, Marc Suchard and Andrew Rambaut</div>
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">"ReservoirDOCs" to Philippe Lemey, Marc Suchard and Andrew Rambaut</div>
-        </div>
-    </div>
-</div>
-</div>
+{% include icon-callout.html
+type='primary'
+file='logos/erc-logo.png'
+url='http://erc.europa.eu'
+width='17%'
+title='The European Research Council'
+subtitle='"VirusPhylogeography" to Philippe Lemey, Marc Suchard and Andrew Rambaut<br />
+          "ReservoirDOCs" to Philippe Lemey, Marc Suchard and Andrew Rambaut'
+%}
 
-<div class="bs-callout bs-callout-default">
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="width: 30%; display: table-cell; text-align: right">
- <a class="noCrossRef" href="http://nih.gov">
- <img src="images/logos/nih-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;"/>
- </a>
-        </div>
-        <div style="width: 70%; display: table-cell; vertical-align: top;">
-<div style="font-size: 150%; padding-top: 40px; margin-top: -45px">The National Institutes of Health</div>
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">XXX and XXX to Marc Suchard</div>
-        </div>
-    </div>
-</div>
-</div>
+{% include icon-callout.html
+type='default'
+file='logos/nih-logo.png'
+url='http://nih.gov'
+width='17%'
+title='The National Institutes of Health'
+subtitle='XXX and XXX to Marc Suchard'
+%}
 
-<div class="bs-callout bs-callout-danger">
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="width: 30%; display: table-cell; text-align: right">
-<a class="noCrossRef" href="http://wellcome.ac.uk">
-<img src="images/logos/wellcome-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;"/>
-</a>
-        </div>
-        <div style="width: 70%; display: table-cell; vertical-align: top;">
-<div style="font-size: 150%; padding-top: 40px; margin-top: -45px">The Wellcome Trust</div>
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">"XXXX" to Andrew Rambaut</div>
-        </div>
-    </div>
-</div>
-</div>
+{% include icon-callout.html
+type='default'
+file='logos/wellcome-logo.png'
+url='http://wellcome.ac.uk'
+width='17%'
+title='The Wellcome Trust'
+subtitle='"XXXX" to Andrew Rambaut'
+%}
 
-<div class="bs-callout bs-callout-primary">
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="width: 30%; display: table-cell; text-align: right">
-<a class="noCrossRef" href="http://bbsrc.ac.uk">
-<img src="images/logos/bbsrc-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;"/>
-</a>
-        </div>
-        <div style="width: 70%; display: table-cell; vertical-align: top;">
-<div style="font-size: 150%; padding-top: 40px; margin-top: -45px">BBSRC</div>
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">"XXXX" to Andrew Rambaut</div>
-        </div>
-    </div>
-</div>
-</div>
+{% include icon-callout.html
+type='primary'
+file='logos/bbsrc-logo.png'
+url='http://bbsrc.ac.uk'
+width='17%'
+title='BBSRC'
+subtitle='"XXXX" to Andrew Rambaut'
+%}
 
-<div class="bs-callout bs-callout-danger">
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="width: 30%; display: table-cell; text-align: right">
-<a class="noCrossRef" href="http://royalsociety.org">
-<img src="images/logos/roysoc-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
-</a>
-        </div>
-        <div style="width: 70%; display: table-cell; vertical-align: top;">
-<div style="font-size: 150%; padding-top: 40px; margin-top: -45px">The Royal Society of London</div>
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">University Research Fellowship to Andrew Rambaut</div>
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">Newton Fellowship to Trevor Bedford</div>
-        </div>
-    </div>
-</div>
-</div>
+{% include icon-callout.html
+type='danger'
+file='logos/roysoc-logo.png'
+url='http://royalsociety.org'
+width='17%'
+title='The Royal Society of London'
+subtitle='University Research Fellowship to Andrew Rambaut<br />Newton Fellowship to Trevor Bedford'
+%}
 
-<div class="bs-callout bs-callout-warning">
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="width: 30%; display: table-cell; text-align: right">
-<a class="noCrossRef" href="http://royalsociety.org.nz/what-we-do/funds-and-opportunities/marsden/">
-<img src="images/logos/marsden-logo.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
-</a>
-        </div>
-        <div style="width: 70%; display: table-cell; vertical-align: top;">
-<div style="font-size: 150%; padding-top: 40px; margin-top: -45px">The Marsden Fund</div>
-<div style="font-size: 80%; font-weight: normal; font-style: italic;">Grant to Alexei Drummond & Marc Suchard</div>
-        </div>
-    </div>
-</div>
-</div>
+{% include icon-callout.html
+type='warning'
+file='logos/marsden-logo.png'
+url='http://royalsociety.org.nz/what-we-do/funds-and-opportunities/marsden'
+width='17%'
+title='The Marsden Fund'
+subtitle='Grant to Alexei Drummond & Marc Suchard'
+%}
 
 ### The BEAST logo
 

@@ -5,12 +5,11 @@ sidebar: beast_sidebar
 tags: [programs]
 keywords: software, tempest, beast
 last_updated: July 28, 2017
-summary: "TempEst"
-toc: true
+toc: false
 folder: beast/programs
 ---
 
-## TempEst
+{% include icon-callout.html file='icons/tempest-icon.png' content="TempEst is a tool for investigating the temporal signal and 'clocklikeness' of molecular phylogenies." %}
 
 TempEst (formerly known as 'Path-O-Gen') is a tool for investigating the temporal signal and 'clocklikeness' of molecular phylogenies. 
 It can read and analyse contemporaneous trees (where all sequences have been collected at the same time) and dated-tip trees (where sequences have been collected at different dates). 

@@ -2,16 +2,17 @@
 title: Analysing BEAST Output
 keywords: tracer, tutorial
 last_updated: July 6, 2017
-tags: [tutorial]
+tags: [howto]
 summary: "Analysing BEAST output files"
 sidebar: beast_sidebar
 permalink: analysing_beast_output.html
 folder: beast
 ---
 
+{% include warning.html content="This page unfinished." %}
+
 ## Analysing BEAST output using Tracer
 This document provides a step-by-step tutorial to analysing the output of BEAST in a GUI application called Tracer.
-
 
 Running Tracer
 The exact instructions for running Tracer differs depending on which computer you are using. Please see the README text file that was distributed with the version you downloaded.
