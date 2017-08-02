@@ -2,7 +2,7 @@
 title: How to specify dates for tips
 keywords: software, molecular clocks, tipdates, beast, beauti
 last_updated: August 2, 2017
-tags: [howto]
+tags: [how-to]
 summary: ""
 sidebar: beast_sidebar
 permalink: tip_dates.html

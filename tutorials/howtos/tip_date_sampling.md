@@ -2,7 +2,7 @@
 title: How to sample the dates of sequences
 keywords: beast, tutorial
 last_updated: August 2, 2017
-tags: [howto]
+tags: [how-to]
 summary: "Tutorial on how to estimate the sampling dates of observed sequences."
 sidebar: beast_sidebar
 permalink: tip_date_sampling.html
