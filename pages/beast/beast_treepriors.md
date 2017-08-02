@@ -10,6 +10,18 @@ toc: true
 folder: beast
 ---
 
-## Tree Priors
+## Parametric tree priors
+
+### Constant population size
+
+### Exponential growth
+
+## Non-parametric models
+
+### Skyride
+
+### Skygrid
+
+## A note on prior choices
 
 {% include links.html %}
