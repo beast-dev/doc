@@ -43,10 +43,18 @@ In order to enable this feature, one or more taxon sets need to be constructed.
 
 When a taxon set has been created, the option 'Sampling with individual priors' can be selected and applied to a taxon set of choice, here with ID 'TaxonSetOne'.
 
-{% include image.html file="individualPriorSampling.png" prefix="tutorials/howtos/" width="90%" alt="Sampling dates with prior information" caption="" %}
+{% include image.html file="selectTaxonSet.png" prefix="tutorials/howtos/" width="90%" alt="Set precision for selected taxa" caption="" %}
 
 This estimation process needs a set of priors to be defined in the 'Priors' tab in BEAUti.
+Proper priors need to be defined for the node height of each taxon within the selected taxon set.
+Additionally, it's possible to define a prior on the time to most recent common ancestor (TMRCA) of the selected taxon set.
 
+{% include image.html file="individualPriorSampling.png" prefix="tutorials/howtos/" width="90%" alt="Sampling dates with prior information" caption="" %}
+
+To alter the default prior on the node height of (for example) taxon 'AF404753_Cb_2000', click on the current prior choice 'Uniform[0, 1E100], initial=7.63'.
+Here, it's shown how to put a Normal prior with mean equal to 7.63 and standard deviation equal to 2.0 on the node height.
+
+{% include image.html file="setSamplingDatePrior.png" prefix="tutorials/howtos/" width="90%" alt="Set prior on selected node height" caption="" %}
 
 
 ## References
