@@ -1,12 +1,11 @@
 ---
-title: Using dated tips
-permalink: tipdates.html
-sidebar: beast_sidebar
-tags: [reference]
+title: How to specify dates for tips
 keywords: software, molecular clocks, tipdates, beast, beauti
-last_updated: July 246 2017
-summary:
-toc: true
+last_updated: August 2, 2017
+tags: [howto, reference]
+summary: ""
+sidebar: beast_sidebar
+permalink: tip_dates.html
 folder: beast
 ---
 
@@ -22,3 +21,5 @@ This operation attempts to guess what the dates are from information contained w
 In this dialog box, you can also get BEAUti to add a fixed value to each guessed date. In this case the value "1900" has been added to turn the dates from 2 digit years to 4 digit. Any dates in the taxon names given as "00" would thus become "1900". If these dates were actually referring to the year 2000 then selecting the next option would convert them correctly, adding 2000 to any date less than 07.
 
 When you press OK the dates will appear in the appropriate column of the main window. You can then check these and edit them manually as required. At the top of the window you can set the units that the dates are given in (years, months, days) and whether they are specified relative to a point in the past (as would be the case for years such as 1984) or backwards in time from the present.
+
+{% include links.html %}
