@@ -38,36 +38,17 @@ entries:
   - title: Software Packages
     output: web, pdf
     folderitems:
-    - title: BEAST
-      url: /beast
-      output: web, pdf
 
-    - title: BEAUti
-      url: /beauti
+    - title: BEAUti, BEAST and other programs
+      url: /programs
       output: web, pdf
 
     - title: BEAGLE Library
       url: /beagle
       output: web, pdf
 
-    - title: LogCombiner
-      url: /logcombiner
-      output: web, pdf
-
-    - title: TreeAnnotator
-      url: /treeannotator
-      output: web, pdf
-
-    - title: TreeLogAnalyser
-      url: /treeloganalyser
-      output: web, pdf
-
     - title: BEASTGen
       url: /beastgen
-      output: web, pdf
-
-    - title: TempEst
-      url: /tempest
       output: web, pdf
 
     - title: Tracer
@@ -76,6 +57,10 @@ entries:
 
     - title: FigTree
       url: /figtree
+      output: web, pdf
+
+    - title: TempEst
+      url: /tempest
       output: web, pdf
 
     - title: SPREAD
