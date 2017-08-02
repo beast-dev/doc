@@ -102,6 +102,29 @@ entries:
       url: /continuous_traits
       output: web, pdf
 
+  - title: How-To Guides
+    output: web, pdf
+    folderitems:
+    - title: Creating Taxon Sets
+      url: /taxon_sets
+      output: web, pdf
+
+    - title: Analysing BEAST Output
+      url: /analysing_beast_output
+      output: web, pdf
+
+    - title: Specifying Sampling Dates
+      url: /tip_dates
+      output: web, pdf
+
+    - title: Tip Date Sampling
+      url: /tip_date_sampling
+      output: web, pdf
+
+    - title: Setting Up Hierarchical Models
+      url: /hierarchical_models
+      output: web, pdf
+
   - title: Advanced Tutorials
     output: web, pdf
     folderitems:
