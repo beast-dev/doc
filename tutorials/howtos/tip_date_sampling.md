@@ -17,7 +17,7 @@ WNV is a mosquito-borne RNA virus whose primary host is birds, and was first det
 The data are 104 genomes collected between 1999 and 2008.
 The taxon labels contain the sampling dates for all the sequences in the data set, as can be seen in the figure below.
 
-{% include image.html file="WNV_dates" prefix="tutorials/howtos/" alt="WNV sampling dates" caption="WNV dates as parsed from the taxon labels" %}
+{% include image.html file="WNV_dates" prefix="tutorials/howtos/" indent="64px" width="640px" alt="WNV sampling dates" caption="WNV dates as parsed from the taxon labels" %}
 
 **Note:** To inform BEAUti/BEAST about the sampling dates of the sequences, check out the [tutorial on how to extract dates from taxon labels](tip_dates).
 
