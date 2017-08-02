@@ -17,9 +17,18 @@ WNV is a mosquito-borne RNA virus whose primary host is birds, and was first det
 The data are 104 genomes collected between 1999 and 2008.
 The taxon labels contain the sampling dates for all the sequences in the data set, as can be seen in the figure below.
 
-{% include image.html file="WNV_dates" prefix="tutorials/howtos/" indent="64px" width="640px" alt="WNV sampling dates" caption="WNV dates as parsed from the taxon labels" %}
+{% include image.html file="WNV_dates.png" prefix="tutorials/howtos/" indent="64px" width="640px" alt="WNV sampling dates" caption="" %}
 
 **Note:** To inform BEAUti/BEAST about the sampling dates of the sequences, check out the [tutorial on how to extract dates from taxon labels](tip_dates).
+
+### Setting Precision for Selected Taxa
+
+The 'Height' column lists the ages of the tips relative to time 0 (in the case of this WNV data set 2007.63). 
+The 'Precision' column allows specifying with what precision the sampling times are known. 
+This is useful in the WNV case because some sampling dates are known to the exact day, while others are only known up to the year of sampling (those without decimal in the taxa name or with the .0 decimal in the Date column), and BEAST allows to integrate over the uncertainty of the latter. 
+To make use of the ability to adequately accommodate the uncertainty of our sampling dates, select all the taxa (holding down the cmd of shift key) with sampling dates only known up to the year in the Tips window and click on 'Set Precision'.
+  
+{% include image.html file="setPrecision.png" prefix="tutorials/howtos/" indent="64px" width="640px" alt="Set precision for selected taxa" caption="" %}
 
 
 
