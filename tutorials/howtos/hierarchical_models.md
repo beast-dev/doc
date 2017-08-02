@@ -9,5 +9,7 @@ permalink: hierarchical_models.html
 folder: beast
 ---
 
+{% include warning.html content="This page is a placeholder waiting to be written." %}
+
 
 {% include links.html %}

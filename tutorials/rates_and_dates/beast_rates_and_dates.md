@@ -10,8 +10,10 @@ permalink: rates_and_dates.html
 folder: beast
 ---
 
+{% include warning.html content="This page unfinished." %}
+
 The data are 71 sequences from the prM/E gene of yellow fever virus (YFV) from Africa and the Americas with isolation dates ranging from 1940-2009.
- The sequences represent a subset of the data set analyzed by Bryant et al. ([Bryant JE, Holmes EC, Barrett ADT, 2007 Out of Africa: A Molecular Perspective on the Introduction of Yellow Fever Virus into the Americas. PLoS Pathog 3(5): e75](http://doi.org/10.1371/journal.ppat.0030075)).
+The sequences represent a subset of the data set analyzed by Bryant et al. ([Bryant JE, Holmes EC, Barrett ADT, 2007 Out of Africa: A Molecular Perspective on the Introduction of Yellow Fever Virus into the Americas. PLoS Pathog 3(5): e75](http://doi.org/10.1371/journal.ppat.0030075)).
 
 {% include note.html content="This is the third tutorial in the introductory series. This tutorial assumes that you have gone through the [First](first_tutorial) and [Second](second_tutorial) tutorial on this site and feel comfortable with using BEAUti and BEAST." %}
 

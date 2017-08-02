@@ -2,12 +2,14 @@
 title: How to specify dates for tips
 keywords: software, molecular clocks, tipdates, beast, beauti
 last_updated: August 2, 2017
-tags: [howto, reference]
+tags: [howto]
 summary: ""
 sidebar: beast_sidebar
 permalink: tip_dates.html
 folder: beast
 ---
+
+{% include warning.html content="This page unfinished." %}
 
 ## Extracting Dates from Taxon Labels
 
