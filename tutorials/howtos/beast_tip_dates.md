@@ -33,7 +33,7 @@ In the image above, the first sequence has been given the date 1993 and BEAST ha
 
 {% include note.html content="If the dates are actually ages (i.e., time since the present) they can be specified as negative numbers. In this case, zero will be assumed to be the present day." %} 
 
-## Extracting Dates from Taxon Labels
+## Extracting dates from taxon labels
 
 BEAUti can also be parsed when encoded in taxon labels (such as is the case in this RSV data set). To do this, press the `Guess Dates` button (probably a bit mis-named as the procedure won't be guessing). Clicking this will make the following dialog box appear:
 
@@ -73,7 +73,7 @@ Parse calendar date with variable precision
 
 Just like the `Set Dates` option, if you select certain rows and use `Guess Dates` it will only extract dates for those taxa (you can then use a different option for others).
 
-## Importing Dates
+## Importing dates from a file
 
 The final option is the `Import Dates` button. This will ask you for a file which contains dates for each of the sequences. The format is simply a text file with the taxon label and the date separated by a tab character. For the RSV data set this will look like:
 
