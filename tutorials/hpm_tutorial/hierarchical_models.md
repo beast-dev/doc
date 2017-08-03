@@ -48,6 +48,10 @@ We can achieve this by cmd-selecting (or ctrl-selecting in Windows for example) 
 First cmd-select all kappa parameters, and select 'Link parameters into a hierarchical model'. 
 In the new Phylogenetic Hierarchical Model Setup window, enter a Unique Name (e.g. kappa), set the Normal Hyperprior Stdev to 5.0 and the Gamma Hyperprior Shape and Scale to 0.01 and 100.0 respectively and click OK:
 
+{% include image.html file="kappaHPM.png" prefix="tutorials/hpm_tutorial/" width="90%" alt="hpm for kappa parameters" caption="" %}
+
+This operation can be repeated for the 'alpha' parameters with the same hyperprior settings and 'alpha' as Unique Name.
+
 
 
 ## References
