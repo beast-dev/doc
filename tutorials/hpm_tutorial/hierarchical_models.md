@@ -52,7 +52,16 @@ In the new Phylogenetic Hierarchical Model Setup window, enter a Unique Name (e.
 
 This operation can be repeated for the 'alpha' parameters with the same hyperprior settings and 'alpha' as Unique Name.
 
+A similar HPM can be created for the clock.rate parameters and the population sizes of the coalescent models.
+To this end, shift select the first and the last clock.rate to select all clock.rate parameters and click 'Link parameters into a hierarchical model'. 
+Provide clock.rate as unique name and set the Normal Hyperprior Stdev to 100.0 and the Gamma Hyperprior Shape and Scale to 0.001 and 1000.0 respectively and click OK:
 
+{% include image.html file="clockRateHPM.png" prefix="tutorials/hpm_tutorial/" width="90%" alt="hpm for clock.rate parameters" caption="" %}
+
+Finally, specify an HPM for the pop sizes by shift-selecting them and setting the Normal Hyperprior Stdev to 100.0 and the Gamma Hyperprior Shape and Scale to 0.001 and 1000.0.
+
+This tutorial has shown how to set up HPMs on different parameters by using BEAUti, which will then generate a set of transition kernels on the parameters of these HPMs and write these to the generated BEAST XML file.
+In that XML file, the weights of those additional transition kernels can then be modified, although we don't expect this to be necessary.
 
 ## References
 
