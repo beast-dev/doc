@@ -32,35 +32,33 @@ This will change the NEXUS file into a FASTA file by using the to_fasta template
 
 BEASTGen works by parsing and loading the data in the input file and then inserting it at the appropriate places in the template to construct the output file. 
 The template contains tags which are replaced by values or data from the input file. 
-For example, the tag ${taxon_count} will be replaced by the number of taxa in the input file's alignment. 
+For example, the tag `${taxon_count}` will be replaced by the number of taxa in the input file's alignment. 
 Here are the built-in variables that can be used:
 
-<dl>
-  <dt>taxon_count</dt>
-  <dd>The number of taxa in the alignment</dd>
+`taxon_count`
+: The number of taxa in the alignment.
   
-  <dt>site_count</dt>
-  <dd>The number of sites in the alignment</dd>
+`site_count`
+: The number of sites in the alignment.
   
-  <dt>filename</dt>
-  <dd>The name of the input file</dd>
+`filename`
+: The name of the input file.
   
-  <dt>filename_stem</dt>
-  <dd>The name of the input file without any suffix</dd>
+`filename_stem`
+: The name of the input file without any suffix.
   
-  <dt>taxa</dt>
-  <dd>A list of taxa that can be iterated over (see below)</dd>
+`taxa`
+: A list of taxa that can be iterated over (see below).
   
-  <dt>alignment.sequences</dt>
-  <dd>A list of sequences that can be iterated over (see below)</dd>
-</dl>
+`alignment.sequences``
+: A list of sequences that can be iterated over (see below).
 
 Additional variables can be set from the command line using the '-D' option. 
 This is explained below in more detail.
 
 The last two variables are treated differently - they are not simple values but lists of objects. 
-To access these, the <#list>...</#list> tag is used. 
-This works by inserting the text within the <#list>...</#list> pair repeatedly within the output file once for each object in the list. 
+To access these, the `<#list>...</#list>` tag is used. 
+This works by inserting the text within the `<#list>...</#list>` pair repeatedly within the output file once for each object in the list. 
 To demonstrate this, here is the contents of the 'to_fasta.template' file which converts sequence data into a FASTA format:
 
 ```bash
@@ -73,7 +71,7 @@ ${sequence.data}
 This iterates over the alignment, setting a variable (called 'sequence') to point to each sequence in turn. 
 The text within is then expanded using this variable. 
 The variable, sequence, is actually an object which contains two parts (taxon and data). 
-The tag '${sequence.data}' gets replaced with the actual sequence data and '${sequence.taxon.id}' gets replaced with the name of the taxon. 
+The tag `${sequence.data}` gets replaced with the actual sequence data and `${sequence.taxon.id}` gets replaced with the name of the taxon. 
 So the above template will produce something like:
 
 ```xml
@@ -123,30 +121,28 @@ The top of the file looks like this:
 ```
 
 This creates a list of taxon elements one for each in the alignment. 
-Dates are also set for each taxon and these are obtained from the taxon names in a similar way to the BEAUti feature 'guess dates'. 
+Dates are also set for each taxon and these are obtained from the taxon names in a [similar way to the BEAUti feature 'guess dates'](tip_dates). 
 The extraction of dates from taxon names is controlled by a number of command line options:
 
-<dl>
-  <dt>-date_order</dt>
-  <dd>The order of the date field (negative numbers from last)</dd>
+-date_order
+: The order of the date field (negative numbers from last).
   
-  <dt>-date_prefix</dt>
-  <dd>A string that is the prefix to the date field</dd>
+-date_prefix
+: A string that is the prefix to the date field.
   
-  <dt>-date_regex</dt>
-  <dd>A string that gives the regular expression to match the date</dd>
+-date_regex
+: A string that gives the regular expression to match the date.
   
-  <dt>-date_format</dt>
-  <dd>A string that gives the date format for parsing</dd>
+-date_format
+: A string that gives the date format for parsing.
   
-  <dt>-date_precision</dt>
-  <dd>Specifies the date is a variable precision yyyy-MM-dd format</dd>
-</dl>
+-date_precision
+: Specifies the date is a variable precision yyyy-MM-dd format.
 
 An additional command line option '-D' allows the user to specify additional variables and their values that are specific to a BEASTGen operation. 
-For example, with a BEAST XML template, instead of fixing the chain length to a specific value, the template could use tag ${chain_length} and this will be replaced by a value for a variable called 'chain_length'. 
+For example, with a BEAST XML template, instead of fixing the chain length to a specific value, the template could use tag `${chain_length}` and this will be replaced by a value for a variable called 'chain_length'. 
 In this case the variable is set in the command line with the option '-D "chain_length=10000000"'. 
-So wherever, ${chain_length} is found in the template, the output file will have '10000000'. 
+So wherever, `${chain_length}` is found in the template, the output file will have '10000000'. 
 Multiple variables can be set using this option:
 
 ```bash
@@ -165,6 +161,6 @@ This will use the 'chain_length' variable from the command line and the automati
 <mcmc id="mcmc" chainLength="10000000" autoOptimize="true" operatorAnalysis="dengue.ops">
 ```
 
-The input file name was 'dengue.nex' so ${filename_stem} gets replaced with the name without the '.nex' suffix.
+The input file name was 'dengue.nex' so `${filename_stem}` gets replaced with 'dengue' without the '.nex' suffix.
 
 {% include links.html %}

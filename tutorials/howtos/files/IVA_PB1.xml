@@ -1271,13 +1271,31 @@
 				</gammaPrior>
 				<gammaPrior shape="0.001" scale="1000.0" offset="0.0">
 					<parameter idref="swine.rate"/>
-				</gammaPrior>
+				</gammaPrior>				
+
+				<ctmcScalePrior>
+					<ctmcScale>
+						<parameter idref="clock.rate"/>
+					</ctmcScale>
+					<treeModel idref="treeModel"/>
+					<taxa idref="human"/>
+				</ctmcScalePrior>
+				
+				<ctmcScalePrior>
+					<ctmcScale>
+						<parameter idref="swine.rate"/>
+					</ctmcScale>
+					<treeModel idref="treeModel"/>
+					<taxa idref="swine"/>
+				</ctmcScalePrior>
+				
 				<ctmcScalePrior>
 					<ctmcScale>
 						<parameter idref="clock.rate"/>
 					</ctmcScale>
 					<treeModel idref="treeModel"/>
 				</ctmcScalePrior>
+				
 				<oneOnXPrior>
 					<parameter idref="constant.popSize"/>
 				</oneOnXPrior>

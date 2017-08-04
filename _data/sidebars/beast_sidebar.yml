@@ -31,8 +31,8 @@ entries:
       url: /installing
       output: web, pdf
 
-    - title: First Tutorial
-      url: /first_tutorial
+    - title: Introductory Tutorials
+      url: /getting_started
       output: web, pdf
 
   - title: Software Packages
@@ -45,10 +45,6 @@ entries:
 
     - title: BEAGLE Library
       url: /beagle
-      output: web, pdf
-
-    - title: BEASTGen
-      url: /beastgen
       output: web, pdf
 
     - title: Tracer
@@ -75,6 +71,10 @@ entries:
       url: /pibuss
       output: web, pdf
 
+    - title: BEASTGen
+      url: /beastgen
+      output: web, pdf
+
   - title: Tutorials
     output: web, pdf
     folderitems:
@@ -90,14 +90,6 @@ entries:
       url: /rates_and_dates
       output: web, pdf
 
-    - title: Analysing BEAST Output
-      url: /analysing_beast_output
-      output: web, pdf
-
-    - title: Summarizing Trees
-      url: /summarizing_trees
-      output: web, pdf
-
     - title: Analysing Continuous Traits
       url: /continuous_traits
       output: web, pdf
@@ -109,10 +101,6 @@ entries:
       url: /taxon_sets
       output: web, pdf
 
-    - title: Analysing BEAST Output
-      url: /analysing_beast_output
-      output: web, pdf
-
     - title: Specifying Sampling Dates
       url: /tip_dates
       output: web, pdf
@@ -120,6 +108,15 @@ entries:
     - title: Tip Date Sampling
       url: /tip_date_sampling
       output: web, pdf
+
+    - title: Analysing BEAST Output
+      url: /analysing_beast_output
+      output: web, pdf
+
+    - title: Summarizing Trees
+      url: /summarizing_trees
+      output: web, pdf
+
 
   - title: Advanced Tutorials
     output: web, pdf
