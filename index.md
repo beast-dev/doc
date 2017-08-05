@@ -5,7 +5,8 @@ tags: [getting-started]
 sidebar: beast_sidebar
 permalink: index.html
 toc: false
-summary: 
+redirect_from: "/home"
+redirect_from: "/main_page"
 ---
  
 <div><img style="max-width: 100%" src="images/beast-banner.png" /></div>

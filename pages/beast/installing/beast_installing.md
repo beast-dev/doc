@@ -7,6 +7,7 @@ summary: "How to download and install BEAST on your computer."
 sidebar: beast_sidebar
 permalink: installing.html
 folder: beast/installing
+redirect_from: "/downloads"
 ---
 
 ## Installing BEAST
