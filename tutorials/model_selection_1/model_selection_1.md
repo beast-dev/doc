@@ -7,7 +7,6 @@ summary: "Model selection using path sampling / stepping-stone sampling in BEAST
 sidebar: beast_sidebar
 permalink: model_selection_1.html
 folder: beast
-redirect_from: "/Bayes-factor"
 redirect_from: "/Model-selection"
 
 ---

@@ -7,6 +7,7 @@ summary: "This is the second introductory tutorial to BEAST. Here we will contin
 sidebar: beast_sidebar
 permalink: second_tutorial.html
 folder: beast
+redirect_from: "/tutorial-2"
 ---
 
 {% include warning.html content="This page is being written." %}

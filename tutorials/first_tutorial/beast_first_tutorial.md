@@ -7,6 +7,7 @@ summary: "An introductory tutorial to getting started with BEAST. This tutorial 
 sidebar: beast_sidebar
 permalink: first_tutorial.html
 folder: beast
+redirect_from: "/tutorial-1"
 ---
 
 ## Running BEAST for the first time

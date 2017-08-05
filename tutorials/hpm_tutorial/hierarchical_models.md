@@ -7,6 +7,7 @@ summary: ""
 sidebar: beast_sidebar
 permalink: hierarchical_models.html
 folder: beast
+redirect_from: "/HPMs"
 ---
 
 ## Setting up Hierarchical Phylogenetic Models (HPMs)
