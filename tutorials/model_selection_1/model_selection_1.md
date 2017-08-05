@@ -190,8 +190,9 @@ This XML file has no need for an mcmc or marginalLikelihoodEstimator block, sinc
 
 #### Tracer
 
-The HME and AICM can be readily computed in Tracer v1.6, after a .log file has been successfully loaded.
 **Important:** given the poor performance and reliability of the HME and AICM, these estimators have been deprecated in the Tracer code base and will hence **no longer be available in future versions of Tracer**.
+
+<!-- The HME and AICM can be readily computed in Tracer v1.6, after a .log file has been successfully loaded.
 
 In Tracer v1.6, after loading a .log file, go to 'Analysis' and select 'Model Comparison...'
 
@@ -202,6 +203,7 @@ In the 'Likelihood trace' field, the likelihood column **has** to be selected as
 Performing 'Bootstrap replicates' is essentially useless for such poor estimators, hence we suggest to set this value to zero.
 
 {% include image.html file="AICMHME.png" prefix="tutorials/model_selection_1/" indent="64px" width="640px" alt="AICM and HME" caption="" %}
+-->
 
 **Note:** marginal likelihood estimation using path sampling, stepping-stone sampling or generalized stepping-stone sampling cannot be performed in Tracer.
 Additional calculations are necessary to perform accurate model selection, and will be performed by BEAST.
