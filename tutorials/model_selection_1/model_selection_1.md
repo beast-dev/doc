@@ -13,9 +13,7 @@ redirect_from: "/Model-selection"
 
 ## Marginal likelihood estimation using path sampling and stepping-stone sampling
 
-**Important:** for reliable and accurate marginal likelihood estimation, use path sampling and stepping-stone sampling or [generalized stepping-stone sampling](model_selection_2).
-
-Recent years have seen the development of several new approaches to perform model selection in the field of phylogenetics, such as path sampling (under the term 'thermodynamic integration'; Lartillot and Philippe, 2006), stepping-stone sampling (Xie et al., 2011) and generalized stepping-stone sampling (Fan et al., 2011), with the latter approach currently only applicable on a fixed underlying topology. 
+Recent years have seen the development of several new approaches to perform model selection in the field of phylogenetics, such as path sampling (under the term 'thermodynamic integration'; Lartillot and Philippe, 2006), stepping-stone sampling (Xie et al., 2011) and generalized stepping-stone sampling (Fan et al., 2011), with the latter approach currently only applicable on a fixed underlying topology.
 In a recently published paper in Molecular Biology and Evolution (Baele et al., 2012), the performance of 4 model selection approaches for demographic and molecular clock model comparison is investigated: the harmonic mean estimator (HME; Newton and Raftery, 1994), a posterior simulation-based analogue of Akaike's information criteration (AICM; Raftery et al., 2007), path sampling (PS) and stepping-stone sampling. 
 Baele et al. (2012) 'confirm that the HME systematically overestimates the marginal likelihood and fails to yield reliable model classification and show that the AICM performs better and may be a useful initial evaluation of model choice but that it is also, to a lesser degree, unreliable'. 
 The authors show 'that path sampling and stepping-stone sampling substantially outperform these estimators'.
@@ -186,11 +184,11 @@ This XML file has no need for an mcmc or marginalLikelihoodEstimator block, sinc
 
 ### HME, sHME and AICM (not recommended)
 
-**Important:** for reliable and accurate marginal likelihood estimation, use path sampling and stepping-stone sampling or [generalized stepping-stone sampling](model_selection_2).
+{% include warning.html content='
+Given the [poor performance and reliability of the HME and AICM](https://radfordneal.wordpress.com/2008/08/17/the-harmonic-mean-of-the-likelihood-worst-monte-carlo-method-ever/), these estimators have been deprecated in the Tracer code base and will hence **no longer be available in future versions of Tracer**.
 
-#### Tracer
-
-**Important:** given the poor performance and reliability of the HME and AICM, these estimators have been deprecated in the Tracer code base and will hence **no longer be available in future versions of Tracer**.
+For reliable and accurate marginal likelihood estimation, use [path sampling and stepping-stone sampling](#marginal-likelihood-estimation-using-path-sampling-and-stepping-stone-sampling) or [generalized stepping-stone sampling](model_selection_2).
+' %}
 
 <!-- The HME and AICM can be readily computed in Tracer v1.6, after a .log file has been successfully loaded.
 
