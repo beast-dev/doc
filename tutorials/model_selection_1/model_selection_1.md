@@ -1,7 +1,7 @@
 ---
 title: Model Selection Tutorial
 keywords: model selection, marginal likelihood, path sampling, stepping-stone sampling, tutorial
-last_updated: July 10, 2017
+last_updated: August 5, 2017
 tags: [tutorial]
 summary: "Model selection using path sampling / stepping-stone sampling in BEAST."
 sidebar: beast_sidebar
@@ -12,6 +12,8 @@ redirect_from: "/Model-selection"
 ---
 
 ## Marginal likelihood estimation using path sampling and stepping-stone sampling
+
+**Important:** for reliable and accurate marginal likelihood estimation, use path sampling and stepping-stone sampling or [generalized stepping-stone sampling](model_selection_2).
 
 Recent years have seen the development of several new approaches to perform model selection in the field of phylogenetics, such as path sampling (under the term 'thermodynamic integration'; Lartillot and Philippe, 2006), stepping-stone sampling (Xie et al., 2011) and generalized stepping-stone sampling (Fan et al., 2011), with the latter approach currently only applicable on a fixed underlying topology. 
 In a recently published paper in Molecular Biology and Evolution (Baele et al., 2012), the performance of 4 model selection approaches for demographic and molecular clock model comparison is investigated: the harmonic mean estimator (HME; Newton and Raftery, 1994), a posterior simulation-based analogue of Akaike's information criteration (AICM; Raftery et al., 2007), path sampling (PS) and stepping-stone sampling. 
@@ -70,65 +72,7 @@ As shown in Baele et al. (2013), it is important to specify proper priors for al
 </beast>
 ```
 
-### HME, sHME and AICM
 
-#### Tracer
-
-The HME and AICM can be readily computed in Tracer v1.6, after a .log file has been successfully loaded.
-**Important:** given the poor performance and reliability of the HME and AICM, these estimators will no longer be available in future versions of Tracer.
-
-In Tracer v1.6, after loading a .log file, go to 'Analysis' and select 'Model Comparison...'
-
-{% include image.html file="tracerModelComparison.png" prefix="tutorials/model_selection_1/" indent="64px" width="640px" alt="Tracer model comparison" caption="" %}
-
-This opens a new window, allowing to select an estimator of choice, i.e. AICM or HME (sHME not available).
-In the 'Likelihood trace' field, the likelihood column **has** to be selected as other columns will only produce non-interpretable results.
-Performing 'Bootstrap replicates' is essentially useless for such poor estimators, hence we suggest to set this value to zero.
-
-{% include image.html file="AICMHME.png" prefix="tutorials/model_selection_1/" indent="64px" width="640px" alt="AICM and HME" caption="" %}
-
-**Note:** marginal likelihood estimation using path sampling, stepping-stone sampling or generalized stepping-stone sampling cannot be performed in Tracer.
-Additional calculations are necessary to perform accurate model selection, and will be performed by BEAST.
-
-#### XML Specification
-
-Through XML specification, the estimation of the HME, sHME and AICM will still be supported in future versions of BEAST.
-
-The following code runs the harmonic mean estimation on the samples collected in the mcmc and hence does not require additional calculations to be performed in order to estimate the marginal likelihood, which is considered a major advantage of this approach. 
-
-**Note:** given that additional model selection approaches are available as of BEAST v1.7.0, the mcmc element for the harmonic mean estimator is now assumed to be the following for clarity purposes (although the previous XML-element is still supported):
-
-```xml
-<beast>
-    <harmonicMeanAnalysis fileName="intergenic_UCLD_con.log" bootstrapLength="0" burnIn="10000000">
-        <likelihoodColumn name="likelihood" />
-    </harmonicMeanAnalysis>
-</beast>
-```
-
-The smoothed harmonic mean estimation (sHME) on the samples collected in the mcmc is run as follows:
-
-```xml
-<beast>
-    <harmonicMeanAnalysis fileName="intergenic_UCLD_con.log" bootstrapLength="0" burnIn="10000000" 
-            smoothedEstimate="true">
-        <likelihoodColumn name="likelihood" />
-    </harmonicMeanAnalysis>
-</beast>
-```
-
-Another approach that is able to perform model selection using the samples collected during the MCMC run is the AICM. 
-
-**Note:** the AICM is NOT a marginal likelihood estimator. 
-The AICM estimation on the samples collected in the mcmc is run using the following code:
-
-```xml
-<beast>
-    <aicmAnalysis fileName="intergenic_UCLD_con.log" bootstrapLength="0" burnIn="10000000">
-        <likelihoodColumn name="likelihood" />
-    </aicmAnalysis>
-</beast>
-```
 
 ### Path sampling and stepping-stone sampling
 
@@ -238,6 +182,69 @@ The code below then runs the stepping-stone sampling calculation on these two ou
 
 Note that if the two output files were obtained using independent runs, a separate BEAST XML file to combine these samples can easily be created. 
 This XML file has no need for an mcmc or marginalLikelihoodEstimator block, since all the samples have already been collected and hence, no additional calculations are required.
+
+
+### HME, sHME and AICM (not recommended)
+
+**Important:** for reliable and accurate marginal likelihood estimation, use path sampling and stepping-stone sampling or [generalized stepping-stone sampling](model_selection_2).
+
+#### Tracer
+
+The HME and AICM can be readily computed in Tracer v1.6, after a .log file has been successfully loaded.
+**Important:** given the poor performance and reliability of the HME and AICM, these estimators have been deprecated in the Tracer code base and will hence **no longer be available in future versions of Tracer**.
+
+In Tracer v1.6, after loading a .log file, go to 'Analysis' and select 'Model Comparison...'
+
+{% include image.html file="tracerModelComparison.png" prefix="tutorials/model_selection_1/" indent="64px" width="640px" alt="Tracer model comparison" caption="" %}
+
+This opens a new window, allowing to select an estimator of choice, i.e. AICM or HME (sHME not available).
+In the 'Likelihood trace' field, the likelihood column **has** to be selected as other columns will only produce non-interpretable results.
+Performing 'Bootstrap replicates' is essentially useless for such poor estimators, hence we suggest to set this value to zero.
+
+{% include image.html file="AICMHME.png" prefix="tutorials/model_selection_1/" indent="64px" width="640px" alt="AICM and HME" caption="" %}
+
+**Note:** marginal likelihood estimation using path sampling, stepping-stone sampling or generalized stepping-stone sampling cannot be performed in Tracer.
+Additional calculations are necessary to perform accurate model selection, and will be performed by BEAST.
+
+#### XML Specification
+
+Through XML specification, the estimation of the HME, sHME and AICM will still be supported in future versions of BEAST.
+
+The following code runs the harmonic mean estimation on the samples collected in the mcmc and hence does not require additional calculations to be performed in order to estimate the marginal likelihood, which is considered a major advantage of this approach. 
+
+**Note:** given that additional model selection approaches are available as of BEAST v1.7.0, the mcmc element for the harmonic mean estimator is now assumed to be the following for clarity purposes (although the previous XML-element is still supported):
+
+```xml
+<beast>
+    <harmonicMeanAnalysis fileName="intergenic_UCLD_con.log" bootstrapLength="0" burnIn="10000000">
+        <likelihoodColumn name="likelihood" />
+    </harmonicMeanAnalysis>
+</beast>
+```
+
+The smoothed harmonic mean estimation (sHME) on the samples collected in the mcmc is run as follows:
+
+```xml
+<beast>
+    <harmonicMeanAnalysis fileName="intergenic_UCLD_con.log" bootstrapLength="0" burnIn="10000000" 
+            smoothedEstimate="true">
+        <likelihoodColumn name="likelihood" />
+    </harmonicMeanAnalysis>
+</beast>
+```
+
+Another approach that is able to perform model selection using the samples collected during the MCMC run is the AICM. 
+
+**Note:** the AICM is NOT a marginal likelihood estimator. 
+The AICM estimation on the samples collected in the mcmc is run using the following code:
+
+```xml
+<beast>
+    <aicmAnalysis fileName="intergenic_UCLD_con.log" bootstrapLength="0" burnIn="10000000">
+        <likelihoodColumn name="likelihood" />
+    </aicmAnalysis>
+</beast>
+```
 
 ## Citations
 
