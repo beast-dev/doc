@@ -35,22 +35,22 @@ The first model of nucleotide substitution, by Jukes and Cantor (1969):
                 <parameter id="JC69_Gene1.frequencies" value="0.25 0.25 0.25 0.25"/>
             </frequencies>
         </frequencyModel>
-	</frequencies>
-	<rateAC>
-		<parameter id="JC69_Gene1.ac" value="1.0"/>
-	</rateAC>
-	<rateAG>
-		<parameter id="JC69_Gene1.ag" value="1.0"/>
-	</rateAG>
-	<rateAT>
-		<parameter id="JC69_Gene1.at" value="1.0"/>
-	</rateAT>
-	<rateCG>
-		<parameter id="JC69_Gene1.cg" value="1.0"/>
-	</rateCG>
-	<rateGT>
-		<parameter id="JC69_Gene1.gt" value="1.0"/>
-	</rateGT>
+    </frequencies>
+    <rateAC>
+        <parameter id="JC69_Gene1.ac" value="1.0"/>
+    </rateAC>
+    <rateAG>
+        <parameter id="JC69_Gene1.ag" value="1.0"/>
+    </rateAG>
+    <rateAT>
+        <parameter id="JC69_Gene1.at" value="1.0"/>
+    </rateAT>
+    <rateCG>
+        <parameter id="JC69_Gene1.cg" value="1.0"/>
+    </rateCG>
+    <rateGT>
+        <parameter id="JC69_Gene1.gt" value="1.0"/>
+    </rateGT>
 </gtrModel>
 ```
 
@@ -62,15 +62,15 @@ At the end of this how-to guide, we will show how to modify this, for example by
 <!-- *** DEFINE AMONG-SITE HETEROGENEITY (SITE MODELS) *** -->
 <!-- *** SITE MODEL FOR PARTITION Gene1 *** -->
 <siteModel id="siteModel_Gene1">
-	<substitutionModel>
-		<gtrModel idref="JC69_Gene1"/>
-	</substitutionModel>
-	<relativeRate>
-		<parameter id="siteModel_Gene1.mu" value="1.0" lower="0.0"/>
-	</relativeRate>
-	<gammaShape gammaCategories="4">
-		<parameter id="siteModel_Gene1.alpha" value="0.5" lower="0.0"/>
-	</gammaShape>
+    <substitutionModel>
+        <gtrModel idref="JC69_Gene1"/>
+    </substitutionModel>
+    <relativeRate>
+        <parameter id="siteModel_Gene1.mu" value="1.0" lower="0.0"/>
+    </relativeRate>
+    <gammaShape gammaCategories="4">
+        <parameter id="siteModel_Gene1.alpha" value="0.5" lower="0.0"/>
+    </gammaShape>
 </siteModel>
 ```
 
@@ -79,9 +79,9 @@ Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make su
 ```xml
 <!-- *** DEFINE OPERATORS *** -->
 <operators id="operators">
-	<scaleOperator scaleFactor="0.75" weight="0.1">
-		<parameter idref="siteModel_Gene1.alpha"/>
-	</scaleOperator>
+    <scaleOperator scaleFactor="0.75" weight="0.1">
+        <parameter idref="siteModel_Gene1.alpha"/>
+    </scaleOperator>
 </operators>
 ```
 
@@ -113,28 +113,28 @@ The nucleotide substitution model by Joseph Felsenstein (1981):
 <!-- *** SUBSTITUTION MODEL FOR PARTITION Gene2 *** -->
 <!-- The F81 substitution model (Felsenstein, 1981) -->
 <gtrModel id="F81_Gene2">
-	<frequencies>
-		<frequencyModel dataType="nucleotide">
-			<frequencies>
-				<parameter id="F81_Gene2.frequencies" value="0.25 0.25 0.25 0.25"/>
-			</frequencies>
-		</frequencyModel>
-	</frequencies>
-	<rateAC>
-		<parameter id="F81_Gene2.ac" value="1.0"/>
-	</rateAC>
-	<rateAG>
-		<parameter id="F81_Gene2.ag" value="1.0"/>
-	</rateAG>
-	<rateAT>
-		<parameter id="F81_Gene2.at" value="1.0"/>
-	</rateAT>
-	<rateCG>
-		<parameter id="F81_Gene2.cg" value="1.0"/>
-	</rateCG>
-	<rateGT>
-		<parameter id="F81_Gene2.gt" value="1.0"/>
-	</rateGT>
+    <frequencies>
+        <frequencyModel dataType="nucleotide">
+            <frequencies>
+                <parameter id="F81_Gene2.frequencies" value="0.25 0.25 0.25 0.25"/>
+            </frequencies>
+        </frequencyModel>
+    </frequencies>
+    <rateAC>
+        <parameter id="F81_Gene2.ac" value="1.0"/>
+    </rateAC>
+    <rateAG>
+        <parameter id="F81_Gene2.ag" value="1.0"/>
+    </rateAG>
+    <rateAT>
+        <parameter id="F81_Gene2.at" value="1.0"/>
+    </rateAT>
+    <rateCG>
+        <parameter id="F81_Gene2.cg" value="1.0"/>
+    </rateCG>
+    <rateGT>
+        <parameter id="F81_Gene2.gt" value="1.0"/>
+    </rateGT>
 </gtrModel>
 ```
 
@@ -146,16 +146,16 @@ The nucleotide substitution model by Motoo Kimura (1980):
 <!-- *** SUBSTITUTION MODEL FOR PARTITION Gene3 *** -->
 <!-- The K80 substitution model (Kimura, 1980) -->
 <hkyModel id="K80_Gene3">
-	<frequencies>
-		<frequencyModel dataType="nucleotide">
-			<frequencies>
-				<parameter id="K80_Gene3.frequencies" value="0.25 0.25 0.25 0.25"/>
-			</frequencies>
-		</frequencyModel>
-	</frequencies>
-	<kappa>
-		<parameter id="K80_Gene3.kappa" value="1.0" lower="0.0"/>
-	</kappa>
+    <frequencies>
+        <frequencyModel dataType="nucleotide">
+            <frequencies>
+                <parameter id="K80_Gene3.frequencies" value="0.25 0.25 0.25 0.25"/>
+            </frequencies>
+        </frequencyModel>
+    </frequencies>
+    <kappa>
+        <parameter id="K80_Gene3.kappa" value="1.0" lower="0.0"/>
+    </kappa>
 </hkyModel>
 ```
 
