@@ -117,6 +117,9 @@ entries:
       url: /summarizing_trees
       output: web, pdf
 
+    - title: Creating Custom Substitution Models
+      url: /custom_substitution_models
+      output: web, pdf
 
   - title: Advanced Tutorials
     output: web, pdf
