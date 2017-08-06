@@ -12,7 +12,7 @@ folder: beast
 ## Custom substitution models
 
 [BEAUti](beauti) provides a fairly standard selection of substitution models, but [BEAST](beast) can deal with a wide range of possible models through XML specification.
-This can be done by imposing assumptions on the general time-reversible model (GTR; Tavaré, 1986) of nucleotide substitution.
+This can be done by imposing assumptions on the general time-reversible model (GTR; Tavaré, 1986) of nucleotide substitution, or on the HKY (1985) model of nucleotide substitution.
 
 This how-to guide provides XML code for employing standard time-reversible models, that may differ from the models available in [BEAUti](beauti). 
 Each model discussion contains the substitution model structure, along with the site (rate heterogeneity) models, operator instructions, and the code for including parameters in the parameter log file. 
@@ -21,6 +21,8 @@ Appending the name of the gene to each parameter makes it easier to manage model
 Inside the frequency model, data reference is only existing when frequency is EMPIRICAL.
 
 ### JC69
+
+**Note:** as of BEAST v1.8.4, this model is again available in [BEAUti](beauti).
 
 The first model of nucleotide substitution, by Jukes and Cantor (1969):
 
@@ -162,6 +164,8 @@ The nucleotide substitution model by Motoo Kimura (1980):
 ## References
 
 Tavaré S. (1986) Some Probabilistic and Statistical Problems in the Analysis of DNA Sequences. Lectures on Mathematics in the Life Sciences. American Mathematical Society. 17: 57-86.
+
+Hasegawa M., Kishino H. and Yano T. (1985) Dating of human-ape splitting by a molecular clock of mitochondrial DNA. Journal of Molecular Evolution. 22 (2): 160-174.
 
 Jukes T. H. and Cantor C. R. (1969) Evolution of Protein Molecules. New York: Academic Press. pp. 21-132.
 
