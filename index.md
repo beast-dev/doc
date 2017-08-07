@@ -5,21 +5,12 @@ tags: [getting-started]
 sidebar: beast_sidebar
 permalink: index.html
 toc: false
-summary: 
+redirect_from: "/home"
+redirect_from: "/main_page"
 ---
+ 
+<div><img style="max-width: 100%" src="images/beast-banner.png" /></div>
 
-
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="display: table-cell;">
-            <img style="max-width: 192px" src="images/beast-medium.png" />
-        </div>
-        <div style="display: table-cell;">
-            <h1 style="font-size: 96pt; margin: 0px;">BEAST</h1>
-            <h3 style="font-size: 18pt; font-weight: 500; padding: 20px 5px;">Bayesian Evolutionary Analysis Sampling Trees</h3>
-        </div>
-    </div>
-</div>    
 
 ## What is BEAST?
 

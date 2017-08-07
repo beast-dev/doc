@@ -56,4 +56,31 @@ We also strongly recommend that you install the BEAGLE library to accelerate BEA
 
 Mac OS X is particularly popular in computational biology because it is built upon a UNIX operating system which gives it access to a wide range of scientific software. BEAST can also be installed to run within the command-line environment provided by the Mac OS X Terminal.app. [For instructions on installing BEAST for a UNIX command line see this page](install_on_unix).
 
+### Homebrew package manager for Mac OS X
+
+The above instructions will also work to install BEAST as a command-line tool in Mac OS X. However, the recommended way of installing BEAST for use in the Mac OS X Terminal is to use the Homebrew package manager.
+
+
+If you use the Mac OS X command-line you are probably familiar with [Homebrew](https://brew.sh). This is a simple and convenient way of installing and updating command-line software on the Mac. [Homebrew](https://brew.sh) provides a huge range of science and bioinformatics software [and a list of packages can be found here](https://github.com/Homebrew/homebrew-science/wiki/List-of-homebrew-science-formulae). [See the Homebrew website to get it installed](https://brew.sh).
+
+To install BEAST using HomeBrew type:
+
+```bash
+brew tap homebrew/science
+brew install beast
+```
+
+To check BEAST is installed type:
+
+```bash
+beast -help
+```
+
+If a new version of BEAST is released, to update you just need to type:
+
+```bash
+brew upgrade beast
+```
+
+
 {% include links.html %}

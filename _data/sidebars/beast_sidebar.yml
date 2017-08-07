@@ -31,39 +31,20 @@ entries:
       url: /installing
       output: web, pdf
 
-    - title: First Tutorial
-      url: /first_tutorial
+    - title: Introductory Tutorials
+      url: /getting_started
       output: web, pdf
 
   - title: Software Packages
     output: web, pdf
     folderitems:
-    - title: BEAST
-      url: /beast
-      output: web, pdf
 
-    - title: BEAUti
-      url: /beauti
+    - title: BEAUti, BEAST and other programs
+      url: /programs
       output: web, pdf
 
     - title: BEAGLE Library
       url: /beagle
-      output: web, pdf
-
-    - title: LogCombiner
-      url: /logcombiner
-      output: web, pdf
-
-    - title: TreeAnnotator
-      url: /treeannotator
-      output: web, pdf
-
-    - title: TreeLogAnalyser
-      url: /treeloganalyser
-      output: web, pdf
-
-    - title: BEASTGen
-      url: /beastgen
       output: web, pdf
 
     - title: Tracer
@@ -72,6 +53,10 @@ entries:
 
     - title: FigTree
       url: /figtree
+      output: web, pdf
+
+    - title: TempEst
+      url: /tempest
       output: web, pdf
 
     - title: SPREAD
@@ -86,11 +71,42 @@ entries:
       url: /pibuss
       output: web, pdf
 
+    - title: BEASTGen
+      url: /beastgen
+      output: web, pdf
+
   - title: Tutorials
     output: web, pdf
     folderitems:
+    - title: First Tutorial
+      url: /first_tutorial
+      output: web, pdf
+
     - title: Second Tutorial
       url: /second_tutorial
+      output: web, pdf
+
+    - title: Rates and Dates
+      url: /rates_and_dates
+      output: web, pdf
+
+    - title: Analysing Continuous Traits
+      url: /continuous_traits
+      output: web, pdf
+
+  - title: How-To Guides
+    output: web, pdf
+    folderitems:
+    - title: Creating Taxon Sets
+      url: /taxon_sets
+      output: web, pdf
+
+    - title: Specifying Sampling Dates
+      url: /tip_dates
+      output: web, pdf
+
+    - title: Tip Date Sampling
+      url: /tip_date_sampling
       output: web, pdf
 
     - title: Analysing BEAST Output
@@ -101,9 +117,17 @@ entries:
       url: /summarizing_trees
       output: web, pdf
 
+    - title: Creating Custom Substitution Models
+      url: /custom_substitution_models
+      output: web, pdf
+
   - title: Advanced Tutorials
     output: web, pdf
     folderitems:
+    - title: Hierarchical Phylogenetic Model Tutorial
+      url: /hierarchical_models
+      output: web, pdf
+
     - title: Epoch Tutorial
       url: /epoch_tutorial
       output: web, pdf

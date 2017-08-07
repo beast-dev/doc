@@ -23,6 +23,39 @@ This will download a compressed tar archive (a '.tgz' file).
 
 ## Installing JAVA
 
+### Installing OpenJDK 8
+
+Ubuntu-based linux operating systems have Open JDK installed as their default Java installation.
+To install Open JDK 8 (both JRE and JDK), you can run the following commands:
+
+```bash
+sudo apt-get install openjdk-8-jre
+sudo apt-get install openjdk-8-jdk
+```
+
+### Installing Oracle Java 8
+
+If you'd like to use Oracle Java instead of Open JDK, you will require the PPA maintained by Webupd8 Team before proceeding with the installation:
+
+```bash
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+```
+
+The PPA also contains a package to automatically set Java environment variables, by simply running the following command:
+
+```bash
+sudo apt-get install oracle-java8-set-default
+```
+
+You can now edit the  /etc/environment configuration file and add the following entries to set JAVA_HOME and JRE_HOME environment variables:
+
+```bash
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+JRE_HOME=/usr/lib/jvm/java-8-oracle/jre
+```
+
 ## Installing BEAST
 
 ### Installing BEAST on Linux
@@ -35,32 +68,6 @@ To add:
 - Creating symbolic links? 
 - Running directly using the .jar file (to allow JavaVM options). 
 - Running without command-line options to bring up GUI.
-
-### Homebrew package manager for Mac OS X
-
-The above instructions will also work to install BEAST as a command-line tool in Mac OS X. However, the recommended way of installing BEAST for use in the Mac OS X Terminal is to use the Homebrew package manager.
-
-
-If you use the Mac OS X command-line you are probably familiar with [Homebrew](https://brew.sh). This is a simple and convenient way of installing and updating command-line software on the Mac. [Homebrew](https://brew.sh) provides a huge range of science and bioinformatics software [and a list of packages can be found here](https://github.com/Homebrew/homebrew-science/wiki/List-of-homebrew-science-formulae). [See the Homebrew website to get it installed](https://brew.sh).
-
-To install BEAST using HomeBrew type:
-
-```bash
-brew tap homebrew/science
-brew install beast
-```
-
-To check BEAST is installed type:
-
-```bash
-beast -help
-```
-
-If a new version of BEAST is released, to update you just need to type:
-
-```bash
-brew upgrade beast
-```
 
 
 {% include links.html %}
