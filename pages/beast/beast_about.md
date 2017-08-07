@@ -102,7 +102,7 @@ file='logos/wellcome-logo.png'
 url='http://wellcome.ac.uk'
 width='17%'
 title='The Wellcome Trust'
-subtitle='"XXXX" to Andrew Rambaut'
+subtitle='Collaborators Award 206298/Z/17/Z --- <a href="artic.network">ARTIC network</a><br />Project grant 092807'
 %}
 
 {% include icon-callout.html

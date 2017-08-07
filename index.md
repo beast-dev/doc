@@ -1,6 +1,6 @@
 ---
 keywords: beast mcmc documentation tutorial
-browser_title: BEAST Bayesian Evolutionary Analysis Sampling Trees
+browser_title: BEAST Software - Bayesian Evolutionary Analysis Sampling Trees
 tags: [getting-started]
 sidebar: beast_sidebar
 permalink: index.html
