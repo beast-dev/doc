@@ -139,7 +139,7 @@ locate libhmsbeagle-jni.so
     		<div class="panel-heading">
     			<div class="panel-title">
     				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#beagle-accordion" href="#collapseSeven">
-OpenCL error: Unknown error from file <GPUInterfaceOpenCL.cpp>, line 111.
+OpenCL error: Unknown error from file &lt;GPUInterfaceOpenCL.cpp&gt;, line 111.
     				</a>
     			</div>
     		</div>
