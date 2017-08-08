@@ -14,7 +14,7 @@ redirect_from: "/tutorial-1"
 
 This tutorial will guide you through running BEAST and some of its accessory programs to do a simple phylogenetic analysis. If you haven't already, [download and install BEAST following these instructions](installing). 
 
-{% include note.html content="This tutorial assumes a basic knowledge of molecular phylogenetics and the models and terminology used in the field. If you know what the HKY model and the gamma model of rate heterogeity are then you should be OK.
+{% include note.html content="This tutorial assumes a basic knowledge of molecular phylogenetics and the models and terminology used in the field. If you know what the HKY model and the gamma model of rate heterogeneity are then you should be OK.
 
 You should also be familiar with at least the basics of Bayesian inference and Markov chain Monte Carlo sampling." %}
 
