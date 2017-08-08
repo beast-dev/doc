@@ -78,9 +78,41 @@ Go back to the `Tips` tab, and in the bottom left, select the `sampling with ind
 
 {% include image.html file="tipdateSampling.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
 
-#### Setting the substitution model
+#### Specifying the trait information
 
-The next thing to do is to click on the ‘Sites’ tab at the top of the main window. This will reveal the evolutionary model settings for BEAST. Exactly which options appear depend on whether the data are nucleotides or amino acids.
+The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a specific host and geographical location to each taxa. To associate the sequences with the these traits, we need to add a new trait under the `Traits` tab (click `Add trait`). This will open a new window to Create or Import Trait(s):
+
+{% include image.html file="importTrait.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+
+Select `Import trait(s) from a mapping file` (the format of such a file can be shown). Browse to and load the batRABV_hostLocation.txt tab-delimited file which contains the discrete host and location for each sequence. Note that the host species is specified using a two-character abbreviation (e.g. Ef for Eptesicus fuscus, three characters for Lbl) as shown for this snippet of the file:
+
+	traits	host	state
+	AZ4030\_2005.5	Ap	Arizona
+	AZ1968\_2004.5	Ef	Arizona
+	AZ7590\_2005.5	Ef	Arizona
+	CA237\_2002.5	Ef	California
+	CA29\_2002.5	Ef	California
+	CA9242\_2002.5	Ef	California
+	CAO120\_2002.5	Ef	California
+	CA0253\_2003.5	Ef	California
+	CA148\_2004.5	Ef	California
+	CA6860\_2004.5	Ef	California
+	CA0100\_2005.5	Ef	California
+	GA31940\_2004.5	Ef	Georgia
+		...
+	TX3545_2004.5	Tb	Texas
+
+After clicking `OK`, select the host trait and click on `create partition from trait..`. This new partition will be shown under the `Partitions` tab. Do the same for the location trait (state), resulting in three partitions in the `Partitions` tab:
+
+{% include image.html file="traitPartitions.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+
+#### Setting the sequence and trait evolutionary models
+
+<!--
+edited up to here
+-->
+
+The next thing to do is to click on the `Sites` tab at the top of the main window. This will reveal the evolutionary model settings for BEAST. Exactly which options appear depend on whether the data are nucleotides or amino acids.
 
 This tutorial assumes that you are familiar with the evolutionary models available, however there are a couple of points to note about selecting a model in BEAUti:
 
@@ -93,10 +125,6 @@ Selecting the ‘Unlink rate heterogeneity model across codon positions’ will 
 {% include image.html file="fig6.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
 
 For this tutorial, keep the default ‘HKY’ model, the default ‘Estimated’ base frequencies and select ‘Gamma’ as ‘Site Heterogeneity Model’ (with 4 discrete categories) before proceeding to the ‘Clocks’ tab. 
-
-<!--
-edited up to here
--->
 
 #### Setting the ‘molecular clock’ model
 
