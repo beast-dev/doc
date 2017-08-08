@@ -73,12 +73,12 @@ In this case, although the input file was a valid XML document, there was an err
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="panel-title">
-				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
 Initial Likelihood is Zero.
 				</a>
 			</div>
 		</div>
-		<div id="collapseTwo" class="panel-collapse collapse noCrossRef">
+		<div id="collapseFour" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
 Look at the answer to this FAQ question for possible reasons for this error and solutions.
 			</div>
@@ -89,14 +89,16 @@ Look at the answer to this FAQ question for possible reasons for this error and 
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="panel-title">
-				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
 java.lang.OutofMemoryError Java heap space.
 				</a>
 			</div>
 		</div>
-		<div id="collapseTwo" class="panel-collapse collapse noCrossRef">
+		<div id="collapseFive" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
-Look at the Increasing Memory Usage page for details of increasing the memory available to BEAST and the other programs.
+For slightly older versions of BEAST (which do not yet enforce the use of the BEAGLE library), a possible solution is exactly to use the BEAGLE library.
+Not using BEAGLE results in BEAST using the java implementation of the likelihood calculator which means all your data will be loaded into the Java heap, which then leads to this error.
+Additionally, the use of BEAGLE will also increase the performance of BEAST, i.e. make it run faster.
 			</div>
 		</div>
 	</div>
