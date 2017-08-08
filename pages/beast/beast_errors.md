@@ -119,13 +119,13 @@ Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path
 		<div id="collapseSix" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
 This (linux-based) error occurs because BEAST is unable to locate the BEAGLE library.	
-When following the <a href="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions">installation instructions</a> and specifically the part on how to <b>set the environment variables</b>, BEAST should be able to locate BEAGLE without any additional instructions.<br>
+When following the <a href="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions">installation instructions</a> and specifically the part on how to <b>set the environment variables</b>, BEAST should be able to locate BEAGLE without any additional instructions.
 Should setting the environment variables no take care of this issue, you can manually provide the location of BEAGLE when running BEAST as follows:
 <pre>
 java -Djava.library.path=/usr/local/lib -jar beast.jar test.xml
 </pre>
 in the case that you installed BEAGLE in /usr/local/lib.
-When following the <a href="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions">installation instructions</a>, BEAGLE will be installed in the /lib folder within your HOME directory.<br>
+When following the <a href="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions">installation instructions</a>, BEAGLE will be installed in the /lib folder within your HOME directory.
 If you're unsure where you've installed BEAGLE, you can locate the BEAGLE library as follows:
 <pre>
 locate libhmsbeagle-jni.so
