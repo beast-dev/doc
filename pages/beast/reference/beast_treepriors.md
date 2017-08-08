@@ -59,10 +59,10 @@ The main idea is to have piece-wise process which models population size changes
 The skyride model improves on previous semi-parametric models (Pybus et al., 2000) of piece-wise population size change by (i) assuming population size changes **smoothly** over time and (ii) places a smooth Gaussian process prior on the population sizes.
 
 Skyride operates on *inter-coalescent* intervals, i.e., intervals of time between coalescent events (represented by internal nodes in a phylogeny). 
-For a phylogeny with \\( n \\) tips/leaves, let \\( \boldsymbol w = \{ \boldsymbol w_2, \ldots, \boldsymbol w_n \} \\) be the inter-coalecent intervals.
+For a phylogeny with \\( n \\) tips/leaves, let \\( \boldsymbol w = ( \boldsymbol w_2, \ldots, \boldsymbol w_n ) \\) be the inter-coalecent intervals.
 If sampling is heterochronous, sampling times further divide inter-coalescent intervals in sub-intervals, i.e., 
-\\( \boldsymbol w_k = \{w_{k0}, \ldots, w_{kj_{k}} \} \\).
-If we denote the population sizes by \\( \boldsymbol \theta  = \{ \theta_2, \ldots, \theta_n\} \\), the likelihood becomes
+\\( \boldsymbol w_k = ( w_{k0}, \ldots, w_{kj_{k}} ) \\).
+If we denote the population sizes by \\( \boldsymbol \theta  = ( \theta_2, \ldots, \theta_n ) \\), the likelihood becomes
 
 $$ Pr(\boldsymbol w | \boldsymbol \theta) = \prod_{k = 2}^n  Pr(w_k | \theta_k) $$
 
