@@ -105,4 +105,25 @@ Look at the Increasing Memory Usage page for details of increasing the memory av
 </div>
 <!-- /.panel-group -->
 
+## BEAGLE Error Messages
+
+<div class="panel-group" id="beagle-accordion">
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#beagle-accordion" href="#collapseSix">
+Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path
+				</a>
+			</div>
+		</div>
+		<div id="collapseSix" class="panel-collapse collapse noCrossRef">
+			<div class="panel-body">
+This (linux-based) error occurs because BEAST is unable to locate the BEAGLE library.	
+When following the <a href="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions">installation instructions</a> and specifically <b>set the environment variables</b>, BEAST should be able to locate BEAGLE without any additional instructions.
+			</div>
+		</div>
+	</div>
+	<!-- /.panel -->
+</div>
+
 {% include links.html %}
