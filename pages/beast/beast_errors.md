@@ -134,6 +134,27 @@ locate libhmsbeagle-jni.so
 		</div>
 	</div>
 	<!-- /.panel -->
+	
+	<div class="panel panel-default">
+    		<div class="panel-heading">
+    			<div class="panel-title">
+    				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#beagle-accordion" href="#collapseSeven">
+OpenCL error: Unknown error from file <GPUInterfaceOpenCL.cpp>, line 111.
+    				</a>
+    			</div>
+    		</div>
+    		<div id="collapseSeven" class="panel-collapse collapse noCrossRef">
+    			<div class="panel-body">
+If you're not determined to use OpenCL and this error hence only prevents you from running BEAST with BEAGLE, you can uninstall the OpenCL package ocl-icd-opencl-dev:
+<pre>
+sudo apt-get remove ocl-icd-libopencl1
+</pre>
+Reinstalling the BEAGLE library according to the <a href="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions">installation instructions</a> will complete fixing the problem.
+Note that uninstalling the OpenCL package will prevent other software that relies on OpenCL from running properly.
+    			</div>
+    		</div>
+    	</div>
+    	<!-- /.panel -->
 </div>
 
 {% include links.html %}
