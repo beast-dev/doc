@@ -38,9 +38,15 @@ sudo apt-get install openjdk-8-jdk
 If you'd like to use Oracle Java instead of Open JDK, you will require the PPA maintained by Webupd8 Team before proceeding with the installation:
 
 ```bash
-sudo add-apt-repository ppa:webupd8team/java
+sudo apt-add-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java8-installer
+```
+
+**Note:** if the apt-add-repository command is not found, first install the following:
+
+```bash
+sudo apt-get install software-properties-common
 ```
 
 The PPA also contains a package to automatically set Java environment variables, by simply running the following command:
