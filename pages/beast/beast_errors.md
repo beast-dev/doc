@@ -221,6 +221,43 @@ We have a separate webpage on <a href="http://beast.community/performance">how t
             		</div>
             	</div>
             	<!-- /.panel -->
+            	
+    <div class="panel panel-default">
+                		<div class="panel-heading">
+                			<div class="panel-title">
+                				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#beagle-accordion" href="#collapseTen">
+A fatal error has been detected by the Java Runtime Environment
+                				</a>
+                			</div>
+                		</div>
+                		<div id="collapseTen" class="panel-collapse collapse noCrossRef">
+                			<div class="panel-body">
+This error has to do with your Java installation, specifically whether or not you have a potential mismatch between a 32-bit operating system and a 64-bit Java installation.
+This can easily be checked by trying the following in a terminal:
+<pre>
+java -version
+</pre>
+When a full 64-bit Java has been installed, you should see on screen something similar to this:
+<pre>
+java version "1.8.0_121"
+Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
+</pre>
+To check whether you're running a 32-bit or a 64-bit operating system, in linux or in OSX:
+<pre>
+uname -a
+</pre>
+The output might look like this:
+<pre>
+Linux 2.6.32-642.6.2.el6.x86_64 #1 SMP Mon Oct 24 10:22:33 EDT 2016 x86_64 x86_64 x86_64 GNU/Linux
+</pre>
+Specifically, the <b>x86_64</b> indicates a 64-bit environment.
+In Windows, you can right-click on <i>My Computer</i> and it should show whether you're running a 32-bit or a 64-bit Windows version.
+When both your operating system and Java environment are 64-bit, this problem should not appear.
+                			</div>
+                		</div>
+                	</div>
+                	<!-- /.panel -->
 
 </div>
 
