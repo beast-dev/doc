@@ -254,6 +254,7 @@ Linux 2.6.32-642.6.2.el6.x86_64 #1 SMP Mon Oct 24 10:22:33 EDT 2016 x86_64 x86_6
 Specifically, the <b>x86_64</b> indicates a 64-bit environment.
 In Windows, you can right-click on <i>My Computer</i> and it should show whether you're running a 32-bit or a 64-bit Windows version.
 When both your operating system and Java environment are 64-bit, this problem should not appear.
+Ideally, you should have 64-bit versions installed of both operating system and Java environment.
                 			</div>
                 		</div>
                 	</div>
