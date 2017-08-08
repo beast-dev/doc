@@ -155,6 +155,46 @@ Note that uninstalling the OpenCL package will prevent other software that relie
     		</div>
     	</div>
     	<!-- /.panel -->
+    	
+    	<div class="panel panel-default">
+            		<div class="panel-heading">
+            			<div class="panel-title">
+            				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#beagle-accordion" href="#collapseEight">
+'make check' in beagle-lib fails
+            				</a>
+            			</div>
+            		</div>
+            		<div id="collapseEight" class="panel-collapse collapse noCrossRef">
+            			<div class="panel-body">
+After installing the BEAGLE library according to the <a href="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions">installation instructions</a>, the suggested 'make check' command may indicate that the installation was not successfull:
+<pre>
+FAIL: genomictest.sh
+============================================================================
+Testsuite summary for libhmsbeagle 2.1.2
+============================================================================
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See examples/genomictest/test-suite.log
+Please report to beagle-dev@googlegroups.com
+============================================================================
+</pre><br>
+One possible solution is to uninstall the OpenCL package on your (linux-based) system:
+<pre>
+sudo apt-get remove ocl-icd-libopencl1
+</pre>
+Reinstalling the BEAGLE library according to the <a href="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions">installation instructions</a> can complete fixing the problem.
+Note that uninstalling the OpenCL package will prevent other software that relies on OpenCL from running properly.
+            			</div>
+            		</div>
+            	</div>
+            	<!-- /.panel -->
 </div>
 
 {% include links.html %}
+
