@@ -196,6 +196,32 @@ Note that uninstalling the OpenCL package will prevent other software that relie
             		</div>
             	</div>
             	<!-- /.panel -->
+            	
+    <div class="panel panel-default">
+            		<div class="panel-heading">
+            			<div class="panel-title">
+            				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#beagle-accordion" href="#collapseNine">
+BEAST/BEAGLE detect my graphics card but will not use it
+            				</a>
+            			</div>
+            		</div>
+            		<div id="collapseNine" class="panel-collapse collapse noCrossRef">
+            			<div class="panel-body">
+This can be fixed by being more explicit when specifying the command-line options for BEAGLE.
+For example, if your graphics card is detected by BEAGLE and assigned resource number 1, you can specify the following:
+<pre>
+-beagle_gpu -beagle_double -beagle_order 1
+</pre>
+If your data has multiple partitions and you want to distribute the likelihood evaluations for those partitions across multiple graphics cards (with assigned resource numbers 1 and 2):
+<pre>
+-beagle_gpu -beagle_double -beagle_order 1,2
+</pre>
+We have a separate webpage on <a href="http://beast.community/performance">how to increase computational performance</a>.
+            			</div>
+            		</div>
+            	</div>
+            	<!-- /.panel -->
+
 </div>
 
 {% include links.html %}
