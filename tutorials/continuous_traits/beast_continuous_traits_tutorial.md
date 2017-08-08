@@ -7,6 +7,7 @@ summary: "How to jointly estimate a molecular phylogenetic tree and the coevolut
 sidebar: beast_sidebar
 permalink: continuous_traits.html
 folder: beast
+redirect_from: "/continuous-traits"
 ---
 
 ## Loading the sequence data

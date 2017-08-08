@@ -8,6 +8,7 @@ sidebar: beast_sidebar
 permalink: ess_tutorial.html
 toc: false
 folder: beast
+redirect_from: "/Increasing-ESSs"
 ---
 
 ## What is an ESS?

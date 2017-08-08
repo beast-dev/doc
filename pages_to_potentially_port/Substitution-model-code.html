@@ -1,0 +1,1148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="BEAST_favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="shortlink" href="29.html" />
+<link rel="canonical" href="substitution-model-code.html" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+  <title>Substitution Model Code | BEAST</title>
+  <style type="text/css" media="all">
+@import url("system.base.css%3Fou07bk.css");
+@import url("system.menus.css%3Fou07bk.css");
+@import url("system.messages.css%3Fou07bk.css");
+@import url("system.theme.css%3Fou07bk.css");
+</style>
+<style type="text/css" media="all">
+@import url("field.css%3Fou07bk.css");
+@import url("node.css%3Fou07bk.css");
+@import url("search.css%3Fou07bk.css");
+@import url("user.css%3Fou07bk.css");
+@import url("ckeditor.css%3Fou07bk.css");
+</style>
+<style type="text/css" media="all">
+@import url("style.css%3Fou07bk.css");
+</style>
+<style type="text/css" media="print">
+@import url("print.css%3Fou07bk.css");
+</style>
+
+<!--[if lt IE 7]>
+<link type="text/css" rel="stylesheet" href="http://sbsweb2-bak.bio.ed.ac.uk/beast/themes/garland/fix-ie.css?ou07bk" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="jquery.js%3Fv=1.4.4"></script>
+<script type="text/javascript" src="jquery.once.js%3Fv=1.2"></script>
+<script type="text/javascript" src="drupal.js%3Fou07bk"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/beast\/","pathPrefix":"","ajaxPageState":{"theme":"garland","theme_token":"H5KRu1Y-rLWU61y3df0_5qkJB8pvuQ4SYdlQ9FcbZ4I","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"themes\/garland\/style.css":1,"themes\/garland\/print.css":1,"themes\/garland\/fix-ie.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-29 node-type-article fluid-width" >
+  <div id="skip-link">
+    <a href="Substitution-model-code.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+      
+  <div id="wrapper">
+    <div id="container" class="clearfix">
+
+      <div id="header">
+        <div id="logo-floater">
+                              <div id="branding"><strong><a href="index.html">
+                          <img src="beast.png" alt="BEAST " title="BEAST " id="logo" />
+                        <span>BEAST</span>            </a></strong></div>
+                          </div>
+
+        <h2 class="element-invisible">Main menu</h2><ul class="links inline main-menu"><li class="menu-230 first"><a href="index.html">Home</a></li>
+<li class="menu-307"><a href="programs.html">Programs</a></li>
+<li class="menu-329"><a href="downloads.html">Downloads</a></li>
+<li class="menu-312"><a href="tutorials.html" title="Tutorials and documentation on using BEAST">Tutorials</a></li>
+<li class="menu-326"><a href="error-messages.html">Error Messages</a></li>
+<li class="menu-313 last"><a href="faq.html" title="Frequently Asked Questions">FAQ</a></li>
+</ul>              </div> <!-- /#header -->
+
+      
+      <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">
+          <h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="index.html">Home</a></div>                    <a id="main-content"></a>
+          <div id="tabs-wrapper" class="clearfix">                                <h1 class="with-tabs">Substitution Model Code</h1>
+                              </div>                                                  <div class="clearfix">
+            <div id="node-29" class="node node-article node-promoted" about="/beast/substitution-model-code" typeof="sioc:Item foaf:Document">
+
+  
+      <span property="dc:title" content="Substitution Model Code" class="rdf-meta element-hidden"></span>
+      <span class="submitted"><span property="dc:date dc:created" content="2014-08-18T12:00:38+01:00" datatype="xsd:dateTime" rel="sioc:has_creator">Mon, 08/18/2014 - 12:00 — <span class="username" xml:lang="" about="/beast/users/rambaut" typeof="sioc:UserAccount" property="foaf:name" datatype="">rambaut</span></span></span>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Below is xml code for employing standard time-reversible models. First are presented the substitution models, then the site (rate heterogeneity) models, operator instructions, and finally the code for including parameters in the parameter log file. 14 hypothetical partitions are involved ("Gene1" through "Gene14"), each requiring a different substitutional model. I find appending the name of the gene to each parameter makes it easier to manage models and interpret output. Inside the frequency model, data reference is only existing when frequency is EMPIRICAL.</p>
+<p>Substitution model code:</p>
+<pre>
+&lt;!-- *** DEFINE PARTITION-SPECIFIC SUBSTITUTION MODELS --&gt;
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene1 *** --&gt;
+&lt;!-- The JC69 substitution model (Jukes &amp; Cantor, 1969) --&gt;
+&lt;gtrModel id="JC69_Gene1"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="JC69_Gene1.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;rateAC&gt;
+		&lt;parameter id="JC69_Gene1.ac" value="1.0"/&gt;
+	&lt;/rateAC&gt;
+	&lt;rateAG&gt;
+		&lt;parameter id="JC69_Gene1.ag" value="1.0"/&gt;
+	&lt;/rateAG&gt;
+	&lt;rateAT&gt;
+		&lt;parameter id="JC69_Gene1.at" value="1.0"/&gt;
+	&lt;/rateAT&gt;
+	&lt;rateCG&gt;
+		&lt;parameter id="JC69_Gene1.cg" value="1.0"/&gt;
+	&lt;/rateCG&gt;
+	&lt;rateGT&gt;
+		&lt;parameter id="JC69_Gene1.gt" value="1.0"/&gt;
+	&lt;/rateGT&gt;
+&lt;/gtrModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene2 *** --&gt;
+&lt;!-- The F81 substitution model (Felsenstein, 1981) --&gt;
+&lt;gtrModel id="F81_Gene2"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="F81_Gene2.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;rateAC&gt;
+		&lt;parameter id="F81_Gene2.ac" value="1.0"/&gt;
+	&lt;/rateAC&gt;
+	&lt;rateAG&gt;
+		&lt;parameter id="F81_Gene2.ag" value="1.0"/&gt;
+	&lt;/rateAG&gt;
+	&lt;rateAT&gt;
+		&lt;parameter id="F81_Gene2.at" value="1.0"/&gt;
+	&lt;/rateAT&gt;
+	&lt;rateCG&gt;
+		&lt;parameter id="F81_Gene2.cg" value="1.0"/&gt;
+	&lt;/rateCG&gt;
+	&lt;rateGT&gt;
+		&lt;parameter id="F81_Gene2.gt" value="1.0"/&gt;
+	&lt;/rateGT&gt;
+&lt;/gtrModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene3 *** --&gt;
+&lt;!-- The K80 substitution model (Kimura, 1980) --&gt;
+&lt;hkyModel id="K80_Gene3"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="K80_Gene3.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;kappa&gt;
+		&lt;parameter id="K80_Gene3.kappa" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/kappa&gt;
+&lt;/hkyModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene4 *** --&gt;
+&lt;!-- The HKY substitution model (Hasegawa, Kishino &amp; Yano, 1985) --&gt;
+&lt;hkyModel id="HKY_Gene4"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="HKY_Gene4.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;kappa&gt;
+		&lt;parameter id="HKY_Gene4.kappa" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/kappa&gt;
+&lt;/hkyModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene5 *** --&gt;
+&lt;!-- The TrNef substitution model (Tamura &amp; Nei, 1993)  --&gt;
+&lt;gtrModel id="TrNef_Gene5"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="TrNef_Gene5.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;rateAC&gt;
+		&lt;parameter id="TrNef_Gene5.transversion" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAC&gt;
+	&lt;rateAG&gt;
+		&lt;parameter id="TrNef_Gene5.ag" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAG&gt;
+	&lt;rateAT&gt;
+		&lt;parameter idref="TrNef_Gene5.transversion"/&gt;
+	&lt;/rateAT&gt;
+	&lt;rateCG&gt;
+		&lt;parameter idref="TrNef_Gene5.transversion"/&gt;
+	&lt;/rateCG&gt;
+	&lt;rateGT&gt;
+		&lt;parameter idref="TrNef_Gene5.transversion"/&gt;
+	&lt;/rateGT&gt;
+&lt;/gtrModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene6 *** --&gt;
+&lt;!-- The TrN substitution model (Tamura &amp; Nei, 1993)  --&gt;
+&lt;gtrModel id="TrN_Gene6"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="TrN_Gene6.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;rateAC&gt;
+		&lt;parameter id="TrN_Gene6.transversion" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAC&gt;
+	&lt;rateAG&gt;
+		&lt;parameter id="TrN_Gene6.ag" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAG&gt;
+	&lt;rateAT&gt;
+		&lt;parameter idref="TrN_Gene6.transversion"/&gt;
+	&lt;/rateAT&gt;
+	&lt;rateCG&gt;
+		&lt;parameter idref="TrN_Gene6.transversion"/&gt;
+	&lt;/rateCG&gt;
+	&lt;rateGT&gt;
+		&lt;parameter idref="TrN_Gene6.transversion"/&gt;
+	&lt;/rateGT&gt;
+&lt;/gtrModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene7 *** --&gt;
+&lt;!-- The K3P "3-parameter" substitution model (Kimura, 1981) --&gt;
+&lt;gtrModel id="K3P_Gene7"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="K3P_Gene7.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;rateAC&gt;
+		&lt;parameter id="K3P_Gene7.purine2pyrimidine" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAC&gt;
+	&lt;rateAG&gt;
+		&lt;parameter id="K3P_Gene7.ag" value="1.0"/&gt;
+	&lt;/rateAG&gt;
+	&lt;rateAT&gt;
+		&lt;parameter id="K3P_Gene7.pyrimidine2purine" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAT&gt;
+	&lt;rateCG&gt;
+		&lt;parameter idref="K3P_Gene7.pyrimidine2purine"/&gt;
+	&lt;/rateCG&gt;
+	&lt;rateGT&gt;
+		&lt;parameter idref="K3P_Gene7.purine2pyrimidine"/&gt;
+	&lt;/rateGT&gt;
+&lt;/gtrModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene8 *** --&gt;
+&lt;!-- The K3Puf "3-parameter" substitution model (Kimura, 1981) --&gt;
+&lt;gtrModel id="K3Puf_Gene8"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="K3Puf_Gene8.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;rateAC&gt;
+		&lt;parameter id="K3Puf_Gene8.purine2pyrimidine" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAC&gt;
+	&lt;rateAG&gt;
+		&lt;parameter id="K3Puf_Gene8.ag" value="1.0"/&gt;
+	&lt;/rateAG&gt;
+	&lt;rateAT&gt;
+		&lt;parameter id="K3Puf_Gene8.pyrimidine2purine" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAT&gt;
+	&lt;rateCG&gt;
+		&lt;parameter idref="K3Puf_Gene8.pyrimidine2purine"/&gt;
+	&lt;/rateCG&gt;
+	&lt;rateGT&gt;
+		&lt;parameter idref="K3Puf_Gene8.purine2pyrimidine"/&gt;
+	&lt;/rateGT&gt;
+&lt;/gtrModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene9 *** --&gt;
+&lt;!-- The TIMef (transitional) substitution model --&gt;
+&lt;gtrModel id="TIMef_Gene9"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="TIMef_Gene9.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;rateAC&gt;
+		&lt;parameter id="TIMef_Gene9.purine2pyrimidine" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAC&gt;
+	&lt;rateAG&gt;
+		&lt;parameter id="TIMef_Gene9.ag" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAG&gt;
+	&lt;rateAT&gt;
+		&lt;parameter id="TIMef_Gene9.pyrimidine2purine" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAT&gt;
+	&lt;rateCG&gt;
+		&lt;parameter idref="TIMef_Gene9.pyrimidine2purine"/&gt;
+	&lt;/rateCG&gt;
+	&lt;rateGT&gt;
+		&lt;parameter idref="TIMef_Gene9.purine2pyrimidine"/&gt;
+	&lt;/rateGT&gt;
+&lt;/gtrModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene10 *** --&gt;
+&lt;!-- The TIM (transitional) substitution model --&gt;
+&lt;gtrModel id="TIM_Gene10"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="TIM_Gene10.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;rateAC&gt;
+		&lt;parameter id="TIM_Gene10.purine2pyrimidine" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAC&gt;
+	&lt;rateAG&gt;
+		&lt;parameter id="TIM_Gene10.ag" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAG&gt;
+	&lt;rateAT&gt;
+		&lt;parameter id="TIM_Gene10.pyrimidine2purine" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAT&gt;
+	&lt;rateCG&gt;
+		&lt;parameter idref="TIM_Gene10.pyrimidine2purine"/&gt;
+	&lt;/rateCG&gt;
+	&lt;rateGT&gt;
+		&lt;parameter idref="TIM_Gene10.purine2pyrimidine"/&gt;
+	&lt;/rateGT&gt;
+&lt;/gtrModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene11 *** --&gt;
+&lt;!-- The TVMef (transversional) substitution model --&gt;
+&lt;gtrModel id="TVMef_Gene11"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="TVMef_Gene11.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;rateAC&gt;
+		&lt;parameter id="TVMef_Gene11.ac" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAC&gt;
+	&lt;rateAG&gt;
+		&lt;parameter id="TVMef_Gene11.ag" value="1.0"/&gt;
+	&lt;/rateAG&gt;
+	&lt;rateAT&gt;
+		&lt;parameter id="TVMef_Gene11.at" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAT&gt;
+	&lt;rateCG&gt;
+		&lt;parameter id="TVMef_Gene11.cg" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateCG&gt;
+	&lt;rateGT&gt;
+		&lt;parameter id="TVMef_Gene11.gt" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateGT&gt;
+&lt;/gtrModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene12 *** --&gt;
+&lt;!-- The TVM (transversional) substitution model  --&gt;
+&lt;gtrModel id="TVM_Gene12"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="TVM_Gene12.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;rateAC&gt;
+		&lt;parameter id="TVM_Gene12.ac" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAC&gt;
+	&lt;rateAG&gt;
+		&lt;parameter id="TVM_Gene12.ag" value="1.0"/&gt;
+	&lt;/rateAG&gt;
+	&lt;rateAT&gt;
+		&lt;parameter id="TVM_Gene12.at" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAT&gt;
+	&lt;rateCG&gt;
+		&lt;parameter id="TVM_Gene12.cg" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateCG&gt;
+	&lt;rateGT&gt;
+		&lt;parameter id="TVM_Gene12.gt" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateGT&gt;
+&lt;/gtrModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene13 *** --&gt;
+&lt;!-- The SYM (symmetrical) substitution model (Zharkikh, 1994) --&gt;
+&lt;gtrModel id="SYM_Gene13"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="SYM_Gene13.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;rateAC&gt;
+		&lt;parameter id="SYM_Gene13.ac" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAC&gt;
+	&lt;rateAG&gt;
+		&lt;parameter id="SYM_Gene13.ag" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAG&gt;
+	&lt;rateAT&gt;
+		&lt;parameter id="SYM_Gene13.at" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAT&gt;
+	&lt;rateCG&gt;
+		&lt;parameter id="SYM_Gene13.cg" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateCG&gt;
+	&lt;rateGT&gt;
+		&lt;parameter id="SYM_Gene13.gt" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateGT&gt;
+&lt;/gtrModel&gt;
+
+&lt;!-- *** SUBSTITUTION MODEL FOR PARTITION Gene14 *** --&gt;
+&lt;!-- The GTR (general time reversible) substitution model (Lanace et al., 1984; Tavare, 1986; Rodriguez et al., 1990) --&gt;
+&lt;gtrModel id="GTR_Gene14"&gt;
+	&lt;frequencies&gt;
+		&lt;frequencyModel dataType="nucleotide"&gt;
+			&lt;frequencies&gt;
+				&lt;parameter id="GTR_Gene14.frequencies" value="0.25 0.25 0.25 0.25"/&gt;
+			&lt;/frequencies&gt;
+		&lt;/frequencyModel&gt;
+	&lt;/frequencies&gt;
+	&lt;rateAC&gt;
+		&lt;parameter id="GTR_Gene14.ac" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAC&gt;
+	&lt;rateAG&gt;
+		&lt;parameter id="GTR_Gene14.ag" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAG&gt;
+	&lt;rateAT&gt;
+		&lt;parameter id="GTR_Gene14.at" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateAT&gt;
+	&lt;rateCG&gt;
+		&lt;parameter id="GTR_Gene14.cg" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateCG&gt;
+	&lt;rateGT&gt;
+		&lt;parameter id="GTR_Gene14.gt" value="1.0" lower="1.0E-8" upper="100.0"/&gt;
+	&lt;/rateGT&gt;
+&lt;/gtrModel&gt;
+</pre><p>Site (rate heterogeneity) models. All are set to I+G. If any parmeter is not wanted, delete it.</p>
+<pre>
+&lt;!-- *** DEFINE AMONG-SITE HETEROGENEITY (SITE MODELS) *** --&gt;
+&lt;!-- *** SITE MODEL FOR PARTITION Gene1 *** --&gt;
+&lt;siteModel id="siteModel_Gene1"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="JC69_Gene1"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene1.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene1.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene1.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene2 *** --&gt;
+&lt;siteModel id="siteModel_Gene2"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="F81_Gene2"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene2.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene2.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene2.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene3 *** --&gt;
+&lt;siteModel id="siteModel_Gene3"&gt;
+	&lt;substitutionModel&gt;
+		&lt;hkyModel idref="K80_Gene3"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene3.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene3.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene3.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene4 *** --&gt;
+&lt;siteModel id="siteModel_Gene4"&gt;
+	&lt;substitutionModel&gt;
+		&lt;hkyModel idref="HKY_Gene4"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene4.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene4.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene4.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene5 *** --&gt;
+&lt;siteModel id="siteModel_Gene5"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="TrNef_Gene5"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene5.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene5.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene5.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene6 *** --&gt;
+&lt;siteModel id="siteModel_Gene6"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="TrN_Gene6"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene6.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene6.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene6.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene7 *** --&gt;
+&lt;siteModel id="siteModel_Gene7"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="K3P_Gene7"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene7.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene7.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene7.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene8 *** --&gt;
+&lt;siteModel id="siteModel_Gene8"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="K3Puf_Gene8"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene8.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene8.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene8.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene9 *** --&gt;
+&lt;siteModel id="siteModel_Gene9"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="TIMef_Gene9"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene9.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene9.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene9.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene10 *** --&gt;
+&lt;siteModel id="siteModel_Gene10"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="TIM_Gene10"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene10.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene10.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene10.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene11 *** --&gt;
+&lt;siteModel id="siteModel_Gene11"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="TVMef_Gene11"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene11.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene11.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene11.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene12 *** --&gt;
+&lt;siteModel id="siteModel_Gene12"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="TVM_Gene12"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene12.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene12.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene12.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene13 *** --&gt;
+&lt;siteModel id="siteModel_Gene13"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="SYM_Gene13"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene13.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene13.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene13.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene14 *** --&gt;
+&lt;siteModel id="siteModel_Gene14"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="GTR_Gene14"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;relativeRate&gt;
+		&lt;parameter id="siteModel_Gene14.mu" value="1.0" lower="0.0" upper="10000.0"/&gt;
+	&lt;/relativeRate&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene14.alpha" value="0.5" lower="0.0" upper="1000.0"/&gt;
+	&lt;/gammaShape&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene14.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+</pre><p>Below are simpler site models: just gamma-distributed rate heterogeneity ('+G'), just an estimated proportion of invariable sites ('+I'), and no among-site rate heterogeneity.</p>
+<pre>
+&lt;!-- *** SITE MODEL FOR PARTITION Gene13 *** --&gt;
+&lt;siteModel id="siteModel_Gene13"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="GTR_Gene13"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;gammaShape gammaCategories="4"&gt;
+		&lt;parameter id="siteModel_Gene13.alpha" value="0.5" lower="0.0" upper="Infinity"/&gt;
+	&lt;/gammaShape&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene14 *** --&gt;
+&lt;siteModel id="siteModel_Gene14"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="GTR_Gene14"/&gt;
+	&lt;/substitutionModel&gt;
+	&lt;proportionInvariant&gt;
+		&lt;parameter id="siteModel_Gene14.pInv" value="0.25" lower="0.0" upper="1.0"/&gt;
+	&lt;/proportionInvariant&gt;
+&lt;/siteModel&gt;
+
+&lt;!-- *** SITE MODEL FOR PARTITION Gene15 *** --&gt;
+&lt;siteModel id="siteModel_Gene15"&gt;
+	&lt;substitutionModel&gt;
+		&lt;gtrModel idref="GTR_Gene15"/&gt;
+	&lt;/substitutionModel&gt;
+&lt;/siteModel&gt;
+</pre><p>Operators! You will want to specify weights. Add the code below to your Operators block:</p>
+<pre>
+&lt;!-- *** DEFINE OPERATORS *** --&gt;
+&lt;operators id="operators"&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene1.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene1.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;deltaExchange delta="0.01" weight="0.1"&gt;
+		&lt;parameter idref="F81_Gene2.frequencies"/&gt;
+	&lt;/deltaExchange&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene2.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene2.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="K80_Gene3.kappa"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene3.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene3.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="HKY_Gene4.kappa"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;deltaExchange delta="0.01" weight="0.1"&gt;
+		&lt;parameter idref="HKY_Gene4.frequencies"/&gt;
+	&lt;/deltaExchange&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene4.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene4.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TrNef_Gene5.transversion"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TrNef_Gene5.ag"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene5.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene5.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TrN_Gene6.transversion"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TrN_Gene6.ag"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;deltaExchange delta="0.01" weight="1"&gt;
+		&lt;parameter idref="TrN_Gene6.frequencies"/&gt;
+	&lt;/deltaExchange&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene6.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene6.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="K3P_Gene7.purine2pyrimidine"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="K3P_Gene7.pyrimidine2purine"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene7.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene7.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="K3Puf_Gene8.purine2pyrimidine"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="K3Puf_Gene8.pyrimidine2purine"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;deltaExchange delta="0.01" weight="0.1"&gt;
+		&lt;parameter idref="K3Puf_Gene8.frequencies"/&gt;
+	&lt;/deltaExchange&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene8.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene8.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TIMef_Gene9.purine2pyrimidine"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TIMef_Gene9.ag"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TIMef_Gene9.pyrimidine2purine"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene9.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene9.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TIM_Gene10.purine2pyrimidine"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TIM_Gene10.ag"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TIM_Gene10.pyrimidine2purine"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;deltaExchange delta="0.01" weight="0.1"&gt;
+		&lt;parameter idref="TIM_Gene10.frequencies"/&gt;
+	&lt;/deltaExchange&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene10.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene10.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TVMef_Gene11.ac"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TVMef_Gene11.at"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TVMef_Gene11.cg"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TVMef_Gene11.gt"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene11.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene11.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TVM_Gene12.ac"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TVM_Gene12.at"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TVM_Gene12.cg"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="TVM_Gene12.gt"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;deltaExchange delta="0.01" weight="0.1"&gt;
+		&lt;parameter idref="TVM_Gene12.frequencies"/&gt;
+	&lt;/deltaExchange&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene12.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene12.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="SYM_Gene13.ac"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="SYM_Gene13.ag"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="SYM_Gene13.at"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="SYM_Gene13.cg"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="SYM_Gene13.gt"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene13.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene13.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="GTR_Gene14.ac"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="GTR_Gene14.ag"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="GTR_Gene14.at"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="GTR_Gene14.cg"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="GTR_Gene14.gt"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;deltaExchange delta="0.01" weight="0.1"&gt;
+		&lt;parameter idref="GTR_Gene14.frequencies"/&gt;
+	&lt;/deltaExchange&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene14.alpha"/&gt;
+	&lt;/scaleOperator&gt;
+	&lt;scaleOperator scaleFactor="0.75" weight="0.1"&gt;
+		&lt;parameter idref="siteModel_Gene14.pInv"/&gt;
+	&lt;/scaleOperator&gt;
+&lt;/operators&gt;
+</pre><p>Priors. You will need to specify priors for the parameters above in your mcmc parameter block. This is harder to write template code, as the flavour of prior implemented will differ with the investigator. Below are some "reasonable" priors; alter to your liking. (Note that the parameters for JC69 and F81 do not receive priors, as they are set to 1.0).</p>
+<pre>
+	&lt;logNormalPrior mean="1.0" stdev="1.25" offset="0.0" meanInRealSpace="false"&gt;
+		&lt;parameter idref="K80_Gene3.kappa"/&gt;
+	&lt;/logNormalPrior&gt;
+	
+	&lt;logNormalPrior mean="1.0" stdev="1.25" offset="0.0" meanInRealSpace="false"&gt;
+		&lt;parameter idref="HKY_Gene4.kappa"/&gt;
+	&lt;/logNormalPrior&gt;
+	
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TrNef_Gene5.transversion"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TrNef_Gene5.ag"/&gt;
+	&lt;/gammaPrior&gt;
+	
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TrN_Gene6.transversion"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TrN_Gene6.ag"/&gt;
+	&lt;/gammaPrior&gt;
+	
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="K3P_Gene7.purine2pyrimidine"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="K3P_Gene7.pyrimidine2purine"/&gt;
+	&lt;/gammaPrior&gt;
+	
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="K3Puf_Gene8.purine2pyrimidine"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="K3Puf_Gene8.pyrimidine2purine"/&gt;
+	&lt;/gammaPrior&gt;
+	
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TIMef_Gene9.purine2pyrimidine"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TIMef_Gene9.ag"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TIMef_Gene9.pyrimidine2purine"/&gt;
+	&lt;/gammaPrior&gt;
+	
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TIM_Gene10.purine2pyrimidine"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TIM_Gene10.ag"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TIM_Gene10.pyrimidine2purine"/&gt;
+	&lt;/gammaPrior&gt;
+	
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TVMef_Gene11.ac"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TVMef_Gene11.at"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TVMef_Gene11.cg"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TVMef_Gene11.gt"/&gt;
+	&lt;/gammaPrior&gt;
+	
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TVM_Gene12.ac"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TVM_Gene12.at"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TVM_Gene12.cg"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="TVM_Gene12.gt"/&gt;
+	&lt;/gammaPrior&gt;
+	
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="SYM_Gene13.ac"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="SYM_Gene13.ag"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="SYM_Gene13.at"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="SYM_Gene13.cg"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="SYM_Gene13.gt"/&gt;
+	&lt;/gammaPrior&gt;
+	
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="GTR_Gene14.ac"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="GTR_Gene14.ag"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="GTR_Gene14.at"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="GTR_Gene14.cg"/&gt;
+	&lt;/gammaPrior&gt;
+	&lt;gammaPrior shape="0.05" scale="10.0" offset="0.0"&gt;
+		&lt;parameter idref="GTR_Gene14.gt"/&gt;
+	&lt;/gammaPrior&gt;
+</pre><p>You will want to log the relevant parameters to file to monitor convergence/ESS. Add the commands below:</p>
+<pre>
+&lt;!-- *** PRINT PARAMETERS TO FILE *** --&gt;
+		&lt;parameter idref="siteModel_Gene1.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene1.pInv"/&gt;
+
+		&lt;parameter idref="F81_Gene2.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene2.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene2.pInv"/&gt;
+
+		&lt;parameter idref="K80_Gene3.kappa"/&gt;
+		&lt;parameter idref="K80_Gene3.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene3.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene3.pInv"/&gt;
+
+		&lt;parameter idref="HKY_Gene4.kappa"/&gt;
+		&lt;parameter idref="HKY_Gene4.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene4.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene4.pInv"/&gt;
+
+		&lt;parameter idref="TrNef_Gene5.transversion"/&gt;
+		&lt;parameter idref="TrNef_Gene5.ag"/&gt;
+		&lt;parameter idref="TrNef_Gene5.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene5.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene5.pInv"/&gt;
+
+		&lt;parameter idref="TrN_Gene6.transversion"/&gt;
+		&lt;parameter idref="TrN_Gene6.ag"/&gt;
+		&lt;parameter idref="TrN_Gene6.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene6.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene6.pInv"/&gt;
+
+		&lt;parameter idref="K3P_Gene7.purine2pyrimidine"/&gt;
+		&lt;parameter idref="K3P_Gene7.pyrimidine2purine"/&gt;
+		&lt;parameter idref="K3P_Gene7.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene7.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene7.pInv"/&gt;
+
+		&lt;parameter idref="K3Puf_Gene8.purine2pyrimidine"/&gt;
+		&lt;parameter idref="K3Puf_Gene8.pyrimidine2purine"/&gt;
+		&lt;parameter idref="K3Puf_Gene8.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene8.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene8.pInv"/&gt;
+
+		&lt;parameter idref="TIMef_Gene9.purine2pyrimidine"/&gt;
+		&lt;parameter idref="TIMef_Gene9.ag"/&gt;
+		&lt;parameter idref="TIMef_Gene9.pyrimidine2purine"/&gt;
+		&lt;parameter idref="TIMef_Gene9.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene9.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene9.pInv"/&gt;
+
+		&lt;parameter idref="TIM_Gene10.purine2pyrimidine"/&gt;
+		&lt;parameter idref="TIM_Gene10.ag"/&gt;
+		&lt;parameter idref="TIM_Gene10.pyrimidine2purine"/&gt;
+		&lt;parameter idref="TIM_Gene10.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene10.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene10.pInv"/&gt;
+
+		&lt;parameter idref="TVMef_Gene11.ac"/&gt;
+		&lt;parameter idref="TVMef_Gene11.at"/&gt;
+		&lt;parameter idref="TVMef_Gene11.cg"/&gt;
+		&lt;parameter idref="TVMef_Gene11.gt"/&gt;
+		&lt;parameter idref="TVMef_Gene11.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene11.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene11.pInv"/&gt;
+
+		&lt;parameter idref="TVM_Gene12.ac"/&gt;
+		&lt;parameter idref="TVM_Gene12.at"/&gt;
+		&lt;parameter idref="TVM_Gene12.cg"/&gt;
+		&lt;parameter idref="TVM_Gene12.gt"/&gt;
+		&lt;parameter idref="TVM_Gene12.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene12.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene12.pInv"/&gt;
+
+		&lt;parameter idref="SYM_Gene13.ac"/&gt;
+		&lt;parameter idref="SYM_Gene13.ag"/&gt;
+		&lt;parameter idref="SYM_Gene13.at"/&gt;
+		&lt;parameter idref="SYM_Gene13.cg"/&gt;
+		&lt;parameter idref="SYM_Gene13.gt"/&gt;
+		&lt;parameter idref="SYM_Gene13.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene13.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene13.pInv"/&gt;
+
+		&lt;parameter idref="GTR_Gene14.ac"/&gt;
+		&lt;parameter idref="GTR_Gene14.ag"/&gt;
+		&lt;parameter idref="GTR_Gene14.at"/&gt;
+		&lt;parameter idref="GTR_Gene14.cg"/&gt;
+		&lt;parameter idref="GTR_Gene14.gt"/&gt;
+		&lt;parameter idref="GTR_Gene14.frequencies"/&gt;
+		&lt;parameter idref="siteModel_Gene14.alpha"/&gt;
+		&lt;parameter idref="siteModel_Gene14.pInv"/&gt;
+&lt;/log&gt;
+</pre><p>Hope this helps. JWB.</p>
+<p> </p>
+</div></div></div>  </div>
+
+  <div class="clearfix">
+          <div class="links"></div>
+    
+      </div>
+
+</div>
+          </div>
+                          </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
+
+      
+    </div> <!-- /#container -->
+  </div> <!-- /#wrapper -->
+  </body>
+</html>

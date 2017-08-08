@@ -8,6 +8,7 @@ last_updated: July 19, 2017
 summary: "SpreaD3"
 toc: true
 folder: beast/programs
+redirect_from: "/google-earth"
 ---
 
 ## SpreaD3

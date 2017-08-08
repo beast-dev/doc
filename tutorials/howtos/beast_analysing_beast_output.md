@@ -7,6 +7,7 @@ summary: "Analysing BEAST output files"
 sidebar: beast_sidebar
 permalink: analysing_beast_output.html
 folder: beast
+redirect_from: "/analysing-beast-output"
 ---
 
 {% include warning.html content="This page unfinished." %}

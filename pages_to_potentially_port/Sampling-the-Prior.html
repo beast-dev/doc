@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="BEAST_favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="shortlink" href="26.html" />
+<link rel="canonical" href="sampling-the-prior.html" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+  <title>Sampling the Prior | BEAST</title>
+  <style type="text/css" media="all">
+@import url("system.base.css%3Fou07bk.css");
+@import url("system.menus.css%3Fou07bk.css");
+@import url("system.messages.css%3Fou07bk.css");
+@import url("system.theme.css%3Fou07bk.css");
+</style>
+<style type="text/css" media="all">
+@import url("field.css%3Fou07bk.css");
+@import url("node.css%3Fou07bk.css");
+@import url("search.css%3Fou07bk.css");
+@import url("user.css%3Fou07bk.css");
+@import url("ckeditor.css%3Fou07bk.css");
+</style>
+<style type="text/css" media="all">
+@import url("style.css%3Fou07bk.css");
+</style>
+<style type="text/css" media="print">
+@import url("print.css%3Fou07bk.css");
+</style>
+
+<!--[if lt IE 7]>
+<link type="text/css" rel="stylesheet" href="http://sbsweb2-bak.bio.ed.ac.uk/beast/themes/garland/fix-ie.css?ou07bk" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="jquery.js%3Fv=1.4.4"></script>
+<script type="text/javascript" src="jquery.once.js%3Fv=1.2"></script>
+<script type="text/javascript" src="drupal.js%3Fou07bk"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/beast\/","pathPrefix":"","ajaxPageState":{"theme":"garland","theme_token":"_XmSp159pcFZyi0evotScPXghj9KzbbZKp36-guS2Ng","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"themes\/garland\/style.css":1,"themes\/garland\/print.css":1,"themes\/garland\/fix-ie.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-26 node-type-article fluid-width" >
+  <div id="skip-link">
+    <a href="Sampling-the-Prior.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+      
+  <div id="wrapper">
+    <div id="container" class="clearfix">
+
+      <div id="header">
+        <div id="logo-floater">
+                              <div id="branding"><strong><a href="index.html">
+                          <img src="beast.png" alt="BEAST " title="BEAST " id="logo" />
+                        <span>BEAST</span>            </a></strong></div>
+                          </div>
+
+        <h2 class="element-invisible">Main menu</h2><ul class="links inline main-menu"><li class="menu-230 first"><a href="index.html">Home</a></li>
+<li class="menu-307"><a href="programs.html">Programs</a></li>
+<li class="menu-329"><a href="downloads.html">Downloads</a></li>
+<li class="menu-312"><a href="tutorials.html" title="Tutorials and documentation on using BEAST">Tutorials</a></li>
+<li class="menu-326"><a href="error-messages.html">Error Messages</a></li>
+<li class="menu-313 last"><a href="faq.html" title="Frequently Asked Questions">FAQ</a></li>
+</ul>              </div> <!-- /#header -->
+
+      
+      <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">
+          <h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="index.html">Home</a></div>                    <a id="main-content"></a>
+          <div id="tabs-wrapper" class="clearfix">                                <h1 class="with-tabs">Sampling the Prior</h1>
+                              </div>                                                  <div class="clearfix">
+            <div id="node-26" class="node node-article node-promoted" about="/beast/sampling-the-prior" typeof="sioc:Item foaf:Document">
+
+  
+      <span property="dc:title" content="Sampling the Prior" class="rdf-meta element-hidden"></span>
+      <span class="submitted"><span property="dc:date dc:created" content="2014-08-18T11:46:59+01:00" datatype="xsd:dateTime" rel="sioc:has_creator">Mon, 08/18/2014 - 11:46 — <span class="username" xml:lang="" about="/beast/users/rambaut" typeof="sioc:UserAccount" property="foaf:name" datatype="">rambaut</span></span></span>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p><a href="home.html" style="text-decoration: none; color: rgb(90, 54, 150); background-image: none; font-family: sans-serif; line-height: 19px;" title="Main Page">BEAST Documentation</a><span style="color:rgb(0, 0, 0); font-family:sans-serif">-&gt;</span><a href="Tutorials.html" style="text-decoration: none; color: rgb(90, 54, 150); background-image: none; font-family: sans-serif; line-height: 19px;" title="Tutorials">Tutorials</a><span style="color:rgb(0, 0, 0); font-family:sans-serif">-&gt;Sampling the Prior</span></p>
+<p>Sampling from the prior can be done by selecting this option in the 'MCMC' panel of <a href="BEAUti.html">BEAUti</a> when generating a BEAST XML file. To do this select the check box labelled 'Sample from prior only'. The resulting XML will be exactly the same as the normal BEAST XML except the alignment will consist entirely of characters denoting missing data. This will produce a <a href="Glossary.html#Likelihood">likelihood of the data given the tree</a> which is always '1.0' and thus BEAST will only sample from the <a href="Glossary.html#Prior">Prior</a> densities.</p>
+<hr /><p>This tutorial has been left here for reference purposes and in case an existing XML file needs to be modified.</p>
+<h2>Altering a BEAST XML file so that BEAST only samples from the Prior distribution</h2>
+<p>This is an extremely useful thing to do to see how much the answer you are getting is the result of your data or simply the result of the Prior that is being used.</p>
+<p>It is also a useful way of simulating trees under complex models: without the data, the MCMC is fast and if you sample at an adequate interval then these are independent draws from the prior.</p>
+<p>The first thing you do is to edit the &lt;posterior&gt; element inside the &lt;mcmc&gt; element:</p>
+<pre>
+	&lt;mcmc id="mcmc" chainLength="1000000" autoOptimize="true"&gt;
+		&lt;posterior id="posterior"&gt;
+			&lt;prior id="prior"&gt;
+				&lt;coalescentLikelihood idref="coalescent"/&gt;
+			&lt;/prior&gt;
+			&lt;likelihood id="likelihood"&gt;
+				&lt;treeLikelihood idref="treeLikelihood"/&gt;
+			&lt;/likelihood&gt;
+		&lt;/posterior&gt;
+</pre><p>You then remove (or comment out) the reference to &lt;treeLikelihood&gt;:</p>
+<pre>
+			&lt;!--&lt;likelihood id="likelihood"&gt;
+				&lt;treeLikelihood idref="treeLikelihood"/&gt;
+			&lt;/likelihood&gt; --&gt;
+</pre><p>The denotes a comment in XML.</p>
+<p>Additionally, you should comment out bits where the tree likelihood is logged to the screen or a file:</p>
+<pre>
+		&lt;log id="screenLog" logEvery="10000"&gt;
+			&lt;column label="Posterior" dp="4" width="12"&gt;
+				&lt;posterior idref="posterior"/&gt;
+			&lt;/column&gt;
+			&lt;column label="Root Height" sf="6" width="12"&gt;
+				&lt;parameter idref="treeModel.rootHeight"/&gt;
+			&lt;/column&gt;
+			&lt;!--
+			&lt;column label="L(tree)" dp="4" width="12"&gt;
+				&lt;treeLikelihood idref="treeLikelihood"/&gt;
+			&lt;/column&gt;
+			--&gt;
+			&lt;column label="L(coalecent)" dp="4" width="12"&gt;
+				&lt;coalescentLikelihood idref="coalescent"/&gt;
+			&lt;/column&gt;
+		&lt;/log&gt;
+		&lt;log id="fileLog" logEvery="1000" fileName="test.log"&gt;
+			&lt;posterior idref="posterior"/&gt;
+			&lt;parameter idref="clock.rate"/&gt;
+			&lt;parameter idref="constant.popSize"/&gt;
+			&lt;parameter idref="hky.kappa"/&gt;
+			&lt;parameter idref="treeModel.rootHeight"/&gt;
+			&lt;!-- &lt;treeLikelihood idref="treeLikelihood"/&gt; --&gt;
+			&lt;coalescentLikelihood idref="coalescent"/&gt;
+		&lt;/log&gt;
+</pre><p>You will also need to comment out certain operators that operate on parameters that are used to calculate the likelihood of the data: HKY model's kappa parameter GTR model's transition rates parameter Gamma distribution's shape parameter Invariant site model's pInv parameter.</p>
+<hr /><p><a href="Tutorials.html" style="text-decoration: none; color: rgb(90, 54, 150); background-image: none; background-position: initial initial; background-repeat: initial initial;" title="Tutorials">Return to Tutorials</a></p>
+<p> </p>
+</div></div></div>  </div>
+
+  <div class="clearfix">
+          <div class="links"></div>
+    
+      </div>
+
+</div>
+          </div>
+                          </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
+
+      
+    </div> <!-- /#container -->
+  </div> <!-- /#wrapper -->
+  </body>
+</html>

@@ -7,6 +7,7 @@ summary: "Approaches to summarizing trees."
 sidebar: beast_sidebar
 permalink: summarizing_trees.html
 folder: beast
+redirect_from: "/Summarizing-BEAST-trees"
 ---
 
 ## 50% Majority consensus tree and extended majority consensus tree
