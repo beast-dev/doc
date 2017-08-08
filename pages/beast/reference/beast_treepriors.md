@@ -19,8 +19,6 @@ Other, non-coalescent priors such as the Yule and birth-death processes are avai
 
 ## Parametric tree priors
 
-[INSERT MAC SCREENSHOT of Tree priors tab in BEAUTI]
-
 ### Constant population size
 
 This model assumes that the population has remained constant through time, at size \\( N \\):
@@ -31,8 +29,6 @@ This population size hyperparameter can be given a prior and estimated from the 
 
 This model is suitable whenever the researcher believes the population has remained stable over the time span of the most recent common ancestor of the samples.
 This model is also the simplest available in BEAST, providing a base line to which other, more parameter-rich models can be compared.
-[Another sentence showing when this might be appropriate ]
- 
  
 ### Exponential growth
 
@@ -41,9 +37,9 @@ The assumption is that population grew exponentially since the time to the most 
 
 $$ N_e(t) = N_0 \exp(rt) $$
 
-This model is suitable to the analysis of early viral samples from epidemics (IS THIS TRUE??) due to initial epidemic growth being approximately exponential.
-[A sentence showing when this might be appropriate ]
-
+This model is suitable to the analysis of early viral samples from epidemics due to initial epidemic growth being approximately exponential.
+In this context the growth rate can be used to estimate the basic reproductive ratio \\( R_0 \\), provide the basic assumptions are met. 
+See [this page](estimating_R0) for details.
 
 {% include image.html file="coalescent/pop_size_coalescent.png" indent="64px" width="640px" alt="parametric coalescent" caption="Illustration of parametric coalescent priors. Reproduced from Volz et al. (2013)." %}
 
@@ -77,9 +73,6 @@ $$ Pr(\boldsymbol \gamma | \tau ) \propto \tau^{(n-2)/2} \exp\left(- \frac{\tau}
 where  \\( \delta_k\\) is  the (1d) distance between intervals and \\( \tau \\) is the **precision** parameter associated with the smoothing.
 For details please see Minin et al. (2008).
 
-
-[SKYRIDE FIGURE]
-
 ### Skygrid
 
 The Skygrid model is an extension of the Skyride that allows for multiple loci.
@@ -92,13 +85,15 @@ Hence, for maximum interpretability,  \\( K \\) should be chosen commensurate wi
 
 As with Skyride, the smoothness of the Skygrid prior is controlled by a precision parameter \\( \tau \\).
 
-[SKYGRID FIGURE?]
-
 Both the Skyride and Skygrid priors are very flexible and can be used to capture complex population dynamics.
 The Skygrid model presents better statistical properties and is more general, and should be preferred to Skyride.
-[BETTER/MORE JUSTIFICATION OF SKYGRID OVER SKYRIDE]
-
 These models are parameter-rich and their use is preferable when the data are strongly informative about population history.
+
+We recommend that you use Skygrid if you have a good sense of what the tMRCA should be, and at which point in time the population can be assumed to be constant (\\( K \\) above).
+The Skyride prior provides a flexible coalescent prior that does not depend on knowledge about  the time-scale, but won't give readily interpretable answers like Skygrid.
+
+Look [here](influenza_phylodynamic_tutorial) for a tutorial on how to use Skygrid to study the dynamics of Influenza H3N2.
+
 
 ## A note on hyperprior choices
 
