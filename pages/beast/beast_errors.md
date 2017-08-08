@@ -105,4 +105,56 @@ Look at the Increasing Memory Usage page for details of increasing the memory av
 </div>
 <!-- /.panel-group -->
 
+## BEAGLE Error Messages
+
+<div class="panel-group" id="beagle-accordion">
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#beagle-accordion" href="#collapseSix">
+Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path
+				</a>
+			</div>
+		</div>
+		<div id="collapseSix" class="panel-collapse collapse noCrossRef">
+			<div class="panel-body">
+This (linux-based) error occurs because BEAST is unable to locate the BEAGLE library.	
+When following the <a href="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions">installation instructions</a> and specifically the part on how to <b>set the environment variables</b>, BEAST should be able to locate BEAGLE without any additional instructions.
+Should setting the environment variables no take care of this issue, you can manually provide the location of BEAGLE when running BEAST as follows:
+<pre>
+java -Djava.library.path=/usr/local/lib -jar beast.jar test.xml
+</pre>
+in the case that you installed BEAGLE in /usr/local/lib.
+When following the <a href="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions">installation instructions</a>, BEAGLE will be installed in the /lib folder within your HOME directory.
+If you're unsure where you've installed BEAGLE, you can locate the BEAGLE library as follows:
+<pre>
+locate libhmsbeagle-jni.so
+</pre>
+			</div>
+		</div>
+	</div>
+	<!-- /.panel -->
+	
+	<div class="panel panel-default">
+    		<div class="panel-heading">
+    			<div class="panel-title">
+    				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#beagle-accordion" href="#collapseSeven">
+OpenCL error: Unknown error from file &lt;GPUInterfaceOpenCL.cpp&gt;, line 111.
+    				</a>
+    			</div>
+    		</div>
+    		<div id="collapseSeven" class="panel-collapse collapse noCrossRef">
+    			<div class="panel-body">
+If you're not determined to use OpenCL and this error hence only prevents you from running BEAST with BEAGLE, you can uninstall the OpenCL package ocl-icd-opencl-dev:
+<pre>
+sudo apt-get remove ocl-icd-libopencl1
+</pre>
+Reinstalling the BEAGLE library according to the <a href="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions">installation instructions</a> will complete fixing the problem.
+Note that uninstalling the OpenCL package will prevent other software that relies on OpenCL from running properly.
+    			</div>
+    		</div>
+    	</div>
+    	<!-- /.panel -->
+</div>
+
 {% include links.html %}
