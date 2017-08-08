@@ -35,30 +35,34 @@ Once loaded, the sequence data will be listed under Data Partitions:
 Under the `Taxa` panel, we can define sets of taxa for which we would like to obtain particular statistics, enforce a monophyletic constraint, or put calibration information on. 
 Let’s define an “Americas” taxon set by pressing the small “plus” button at the bottom left of the panel:
 
-{% include image.html prefix="tutorials/rates_and_dates/" file="image2.png" width="50%" %}
+{% include image.html prefix="tutorials/rates_and_dates/" file="image2.png" width="50%" %}<br />
 
  This will create a new taxon set. 
-Rename it by double-clicking on the entry that appears (it will initially be called untitled1). 
-Call it Americas. 
-Do not enforce monophyly using the “monophyletic?” option because we will evaluate the support for this cluster. 
-We do not opt for the “includeStem?” option either because we would like to estimate the TRMCA for the viruses from the Americas and not for the parent node leading to this clade. 
-In the next table along you will see the available taxa. 
-Taxa can be selected and moved to the ‘Included taxa’ set by pressing the green arrow button. 
-Note that multiple taxa can be selected simultaneously holding down the cmd/ctrl button on a Mac/PC. 
-Since most taxa are from the Americas, the most convenient is to simply select all taxa, move them to the ‘Included taxa’ set, and then move back the African taxa (the country of sampling is included at the end of the taxa names). 
-After these operations, the screen should look like this: 
+Rename it by double-clicking on the entry that appears (it will initially be called `untitled1`).
+Call it `Americas`.
+Do not enforce monophyly using the `monophyletic?` option because we will evaluate the support for this cluster.
+We do not opt for the `includeStem?` option either because we would like to estimate the TRMCA for the viruses from the Americas and not for the parent node leading to this clade.
 
-{% include image.html prefix="tutorials/rates_and_dates/" file="image3.png" %}
+In the next table along you will see the available taxa. 
+Taxa can be selected and moved to the `Included taxa` set by pressing the green arrow button.
+Note that multiple taxa can be selected simultaneously holding down the Command or Control button on a Mac or PC, respectively.
+Since most taxa are from the Americas, the most convenient is to simply select all taxa, move them to the ‘Included taxa’ set, and then move back the African taxa (the country of sampling is included at the end of the taxa names). 
+
+For more information on creating taxon sets, [see this page](taxon_sets).
+
+After these operations, the screen should look like this:
+
+{% include image.html prefix="tutorials/rates_and_dates/" file="image3.png" %}<br />
 
 To inform BEAUti/BEAST about the sampling dates of the sequences, go to the Tips menu and select the “Use tip dates” option. By default all the taxa are assumed to have a date of zero (i.e. the sequences are assumed to be sampled at the same time; BEAST considers the present or most recent sampling time as time 0). In this case, the YFV sequences have been sampled at various dates going back to the 1940s. The actual year of sampling is given in the name of each taxon and we could simply edit the value in the Date column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the ``Guess Dates'' button at the top of the Data panel. Clicking this will make a dialog box appear:
 
-This operation attempts to guess what the dates are from information contained within the taxon names. It works by trying to find a numerical field within each name. If the taxon names contain more than one numerical field (such as the some YFV sequences, above) then you can specify how to find the one that corresponds to the date of sampling. You can (1) specify the order that the date field comes (e.g., first, last or various positions in between) or (2) specify a prefix (some characters that come immediately before the date field in each name) and the order of the field, or (3) define a regular expression (REGEX). For the YFV sequences you can keep the default ‘Defined just by its order’ and ‘Order: first’ (but make sure that the ‘Parse as a number’ option is selected).
+This operation attempts to guess what the dates are from information contained within the taxon names. It works by trying to find a numerical field within each name. If the taxon names contain more than one numerical field (such as the some YFV sequences, above) then you can specify how to find the one that corresponds to the date of sampling. [See this page for details about the various options for setting dates in this panel](tip_dates). For the YFV sequences you can keep the default `Defined just by its order` and `Order: first` (but make sure that the `Parse as a number` option is selected).
 
-When parsing a number, you can ask BEAUti to add a fixed value to each guessed date. For example, the value ``1900'' can be added to turn the dates from 2 digit years to 4 digit. Any dates in the taxon names given as ``00'' would thus become ``1900''. However, if these ‘00’ or ‘01’, etc. represent sequences sampled in 2000, 2001, etc., ‘2000’ needs to be added to those. This can be achieved by selecting the “unless less than: ..” and “..in which case add:..” option adding for example 2000 to any date less than 10. There is also an option to parse calendar dates and one for calendar dates with various precisions. Because all dates are specified in a four digit format in this case, no additional settings are needed.  So, we can press “OK”. 
+When parsing a number, you can ask BEAUti to add a fixed value to each date which can be useful for [transforming a 2 digit year into a 4 digit year](tip_dates). Because all dates are specified in a four digit format in this case, no additional settings are needed.  So, we can press `OK`.
 
-At the top of the window you can set the units that the dates are given in (years, months, days) and whether they are specified relative to a point in the past (as would be the case for years such as 1984) or backwards in time from the present (as in the case of radiocarbon ages). The “Height” column lists the ages of the tips relative to time 0 (in our case 2009). Note that there possibilities to accommodate the sampling time uncertainty (‘Tip date sampling’ at the bottom left); in this case, only the sampling years are provided and not the exact sampling dates. However, this uncertainty will negligible with respect to the relatively large evolutionary time scale of this example. 
+The `Height` column lists the ages of the tips relative to time 0 (in our case 2009). For these sequences, only the sampling year is provided and not the exact sampling dates. This uncertainty will negligible with respect to the relatively large evolutionary time scale of this example, however, [it is possible to accommodate the sampling time uncertainty --- see here](sampling_tipdates).
 
-Setting the evolutionary model
+### Setting the evolutionary model
 
 The next thing to do is to click on the Sites tab at the top of the main window. This will reveal the evolutionary model settings for BEAST. Exactly which options appear depend on whether the data are nucleotides or amino acids (or traits). This tutorial assumes that you are familiar with the evolutionary models available; however there are a couple of points to note about selecting a model in BEAUti:
 
@@ -72,20 +76,20 @@ Selecting the Unlink base frequencies across codon positions will specify that B
 
  For this tutorial, select the 3 partitions: codon positions 1, 2 & 3 option so that each codon position has its own HKY substitution model, rate of evolution, Estimated base frequencies, and Gamma-distributed rate variation among sites:
 
-Setting the clock model
+### Setting the clock model
 
 Click on the Clocks tab at the top of the main window. We will perform our initial run using the (default) strict molecular clock model:
  
-Setting the starting tree and tree prior
+### Setting the starting tree and tree prior
 
 Click on the Trees tab at the top of the main window. We keep a default random starting tree and a (simple) constant size coalescent prior. The tree priors (coalescent and other models) will be explained in other lectures.
 
-Setting up the priors
+### Setting up the priors
 
 Review the prior settings under the Priors tab. Some of the default marginal priors may be improper (e.g. indicated in yellow); priors that would not have been set would appear in red. It’s important to provide proper priors for all the parameters being estimated as improper priors lead to improper posteriors and improper marginal likelihoods (when performing Bayesian model selection, see further in this tutorial). To change the prior on the relative rates (allMus) for example, click on the corresponding prior and a prior selection window will appear. Set the prior to a gamma distribution with shape = 0.001 and scale = 1000. The graphical representation of this prior distribution indicates that most prior mass is put on small values, but the density remains sufficiently diffuse. Notice that the prior setting turns black after confirming this setting by clicking ”OK”.
 Note that the default prior on the rate of evolution (clock.rate) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). If the sequences are not associated with different sampling dates (they are contemporaneous), or when the sampling time range is trivial for the evolutionary scale of the taxa, the substitution rate can be fixed to a value based on another source, or better, a prior distribution can be specified to also incorporate the uncertainty of this ‘external’ rate. Fixing the rate to 1.0 will result in the ages of the nodes of the tree being estimated in units of substitutions per site (i.e. the normal units of branch lengths in popular packages such as MrBayes). Note that when selecting to fix the rate to a value, the transition kernel(s) on this parameter (‘Operators’ panel, see next section) will be  automatically unselected. 
 
-Setting up the operators
+### Setting up the operators
 
 Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs. As of BEAST v1.8.4, different options are available w.r.t. exploring tree space. In this tutorial, we will use the ‘classic operator mix’, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a ‘new experimental mix’, which is currently under development with the aim to improve mixing for large phylogenetic trees.
 
@@ -95,7 +99,8 @@ The next column, labelled Tuning, gives a tuning setting to the operator. Some o
 
 The next column, labelled Weight, specifies how often each operator is applied relative to the others. Some parameters tend to be sampled very efficiently from their target distribution (e.g. the kappa parameter); these parameters can have their operators down-weighted so that they are not changed as often. We will start by using the default settings for this analysis.
 
-Setting the MCMC options
+### Setting the MCMC options
+
 The MCMC tab in BEAUti provides settings to control the MCMC chain. Firstly we have the Length of chain. This is the number of steps the MCMC will make in the chain before finishing. How long this should depend on the size of the dataset, the complexity of the model and the precision of the answer required. The default value of 10,000,000 is entirely arbitrary and should be adjusted according to the size of your dataset. We will see later how the resulting log file can be analyzed using Tracer in order to examine whether a particular chain length is adequate.
 
 The next couple of options specify how often the current parameter values should be displayed on the screen and recorded in the log file. The screen output is simply for monitoring the program's progress so can be set to any value (although if set too small, the sheer quantity of information being displayed on the screen will slow the program down). For the log file, the value should be set relative to the total length of the chain. Sampling too often will result in very large files with little extra benefit in terms of the precision of the estimates. Sample too infrequently and the log file will not contain much information about the distributions of the parameters. You probably want to aim to store no more than 10,000 samples so this should be set to something >= chain length / 10,000.
@@ -111,21 +116,40 @@ For convenience, leave the BEAUti window open so that you can change the values 
 
 Once the BEAST XML file has been created the analysis itself can be performed using BEAST. The exact instructions for running BEAST depends on the computer you are using, but in most cases a standard file dialog box will appear in which you select the XML file: If the command line version is being used then the name of the XML file is given after the name of the BEAST executable. When you have installed the BEAGLE library (code.google.com/p/beagle-lib/), you can use this in conjunction with BEAST to speed up the calculations. If not installed, unselect the use of the BEAGLE library. When pressing “Run”, the analysis will be performed with detailed information about the progress of the run being written to the screen. When it has finished, the log file and the trees file will have been created in the same location as your XML file.
 
-Analysing the BEAST output
+## Analysing the BEAST output
+
 To analyze the results of running BEAST we are going to use the program Tracer. The exact instructions for running Tracer differs depending on which computer you are using. Please see the README text file that was distributed with the version you downloaded. Once running, Tracer will look similar irrespective of which computer system it is running on.
 
 Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
 
 On the left hand side is the name of the log file loaded and the traces that it contains. There are traces for a quantity proportional to posterior (this is the product of the data likelihood and the prior probabilities, on the log-scale), and the continuous parameters. Selecting a trace on the left brings up analyses for this trace on the right hand side depending on tab that is selected. When first opened, the `posterior` trace is selected and various statistics of this trace are shown under the Estimates tab.
+
 In the top right of the window is a table of calculated statistics for the selected trace. The statistics and their meaning are described in the table below.
-Mean - The mean value of the samples (excluding the burn-in). 
-Stdev of mean - The standard error of the mean. This takes into account the effective sample size so a small ESS will give a large standard error. 
-Median - The median value of the samples (excluding the burn-in). 
-Geometric mean - The central tendency or typical value of the set of samples (excluding the burn-in).
-95% HPD Lower - The lower bound of the highest posterior density (HPD) interval. The HPD is the shortest interval that contains 95% of the sampled values. 
-95% HPD Upper - The upper bound of the highest posterior density (HPD) interval. 
-Auto-Correlation Time (ACT) - The average number of states in the MCMC chain that two samples have to be separated by for them to be uncorrelated (i.e. independent samples from the posterior). The ACT is estimated from the samples in the trace (excluding the burn-in). 
-Effective Sample Size (ESS) - The effective sample size (ESS) is the number of independent samples that the trace is equivalent to. This is calculated as the chain length (excluding the burn-in) divided by the ACT.
+
+Mean
+: The mean value of the samples (excluding the burn-in).
+
+Stdev of mean
+: The standard error of the mean. This takes into account the effective sample size so a small ESS will give a large standard error.
+
+Median
+: The median value of the samples (excluding the burn-in).
+
+Geometric mean
+: The central tendency or typical value of the set of samples (excluding the burn-in).
+
+95% HPD Lower
+: The lower bound of the highest posterior density (HPD) interval. The HPD is the shortest interval that contains 95% of the sampled values.
+
+95% HPD Upper
+: The upper bound of the highest posterior density (HPD) interval.
+
+Auto-Correlation Time (ACT)
+: The average number of states in the MCMC chain that two samples have to be separated by for them to be uncorrelated (i.e. independent samples from the posterior). The ACT is estimated from the samples in the trace (excluding the burn-in).
+
+Effective Sample Size (ESS)
+: The effective sample size (ESS) is the number of independent samples that the trace is equivalent to. This is calculated as the chain length (excluding the burn-in) divided by the ACT.
+
 Note that the effective sample sizes (ESSs) for all the traces are small (ESSs less than 100 are highlighted in red by Tracer and values > 100 but < 200 are in yellow). This is not good. A low ESS means that the trace contained a lot of correlated samples and thus may not represent the posterior distribution well. In the bottom right of the window is a frequency plot of the samples which is expected given the low ESSs is extremely rough.
 If we select the tab on the right-hand-side labelled `Trace' we can view the raw trace, that is, the sampled values against the  step in the MCMC chain.
 Here you can see how the samples are correlated. There are 1000 samples in the trace (we ran the MCMC for 100,000 steps sampling every 100) but it is clear that adjacent samples often tend to have similar values. The ESS for the age of the root (treeModel.rootHeight is about 6 so we are only getting 1 independent sample to every 167 actual samples). It also seems that the default burn-in of 10% of the chain length is inadequate (the posterior values are still increasing over most of the chain). Not excluding enough of the start of the chain as burn-in will bias the results and render estimates of ESS unreliable.
