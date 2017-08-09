@@ -218,6 +218,28 @@ The nucleotide substitution model by Motoo Kimura (1980):
 </hkyModel>
 ```
 
+This substitution model XML element is required to construct a site (rate heterogeneity) model.
+Typically, the site (rate heterogeneity) model is set to +G, i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+At the end of this how-to guide, we will show how to modify this, for example by adding a proportion of invariant sites (+I).
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene3 *** -->
+<siteModel id="siteModel_Gene3">
+    <substitutionModel>
+        <hkyModel idref="K80_Gene3"/>
+    </substitutionModel>
+    <relativeRate>
+        <parameter id="siteModel_Gene3.mu" value="1.0" lower="0.0" upper="10000.0"/>
+    </relativeRate>
+    <gammaShape gammaCategories="4">
+        <parameter id="siteModel_Gene3.alpha" value="0.5" lower="0.0" upper="1000.0"/>
+    </gammaShape>
+</siteModel>
+```
+
+Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
+
+
 
 
 ### HKY
@@ -239,6 +261,29 @@ The nucleotide substitution model by Motoo Kimura (1980):
 </hkyModel>
 ```
 
+This substitution model XML element is required to construct a site (rate heterogeneity) model.
+Typically, the site (rate heterogeneity) model is set to +G, i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+At the end of this how-to guide, we will show how to modify this, for example by adding a proportion of invariant sites (+I).
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene4 *** -->
+<siteModel id="siteModel_Gene4">
+    <substitutionModel>
+        <hkyModel idref="HKY_Gene4"/>
+    </substitutionModel>
+    <relativeRate>
+        <parameter id="siteModel_Gene4.mu" value="1.0" lower="0.0"/>
+    </relativeRate>
+    <gammaShape gammaCategories="4">
+        <parameter id="siteModel_Gene4.alpha" value="0.5" lower="0.0"/>
+    </gammaShape>
+</siteModel>
+```
+
+Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
+
+
+
 
 ### TN93
 
@@ -254,10 +299,10 @@ The nucleotide substitution model by Motoo Kimura (1980):
         </frequencyModel>
     </frequencies>
     <rateAC>
-        <parameter id="TrNef_Gene5.transversion" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TrNef_Gene5.transversion" value="1.0" lower="0.0"/>
     </rateAC>
     <rateAG>
-        <parameter id="TrNef_Gene5.ag" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TrNef_Gene5.ag" value="1.0" lower="0.0"/>
     </rateAG>
     <rateAT>
         <parameter idref="TrNef_Gene5.transversion"/>
@@ -270,6 +315,30 @@ The nucleotide substitution model by Motoo Kimura (1980):
     </rateGT>
 </gtrModel>
 ```
+
+This substitution model XML element is required to construct a site (rate heterogeneity) model.
+Typically, the site (rate heterogeneity) model is set to +G, i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+At the end of this how-to guide, we will show how to modify this, for example by adding a proportion of invariant sites (+I).
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene5 *** -->
+<siteModel id="siteModel_Gene5">
+    <substitutionModel>
+        <gtrModel idref="TrNef_Gene5"/>
+    </substitutionModel>
+    <relativeRate>
+        <parameter id="siteModel_Gene5.mu" value="1.0" lower="0.0"/>
+    </relativeRate>
+    <gammaShape gammaCategories="4">
+        <parameter id="siteModel_Gene5.alpha" value="0.5" lower="0.0"/>
+    </gammaShape>
+</siteModel>
+```
+
+Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
+
+
+
 
 ### TN93
 
@@ -285,10 +354,10 @@ The nucleotide substitution model by Motoo Kimura (1980):
         </frequencyModel>
     </frequencies>
     <rateAC>
-        <parameter id="TrN_Gene6.transversion" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TrN_Gene6.transversion" value="1.0" lower="0.0"/>
     </rateAC>
     <rateAG>
-        <parameter id="TrN_Gene6.ag" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TrN_Gene6.ag" value="1.0" lower="0.0"/>
     </rateAG>
     <rateAT>
         <parameter idref="TrN_Gene6.transversion"/>
@@ -301,6 +370,30 @@ The nucleotide substitution model by Motoo Kimura (1980):
     </rateGT>
 </gtrModel>
 ```
+
+This substitution model XML element is required to construct a site (rate heterogeneity) model.
+Typically, the site (rate heterogeneity) model is set to +G, i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+At the end of this how-to guide, we will show how to modify this, for example by adding a proportion of invariant sites (+I).
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene6 *** -->
+<siteModel id="siteModel_Gene6">
+    <substitutionModel>
+        <gtrModel idref="TrN_Gene6"/>
+    </substitutionModel>
+    <relativeRate>
+        <parameter id="siteModel_Gene6.mu" value="1.0" lower="0.0" upper="10000.0"/>
+    </relativeRate>
+    <gammaShape gammaCategories="4">
+        <parameter id="siteModel_Gene6.alpha" value="0.5" lower="0.0" upper="1000.0"/>
+    </gammaShape>
+</siteModel>
+```
+
+Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
+
+
+
 
 ### K3P
 
@@ -316,13 +409,13 @@ The nucleotide substitution model by Motoo Kimura (1980):
         </frequencyModel>
     </frequencies>
     <rateAC>
-        <parameter id="K3P_Gene7.purine2pyrimidine" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="K3P_Gene7.purine2pyrimidine" value="1.0" lower="0.0"/>
     </rateAC>
     <rateAG>
         <parameter id="K3P_Gene7.ag" value="1.0"/>
     </rateAG>
     <rateAT>
-        <parameter id="K3P_Gene7.pyrimidine2purine" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="K3P_Gene7.pyrimidine2purine" value="1.0" lower="0.0"/>
     </rateAT>
     <rateCG>
         <parameter idref="K3P_Gene7.pyrimidine2purine"/>
@@ -332,6 +425,30 @@ The nucleotide substitution model by Motoo Kimura (1980):
     </rateGT>
 </gtrModel>
 ```
+
+This substitution model XML element is required to construct a site (rate heterogeneity) model.
+Typically, the site (rate heterogeneity) model is set to +G, i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+At the end of this how-to guide, we will show how to modify this, for example by adding a proportion of invariant sites (+I).
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene7 *** -->
+<siteModel id="siteModel_Gene7">
+    <substitutionModel>
+        <gtrModel idref="K3P_Gene7"/>
+    </substitutionModel>
+    <relativeRate>
+        <parameter id="siteModel_Gene7.mu" value="1.0" lower="0.0" upper="10000.0"/>
+    </relativeRate>
+    <gammaShape gammaCategories="4">
+        <parameter id="siteModel_Gene7.alpha" value="0.5" lower="0.0" upper="1000.0"/>
+    </gammaShape>
+</siteModel>
+```
+
+Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
+
+
+
 
 ### K3P
 
@@ -347,13 +464,13 @@ The nucleotide substitution model by Motoo Kimura (1980):
         </frequencyModel>
     </frequencies>
     <rateAC>
-        <parameter id="K3Puf_Gene8.purine2pyrimidine" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="K3Puf_Gene8.purine2pyrimidine" value="1.0" lower="0.0"/>
     </rateAC>
     <rateAG>
         <parameter id="K3Puf_Gene8.ag" value="1.0"/>
     </rateAG>
     <rateAT>
-        <parameter id="K3Puf_Gene8.pyrimidine2purine" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="K3Puf_Gene8.pyrimidine2purine" value="1.0" lower="0.0"/>
     </rateAT>
     <rateCG>
         <parameter idref="K3Puf_Gene8.pyrimidine2purine"/>
@@ -363,6 +480,29 @@ The nucleotide substitution model by Motoo Kimura (1980):
     </rateGT>
 </gtrModel>
 ```
+
+This substitution model XML element is required to construct a site (rate heterogeneity) model.
+Typically, the site (rate heterogeneity) model is set to +G, i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+At the end of this how-to guide, we will show how to modify this, for example by adding a proportion of invariant sites (+I).
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene8 *** -->
+<siteModel id="siteModel_Gene8">
+	<substitutionModel>
+		<gtrModel idref="K3Puf_Gene8"/>
+	</substitutionModel>
+	<relativeRate>
+		<parameter id="siteModel_Gene8.mu" value="1.0" lower="0.0"/>
+	</relativeRate>
+	<gammaShape gammaCategories="4">
+		<parameter id="siteModel_Gene8.alpha" value="0.5" lower="0.0"/>
+	</gammaShape>
+</siteModel>
+```
+
+Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
+
+
 
 ### TIM
 
@@ -378,13 +518,13 @@ The nucleotide substitution model by Motoo Kimura (1980):
         </frequencyModel>
     </frequencies>
     <rateAC>
-        <parameter id="TIMef_Gene9.purine2pyrimidine" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TIMef_Gene9.purine2pyrimidine" value="1.0" lower="0.0"/>
     </rateAC>
     <rateAG>
-        <parameter id="TIMef_Gene9.ag" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TIMef_Gene9.ag" value="1.0" lower="0.0"/>
     </rateAG>
     <rateAT>
-        <parameter id="TIMef_Gene9.pyrimidine2purine" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TIMef_Gene9.pyrimidine2purine" value="1.0" lower="0.0"/>
     </rateAT>
     <rateCG>
         <parameter idref="TIMef_Gene9.pyrimidine2purine"/>
@@ -394,6 +534,29 @@ The nucleotide substitution model by Motoo Kimura (1980):
     </rateGT>
 </gtrModel>
 ```
+
+This substitution model XML element is required to construct a site (rate heterogeneity) model.
+Typically, the site (rate heterogeneity) model is set to +G, i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+At the end of this how-to guide, we will show how to modify this, for example by adding a proportion of invariant sites (+I).
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene9 *** -->
+<siteModel id="siteModel_Gene9">
+    <substitutionModel>
+        <gtrModel idref="TIMef_Gene9"/>
+    </substitutionModel>
+    <relativeRate>
+        <parameter id="siteModel_Gene9.mu" value="1.0" lower="0.0"/>
+    </relativeRate>
+    <gammaShape gammaCategories="4">
+        <parameter id="siteModel_Gene9.alpha" value="0.5" lower="0.0"/>
+    </gammaShape>
+</siteModel>
+```
+
+Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
+
+
 
 ### TIM
 
@@ -409,13 +572,13 @@ The nucleotide substitution model by Motoo Kimura (1980):
         </frequencyModel>
     </frequencies>
     <rateAC>
-        <parameter id="TIM_Gene10.purine2pyrimidine" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TIM_Gene10.purine2pyrimidine" value="1.0" lower="0.0"/>
     </rateAC>
     <rateAG>
-        <parameter id="TIM_Gene10.ag" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TIM_Gene10.ag" value="1.0" lower="0.0"/>
     </rateAG>
     <rateAT>
-        <parameter id="TIM_Gene10.pyrimidine2purine" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TIM_Gene10.pyrimidine2purine" value="1.0" lower="0.0"/>
     </rateAT>
     <rateCG>
         <parameter idref="TIM_Gene10.pyrimidine2purine"/>
@@ -425,6 +588,29 @@ The nucleotide substitution model by Motoo Kimura (1980):
     </rateGT>
 </gtrModel>
 ```
+
+This substitution model XML element is required to construct a site (rate heterogeneity) model.
+Typically, the site (rate heterogeneity) model is set to +G, i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+At the end of this how-to guide, we will show how to modify this, for example by adding a proportion of invariant sites (+I).
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene10 *** -->
+<siteModel id="siteModel_Gene10">
+    <substitutionModel>
+        <gtrModel idref="TIM_Gene10"/>
+    </substitutionModel>
+    <relativeRate>
+        <parameter id="siteModel_Gene10.mu" value="1.0" lower="0.0"/>
+    </relativeRate>
+    <gammaShape gammaCategories="4">
+        <parameter id="siteModel_Gene10.alpha" value="0.5" lower="0.0"/>
+    </gammaShape>
+</siteModel>
+```
+
+Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
+
+
 
 ### TVM
 
@@ -440,22 +626,45 @@ The nucleotide substitution model by Motoo Kimura (1980):
         </frequencyModel>
     </frequencies>
     <rateAC>
-        <parameter id="TVMef_Gene11.ac" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TVMef_Gene11.ac" value="1.0" lower="0.0"/>
     </rateAC>
     <rateAG>
         <parameter id="TVMef_Gene11.ag" value="1.0"/>
     </rateAG>
     <rateAT>
-        <parameter id="TVMef_Gene11.at" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TVMef_Gene11.at" value="1.0" lower="0.0"/>
     </rateAT>
     <rateCG>
-        <parameter id="TVMef_Gene11.cg" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TVMef_Gene11.cg" value="1.0" lower="0.0"/>
     </rateCG>
     <rateGT>
-        <parameter id="TVMef_Gene11.gt" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TVMef_Gene11.gt" value="1.0" lower="0.0"/>
     </rateGT>
 </gtrModel>
 ```
+
+This substitution model XML element is required to construct a site (rate heterogeneity) model.
+Typically, the site (rate heterogeneity) model is set to +G, i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+At the end of this how-to guide, we will show how to modify this, for example by adding a proportion of invariant sites (+I).
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene11 *** -->
+<siteModel id="siteModel_Gene11">
+    <substitutionModel>
+        <gtrModel idref="TVMef_Gene11"/>
+    </substitutionModel>
+    <relativeRate>
+        <parameter id="siteModel_Gene11.mu" value="1.0" lower="0.0"/>
+    </relativeRate>
+    <gammaShape gammaCategories="4">
+        <parameter id="siteModel_Gene11.alpha" value="0.5" lower="0.0"/>
+    </gammaShape>
+</siteModel>
+```
+
+Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
+
+
 
 ### TVM
 
@@ -471,22 +680,45 @@ The nucleotide substitution model by Motoo Kimura (1980):
         </frequencyModel>
     </frequencies>
     <rateAC>
-        <parameter id="TVM_Gene12.ac" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TVM_Gene12.ac" value="1.0" lower="0.0"/>
     </rateAC>
     <rateAG>
         <parameter id="TVM_Gene12.ag" value="1.0"/>
     </rateAG>
     <rateAT>
-        <parameter id="TVM_Gene12.at" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TVM_Gene12.at" value="1.0" lower="0.0"/>
     </rateAT>
     <rateCG>
-        <parameter id="TVM_Gene12.cg" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TVM_Gene12.cg" value="1.0" lower="0.0"/>
     </rateCG>
     <rateGT>
-        <parameter id="TVM_Gene12.gt" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="TVM_Gene12.gt" value="1.0" lower="0.0"/>
     </rateGT>
 </gtrModel>
 ```
+
+This substitution model XML element is required to construct a site (rate heterogeneity) model.
+Typically, the site (rate heterogeneity) model is set to +G, i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+At the end of this how-to guide, we will show how to modify this, for example by adding a proportion of invariant sites (+I).
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene12 *** -->
+<siteModel id="siteModel_Gene12">
+    <substitutionModel>
+        <gtrModel idref="TVM_Gene12"/>
+    </substitutionModel>
+    <relativeRate>
+        <parameter id="siteModel_Gene12.mu" value="1.0" lower="0.0"/>
+    </relativeRate>
+    <gammaShape gammaCategories="4">
+        <parameter id="siteModel_Gene12.alpha" value="0.5" lower="0.0"/>
+    </gammaShape>
+</siteModel>
+```
+
+Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
+
+
 
 ### SYM
 
@@ -502,22 +734,46 @@ The nucleotide substitution model by Motoo Kimura (1980):
         </frequencyModel>
     </frequencies>
     <rateAC>
-        <parameter id="SYM_Gene13.ac" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="SYM_Gene13.ac" value="1.0" lower="0.0"/>
     </rateAC>
     <rateAG>
-        <parameter id="SYM_Gene13.ag" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="SYM_Gene13.ag" value="1.0" lower="0.0"/>
     </rateAG>
     <rateAT>
-        <parameter id="SYM_Gene13.at" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="SYM_Gene13.at" value="1.0" lower="0.0"/>
     </rateAT>
     <rateCG>
-        <parameter id="SYM_Gene13.cg" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="SYM_Gene13.cg" value="1.0" lower="0.0"/>
     </rateCG>
     <rateGT>
-        <parameter id="SYM_Gene13.gt" value="1.0" lower="1.0E-8" upper="100.0"/>
+        <parameter id="SYM_Gene13.gt" value="1.0" lower="0.0"/>
     </rateGT>
 </gtrModel>
 ```
+
+This substitution model XML element is required to construct a site (rate heterogeneity) model.
+Typically, the site (rate heterogeneity) model is set to +G, i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+At the end of this how-to guide, we will show how to modify this, for example by adding a proportion of invariant sites (+I).
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene13 *** -->
+<siteModel id="siteModel_Gene13">
+    <substitutionModel>
+        <gtrModel idref="SYM_Gene13"/>
+    </substitutionModel>
+    <relativeRate>
+        <parameter id="siteModel_Gene13.mu" value="1.0" lower="0.0"/>
+    </relativeRate>
+    <gammaShape gammaCategories="4">
+        <parameter id="siteModel_Gene13.alpha" value="0.5" lower="0.0"/>
+    </gammaShape>
+</siteModel>
+```
+
+Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
+
+
+
 
 ### GTR
 
@@ -549,6 +805,33 @@ The nucleotide substitution model by Motoo Kimura (1980):
     </rateGT>
 </gtrModel>
 ```
+
+This substitution model XML element is required to construct a site (rate heterogeneity) model.
+Typically, the site (rate heterogeneity) model is set to +G, i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+At the end of this how-to guide, we will show how to modify this, for example by adding a proportion of invariant sites (+I).
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene14 *** -->
+<siteModel id="siteModel_Gene14">
+    <substitutionModel>
+        <gtrModel idref="GTR_Gene14"/>
+    </substitutionModel>
+    <relativeRate>
+        <parameter id="siteModel_Gene14.mu" value="1.0" lower="0.0"/>
+    </relativeRate>
+    <gammaShape gammaCategories="4">
+        <parameter id="siteModel_Gene14.alpha" value="0.5" lower="0.0"/>
+    </gammaShape>
+</siteModel>
+```
+
+Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
+
+
+
+## Simpler Models
+
+
 
 ## References
 
