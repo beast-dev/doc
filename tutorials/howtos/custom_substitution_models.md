@@ -1,7 +1,7 @@
 ---
 title: How to create custom substitution models
 keywords: beast, tutorial
-last_updated: August 6, 2017
+last_updated: August 9, 2017
 tags: [how-to]
 summary: "How to create custom substitution models other than the ones available in BEAUti."
 sidebar: beast_sidebar
@@ -22,7 +22,7 @@ Inside the frequency model, data reference is only existing when frequency is EM
 
 ### JC69
 
-**Note:** as of BEAST v1.8.4, this model is again available in [BEAUti](beauti).
+**Note:** as of BEAST v{{ site.beast_version }}, this model is again available in [BEAUti](beauti).
 
 The first model of nucleotide substitution, by Jukes and Cantor (1969):
 
@@ -89,7 +89,7 @@ Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make su
 
 You will need to specify priors for all the parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
 **Note:** the parameters for JC69 do not receive priors, as they are set to 1.0.
-We do need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+We need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
 A possible prior for this parameter could be the following:
 
 ```xml
@@ -239,8 +239,39 @@ At the end of this how-to guide, we will show how to modify this, for example by
 
 Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
 
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="K80_Gene3.kappa"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene3.alpha"/>
+</scaleOperator>
+```
 
+You will need to specify priors for all the parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
+**Note:** only the kappa parameter receives a prior for the K80 model.
+We also need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+A possible prior for this parameter could be the following:
 
+```xml
+<prior id="prior">
+    <logNormalPrior mean="1.0" stdev="1.25" offset="0.0" meanInRealSpace="false">
+		<parameter idref="K80_Gene3.kappa"/>
+	</logNormalPrior>
+    <exponentialPrior mean="0.5" offset="0.0">
+        <parameter idref="siteModel_Gene1.alpha"/>
+    </exponentialPrior>
+</prior>
+```
+
+You will want to log the relevant parameters to file to monitor convergence/ESS. 
+Add the parameter references below to the file logger:
+
+```xml
+<parameter idref="K80_Gene3.kappa"/>
+<parameter idref="K80_Gene3.frequencies"/>
+<parameter idref="siteModel_Gene3.alpha"/>
+```
 
 ### HKY
 
@@ -282,10 +313,46 @@ At the end of this how-to guide, we will show how to modify this, for example by
 
 Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
 
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="HKY_Gene4.kappa"/>
+</scaleOperator>
+<deltaExchange delta="0.01" weight="0.1">
+    <parameter idref="HKY_Gene4.frequencies"/>
+</deltaExchange>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene4.alpha"/>
+</scaleOperator>
+```
 
+You will need to specify priors for all the model parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
+We also need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+A possible prior for this parameter could be the following:
 
+```xml
+<prior id="prior">
+    <logNormalPrior mean="1.0" stdev="1.25" offset="0.0" meanInRealSpace="false">
+		<parameter idref="HKY_Gene4.kappa"/>
+	</logNormalPrior>      
+	<uniformPrior lower="0.0" upper="1.0">
+        <parameter idref="HKY_Gene4.frequencies"/>
+    </uniformPrior>
+    <exponentialPrior mean="0.5" offset="0.0">
+        <parameter idref="siteModel_Gene4.alpha"/>
+    </exponentialPrior>
+</prior>
+```
 
-### TN93
+You will want to log the relevant parameters to file to monitor convergence/ESS. 
+Add the parameter references below to the file logger:
+
+```xml
+<parameter idref="HKY_Gene4.kappa"/>
+<parameter idref="HKY_Gene4.frequencies"/>
+<parameter idref="siteModel_Gene4.alpha"/>
+```
+
+### TN93 (equal frequencies)
 
 ```xml
 <!-- *** SUBSTITUTION MODEL FOR PARTITION Gene5 *** -->
@@ -337,10 +404,48 @@ At the end of this how-to guide, we will show how to modify this, for example by
 
 Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
 
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TrNef_Gene5.transversion"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TrNef_Gene5.ag"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene5.alpha"/>
+</scaleOperator>
+```
+
+You will need to specify priors for all the model parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
+We also need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+A possible prior for this parameter could be the following:
+
+```xml
+<prior id="prior">
+    <gammaPrior shape="0.05" scale="10.0" offset="0.0">
+        <parameter idref="TrNef_Gene5.transversion"/>
+    </gammaPrior>
+    <gammaPrior shape="0.05" scale="10.0" offset="0.0">
+        <parameter idref="TrNef_Gene5.ag"/>
+    </gammaPrior>
+    <exponentialPrior mean="0.5" offset="0.0">
+        <parameter idref="siteModel_Gene5.alpha"/>
+    </exponentialPrior>
+</prior>
+```
+
+You will want to log the relevant parameters to file to monitor convergence/ESS. 
+Add the parameter references below to the file logger:
+
+```xml
+<parameter idref="TrNef_Gene5.transversion"/>
+<parameter idref="TrNef_Gene5.ag"/>
+<parameter idref="TrNef_Gene5.frequencies"/>
+<parameter idref="siteModel_Gene5.alpha"/>
+``` 
 
 
-
-### TN93
+### TN93 (unequal frequencies)
 
 ```xml
 <!-- *** SUBSTITUTION MODEL FOR PARTITION Gene6 *** -->
@@ -392,10 +497,54 @@ At the end of this how-to guide, we will show how to modify this, for example by
 
 Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
 
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TrN_Gene6.transversion"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TrN_Gene6.ag"/>
+</scaleOperator>
+<deltaExchange delta="0.01" weight="1">
+    <parameter idref="TrN_Gene6.frequencies"/>
+</deltaExchange>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene6.alpha"/>
+</scaleOperator>
+```
+
+You will need to specify priors for all the model parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
+We also need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+A possible prior for this parameter could be the following:
+
+```xml
+<prior id="prior">
+    <gammaPrior shape="0.05" scale="10.0" offset="0.0">
+        <parameter idref="TrN_Gene6.transversion"/>
+    </gammaPrior>
+	<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+        <parameter idref="TrN_Gene6.ag"/>
+	</gammaPrior>
+	<uniformPrior lower="0.0" upper="1.0">
+        <parameter idref="TrN_Gene6.frequencies"/>
+    </uniformPrior>
+    <exponentialPrior mean="0.5" offset="0.0">
+        <parameter idref="siteModel_Gene5.alpha"/>
+    </exponentialPrior>
+</prior>
+```
+
+You will want to log the relevant parameters to file to monitor convergence/ESS. 
+Add the parameter references below to the file logger:
+
+```xml
+<parameter idref="TrN_Gene6.transversion"/>
+<parameter idref="TrN_Gene6.ag"/>
+<parameter idref="TrN_Gene6.frequencies"/>
+<parameter idref="siteModel_Gene6.alpha"/>
+``` 
 
 
-
-### K3P
+### K3P (equal frequencies)
 
 ```xml
 <!-- *** SUBSTITUTION MODEL FOR PARTITION Gene7 *** -->
@@ -437,20 +586,58 @@ At the end of this how-to guide, we will show how to modify this, for example by
         <gtrModel idref="K3P_Gene7"/>
     </substitutionModel>
     <relativeRate>
-        <parameter id="siteModel_Gene7.mu" value="1.0" lower="0.0" upper="10000.0"/>
+        <parameter id="siteModel_Gene7.mu" value="1.0" lower="0.0"/>
     </relativeRate>
     <gammaShape gammaCategories="4">
-        <parameter id="siteModel_Gene7.alpha" value="0.5" lower="0.0" upper="1000.0"/>
+        <parameter id="siteModel_Gene7.alpha" value="0.5" lower="0.0"/>
     </gammaShape>
 </siteModel>
 ```
 
 Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
 
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="K3P_Gene7.purine2pyrimidine"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="K3P_Gene7.pyrimidine2purine"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene7.alpha"/>
+</scaleOperator>
+```
+
+You will need to specify priors for all the model parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
+We also need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+A possible prior for this parameter could be the following:
+
+```xml
+<prior id="prior">
+    <gammaPrior shape="0.05" scale="10.0" offset="0.0">
+        <parameter idref="K3P_Gene7.purine2pyrimidine"/>
+    </gammaPrior>
+    <gammaPrior shape="0.05" scale="10.0" offset="0.0">
+        <parameter idref="K3P_Gene7.pyrimidine2purine"/>
+    </gammaPrior>
+    <exponentialPrior mean="0.5" offset="0.0">
+        <parameter idref="siteModel_Gene7.alpha"/>
+    </exponentialPrior>
+</prior>
+```
+
+You will want to log the relevant parameters to file to monitor convergence/ESS. 
+Add the parameter references below to the file logger:
+
+```xml
+<parameter idref="K3P_Gene7.purine2pyrimidine"/>
+<parameter idref="K3P_Gene7.pyrimidine2purine"/>
+<parameter idref="K3P_Gene7.frequencies"/>
+<parameter idref="siteModel_Gene7.alpha"/>
+``` 
 
 
-
-### K3P
+### K3P (unequal frequencies)
 
 ```xml
 <!-- *** SUBSTITUTION MODEL FOR PARTITION Gene8 *** -->
@@ -502,9 +689,54 @@ At the end of this how-to guide, we will show how to modify this, for example by
 
 Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
 
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="K3Puf_Gene8.purine2pyrimidine"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="K3Puf_Gene8.pyrimidine2purine"/>
+</scaleOperator>
+<deltaExchange delta="0.01" weight="0.1">
+    <parameter idref="K3Puf_Gene8.frequencies"/>
+</deltaExchange>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene8.alpha"/>
+</scaleOperator>
+```
+
+You will need to specify priors for all the model parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
+We also need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+A possible prior for this parameter could be the following:
+
+```xml
+<prior id="prior">
+    <gammaPrior shape="0.05" scale="10.0" offset="0.0">
+        <parameter idref="K3Puf_Gene8.purine2pyrimidine"/>
+    </gammaPrior>
+    <gammaPrior shape="0.05" scale="10.0" offset="0.0">
+        <parameter idref="K3Puf_Gene8.pyrimidine2purine"/>
+	</gammaPrior>
+    <uniformPrior lower="0.0" upper="1.0">
+        <parameter idref="K3Puf_Gene8.frequencies"/>
+    </uniformPrior>
+    <exponentialPrior mean="0.5" offset="0.0">
+        <parameter idref="siteModel_Gene8.alpha"/>
+    </exponentialPrior>
+</prior>
+```
+
+You will want to log the relevant parameters to file to monitor convergence/ESS. 
+Add the parameter references below to the file logger:
+
+```xml
+<parameter idref="K3Puf_Gene8.purine2pyrimidine"/>
+<parameter idref="K3Puf_Gene8.pyrimidine2purine"/>
+<parameter idref="K3Puf_Gene8.frequencies"/>
+<parameter idref="siteModel_Gene8.alpha"/>
+``` 
 
 
-### TIM
+### TIM (equal frequencies)
 
 ```xml
 <!-- *** SUBSTITUTION MODEL FOR PARTITION Gene9 *** -->
@@ -556,9 +788,23 @@ At the end of this how-to guide, we will show how to modify this, for example by
 
 Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
 
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TIMef_Gene9.purine2pyrimidine"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TIMef_Gene9.ag"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TIMef_Gene9.pyrimidine2purine"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene9.alpha"/>
+</scaleOperator>
+```
 
 
-### TIM
+### TIM (unequal frequencies)
 
 ```xml
 <!-- *** SUBSTITUTION MODEL FOR PARTITION Gene10 *** -->
@@ -610,6 +856,23 @@ At the end of this how-to guide, we will show how to modify this, for example by
 
 Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
 
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TIM_Gene10.purine2pyrimidine"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TIM_Gene10.ag"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TIM_Gene10.pyrimidine2purine"/>
+</scaleOperator>
+<deltaExchange delta="0.01" weight="0.1">
+    <parameter idref="TIM_Gene10.frequencies"/>
+</deltaExchange>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene10.alpha"/>
+</scaleOperator>
+```
 
 
 ### TVM
@@ -664,6 +927,23 @@ At the end of this how-to guide, we will show how to modify this, for example by
 
 Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
 
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TVMef_Gene11.ac"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TVMef_Gene11.at"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TVMef_Gene11.cg"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TVMef_Gene11.gt"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene11.alpha"/>
+</scaleOperator>
+```
 
 
 ### TVM
@@ -718,6 +998,26 @@ At the end of this how-to guide, we will show how to modify this, for example by
 
 Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
 
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TVM_Gene12.ac"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TVM_Gene12.at"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TVM_Gene12.cg"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TVM_Gene12.gt"/>
+</scaleOperator>
+<deltaExchange delta="0.01" weight="0.1">
+    <parameter idref="TVM_Gene12.frequencies"/>
+</deltaExchange>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene12.alpha"/>
+</scaleOperator>
+```
 
 
 ### SYM
@@ -772,6 +1072,26 @@ At the end of this how-to guide, we will show how to modify this, for example by
 
 Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
 
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="SYM_Gene13.ac"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="SYM_Gene13.ag"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="SYM_Gene13.at"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="SYM_Gene13.cg"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="SYM_Gene13.gt"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene13.alpha"/>
+</scaleOperator>
+```
 
 
 
@@ -827,6 +1147,29 @@ At the end of this how-to guide, we will show how to modify this, for example by
 
 Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make sure the parameters are being updated/estimated:
 
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="GTR_Gene14.ac"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="GTR_Gene14.ag"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="GTR_Gene14.at"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="GTR_Gene14.cg"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="GTR_Gene14.gt"/>
+</scaleOperator>
+<deltaExchange delta="0.01" weight="0.1">
+    <parameter idref="GTR_Gene14.frequencies"/>
+</deltaExchange>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene14.alpha"/>
+</scaleOperator>
+```
 
 
 ## Simpler Models
