@@ -1,9 +1,9 @@
 ---
 title: Revealing the evolutionary dynamics of influenza
 keywords: phylodynamics, influenza, tutorial
-last_updated: July 7, 2017
+last_updated: August 8, 2017
 tags: [tutorial]
-summary: "This tutorial provides a step-by-step explanation on how to reconstruct the evolutionary dynamics of influenza based on a set of virus sequences which have been isolated at different points in time (‘heterochronous’ data) using BEAST. We will focus on influenza A virus evolution, in particular on the emergence of swine-origin influenza A (H1N1) virus in 2009 (H1N1/09) and on the epidemic dynamics of H3N2 in the New York State. The H1N1/09 data set is a subset of an analyzed set genomes in a study that provides insights into the origins and evolutionary genomics of this outbreak (Smith et al., 2009). The H3N2 data is a subset of a comprehensive data set spanning several epidemic seasons in the New York state, which has been used to unravel the genomic and epidemiological dynamics of this virus (Rambaut et al., 2008). In the first exercise, the aim is to obtain an estimate of the rate of molecular evolution, an estimate of the date of the most recent common ancestor, an estimate of the H1N1/09 epidemic growth or the H1N1/09 basic reproductive number. In the second exercise, we will examine how H3N2 diversity fluctuates through time."
+summary: "This tutorial provides a step-by-step explanation on how to reconstruct the evolutionary dynamics of influenza based on a set of virus sequences which have been isolated at different points in time (‘heterochronous’ data) using BEAST. We will focus on influenza A virus evolution, in particular on the emergence of swine-origin pandemic influenza A (H1N1) virus in 2009 (H1N1pdm) and on the seasonal dynamics of H3N2 in the New York State. The H1N1pdm data set is a subset of an analyzed set genomes in a study that provides insights into the origins and evolutionary genomics of this outbreak (Smith et al., 2009). The H3N2 data is a subset of a comprehensive data set spanning several epidemic seasons in the New York state, which has been used to unravel the genomic and epidemiological dynamics of this virus (Rambaut et al., 2008). In the first exercise, the aim is to obtain an estimate of the rate of molecular evolution, an estimate of the date of the most recent common ancestor, an estimate of the H1N1pdm epidemic growth or the H1N1/09 basic reproductive number. In the second exercise, we will examine how H3N2 diversity fluctuates through time."
 sidebar: beast_sidebar
 permalink: influenza_phylodynamic_tutorial.html
 folder: beast
@@ -15,23 +15,25 @@ The first step will be to convert a NEXUS file with a DATA or CHARACTERS block i
 
 To undertake this tutorial, you will need to download three software packages in a format that is compatible with your computer system (all three are available for Mac OS X, Windows and Linux/UNIX operating systems):
 
-* BEAST - this package contains the BEAST program, BEAUti and a couple of utility programs. At the time of writing, the current version is v1.8.4. BEAST releases are  available for download from [https://github.com/beast-dev/beast-mcmc/releases]. 
-* Tracer - this program is used to explore the output of BEAST (and other Bayesian MCMC programs). It graphically and quantitively summarizes the empirical distributions of continuous parameters and provides diagnostic information. At the time of writing, the current version is v1.6. It is available for download from http://beast.bio.ed.ac.uk/. 
-* FigTree - this is an application for displaying and printing molecular phylogenies, in particular those obtained using BEAST. At the time of writing, the current version is v1.4.2. It is available for download from http://tree.bio.ed.ac.uk/. 
+{% include beast_callout.md %}
+
+{% include tracer_callout.md %}
+
+{% include figtree_callout.md %}
 
 ## EXERCISE 1: The swine-origin influenza A outbreak
 
 ### Running BEAUti
 
-The program BEAUti is a user-friendly program for setting the model parameters for BEAST. Run BEAUti by double clicking on its icon.
+The program [BEAUti](beauti) is a user-friendly program for setting the model parameters for BEAST. Run BEAUti by double clicking on its icon.
 
 #### Loading the NEXUS file 
 
-To load a NEXUS format alignment, simply select the Import NEXUS... option from the File menu.
+To load a NEXUS format alignment, simply select the `Import NEXUS...` option from the `File` menu.
 
 #### The NEXUS alignment
 
-Select the file called H1N109.nex. This file contains an alignment of 50 genomes (concatenated segments), 13109 nucleotides in length. Once loaded, the new data will be listed under Partitions as shown in the figure:
+Select the file called `H1N1pdm_2009.nex`. This file contains an alignment of 50 genomes (all 8 genomic segments concatinated), 13109 nucleotides in length. Once loaded, the new data will be listed under Partitions as shown in the figure:
 
 {% include image.html file="fig1.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
 

@@ -1,11 +1,11 @@
 ---
 title: Phylogenetic diffusion in discrete space
 keywords: phylogeography, rabies, bats, tutorial
-last_updated: August 8, 2017
+last_updated: August 9, 2017
 tags: [tutorial]
 summary: "This chapter provides a step-by-step tutorial on reconstructing the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations based on a set of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353). The data set comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States (Streicker et al., Science, 2010, 329, 676-679). Following Faria et al. (Phil. Trans. Roy. Soc. B, 2013), two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, Myotis austroriparius (Ma) and Parastrellus hesperus (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from Lasiurus borealis), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics."
 sidebar: beast_sidebar
-permalink: batRabies_discreteDiffusion_tutorial.html
+permalink: batrabies_discrete_diffusion_tutorial.html
 folder: beast
 ---
 
@@ -15,12 +15,15 @@ The first step will be to convert a NEXUS file with a DATA or CHARACTERS block i
 
 To undertake this tutorial, you will need to download three software packages in a format that is compatible with your computer system (all three are available for Mac OS X, Windows and Linux/UNIX operating systems):
 
-* BEAST - this package contains the BEAST program, BEAUti and a couple of utility programs. At the time of writing, the current version is v1.8.4. BEAST releases are  available for download from [https://github.com/beast-dev/beast-mcmc/releases]. 
-* BEAGLE -  this is a high-performance library that can perform the core calculations at the heart of most Bayesian and Maximum Likelihood phylogenetics packages. It can make use of highly-parallel processors such as those in graphics cards (GPUs) found in many PCs. Binary installers and installation instructions can be found at:
-[https://github.com/beagle-dev/beagle-lib]. 
-* Tracer - this program is used to explore the output of BEAST (and other Bayesian MCMC programs). It graphically and quantitively summarizes the empirical distributions of continuous parameters and provides diagnostic information. At the time of writing, the current version is v1.6. It is available for download from http://beast.bio.ed.ac.uk/. 
-* FigTree - this is an application for displaying and printing molecular phylogenies, in particular those obtained using BEAST. At the time of writing, the current version is v1.4.2. It is available for download from http://tree.bio.ed.ac.uk/. 
-* SpreaD3 - this is an application for the visualization of phylogeographic analyses performed with BEAST. At the time of writing, the current version is v0.9.7.1 It is available for download from https://rega.kuleuven.be/cev/ecv/software/SpreaD3.
+{% include beast_callout.md %}
+
+{% include beagle_callout.md %}
+
+{% include tracer_callout.md %}
+
+{% include figtree_callout.md %}
+
+{% include spread3_callout.md %}
 
 ## EXERCISE 1: Host and location ancestral reconstruction
 
@@ -32,7 +35,8 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 
 To load a NEXUS format alignment, simply select the `Import Data...` option from the File menu:
 
-{% include image.html file="01_ImportData.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="01_ImportData.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
+
 
 <!--
 ##### The sequence alignment
@@ -40,12 +44,12 @@ To load a NEXUS format alignment, simply select the `Import Data...` option from
 
 Select the file called batRABV.fas. This file contains an alignment of 372 nucleoprotein gene sequences of bat rabies viruses, 1353 nucleotides in length. Once loaded, the sequence data will be listed under Partitions as shown in the figure:
 
-{% include image.html file="02_sequencePartition.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="02_sequencePartition.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 <!--
 Double-click on the row of the table (but not on Partition Name) to display the actual sequence alignment:
 
-{% include image.html file="sequenceAlignment.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="sequenceAlignment.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 -->
 
 #### Specifying the sampling date information 
@@ -53,18 +57,18 @@ Double-click on the row of the table (but not on Partition Name) to display the 
 By default all the taxa are assumed to have a date of zero (i.e. the sequences are assumed to be sampled at the same time). In this case, the RABV sequences have been sampled at various years going back to 1997. To set these dates switch to the `Tips` panel using the tabs at the top of the window.
 
 <!--
-{% include image.html file="fig3.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="fig3.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 -->
 
 Select the box labelled `Use tip dates`. The actual sampling time in years is encoded in the name of each taxon and we could simply edit the value in the ‘Date’ column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the `Guess Dates` button at the top of the `Data` panel. Clicking this will make a dialog box appear:
 
-{% include image.html file="03_guessDates.png" prefix="tutorials/batRabies_discreteDiffusion/"  max-width="50%" align="center" caption="" %}
+{% include image.html file="03_guessDates.png" prefix="tutorials/bat_rabies_discrete_diffusion/"  max-width="50%" align="center" caption="" %}
 
 This operation attempts to guess what the dates are from information contained within the taxon names. It works by trying to find a numerical field within each name. If the taxon names contain more than one numerical field then you can specify how to find the one that corresponds to the date of sampling. You can (1) specify the order that the date field comes (e.g., first, last or various positions in between) or (2) specify a prefix (some characters that come immediately before the date field in each name) and the order of the field, or (3) define a regular expression (REGEX).
 
 When parsing a number, you can ask BEAUti to add a fixed value to each guessed date. For example, the value `1900` can be added to turn the dates from 2 digit years to 4 digit. Any dates in the taxon names given as `00` would thus become `1900`. However, if these `00` or `01`, etc. represent sequences sampled in 2000, 2001, etc., `2000` needs to be added to those. This can be achieved by selecting the `unless less than: ..` and `..in which case add:..` options adding for example 2000 to any date less than 10. These operations are not necessary in our case since the dates are fully specified at the end of the sequence names. There is also an option to parse calendar dates and one for calendar dates with various precisions. For the RABV sequences you can keep the default `Defined just by its order` and select `last` from the drop-down menu for the order and press `OK`. The dates will appear in the appropriate column of the main window.
 
-{% include image.html file="04_datesSpecified.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="04_datesSpecified.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 You can now check these and edit them manually as required. At the top of the window you can set the units that the dates are given in (years, months, days) and whether they are specified relative to a point in the past (as is the case for years such as 2005) or backwards in time from the present (as in the case of radiocarbon ages).
 
@@ -72,17 +76,18 @@ The `Height` column lists the ages of the tips relative to time 0 (in our case 2
 
 In our data set, the sampling date is unknown for one particular sequence (TX5275\_2002.5, the ‘2002.5’ is simply an arbitrary date that will be used as a starting value). To appropriately accommodate the uncertainty on the age of this tip, we will instruct BEAST to integrate over a particular sampling time interval for this tip. First, go back to the `Taxa` tab that we skipped, and make a taxon set for only that particular sequence. Press the small `plus` button at the bottom left of the panel; this creates a new taxon set. Rename it by double-clicking on the entry that appears (it will initially be called untitled1). Call it TX5275 and keep the default settings. Move TX5275\_2002.5 from the `Excluded Taxa` window to the `Included Taxa` window:
 
-{% include image.html file="05_taxonSet.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="05_taxonSet.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 Go back to the `Tips` tab, and in the bottom left, select the `sampling with individual priors` as `Tip date sampling` option. Apply this to the TX5275 taxa set instead of the default All taxa option. We will set a prior on its age when we get to the `Priors` tab.
 
-{% include image.html file="06_tipdateSampling.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="06_tipdateSampling.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
+
 
 #### Specifying the trait information
 
 The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a specific host and geographical location to each taxa. To associate the sequences with the these traits, we need to add a new trait under the `Traits` tab (click `Add trait`). This will open a new window to Create or Import Trait(s):
 
-{% include image.html file="07_importTrait.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="07_importTrait.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 Select `Import trait(s) from a mapping file` (the format of such a file can be shown). Browse to and load the batRABV\_hostLocation.txt tab-delimited file which contains the discrete host and location for each sequence. Note that the host species is specified using a two-character abbreviation (e.g. Ef for Eptesicus fuscus, three characters for Lbl) as shown for this snippet of the file:
 
@@ -104,7 +109,7 @@ Select `Import trait(s) from a mapping file` (the format of such a file can be s
 
 After clicking `OK`, select the host trait and click on `create partition from trait..`. This new partition will be shown under the `Partitions` tab. Do the same for the location trait (state), resulting in three partitions in the `Partitions` tab:
 
-{% include image.html file="08_traitPartitions.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="08_traitPartitions.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 #### Setting the sequence and trait evolutionary models
 
@@ -120,7 +125,7 @@ Selecting the `Unlink rate heterogeneity model across codon positions` will spec
 
 For the nucleotide model in this tutorial, keep the default HKY substitution model, set base frequencies to Empirical, and use Gamma-distributed rate variation among sites (with 4 discrete categories):
 
-{% include image.html file="09_substModel.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="09_substModel.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 Click on 'host' in the `Substitution model` window and keep the `Discrete Trait Substitution Model` to Symmetric substitution model and select the option to perform BSSVS (Infer social network with BSSVS). The Symmetric substitution model specifies a discrete state ancestral reconstruction using a standard continuous-time Markov chain (CTMC), in which the transition rates between locations are reversible. The alternative Asymmetric substitution model specifies a discrete state ancestral reconstruction using a nonreversible CTMC. Selecting the BSSVS option enables the Bayesian Stochastic Search Variable Selection procedure. This procedure will attempt to invoke a limited number of rates (at least k-1, where k is the number of states) to adequately explain the phylogenetic diffusion process.
 
@@ -132,7 +137,7 @@ Apply the same discrete diffusion model settings to the spatial ‘state’ trai
 
 The ‘Molecular Clock Model’ options in the `Clocks` panel allows us to choose between a strict and a relaxed (uncorrelated lognormal or uncorrelated exponential) clock. We will perform our run using the default Strict clock model:
 
-{% include image.html file="11_clockModel.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="11_clockModel.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 We can also keep default settings for overall rate scalers in the host and location state transition processes.
 
@@ -142,13 +147,13 @@ Now move on to the `Trees` panel.
 
 This panel contains settings about the tree. Firstly the starting tree is specified to be ‘randomly generated’. The other main setting here is to specify the ‘Tree prior’ which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. In this tutorial, we will keep these default settings.
 
-{% include image.html file="12_treePrior.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="12_treePrior.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 #### The ancestral states settings
 
 In the `States` panel, check that for the host and state partition the option to Reconstruct states at all ancestors is selected (by default).
 
-{% include image.html file="13_statesPanel.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="13_statesPanel.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 <!--
 edited up to here
@@ -159,7 +164,7 @@ edited up to here
 
 Now switch to the ‘Priors’ tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. A prior allows the user to ‘inform’ the analysis by selecting a particular distribution. Although some of the default priors may be improper, with sufficiently informative data the posterior becomes proper. If priors or not set, they will appear in red.
 
-{% include image.html file="fig9.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="fig9.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 Note that a prior distribution must be specified for every parameter and whilst BEAUti provides default options these are not necessarily tailored to the problem and data being analyzed. In this case, the default Laplace prior prefers relatively small growth rates while this parameter take can take on relatively large values on this epidemic scale. Therefore, we will increase the variance of this prior distribution by setting the scale to 100. 
 
@@ -169,7 +174,7 @@ The default prior on the rate of evolution (clock.rate) is an approximation of a
 
 Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs. The ‘Operators’ tab in BEAUti has a table that lists the parameters, their operators and the tuning settings for these operators:
 
-{% include image.html file="fig10.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="fig10.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 In the first column are the parameter names. These will be called things like kappa which means the HKY model's kappa parameter (the transition-transversion bias). The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a proportion, the random walk operator adds or subtracts an amount to the parameter and the uniform operator simply picks a new value uniformly within a range. Some parameters relate to the tree or to the divergence times of the nodes of the tree and these have special operators.
 
@@ -181,7 +186,7 @@ The next column, labelled ‘Weight’, specifies how often each operator is app
 
 The ‘MCMC’ tab in BEAUti provides settings to control the MCMC chain. Firstly we have the ‘Length of chain’. This is the number of steps the MCMC will make in the chain before finishing. How long this should be depends on the size of the dataset, the complexity of the model and the precision of the answer required. The default value of 10,000,000 is entirely arbitrary and should be adjusted according to the size of your dataset. We will see later how the resulting log file can be analysed using Tracer in order to examine whether a particular chain length is adequate. Change the chain length to 1,000,000 for our initial test run.
 
-{% include image.html file="fig11.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="fig11.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 The next couple of options specify how often the current parameter values should be displayed on the screen and recorded in the log file. The screen output is simply for monitoring the program's progress so can be set to any value (although if set too small, the sheer quantity of information being displayed on the screen will slow the program down). For the log file, the value should be set relative to the total length of the chain. Sampling too often will result in very large files with little extra benefit in terms of the precision of the estimates. Sample too infrequently and the log file will not contain much information about the distributions of the parameters. You probably want to aim to store no more than 10,000 samples so this should be set to the chain length / 10,000. For this dataset let's initially set the chain length to 100,000 as this will run reasonably quickly on most modern computers. Although the suggestion above would indicate a lower sampling frequency, in this case set both the sampling frequencies to 100. A useful exercise could be to examine the sensitity of the growth rate estimates to different scale values for this prior distribution (e.g. scale = 1, 10, 100).
 
@@ -191,7 +196,7 @@ The next option allows the user to set the File stem name; if not set to ‘H1N1
 
 Once the BEAST XML file has been created the analysis itself can be performed using BEAST. The exact instructions for running BEAST depends on the computer you are using, but in most cases a dialog box will appear in which you select the XML file:
 
-{% include image.html file="fig12.png" prefix="tutorials/batRabies_discreteDiffusion/"  max-width="50%" align="center" caption="" %}
+{% include image.html file="fig12.png" prefix="tutorials/bat_rabies_discrete_diffusion/"  max-width="50%" align="center" caption="" %}
 
 Press the ‘Choose File’ button and select the XML file you just created and press ‘Run’. When you have installed the BEAGLE library (https://github.com/beagle-dev/beagle-lib), you can use this in conjunction with BEAST to speed up the calculations. If not installed, unselect the use of the BEAGLE library. If the command line version of BEAST is being used then the name of the XML file is given after the name of the BEAST executable. The analysis will then be performed with detailed information about the progress of the run being written to the screen. When it has finished, the log file and the trees file will have been created in the same location as your XML file. 
 
@@ -201,7 +206,7 @@ To analyze the results of running BEAST we are going to use the program Tracer. 
 
 Select the ‘‘Import Trace File...’ option from the ‘File’ menu. If you have it available, select the log file that you created in the previous section. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
 
-{% include image.html file="fig13.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="fig13.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 On the left hand side is the name of the log file loaded and the traces that it contains. There are traces for the posterior (this is the log of the product of the tree likelihood and the prior probabilities), and the continuous parameters. Selecting a trace on the left brings up analyses for this trace on the right hand side depending on tab that is selected. When first opened, the `posterior' trace is selected and various statistics of this trace are shown under the Estimates tab.
 
@@ -219,7 +224,7 @@ Note that the effective sample sizes (ESSs) for all the traces are small (ESSs l
 
 If we select the tab on the right-hand-side labelled `Trace` we can view the raw trace (e.g for treeModel.rootHeight), that is, the sampled values against the  step in the MCMC chain.
 
-{% include image.html file="fig14.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="fig14.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 Here you can see how the samples are correlated. There are 1000 samples in the trace (we ran the MCMC for 1,000,000 steps sampling every 1000) but it is clear that adjacent samples often tend to have similar values. The ESS for the clock.rate is about 17, so we are only getting 1 independent sample to every 60 actual samples). It also seems that the default burn-in of 10% of the chain length is inadequate (the posterior values are still increasing over the first part of the chain). Not excluding enough of the start of the chain as burn-in will bias the results and render estimates of ESS unreliable.
 
@@ -227,7 +232,7 @@ The analysis needs to be run longer. The lowest ESS of about 3 suggests that we 
 
 Again we have chosen options that produce 1000 samples and with an ESS of > 400 for the coalescent model parameters there is little auto-correlation between the samples. There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, and there are no large-scale fluctuations in the trace which would suggest poor mixing. As we are satisfied with the behavior of the MCMC we can now move on to one of the parameters of interest: substitution rate. Select clock.rate in the left-hand table. This is the average substitution rate across all sites in the alignment. Now choose the density plot by selecting the tab labeled ‘Marginal Prob Distribution’. This shows a plot of the posterior probability density of this parameter. You should see a plot similar to this:
 
-{% include image.html file="fig15.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="fig15.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 As you can see the posterior probability density is roughly bell-shaped. When looking at the equivalent histogram in the Estimates panel, there is some sampling noise which is smoothened by the KDE; this would be reduced if we ran the chain for longer but we already have a reasonable estimate of the mean and HPD interval. The treeModel.rootHeight parameter provides an estimate of the time to the most recent common ancestor since the most recent sampling data (in our case: 2009.403). What would be the mean estimate for the date of the MRCA?
 
@@ -239,7 +244,7 @@ We have seen how we can diagnose our MCMC run using Tracer and produce estimates
 
 In this tutorial, however, we are going to use a tool that is provided as part of the BEAST package to summarize the information contained within our sampled trees. The tool is called TreeAnnotator and once running, you will be presented with a window like the one below.
 
-{% include image.html file="fig16.png" max-width="50%" align="center" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="fig16.png" max-width="50%" align="center" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree.
 
@@ -263,7 +268,7 @@ Once you have selected all the options, above, press the ‘Run’ button. TreeA
 
 Run FigTree now and select the ‘Open...’ command from the ‘File’ menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the FigTree window. On the left hand side of the window are the options and settings which control how the tree is displayed. In this case we want to display the posterior probabilities of each of the clades present in the tree and estimates of the age of each node. In order to do this you need to change some of the settings.
 
-{% include image.html file="fig17.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="fig17.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 First, re-order the node order by Increasing Node Order under the Tree Menu. Click on Branch Labels in the control panel on the left and open its section by clicking on the arrow on the left. Now select posterior under the Display option.
 
@@ -296,64 +301,6 @@ Calculate the growth rate for pandemic influenza H1N1 (see page 12 of this tutor
 Summarize the trees of the longer run using treeAnnotator (burn-in = 500,000 states or 100 trees).
 
 #### Visualize the tree in FigTree.
-
-## EXERCISE 2: reconstructing H3N2 epidemic dynamics in the New York state.
-
-In this exercise, we will reconstruct a Bayesian skygrid of H3N2 spread during three epidemic seasons. The data set, NewYork.HA.2000-2003.nex, contains 165 Hemagglutinin genes and takes more time to run in BEAST than available during a practical session. Therefore, this tutorial will discuss how to set up this analysis and how to summarize the results based on runs that have already been performed.
-
-### Running BEAUti
-
-Run BEAUti, load the nexus file (NewYork.HA.2000-2003.nex) and set the dates to the last numerical field in the taxa names as previously. Set the same evolutionary model (including gamma distributed rate variation) and clock model as in the previous exercise. In the ‘Trees’ tab, select a ‘Coalescent: Bayesian SkyGrid’ as the ‘Tree Prior’. We will construct a grid of 50 intervals over 5 years (Time at point) prior to the most recent sampling dates (2003.98 in our case, so going back to about 1999) requiring us to estimate 10 population sizes by year.
-
-{% include image.html file="fig18.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
- 
-### Analyzing the BEAST output
-
-Using Tracer, we can analyze the run based on the output files provided (load the file called ‘NewYork.HA.2000-2003.log’):
-
-{% include image.html file="fig19.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
-
-To reconstruct the Bayesian skygrid plot, select ‘SkyGrid reconstruction...’ under the Analysis window. The following window should appear:
-
-{% include image.html file="fig20.png" prefix="tutorials/batRabies_discreteDiffusion/"  max-width="50%" align="center" caption="" %}
-
-Set the manual bin range from 1999 to 2004 and specify ‘2003.98’ as the ‘Age of the youngest tip’ at the bottom. Press ‘OK’ and after some time, the following Bayesian skyGrid reconstruction should appear (with solid interval selected):
-
-{% include image.html file="fig21.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
-
-Output files for a Bayesian skyline plot analysis are also provided for comparison. To reconstruct a Bayesian skyline plot based on these, select ‘Bayesian Skyline reconstruction’ under the Analysis window.
-
-### Some Questions
-
-What type of dynamics does the H3N2 skyride plot suggest? Would you expect to see the similar dynamics for H3N2 sampled in a southern hemisphere location?
-
-Is the H1N1/09 evolutionary rate similar to the H3N2 evolutionary rate? If not, what could explain their differences.
-
-Based on the H1N1/09 tree inferred from a limited sampling, how many H1N1/09 introductions in New York would you conclude for this sample?
-
-### A quick how-to summary
-
-#### Run BEAUti.
-
-Load a NEXUS format alignment by selecting the Import Data... option from the File menu. Select the file called NewYork.HA.2000-2003.nex. 
-
-In the Tips tab, select the box labelled Use tip dates and click the Guess Dates button. Keep the default Defined just by its order and select last from the drop-down menu for the order and press OK.
-
-In the Sites tab, keep the default HKY substitution model for the nucleotide data and base frequencies as Estimated. Select ‘Gamma’ as ‘Site Heterogeneity Model’ (with 4 discrete categories) before proceeding to the ‘Clocks’ tab.
-
-In the Clocks tab, keep a strict clock model.
-
-In the Trees tab, set the option for Tree Prior to Coalescent: Bayesian SkyGrid with 50 parameters and a 5 year cut-off (Time at last point).
-
-In the Priors tab, keep the default prior settings.
-
-In the MCMC tab, set the chain length to 25,000,000 and both the sampling frequencies to 5000. Set the File name stem to NewYork.HA.2000-2003 and generate the beast file (NewYork.HA.2000-2003.xml).
-
-#### Run BEAST and load the xml file.
-
-Analyze the output using Tracer. Analyze the output file for the longer runs.
-
-Reconstruct a Bayesian skyride plot by selecting ‘SkyGrid reconstruction...’ under the Analysis window (bin range = 1999-2004 and age of the youngest tip = 2003.98).
 
 ## References
 Drummond AJ, Rambaut A (2007) BEAST: Bayesian evolutionary analysis by sampling trees. BMC Evolutionary Biology 7: 214.

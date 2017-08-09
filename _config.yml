@@ -108,4 +108,22 @@ url: http://github.com/beast-dev
 
 gems:
   - jekyll-redirect-from
-  
+
+beast_version: "1.8.4"
+beast_download_url: "https://github.com/beast-dev/beast-mcmc/releases"
+beast_source_url: "https://github.com/beast-dev/beast-mcmc"
+beast_mac_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.8.4/BEAST.v1.8.4.dmg"
+beast_linux_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.8.4/BEASTv1.8.4.tgz"
+beast_linux_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.8.4/BEAST.v1.8.4.zip"
+
+tracer_version: "1.6.0"
+tracer_url: "http://tree.bio.ed.ac.uk/software/tracer/"
+
+figtree_version: "1.4.3"
+figtree_url: "http://tree.bio.ed.ac.uk/software/figtree/"
+
+beagle_version: "2.1"
+beagle_url: "https://github.com/beagle-dev/beagle-lib"
+
+spread3_version: "0.9.7.1"
+spread3_url: "https://rega.kuleuven.be/cev/ecv/software/SpreaD3"

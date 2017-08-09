@@ -1,9 +1,9 @@
 ---
 title: How to setup hierarchical models for sets of parameters
 keywords: beast, tutorial
-last_updated: August 3, 2017
+last_updated: August 9, 2017
 tags: [tutorial]
-summary: ""
+summary: "Setting up hierarchical phylogenetic models for different scenarios."
 sidebar: beast_sidebar
 permalink: hierarchical_models.html
 folder: beast
@@ -11,6 +11,10 @@ redirect_from: "/HPMs"
 ---
 
 ## Setting up Hierarchical Phylogenetic Models (HPMs)
+
+To set up HPM models using this tutorial, you only need to download the BEAST software package in a format that is compatible with your computer system (all three are available for Mac OS X, Windows and Linux/UNIX operating systems):
+
+{% include beast_callout.md %}
 
 ### HPM across Different Partitions within a Species
 
