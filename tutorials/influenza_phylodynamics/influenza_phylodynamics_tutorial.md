@@ -15,11 +15,11 @@ The first step will be to convert a NEXUS file with a DATA or CHARACTERS block i
 
 To undertake this tutorial, you will need to download three software packages in a format that is compatible with your computer system (all three are available for Mac OS X, Windows and Linux/UNIX operating systems):
 
-{% include icon-callout.html file='icons/beast-icon.png' url='beast' content='BEAST - this package contains the BEAST program, BEAUti and a couple of utility programs. At the time of writing, the current version is v1.8.4. BEAST releases are  available for download from <a href="https://github.com/beast-dev/beast-mcmc/releases">https://github.com/beast-dev/beast-mcmc/releases</a>.' %}
+{% include beast_callout.md %}
 
-{% include icon-callout.html file='icons/tracer-icon.png' url='tracer' content='Tracer - this program is used to explore the output of BEAST (and other Bayesian MCMC programs). It graphically and quantitively summarizes the empirical distributions of continuous parameters and provides diagnostic information. At the time of writing, the current version is v1.6. It is available for download from <a href="http://beast.bio.ed.ac.uk/">http://beast.bio.ed.ac.uk/</a>.' %}
+{% include tracer_callout.md %}
 
-{% include icon-callout.html file='icons/figtree-icon.png' url='figtree' content='FigTree - this is an application for displaying and printing molecular phylogenies, in particular those obtained using BEAST. At the time of writing, the current version is v1.4.3. It is available for download from <a href="http://tree.bio.ed.ac.uk/" >http://tree.bio.ed.ac.uk/</a>.' %}
+{% include figtree_callout.md %}
 
 ## EXERCISE 1: The swine-origin influenza A outbreak
 

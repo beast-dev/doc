@@ -2,7 +2,7 @@
     <div style="width: 100%; display: table;">
         <div style="display: table-row">
             <div style="width: 1%; display: table-cell; text-align: right">
-                <a href="beast">
+                <a href="beagle">
                     <img src="/images/icons/beagle-icon.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
                 </a>
             </div>

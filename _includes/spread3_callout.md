@@ -2,7 +2,7 @@
     <div style="width: 100%; display: table;">
         <div style="display: table-row">
             <div style="width: 1%; display: table-cell; text-align: right">
-                <a href="beast">
+                <a href="spread3">
                     <img src="/images/icons/spread3-icon.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
                 </a>
             </div>
