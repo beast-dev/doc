@@ -288,7 +288,31 @@ Ideally, you should have 64-bit versions installed of both operating system and 
                 			</div>
                 		</div>
                 	</div>
-                	<!-- /.panel -->
+    <!-- /.panel -->
+    
+    <div class="panel panel-default">
+                    		<div class="panel-heading">
+                    			<div class="panel-title">
+                    				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#beagle-accordion" href="#collapseTwelve">
+CUDA error: "No binary for GPU" from file &lt;GPUInterfaceCUDA.cpp&gt;, line 257.
+                    				</a>
+                    			</div>
+                    		</div>
+                    		<div id="collapseTwelve" class="panel-collapse collapse noCrossRef">
+                    			<div class="panel-body">
+This error message indicates a problem with the CUDA installation on your system.
+When running the ./configure script as part of the <a href="https://github.com/beagle-dev/beagle-lib">BEAGLE installation instructions</a>, pay attention to possible error messages at the end.
+For example, you may get the following message:
+<pre>
+configure: WARNING: NVIDIA CUDA nvcc compiler not found or CUDA support disabled.  
+CUDA implementation will not be built. 
+If CUDA support is desired, check the path to CUDA and specify --with-cuda=/path/to/cuda
+</pre>
+If so, you may need to give it the path to the CUDA SDK installation (or perhaps you haven’t installed the CUDA SDK - i.e., not just the drivers).
+                    			</div>
+                    		</div>
+                    	</div>
+        <!-- /.panel -->
 
 </div>
 
