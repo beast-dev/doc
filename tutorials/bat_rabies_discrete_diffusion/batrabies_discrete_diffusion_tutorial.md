@@ -155,20 +155,17 @@ In the `States` panel, check that for the host and state partition the option to
 
 {% include image.html file="13_statesPanel.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
+#### Setting up the priors
+
+Review the prior settings under the `Priors` tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. A prior allows the user to ‘inform’ the analysis by selecting a particular distribution. Although some of the default priors may be improper, with sufficiently informative data the posterior becomes proper. If priors or not set, they will appear in red.
+
+The default prior on the rate of evolution (clock.rate) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). The same is applied to the discrete host and location state rate. There is also a default uniform prior specification for the age of TX5275 (age(TX5275_2002.5) ). We will assume that the sampling time for this tip is bounded by the sampling time range for all taxa this data set, implying that it is sampled between 1997.5 and 2005.5. Click on the current uniform prior setting, set the Upper age to 8 years (reflecting the 1997.5 boundary) and click OK.
+
+{% include image.html file="14_priors.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
+
 <!--
 edited up to here
 -->
-
-#### Setting up the priors
-
-
-Now switch to the ‘Priors’ tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. A prior allows the user to ‘inform’ the analysis by selecting a particular distribution. Although some of the default priors may be improper, with sufficiently informative data the posterior becomes proper. If priors or not set, they will appear in red.
-
-{% include image.html file="fig9.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
-
-Note that a prior distribution must be specified for every parameter and whilst BEAUti provides default options these are not necessarily tailored to the problem and data being analyzed. In this case, the default Laplace prior prefers relatively small growth rates while this parameter take can take on relatively large values on this epidemic scale. Therefore, we will increase the variance of this prior distribution by setting the scale to 100. 
-
-The default prior on the rate of evolution (clock.rate) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). If the sequences are not associated with different sampling dates (they are contemporaneous), or when the sampling time range is trivial for the evolutionary scale of the taxa, the substitution rate can be fixed to a value based on another source, or better, a prior distribution can be specified to also incorporate the uncertainty of this ‘external’ rate. Fixing the rate to 1.0 will result in the ages of the nodes of the tree being estimated in units of substitutions per site (i.e. the normal units of branch lengths in popular packages such as MrBayes). Note that when selecting to fix the rate to a value, the transition kernel(s) on this parameter (‘Operators’ panel, see next section) will be  automatically unselected.
 
 #### Setting up the operators
 
