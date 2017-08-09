@@ -15,7 +15,7 @@ folder: beast/installing
 
 BEAST can be downloaded from the following link:
 
-- [BEAST v1.8.4 - UNIX/Linux version 18.9MB](https://github.com/beast-dev/beast-mcmc/releases/download/v1.8.4/BEASTv1.8.4.tgz)
+- [BEAST v{{ site.beast_version }} - UNIX/Linux version 18.9MB]({{ beast_mac_download_url }})
 
 This will download a compressed tar archive (a '.tgz' file). 
 

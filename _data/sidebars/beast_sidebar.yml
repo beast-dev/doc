@@ -151,6 +151,10 @@ entries:
       url: /influenza_phylodynamic_tutorial
       output: web, pdf
 
+    - title: Discrete Spatial Diffusion in Bat Rabies
+      url: /batrabies_discrete_diffusion_tutorial
+      output: web, pdf
+
   - title: Reference
     output: web, pdf
     folderitems:

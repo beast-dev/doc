@@ -13,7 +13,7 @@ folder: beast/installing
 
 BEAST can be downloaded from the following link:
 
-- [BEAST v1.8.4 - Mac OS X binary 66.1MB](https://github.com/beast-dev/beast-mcmc/releases/download/v1.8.4/BEAST.v1.8.4.dmg)
+- [BEAST v{{ site.beast_version }} - Mac OS X binary 66.1MB]({{ beast_mac_download_url }})
 
 This will download a disk image (a '.dmg' file) probably into your Downloads folder. 
 

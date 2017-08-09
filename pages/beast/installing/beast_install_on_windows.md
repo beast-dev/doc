@@ -13,7 +13,7 @@ folder: beast/installing
 
 BEAST can be downloaded from the following link:
 
-- [BEAST v1.8.4 - Windows version 58MB](https://github.com/beast-dev/beast-mcmc/releases/download/v1.8.4/BEAST.v1.8.4.zip)
+- [BEAST v{{ site.beast_version }} - Windows version 58MB]({{ beast_mac_download_url }})
 
 This will download a compressed ZIP archive (a '.zip' file). 
 
@@ -32,7 +32,7 @@ Once installed, you will automatically get updates to the latest version.
 
 ## Installing BEAST
 
-Unzip the downloaded compressed ZIP archive (currently 'BEASTv1.8.4.zip').
+Unzip the downloaded compressed ZIP archive (currently `BEAST.v{{ site.beast_version }}.zip`).
 The unzipped files contain executable binaries for [BEAST](beast), [BEAUti](beauti), [LogCombiner](logcombiner), [TreeAnnotator](treeannotator) and [TreeStat](treestat).
 Double-clicking on those files will automatically start the corresponding program.
 
