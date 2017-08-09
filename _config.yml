@@ -108,4 +108,5 @@ url: http://github.com/beast-dev
 
 gems:
   - jekyll-redirect-from
-  
+
+beast_version: "1.8.4"
