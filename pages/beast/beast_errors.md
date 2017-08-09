@@ -154,6 +154,14 @@ If you're unsure where you've installed BEAGLE, you can locate the BEAGLE librar
 <pre>
 locate libhmsbeagle-jni.so
 </pre>
+On Windows, it may be necessary to restart your computer after installing BEAGLE, in order for the system's environment variables to be set up correctly.
+If that doesn't work, you can try copying the BEAGLE DLL files from C:\Program Files\Common Files:
+<pre>
+hmsbeagle64.dll
+hmsbeagle-cpu64.dll
+hmsbeagle-opencl64.dll
+</pre>
+to the same directory that holds you BEAST executable, e.g. BEASTv{{ site.beast_version }}.exe.
 			</div>
 		</div>
 	</div>
