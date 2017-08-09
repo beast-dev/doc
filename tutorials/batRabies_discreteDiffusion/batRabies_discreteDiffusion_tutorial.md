@@ -32,7 +32,7 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 
 To load a NEXUS format alignment, simply select the `Import Data...` option from the File menu:
 
-{% include image.html file="ImportData.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="01_ImportData.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
 
 <!--
 ##### The sequence alignment
@@ -40,7 +40,7 @@ To load a NEXUS format alignment, simply select the `Import Data...` option from
 
 Select the file called batRABV.fas. This file contains an alignment of 372 nucleoprotein gene sequences of bat rabies viruses, 1353 nucleotides in length. Once loaded, the sequence data will be listed under Partitions as shown in the figure:
 
-{% include image.html file="sequencePartition.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="02_sequencePartition.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
 
 <!--
 Double-click on the row of the table (but not on Partition Name) to display the actual sequence alignment:
@@ -58,33 +58,33 @@ By default all the taxa are assumed to have a date of zero (i.e. the sequences a
 
 Select the box labelled `Use tip dates`. The actual sampling time in years is encoded in the name of each taxon and we could simply edit the value in the ‘Date’ column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the `Guess Dates` button at the top of the `Data` panel. Clicking this will make a dialog box appear:
 
-{% include image.html file="guessDates.png" prefix="tutorials/batRabies_discreteDiffusion/"  max-width="50%" align="center" caption="" %}
+{% include image.html file="03_guessDates.png" prefix="tutorials/batRabies_discreteDiffusion/"  max-width="50%" align="center" caption="" %}
 
 This operation attempts to guess what the dates are from information contained within the taxon names. It works by trying to find a numerical field within each name. If the taxon names contain more than one numerical field then you can specify how to find the one that corresponds to the date of sampling. You can (1) specify the order that the date field comes (e.g., first, last or various positions in between) or (2) specify a prefix (some characters that come immediately before the date field in each name) and the order of the field, or (3) define a regular expression (REGEX).
 
 When parsing a number, you can ask BEAUti to add a fixed value to each guessed date. For example, the value `1900` can be added to turn the dates from 2 digit years to 4 digit. Any dates in the taxon names given as `00` would thus become `1900`. However, if these `00` or `01`, etc. represent sequences sampled in 2000, 2001, etc., `2000` needs to be added to those. This can be achieved by selecting the `unless less than: ..` and `..in which case add:..` options adding for example 2000 to any date less than 10. These operations are not necessary in our case since the dates are fully specified at the end of the sequence names. There is also an option to parse calendar dates and one for calendar dates with various precisions. For the RABV sequences you can keep the default `Defined just by its order` and select `last` from the drop-down menu for the order and press `OK`. The dates will appear in the appropriate column of the main window.
 
-{% include image.html file="datesSpecified.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="04_datesSpecified.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
 
 You can now check these and edit them manually as required. At the top of the window you can set the units that the dates are given in (years, months, days) and whether they are specified relative to a point in the past (as is the case for years such as 2005) or backwards in time from the present (as in the case of radiocarbon ages).
 
 The `Height` column lists the ages of the tips relative to time 0 (in our case 2005.5). The `Precision` column allows specifying with what precision the sampling time is know. To include taxa only known up to the year of sampling for example, a precision of 1 year can be set and the age of those tips can be integrated over the time interval of 1 year using the Tip date sampling option at the bottom left of the Tips panel. A precision of one year could be specified for this RABV data set, but the imprecision is small relative to the time scale of this evolutionary history, so we will not use it for this analysis.
 
-In our data set, the sampling date is unknown for one particular sequence (TX5275\_2002.5, the ‘2002.5’ is simply an arbitrary date that will be used as a starting value). To appropriately accommodate the uncertainty on the age of this tip, we will instruct BEAST to integrate over a particular sampling time interval for this tip. First, go back to the `Taxa` tab that we skipped, and make a taxon set for only that particular sequence. Press the small `plus` button at the bottom left of the panel; this creates a new taxon set. Rename it by double-clicking on the entry that appears (it will initially be called untitled1). Call it TX5275 and keep the default settings. Move TX5275_2002.5 from the `Excluded Taxa` window to the `Included Taxa` window:
+In our data set, the sampling date is unknown for one particular sequence (TX5275\_2002.5, the ‘2002.5’ is simply an arbitrary date that will be used as a starting value). To appropriately accommodate the uncertainty on the age of this tip, we will instruct BEAST to integrate over a particular sampling time interval for this tip. First, go back to the `Taxa` tab that we skipped, and make a taxon set for only that particular sequence. Press the small `plus` button at the bottom left of the panel; this creates a new taxon set. Rename it by double-clicking on the entry that appears (it will initially be called untitled1). Call it TX5275 and keep the default settings. Move TX5275\_2002.5 from the `Excluded Taxa` window to the `Included Taxa` window:
 
-{% include image.html file="taxonSet.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="05_taxonSet.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
 
 Go back to the `Tips` tab, and in the bottom left, select the `sampling with individual priors` as `Tip date sampling` option. Apply this to the TX5275 taxa set instead of the default All taxa option. We will set a prior on its age when we get to the `Priors` tab.
 
-{% include image.html file="tipdateSampling.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="06_tipdateSampling.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
 
 #### Specifying the trait information
 
 The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a specific host and geographical location to each taxa. To associate the sequences with the these traits, we need to add a new trait under the `Traits` tab (click `Add trait`). This will open a new window to Create or Import Trait(s):
 
-{% include image.html file="importTrait.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="07_importTrait.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
 
-Select `Import trait(s) from a mapping file` (the format of such a file can be shown). Browse to and load the batRABV_hostLocation.txt tab-delimited file which contains the discrete host and location for each sequence. Note that the host species is specified using a two-character abbreviation (e.g. Ef for Eptesicus fuscus, three characters for Lbl) as shown for this snippet of the file:
+Select `Import trait(s) from a mapping file` (the format of such a file can be shown). Browse to and load the batRABV\_hostLocation.txt tab-delimited file which contains the discrete host and location for each sequence. Note that the host species is specified using a two-character abbreviation (e.g. Ef for Eptesicus fuscus, three characters for Lbl) as shown for this snippet of the file:
 
 	traits	host	state
 	AZ4030\_2005.5	Ap	Arizona
@@ -100,49 +100,62 @@ Select `Import trait(s) from a mapping file` (the format of such a file can be s
 	CA0100\_2005.5	Ef	California
 	GA31940\_2004.5	Ef	Georgia
 		...
-	TX3545_2004.5	Tb	Texas
+	TX3545\_2004.5	Tb	Texas
 
 After clicking `OK`, select the host trait and click on `create partition from trait..`. This new partition will be shown under the `Partitions` tab. Do the same for the location trait (state), resulting in three partitions in the `Partitions` tab:
 
-{% include image.html file="traitPartitions.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="08_traitPartitions.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
 
 #### Setting the sequence and trait evolutionary models
+
+The next thing to do is to click on the `Sites` tab at the top of the main window. This will reveal the evolutionary model settings for BEAST. Exactly which options appear depend on whether the data are nucleotides, amino acids or traits. 
+
+This tutorial assumes that you are familiar with the evolutionary models available, however there are a couple of points to note about selecting a model in BEAUti:
+
+Selecting the `Partition into codon positions` option assumes that the data are aligned as codons. This option will then estimate a separate rate of substitution for each codon position, or for 1+2 versus 3, depending on the setting.
+
+Selecting the `Unlink substitution model across codon positions` will specify that BEAST should estimate a separate transition-transversion ratio or general time reversible rate matrix for each codon position. 
+
+Selecting the `Unlink rate heterogeneity model across codon positions` will specify that BEAST should estimate a set of rate heterogeneity parameters (gamma shape parameter and/or proportion of invariant sites) for each codon position. 
+
+For the nucleotide model in this tutorial, keep the default HKY substitution model, set base frequencies to Empirical, and use Gamma-distributed rate variation among sites (with 4 discrete categories):
+
+{% include image.html file="09_substModel.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+
+Click on 'host' in the `Substitution model` window and keep the `Discrete Trait Substitution Model` to Symmetric substitution model and select the option to perform BSSVS (Infer social network with BSSVS). The Symmetric substitution model specifies a discrete state ancestral reconstruction using a standard continuous-time Markov chain (CTMC), in which the transition rates between locations are reversible. The alternative Asymmetric substitution model specifies a discrete state ancestral reconstruction using a nonreversible CTMC. Selecting the BSSVS option enables the Bayesian Stochastic Search Variable Selection procedure. This procedure will attempt to invoke a limited number of rates (at least k-1, where k is the number of states) to adequately explain the phylogenetic diffusion process.
+
+{% include image.html file="10_hostModel.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+
+Apply the same discrete diffusion model settings to the spatial ‘state’ trait.
+
+#### Setting the ‘molecular clock’ model
+
+The ‘Molecular Clock Model’ options in the `Clocks` panel allows us to choose between a strict and a relaxed (uncorrelated lognormal or uncorrelated exponential) clock. We will perform our run using the default Strict clock model:
+
+{% include image.html file="11_clockModel.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+
+We can also keep default settings for overall rate scalers in the host and location state transition processes.
+
+Now move on to the `Trees` panel.
+
+#### Setting the tree prior
+
+This panel contains settings about the tree. Firstly the starting tree is specified to be ‘randomly generated’. The other main setting here is to specify the ‘Tree prior’ which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. In this tutorial, we will keep these default settings.
+
+{% include image.html file="12_treePrior.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+
+#### The ancestral states settings
+
+In the `States` panel, check that for the host and state partition the option to Reconstruct states at all ancestors is selected (by default).
+
+{% include image.html file="13_statesPanel.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
 
 <!--
 edited up to here
 -->
 
-The next thing to do is to click on the `Sites` tab at the top of the main window. This will reveal the evolutionary model settings for BEAST. Exactly which options appear depend on whether the data are nucleotides or amino acids.
-
-This tutorial assumes that you are familiar with the evolutionary models available, however there are a couple of points to note about selecting a model in BEAUti:
-
-Selecting the ‘Partition into codon positions’ option assumes that the data are aligned as codons. This option will then estimate a separate rate of substitution for each codon position, or for 1+2 versus 3, depending on the setting.
-
-Selecting the ‘Unlink substitution model across codon positions’ will specify that BEAST should estimate a separate transition-transversion ratio or general time reversible rate matrix for each codon position. 
-
-Selecting the ‘Unlink rate heterogeneity model across codon positions’ will specify that BEAST should estimate a set of rate heterogeneity parameters (gamma shape parameter and/or proportion of invariant sites) for each codon position. 
-
-{% include image.html file="fig6.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
-
-For this tutorial, keep the default ‘HKY’ model, the default ‘Estimated’ base frequencies and select ‘Gamma’ as ‘Site Heterogeneity Model’ (with 4 discrete categories) before proceeding to the ‘Clocks’ tab. 
-
-#### Setting the ‘molecular clock’ model
-
-The ‘Molecular Clock Model’  options allows us to choose between a strict and a relaxed (uncorrelated lognormal or uncorrelated exponential) clock. Because of the low diversity data we analyze here, a relaxed clock would probably be over-parameterization. Hence, we keep a strict clock setting. 
-
-{% include image.html file="fig7.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
-
-Now move on to the ‘Trees’ panel.
-
-#### Setting the tree prior
-
-This panel contains settings about the tree. Firstly the starting tree is specified to be ‘randomly generated’. The other main setting here is to specify the ‘Tree prior’ which describes how the population size is expected to change over time for coalescent models. The default tree prior is set to a constant size coalescent prior. 
-
-To estimate the epidemic growth rate, we will change this demographic model to an exponential growth coalescent prior, which is intuitively appealing for viral outbreaks. Switch the option for ‘Tree Prior’ to ‘Coalescent: Exponential Growth’:
-
-{% include image.html file="fig8.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
-
 #### Setting up the priors
+
 
 Now switch to the ‘Priors’ tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. A prior allows the user to ‘inform’ the analysis by selecting a particular distribution. Although some of the default priors may be improper, with sufficiently informative data the posterior becomes proper. If priors or not set, they will appear in red.
 
