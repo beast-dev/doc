@@ -298,10 +298,8 @@ We can obtain a similar summary for the host transition rates. Since these canno
 
 Which rates receive the highest Bayes factor support?
 
+<!-- This needs to be updated for this tutorial -->
 <!--
-edited up to here
--->
-
 ### A quick how-to summary for Exercise 1
 
 #### Run BEAUti.
@@ -327,28 +325,40 @@ Calculate the growth rate for pandemic influenza H1N1 (see page 12 of this tutor
 Summarize the trees of the longer run using treeAnnotator (burn-in = 500,000 states or 100 trees).
 
 #### Visualize the tree in FigTree.
+-->
+
+## EXERCISE 2: Identifying predictors for the host transitioning process
+
+This exercise builds on the previous analysis and aims at testing the factors that drive the host transitioning process for bat rabies viruses in North America. The original analyses resorted a population genetic approach and post hoc statistical procedures to test such predictors (Streicker et al., 2010); here we adopt an extension of the discrete diffusion model as applied by Faria et al. (2013). This extension parameterizes the CTMC matrix as a generalized linear model (GLM), in which log CTMC rates are a log linear function of several potential predictors (most of the detail on the model can be found in Lemey et al., 2014). We use the predictors originally proposed by Streicker et al. (2010): host phylogenetic distance (based on host mitochondrial DNA), geographic range overlap, roost structure overlap, and foraging niche overlap as approximated using three morphological measurements: wing aspect ratio, wing loading and body length, which are associated with foraging behavior in bats. We also consider sequence sample sizes, which can bias ancestral reconstructions, for both the 'donor' and 'recipient' host as additional predictors (cfr. Lemey et al., 2014).
+
+Repeat the first BEAUti steps up to setting the setting the sequence and trait evolutionary models. In case the BEAUti session from the previous exercise has not been closed yet, simply go back to the `Sites` panel. For the 'host' trait under `Substitution Model`, select `Generalized Linear Model`:
+
+{% include image.html file="25_GLMinSites.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
+
+Click on `Setup GLM` and a new window will pop up:
+
+{% include image.html file="26_GLMemptySetup.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
+
+This window allows specifying a set of GLM predictors or covariates by importing them through `Import Predictors...`. Start by loading the distance matrix between bat rabies hosts based on mitochondrial gene distances (hostDistances.csv). 
+
+...format...
+
+Note that by default, the values in the distance matrix are log-transformed and standardised. 
 
 ## References
-Drummond AJ, Rambaut A (2007) BEAST: Bayesian evolutionary analysis by sampling trees. BMC Evolutionary Biology 7: 214.
-Drummond AJ, Ho SYW, Phillips MJ & Rambaut A (2006) PLoS Biology 4, e88.
-Drummond AJ, Rambaut A & Shapiro B and Pybus OG (2005) Mol Biol Evol 22, 1185-1192.
-Drummond AJ, Nicholls GK, Rodrigo AG & Solomon W (2002) Genetics 161, 1307-1320.
-Ferreira, M. A. R. and M. A. Suchard. 2008. Bayesian analysis of elapsed times in continuous-time Markov chains. Can J Statistics, 36: 355–368. doi: 10.1002/cjs.5550360302
-Gill MS, Lemey P, Faria NR, Rambaut A, Shapiro B, and Suchard MA (2013) Improving Bayesian population dynamics inference: a coalescent-based model for multiple loci. Mol Biol Evol 30, 713-724.
-Minin VN, Bloomquist EW and Suchard MA (2008) Smooth Skyride through a Rough Skyline: Bayesian Coalescent-Based Inference of Population Dynamics. Molecular Biology and Evolution 25:1459-1471; doi:10.1093/molbev/msn090.
-Rambaut A, Pybus OG, Nelson MI, Viboud C, Taubenberger JK, Holmes EC (2008) The genomic and epidemiological dynamics of human influenza A virus. Nature, 453: 615-9.
-Smith GJD, Vijaykrishna D, Bahl J, Lycett SJ, Worobey M, Pybus OG, Ma SK, Cheung CL, Raghwani J, Bhatt S, Peiris JSM, Guan Y & Rambaut A (2009) Origins and evolutionary genomics of the 2009 swine-origin H1N1 influenza A epidemic. Nature 459, 1122-1125.
+* Streicker, D. G., A. S. Turmelle, M. J. Vonhof, I. V. Kuzmin, G. F. McCracken, and C. E. Rupprecht. 2010. Host phylogeny constrains cross-species emergence and establishment of rabies virus in bats. Science 329:676-679.
+* Faria, N. R., M. A. Suchard, A. Rambaut, D. G. Streicker, and P. Lemey. 2013. Simultaneously reconstructing viral cross-species transmission history and identifying the underlying constraints. Philosophical transactions of the Royal Society of London. Series B, Biological sciences 368:20120196.
+* Ferreira, M. A. R. and M. A. Suchard. 2008. Bayesian analysis of elapsed times in continuous-time Markov chains. Can J Statistics, 36: 355–368. doi: 10.1002/cjs.5550360302
+* Lemey, P., A. Rambaut, A. J. Drummond, and M. A. Suchard. 2009. Bayesian phylogeography finds its roots. PLoS computational biology 5:e1000520.
+Lemey, P., A. Rambaut, T. Bedford, N. Faria, F. Bielejec, G. Baele, C. A. Russell, D. J. Smith, O. G. Pybus, D. Brockmann, and M. A. Suchard. 2014. Unifying Viral Genetics and Human Transportation Data to Predict the Global Transmission Dynamics of Human Influenza H3N2. PLoS pathogens 10:e1003932.
+* Bloomquist, E. W., P. Lemey, and M. A. Suchard. 2010. Three roads diverged? Routes to phylogeographic inference. Trends Ecol Evol 25:626-632.## Help and documentation
 
-## Help and documentation
-
-The BEAST software download: http://beast-mcmc.googlecode.com/
+The BEAST software download: http://beast.bio.ed.ac.uk/ (or  https://github.com/beast-dev/beast-mcmc)
 
 The BEAST website: http://beast.bio.ed.ac.uk/
 
 Tutorials: http://beast.bio.ed.ac.uk/Tutorials/
 
 Frequently asked questions: http://beast.bio.ed.ac.uk/FAQ/
-
-H1N1/09: http://tree.bio.ed.ac.uk/wiki/projects/influenza/
 
 {% include links.html %}
