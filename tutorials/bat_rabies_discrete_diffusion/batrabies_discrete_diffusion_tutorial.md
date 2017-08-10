@@ -180,9 +180,6 @@ The next column, labelled ‘Weight’, specifies how often each operator is app
 
 
 #### Setting the MCMC options
-<!--
-edited up to here
--->
 
 The `MCMC` tab in BEAUti provides settings to control the MCMC chain. Firstly we have the ‘Length of chain’. This is the number of steps the MCMC will make in the chain before finishing. How long this should be depends on the size of the dataset, the complexity of the model and the precision of the answer required. The default value of 10,000,000 is entirely arbitrary and should be adjusted according to the size of your dataset. We will see later how the resulting log file can be analysed using Tracer in order to examine whether a particular chain length is adequate.
 
@@ -204,11 +201,11 @@ Press the ‘Choose File’ button and select the XML file you just created and 
 
 To analyze the results of running BEAST we are going to use the program Tracer. The exact instructions for running Tracer differs depending on which computer you are using. Double click on the Tracer icon; once running, Tracer will look similar irrespective of which computer system it is running on.
 
-Select the ‘‘Import Trace File...’ option from the ‘File’ menu. If you have it available, select the log file that you created in the previous section. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
+Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section (batRABV.log). Alternative, drag and drop your lof file into the Tracer window. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
 
-{% include image.html file="fig13.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
+{% include image.html file="18_tracerShort.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
-On the left hand side is the name of the log file loaded and the traces that it contains. There are traces for the posterior (this is the log of the product of the tree likelihood and the prior probabilities), and the continuous parameters. Selecting a trace on the left brings up analyses for this trace on the right hand side depending on tab that is selected. When first opened, the `posterior' trace is selected and various statistics of this trace are shown under the Estimates tab.
+On the left hand side is the name of the log file loaded and the traces that it contains. There are traces for the posterior (this is the log of the product of the tree likelihood and the prior probabilities), and the continuous parameters. Selecting a trace on the left brings up analyses for this trace on the right hand side depending on tab that is selected. When first opened, the 'posterior' trace is selected and various statistics of this trace are shown under the `Estimates` tab.
 
 In the top right of the window is a table of calculated statistics for the selected trace. The statistics and their meaning are described in the table below.
 
@@ -220,23 +217,13 @@ In the top right of the window is a table of calculated statistics for the selec
 * Auto-Correlation Time (ACT) - The average number of states in the MCMC chain that two samples have to be separated by for them to be uncorrelated (i.e. independent samples from the posterior). The ACT is estimated from the samples in the trace (excluding the burn-in). 
 * Effective Sample Size (ESS) - The effective sample size (ESS) is the number of independent samples that the trace is equivalent to. This is calculated as the chain length (excluding the burn-in) divided by the ACT.
 
-Note that the effective sample sizes (ESSs) for all the traces are small (ESSs less than 200 and 100 are highlighted in yellow and red respectively by Tracer). This is not good. A low ESS means that the trace contained a lot of correlated samples and thus may not represent the posterior distribution well. In the bottom right of the window is a frequency plot of the samples, which  - as expected given the low ESSs - is extremely rough.
+Note that the effective sample sizes (ESSs) for all the traces are small (ESSs less than 100 are highlighted in red by Tracer and values > 100 but < 200 are in yellow). This is not good. A low ESS means that the trace contained a lot of correlated samples and thus may not represent the posterior distribution well. In the bottom right of the window is a frequency plot of the samples which is expected given the low ESSs is extremely rough. Inspecting the Trace of many continuous parameters  shows that the chain is still in the burn-in phase (the posterior values are still increasing over the entire chain), and this run does not allow us to summarize marginal posterior probability distributions for the parameters. 
 
-If we select the tab on the right-hand-side labelled `Trace` we can view the raw trace (e.g for treeModel.rootHeight), that is, the sampled values against the  step in the MCMC chain.
+The simple response to this situation is that we need to run the chain for longer. The example below was run for 200 million steps, sampling every 50,000th step, which means that 4,000 samples where stored in the log file. In this case, the MCMC run has reached stationarity, and almost all parameter traces still show satisfactory ESSs.
 
-{% include image.html file="fig14.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
+{% include image.html file="19_tracerLong.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
-Here you can see how the samples are correlated. There are 1000 samples in the trace (we ran the MCMC for 1,000,000 steps sampling every 1000) but it is clear that adjacent samples often tend to have similar values. The ESS for the clock.rate is about 17, so we are only getting 1 independent sample to every 60 actual samples). It also seems that the default burn-in of 10% of the chain length is inadequate (the posterior values are still increasing over the first part of the chain). Not excluding enough of the start of the chain as burn-in will bias the results and render estimates of ESS unreliable.
-
-The analysis needs to be run longer. The lowest ESS of about 3 suggests that we have to run it at least 35 times longer to get ESSs that are >100. However, it would be better to aim higher (e.g. a chain length of 10,000,000 and sampling every 10,000 generations). If the previous analysis ran reasonably fast and if time permits, you can can go back to BEAUti and set up and run this longer analysis, but it is probably advisable to proceed with summarizing the longer runs that are provided with this tutorial. Load the new log file into Tracer (you can leave the old one loaded for comparison). Click on the Trace tab and look at the raw trace plot.
-
-Again we have chosen options that produce 1000 samples and with an ESS of > 400 for the coalescent model parameters there is little auto-correlation between the samples. There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, and there are no large-scale fluctuations in the trace which would suggest poor mixing. As we are satisfied with the behavior of the MCMC we can now move on to one of the parameters of interest: substitution rate. Select clock.rate in the left-hand table. This is the average substitution rate across all sites in the alignment. Now choose the density plot by selecting the tab labeled ‘Marginal Prob Distribution’. This shows a plot of the posterior probability density of this parameter. You should see a plot similar to this:
-
-{% include image.html file="fig15.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
-
-As you can see the posterior probability density is roughly bell-shaped. When looking at the equivalent histogram in the Estimates panel, there is some sampling noise which is smoothened by the KDE; this would be reduced if we ran the chain for longer but we already have a reasonable estimate of the mean and HPD interval. The treeModel.rootHeight parameter provides an estimate of the time to the most recent common ancestor since the most recent sampling data (in our case: 2009.403). What would be the mean estimate for the date of the MRCA?
-
-{% include callout.html content="The exponential.growthRate (r) provides an estimate of the epidemic growth of H1N1/09. Given that Nt = N0 e-rt (with N0 being the population size at present), the doubling time for r = 21 is about 0.03 years or 12 days. Interestingly, it has been shown that the basic reproductive ratio (R0) is related to the growth rate -- see [this page for details](/estimating_R0.html). However, the basic reproductive number is dependent not just on an estimate of r, but also a good estimate of the generation time distribution, which reflects the time between successive infections in a chain of transmission. If we assume a generation time distribution that follows the gamma distribution, then R0 = (1 +  r / b) ^a, where a and b are the parameters of the gamma distribution (and a = μ2 / σ2, b = μ / σ2). Taking μ = 3 days and σ = 2 days, what would be the mean estimate for the H1N1/09 R0?" type="primary" %} 
+We can continue to summarize the annotated phylogeographic tree inferred with the BSSVS procedure and estimate the most significant rates of diffusion. If you are only interested in summarizing the Bayes Factor rates from the BSSVS analysis and not in summarizing the tree from your run, jump to the last section of this tutorial entitled 'Visualizing tree and calculating Bayes factor support for rates using SpreadD3'. If you are also interested in summarizing the tree, continue to next section. 
 
 ### Summarizing the trees
 
@@ -244,27 +231,31 @@ We have seen how we can diagnose our MCMC run using Tracer and produce estimates
 
 In this tutorial, however, we are going to use a tool that is provided as part of the BEAST package to summarize the information contained within our sampled trees. The tool is called TreeAnnotator and once running, you will be presented with a window like the one below.
 
-{% include image.html file="fig16.png" max-width="50%" align="center" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
+{% include image.html file="20_treeAnnotator.png" max-width="50%" align="center" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
-TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree.
+* TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree. It has the following options:
 
-Burnin - This is the number of steps in the MCMC chain, Burnin (as states), or the number of trees, Burnin (as trees), that should be excluded from the summarization. For the example above, with a chain of 10,000,000 steps, a 10% burnin corresponds to 1,000,000 steps. Alternatively, sampling every 10,000 steps results in 1000 trees in the file, and to obtain at the same 10% burnin, the number of trees needs to be set to 100.
+* Burnin - This is the number of steps in the MCMC chain, Burnin (as states), or the number of trees, Burnin (as trees), that should be excluded from the summarization. For the example above, with a chain of 200,000,000 steps, a 10% burnin corresponds to 20,000,000 steps. Alternatively, sampling every 50,000 steps results in 4000 trees in the file, and to obtain at the same 10% burnin, the number of trees needs to be set to 400.
 
-Posterior probability limit - This is the minimum posterior probability for a node in order for TreeAnnotator to store the annotated information. The default is 0.0 so all nodes will have information summarized independent of their posterior probability. 
+* Posterior probability limit - This is the minimum posterior probability for a node in order for TreeAnnotator to store the annotated information. The default is 0.0 so every node, no matter what its support, will have information summarized. Make sure this value remains 0.0 as every node will require location annotation for further visualization. 
 
-Target tree type - This has three options ‘Maximum clade credibility tree’ or ‘User target tree’ For the latter option, a NEXUS tree file can be specified as the Target Tree File, below. Select the first option, TreeAnnotator will examine every tree in the Input Tree File and select the tree that has the highest product of the posterior probabilities of all its nodes. 
+* Target tree type - This has three options `Maximum clade credibility tree` or `User target tree` For the latter option, a NEXUS tree file can be specified as the Target Tree File, below. Select the first option, TreeAnnotator will examine every tree in the Input Tree File and select the tree that has the highest product of the posterior probabilities of all its nodes. 
 
-Node heights - This option specifies what node heights (times) should be used for the output tree. If the ’Keep target heights’ is selected, then the node heights will be the same as the target tree. Node heights can also be summarised as  a Mean or a Median over the sample of trees. Sometimes a mean or median height for a node may actually be higher than the mean or median height of its parental node (because particular ancestral-descendent relationships in the MCC tree may still be different compared to a large number of other tree sampled). This will result in artifactual negative branch  lengths, but can be avoided by the ‘Common Ancestor heights’ option. Let’s use the default Median heights for our summary tree.
+* Node heights - This option specifies what node heights (times) should be used for the output tree. If the `Keep target heights` is selected, then the node heights will be the same as the target tree. Node heights can also be summarised as  a Mean or a Median over the sample of trees. Sometimes a mean or median height for a node may actually be higher than the mean or median height of its parental node (because particular ancestral-descendent relationships in the MCC tree may still be different compared to a large number of other tree sampled). This will result in artifactual negative branch  lengths, but can be avoided by the `Common Ancestor heights` option. Let’s use the default Median heights for our summary tree.
 
-Target Tree File - If the ’User target tree’ option is selected then you can use ‘Choose File...’ to select a NEXUS file containing the target tree.
+* Target Tree File - If the `User target tree` option is selected then you can use `Choose File...` to select a NEXUS file containing the target tree.
 
-Input Tree File - Use the ‘Choose File...’ button to select an input trees file. This will be the trees file produced by BEAST. 
+Input Tree File - Use the `Choose File...` button to select an input trees file. This will be the trees file produced by BEAST. 
 
-Output File - Select a name for the output tree file (e.g., H1N109.MCC.tre).
+* Output File - Select a name for the output tree file (e.g., batRABV.MCC.tre).
 
-Once you have selected all the options, above, press the ‘Run’ button. TreeAnnotator will analyse the input tree file and write the summary tree to the file you specified. This tree is in standard NEXUS tree file format so may be loaded into any tree drawing package that supports this. However, it also contains additional information that can only be displayed using the FigTree program.
+Once you have selected all the options, above, press the `Run` button. TreeAnnotator will analyse the input tree file and write the summary tree to the file you specified. This tree is in standard NEXUS tree file format so may be loaded into any tree drawing package that supports this. However, it also contains additional information that can only be displayed using the FigTree program.
 
 ### Viewing the annotated tree
+
+<!--
+edited up to here
+-->
 
 Run FigTree now and select the ‘Open...’ command from the ‘File’ menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the FigTree window. On the left hand side of the window are the options and settings which control how the tree is displayed. In this case we want to display the posterior probabilities of each of the clades present in the tree and estimates of the age of each node. In order to do this you need to change some of the settings.
 
