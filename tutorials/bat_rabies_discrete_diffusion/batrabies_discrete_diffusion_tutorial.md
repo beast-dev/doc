@@ -92,20 +92,20 @@ The next thing to do is to click on the `Traits` tab at the top of the main wind
 Select `Import trait(s) from a mapping file` (the format of such a file can be shown). Browse to and load the batRABV\_hostLocation.txt tab-delimited file which contains the discrete host and location for each sequence. Note that the host species is specified using a two-character abbreviation (e.g. Ef for Eptesicus fuscus, three characters for Lbl) as shown for this snippet of the file:
 
 	traits	host	state
-	AZ4030\_2005.5	Ap	Arizona
-	AZ1968\_2004.5	Ef	Arizona
-	AZ7590\_2005.5	Ef	Arizona
-	CA237\_2002.5	Ef	California
-	CA29\_2002.5	Ef	California
-	CA9242\_2002.5	Ef	California
-	CAO120\_2002.5	Ef	California
-	CA0253\_2003.5	Ef	California
-	CA148\_2004.5	Ef	California
-	CA6860\_2004.5	Ef	California
-	CA0100\_2005.5	Ef	California
-	GA31940\_2004.5	Ef	Georgia
+	AZ4030_2005.5	Ap	Arizona
+	AZ1968_2004.5	Ef	Arizona
+	AZ7590_2005.5	Ef	Arizona
+	CA237_2002.5	Ef	California
+	CA29_2002.5	Ef	California
+	CA9242_2002.5	Ef	California
+	CAO120_2002.5	Ef	California
+	CA0253_2003.5	Ef	California
+	CA148_2004.5	Ef	California
+	CA6860_2004.5	Ef	California
+	CA0100_2005.5	Ef	California
+	GA31940_2004.5	Ef	Georgia
 		...
-	TX3545\_2004.5	Tb	Texas
+	TX3545_2004.5	Tb	Texas
 
 After clicking `OK`, select the host trait and click on `create partition from trait..`. This new partition will be shown under the `Partitions` tab. Do the same for the location trait (state), resulting in three partitions in the `Partitions` tab:
 
@@ -129,7 +129,7 @@ For the nucleotide model in this tutorial, keep the default HKY substitution mod
 
 Click on 'host' in the `Substitution model` window and keep the `Discrete Trait Substitution Model` to Symmetric substitution model and select the option to perform BSSVS (Infer social network with BSSVS). The Symmetric substitution model specifies a discrete state ancestral reconstruction using a standard continuous-time Markov chain (CTMC), in which the transition rates between locations are reversible. The alternative Asymmetric substitution model specifies a discrete state ancestral reconstruction using a nonreversible CTMC. Selecting the BSSVS option enables the Bayesian Stochastic Search Variable Selection procedure. This procedure will attempt to invoke a limited number of rates (at least k-1, where k is the number of states) to adequately explain the phylogenetic diffusion process.
 
-{% include image.html file="10_hostModel.png" prefix="tutorials/batRabies_discreteDiffusion/" caption="" %}
+{% include image.html file="10_hostModel.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
 Apply the same discrete diffusion model settings to the spatial ‘state’ trait.
 
@@ -269,19 +269,19 @@ SpreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using
 
 To visualize an MCC tree, start SpreaD3 by double-clicking on the jar file and select `MCC tree with DISCRETE traits` in the `Data` panel. Load the MCC tree and set the location attribute to ‘state’. Then, use `Setup location attribute coordinates` and load the states and their coordinates in the ‘locationStates.txt’ file, which should look like this:
 
-	Arizona	33.7712	-111.3877
+	Arizona		33.7712	-111.3877
 	California	36.17	-119.7462
-	Georgia	32.9866	-83.6487
-	Iowa	42.0046	-93.214
+	Georgia		32.9866	-83.6487
+	Iowa		42.0046	-93.214
 	Michigan	43.3504	-84.5603
 	NewJersey	40.314	-74.5089
 	Virginia	18.0001	-64.8199
 	Washington	47.3917	-121.5708
-	Florida	27.8333	-81.717
+	Florida		27.8333	-81.717
 	Tennessee	35.7449	-86.7489
-	Texas	31.106	-97.6475
-	Idaho	44.2394	-114.5103
-	Indiana	39.8647	-86.2604
+	Texas		31.106	-97.6475
+	Idaho		44.2394	-114.5103
+	Indiana		39.8647	-86.2604
 	Mississippi	32.7673	-89.6812
 
 This will load the locations and their lat/long coordinates. Click done after uploading the locations and their coordinates. Set the most recent sampling date to 2005.5 and load a map of the United States in GeoJSON format. Once this is done, go to `Generate Output` and select a file name for the JSON file to be written. Finally, go to the Rendering panel in SpreaD3 and load the JSON file you just saved. Click `Render` to D3 and select a directory name which will contain the HMTL page that will automatically load in a browser (example below). Note that Google Chrome needs to be started with specific privileges for local file access in order to display the resulting visualisation (Firefox and Safari should work fine with default settings).
