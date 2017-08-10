@@ -62,7 +62,7 @@ By default all the taxa are assumed to have a date of zero (i.e. the sequences a
 
 Select the box labelled `Use tip dates`. The actual sampling time in years is encoded in the name of each taxon and we could simply edit the value in the ‘Date’ column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the `Guess Dates` button at the top of the `Data` panel. Clicking this will make a dialog box appear:
 
-{% include image.html file="03_guessDates.png" prefix="tutorials/bat_rabies_discrete_diffusion/"  max-width="50%" align="center" caption="" %}
+{% include image.html file="03_guessDates.png" prefix="tutorials/bat_rabies_discrete_diffusion/"  max-width="25%" align="center" caption="" %}
 
 This operation attempts to guess what the dates are from information contained within the taxon names. It works by trying to find a numerical field within each name. If the taxon names contain more than one numerical field then you can specify how to find the one that corresponds to the date of sampling. You can (1) specify the order that the date field comes (e.g., first, last or various positions in between) or (2) specify a prefix (some characters that come immediately before the date field in each name) and the order of the field, or (3) define a regular expression (REGEX).
 
