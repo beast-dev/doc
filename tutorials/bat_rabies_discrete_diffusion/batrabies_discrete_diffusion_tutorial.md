@@ -253,19 +253,54 @@ Once you have selected all the options, above, press the `Run` button. TreeAnnot
 
 ### Viewing the annotated tree
 
+Run FigTree and select the `Open...` command from the `File` menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the FigTree window. On the left hand side of the window are the options and settings which control how the tree is displayed. In this case we want to display the posterior probabilities of each of the clades present in the tree and estimates of the age of each node. In order to do this you need to change some of the settings.
+
+First, re-order the node order by Increasing Node Order under the `Tree` Menu. Click on Branch Labels in the control panel on the left and open its section by clicking on the arrow on the left. Now select 'posterior' under the Display popup menu. The posterior probabilities won't actually be displayed until you tick the check-box next to the Branch Labels title.
+
+{% include image.html file="21_FigTree.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
+
+We now want to display bars on the tree to represent the estimated uncertainty in the date for each node. TreeAnnotator will have placed this information in the tree file in the shape of the 95% highest posterior density (HPD) intervals (see the description of HPDs, above). Select `Node Bars` in the control panel and open this section; select `height_95%_HPD` to display the 95% HPDs of the node heights. We can also plot a time scale axis for this evolutionary history (select `Scale Axis` and deselect `Scale bar`). For appropriate scaling, open the `Time Scale` section of the control panel, set the `Offset` to 2005.5 (date of the most recent sample), and select `Reverse Axis` under `Scale Axis`.
+
+Finally, open the Appearance panel and alter the `Line Weight` to 2 to draw the tree with thicker lines. Under the same panel, alter `Colour by` and select 'state'. Alternatively, color the branches by 'host'. Unselect the `Tip Labels` and the `Scale Bar` option. Finally, in the Legend panel select the 'state' or 'host' attribute depending on what you have used to color the branches with. None of the options actually alter the tree's topology or branch lengths in anyway so feel free to explore the options and settings. You can also save the tree and this will save all your settings so that when you load it into FigTree again it will be displayed exactly as you selected.
+
+### Visualizing MCC trees and calculating Bayes factor support for rates using SpreaD3
+
+SpreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using Data-Driven Documents (D3), is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreaD3 allows to visualise spatial reconstructions on custom maps and generates HTML pages for display in modern-day browsers such as Firefox, Safari and Chrome. Some of the functionalities of SpreaD3 that relate to the discrete phylogeographic analysis include visualizing location-annotated MCC trees and identification of well-supported rates using a Bayes Factor test. The latter option takes as input the rate matrix file (batRABV.state.rates.log for location states and batRABV.host.rates.log for host states) generated under the analysis using the Bayesian Stochastic Search Variable Selection (BSSVS) procedure. This test aims at identifying frequently invoked rates to explain the diffusion process and, in case of locations, visualize them on a circle and on a globe or a map, which needs to be provided to SpreaD3. A detailed tutorial for this particular step is available at https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourTwo. We have also provided a PDF version of the entire SpreaD3 tutorial.
+
+To visualize an MCC tree, start SpreaD3 by double-clicking on the jar file and select `MCC tree with DISCRETE traits` in the `Data` panel. Load the MCC tree and set the location attribute to ‘state’. Then, use `Setup location attribute coordinates` and load the states and their coordinates in the ‘locationStates.txt’ file, which should look like this:
+
+	Arizona	33.7712	-111.3877
+	California	36.17	-119.7462
+	Georgia	32.9866	-83.6487
+	Iowa	42.0046	-93.214
+	Michigan	43.3504	-84.5603
+	NewJersey	40.314	-74.5089
+	Virginia	18.0001	-64.8199
+	Washington	47.3917	-121.5708
+	Florida	27.8333	-81.717
+	Tennessee	35.7449	-86.7489
+	Texas	31.106	-97.6475
+	Idaho	44.2394	-114.5103
+	Indiana	39.8647	-86.2604
+	Mississippi	32.7673	-89.6812
+
+This will load the locations and their lat/long coordinates. Click done after uploading the locations and their coordinates. Set the most recent sampling date to 2005.5 and load a map of the United States in GeoJSON format. Once this is done, go to `Generate Output` and select a file name for the JSON file to be written. Finally, go to the Rendering panel in SpreaD3 and load the JSON file you just saved. Click `Render` to D3 and select a directory name which will contain the HMTL page that will automatically load in a browser (example below). Note that Google Chrome needs to be started with specific privileges for local file access in order to display the resulting visualisation (Firefox and Safari should work fine with default settings).
+
+{% include image.html file="22_spread3MCC.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
+
+To summarise Bayes factor support for rates, select `Log file from BSSVS analysis` in the `Data` panel. Set an appropriate burn-in level and use `Load log file` to upload the output BEAST file containing the spatial rates and rate indicators (batRABV.state.rates.log). Then, use `Setup location attribute coordinates` to visualise the Bayes Factors on a map of North America. Select `Load` and get the location file (locationStates.txt). Click `Done`. In the same `Data` panel, you can also specify the Poisson prior mean and offset, which do not need to be changed in our case. Load a map of the United States in GeoJSON format. Once this is done, go to `Generate Output` and select a file name for the JSON file to be written. Note that a plain text file will also be created with an additional '.txt' extension that will contain the actual Bayes Factor values. Finally, go to the `Rendering` panel in SpreaD3 and load the JSON file you just saved. Click `Render to D3` and select a directory name. An examples visualisation can be found below. Note that the visual aspects of the lines representing the rates can be modified and that the lines can also be filtered by a cut-off (under `Lines cut-off`).
+
+{% include image.html file="23_spread3stateRates.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
+
+We can obtain a similar summary for the host transition rates. Since these cannot be plotted on a map, we will organise them on a circle. Load the file containing the host rates and rate indicators (batRABV.host.rates.log). In setting up the locations, select `Generate` and enter the number of unique host states ('17' in this case). If you want the names of the locations to be drawn rather than location1, location2, …, enter the names of each of the 17 locations (Ap, Ef, Lb, Lbl, Lc, Li, Ln, Ls, Lx, Ma, Mc, Ml, My, Nh, Ph, Ps, Tb). Click done when all the information has been entered and click on output under `Generate Output` and select a file name for the JSON file to be written. Finally, go to the `Rendering` panel in SpreaD3, load the JSON file you just saved, and click `Render to D3`.
+
+{% include image.html file="24_spread3hostRates.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
+
+Which rates receive the highest Bayes factor support?
+
 <!--
 edited up to here
 -->
-
-Run FigTree now and select the ‘Open...’ command from the ‘File’ menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the FigTree window. On the left hand side of the window are the options and settings which control how the tree is displayed. In this case we want to display the posterior probabilities of each of the clades present in the tree and estimates of the age of each node. In order to do this you need to change some of the settings.
-
-{% include image.html file="fig17.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
-
-First, re-order the node order by Increasing Node Order under the Tree Menu. Click on Branch Labels in the control panel on the left and open its section by clicking on the arrow on the left. Now select posterior under the Display option.
-
-We now want to display bars on the tree to represent the estimated uncertainty in the date for each node. TreeAnnotator will have placed this information in the tree file in the shape of the 95% highest posterior density (HPD) intervals (see the description of HPDs, above). Select Node Bars in the control panel and open this section; select ‘height_95%_HPD’ to display the 95% HPDs of the node heights. We can also plot a time scale axis for this evolutionary history (select ‘Scale Axis’ and deselect ‘Scale bar’). For appropriate scaling, open the ‘Time Scale’ section of the control panel, set the ‘Offset’ to 2009.403, the scale factor to -1.0. and ‘Reverse Axis’ under ‘Scale Axis’.
-
-Finally, open the Appearance panel and alter the Line Weight to draw the tree with thicker lines. None of the options actually alter the tree's topology or branch lengths in anyway so feel free to explore the options and settings. You can also save the tree and this will save most of your settings so that when you load it into FigTree again it will be displayed almost exactly as you selected. The tree can also be exported to a graphics file (pdf, eps, etc.).
 
 ### A quick how-to summary for Exercise 1
 
