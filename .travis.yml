@@ -4,7 +4,7 @@ rvm: 2.0.0
 
 script:
 #  - bundle exec jekyll serve --detach --config _config.yml,pdfconfigs/config_beast_pdf.yml;
-  - jekyll new test_site
+  - bundle exec jekyll new test_site
   - cd test_site
   - bundle exec jekyll build
   - bundle exec htmlproofer ./_site
