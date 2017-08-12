@@ -15,11 +15,11 @@ folder: beast
 
 ## Importing data partitions
 
-To load a sequence alignment, simply select the `Import Data...` option from the `File` menu. You can also click the `+` button at the bottom left of the window or just drag-and-drop the file into the main window. The data should be in either NEXUS or FASTA format. BEAUti will also import the data from a BEAST XML file (including all the data partitions, the dates of the tips, but not the models and settings).
+To load a sequence alignment, select the `Import Data...` option from the `File` menu. You can also click the `+` button at the bottom left of the window or just drag-and-drop the file into the main window. The data should be in either NEXUS or FASTA format. BEAUti will also import the data from a BEAST XML file (including all the data partitions, the dates of the tips, but not the models and settings).
 
 ### Importing multiple partitions from a NEXUS file
 
-NEXUS files can define multiple partitions using the `charset` command. For example, the example file in the BEAST package: `/examples/Data/Primates_two_partition.nex` divides the sequences into two partitions (note the sequences have been truncated here for brevity):
+NEXUS files can define multiple partitions using the `charset` command. For example, the example file in the BEAST package: `/examples/Data/H1N1_HA.nex` (or [download from here](/tutorials/howtos/files/H1N1_HA.nex)) divides the sequences into two partitions (note the sequences have been truncated here for brevity):
 
 ```
 #NEXUS
