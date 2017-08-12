@@ -127,3 +127,6 @@ beagle_url: "https://github.com/beagle-dev/beagle-lib"
 
 spread3_version: "0.9.7.1"
 spread3_url: "https://rega.kuleuven.be/cev/ecv/software/SpreaD3"
+
+tutorial_root_url: /tutorials
+howtos_root_url: /tutorials/howtos

@@ -11,19 +11,19 @@ folder: beast
 
 Taxon sets are groups of taxa or sequences that can be used in a number of ways within BEAST. For example, a taxon set can denote a clade in the tree (i.e., a common ancestor and all its descendants) that have a specific rate of evolution [(i.e., a local clock model)](clocks#fixed-local-clock). It could specify a group of tips to which some model is applied. It can be used to specify a node in the tree --- the TMRCA of that set of taxa --- to which a calibration prior will be applied.
 
-Taxon sets are defined in the `Taxa` panel of [BEAUTi](beauti) and can be created once some data has been imported. For example, import [this file (IVA_PB1.xml - a set of 124 human, swine and avian influenza PB1 genes)](/tutorials/howtos/files/IVA_PB1.xml). Once loaded, switch to the `Taxa` panel, and then click the 'plus' at the bottom of the left hand table. A new taxon set will be created in this table, called 'untitled1':
+Taxon sets are defined in the `Taxa` panel of [BEAUTi](beauti) and can be created once some data has been imported. For example, import [this file (IVA_PB1.xml - a set of 124 human, swine and avian influenza PB1 genes)]({{howtos_root_url}}/files/IVA_PB1.xml). Once loaded, switch to the `Taxa` panel, and then click the 'plus' at the bottom of the left hand table. A new taxon set will be created in this table, called 'untitled1':
 
-{% include image.html file="taxon_set_1.png" prefix="tutorials/howtos/" %}
+{% include image.html file="taxon_set_1.png" prefix="{{howtos_root_url}}/" %}
 
 Clicking on the cell with 'untitled1' will allow you to edit this name into something meaningful (in this case 'human').
 
 The two tables on the right then define the taxa that are included and excluded from the set (to start with the set is empty so all the taxa are in the 'excluded' table). We want to create a taxon set of all the human viruses. We could select each in turn and move them into the included table but that would be tedious. Instead we can type 'Human' into the search box above the excluded table and all the taxon labels with the word 'Human' will be selected:
 
-{% include image.html file="taxon_set_2.png" prefix="tutorials/howtos/" %}
+{% include image.html file="taxon_set_2.png" prefix="{{howtos_root_url}}/" %}
 
 You can then just click the green arrow button in the middle to move these into the 'included' table:
 
-{% include image.html file="taxon_set_3.png" prefix="tutorials/howtos/" %}
+{% include image.html file="taxon_set_3.png" prefix="{{howtos_root_url}}/" %}
 
 You can also do the same in the search box above the 'included' table --- i.e., select all sequences from Ohio and remove them.
 
