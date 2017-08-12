@@ -9,8 +9,6 @@ permalink: constructing_models.html
 folder: beast
 ---
 
-{% include warning.html content="This page unfinished." %}
-
 **Data partitions** are the basic unit of data in BEAST. They are a collection of sequence data (DNA, amino acid or other), discrete traits, or continuous traits for each of a set of taxa that are connected by a tree and are assumed to have a shared evolutionary process. Each data partition has a tree, a site model, and a molecular clock model. Data partitions can share these models (their models are *linked*) or have their own models (their models are *unlinked*). You can link and unlink these model components in the `Partitions` panel of [BEAUti](beauti) --- see [Linking and unlinking models](#linking-and-unlinking-models), below. Even if partitions have unlinked model components, individual parameters of the models can be linked either directly --- see [Linking parameters](#linking-parameters) --- or as a hierarchical phylogenetic model (HPM) --- see [Hierarchical phylogenetic models](#hierarchical-phylogenetic-models), below and [this tutorial](hierarchical_models). 
 
 ## Importing data partitions
