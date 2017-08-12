@@ -32,7 +32,7 @@ When running, you will see a window like this:
 
 The first thing you need to do is to load some data, in this case a small nucleotide alignment.
 
-To load a NEXUS format alignment, simply select the `Import NEXUS...` option from the `File` menu. You can also click the `+` button at the bottom left of the window or just drag-and-drop the file into the main window.
+To load a NEXUS format alignment, simply select the `Import Data...` option from the `File` menu. You can also click the `+` button at the bottom left of the window or just drag-and-drop the file into the main window.
 
 #### The NEXUS alignment
 
@@ -54,6 +54,8 @@ BEGIN DATA;
 	;
 END;
 ```
+
+BEAST can also import FASTA files (as long as the sequences have been aligned) or BEAST XML files (in which case the data will imported but the models and settings will not).
 
 Once loaded, the alignment will be displayed in the main window in a table:
 
