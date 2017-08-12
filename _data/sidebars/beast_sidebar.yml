@@ -97,27 +97,31 @@ entries:
   - title: How-To Guides
     output: web, pdf
     folderitems:
-    - title: Creating Taxon Sets
+    - title: Create taxon sets
       url: /taxon_sets
       output: web, pdf
 
-    - title: Specifying Sampling Dates
+    - title: Specify sampling dates
       url: /tip_dates
       output: web, pdf
 
-    - title: Tip Date Sampling
+    - title: Tip date sampling
       url: /tip_date_sampling
       output: web, pdf
 
-    - title: Analysing BEAST Output
+    - title: Construct a model in BEAUti
+      url: /constructing_models
+      output: web, pdf
+
+    - title: Analyse BEAST output
       url: /analysing_beast_output
       output: web, pdf
 
-    - title: Summarizing Trees
+    - title: Summarize trees
       url: /summarizing_trees
       output: web, pdf
 
-    - title: Creating Custom Substitution Models
+    - title: Create custom substitution models
       url: /custom_substitution_models
       output: web, pdf
 

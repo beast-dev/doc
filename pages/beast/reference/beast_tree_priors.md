@@ -1,6 +1,6 @@
 ---
 title: Tree Priors
-permalink: treepriors.html
+permalink: tree_priors.html
 sidebar: beast_sidebar
 tags: [reference, help]
 keywords: software, coalescent, tree prior, beast
