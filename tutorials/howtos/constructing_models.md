@@ -19,7 +19,7 @@ To load a sequence alignment, select the `Import Data...` option from the `File`
 
 ### Importing multiple partitions from a NEXUS file
 
-NEXUS files can define multiple partitions using the `charset` command. For example, the example file in the BEAST package: `/examples/Data/H1N1_HA.nex` (or [download from here]({{howtos_root_url}}/files/H1N1_HA.nex)) divides the sequences into two partitions (note the sequences have been truncated here for brevity):
+NEXUS files can define multiple partitions using the `charset` command. For example, the example file in the BEAST package: `/examples/Data/H1N1_HA.nex` (or [download from here](/tutorials/howtos/files/H1N1_HA.nex)) divides the sequences into two partitions (note the sequences have been truncated here for brevity):
 
 ```
 #NEXUS
@@ -50,7 +50,7 @@ end;
 
 When imported into BEAUti this results in two partitions in the `Partitions` panel:
 
-{% include image.html file="models1.png" prefix="{{howtos_root_url}}/" %}
+{% include image.html file="models1.png" prefix="/tutorials/howtos/" %}
 
 The two partitions (called `firsthalf` and `secondhalf` by the NEXUS file) by default share the same substitution model, clock model and tree. You can see that the `Site model`, `Clock model` and `Partition tree` columns of the table have `firsthalf` for both partitions. This is because these model components have been named after the first partition.
 

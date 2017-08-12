@@ -16,17 +16,17 @@ Dates are generally specified as a calendar date such as 4 May 1971, an amount o
 
 ## Importing dates into BEAUti
 
-When a data set has been loaded into BEAUti, the `Tips` panel will show a table with all the taxon labels and their assigned dates. By default all the taxa are assumed to have a date of zero. This will be correct if all the sequences were sampled at approximately the same point in time (at least on the time scale of their evolutionary history). Click the option `Use tip dates` to tell BEAUti that you wish to use them. At this point all the controls will become available and you can provide dates for the sequences. If you loaded [this file (an alignment of 35 RSV viruses)]({{howtos_root_url}}/files/RSVA.nex) the table would look like this:
+When a data set has been loaded into BEAUti, the `Tips` panel will show a table with all the taxon labels and their assigned dates. By default all the taxa are assumed to have a date of zero. This will be correct if all the sequences were sampled at approximately the same point in time (at least on the time scale of their evolutionary history). Click the option `Use tip dates` to tell BEAUti that you wish to use them. At this point all the controls will become available and you can provide dates for the sequences. If you loaded [this file (an alignment of 35 RSV viruses)](/tutorials/howtos/files/RSVA.nex) the table would look like this:
  
-{% include image.html file="tipdates1.png" prefix="{{howtos_root_url}}/" %}
+{% include image.html file="tipdates1.png" prefix="/tutorials/howtos/" %}
 
 [BEAUti](beauti) provides a number of ways of loading dates for the sequences of an alignment and a great deal of flexibility in the format of those dates. In this case the dates are given as two digit years prefixed by an `@` symbol. This is not a standard but just how the creator of the data chose to label these sequences. The most straight forward (but laborious) way of setting the dates is simply to edit the value in the table:
 
-{% include image.html file="tipdates2.png" prefix="{{howtos_root_url}}/" %}<br />
+{% include image.html file="tipdates2.png" prefix="/tutorials/howtos/" %}<br />
 
 Here the two digit year was 93 referring to 1993 (presumably not 1893 or though this is not implausible) so we enter that value in the date column. In this column BEAST is expecting dates on a continuous time-line so it should be in decimal years (i.e., months are 1/12 or 0.08333 of a year and days are approximately 0.00274 of a year). Once one date has been specified, BEAST's timescale is set: 
 
-{% include image.html file="tipdates3.png" prefix="{{howtos_root_url}}/" %}<br />
+{% include image.html file="tipdates3.png" prefix="/tutorials/howtos/" %}<br />
 
 In the image above, the first sequence has been given the date 1993 and BEAST has given it the height of 0 (it is now the most recently sampled sequence). All the other sequences have a height of 1993 --- i.e., BEAST thinks they have been sampled 1993 years before the first one in the year 0 (technically, in the Gregorian calendar there is no year zero but we can ignore that poor decision).  So we need to set the dates for all the other sequences. For convenience when many sequences have the same date, you can select multiple rows in the table and then click the `Set Dates` button to set the same value to all of them. You can also `Clear Dates` for selected rows but that is the same as setting their date to zero.
 
@@ -36,7 +36,7 @@ In the image above, the first sequence has been given the date 1993 and BEAST ha
 
 BEAUti can also be parsed when encoded in taxon labels (such as is the case in this RSV data set). To do this, press the `Guess Dates` button (probably a bit mis-named as the procedure won't be guessing). Clicking this will make the following dialog box appear:
 
-{% include image.html file="tipdates4.png" prefix="{{howtos_root_url}}/" %}
+{% include image.html file="tipdates4.png" prefix="/tutorials/howtos/" %}
 
 This operation attempts to guess what the dates are from information contained within the taxon names. Generally this works by trying to find a numerical field within each name. If the taxon names contain more than one numerical field (such as the RSV sequences, above) then you can specify how to find the one that corresponds to the date of sampling. You can either specify the order that the date field comes (e.g., first, last or various positions in between) or specify a prefix (some characters that come immediately before the date field in each name). For the RSV sequences you specify the prefix `@`.
 
