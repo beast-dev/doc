@@ -10,6 +10,8 @@ folder: beast
 redirect_from: "/tutorial-1"
 ---
 
+{% capture root_url %}{{ site.tutorials_root_url }}/first_tutorial/{% endcapture %}
+
 ## Running BEAST for the first time
 
 This tutorial will guide you through running BEAST and some of its accessory programs to do a simple phylogenetic analysis. If you haven't already, [download and install BEAST following these instructions](installing). 
@@ -28,7 +30,7 @@ Once running, BEAUti will look similar irrespective of which computer system it 
 
 When running, you will see a window like this:
 
-{% include image.html prefix="/tutorials/first_tutorial" file="image1.png" %}
+{% include image.html prefix=root_url file="image1.png" %}
 
 The first thing you need to do is to load some data, in this case a small nucleotide alignment.
 
@@ -59,15 +61,15 @@ BEAST can also import FASTA files (as long as the sequences have been aligned) o
 
 Once loaded, the alignment will be displayed in the main window in a table:
 
-{% include image.html prefix="/tutorials/first_tutorial" file="image2.png" %}
+{% include image.html prefix=root_url file="image2.png" %}
 
 If you want to look at the actual alignment, double click on the row in the table.
 
-{% include image.html prefix="/tutorials/first_tutorial/" file="image3.png" %}
+{% include image.html prefix=root_url file="image3.png" %}
 
 Along the top of the main window is a strip of 'tabs':
 
-{% include image.html width="720px" prefix="/tutorials/first_tutorial/" file="image4.png" %}
+{% include image.html width="720px" prefix=root_url file="image4.png" %}<br />
 
 Each of these has settings and options and in general you should work from left to right (although not all the tabs will be relevant to all analyses). After the `Partitions` tab where you imported data, skip the `Taxa` tab for now and move straight on to the `Tips` tab.                                       
 
@@ -75,7 +77,7 @@ Each of these has settings and options and in general you should work from left 
 
 In the `Tips` options you will see a table with all of the taxa that were in the alignment. This panel allows you go give the taxa dates. Taxon dates (or 'tip dates') are only important in certain cases, for example, when they sampled from fast evolving viruses or sub-fossil ancient DNA material. In the case of the apes we are analysing the tree represents millions of years of evolution so the dates of the tips can be assumed to be zero. This is the default --- the taxa all have a date of zero and the `Use tip dates` box is not selected.
 
-{% include image.html prefix="/tutorials/first_tutorial/" file="image5.png" %}
+{% include image.html prefix=root_url file="image5.png" %}
 
 Skip the `Traits` tab and move on to the `Sites` tab.
 
@@ -83,7 +85,7 @@ Skip the `Traits` tab and move on to the `Sites` tab.
 
 In the `Sites` tab you can set the model of molecular evolution for the sequence data you have loaded. Exactly which options appear depend on whether the data are nucleotides or amino acids (or other forms of data). The settings that will appear after loading the `apes.nex` data set will be as follows:
 
-{% include image.html prefix="/tutorials/first_tutorial/" file="image6.png" %}
+{% include image.html prefix=root_url file="image6.png" %}
 
 This tutorial assumes you are familiar with the evolutionary models available, however there are a couple of points to note:
 
@@ -95,7 +97,7 @@ The default is a simple HKY ([Hasegawa, Kishino & Yano (1985) *J Mol Evol* **22*
 
 In the next tab `Clock` we set the model of molecular clock we will use. Unlike many other phylogenetic software BEAST exclusively uses molecular clock models so that trees have a timescale (an inferred root and direction in time). The simplest model is the default 'Strict clock'. This assumes that all branches on the tree have the same rate of evolution. The other molecular clock models relax this assumptions in various ways which later tutorials will discuss.
 
-{% include image.html prefix="/tutorials/first_tutorial/" file="image7.png" %}
+{% include image.html prefix=root_url file="image7.png" %}
 
 For this analysis leave the `Clock Type` as `Strict clock` and move on to the `Trees` tab.
 
@@ -103,7 +105,7 @@ For this analysis leave the `Clock Type` as `Strict clock` and move on to the `T
 
 In this panel you can set the model that provides a prior on the tree and some choices about the starting tree in the MCMC run. 
 
-{% include image.html prefix="/tutorials/first_tutorial/" file="image8.png" %}
+{% include image.html prefix=root_url file="image8.png" %}
 
 The `Tree Prior` option has many choices divided generally into 'Coalescent' models which are generally suited to populations and 'Speciation' models which, as the name suggests are intended for species level data. As we have sequence data from a handful of species, we will select the `Speciation: Yule process` model. The Yule process [Yule (1925) *Phil Trans Royal Soc B* **213**: 402-420](http://rstb.royalsocietypublishing.org/content/213/402-410/21) is the simplest model of speciation where each lineage is assumed to have speciated at a fixed rate. The model has a single parameter, the 'birth rate' of new species.
 
@@ -115,7 +117,7 @@ Select the Yule process and move to the next `Priors` tab.
 
 The next tab allows priors to be specified for each parameter in the model:
 
-{% include image.html prefix="/tutorials/first_tutorial/" file="image9.png" %}
+{% include image.html prefix=root_url file="image9.png" %}
 
 Selecting priors is one of the most challenging aspects of Bayesian analysis. In BEAST we have tried to pick some reasonably appropriate and robust priors as defaults for most parameters. In this tutorial, the default options will be used.
 
@@ -123,7 +125,7 @@ Selecting priors is one of the most challenging aspects of Bayesian analysis. In
 
 The next stage is to look at the operators for the MCMC. To do this select the `Operators` tab at the top of the main window. For the `ape.nex` dataset, with the model set up as shown in the screen shot above, you will see the following table:
 
-{% include image.html prefix="/tutorials/first_tutorial/" file="image10.png" %}
+{% include image.html prefix=root_url file="image10.png" %}
 
 Each parameter in the model has one or more "operators". The operators specify how the parameter changes as the MCMC runs. This table lists the parameters, their operators and the tuning settings for these operators. In the first column are the parameter names. These will be called things like `kappa` which means the HKY model's kappa parameter (the transition-transversion bias). The next column has the type of operators that are acting on each parameter. For example, the `scale` operator scales the parameter up or down by a proportion, the `random walk` operator adds or subtracts an amount to the parameter and the `uniform` operator simply picks a new value uniformally within a range. Some parameters relate to the tree or to the heights of the nodes of the tree and these have special operators.
 
@@ -137,7 +139,7 @@ Once again leave the settings at their defaults and move on to the next tab.
 
 The last tab, `MCMC`, provides settings to control the actual running of BEAST:
 
-{% include image.html prefix="/tutorials/first_tutorial/" file="image11.png" %}
+{% include image.html prefix=root_url file="image11.png" %}
 
 Firstly we have the Length of chain. This is the number of steps the MCMC will make in the chain before finishing. How long this should be depends on the size of the dataset, the complexity of the model and the quality of answer required. The default value of 10,000,000 is entirely arbitrary and should be adjusted according to the size of your dataset. In order examine whether a particular chain length is adequate, the resulting log file can be analysed using Tracer. The aim of setting the chain length is to achieve a reasonable Effective Sample Size (ESS). Ways of doing this are discussed in another tutorial.
 
@@ -169,7 +171,7 @@ We are now ready to run the file through BEAST.
 
 The following dialog box will appear:
 
-{% include image.html prefix="/tutorials/first_tutorial/" file="image12.png" %}
+{% include image.html prefix=root_url file="image12.png" %}
 
 All you need to do is to click the `Choose File...` button, select the XML file you created in BEAUti, above, and press `Run`. For information about the other options see the page on the [BEAST program](beast).
 

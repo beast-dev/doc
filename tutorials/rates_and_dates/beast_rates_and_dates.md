@@ -10,6 +10,8 @@ permalink: rates_and_dates.html
 folder: beast
 ---
 
+{% capture root_url %}{{ site.tutorials_root_url }}/rates_and_dates/{% endcapture %}
+
 {% include warning.html content="This page unfinished." %}
 
 The data are 71 sequences from the prM/E gene of yellow fever virus (YFV) from Africa and the Americas with isolation dates ranging from 1940-2009.
@@ -19,23 +21,25 @@ The sequences represent a subset of the data set analyzed by Bryant et al. ([Bry
 
 ## Loading the data into BEAUti
 
-Run [BEAUti] by double clicking on its icon.
+<img src="images/icons/beauti-icon.png" style="float: left" />
+<br />Run [BEAUti](beauti) by double clicking on its icon.
+BEAUti is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis. 
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>YFV.nex</samp>' and can be found in the BEAST package in the '<samp>examples/Data/</samp>' folder or <a href="{{ root_url }}files/YFV.nex">can be downloaded from here</a>.</div>
 
 ### Loading the NEXUS file
-To load a NEXUS format alignment, simply select the `Import Data...` option from the `File` menu.
-
-Select the file called `YFV.nex`. 
+To load a NEXUS format alignment, simply select the `Import Data...` option from the `File` menu and select the file called `YFV.nex`. 
 This file contains an alignment of 71 sequences from the prM/E gene of YFV, 654 nucleotides in length. 
 Once loaded, the sequence data will be listed under Data Partitions:
 
-{% include image.html prefix="tutorials/rates_and_dates/" file="image1.png"%}
+{% include image.html prefix=root_url file="image1.png" %}
 
 ### Specifying a taxon set
 
 Under the `Taxa` panel, we can define sets of taxa for which we would like to obtain particular statistics, enforce a monophyletic constraint, or put calibration information on. 
 Let’s define an “Americas” taxon set by pressing the small “plus” button at the bottom left of the panel:
 
-{% include image.html prefix="tutorials/rates_and_dates/" file="image2.png" width="50%" %}<br />
+{% include image.html prefix=root_url file="image2.png" width="50%" %}<br />
 
  This will create a new taxon set. 
 Rename it by double-clicking on the entry that appears (it will initially be called `untitled1`).
@@ -46,19 +50,23 @@ We do not opt for the `includeStem?` option either because we would like to esti
 In the next table along you will see the available taxa. 
 Taxa can be selected and moved to the `Included taxa` set by pressing the green arrow button.
 Note that multiple taxa can be selected simultaneously holding down the Command or Control button on a Mac or PC, respectively.
-Since most taxa are from the Americas, the most convenient is to simply select all taxa, move them to the ‘Included taxa’ set, and then move back the African taxa (the country of sampling is included at the end of the taxa names). 
+Since most taxa are from the Americas, the most convenient is to simply select all taxa, move them to the ‘Included taxa’ set, and then move back the African taxa (the country of sampling is included at the end of the taxa names). Check there are only African countries on the left (there should be 21) and only American countries on the right (there should be 50).
 
 For more information on creating taxon sets, [see this page](taxon_sets).
 
 After these operations, the screen should look like this:
 
-{% include image.html prefix="tutorials/rates_and_dates/" file="image3.png" %}<br />
+{% include image.html prefix=root_url file="image3.png" %}
 
 To inform BEAUti/BEAST about the sampling dates of the sequences, go to the Tips menu and select the “Use tip dates” option. By default all the taxa are assumed to have a date of zero (i.e. the sequences are assumed to be sampled at the same time; BEAST considers the present or most recent sampling time as time 0). In this case, the YFV sequences have been sampled at various dates going back to the 1940s. The actual year of sampling is given in the name of each taxon and we could simply edit the value in the Date column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the ``Guess Dates'' button at the top of the Data panel. Clicking this will make a dialog box appear:
+
+{% include image.html prefix=root_url file="image4.png" %}
 
 This operation attempts to guess what the dates are from information contained within the taxon names. It works by trying to find a numerical field within each name. If the taxon names contain more than one numerical field (such as the some YFV sequences, above) then you can specify how to find the one that corresponds to the date of sampling. [See this page for details about the various options for setting dates in this panel](tip_dates). For the YFV sequences you can keep the default `Defined just by its order` and `Order: first` (but make sure that the `Parse as a number` option is selected).
 
 When parsing a number, you can ask BEAUti to add a fixed value to each date which can be useful for [transforming a 2 digit year into a 4 digit year](tip_dates). Because all dates are specified in a four digit format in this case, no additional settings are needed.  So, we can press `OK`.
+
+{% include image.html prefix=root_url file="image5.png" %}
 
 The `Height` column lists the ages of the tips relative to time 0 (in our case 2009). For these sequences, only the sampling year is provided and not the exact sampling dates. This uncertainty will negligible with respect to the relatively large evolutionary time scale of this example, however, [it is possible to accommodate the sampling time uncertainty --- see here](sampling_tipdates).
 
@@ -66,34 +74,53 @@ The `Height` column lists the ages of the tips relative to time 0 (in our case 2
 
 The next thing to do is to click on the Sites tab at the top of the main window. This will reveal the evolutionary model settings for BEAST. Exactly which options appear depend on whether the data are nucleotides or amino acids (or traits). This tutorial assumes that you are familiar with the evolutionary models available; however there are a couple of points to note about selecting a model in BEAUti:
 
-Selecting the Partition into codon positions option assumes that the data are aligned as codons. This option will then estimate a separate rate of substitution for each codon position, or for 1+2 versus 3, depending on the setting.
+Partition into codon positions:
+: Selecting the `Partition into codon positions` option assumes that the data are aligned as codons. This option will then estimate a separate rate of substitution for each codon position, or for 1+2 versus 3, depending on the setting.
 
-Selecting the Unlink substitution model across codon positions will specify that BEAST should estimate a separate transition-transversion ratio or general time reversible rate matrix for each codon position. 
+Unlink substitution model across codon positions:
+: Selecting the `Unlink substitution model across codon positions` will specify that BEAST should estimate a separate transition-transversion ratio or general time reversible rate matrix for each codon position. 
 
-Selecting the Unlink rate heterogeneity model across codon positions will specify that BEAST should estimate set of rate heterogeneity parameters (gamma shape parameter and/or proportion of invariant sites) for each codon position.
+Unlink rate heterogeneity model across codon positions:
+: Selecting the `Unlink rate heterogeneity model across codon positions` will specify that BEAST should estimate set of rate heterogeneity parameters (gamma shape parameter and/or proportion of invariant sites) for each codon position.
 
-Selecting the Unlink base frequencies across codon positions will specify that BEAST should estimate a separate set of base frequencies for each codon position.
+Unlink base frequencies across codon positions:
+: Selecting the `Unlink base frequencies across codon positions` will specify that BEAST should estimate a separate set of base frequencies for each codon position.
 
  For this tutorial, select the 3 partitions: codon positions 1, 2 & 3 option so that each codon position has its own HKY substitution model, rate of evolution, Estimated base frequencies, and Gamma-distributed rate variation among sites:
+
+{% include image.html prefix=root_url file="image6.png" %}
 
 ### Setting the clock model
 
 Click on the Clocks tab at the top of the main window. We will perform our initial run using the (default) strict molecular clock model:
  
+{% include image.html prefix=root_url file="image7.png" %}
+
 ### Setting the starting tree and tree prior
 
-Click on the Trees tab at the top of the main window. We keep a default random starting tree and a (simple) constant size coalescent prior. The tree priors (coalescent and other models) will be explained in other lectures.
+Click on the Trees tab at the top of the main window. We keep a default random starting tree and a (simple) constant size coalescent prior. The tree priors (coalescent and other models) [are described on this page](tree_priors).
+
+{% include image.html prefix=root_url file="image8.png" %}
 
 ### Setting up the priors
 
-Review the prior settings under the Priors tab. Some of the default marginal priors may be improper (e.g. indicated in yellow); priors that would not have been set would appear in red. It’s important to provide proper priors for all the parameters being estimated as improper priors lead to improper posteriors and improper marginal likelihoods (when performing Bayesian model selection, see further in this tutorial). To change the prior on the relative rates (allMus) for example, click on the corresponding prior and a prior selection window will appear. Set the prior to a gamma distribution with shape = 0.001 and scale = 1000. The graphical representation of this prior distribution indicates that most prior mass is put on small values, but the density remains sufficiently diffuse. Notice that the prior setting turns black after confirming this setting by clicking ”OK”.
-Note that the default prior on the rate of evolution (clock.rate) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). If the sequences are not associated with different sampling dates (they are contemporaneous), or when the sampling time range is trivial for the evolutionary scale of the taxa, the substitution rate can be fixed to a value based on another source, or better, a prior distribution can be specified to also incorporate the uncertainty of this ‘external’ rate. Fixing the rate to 1.0 will result in the ages of the nodes of the tree being estimated in units of substitutions per site (i.e. the normal units of branch lengths in popular packages such as MrBayes). Note that when selecting to fix the rate to a value, the transition kernel(s) on this parameter (‘Operators’ panel, see next section) will be  automatically unselected. 
+Review the prior settings under the `Priors` panel:
+
+{% include image.html prefix=root_url file="image9.png" %}
+
+<!-- Some of the default marginal priors may be improper (e.g. indicated in yellow); priors that would not have been set would appear in red. It’s important to provide proper priors for all the parameters being estimated as improper priors lead to improper posteriors and improper marginal likelihoods (when performing Bayesian model selection, see further in this tutorial). To change the prior on the relative rates (allMus) for example, click on the corresponding prior and a prior selection window will appear. Set the prior to a gamma distribution with shape = 0.001 and scale = 1000. The graphical representation of this prior distribution indicates that most prior mass is put on small values, but the density remains sufficiently diffuse. Notice that the prior setting turns black after confirming this setting by clicking ”OK”. 
+
+Note that the default prior on the rate of evolution (clock.rate) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). If the sequences are not associated with different sampling dates (they are contemporaneous), or when the sampling time range is trivial for the evolutionary scale of the taxa, the substitution rate can be fixed to a value based on another source, or better, a prior distribution can be specified to also incorporate the uncertainty of this ‘external’ rate. Fixing the rate to 1.0 will result in the ages of the nodes of the tree being estimated in units of substitutions per site (i.e. the normal units of branch lengths in popular packages such as MrBayes). Note that when selecting to fix the rate to a value, the transition kernel(s) on this parameter (‘Operators’ panel, see next section) will be  automatically unselected.  -->
 
 ### Setting up the operators
 
 Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs. As of BEAST v1.8.4, different options are available w.r.t. exploring tree space. In this tutorial, we will use the ‘classic operator mix’, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a ‘new experimental mix’, which is currently under development with the aim to improve mixing for large phylogenetic trees.
 
-The operators tab in BEAUti has a table that lists the parameters, their operators and the tuning settings for these operators. In the first column are the parameter names. These will be called things like CP1.kappa which means the HKY model's kappa parameter (the transition-transversion bias) for the first codon position. The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a random proportion and the uniform operator simply picks a new value uniformly within a range. Some parameters related to the tree or to the node ages in the tree are associated with specific operators.
+The `operators` panel in BEAUti has a table that lists the parameters, their operators and the tuning settings for these operators:
+ 
+{% include image.html prefix=root_url file="image10.png" %}
+
+In the first column are the parameter names. These will be called things like `CP1.kappa` which means the HKY model's kappa parameter (the transition-transversion bias) for the first codon position. The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a random proportion and the uniform operator simply picks a new value uniformly within a range. Some parameters related to the tree or to the node ages in the tree are associated with specific operators.
 
 The next column, labelled Tuning, gives a tuning setting to the operator. Some operators don't have any tuning settings so have n/a under this column. The tuning parameter will determine how large a move each operator will make which will affect how often that change is accepted by the MCMC which will affect the efficiency of the analysis. For most operators (like the subtree slide operator) a larger tuning parameter means larger moves. However for the scale operator a tuning parameter value closer to 0.0 means bigger moves. At the top of the window is an option called Auto Optimize which, when selected, will automatically adjust the tuning setting as the MCMC runs to try to achieve maximum efficiency. At the end of the run a table of the operators, their performance and the final values of these tuning settings can be written to standard output. 
 
@@ -102,6 +129,8 @@ The next column, labelled Weight, specifies how often each operator is applied r
 ### Setting the MCMC options
 
 The MCMC tab in BEAUti provides settings to control the MCMC chain. Firstly we have the Length of chain. This is the number of steps the MCMC will make in the chain before finishing. How long this should depend on the size of the dataset, the complexity of the model and the precision of the answer required. The default value of 10,000,000 is entirely arbitrary and should be adjusted according to the size of your dataset. We will see later how the resulting log file can be analyzed using Tracer in order to examine whether a particular chain length is adequate.
+
+{% include image.html prefix=root_url file="image11.png" %}
 
 The next couple of options specify how often the current parameter values should be displayed on the screen and recorded in the log file. The screen output is simply for monitoring the program's progress so can be set to any value (although if set too small, the sheer quantity of information being displayed on the screen will slow the program down). For the log file, the value should be set relative to the total length of the chain. Sampling too often will result in very large files with little extra benefit in terms of the precision of the estimates. Sample too infrequently and the log file will not contain much information about the distributions of the parameters. You probably want to aim to store no more than 10,000 samples so this should be set to something >= chain length / 10,000.
 
