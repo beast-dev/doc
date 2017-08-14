@@ -25,6 +25,8 @@ To undertake this tutorial, you will need to download three software packages in
 
 {% include spread3_callout.md %}
 
+<!-- maybe also add a link to a zipped folder containing all input files -->
+
 ## EXERCISE 1: Host and location ancestral reconstruction
 
 ### Running BEAUti
@@ -33,7 +35,6 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 
 #### Loading the sequence data file 
 
-The input file for this tutorial, batRABV.fas, can be <a href="{{ root_url }}files/batRABV.fas"> downloaded from here</a>.
 The input file for this tutorial, batRABV.fas, can be [downloaded from here](files/batRABV.fas).
 To load the alignment, simply select the `Import Data...` option from the File menu:
 
@@ -87,11 +88,11 @@ Go back to the `Tips` tab, and in the bottom left, select the `sampling with ind
 
 #### Specifying the trait information
 
-The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a specific host and geographical location to each taxa. To associate the sequences with the these traits, we need to add a new trait under the `Traits` tab (click `Add trait`). This will open a new window to Create or Import Trait(s):
+The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a specific host and geographical location to each taxa based on the trait specification for each sequence in the batRABV\_hostLocation.txt file, which [downloaded from here](files/batRABV_hostLocation.txt). To associate the sequences with the traits, we need to add a new trait under the `Traits` tab (click `Add trait`). This will open a new window to Create or Import Trait(s):
 
 {% include image.html file="07_importTrait.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
-Select `Import trait(s) from a mapping file` (the format of such a file can be shown). Browse to and load the batRABV\_hostLocation.txt tab-delimited file which contains the discrete host and location for each sequence. Note that the host species is specified using a two-character abbreviation (e.g. Ef for Eptesicus fuscus, three characters for Lbl) as shown for this snippet of the file:
+Select `Import trait(s) from a mapping file` (the format of such a file can be shown). Browse to and load the batRABV\_hostLocation.txt tab-delimited file. Note that the host species is specified using a two-character abbreviation (e.g. Ef for Eptesicus fuscus, three characters for Lbl) as shown for this snippet of the file:
 
 	traits	host	state
 	AZ4030_2005.5	Ap	Arizona
@@ -345,7 +346,8 @@ Click on `Setup GLM` and a new window will pop up:
 
 {% include image.html file="26_GLMemptySetup.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
-This window allows specifying a set of GLM predictors or covariates by importing them through `Import Predictors...`. Start by loading the distance matrix between bat rabies hosts based on mitochondrial gene distances (hostDistances.csv). This is a csv file with the following content (the two-character labels represent the bat species):
+This window allows specifying a set of GLM predictors or covariates by importing them through `Import Predictors...`. All predictors can be downloaded as a zipped folder [here](files/predictors.zip).
+Start by loading the distance matrix between bat rabies hosts based on mitochondrial gene distances (hostDistances.csv). This is a csv file with the following content (the two-character labels represent the bat species):
 
 	,Ap,Ef,Lb,Lbl,Lc,Li,Ln,Ls,Lx,Ma,Mc,Ml,My,Nh,Ph,Ps,Tb
 	Ap,0,0.745,0.878,0.8,0.71,0.86,0.711,0.916,0.788,0.794,0.717,0.736,0.78,0.74,0.596,0.67,0.923
