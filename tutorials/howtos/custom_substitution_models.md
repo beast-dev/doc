@@ -487,10 +487,10 @@ At the end of this how-to guide, we will show how to modify this, for example by
         <gtrModel idref="TrN_Gene6"/>
     </substitutionModel>
     <relativeRate>
-        <parameter id="siteModel_Gene6.mu" value="1.0" lower="0.0" upper="10000.0"/>
+        <parameter id="siteModel_Gene6.mu" value="1.0" lower="0.0"/>
     </relativeRate>
     <gammaShape gammaCategories="4">
-        <parameter id="siteModel_Gene6.alpha" value="0.5" lower="0.0" upper="1000.0"/>
+        <parameter id="siteModel_Gene6.alpha" value="0.5" lower="0.0"/>
     </gammaShape>
 </siteModel>
 ```
@@ -803,6 +803,33 @@ Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make su
 </scaleOperator>
 ```
 
+You will need to specify priors for all the model parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
+We also need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+A possible prior for this parameter could be the following:
+
+```xml
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="TIMef_Gene9.purine2pyrimidine"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="TIMef_Gene9.ag"/>
+</gammaPrior>
+<exponentialPrior mean="0.5" offset="0.0">
+    <parameter idref="siteModel_Gene9.alpha"/>
+</exponentialPrior>
+```
+
+You will want to log the relevant parameters to file to monitor convergence/ESS. 
+Add the parameter references below to the file logger:
+
+```xml
+<parameter idref="TIMef_Gene9.purine2pyrimidine"/>
+<parameter idref="TIMef_Gene9.ag"/>
+<parameter idref="TIMef_Gene9.pyrimidine2purine"/>
+<parameter idref="TIMef_Gene9.frequencies"/>
+<parameter idref="siteModel_Gene9.alpha"/>
+```
+
 
 ### TIM (unequal frequencies)
 
@@ -874,8 +901,37 @@ Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make su
 </scaleOperator>
 ```
 
+You will need to specify priors for all the model parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
+We also need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+A possible prior for this parameter could be the following:
 
-### TVM
+```xml
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="TIM_Gene10.purine2pyrimidine"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="TIM_Gene10.ag"/>
+</gammaPrior>
+<exponentialPrior mean="0.5" offset="0.0">
+    <parameter idref="siteModel_Gene10.alpha"/>
+</exponentialPrior>
+<uniformPrior lower="0.0" upper="1.0">
+    <parameter idref="TIM_Gene10.frequencies"/>
+</uniformPrior>
+```
+
+You will want to log the relevant parameters to file to monitor convergence/ESS. 
+Add the parameter references below to the file logger:
+
+```xml
+<parameter idref="TIM_Gene10.purine2pyrimidine"/>
+<parameter idref="TIM_Gene10.ag"/>
+<parameter idref="TIM_Gene10.pyrimidine2purine"/>
+<parameter idref="TIM_Gene10.frequencies"/>
+<parameter idref="siteModel_Gene10.alpha"/>
+```
+
+### TVM (equal frequencies)
 
 ```xml
 <!-- *** SUBSTITUTION MODEL FOR PARTITION Gene11 *** -->
@@ -945,8 +1001,47 @@ Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make su
 </scaleOperator>
 ```
 
+You will need to specify priors for all the model parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
+We also need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+A possible prior for this parameter could be the following:
 
-### TVM
+```xml
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="TVMef_Gene11.ac"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="TVMef_Gene11.at"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="TVMef_Gene11.cg"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="TVMef_Gene11.gt"/>
+</gammaPrior>
+```
+
+You will want to log the relevant parameters to file to monitor convergence/ESS. 
+Add the parameter references below to the file logger:
+
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TVMef_Gene11.ac"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TVMef_Gene11.at"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TVMef_Gene11.cg"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="TVMef_Gene11.gt"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene11.alpha"/>
+</scaleOperator>
+```
+
+### TVM (unequal frequencies)
 
 ```xml
 <!-- *** SUBSTITUTION MODEL FOR PARTITION Gene12 *** -->
@@ -1019,6 +1114,39 @@ Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make su
 </scaleOperator>
 ```
 
+You will need to specify priors for all the model parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
+We also need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+A possible prior for this parameter could be the following:
+
+```xml
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="TVM_Gene12.ac"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="TVM_Gene12.at"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="TVM_Gene12.cg"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="TVM_Gene12.gt"/>
+</gammaPrior>
+<uniformPrior lower="0.0" upper="1.0">
+    <parameter idref="TVM_Gene12.frequencies"/>
+</uniformPrior>
+```
+
+You will want to log the relevant parameters to file to monitor convergence/ESS. 
+Add the parameter references below to the file logger:
+
+```xml
+<parameter idref="TVM_Gene12.ac"/>
+<parameter idref="TVM_Gene12.at"/>
+<parameter idref="TVM_Gene12.cg"/>
+<parameter idref="TVM_Gene12.gt"/>
+<parameter idref="TVM_Gene12.frequencies"/>
+<parameter idref="siteModel_Gene12.alpha"/>
+```
 
 ### SYM
 
@@ -1093,7 +1221,40 @@ Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make su
 </scaleOperator>
 ```
 
+You will need to specify priors for all the model parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
+We also need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+A possible prior for this parameter could be the following:
 
+```xml
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="SYM_Gene13.ac"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="SYM_Gene13.ag"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="SYM_Gene13.at"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="SYM_Gene13.cg"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="SYM_Gene13.gt"/>
+</gammaPrior>
+```
+
+You will want to log the relevant parameters to file to monitor convergence/ESS. 
+Add the parameter references below to the file logger:
+
+```xml
+<parameter idref="SYM_Gene13.ac"/>
+<parameter idref="SYM_Gene13.ag"/>
+<parameter idref="SYM_Gene13.at"/>
+<parameter idref="SYM_Gene13.cg"/>
+<parameter idref="SYM_Gene13.gt"/>
+<parameter idref="SYM_Gene13.frequencies"/>
+<parameter idref="siteModel_Gene13.alpha"/>
+```
 
 ### GTR
 
@@ -1171,9 +1332,96 @@ Add the code below to your &lt;operators&gt;&lt;/operators&gt; block, to make su
 </scaleOperator>
 ```
 
+You will need to specify priors for all the model parameters that are being estimated (i.e. no priors are needed for fixed-value parameters) in your &lt;mcmc&gt;&lt;/mcmc&gt; block. 
+We also need a prior for the parameter of our discretized gamma distribution, from which the rates of the among-site rate heterogeneity model are drawn.
+A possible prior for this parameter could be the following:
 
-## Simpler Models
+```xml
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="GTR_Gene14.ac"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="GTR_Gene14.ag"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="GTR_Gene14.at"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="GTR_Gene14.cg"/>
+</gammaPrior>
+<gammaPrior shape="0.05" scale="10.0" offset="0.0">
+    <parameter idref="GTR_Gene14.gt"/>
+</gammaPrior>
+<uniformPrior lower="0.0" upper="1.0">
+    <parameter idref="GTR_Gene14.frequencies"/>
+</uniformPrior>
+```
 
+You will want to log the relevant parameters to file to monitor convergence/ESS. 
+Add the parameter references below to the file logger:
+
+```xml
+<parameter idref="GTR_Gene14.ac"/>
+<parameter idref="GTR_Gene14.ag"/>
+<parameter idref="GTR_Gene14.at"/>
+<parameter idref="GTR_Gene14.cg"/>
+<parameter idref="GTR_Gene14.gt"/>
+<parameter idref="GTR_Gene14.frequencies"/>
+<parameter idref="siteModel_Gene14.alpha"/>
+```
+
+## Additional Site Rate Heterogeneity Models
+
+In the previous section, we have assumed the typical site (rate heterogeneity) model (+G), i.e. allowing for varying rates across sites according to a discretized gamma distribution (Yang, 1993).
+This model is sometimes extended by adding a proportion of invariant sites (+I), although discussions often flare up as to whether such a combined model is actually identifiable.
+As an example, the following ADDITIONS (i.e. one additional parameter and its operator and prior) need to be made to the first substitution model discussed in this how-to guide:
+
+**Note:** assuming a proportion of invariant sites does not alter the substitution model, containing the instantaneous substitution rates, but is rather superimposed onto the substitution model.
+
+Add a parameter that represents the proportion of invariant sites:
+
+```xml
+<siteModel id="siteModel_Gene1">
+	<proportionInvariant>
+		<parameter id="siteModel_Gene1.pInv" value="0.25" lower="0.0"/>
+	</proportionInvariant>
+</siteModel>
+```
+
+Add a transition kernel, i.e. a BEAST operator, to the list of transition kernels:
+
+```xml
+<scaleOperator scaleFactor="0.75" weight="0.1">
+    <parameter idref="siteModel_Gene1.pInv"/>
+</scaleOperator>
+```
+
+Add a prior to the list of priors:
+
+```xml
+<uniformPrior lower="0.0" upper="1.0">
+    <parameter idref="siteModel_Gene1.pInv"/>
+</uniformPrior>
+```
+
+And conclude by adding the additional parameter to the logger:
+
+```xml 
+<parameter idref="siteModel_Gene1.pInv"/>
+```
+
+**Note:** we have shown how to model among-site rate heterogeneity (+G), with or without assuming a proportion of invariant sites (+I).
+It's possible to only model a proportion of invariant sites (+I) without assuming among-site rate heterogeneity by removing all relevant portions of the XML code.
+Likewise, neither +I nor +G assumptions can be selected for the site model as follows:
+
+```xml
+<!-- *** SITE MODEL FOR PARTITION Gene15 *** -->
+<siteModel id="siteModel_Gene15">
+	<substitutionModel>
+		<gtrModel idref="GTR_Gene15"/>
+	</substitutionModel>
+</siteModel>
+```
 
 
 ## References
