@@ -346,8 +346,8 @@ Click on `Setup GLM` and a new window will pop up:
 
 {% include image.html file="26_GLMemptySetup.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
-This window allows specifying a set of GLM predictors or covariates by importing them through `Import Predictors...`. All predictors can be downloaded as a zipped folder [here](files/predictors.zip).
-Start by loading the distance matrix between bat rabies hosts based on mitochondrial gene distances (hostDistances.csv). This is a csv file with the following content (the two-character labels represent the bat species):
+This window allows specifying a set of GLM predictors or covariates by importing them through `Import Predictors...`. All predictors can be downloaded as a zipped folder [here](files/predictors.zip) or as individual files linked below.
+Start by loading the distance matrix between bat rabies hosts based on mitochondrial gene distances ([hostDistances.csv](files/predictors/hostDistances.csv)). This is a csv file with the following content (the two-character labels represent the bat species):
 
 	,Ap,Ef,Lb,Lbl,Lc,Li,Ln,Ls,Lx,Ma,Mc,Ml,My,Nh,Ph,Ps,Tb
 	Ap,0,0.745,0.878,0.8,0.71,0.86,0.711,0.916,0.788,0.794,0.717,0.736,0.78,0.74,0.596,0.67,0.923
@@ -369,7 +369,7 @@ Start by loading the distance matrix between bat rabies hosts based on mitochond
 	Tb,0.923,1.016,0.839,0.761,0.671,0.821,0.982,0.877,0.749,0.989,0.912,0.931,0.975,1.011,0.791,0.865,0
 
 
-Note that by default, the values in the distance matrix are selected to be log-transformed and standardised. This is because the GLM-diffusion model parameterizes the log of the CTMC rates as a log linear function of the predictor and we grant the same variance to the predictors a priori. Repeat this procedure for range overlap (rangeOverlap.csv), roost structure overlap (roostOverlap.csv), differences in wing aspect ratio (wingAspectRatio.csv), differences in wing loading (wingLoading.csv) and differences in body size (bodySize.csv). 
+Note that by default, the values in the distance matrix are selected to be log-transformed and standardised. This is because the GLM-diffusion model parameterizes the log of the CTMC rates as a log linear function of the predictor and we grant the same variance to the predictors a priori. Repeat this procedure for range overlap ([rangeOverlap.csv](files/predictors/rangeOverlap.csv)), roost structure overlap ([roostOverlap.csv](files/predictors/roostOverlap.csv)), differences in wing aspect ratio ([wingAspectRatio.csv](files/predictors/wingAspectRatio.csv)), differences in wing loading ([wingLoading.csv](files/predictors/wingLoading.csv)) and differences in body size ([bodySize.csv](files/predictors/bodySize.csv)).
 
 Note that the roost structure overlap values are '1' or '0' indicating whether two bat species share or not a roost structure. We will not log-transform and standardize these values (by unselecting both option) so that '1' in log-space specifies an additional effect on the log transition rates for species that share a roost structure. These rates will be estimated higher or lower than the rates for species that do not share a roost structure, depending on whether the associated GLM coefficient will be estimated as positive or negative respectively in log space. After loading all predictors and unselecting the default transformations for roost structure overlap, the `GLM setting for host` window should look like this:
 
