@@ -34,6 +34,7 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 #### Loading the sequence data file 
 
 The input file for this tutorial, batRABV.fas, can be <a href="{{ root_url }}files/batRABV.fas"> downloaded from here</a>.
+The input file for this tutorial, batRABV.fas, can be [downloaded from here](files/batRABV.fas).
 To load the alignment, simply select the `Import Data...` option from the File menu:
 
 {% include image.html file="01_ImportData.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
@@ -330,7 +331,7 @@ Summarize the trees of the longer run using treeAnnotator (burn-in = 500,000 sta
 
 ## EXERCISE 2: Identifying predictors for the host transitioning process
 
-## Introduction
+### background
 
 This exercise builds on the previous analysis and aims at testing the factors that drive the host transitioning process for bat rabies viruses in North America. The original analyses resorted a population genetic approach and post hoc statistical procedures to test such predictors (Streicker et al., 2010); here we adopt an extension of the discrete diffusion model as applied by Faria et al. (2013). This extension parameterizes the CTMC matrix as a generalized linear model (GLM), in which log CTMC rates are a log linear function of several potential predictors (most of the detail on the model can be found in Lemey et al., 2014). We use the predictors originally proposed by Streicker et al. (2010): host phylogenetic distance (based on host mitochondrial DNA), geographic range overlap, roost structure overlap, and foraging niche overlap as approximated using three morphological measurements: wing aspect ratio, wing loading and body length, which are associated with foraging behavior in bats. We also consider sequence sample sizes, which can bias ancestral reconstructions, for both the 'donor' and 'recipient' host as additional predictors (cfr. Lemey et al., 2014).
 
