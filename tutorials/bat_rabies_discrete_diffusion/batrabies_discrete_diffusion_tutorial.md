@@ -33,7 +33,8 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 
 #### Loading the sequence data file 
 
-To load a NEXUS format alignment, simply select the `Import Data...` option from the File menu:
+The input file for this tutorial, batRABV.fas, can be <a href="{{ root_url }}files/batRABV.fas"> downloaded from here</a>.
+To load the alignment, simply select the `Import Data...` option from the File menu:
 
 {% include image.html file="01_ImportData.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
@@ -42,7 +43,7 @@ To load a NEXUS format alignment, simply select the `Import Data...` option from
 ##### The sequence alignment
 -->
 
-Select the file called batRABV.fas. This file contains an alignment of 372 nucleoprotein gene sequences of bat rabies viruses, 1353 nucleotides in length. Once loaded, the sequence data will be listed under Partitions as shown in the figure:
+Select the batRABV.fas file. This fasta formatted file contains an alignment of 372 nucleoprotein gene sequences of bat rabies viruses, 1353 nucleotides in length. Once loaded, the sequence data will be listed under Partitions as shown in the figure:
 
 {% include image.html file="02_sequencePartition.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
@@ -333,7 +334,7 @@ Summarize the trees of the longer run using treeAnnotator (burn-in = 500,000 sta
 
 This exercise builds on the previous analysis and aims at testing the factors that drive the host transitioning process for bat rabies viruses in North America. The original analyses resorted a population genetic approach and post hoc statistical procedures to test such predictors (Streicker et al., 2010); here we adopt an extension of the discrete diffusion model as applied by Faria et al. (2013). This extension parameterizes the CTMC matrix as a generalized linear model (GLM), in which log CTMC rates are a log linear function of several potential predictors (most of the detail on the model can be found in Lemey et al., 2014). We use the predictors originally proposed by Streicker et al. (2010): host phylogenetic distance (based on host mitochondrial DNA), geographic range overlap, roost structure overlap, and foraging niche overlap as approximated using three morphological measurements: wing aspect ratio, wing loading and body length, which are associated with foraging behavior in bats. We also consider sequence sample sizes, which can bias ancestral reconstructions, for both the 'donor' and 'recipient' host as additional predictors (cfr. Lemey et al., 2014).
 
-## GLM-diffusion model specification
+### GLM-diffusion model specification
 
 Repeat the first BEAUti steps up to setting the setting the sequence and trait evolutionary models. In case the BEAUti session from the previous exercise has not been closed yet, simply go back to the `Sites` panel. For the 'host' trait under `Substitution Model`, select `Generalized Linear Model`:
 
