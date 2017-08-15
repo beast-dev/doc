@@ -107,6 +107,36 @@ folder: beast
 
 ## Interpreting the results	
 <div class="panel-group" id="accordion">
+    <!-- /.panel -->
+    	<div class="panel panel-default">
+    		<div class="panel-heading">
+    			<div class="panel-title">
+    				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#qmc">
+How do I do model comparison?
+    				</a>
+    			</div>
+    		</div>
+    		<div id="qmc" class="panel-collapse collapse noCrossRef">
+    			<div class="panel-body">
+<p>Accurate model comparison in Bayesian phylogenetics is typically performed using <a href="model_selection_1">path sampling</a>, <a href="model_selection_1">stepping-stone sampling</a> or <a href="model_selection_2">generalized stepping-stone sampling</a>.</p>
+    			</div>
+    		</div>
+    	</div>
+    <!-- /.panel -->
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+        			<div class="panel-title">
+        				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#qpdt">
+How do I summarize the posterior distribution of trees?
+        				</a>
+        			</div>
+        		</div>
+        		<div id="qpdt" class="panel-collapse collapse noCrossRef">
+        			<div class="panel-body">
+<p><a href="beagle">See this page for an explanation of various approaches to summarizing trees.</a></p>
+        			</div>
+        		</div>
+        	</div>
 	<!-- /.panel -->
 	<div class="panel panel-default">
 		<div class="panel-heading">
