@@ -85,15 +85,10 @@ Enter ‘1.0’ as the precision value for 1 year. This will instruct BEAST to a
 
 {% include image.html file="06_tipdateSampling.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
 
-<!-- PL edited up to here -->
 
 #### Specifying the trait information
 
-The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a specific host and geographical location to each taxa based on the trait specification for each sequence in the batRABV\_hostLocation.txt file, which [downloaded from here](files/batRABV_hostLocation.txt). To associate the sequences with the traits, we need to add a new trait under the `Traits` tab (click `Add trait`). This will open a new window to Create or Import Trait(s):
-
-{% include image.html file="07_importTrait.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
-
-Select `Import trait(s) from a mapping file` (the format of such a file can be shown). Browse to and load the batRABV\_hostLocation.txt tab-delimited file. Note that the host species is specified using a two-character abbreviation (e.g. Ef for Eptesicus fuscus, three characters for Lbl) as shown for this snippet of the file:
+The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a latitude and longitude as geographical location to each taxa based on the trait specification for each sequence in the WNV\_lat\_long.txt file, which [downloaded from here](files/WNV_lat_long.txt). To associate the sequences with the traits, we need to import a new trait under the `Traits` tab (click `Import Traits...`). This will open a new window that allows importing a file with the traits. Browse to and Open the WNV\_lat\_long.txt tab-delimited file, with the following content:
 
 	traits	host	state
 	AZ4030_2005.5	Ap	Arizona
@@ -109,9 +104,13 @@ Select `Import trait(s) from a mapping file` (the format of such a file can be s
 	CA0100_2005.5	Ef	California
 	GA31940_2004.5	Ef	Georgia
 		...
-	TX3545_2004.5	Tb	Texas
+	DQ080059_Pn_2003	38.58	-121.49
+	
+After clicking `OK`, select both the 'lat' and 'long' trait in the left window and click on `create partition from trait..`. In the window that pops up, enter a name for this partitions, e.g. 'location':
 
-After clicking `OK`, select the host trait and click on `create partition from trait..`. This new partition will be shown under the `Partitions` tab. Do the same for the location trait (state), resulting in three partitions in the `Partitions` tab:
+{% include image.html file="07_traitSelection.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+
+This new 'location' partition with 2 'Sites' and with a continuous 'Data Type' will be shown under the `Partitions` tab:
 
 {% include image.html file="08_traitPartitions.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
 
@@ -119,7 +118,7 @@ After clicking `OK`, select the host trait and click on `create partition from t
 
 The next thing to do is to click on the `Sites` tab at the top of the main window. This will reveal the evolutionary model settings for BEAST. Exactly which options appear depend on whether the data are nucleotides, amino acids or traits. 
 
-This tutorial assumes that you are familiar with the evolutionary models available, however there are a couple of points to note about selecting a model in BEAUti:
+This tutorial assumes that you are familiar with the available evolutionary models, however there are a couple of points to note about selecting a model in BEAUti:
 
 Selecting the `Partition into codon positions` option assumes that the data are aligned as codons. This option will then estimate a separate rate of substitution for each codon position, or for 1+2 versus 3, depending on the setting.
 
@@ -127,71 +126,76 @@ Selecting the `Unlink substitution model across codon positions` will specify th
 
 Selecting the `Unlink rate heterogeneity model across codon positions` will specify that BEAST should estimate a set of rate heterogeneity parameters (gamma shape parameter and/or proportion of invariant sites) for each codon position. 
 
-For the nucleotide model in this tutorial, keep the default HKY substitution model, set base frequencies to Empirical, and use Gamma-distributed rate variation among sites (with 4 discrete categories):
+For the nucleotide substitution model in this tutorial, keep the default HKY substitution model, keep the base frequencies to be 'Estimated', the ‘Site Rate Heterogeneity’ to ‘None’, and partition the data into 3 partitions for the coding positions (3 partitions: positions 1,2,3). Because of the renaissance counting procedure that we will apply to obtain site-specific dN/dS estimates, we cannot model rate heterogeneity within each codon position partition, so we will assume that we capture most among site rate heterogeneity by modeling relative rates among the coding position partitions.
 
 {% include image.html file="09_substModel.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
 
-Click on 'host' in the `Substitution model` window and keep the `Discrete Trait Substitution Model` to Symmetric substitution model and select the option to perform BSSVS (Infer social network with BSSVS). The Symmetric substitution model specifies a discrete state ancestral reconstruction using a standard continuous-time Markov chain (CTMC), in which the transition rates between locations are reversible. The alternative Asymmetric substitution model specifies a discrete state ancestral reconstruction using a nonreversible CTMC. Selecting the BSSVS option enables the Bayesian Stochastic Search Variable Selection procedure. This procedure will attempt to invoke a limited number of rates (at least k-1, where k is the number of states) to adequately explain the phylogenetic diffusion process.
+<!-- PL edited up to here -->
 
-{% include image.html file="10_hostModel.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+Next, click on 'location' in the `Substitution model` window and keep the 
+`Homogenous Brownian model`, and select `Bivariate trait represents latitude and longitude`. This option generates diffusion statistics that are specific for bivariate spatial traits (with latitude and longitude in that order). Also select the `add random jitter to tips`, which adds noise drawn uniformly at random from a particular jitter window size to duplicated (location) traits. Set the `jitter window size` to 0.5. The noise avoids a poor performance of Brownian diffusion models when not all sequences are associated with unique locations.
 
-Apply the same discrete diffusion model settings to the spatial ‘state’ trait.
+{% include image.html file="10_traitModel.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
 
 #### Setting the ‘molecular clock’ model
 
-The ‘Molecular Clock Model’ options in the `Clocks` panel allows us to choose between a strict and a relaxed (uncorrelated lognormal or uncorrelated exponential) clock. We will perform our run using the default Strict clock model:
+The ‘Molecular Clock Model’ options in the `Clocks` panel allows us to choose between a strict and a relaxed (uncorrelated lognormal or uncorrelated exponential) clock. We will perform our run using the Lognormal relaxed molecular clock  (Uncorrelated) model:
 
 {% include image.html file="11_clockModel.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
-
-We can also keep default settings for overall rate scalers in the host and location state transition processes.
 
 Now move on to the `Trees` panel.
 
 #### Setting the tree prior
 
-This panel contains settings about the tree. Firstly the starting tree is specified to be ‘randomly generated’. The other main setting here is to specify the ‘Tree prior’ which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. In this tutorial, we will keep these default settings.
+This panel contains settings about the tree. Firstly the starting tree is specified to be ‘randomly generated’. The other main setting here is to specify the ‘Tree prior’ which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. We will select an exponential growth coalescent model as demographic tree prior (`Coalescent: Exponential Growth`) with standard parametrisation, which is intuitively appealing for viral outbreaks.
 
 {% include image.html file="12_treePrior.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
 
 #### The ancestral states settings
 
-In the `States` panel, check that for the host and state partition the option to Reconstruct states at all ancestors is selected (by default).
+In the `States` panel, we can turn on the Renaissance counting procedure by selection `Reconstruct synonymous/non-synonymous change counts`:
 
-{% include image.html file="13_statesPanel.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="13_robustCounting.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+
+For the 'location' partition, check that the option to `Reconstruct states at all ancestors` is selected (by default):
+
+{% include image.html file="14_locationStates.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
 
 #### Setting up the priors
 
-Review the prior settings under the `Priors` tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. A prior allows the user to ‘inform’ the analysis by selecting a particular distribution. Although some of the default priors may be improper, with sufficiently informative data the posterior becomes proper. If priors or not set, they will appear in red.
+Review the prior settings under the `Priors` tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. Priors that would not be explicitly specified would appear in red, whereas priors that are improper (and hence lead to an improper posterior and improper marginal likelihoods) appear in yellow (e.g. allMus). Click on the prior for this parameter and a prior selection window will appear. The codon position-specific relative rates (CP1.mu, CP2.mu and CP3.mu), which are constrained to have a mean of 1, still require proper priors. We here specify lognormal distributions with a log(mean) of 0.0 and a log(stdev) of 1.5 for these parameters. Notice that the prior setting turns black after confirming this setting by clicking OK.
 
-The default prior on the rate of evolution (clock.rate) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). The same is applied to the discrete host and location state rate. There is also a default uniform prior specification for the age of TX5275 (age(TX5275_2002.5) ). We will assume that the sampling time for this tip is bounded by the sampling time range for all taxa this data set, implying that it is sampled between 1997.5 and 2005.5. Click on the current uniform prior setting, set the Upper age to 8 years (reflecting the 1997.5 boundary) and click OK.
-
-{% include image.html file="14_priors.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="15_priors.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
 
 #### Setting up the operators
 
-Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs. The ‘Operators’ tab in BEAUti has a table that lists the parameters, their operators and the tuning settings for these operators:
+Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs. The `Operators` tab in BEAUti has a table that lists the parameters, their operators and the tuning settings for these operators:
 
-{% include image.html file="15_operators.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="16_operators.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
 
-In the first column are the parameter names. These will be called things like kappa which means the HKY model's kappa parameter (the transition-transversion bias). The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a proportion, the random walk operator adds or subtracts an amount to the parameter and the uniform operator simply picks a new value uniformly within a range. Some parameters relate to the tree or to the divergence times of the nodes of the tree and these have special operators.
+In the first column are the parameter names. These will be called things like kappa which means the HKY model's kappa parameter (the transition-transversion bias). The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a proportion, the random walk operator adds or subtracts an amount to the parameter and the uniform operator simply picks a new value uniformly within a range. Some parameters relate to the tree or to the divergence times of the nodes of the tree and these have special operators. As of BEAST v1.8.4, different options are available w.r.t. exploring tree space. In this tutorial, we will use the ‘classic operator mix’, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a ‘new experimental mix’, which is currently under development with the aim to improve mixing for large phylogenetic trees.
 
-The next column, labelled `Tuning`, gives a tuning setting to the operator. Some operators don't have any tuning settings so have n/a under this column. The tuning parameter will determine how large a move each operator will make which will affect how often that change is accepted by the MCMC which will in turn affect the efficiency of the analysis. For most operators (like random walk and subtree slide operators) a larger tuning parameter means larger moves. However for the scale operator a tuning parameter value closer to 0.0 means bigger moves. At the top of the window is an option called ‘Auto Optimize’ which, when selected, will automatically adjust the tuning setting as the MCMC runs to try to achieve maximum efficiency. At the end of the run a table of the operators, their performance and the final values of these tuning settings will be written to standard output. 
+The next column, labelled `Tuning`, gives a tuning setting to the operator. Some operators don't have any tuning settings so have n/a under this column. The tuning parameter will determine how large a move each operator will make which will affect how often that change is accepted by the MCMC which will in turn affect the efficiency of the analysis. For most operators (like random walk and subtree slide operators) a larger tuning parameter means larger moves. However for the scale operator a tuning parameter value closer to 0.0 means bigger moves. At the top of the window is an option called `Auto Optimize` which, when selected, will automatically adjust the tuning setting as the MCMC runs to try to achieve maximum efficiency. At the end of the run a table of the operators, their performance and the final values of these tuning settings will be written to standard output. 
 <!--
 These can then be used to set the starting tuning settings in order to minimize the amount of time taken to reach optimum performance in subsequent runs.
 -->
 
-The next column, labelled ‘Weight’, specifies how often each operator is applied relative to the others. Some parameters tend to be sampled very efficiently - an example is the kappa parameter - these parameters can have their operators down-weighted so that they are not changed as often. We will start by using the default settings for this analysis. As of BEAST v1.8.4, different options are available w.r.t. exploring tree space. In this tutorial, we will use the ‘classic operator mix’, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a ‘new experimental mix’, which is currently under development with the aim to improve mixing for large phylogenetic trees. So, we can keep the default operator settings for the current analysis.
+The next column, labelled ‘Weight’, specifies how often each operator is applied relative to the others. Some parameters tend to be sampled very efficiently - an example is the kappa parameter - these parameters can have their operators down-weighted so that they are not changed as often. We will start by using the default settings for this analysis. As of BEAST v1.8.4, different options are available w.r.t. exploring tree space. In this tutorial, we will use the ‘classic operator mix’, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a ‘new experimental mix’, which is currently under development with the aim to improve mixing for large phylogenetic trees. We can keep the default operator settings for the analysis in this tutorial.
 
 
 #### Setting the MCMC options
 
 The `MCMC` tab in BEAUti provides settings to control the MCMC chain. Firstly we have the ‘Length of chain’. This is the number of steps the MCMC will make in the chain before finishing. How long this should be depends on the size of the dataset, the complexity of the model and the precision of the answer required. The default value of 10,000,000 is entirely arbitrary and should be adjusted according to the size of your dataset. We will see later how the resulting log file can be analysed using Tracer in order to examine whether a particular chain length is adequate.
 
-{% include image.html file="16_mcmc.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+The next couple of options specify how often the current parameter values should be displayed on the screen and recorded in the log file. The screen output is simply for monitoring the program's progress so can be set to any value (although if set too small, the sheer quantity of information being displayed on the screen will slow the program down). For the log file, the value should be set relative to the total length of the chain. Sampling too often will result in very large files with little extra benefit in terms of the precision of the estimates. Sample too infrequently and the log file will not contain much information about the distributions of the parameters. You probably want to aim to store no more than 10,000 samples so this should be set to the chain length / 10,000. 
 
-The next couple of options specify how often the current parameter values should be displayed on the screen and recorded in the log file. The screen output is simply for monitoring the program's progress so can be set to any value (although if set too small, the sheer quantity of information being displayed on the screen will slow the program down). For the log file, the value should be set relative to the total length of the chain. Sampling too often will result in very large files with little extra benefit in terms of the precision of the estimates. Sample too infrequently and the log file will not contain much information about the distributions of the parameters. You probably want to aim to store no more than 10,000 samples so this should be set to the chain length / 10,000. For this dataset let's initially set the chain length to 100,000 as this will run reasonably quickly on most modern computers. Although the suggestion above would indicate a lower sampling frequency, in this case set both the sampling frequencies to 100.
+{% include image.html file="17_mcmc.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
 
-The next option allows the user to set the File stem name; if not set to ‘batRABV’ by default, you can type this in here. The next two options give the file names of the log files for the parameters and the trees. These will be set to based on the file stem name. You can also log the operator analysis to a file. An option is also available to sample from the prior only, which can be useful to evaluate how divergent our posterior estimates are when information is drawn from the data. Here, we will not select this option, but analyze the actual data. Finally, one can select to perform marginal likelihood estimation to assess model fit, which is not needed in this exercise. So, at this point we are ready to generate a BEAST XML file and to use this to run the Bayesian evolutionary analysis. To do this, either select the `Generate BEAST File...` option from the `File` menu or click the similarly labelled button at the bottom of the window. BContinue and choose a name for the file (for example, batRABV.xml by adding the xml extension to the file name stem) and save the file. For convenience, you can leave the BEAUti window open so that you can change the values and re-generate the BEAST file if necessary.
+For this dataset let's initially set the chain length to 100,000 as this will run reasonably quickly on most modern computers. Because the renaissance counting procedure, which is executed each time a state is logged, can be computationally expensive for a large coding sequence alignment, we will set the parameter logging to file to 5000 and the state echo to screen every 100 state.
+
+The next option allows the user to set the File stem name; set this to ‘WNV_homogeneous’ ('homogeneous' for 'homogeneous Brownian diffusion'). The next two options give the file names of the log files for the parameters and the trees. These will be set based on the file stem name. You can also log the operator analysis to a file. An option is also available to sample from the prior only, which can be useful to evaluate how divergent our posterior estimates are when information is drawn from the data. Here, we will not select this option, but analyze the actual data. 
+
+Finally, one can select to perform marginal likelihood estimation to assess model fit, which is not needed in this exercise. So, at this point we are ready to generate a BEAST XML file and to use this to run the Bayesian evolutionary analysis. To do this, either select the `Generate BEAST File...` option from the `File` menu or click the similarly labelled button at the bottom of the window. BContinue and choose a name for the file (for example, WNV_homogeneous.xml by adding the xml extension to the file name stem) and save the file. For convenience, you can leave the BEAUti window open so that you can change the values and re-generate the BEAST file if necessary.
 
 ### Running BEAST
 
