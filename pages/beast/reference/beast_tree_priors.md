@@ -92,7 +92,7 @@ These models are parameter-rich and their use is preferable when the data are st
 We recommend that you use Skygrid if you have a good sense of what the tMRCA should be, and at which point in time the population can be assumed to be constant (\\( K \\) above).
 The Skyride prior provides a flexible coalescent prior that does not depend on knowledge about  the time-scale, but won't give readily interpretable answers like Skygrid.
 
-Look [here](influenza_phylodynamic_tutorial) for a tutorial on how to use Skygrid to study the dynamics of Influenza H3N2.
+[Look here for a tutorial on how to use Skygrid to study the dynamics of Influenza H3N2](influenza_phylodynamics).
 
 
 ## A note on hyperprior choices
