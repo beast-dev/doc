@@ -5,9 +5,12 @@ last_updated: August 8, 2017
 tags: [tutorial]
 summary: "This tutorial provides a step-by-step explanation on how to reconstruct the evolutionary dynamics of influenza based on a set of virus sequences which have been isolated at different points in time (‘heterochronous’ data) using BEAST. We will focus on influenza A virus evolution, in particular on the emergence of swine-origin pandemic influenza A (H1N1) virus in 2009 (H1N1pdm) and on the seasonal dynamics of H3N2 in the New York State. The H1N1pdm data set is a subset of an analyzed set genomes in a study that provides insights into the origins and evolutionary genomics of this outbreak (Smith et al., 2009). The H3N2 data is a subset of a comprehensive data set spanning several epidemic seasons in the New York state, which has been used to unravel the genomic and epidemiological dynamics of this virus (Rambaut et al., 2008). In the first exercise, the aim is to obtain an estimate of the rate of molecular evolution, an estimate of the date of the most recent common ancestor, an estimate of the H1N1pdm epidemic growth or the H1N1/09 basic reproductive number. In the second exercise, we will examine how H3N2 diversity fluctuates through time."
 sidebar: beast_sidebar
-permalink: influenza_phylodynamic_tutorial.html
+permalink: influenza_phylodynamics.html
 folder: beast
 ---
+
+{% capture root_url %}{{ site.tutorials_root_url }}/influenza_phylodynamics/{% endcapture %}
+
 
 ## Introduction
 
@@ -31,31 +34,29 @@ The program [BEAUti](beauti) is a user-friendly program for setting the model pa
 
 To load a NEXUS format alignment, simply select the `Import NEXUS...` option from the `File` menu.
 
-#### The NEXUS alignment
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>H1N1pdm_2009.nex</samp>' and can be <a href="{{ root_url }}files/H1N1pdm_2009.nex">can be downloaded from here</a>.</div>
 
 Select the file called `H1N1pdm_2009.nex`. This file contains an alignment of 50 genomes (all 8 genomic segments concatinated), 13109 nucleotides in length. Once loaded, the new data will be listed under Partitions as shown in the figure:
 
-{% include image.html file="fig1.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="image1.png" prefix=root_url %}
 
 Double-click on the row of the table (but not on Partition Name) to display the actual sequence alignment:
 
-{% include image.html file="fig2.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="image2.png" prefix=root_url %}
 
-By default all the taxa are assumed to have a date of zero (i.e. the sequences are assumed to be sampled at the same time). In this case, the sequences have been sampled from the H1N1/09 epidemic between March and May 2009. To set these dates switch to the ‘Tips’ panel using the tabs at the top of the window:
+By default all the taxa are assumed to have a date of zero (i.e. the sequences are assumed to be sampled at the same time). In this case, the sequences have been sampled from the H1N1/09 epidemic between March and May 2009. To set these dates switch to the ‘Tips’ panel using the tabs at the top of the window.
 
-{% include image.html file="fig3.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+Select the box labelled ‘Use tip dates’. The actual sampling time in fractional years is encoded in the name of each taxon and we could simply edit the value in the ‘Date’ column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the ‘Parse Dates’ button at the top of the ‘Data’ panel. Clicking this will make a dialog box appear:
 
-Select the box labelled ‘Use tip dates’. The actual sampling time in fractional years is encoded in the name of each taxon and we could simply edit the value in the ‘Date’ column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the ‘Guess Dates’ button at the top of the ‘Data’ panel. Clicking this will make a dialog box appear:
-
-{% include image.html file="fig4.png" prefix="tutorials/influenza_phylodynamics/"  max-width="50%" align="center" caption="" %}
+{% include image.html file="image4.png" prefix=root_url  max-width="50%" align="center" %}
 
 This operation attempts to guess what the dates are from information contained within the taxon names. It works by trying to find a numerical field within each name. If the taxon names contain more than one numerical field then you can specify how to find the one that corresponds to the date of sampling. You can (1) specify the order that the date field comes (e.g., first, last or various positions in between) or (2) specify a prefix (some characters that come immediately before the date field in each name) and the order of the field, or (3) define a regular expression (REGEX).
 
 When parsing a number, you can ask BEAUti to add a fixed value to each guessed date. For example, the value `1900` can be added to turn the dates from 2 digit years to 4 digit. Any dates in the taxon names given as `00` would thus become `1900`. However, if these `00` or `01`, etc. represent sequences sampled in 2000, 2001, etc., `2000` needs to be added to those. This can be achieved by selecting the `unless less than: ..` and `..in which case add:..` options adding for example 2000 to any date less than 10. These operations are not necessary in our case since the dates are fully specified at the end of the sequence names. There is also an option to parse calendar dates and one for calendar dates with various precisions. For the H1N1/09 sequences you can keep the default ‘Defined just by its order’ and select 'last' from the drop-down menu for the order and press ‘OK’. The dates will appear in the appropriate column of the main window. You can then check these and edit them manually as required. At the top of the window you can set the units that the dates are given in (years, months, days) and whether they are specified relative to a point in the past (as would be the case for years such as 2009) or backwards in time from the present (as in the case of radiocarbon ages).
 
-{% include image.html file="fig5.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="image5.png" prefix=root_url %}
 
-The `Height` column lists the ages of the tips relative to time 0 (in our case 2009.403). The Precision column allows specifying with what precision the sampling time is know. To include taxa only known up to the year of sampling for example (e.g., 2009), a precision of 1 year can be set and the age of those tips can be integrated over the time interval of 1 year using the Tip date sampling option at the bottom left of the Tips panel.
+The `Height` column lists the ages of the tips relative to time 0 (in our case 2009.403). The `Uncertainty` column allows you to specify with what precision the sampling time is known. To include taxa only known up to the year of sampling for example (e.g., 2009), a precision of 1 year can be set and the age of those tips can be integrated over the time interval of 1 year using the Tip date sampling option at the bottom left of the Tips panel.  
 
 #### Setting the substitution model
 
@@ -63,23 +64,29 @@ The next thing to do is to click on the ‘Sites’ tab at the top of the main w
 
 This tutorial assumes that you are familiar with the evolutionary models available, however there are a couple of points to note about selecting a model in BEAUti:
 
-Selecting the ‘Partition into codon positions’ option assumes that the data are aligned as codons. This option will then estimate a separate rate of substitution for each codon position, or for 1+2 versus 3, depending on the setting.
+Partition into codon positions:
+: Selecting the `Partition into codon positions` option assumes that the data are aligned as codons. This option will then estimate a separate rate of substitution for each codon position, or for 1+2 versus 3, depending on the setting.
 
-Selecting the ‘Unlink substitution model across codon positions’ will specify that BEAST should estimate a separate transition-transversion ratio or general time reversible rate matrix for each codon position. 
+Unlink substitution model across codon positions:
+: Selecting the `Unlink substitution model across codon positions` will specify that BEAST should estimate a separate transition-transversion ratio or general time reversible rate matrix for each codon position. 
 
-Selecting the ‘Unlink rate heterogeneity model across codon positions’ will specify that BEAST should estimate a set of rate heterogeneity parameters (gamma shape parameter and/or proportion of invariant sites) for each codon position. 
+Unlink rate heterogeneity model across codon positions:
+: Selecting the `Unlink rate heterogeneity model across codon positions` will specify that BEAST should estimate set of rate heterogeneity parameters (gamma shape parameter and/or proportion of invariant sites) for each codon position.
 
-{% include image.html file="fig6.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+Unlink base frequencies across codon positions:
+: Selecting the `Unlink base frequencies across codon positions` will specify that BEAST should estimate a separate set of base frequencies for each codon position.
+
+{% include image.html file="image6.png" prefix=root_url %}
 
 For this tutorial, keep the default ‘HKY’ model, the default ‘Estimated’ base frequencies and select ‘Gamma’ as ‘Site Heterogeneity Model’ (with 4 discrete categories) before proceeding to the ‘Clocks’ tab. 
 
-#### Setting the ‘molecular clock’ model
+#### Setting the molecular clock model
 
-The ‘Molecular Clock Model’  options allows us to choose between a strict and a relaxed (uncorrelated lognormal or uncorrelated exponential) clock. Because of the low diversity data we analyze here, a relaxed clock would probably be over-parameterization. Hence, we keep a strict clock setting. 
+The `Clock` panel options allows us to choose between a strict and a relaxed (uncorrelated lognormal or uncorrelated exponential) clock. Because of the low diversity data we analyze here, a relaxed clock would probably be over-parameterization. Hence, we keep a strict clock setting. 
 
-{% include image.html file="fig7.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="image7.png" prefix=root_url %}  <br /><br />
 
-Now move on to the ‘Trees’ panel.
+Now move on to the `Trees` panel.
 
 #### Setting the tree prior
 
@@ -87,13 +94,13 @@ This panel contains settings about the tree. Firstly the starting tree is specif
 
 To estimate the epidemic growth rate, we will change this demographic model to an exponential growth coalescent prior, which is intuitively appealing for viral outbreaks. Switch the option for ‘Tree Prior’ to ‘Coalescent: Exponential Growth’:
 
-{% include image.html file="fig8.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="image8.png" prefix=root_url %}
 
 #### Setting up the priors
 
 Now switch to the ‘Priors’ tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. A prior allows the user to ‘inform’ the analysis by selecting a particular distribution. Although some of the default priors may be improper, with sufficiently informative data the posterior becomes proper. If priors or not set, they will appear in red.
 
-{% include image.html file="fig9.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig9.png" prefix=root_url %}
 
 Note that a prior distribution must be specified for every parameter and whilst BEAUti provides default options these are not necessarily tailored to the problem and data being analyzed. In this case, the default Laplace prior prefers relatively small growth rates while this parameter take can take on relatively large values on this epidemic scale. Therefore, we will increase the variance of this prior distribution by setting the scale to 100. 
 
@@ -103,7 +110,7 @@ The default prior on the rate of evolution (clock.rate) is an approximation of a
 
 Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs. The ‘Operators’ tab in BEAUti has a table that lists the parameters, their operators and the tuning settings for these operators:
 
-{% include image.html file="fig10.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig10.png" prefix=root_url %}
 
 In the first column are the parameter names. These will be called things like kappa which means the HKY model's kappa parameter (the transition-transversion bias). The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a proportion, the random walk operator adds or subtracts an amount to the parameter and the uniform operator simply picks a new value uniformly within a range. Some parameters relate to the tree or to the divergence times of the nodes of the tree and these have special operators.
 
@@ -115,7 +122,7 @@ The next column, labelled ‘Weight’, specifies how often each operator is app
 
 The ‘MCMC’ tab in BEAUti provides settings to control the MCMC chain. Firstly we have the ‘Length of chain’. This is the number of steps the MCMC will make in the chain before finishing. How long this should be depends on the size of the dataset, the complexity of the model and the precision of the answer required. The default value of 10,000,000 is entirely arbitrary and should be adjusted according to the size of your dataset. We will see later how the resulting log file can be analysed using Tracer in order to examine whether a particular chain length is adequate. Change the chain length to 1,000,000 for our initial test run.
 
-{% include image.html file="fig11.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig11.png" prefix=root_url %}
 
 The next couple of options specify how often the current parameter values should be displayed on the screen and recorded in the log file. The screen output is simply for monitoring the program's progress so can be set to any value (although if set too small, the sheer quantity of information being displayed on the screen will slow the program down). For the log file, the value should be set relative to the total length of the chain. Sampling too often will result in very large files with little extra benefit in terms of the precision of the estimates. Sample too infrequently and the log file will not contain much information about the distributions of the parameters. You probably want to aim to store no more than 10,000 samples so this should be set to the chain length / 10,000. For this dataset let's initially set the chain length to 100,000 as this will run reasonably quickly on most modern computers. Although the suggestion above would indicate a lower sampling frequency, in this case set both the sampling frequencies to 100. A useful exercise could be to examine the sensitity of the growth rate estimates to different scale values for this prior distribution (e.g. scale = 1, 10, 100).
 
@@ -131,11 +138,13 @@ Press the ‘Choose File’ button and select the XML file you just created and 
 
 ### Analyzing the BEAST output
 
+{% include tracer_callout.md %}
+
 To analyze the results of running BEAST we are going to use the program Tracer. The exact instructions for running Tracer differs depending on which computer you are using. Double click on the Tracer icon; once running, Tracer will look similar irrespective of which computer system it is running on.
 
-Select the ‘‘Import Trace File...’ option from the ‘File’ menu. If you have it available, select the log file that you created in the previous section. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
+Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
 
-{% include image.html file="fig13.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="image1.png" prefix="tutorials/influenza_phylodynamics/" %}
 
 On the left hand side is the name of the log file loaded and the traces that it contains. There are traces for the posterior (this is the log of the product of the tree likelihood and the prior probabilities), and the continuous parameters. Selecting a trace on the left brings up analyses for this trace on the right hand side depending on tab that is selected. When first opened, the `posterior' trace is selected and various statistics of this trace are shown under the Estimates tab.
 
@@ -153,7 +162,7 @@ Note that the effective sample sizes (ESSs) for all the traces are small (ESSs l
 
 If we select the tab on the right-hand-side labelled `Trace` we can view the raw trace (e.g for treeModel.rootHeight), that is, the sampled values against the  step in the MCMC chain.
 
-{% include image.html file="fig14.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig14.png" prefix=root_url %}
 
 Here you can see how the samples are correlated. There are 1000 samples in the trace (we ran the MCMC for 1,000,000 steps sampling every 1000) but it is clear that adjacent samples often tend to have similar values. The ESS for the clock.rate is about 17, so we are only getting 1 independent sample to every 60 actual samples). It also seems that the default burn-in of 10% of the chain length is inadequate (the posterior values are still increasing over the first part of the chain). Not excluding enough of the start of the chain as burn-in will bias the results and render estimates of ESS unreliable.
 
@@ -161,7 +170,7 @@ The analysis needs to be run longer. The lowest ESS of about 3 suggests that we 
 
 Again we have chosen options that produce 1000 samples and with an ESS of > 400 for the coalescent model parameters there is little auto-correlation between the samples. There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, and there are no large-scale fluctuations in the trace which would suggest poor mixing. As we are satisfied with the behavior of the MCMC we can now move on to one of the parameters of interest: substitution rate. Select clock.rate in the left-hand table. This is the average substitution rate across all sites in the alignment. Now choose the density plot by selecting the tab labeled ‘Marginal Prob Distribution’. This shows a plot of the posterior probability density of this parameter. You should see a plot similar to this:
 
-{% include image.html file="fig15.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig15.png" prefix=root_url %}
 
 As you can see the posterior probability density is roughly bell-shaped. When looking at the equivalent histogram in the Estimates panel, there is some sampling noise which is smoothened by the KDE; this would be reduced if we ran the chain for longer but we already have a reasonable estimate of the mean and HPD interval. The treeModel.rootHeight parameter provides an estimate of the time to the most recent common ancestor since the most recent sampling data (in our case: 2009.403). What would be the mean estimate for the date of the MRCA?
 
@@ -173,7 +182,7 @@ We have seen how we can diagnose our MCMC run using Tracer and produce estimates
 
 In this tutorial, however, we are going to use a tool that is provided as part of the BEAST package to summarize the information contained within our sampled trees. The tool is called TreeAnnotator and once running, you will be presented with a window like the one below.
 
-{% include image.html file="fig16.png" max-width="50%" align="center" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig16.png" max-width="50%" align="center" prefix=root_url %}
 
 TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree.
 
@@ -197,7 +206,7 @@ Once you have selected all the options, above, press the ‘Run’ button. TreeA
 
 Run FigTree now and select the ‘Open...’ command from the ‘File’ menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the FigTree window. On the left hand side of the window are the options and settings which control how the tree is displayed. In this case we want to display the posterior probabilities of each of the clades present in the tree and estimates of the age of each node. In order to do this you need to change some of the settings.
 
-{% include image.html file="fig17.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig17.png" prefix=root_url %}
 
 First, re-order the node order by Increasing Node Order under the Tree Menu. Click on Branch Labels in the control panel on the left and open its section by clicking on the arrow on the left. Now select posterior under the Display option.
 
@@ -239,13 +248,13 @@ In this exercise, we will reconstruct a Bayesian skygrid of H3N2 spread during t
 
 Run BEAUti, load the nexus file (NewYork.HA.2000-2003.nex) and set the dates to the last numerical field in the taxa names as previously. Set the same evolutionary model (including gamma distributed rate variation) and clock model as in the previous exercise. In the ‘Trees’ tab, select a ‘Coalescent: Bayesian SkyGrid’ as the ‘Tree Prior’. We will construct a grid of 50 intervals over 5 years (Time at point) prior to the most recent sampling dates (2003.98 in our case, so going back to about 1999) requiring us to estimate 10 population sizes by year.
 
-{% include image.html file="fig18.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig18.png" prefix=root_url %}
  
 ### Analyzing the BEAST output
 
 Using Tracer, we can analyze the run based on the output files provided (load the file called ‘NewYork.HA.2000-2003.log’):
 
-{% include image.html file="fig19.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig19.png" prefix=root_url %}
 
 To reconstruct the Bayesian skygrid plot, select ‘SkyGrid reconstruction...’ under the Analysis window. The following window should appear:
 
@@ -253,7 +262,7 @@ To reconstruct the Bayesian skygrid plot, select ‘SkyGrid reconstruction...’
 
 Set the manual bin range from 1999 to 2004 and specify ‘2003.98’ as the ‘Age of the youngest tip’ at the bottom. Press ‘OK’ and after some time, the following Bayesian skyGrid reconstruction should appear (with solid interval selected):
 
-{% include image.html file="fig21.png" prefix="tutorials/influenza_phylodynamics/" caption="" %}
+{% include image.html file="fig21.png" prefix=root_url %}
 
 Output files for a Bayesian skyline plot analysis are also provided for comparison. To reconstruct a Bayesian skyline plot based on these, select ‘Bayesian Skyline reconstruction’ under the Analysis window.
 
