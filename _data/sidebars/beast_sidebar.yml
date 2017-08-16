@@ -175,7 +175,7 @@ entries:
       output: web, pdf
 
     - title: Tree Priors
-      url: /treepriors
+      url: /tree_priors
       output: web, pdf
 
     - title: XML Reference
