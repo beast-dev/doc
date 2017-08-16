@@ -152,7 +152,7 @@ entries:
     output: web, pdf
     folderitems:
     - title: Evolutionary Dynamics of Influenza
-      url: /influenza_phylodynamic_tutorial
+      url: /influenza_phylodynamics
       output: web, pdf
 
     - title: Discrete Spatial Diffusion in Bat Rabies
