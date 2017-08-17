@@ -155,8 +155,12 @@ entries:
       url: /influenza_phylodynamics
       output: web, pdf
 
-    - title: Discrete Spatial Diffusion in Bat Rabies
+    - title: Discrete Spatial Diffusion of Bat Rabies
       url: /batrabies_discrete_diffusion_tutorial
+      output: web, pdf
+
+    - title: Continuous Spatial Diffusion of West Nile Virus 
+      url: /WNV_continuous_diffusion_tutorial
       output: web, pdf
 
   - title: Reference
