@@ -204,7 +204,7 @@ Press the ‘Choose File’ button and select the XML file you just created and 
 
 To analyze the results of running BEAST we are going to use the program Tracer. The exact instructions for running Tracer differs depending on which computer you are using. Double click on the Tracer icon; once running, Tracer will look similar irrespective of which computer system it is running on.
 
-Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section (batRABV.log). Alternative, drag and drop your lof file into the Tracer window. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
+Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section (batRABV.log). Alternative, drag and drop your log file into the Tracer window. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
 
 {% include image.html file="18_tracerShort.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 

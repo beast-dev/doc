@@ -5,7 +5,8 @@ last_updated: August 9, 2017
 tags: [tutorial]
 summary: "This tutorial provides a step-by-step explanation on reconstructing the spatial dynamics of the West Nile virus (WNV) invasion across North America based on a set of viral genome sequences which have been isolated at different points in time (heterochronous data) in different US counties (Pybus et al., 2012, PNAS, 109(37), 15066-15071). WNV is a mosquito-borne RNA virus whose primary host is birds, and was first detected in the United States in New York City in August 1999. The data are 104 genomes collected between 1999 and 2008. We will estimate the ancestral locations of the virus in continuous space, the rate of spread during the WNV invasion and test whether the virus spread at a relatively constant rate through time. In addition, we will apply a procedure referred to as ‘Renaissance counting’ (Lemey et al., 2012, Bioinformatics, 28(24), 3248-3256), to quantify site-specific selection pressures in the form of nonsynonymous/synonymous substitution rate ratios (dN/dS). Renaissance counting maps substitutions throughout evolutionary history in nucleotide space, and then ‘counts’ the corresponding number of nonsynonymous and synonymous substitutions, their ‘neutral’ expectations, and applies a empirical Bayes procedure to those counts to arrive at dN/dS estimates."
 sidebar: beast_sidebar
-permalink: WNV_continuous_diffusion_tutorial.html
+permalink: page
+.html
 folder: beast
 ---
 
@@ -26,6 +27,10 @@ To undertake this tutorial, you will need to download three software packages in
 {% include spread3_callout.md %}
 
 <!-- maybe also add a link to a zipped folder containing all input files -->
+<!--
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>H1N1pdm_2009.nex</samp>' and can be <a href="{{ root_url }}files/H1N1pdm_2009.nex">can be downloaded from here</a>.</div>
+-->
+
 
 <!--
 ## EXERCISE 1: Host and location ancestral reconstruction
@@ -201,7 +206,7 @@ Finally, one can select to perform marginal likelihood estimation to assess mode
 
 Once the BEAST XML file has been created the analysis itself can be performed using BEAST. The exact instructions for running BEAST depends on the computer you are using, but in most cases a dialog box will appear in which you select the XML file:
 
-{% include image.html file="17_BEASTgui.png" prefix="tutorials/WNV_continuous_diffusion/"  max-width="50%" align="center" caption="" %}
+{% include image.html file="18_BEASTgui.png" prefix="tutorials/WNV_continuous_diffusion/"  max-width="50%" align="center" caption="" %}
 
 Press the ‘Choose File’ button and select the XML file you just created and press ‘Run’. When you have installed the BEAGLE library (https://github.com/beagle-dev/beagle-lib), you can use this in conjunction with BEAST to speed up the calculations. If not installed, unselect the use of the BEAGLE library. If the command line version of BEAST is being used then the name of the XML file is given after the name of the BEAST executable. The analysis will then be performed with detailed information about the progress of the run being written to the screen. When it has finished, the log file and the trees file will have been created in the same location as your XML file. 
 
@@ -209,9 +214,9 @@ Press the ‘Choose File’ button and select the XML file you just created and 
 
 To analyze the results of running BEAST we are going to use the program Tracer. The exact instructions for running Tracer differs depending on which computer you are using. Double click on the Tracer icon; once running, Tracer will look similar irrespective of which computer system it is running on.
 
-Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section (batRABV.log). Alternative, drag and drop your lof file into the Tracer window. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
+Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section (WNV_homogeneous.log). Alternative, drag and drop your log file into the Tracer window. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
 
-{% include image.html file="18_tracerShort.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="19_tracerShort.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
 
 On the left hand side is the name of the log file loaded and the traces that it contains. There are traces for the posterior (this is the log of the product of the tree likelihood and the prior probabilities), and the continuous parameters. Selecting a trace on the left brings up analyses for this trace on the right hand side depending on tab that is selected. When first opened, the 'posterior' trace is selected and various statistics of this trace are shown under the `Estimates` tab.
 
@@ -225,13 +230,15 @@ In the top right of the window is a table of calculated statistics for the selec
 * Auto-Correlation Time (ACT) - The average number of states in the MCMC chain that two samples have to be separated by for them to be uncorrelated (i.e. independent samples from the posterior). The ACT is estimated from the samples in the trace (excluding the burn-in). 
 * Effective Sample Size (ESS) - The effective sample size (ESS) is the number of independent samples that the trace is equivalent to. This is calculated as the chain length (excluding the burn-in) divided by the ACT.
 
-Note that the effective sample sizes (ESSs) for all the traces are small (ESSs less than 100 are highlighted in red by Tracer and values > 100 but < 200 are in yellow). This is not good. A low ESS means that the trace contained a lot of correlated samples and thus may not represent the posterior distribution well. In the bottom right of the window is a frequency plot of the samples which is expected given the low ESSs is extremely rough. Inspecting the Trace of many continuous parameters  shows that the chain is still in the burn-in phase (the posterior values are still increasing over the entire chain), and this run does not allow us to summarize marginal posterior probability distributions for the parameters. 
+Note that the effective sample sizes (ESSs) for all the traces are small (ESSs less than 100 are highlighted in red by Tracer and values > 100 but < 200 are in yellow). This is not good. A low ESS means that your samples are equivalent to only few uncorrelated samples trace and this may not represent the posterior distribution well. In the bottom right of the window is a frequency plot of the samples which is expected given the low ESSs is extremely rough. Inspecting the Trace of many continuous parameters  shows that the chain is still in the burn-in phase (the posterior values are still increasing over the entire chain), and this run does not allow us to summarize marginal posterior probability distributions for the parameters. 
 
-The simple response to this situation is that we need to run the chain for longer. The example below was run for 200 million steps, sampling every 50,000th step, which means that 4,000 samples where stored in the log file. In this case, the MCMC run has reached stationarity, and almost all parameter traces still show satisfactory ESSs.
+The simple response to this situation is that we need to run the chain for longer. For this exercise, output files from longer runs are made available [here](files/WNVlongRuns.zip). Import the log file for the long run of the homogenous model and reassure yourself that the MCMC run has reached stationarity: there are no obvious trends in the plot which would suggest that the MCMC has not yet converged, and there are no large-scale fluctuations in the trace which would suggest poor mixing.
 
-{% include image.html file="19_tracerLong.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+As we are happy with the behavior of posterior probability we can now move on to our statistic of interest: the dispersion rate. Select 'location.diffusionRate' in the left-hand table. This shows a plot of the posterior probability density of this statistic that keeps track of the rate of diffusion by measuring the distance covered along each branch (based on the spatial coordinates inferred at the parent and descendent node of each branch), summing this distance for the complete tree and dividing this by the tree length. It uses the great circle distance between the two coordinates, which will provide an estimate in km/yr. You should see a plot similar to this in the `Estimates` tab:
 
-We can continue to summarize the annotated phylogeographic tree inferred with the BSSVS procedure and estimate the most significant rates of diffusion. If you are only interested in summarizing the Bayes Factor rates from the BSSVS analysis and not in summarizing the tree from your run, jump to the last section of this tutorial entitled 'Visualizing tree and calculating Bayes factor support for rates using SpreadD3'. If you are also interested in summarizing the tree, continue to next section. 
+{% include image.html file="20_dispersalRate.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+		
+At what rate has WNV invaded North America?
 
 ### Summarizing the trees
 
@@ -239,7 +246,7 @@ We have seen how we can diagnose our MCMC run using Tracer and produce estimates
 
 In this tutorial, however, we are going to use a tool that is provided as part of the BEAST package to summarize the information contained within our sampled trees. The tool is called TreeAnnotator and once running, you will be presented with a window like the one below.
 
-{% include image.html file="20_treeAnnotator.png" max-width="50%" align="center" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="21_treeAnnotator.png" max-width="50%" align="center" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
 
 * TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree. It has the following options:
 
@@ -255,7 +262,7 @@ In this tutorial, however, we are going to use a tool that is provided as part o
 
 Input Tree File - Use the `Choose File...` button to select an input trees file. This will be the trees file produced by BEAST. 
 
-* Output File - Select a name for the output tree file (e.g., batRABV.MCC.tre).
+* Output File - Select a name for the output tree file (e.g., 'WNV_homogeneous.tre').
 
 Once you have selected all the options, above, press the `Run` button. TreeAnnotator will analyse the input tree file and write the summary tree to the file you specified. This tree is in standard NEXUS tree file format so may be loaded into any tree drawing package that supports this. However, it also contains additional information that can only be displayed using the FigTree program.
 
@@ -263,13 +270,32 @@ Once you have selected all the options, above, press the `Run` button. TreeAnnot
 
 Run FigTree and select the `Open...` command from the `File` menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the FigTree window. On the left hand side of the window are the options and settings which control how the tree is displayed. In this case we want to display the posterior probabilities of each of the clades present in the tree and estimates of the age of each node. In order to do this you need to change some of the settings.
 
-First, re-order the node order by Increasing Node Order under the `Tree` Menu. Click on Branch Labels in the control panel on the left and open its section by clicking on the arrow on the left. Now select 'posterior' under the Display popup menu. The posterior probabilities won't actually be displayed until you tick the check-box next to the Branch Labels title.
+First, re-order the node order by Increasing Node Order under the `Tree` Menu. Click on Branch Labels in the control panel on the left and open its section by clicking on the arrow on the left. Now select 'posterior' under the `Display` popup menu. The posterior probabilities won't actually be displayed until you tick the check-box next to the `Branch Labels` title.
 
-{% include image.html file="21_FigTree.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="22_FigTree.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
 
-We now want to display bars on the tree to represent the estimated uncertainty in the date for each node. TreeAnnotator will have placed this information in the tree file in the shape of the 95% highest posterior density (HPD) intervals (see the description of HPDs, above). Select `Node Bars` in the control panel and open this section; select `height_95%_HPD` to display the 95% HPDs of the node heights. We can also plot a time scale axis for this evolutionary history (select `Scale Axis` and deselect `Scale bar`). For appropriate scaling, open the `Time Scale` section of the control panel, set the `Offset` to 2005.5 (date of the most recent sample), and select `Reverse Axis` under `Scale Axis`.
+We now want to display bars on the tree to represent the estimated uncertainty in the date for each node. TreeAnnotator will have placed this information in the tree file in the shape of the 95% highest posterior density (HPD) intervals (see the description of HPDs, above). Select `Node Bars` in the control panel and open this section; select `height_95%_HPD` to display the 95% HPDs of the node heights. We can also plot a time scale axis for this evolutionary history (select `Scale Axis` and deselect `Scale bar`). For appropriate scaling, open the `Time Scale` section of the control panel, set the `Offset` to 2007.63 (date of the most recent sample), and select `Reverse Axis` under `Scale Axis`.
 
-Finally, open the Appearance panel and alter the `Line Weight` to 2 to draw the tree with thicker lines. Under the same panel, alter `Colour by` and select 'state'. Alternatively, color the branches by 'host'. Unselect the `Tip Labels` and the `Scale Bar` option. Finally, in the Legend panel select the 'state' or 'host' attribute depending on what you have used to color the branches with. None of the options actually alter the tree's topology or branch lengths in anyway so feel free to explore the options and settings. You can also save the tree and this will save all your settings so that when you load it into FigTree again it will be displayed exactly as you selected.
+In the `Layout` panel select the check-box `Align Tip Labels` to increase clarity.
+
+Finally, open the Appearance panel and alter the `Line Weight` to draw the tree with thicker lines. Under the same panel, alter `Colour by` and select 'rate'. Select the `Legend` option and choose ‘rate’ as an attribute to display a legend for the branch coloring. None of the options actually alter the tree's topology or branch lengths in anyway so feel free to explore the options and settings. You can also save the tree and this will save all your settings so that when you load it into FigTree again it will be displayed exactly as you selected.
+
+## Evaluating diffusion rate variation
+
+To investigate whether the rate of spread was roughly constant throughout the rabies epidemic we can fit models that allow for branch-specific rate variation in the diffusion process (termed ‘relaxed random walks’, RRWs) and test whether these result in a model fit improvement compared to the standard homogeneous Brownian diffusion process. To this purpose, we have also analyzed the same data under a 'Cauchy RRW'. This can be set under the `Sites` tab for the 'location' Substitution model:
+
+{% include image.html file="23_cauchy.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+
+For the different models, we can estimate marginal likelihoods (MLE) using path sampling (PS) and stepping stone sampling, which have recently been implemented in BEAST (Baele at al., 2012, 2013). Typically, PS/SS model selection is performed after doing a standard MCMC analysis. PS and SS sampling can then start where the MCMC analysis has stopped (i.e. you should have run the MCMC analysis long enough so that it has converged towards the posterior before attempting a PS/SS analysis), thereby eliminating the need for PS and SS to first converge towards the posterior. To set up such analyses, we can return to BEAUti and select 'path sampling (PS) / stepping-stone sampling (SS)' from the `Perform marginal likelihood estimation (MLE)` menu, which performs an additional analysis after the standard MCMC chain has finished. In the MCMC panel, Click on `settings` to specify the PS/SS settings.
+
+{% include image.html file="23_PSSSsampling.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+
+We need to set the number of steps (in this case 50) for the path between the posterior and the prior, the length of the MCMC chain (in this case 1,000,000) for each step that estimates a specific power posterior, and the logging frequency for each MCMC sampling (in this case every 1,000). Note that using these settings, the marginal likelihood estimation will take approximately the time it takes to complete a standard MCMC run of 50,000,000 generations for this data. The powers for the different power posteriors are defined using evenly spaced quantiles of a Beta(\alpha,1.0) distribution, with α here equal to 0.30, as suggested in the stepping-stone sampling paper (Xie et al. 2011) since this approach is shown to outperform a uniform spreading suggested in the path sampling paper (Lartillot and Philippe 2006). Note that a more recently developed marginal likelihood estimator, i.e. generalised stepping-stone sampling (Fan et al., 2011; Baele et al., 2016), is now availble, but this has not been tested yet for the comparison of trait diffusion models.
+
+Based on the settings above, the homogeneous Brownian analysis results in marginal likelihood estimates of -24182.20 and -24176.83 for PS and SS respectively. For the Cauchy RRW, we get -24074.30 and -24072.10 for the same estimators. Is there significant evidence for diffusion rate heterogeneity? Does this have a big effect on the mean dispersal rate estimate?
+The rate variation among lineages can be depicted in the MCC tree using a colour annotation. Summarize the MCC tree for the Cauchy RRW model and under `Appearance` in FigTree, select to Colour by 'location.rate'.
+
+
 
 ### Visualizing MCC trees and calculating Bayes factor support for rates using SpreaD3
 
@@ -335,60 +361,6 @@ Summarize the trees of the longer run using treeAnnotator (burn-in = 500,000 sta
 #### Visualize the tree in FigTree.
 -->
 
-## EXERCISE 2: Identifying predictors for the host transitioning process
-
-### background
-
-This exercise builds on the previous analysis and aims at testing the factors that drive the host transitioning process for bat rabies viruses in North America. The original analyses resorted a population genetic approach and post hoc statistical procedures to test such predictors (Streicker et al., 2010); here we adopt an extension of the discrete diffusion model as applied by Faria et al. (2013). This extension parameterizes the CTMC matrix as a generalized linear model (GLM), in which log CTMC rates are a log linear function of several potential predictors (most of the detail on the model can be found in Lemey et al., 2014). We use the predictors originally proposed by Streicker et al. (2010): host phylogenetic distance (based on host mitochondrial DNA), geographic range overlap, roost structure overlap, and foraging niche overlap as approximated using three morphological measurements: wing aspect ratio, wing loading and body length, which are associated with foraging behavior in bats. We also consider sequence sample sizes, which can bias ancestral reconstructions, for both the 'donor' and 'recipient' host as additional predictors (cfr. Lemey et al., 2014).
-
-### GLM-diffusion model specification
-
-Repeat the first BEAUti steps up to setting the setting the sequence and trait evolutionary models. In case the BEAUti session from the previous exercise has not been closed yet, simply go back to the `Sites` panel. For the 'host' trait under `Substitution Model`, select `Generalized Linear Model`:
-
-{% include image.html file="25_GLMinSites.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
-
-Click on `Setup GLM` and a new window will pop up:
-
-{% include image.html file="26_GLMemptySetup.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
-
-This window allows specifying a set of GLM predictors or covariates by importing them through `Import Predictors...`. All predictors can be downloaded as a zipped folder [here](files/predictors.zip) or as individual files linked below.
-Start by loading the distance matrix between bat rabies hosts based on mitochondrial gene distances ([hostDistances.csv](files/predictors/hostDistances.csv)). This is a csv file with the following content (the two-character labels represent the bat species):
-
-	,Ap,Ef,Lb,Lbl,Lc,Li,Ln,Ls,Lx,Ma,Mc,Ml,My,Nh,Ph,Ps,Tb
-	Ap,0,0.745,0.878,0.8,0.71,0.86,0.711,0.916,0.788,0.794,0.717,0.736,0.78,0.74,0.596,0.67,0.923
-	Ef,0.745,0,0.971,0.893,0.803,0.953,0.586,1.009,0.881,0.887,0.81,0.829,0.873,0.615,0.689,0.763,1.016
-	Lb,0.878,0.971,0,0.316,0.546,0.696,0.937,0.118,0.624,0.944,0.867,0.886,0.93,0.966,0.746,0.82,0.839
-	Lbl,0.8,0.893,0.316,0,0.468,0.618,0.859,0.354,0.546,0.866,0.789,0.808,0.852,0.888,0.668,0.742,0.761
-	Lc,0.71,0.803,0.546,0.468,0,0.65,0.769,0.584,0.578,0.776,0.699,0.718,0.762,0.798,0.578,0.652,0.671
-	Li,0.86,0.953,0.696,0.618,0.65,0,0.919,0.734,0.357,0.926,0.849,0.868,0.912,0.948,0.728,0.802,0.821
-	Ln,0.711,0.586,0.937,0.859,0.769,0.919,0,0.975,0.847,0.853,0.776,0.795,0.839,0.531,0.655,0.729,0.982
-	Ls,0.916,1.009,0.118,0.354,0.584,0.734,0.975,0,0.662,0.982,0.905,0.924,0.968,1.004,0.784,0.858,0.877
-	Lx,0.788,0.881,0.624,0.546,0.578,0.357,0.847,0.662,0,0.854,0.777,0.796,0.84,0.876,0.656,0.73,0.749
-	Ma,0.794,0.887,0.944,0.866,0.776,0.926,0.853,0.982,0.854,0,0.273,0.292,0.196,0.882,0.576,0.65,0.989
-	Mc,0.717,0.81,0.867,0.789,0.699,0.849,0.776,0.905,0.777,0.273,0,0.139,0.259,0.805,0.499,0.573,0.912
-	Ml,0.736,0.829,0.886,0.808,0.718,0.868,0.795,0.924,0.796,0.292,0.139,0,0.278,0.824,0.518,0.592,0.931
-	My,0.78,0.873,0.93,0.852,0.762,0.912,0.839,0.968,0.84,0.196,0.259,0.278,0,0.868,0.562,0.636,0.975
-	Nh,0.74,0.615,0.966,0.888,0.798,0.948,0.531,1.004,0.876,0.882,0.805,0.824,0.868,0,0.684,0.758,1.011
-	Ph,0.596,0.689,0.746,0.668,0.578,0.728,0.655,0.784,0.656,0.576,0.499,0.518,0.562,0.684,0,0.434,0.791
-	Ps,0.67,0.763,0.82,0.742,0.652,0.802,0.729,0.858,0.73,0.65,0.573,0.592,0.636,0.758,0.434,0,0.865
-	Tb,0.923,1.016,0.839,0.761,0.671,0.821,0.982,0.877,0.749,0.989,0.912,0.931,0.975,1.011,0.791,0.865,0
-
-
-Note that by default, the values in the distance matrix are selected to be log-transformed and standardised. This is because the GLM-diffusion model parameterizes the log of the CTMC rates as a log linear function of the predictor and we grant the same variance to the predictors a priori. Repeat this procedure for range overlap ([rangeOverlap.csv](files/predictors/rangeOverlap.csv)), roost structure overlap ([roostOverlap.csv](files/predictors/roostOverlap.csv)), differences in wing aspect ratio ([wingAspectRatio.csv](files/predictors/wingAspectRatio.csv)), differences in wing loading ([wingLoading.csv](files/predictors/wingLoading.csv)) and differences in body size ([bodySize.csv](files/predictors/bodySize.csv)).
-
-Note that the roost structure overlap values are '1' or '0' indicating whether two bat species share or not a roost structure. We will not log-transform and standardize these values (by unselecting both option) so that '1' in log-space specifies an additional effect on the log transition rates for species that share a roost structure. These rates will be estimated higher or lower than the rates for species that do not share a roost structure, depending on whether the associated GLM coefficient will be estimated as positive or negative respectively in log space. After loading all predictors and unselecting the default transformations for roost structure overlap, the `GLM setting for host` window should look like this:
-
-{% include image.html file="27_GLM6PSetup.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
-
-Proceed with the next steps as in the previous exercise. Note that in the `Priors` panel, a normal prior with mean 0 and a standard deviation of 2 is specified on the log GLM coefficients ('host.coefficients'). We can again set up a short test run (e.g. 100,000 MCMC iterations), but proceed with diagnosing and summarising a long run. Here, you can find the output of an MCMC analysis that has been run for 2 million iterations sampled every 50,000 generations.
-
-### Analyzing the GLM-diffusion model output
-
-The parameters of interest in this analysis are the indicators associated with the predictors ('host.coefIndicators1' to 'host.coefIndicators6') and the coefficient parameters or effect sizes ('host.coefficients1' to 'host.coefficients6'). Upon loading the log file, the mean of an indicator provides an estimate for the inclusion probability of that indicator. In order to assess the evidence provided by the data for a predictor inclusion, we need to take into account the prior probability for inclusion. By default, BEAUti specifies Bernoulli prior probability distributions on these indicators with a small prior probability on each predictor's inclusion, that is a 50% prior probability on no predictors being included. Based on both prior and posterior inclusion probabilities, we can calculate formal inclusion support in the form of Bayes Factors as they can be expressed as the ratio of the posterior odds over the prior odds for predictor inclusion.
-
-<!--
-sample size
--->
 
 ## References
 * Streicker, D. G., A. S. Turmelle, M. J. Vonhof, I. V. Kuzmin, G. F. McCracken, and C. E. Rupprecht. 2010. Host phylogeny constrains cross-species emergence and establishment of rabies virus in bats. Science 329:676-679.
