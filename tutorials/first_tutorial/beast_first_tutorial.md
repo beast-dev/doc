@@ -22,7 +22,13 @@ You should also be familiar with at least the basics of Bayesian inference and M
 
 ### Running BEAUti
 
-<img src="images/icons/beauti-icon.png" style="float: left" />BEAUti is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis. Run BEAUti by double clicking the icon.
+<div>
+<img src="images/icons/beauti-icon.png" style="max-width: 64px; float: left; margin: 0px" />
+<div style="min-height: 64px; padding-top: 8px; margin-left:8px">
+Run [BEAUti](beauti) by double clicking on its icon.
+BEAUti is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis. 
+</div>
+</div>
 
 Once running, BEAUti will look similar irrespective of which computer system it is running on. For this tutorial, the Mac OS X version will be shown but the Linux & Windows versions will have exactly the same layout and functionality.
 
@@ -38,7 +44,9 @@ To load a NEXUS format alignment, simply select the `Import Data...` option from
 
 #### The NEXUS alignment
 
-The examples folder in the BEAST download package contains a file called apes.nex --- [you can also download the file here](/tutorials/first_tutorial/files/apes.nex). This file contains an alignment of mitochondrial tRNA sequences from 6 primate species (5 apes and a monkey outgroup). It starts out like this (the lines have been truncated):
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The examples folder in the BEAST download package contains a file called apes.nex - <a href="{{ root_url }}files/apes.nex">you can also download the file here</a>.</div>
+
+This file contains an alignment of mitochondrial tRNA sequences from 6 primate species (5 apes and a monkey outgroup). It starts out like this (the lines have been truncated):
 
 ```
 #NEXUS
