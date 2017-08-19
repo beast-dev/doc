@@ -204,7 +204,7 @@ Press the ‘Choose File’ button and select the XML file you just created and 
 
 To analyze the results of running BEAST we are going to use the program Tracer. The exact instructions for running Tracer differs depending on which computer you are using. Double click on the Tracer icon; once running, Tracer will look similar irrespective of which computer system it is running on.
 
-Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section (batRABV.log). Alternative, drag and drop your lof file into the Tracer window. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
+Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section (batRABV.log). Alternative, drag and drop your log file into the Tracer window. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
 
 {% include image.html file="18_tracerShort.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
@@ -380,6 +380,12 @@ Proceed with the next steps as in the previous exercise. Note that in the `Prior
 ### Analyzing the GLM-diffusion model output
 
 The parameters of interest in this analysis are the indicators associated with the predictors ('host.coefIndicators1' to 'host.coefIndicators6') and the coefficient parameters or effect sizes ('host.coefficients1' to 'host.coefficients6'). Upon loading the log file, the mean of an indicator provides an estimate for the inclusion probability of that indicator. In order to assess the evidence provided by the data for a predictor inclusion, we need to take into account the prior probability for inclusion. By default, BEAUti specifies Bernoulli prior probability distributions on these indicators with a small prior probability on each predictor's inclusion, that is a 50% prior probability on no predictors being included. Based on both prior and posterior inclusion probabilities, we can calculate formal inclusion support in the form of Bayes Factors as they can be expressed as the ratio of the posterior odds over the prior odds for predictor inclusion.
+
+<!--
+discuss values in this example
+-->
+
+In order to assess the size of the contribution of predictors, we can use the estimates of the coefficients in log space. However, it is important to keep in mind that the estimates are critically dependent on the corresponding indicator value. If the indicator is 1, than the predictor is included in the model and the coefficient will be informed by the data (the predictor and the discrete states). If the indicator is 0, the predictor is not included and the coefficient value will be sampled from the prior. This is why posterior estimates of coefficients with very small inclusion probability will resemble the prior distribution (a normal distribution centered on 0 with a standard deviation of 2), as is the case for roost structure overlap ('host.coefIndicators3'), differences in wing aspect ratio ('host.coefIndicators4'), differences in wing loading ('host.coefIndicators5') and differences in body size ('host.coefIndicators6'). This complicates the interpretation of coefficient estimates for predictors with intermediate inclusion probability. This is why applications have resorted to reporting the conditional effect size, that is the effect size when the predictors in included in the model (indicator = 1). In other words, this can be obtained by only summarising the coefficient estimates based on the samples for which the corresponding indicator values are 1. Alternatively, the predictor-specific product of the coefficient and indicator for all the samples can be summarised (these are logged as a statistic: host.coefficientsTimesIndicators1 to host.coefficientsTimesIndicators6).
 
 <!--
 sample size
