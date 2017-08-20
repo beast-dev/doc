@@ -40,8 +40,49 @@ TempEst takes as input a 'non-clock' phylogeny, which can be estimated using a s
 [This link will take you to the first part of this tutorial](rates_and_dates).
 
 
-
 ## Evaluating rate variation (using model selection)
+
+To investigate lineage-specific rate heterogeneity in this data set and its impact on divergence date estimates, a log and trees file is available for an analysis using an uncorrelated lognormal relaxed clock. 
+Import this log file in Tracer in addition to the previously imported strict clock log file. 
+Investigate the posterior density for the lognormal standard deviation; if this density excludes zero (= no rate variation), it would suggest that the strict clock model can be rejected in favor of the relaxed clock model.
+
+A more formal test can be performed using a marginal likelihood estimator (MLE, Suchard et al., 2001, MBE 18: 1001-1013), which employs a mixture of model prior and posterior samples (Newton and Raftery 1994). 
+The ratio of marginal likelihoods defines a Bayes factor, which measures the relative fit for two different models given the data at hand. 
+Accurate estimation of the marginal likelihood is however not possible using Tracer, which has been shown on many occasions (Baele et al., 2012, 2013, 2016).
+
+The harmonic mean estimator (HME) unfortunately remains a frequently used method to obtain marginal likelihood estimates, in large part because it’s so easily computed but it is more and more being disregarded as a reliable marginal likelihood estimator.
+To compare demographic and molecular clock models, both HME and sHME have been shown to be unreliable (Baele et al., 2012, 2013).
+More accurate/reliable MLE estimates can be obtained using computationally more demanding approaches, such as:
+
+* path sampling (PS): proposed in the statistics literature over 2 decades ago (sometimes also referred to as ‘thermodynamic integration’), this approach has been introduced in phylogenetics in 2006 (Lartillot and Philippe 2006). 
+Rather than only using samples from the posterior distribution, samples are required from a series of power posteriors between posterior and prior. 
+As the power posterior gets closer to the prior, there is less and less data available for the posterior, which may lead to improper results when improper priors have been specified. 
+The use of proper priors is hence of primary importance for PS (Baele et al., 2013, MBE, doi:10.1093/molbev/mss243).
+
+* stepping-stone sampling (SS): following essentially the same approach as PS and using the same collection of samples from a series of power posteriors, stepping-stone sampling (SS) yields faster-converging results compared to PS. 
+As was the case for PS, the use of proper priors is critical for SS.
+
+* generalised stepping-stone sampling (GSS): in a way, GSS combines the advantages of PS/SS - in that they yield reliable estimates of the (log) marginal likelihood - with what has been an important reason for the popularity of the HME/AICM, i.e. that these approaches make use of the samples collected during the exploration of the posterior. 
+GSS makes use of working distributions to shorten the path of the PS/SS integration and as such constructs a path between posterior and a product of working distributions, thereby avoiding exploration of the priors and the numerical issues associated with this (Baele et al., 2016, Syst. Biol., doi:10.1093/sysbio/syv083).
+
+The aforementioned PS, SS and GSS approaches have been implemented in BEAST (Baele at al., 2012, 2016). 
+Typically, PS/SS or GSS model selection is performed after doing a standard MCMC analysis and collecting samples from a series of power posteriors can then start where the MCMC analysis has stopped (i.e. you should have run the MCMC analysis long enough so that it converged towards the posterior), thereby eliminating the need for PS, SS and GSS to first converge towards the posterior.
+
+As discussed earlier in the tutorial and in the theory on Bayesian model selection, obtaining reliable model comparison results requires the use of proper priors for all parameters being estimated. 
+When performing model comparison, improper priors will lead to improper Bayes Factors. 
+Further, for the PS/SS procedure, we need to sample from the prior at the end of the series of the power posteriors, which will be problematic without proper priors and lead to numerical instabilities (Baele at al., 2013, MBE, doi:10.1093/molbev/mss243).
+
+To set up the PS/SS analyses, we can return to the MCMC panel in BEAUti and select 'path sampling / stepping-stone sampling' as the technique we will use to perform “Marginal likelihood estimation (MLE)”. 
+Click on 'settings' to specify the PS/SS settings. 
+Because of time constraints, we will keep the length of the standard MCMC chain set to 100,000 and we will collect samples from 11 power posteriors (i.e. 10 path steps between 1.0 and 0.0). 
+The length of the chain for the power posteriors can differ from the length of the standard MCMC chain, but we keep it here set to 100,000 as well. 
+The powers for the different power posteriors are defined using evenly spaced quantiles of a Beta(\alpha ,1.0) distribution, with α here equal to 0.30, as suggested in the stepping-stone sampling paper (Xie et al. 2011) since this approach is shown to outperform a uniform spreading suggested in the path sampling paper (Lartillot and Philippe 2006).
+
+Note that there is an additional option available in the MLE panel: 'Print operator analysis'. 
+When selected, this option will print an operator analysis for each power posterior to the screen, which can then be used to spot potential problems with the operators’ performance across the path from posterior to prior. 
+This option is useful when employing highly complex models and when having obtained improbable results.
+
+
 
 
 
