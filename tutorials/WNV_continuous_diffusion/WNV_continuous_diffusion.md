@@ -5,8 +5,7 @@ last_updated: August 9, 2017
 tags: [tutorial]
 summary: "This tutorial provides a step-by-step explanation on reconstructing the spatial dynamics of the West Nile virus (WNV) invasion across North America based on a set of viral genome sequences which have been isolated at different points in time (heterochronous data) in different US counties (Pybus et al., 2012, PNAS, 109(37), 15066-15071). WNV is a mosquito-borne RNA virus whose primary host is birds, and was first detected in the United States in New York City in August 1999. The data are 104 genomes collected between 1999 and 2008. We will estimate the ancestral locations of the virus in continuous space, the rate of spread during the WNV invasion and test whether the virus spread at a relatively constant rate through time. In addition, we will apply a procedure referred to as ‘Renaissance counting’ (Lemey et al., 2012, Bioinformatics, 28(24), 3248-3256), to quantify site-specific selection pressures in the form of nonsynonymous/synonymous substitution rate ratios (dN/dS). Renaissance counting maps substitutions throughout evolutionary history in nucleotide space, and then ‘counts’ the corresponding number of nonsynonymous and synonymous substitutions, their ‘neutral’ expectations, and applies a empirical Bayes procedure to those counts to arrive at dN/dS estimates."
 sidebar: beast_sidebar
-permalink: page
-.html
+permalink: WNV_continuous_diffusion.html
 folder: beast
 ---
 
