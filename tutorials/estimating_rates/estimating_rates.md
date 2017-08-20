@@ -37,7 +37,9 @@ Prior to BEAST analysis of the YFV data, it is advisable to confirm that the seq
 This can be achieved using a simple exploratory regression approach as implemented in [TempEst](http://tree.bio.ed.ac.uk/software/tempest/) (Rambaut et al., 2016). 
 TempEst takes as input a 'non-clock' phylogeny, which can be estimated using a standard neighbour-joining, maximum likelihood or Bayesian approach.
 
-{% include beast_rates_and_dates.md %}
+[This link will take you to the first part of this tutorial](rates_and_dates).
+
+
 
 ## Evaluating rate variation (using model selection)
 
