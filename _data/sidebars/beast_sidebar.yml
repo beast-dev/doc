@@ -151,6 +151,10 @@ entries:
   - title: Workshop Tutorials
     output: web, pdf
     folderitems:
+    - title: Estimating Rates and Dates
+      url: /estimating_rates
+      output: web, pdf
+
     - title: Evolutionary Dynamics of Influenza
       url: /influenza_phylodynamics
       output: web, pdf
