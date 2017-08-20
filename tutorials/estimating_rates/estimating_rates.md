@@ -1,6 +1,6 @@
 ---
 title: Estimating Rates and Dates Tutorial
-keywords: rates, dates, time-stamped sequences, mcmc, tutorial
+keywords: rates, dates, mcmc, tutorial
 last_updated: August 20, 2017
 tags: [tutorial]
 summary: "Estimating rates and dates from time-stamped sequences."
@@ -33,11 +33,13 @@ To undertake this tutorial, you will need to download three software packages in
 
 {% include figtree_callout.md %}
 
-Prior to BEAST analysis of the YFV data, it is advisable to confirm that the sequences contain sufficient ‘temporal signal’ for reliable estimation of evolutionary rates and divergence times. 
-This can be achieved using a simple exploratory regression approach as implemented in TempEst: http://tree.bio.ed.ac.uk/software/tempest/ (Rambaut et al., 2016). 
-TempEst takes as input a ‘non-clock’ phylogeny, which can be estimated using a standard neighbour-joining, maximum likelihood or Bayesian approach.
+Prior to BEAST analysis of the YFV data, it is advisable to confirm that the sequences contain sufficient 'temporal signal' for reliable estimation of evolutionary rates and divergence times. 
+This can be achieved using a simple exploratory regression approach as implemented in [TempEst](http://tree.bio.ed.ac.uk/software/tempest/) (Rambaut et al., 2016). 
+TempEst takes as input a 'non-clock' phylogeny, which can be estimated using a standard neighbour-joining, maximum likelihood or Bayesian approach.
 
 {% include beast_rates_and_dates.md %}
+
+## Evaluating rate variation (using model selection)
 
 
 
