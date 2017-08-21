@@ -66,7 +66,11 @@ This provides a rare occasion to test the impact of host factors (physiological,
 We will test these factors by setting up a mixed effects model for the evolutionary rate, which requires manual xml editing. 
 We will first set up an xml using BEAUti that specifies hierarchical prior distributions for the clock rates and substitution model parameters (which models the random effects) and then manually introduce the fixed effects by editing the xml.
 
-Separate alignments in fasta format are available for each host-associated lineage. 
+Separate alignments in fasta format are available for each host-associated lineage and can be downloaded below. 
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
+A .zip file containing all these files can be downloaded from here:
+<a href="{{ root_url }}files/BatRabies.zip"><samp>BatRabies.zip</samp></a>
+</div>
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
 The data files can be downloaded from here:
