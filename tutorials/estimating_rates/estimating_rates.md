@@ -126,7 +126,20 @@ We again define the powers for the different power posteriors using evenly space
 
 {% include image.html file="settingsGSS.png" prefix=root_url width="90%" alt="gss marginal likelihood estimation settings" caption="" %}
 
+The working priors/distribution for the models' parameters are automatically generated depending on their domain, but we need to make a choice when it comes to selecting a working prior for the tree topology. 
+For parametric coalescent models, such as the constant population size model, the fastest approach is to use a 'matching coalescent model'; whereas for non- parametric coalescent models, such as the Bayesian Skygrid model, the general-purpose 'product of exponential distributions' is the only appropriate option.
+Additionally, for speciation models (typically when using contemporaneous/isochronous sequences), the 'matching speciation model' is the only appropriate option.
 
+For the strict clock analysis, we arrive at -5696.32 using GSS whereas for the uncorrelated relaxed clock analysis, we get -5680.06 using GSS. 
+How do these MLEs compare to those obtained using PS/SS, and the Bayes factors resulting from these different estimators?
+
+The number of power posteriors needed as well as the chain length per power posterior are important settings to achieve a reliable estimate of the (log) marginal likelihood. 
+However, these settings can depend on the data set being analysed and hence different PS/SS/GSS analyses (with differing computational settings) are required when performing model comparison. 
+It's strongly advised to estimate the MLE using PS/SS/GSS with increasing computational settings, until these values no longer change significantly, to ensure convergence to the correct MLE.
+
+As discussed earlier, the model fit estimators used in this tutorial are not limited to specific types of models that can be compared. 
+So apart from comparing different clock models to one another, we can use the same approaches to compare different evolutionary substitution models to one another, or different demographic models, ... 
+For example, try to compare the model fit of the HKY model of nucleotide substitution we’ve been using so far to a GTR model of nucleotide substitution.  
 
 
 {% include links.html %}
