@@ -95,21 +95,21 @@ Enter ‘1.0’ as the precision value for 1 year. This will instruct BEAST to a
 
 The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a latitude and longitude as geographical location to each taxa based on the trait specification for each sequence in the WNV\_lat\_long.txt file, which [downloaded from here](files/WNV_lat_long.txt). To associate the sequences with the traits, we need to import a new trait under the `Traits` tab (click `Import Traits...`). This will open a new window that allows importing a file with the traits. Browse to and Open the WNV\_lat\_long.txt tab-delimited file, with the following content:
 
-	traits	host	state
-	AZ4030_2005.5	Ap	Arizona
-	AZ1968_2004.5	Ef	Arizona
-	AZ7590_2005.5	Ef	Arizona
-	CA237_2002.5	Ef	California
-	CA29_2002.5	Ef	California
-	CA9242_2002.5	Ef	California
-	CAO120_2002.5	Ef	California
-	CA0253_2003.5	Ef	California
-	CA148_2004.5	Ef	California
-	CA6860_2004.5	Ef	California
-	CA0100_2005.5	Ef	California
-	GA31940_2004.5	Ef	Georgia
+	traits	lat	long
+	WG007\_Hs\_2005.59	31.82	-106.56
+	WG009\_Hs\_2005.67	32.28	-106.74
+	WG011\_Hs\_2006.66	31.78	-106.50
+	WG013\_Hs\_2007.48	31.84	-106.53
+	WG024\_Hs\_2003.53	33.81	-117.83
+	WG080\_Hs\_2004.56	34.22	-118.44
+	WG091\_Hs\_2004.66	34.14	-117.15
+	WG099\_Hs\_2004.49	34.04	-117.02
+	WG101\_Hs\_2005.57	33.95	-117.73
+	WG103\_Hs\_2005.58	33.85	-118.15
+	WG116\_Hs\_2005.65	33.84	-118.08
+	WG124\_Hs\_2005.69	32.31	-111.21
 		...
-	DQ080059_Pn_2003	38.58	-121.49
+	DQ080059\_Pn\_2003	38.58	-121.49
 	
 After clicking `OK`, select both the 'lat' and 'long' trait in the left window and click on `create partition from trait..`. In the window that pops up, enter a name for this partitions, e.g. 'location':
 
@@ -336,15 +336,15 @@ In the `Priors` tab, set the allMus prior to a lognormal distribution with mean 
 
 * In the `MCMC` tab, set the chain length to 100,000 and both the sampling frequencies to 5000. Set the File name stem to 'WNV\_homogeneous' and generate the beast file ('WNV\_homogeneous.xml').
 
-## Run BEAST and load the xml file.
+### Run BEAST and load the xml file.
 
-## Analyze the output using Tracer. Analyze the output file for the longer runs.
+### Analyze the output using Tracer. Analyze the output file for the longer runs.
 
-## Summarize the trees for the longer run using treeAnnotator.
+### Summarize the trees for the longer run using treeAnnotator.
 
-## Visualize the tree in FigTree.
+### Visualize the tree in FigTree.
 
-## Run SpreaD3.
+### Run SpreaD3.
 
 * Select as input type in the `Data` panel: `MCC tree with CONTINUOUS traits`, load your MCC tree file.
 
