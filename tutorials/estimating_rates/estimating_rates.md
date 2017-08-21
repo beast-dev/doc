@@ -9,6 +9,8 @@ permalink: estimating_rates.html
 folder: beast
 ---
 
+{% capture root_url %}{{ site.tutorials_root_url }}/estimating_rates/{% endcapture %}
+
 ## Estimating rates and dates from time-stamped sequences: a hands-on tutorial
 
 This tutorial provides a step-by-step tutorial for analyzing a set of virus sequences which have been isolated at different points in time (heterochronous data). 
