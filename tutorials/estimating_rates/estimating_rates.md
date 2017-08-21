@@ -37,7 +37,7 @@ Prior to BEAST analysis of the YFV data, it is advisable to confirm that the seq
 This can be achieved using a simple exploratory regression approach as implemented in [TempEst](http://tree.bio.ed.ac.uk/software/tempest/) (Rambaut et al., 2016). 
 TempEst takes as input a 'non-clock' phylogeny, which can be estimated using a standard neighbour-joining, maximum likelihood or Bayesian approach.
 
-[This link will take you to the first part of this tutorial](rates_and_dates).
+**Important:** [This link will take you to the first part of this tutorial](rates_and_dates).
 
 
 ## Evaluating rate variation (using model selection)
@@ -72,7 +72,12 @@ As discussed earlier in the tutorial and in the theory on Bayesian model selecti
 When performing model comparison, improper priors will lead to improper Bayes Factors. 
 Further, for the PS/SS procedure, we need to sample from the prior at the end of the series of the power posteriors, which will be problematic without proper priors and lead to numerical instabilities (Baele at al., 2013, MBE, doi:10.1093/molbev/mss243).
 
-To set up the PS/SS analyses, we can return to the MCMC panel in BEAUti and select 'path sampling / stepping-stone sampling' as the technique we will use to perform “Marginal likelihood estimation (MLE)”. 
+### Setting up a PS/SS analysis
+
+To set up the PS/SS analyses, we can return to the MCMC panel in BEAUti and select 'path sampling / stepping-stone sampling' as the technique we will use to perform 'Marginal likelihood estimation (MLE)'. 
+
+{% include image.html file="selectPSSS.png" prefix=root_url width="90%" alt="select ps ss for marginal likelihood estimation" caption="" %}
+
 Click on 'settings' to specify the PS/SS settings. 
 Because of time constraints, we will keep the length of the standard MCMC chain set to 100,000 and we will collect samples from 11 power posteriors (i.e. 10 path steps between 1.0 and 0.0). 
 The length of the chain for the power posteriors can differ from the length of the standard MCMC chain, but we keep it here set to 100,000 as well. 
@@ -82,7 +87,42 @@ Note that there is an additional option available in the MLE panel: 'Print opera
 When selected, this option will print an operator analysis for each power posterior to the screen, which can then be used to spot potential problems with the operators’ performance across the path from posterior to prior. 
 This option is useful when employing highly complex models and when having obtained improbable results.
 
+{% include image.html file="settingsPSSS.png" prefix=root_url width="90%" alt="ps ss marginal likelihood estimation settings" caption="" %}
 
+Having set the PS/SS settings and proper priors, we can write to xml and run the analysis in BEAST. 
+Use the same settings for the strict clock and the uncorrelated relaxed clock and run the analyses. 
+What can we conclude from these (much too) short PS/SS analyses?
+
+In order to obtain reliable estimates for the marginal likelihoods using PS/SS, we need to rerun these analyses using much more demanding computational settings. 
+For example, by setting the number of path steps to 50 and the length of the MCMC chain for each power posterior to 500,000 (the logging frequency could also be increased). 
+The length of the initial standard MCMC chain should also be increased to ensure convergence towards the posterior before the PS/SS calculations are initiated. 
+An initial chain length of 5,000,000 iterations should be sufficient here. 
+Note that using these settings, the marginal likelihood estimation will take approximately the time it takes to complete a standard MCMC run of 25,000,000 generations for this data (+ 5,000,000 iterations for the initial chain). 
+Due to time constraints, the output files of these analyses have been made available.
+
+**Important:** it makes no sense to load the output files from a PS/SS/GSS analysis into Tracer as these files contain the output of a series of MCMC analyses!
+
+Note that in both folders containing the large output files for PS/SS/GSS provided, there is a BEAST XML file available to compute the MLE: calculate-PS-SS.xml or calculate-GSS.xml. 
+These XML files will merely read in the samples from the power posteriors collected and will hence take only a short time to compute the actual estimates using these samples. 
+Again, these simple XML files can be used when the actual MLE was lost but the log files are still available (which is a better alternative than rerunning the whole analysis).
+
+For the strict clock analysis, we arrive at -5676.04 and -5676.10 for PS and SS respectively. 
+For the uncorrelated relaxed clock analysis, we get -5656.8 and -5658.14 for the same estimators. 
+How do the PS/SS MLEs compare to those obtained by the HME, and the Bayes factors resulting from these different estimators? 
+What can be observed concerning the difference between the PS estimate and the SS estimate of the log marginal likelihood (also compared to the shorter runs)?
+
+### Setting up a GSS analysis
+
+To set up the GSS analyses, we can return to the MCMC panel in BEAUti and select 'generalized stepping-stone sampling' as the technique we will use to perform 'Marginal likelihood estimation (MLE)' in the MCMC panel. 
+
+{% include image.html file="selectGSS.png" prefix=root_url width="90%" alt="select gss for marginal likelihood estimation" caption="" %}
+
+Click on 'settings' to specify the GSS settings. 
+Because of time constraints, we will keep the length of the standard MCMC chain set to 100,000 and we will collect samples from 11 power posteriors (i.e. 10 path steps between 1.0 and 0.0). 
+The length of the chain for the power posteriors can differ from the length of the standard MCMC chain, but we set it here to 100,000 as well.
+We again define the powers for the different power posteriors using evenly spaced quantiles of a Beta(0.3,1.0) distribution, since this has been shown to outperform a uniform spreading for generalised stepping-stone sampling (Baele et al., 2016).
+
+{% include image.html file="settingsGSS.png" prefix=root_url width="90%" alt="gss marginal likelihood estimation settings" caption="" %}
 
 
 
