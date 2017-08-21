@@ -9,8 +9,6 @@ permalink: estimating_rates.html
 folder: beast
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/estimating_rates/{% endcapture %}
-
 ## Estimating rates and dates from time-stamped sequences: a hands-on tutorial
 
 This tutorial provides a step-by-step tutorial for analyzing a set of virus sequences which have been isolated at different points in time (heterochronous data). 
@@ -78,7 +76,7 @@ Further, for the PS/SS procedure, we need to sample from the prior at the end of
 
 To set up the PS/SS analyses, we can return to the MCMC panel in BEAUti and select 'path sampling / stepping-stone sampling' as the technique we will use to perform 'Marginal likelihood estimation (MLE)'. 
 
-{% include image.html file="selectPSSS.png" prefix=root_url width="90%" alt="select ps ss for marginal likelihood estimation" caption="" %}
+{% include image.html file="selectPSSS.png" prefix="tutorials/estimating_rates/" width="90%" alt="select ps ss for marginal likelihood estimation" caption="" %}
 
 Click on 'settings' to specify the PS/SS settings. 
 Because of time constraints, we will keep the length of the standard MCMC chain set to 100,000 and we will collect samples from 11 power posteriors (i.e. 10 path steps between 1.0 and 0.0). 
