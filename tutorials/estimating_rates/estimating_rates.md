@@ -9,6 +9,8 @@ permalink: estimating_rates.html
 folder: beast
 ---
 
+{% capture root_url %}{{ site.tutorials_root_url }}/estimating_rates/{% endcapture %}
+
 ## Estimating rates and dates from time-stamped sequences: a hands-on tutorial
 
 This tutorial provides a step-by-step tutorial for analyzing a set of virus sequences which have been isolated at different points in time (heterochronous data). 
@@ -54,7 +56,7 @@ The harmonic mean estimator (HME) unfortunately remains a frequently used method
 To compare demographic and molecular clock models, both HME and sHME have been shown to be unreliable (Baele et al., 2012, 2013).
 More accurate/reliable MLE estimates can be obtained using computationally more demanding approaches, such as:
 
-* path sampling (PS): proposed in the statistics literature over 2 decades ago (sometimes also referred to as ‘thermodynamic integration’), this approach has been introduced in phylogenetics in 2006 (Lartillot and Philippe 2006). 
+* path sampling (PS): proposed in the statistics literature over 2 decades ago (sometimes also referred to as 'thermodynamic integration'), this approach has been introduced in phylogenetics in 2006 (Lartillot and Philippe 2006). 
 Rather than only using samples from the posterior distribution, samples are required from a series of power posteriors between posterior and prior. 
 As the power posterior gets closer to the prior, there is less and less data available for the posterior, which may lead to improper results when improper priors have been specified. 
 The use of proper priors is hence of primary importance for PS (Baele et al., 2013, MBE, doi:10.1093/molbev/mss243).
@@ -76,12 +78,12 @@ Further, for the PS/SS procedure, we need to sample from the prior at the end of
 
 To set up the PS/SS analyses, we can return to the MCMC panel in BEAUti and select 'path sampling / stepping-stone sampling' as the technique we will use to perform 'Marginal likelihood estimation (MLE)'. 
 
-{% include image.html file="selectPSSS.png" prefix="tutorials/estimating_rates/" width="90%" alt="select ps ss for marginal likelihood estimation" caption="" %}
+{% include image.html file="selectPSSS.png" prefix=root_url width="90%" alt="select ps ss for marginal likelihood estimation" caption="" %}
 
 Click on 'settings' to specify the PS/SS settings. 
 Because of time constraints, we will keep the length of the standard MCMC chain set to 100,000 and we will collect samples from 11 power posteriors (i.e. 10 path steps between 1.0 and 0.0). 
 The length of the chain for the power posteriors can differ from the length of the standard MCMC chain, but we keep it here set to 100,000 as well. 
-The powers for the different power posteriors are defined using evenly spaced quantiles of a Beta(\alpha ,1.0) distribution, with α here equal to 0.30, as suggested in the stepping-stone sampling paper (Xie et al. 2011) since this approach is shown to outperform a uniform spreading suggested in the path sampling paper (Lartillot and Philippe 2006).
+The powers for the different power posteriors are defined using evenly spaced quantiles of a Beta(\alpha ,1.0) distribution, with \alpha here equal to 0.30, as suggested in the stepping-stone sampling paper (Xie et al. 2011) since this approach is shown to outperform a uniform spreading suggested in the path sampling paper (Lartillot and Philippe 2006).
 
 Note that there is an additional option available in the MLE panel: 'Print operator analysis'. 
 When selected, this option will print an operator analysis for each power posterior to the screen, which can then be used to spot potential problems with the operators’ performance across the path from posterior to prior. 
