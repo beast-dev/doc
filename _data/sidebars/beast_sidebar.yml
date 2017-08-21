@@ -151,16 +151,20 @@ entries:
   - title: Workshop Tutorials
     output: web, pdf
     folderitems:
+    - title: Estimating Rates and Dates
+      url: /estimating_rates
+      output: web, pdf
+
     - title: Evolutionary Dynamics of Influenza
       url: /influenza_phylodynamics
       output: web, pdf
 
     - title: Discrete Spatial Diffusion of Bat Rabies
-      url: /batrabies_discrete_diffusion_tutorial
+      url: /batrabies_discrete_diffusion
       output: web, pdf
 
     - title: Continuous Spatial Diffusion of West Nile Virus 
-      url: /WNV_continuous_diffusion_tutorial
+      url: /WNV_continuous_diffusion
       output: web, pdf
 
   - title: Reference

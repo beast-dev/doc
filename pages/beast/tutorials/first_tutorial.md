@@ -5,12 +5,12 @@ last_updated: July 22, 2017
 tags: [getting-started, tutorial]
 summary: "An introductory tutorial to getting started with BEAST. This tutorial describes the use of BEAUti and BEAST to analyse some primate sequences and estimate a phylogenetic tree. It will take you through the process of importing an alignment, making choices about the model, generating a BEAST XML file. You will then run BEAST."
 sidebar: beast_sidebar
-permalink: first_tutorial.html
+permalink: first_tutorial_new.html
 folder: beast
 redirect_from: "/tutorial-1"
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/first_tutorial/{% endcapture %}
+{% capture name_space %}first_tutorial/{% endcapture %}
 
 ## Running BEAST for the first time
 
@@ -36,7 +36,7 @@ Once running, BEAUti will look similar irrespective of which computer system it 
 
 When running, you will see a window like this:
 
-{% include image.html prefix=root_url file="image1.png" %}
+{% include image.html prefix="/pages/beast/tutorials/" subfolder=name_space file="image1.png" %}
 
 The first thing you need to do is to load some data, in this case a small nucleotide alignment.
 
