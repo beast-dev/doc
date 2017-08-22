@@ -152,11 +152,15 @@ entries:
     output: web, pdf
     folderitems:
     - title: Estimating Rates and Dates
-      url: /estimating_rates
+      url: /workshop_rates_and_dates
       output: web, pdf
 
     - title: Evolutionary Dynamics of Influenza
-      url: /influenza_phylodynamics
+      url: /workshop_influenza_phylodynamics
+      output: web, pdf
+
+    - title: Model Selection and Testing
+      url: /workshop_model_selection
       output: web, pdf
 
     - title: Discrete Spatial Diffusion of Bat Rabies

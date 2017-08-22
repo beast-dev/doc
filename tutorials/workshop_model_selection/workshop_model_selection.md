@@ -1,15 +1,15 @@
 ---
-title: Estimating Rates and Dates Tutorial
+title: Model Selection and Testing
 keywords: rates, dates, mcmc, tutorial
 last_updated: August 20, 2017
-tags: [tutorial]
+tags: [tutorial workshop]
 summary: "Estimating rates and dates from time-stamped sequences."
 sidebar: beast_sidebar
-permalink: estimating_rates.html
+permalink: workshop_model_selection.html
 folder: beast
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/estimating_rates/{% endcapture %}
+{% capture root_url %}{{ site.tutorials_root_url }}/workshop_model_selection/{% endcapture %}
 
 ## Estimating rates and dates from time-stamped sequences: a hands-on tutorial
 
