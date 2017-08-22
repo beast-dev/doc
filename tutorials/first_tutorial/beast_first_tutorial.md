@@ -22,13 +22,7 @@ You should also be familiar with at least the basics of Bayesian inference and M
 
 ### Running BEAUti
 
-<div>
-<img src="images/icons/beauti-icon.png" style="max-width: 64px; float: left; margin: 0px" />
-<div style="min-height: 64px; padding-top: 8px; margin-left:8px">
-Run [BEAUti](beauti) by double clicking on its icon.
-BEAUti is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis. 
-</div>
-</div>
+{% include icon-callout.html file='icons/beauti-icon.png' content='Run BEAUti by double clicking on its icon. <a href="beauti">BEAUti</a> is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis.' %}
 
 Once running, BEAUti will look similar irrespective of which computer system it is running on. For this tutorial, the Mac OS X version will be shown but the Linux & Windows versions will have exactly the same layout and functionality.
 
