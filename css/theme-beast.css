@@ -1,15 +1,15 @@
 :root{
     --background-color:#4388a8; /* #347DBE var(--background-color) */
-	--darker-color:#265368; /* #015CAE */
-	--lighter-color:#62b1d6; 
+    --darker-color:#265368; /* #015CAE */
+    --lighter-color:#62b1d6;
     --hilite-color:#adb24e; /* #ED1951 */
     --definition-color:#4388a8; /* #248EC2 */
-    --grey-color:#707070; 
+    --grey-color:#707070;
 }
 
 html {
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-   font-weight: 300;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
 }
 
 .summary {
@@ -19,19 +19,19 @@ html {
 }
 
 
-h1 { 
-   	font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-	font-weight: 300; 
-	font-size: 20pt;
+h1 {
+    font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 20pt;
 }
 h2 {
-	font-weight: 300; 
-	font-size: 18pt;
+    font-weight: 300;
+    font-size: 18pt;
 }
-h3 { 
-	color: var(--hilite-color); 
-	font-weight: 300; 
-	font-size: 14pt;
+h3 {
+    color: var(--hilite-color);
+    font-weight: 300;
+    font-size: 14pt;
 }
 h4 { color: var(--grey-color); }
 
@@ -48,9 +48,9 @@ code {
 }
 
 span.projectTitle {
-   	font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-	font-weight: 300; 
-	font-size: 16pt;
+    font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 16pt;
 }
 
 
@@ -87,25 +87,25 @@ a[data-toggle="tooltip"] {
 }
 .navbar-logo {
     color: white;
-	float: left;
-	height: 50px;
-	padding-left: 15px;
-	padding-top: 5px;
-	font-size: 18px;
-	line-height: 20px;
+    float: left;
+    height: 50px;
+    padding-left: 15px;
+    padding-top: 5px;
+    font-size: 18px;
+    line-height: 20px;
     vertical-align: middle;
 }
 a.navbar-title, a.navbar-title:hover, a.navbar-title:focus {
-	padding-top: 15px;
-	text-decoration: none;
+    padding-top: 15px;
+    text-decoration: none;
     color: white;
 }
 .navbar-inverse .navbar-nav>li>a:hover, a.fa.fa-home.fa-lg.navbar-brand:hover {
-     color: #f0f0f0;
+    color: #f0f0f0;
 }
 
 a.navbar-brand:hover {
-  color: #f0f0f0;
+    color: #f0f0f0;
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
@@ -162,11 +162,11 @@ div.sidebarTitle {
 }
 
 li.sidebarTitle {
-  margin-top:20px;
-    font-weight:normal;
-    font-size:130%;
+    margin-top:20px;
+    font-weight:200;
+    font-size:120%;
     color: var(--hilite-color);
-    margin-bottom:10px;
+    margin-bottom:0px;
     margin-left: 5px;
 }
 
@@ -204,22 +204,22 @@ figure {
     display: block;
     margin-left: auto;
     margin-right: auto;
-/*
-    padding-left: 10px;
-    border-left-width: 5px;
-    border-left-style: solid;
-    border-left-color: var(--hilite-color);
-*/
+    /*
+        padding-left: 10px;
+        border-left-width: 5px;
+        border-left-style: solid;
+        border-left-color: var(--hilite-color);
+    */
 }
 figure.table {
-	margin-top: 20px;
-	margin-left: 40px;
-	margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 20px;
     border-left-style: none;
 }
 figcaption {
-	text-align: left;
-	color: var(--grey-color);
+    text-align: left;
+    color: var(--grey-color);
     max-width: 100%;
 }
 
@@ -249,7 +249,7 @@ table > tfoot > tr > td {
 table > thead > tr > th {
     vertical-align: bottom;
     border-bottom: 1px;
-	border-style:none none solid none;
+    border-style:none none solid none;
     text-transform: none;
     background-color: transparent;
     color: black;
@@ -263,5 +263,5 @@ table > tbody > tr:nth-of-type(odd) {
 .alert-info {
     color: #12608a; /* var(--darker-color); */
     background-color: #e6ecf0; /*#b1cfde;*/
-    border-color: var(--definition-color);
+    border-color: #c6d4dd;
 }

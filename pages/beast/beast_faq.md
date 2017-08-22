@@ -315,4 +315,100 @@ How do I increase the ESS of a parameter?
 </div>
 <!-- /.panel-group -->
 
+## Setting up models
+
+<div class="panel-group" id="accordion">
+    <!-- /.panel -->
+    	<div class="panel panel-default">
+    		<div class="panel-heading">
+    			<div class="panel-title">
+    				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#qpr">
+How do I run BEAST without data to sample the Prior?
+    				</a>
+    			</div>
+    		</div>
+    		<div id="qpr" class="panel-collapse collapse noCrossRef">
+    			<div class="panel-body">
+In BEAUti, on the MCMC tab, click the checkbox 'Sample from prior only - create empty alignment', save the XML and run with BEAST.
+Alternatively, in the XML file, remove (or comments out) the entries in the &lt;likelihood&gt; block.
+    			</div>
+    		</div>
+    	</div>
+    <!-- /.panel -->
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+        			<div class="panel-title">
+        				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#qout">
+How do I tell BEAST to use an outgroup?
+        				</a>
+        			</div>
+        		</div>
+        		<div id="qout" class="panel-collapse collapse noCrossRef">
+        			<div class="panel-body">
+The simple answer is that you may not want to - BEAST will sample the root position along with the rest of the nodes in the tree. 
+If you then calculate the proportion of trees that have a particular root, you obtain a posterior probability for this root position. 
+However if you have a strong prior for an outgroup then you can constrain the ingroup to be monophyletic. 
+        			</div>
+        		</div>
+        	</div>
+	<!-- /.panel -->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#qdm">
+Which non-parametric demographic model should I use to analyse a single gene?
+				</a>
+			</div>
+		</div>
+		<div id="qdm" class="panel-collapse collapse noCrossRef">
+			<div class="panel-body">
+<p>A description of the coalescent tree priors (or demographic priors) can be found <a href="tree_priors.html">here</a>.
+There are essentially three different non-parametric demographic priors available: the Bayesian Skyline, the (GMRF) Bayesian Skyride and the Bayesian Skygrid.
+Basically, we suggest using Skyride over Skyline as it is a straightforward development of the Skyline with fewer user specified options.</p>
+<p>The question of Skygrid vs Skyride is more complex. 
+Skyride, like the original Skyline, scales its demographic curve to the height/age of the tree, with the changes in population sizes being concordant with the nodes in the tree. 
+That is, as the tree grows and shrinks over the course of the MCMC, the Skyride timescale does too. 
+Skygrid on the other hand requires you to define a fixed time line and grid points where the population size changes. 
+The tree scales within this grid (i.e., the grid doesn't change even though the tree does). 
+This is useful when you know what the timeline of the process is. 
+Skygrid allow allows multi-locus analysis but this is probably not useful for viruses (unless they are independent epidemics being controlled by the same process). 
+Finally, Skygrid allows covariates of the population dynamics to be incorporated and tested.</p>
+			</div>
+		</div>
+	</div>
+	<!-- /.panel -->
+	<div class="panel panel-default">
+        		<div class="panel-heading">
+        			<div class="panel-title">
+        				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#qorder">
+Does it matter what order the Priors & Likelihoods come in the XML?
+        				</a>
+        			</div>
+        		</div>
+        		<div id="qorder" class="panel-collapse collapse noCrossRef">
+        			<div class="panel-body">
+Yes. 
+BEAST will evaluate each component in order starting with the priors. 
+If any of these are zero, then the rest of the posterior is not calculated. 
+Thus it is particularly important that constraints, like &lt;booleanLikelihood&gt; and &lt;uniformPrior&gt; which may give zero probabilities, are put at the beginning of the &lt;prior&gt; section: 
+<pre>
+&lt;mcmc id="mcmc" chainLength="1000000" autoOptimize="true"&gt;
+    &lt;posterior id="posterior"&gt;
+        &lt;prior id="prior"&gt;
+            &lt;uniformPrior id="constraint" lower="90.0" upper="100.0"&gt;
+                &lt;parameter idref="rootHeight"/&gt;
+            &lt;/uniformPrior&gt;
+            &lt;coalescentLikelihood idref="coalescent"/&gt;
+        &lt;/prior&gt;
+        &lt;likelihood id="likelihood"&gt;
+            &lt;treeLikelihood idref="treeLikelihood"/&gt;
+        &lt;/likelihood&gt;
+    &lt;/posterior&gt;
+</pre>
+        			</div>
+        		</div>
+        	</div>
+</div>
+<!-- /.panel-group -->
+
 {% include links.html %}
