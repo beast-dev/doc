@@ -2,7 +2,7 @@
 title: Model Selection and Testing
 keywords: rates, dates, mcmc, tutorial
 last_updated: August 20, 2017
-tags: [tutorial workshop]
+tags: [tutorial, workshop]
 summary: "Estimating rates and dates from time-stamped sequences."
 sidebar: beast_sidebar
 permalink: workshop_model_selection.html

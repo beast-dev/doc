@@ -2,7 +2,7 @@
 title: Revealing the evolutionary dynamics of influenza
 keywords: phylodynamics, influenza, tutorial
 last_updated: August 8, 2017
-tags: [tutorial workshop]
+tags: [tutorial, workshop]
 summary: "This tutorial provides a step-by-step explanation on how to reconstruct the evolutionary dynamics of influenza based on a set of virus sequences which have been isolated at different points in time (‘heterochronous’ data) using BEAST. We will focus on influenza A virus evolution, in particular on the emergence of swine-origin pandemic influenza A (H1N1) virus in 2009 (H1N1pdm) and on the seasonal dynamics of H3N2 in the New York State. The H1N1pdm data set is a subset of an analyzed set genomes in a study that provides insights into the origins and evolutionary genomics of this outbreak (Smith et al., 2009). The H3N2 data is a subset of a comprehensive data set spanning several epidemic seasons in the New York state, which has been used to unravel the genomic and epidemiological dynamics of this virus (Rambaut et al., 2008). In the first exercise, the aim is to obtain an estimate of the rate of molecular evolution, an estimate of the date of the most recent common ancestor, an estimate of the H1N1pdm epidemic growth or the H1N1/09 basic reproductive number. In the second exercise, we will examine how H3N2 diversity fluctuates through time."
 sidebar: beast_sidebar
 permalink: workshop_influenza_phylodynamics.html
