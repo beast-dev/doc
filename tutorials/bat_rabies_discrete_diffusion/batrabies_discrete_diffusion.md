@@ -3,7 +3,7 @@ title: Phylogenetic diffusion in discrete space
 keywords: phylogeography, rabies, bats, tutorial
 last_updated: August 9, 2017
 tags: [tutorial]
-summary: "This chapter provides a step-by-step tutorial on reconstructing the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations based on a set of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353). The data set comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States ([Streicker et al., Science, 2010, 329, 676-679](http://science.sciencemag.org/content/329/5992/676.long)). Following Faria et al. (Phil. Trans. Roy. Soc. B, 2013), two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, Myotis austroriparius (Ma) and Parastrellus hesperus (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from Lasiurus borealis), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics."
+summary: "This chapter provides a step-by-step tutorial on reconstructing the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations based on a set of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353). The data set comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States ([Streicker et al., Science, 2010, 329, 676-679](http://science.sciencemag.org/content/329/5992/676.long)). Following Faria et al. (Phil. Trans. Roy. Soc. B, 2013), two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, Myotis austroriparius (Ma) and Parastrellus hesperus (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from Lasiurus borealis), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics. "
 sidebar: beast_sidebar
 permalink: batrabies_discrete_diffusion.html
 folder: beast
@@ -35,7 +35,7 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 
 #### Loading the sequence data file 
 
-The input file for this tutorial, WNV.fas, can be [downloaded from here](files/WNV.fas).
+The input file for this tutorial, 'batRABV.fas', can be [downloaded from here](files/batRABV.fas).
 To load the alignment, simply select the `Import Data...` option from the File menu:
 
 {% include image.html file="01_ImportData.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
@@ -45,7 +45,7 @@ To load the alignment, simply select the `Import Data...` option from the File m
 ##### The sequence alignment
 -->
 
-Select the batRABV.fas file. This fasta formatted file contains an alignment of 372 nucleoprotein gene sequences of bat rabies viruses, 1353 nucleotides in length. Once loaded, the sequence data will be listed under `Partitions` as shown in the figure:
+Select the 'batRABV.fas' file. This fasta formatted file contains an alignment of 372 nucleoprotein gene sequences of bat rabies viruses, 1353 nucleotides in length. Once loaded, the sequence data will be listed under `Partitions` as shown in the figure:
 
 {% include image.html file="02_sequencePartition.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
@@ -410,13 +410,14 @@ Based on the estimates provided for a long run ('batRABV_8Pglm.host.glm.log'), d
 
 
 ## References
-* Streicker, D. G., A. S. Turmelle, M. J. Vonhof, I. V. Kuzmin, G. F. McCracken, and C. E. Rupprecht. 2010. Host phylogeny constrains cross-species emergence and establishment of rabies virus in bats. Science 329:676-679.
-* Faria, N. R., M. A. Suchard, A. Rambaut, D. G. Streicker, and P. Lemey. 2013. Simultaneously reconstructing viral cross-species transmission history and identifying the underlying constraints. Philosophical transactions of the Royal Society of London. Series B, Biological sciences 368:20120196.
-* Ferreira, M. A. R. and M. A. Suchard. 2008. Bayesian analysis of elapsed times in continuous-time Markov chains. Can J Statistics, 36: 355–368. doi: 10.1002/cjs.5550360302
-* Lemey, P., A. Rambaut, A. J. Drummond, and M. A. Suchard. 2009. Bayesian phylogeography finds its roots. PLoS computational biology 5:e1000520.
-Lemey, P., A. Rambaut, T. Bedford, N. Faria, F. Bielejec, G. Baele, C. A. Russell, D. J. Smith, O. G. Pybus, D. Brockmann, and M. A. Suchard. 2014. Unifying Viral Genetics and Human Transportation Data to Predict the Global Transmission Dynamics of Human Influenza H3N2. PLoS pathogens 10:e1003932.
-* Bloomquist, E. W., P. Lemey, and M. A. Suchard. 2010. Three roads diverged? Routes to phylogeographic inference. Trends Ecol Evol 25:626-632.## Help and documentation
+* [Streicker, D. G., A. S. Turmelle, M. J. Vonhof, I. V. Kuzmin, G. F. McCracken, and C. E. Rupprecht. 2010. Host phylogeny constrains cross-species emergence and establishment of rabies virus in bats. Science 329:676-679.](http://science.sciencemag.org/content/329/5992/676.long)
+* [Faria, N. R., M. A. Suchard, A. Rambaut, D. G. Streicker, and P. Lemey. 2013. Simultaneously reconstructing viral cross-species transmission history and identifying the underlying constraints. Philosophical transactions of the Royal Society of London. Series B, Biological sciences 368:20120196.](http://rstb.royalsocietypublishing.org/content/368/1614/20120196.long)
+* [Ferreira, M. A. R. and M. A. Suchard. 2008. Bayesian analysis of elapsed times in continuous-time Markov chains. Can J Statistics, 36: 355–368. doi: 10.1002/cjs.5550360302](http://onlinelibrary.wiley.com/doi/10.1002/cjs.5550360302/abstract)
+* [Lemey, P., A. Rambaut, A. J. Drummond, and M. A. Suchard. 2009. Bayesian phylogeography finds its roots. PLoS computational biology 5:e1000520.](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000520)
+* [Lemey, P., A. Rambaut, T. Bedford, N. Faria, F. Bielejec, G. Baele, C. A. Russell, D. J. Smith, O. G. Pybus, D. Brockmann, and M. A. Suchard. 2014. Unifying Viral Genetics and Human Transportation Data to Predict the Global Transmission Dynamics of Human Influenza H3N2. PLoS pathogens 10:e1003932.](http://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1003932)
+* [Bloomquist, E. W., P. Lemey, and M. A. Suchard. 2010. Three roads diverged? Routes to phylogeographic inference. Trends Ecol Evol 25:626-632.## Help and documentation.](https://www.ncbi.nlm.nih.gov/pubmed/20863591)
 
+<!--
 The BEAST software download: http://beast.bio.ed.ac.uk/ (or  https://github.com/beast-dev/beast-mcmc)
 
 The BEAST website: http://beast.bio.ed.ac.uk/
@@ -424,5 +425,6 @@ The BEAST website: http://beast.bio.ed.ac.uk/
 Tutorials: http://beast.bio.ed.ac.uk/Tutorials/
 
 Frequently asked questions: http://beast.bio.ed.ac.uk/FAQ/
+-->
 
 {% include links.html %}

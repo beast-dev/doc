@@ -95,18 +95,18 @@ Enter ‘1.0’ as the precision value for 1 year. This will instruct BEAST to a
 The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a latitude and longitude as geographical location to each taxa based on the trait specification for each sequence in the WNV\_lat\_long.txt file, which [downloaded from here](files/WNV_lat_long.txt). To associate the sequences with the traits, we need to import a new trait under the `Traits` tab (click `Import Traits...`). This will open a new window that allows importing a file with the traits. Browse to and Open the WNV\_lat\_long.txt tab-delimited file, with the following content:
 
 	traits	lat	long
-	WG007\_Hs\_2005.59	31.82	-106.56
-	WG009\_Hs\_2005.67	32.28	-106.74
-	WG011\_Hs\_2006.66	31.78	-106.50
-	WG013\_Hs\_2007.48	31.84	-106.53
-	WG024\_Hs\_2003.53	33.81	-117.83
-	WG080\_Hs\_2004.56	34.22	-118.44
-	WG091\_Hs\_2004.66	34.14	-117.15
-	WG099\_Hs\_2004.49	34.04	-117.02
-	WG101\_Hs\_2005.57	33.95	-117.73
-	WG103\_Hs\_2005.58	33.85	-118.15
-	WG116\_Hs\_2005.65	33.84	-118.08
-	WG124\_Hs\_2005.69	32.31	-111.21
+	WG007_Hs_2005.59	31.82	-106.56
+	WG009_Hs_2005.67	32.28	-106.74
+	WG011_Hs_2006.66	31.78	-106.50
+	WG013_Hs_2007.48	31.84	-106.53
+	WG024_Hs_2003.53	33.81	-117.83
+	WG080_Hs_2004.56	34.22	-118.44
+	WG091_Hs_2004.66	34.14	-117.15
+	WG099_Hs_2004.49	34.04	-117.02
+	WG101_Hs_2005.57	33.95	-117.73
+	WG103_Hs_2005.58	33.85	-118.15
+	WG116_Hs_2005.65	33.84	-118.08
+	WG124_Hs_2005.69	32.31	-111.21
 		...
 	DQ080059\_Pn\_2003	38.58	-121.49
 	
@@ -369,18 +369,18 @@ This tutorial only scratches the surface of the analyses that are possible to un
 
 ## References
 
-* Lemey, P., A. Rambaut, J. J. Welch, and M. A. Suchard. 2010. Phylogeography takes a relaxed random walk in continuous space and time. Molecular biology and evolution 27:1877-1885.
+* [Lemey, P., A. Rambaut, J. J. Welch, and M. A. Suchard. 2010. Phylogeography takes a relaxed random walk in continuous space and time. Molecular biology and evolution 27:1877-1885.](https://academic.oup.com/mbe/article-lookup/doi/10.1093/molbev/msq067)
 
-* Pybus, O. G., M. A. Suchard, P. Lemey, F. J. Bernardin, A. Rambaut, F. W. Crawford, R. R. Gray, N. Arinaminpathy, S. L. Stramer, M. P. Busch, and E. L. Delwart. 2012. Unifying the spatial epidemiology and molecular evolution of emerging epidemics. Proceedings of the National Academy of Sciences of the United States of America 109:15066-15071.
+* [Pybus, O. G., M. A. Suchard, P. Lemey, F. J. Bernardin, A. Rambaut, F. W. Crawford, R. R. Gray, N. Arinaminpathy, S. L. Stramer, M. P. Busch, and E. L. Delwart. 2012. Unifying the spatial epidemiology and molecular evolution of emerging epidemics. Proceedings of the National Academy of Sciences of the United States of America 109:15066-15071.](http://www.pnas.org/content/109/37/15066.short)
 
-* Baele, G., P. Lemey, T. Bedford, A. Rambaut, M. A. Suchard, and A. V. Alekseyenko. 2012. Improving the accuracy of demographic and molecular clock model comparison while accommodating phylogenetic uncertainty. Molecular biology and evolution 29:2157-2167. 
+* [Baele, G., P. Lemey, T. Bedford, A. Rambaut, M. A. Suchard, and A. V. Alekseyenko. 2012. Improving the accuracy of demographic and molecular clock model comparison while accommodating phylogenetic uncertainty. Molecular biology and evolution 29:2157-2167.](https://academic.oup.com/mbe/article-lookup/doi/10.1093/molbev/mss084)
 
-* Baele, G., W. L. Li, A. J. Drummond, M. A. Suchard, and P. Lemey. 2013. Accurate model selection of relaxed molecular clocks in bayesian phylogenetics. Molecular biology and evolution 30:239-243. 
+* [Baele, G., W. L. Li, A. J. Drummond, M. A. Suchard, and P. Lemey. 2013. Accurate model selection of relaxed molecular clocks in bayesian phylogenetics. Molecular biology and evolution 30:239-243.](https://academic.oup.com/mbe/article-lookup/doi/10.1093/molbev/mss243)
 
-* Baele, G., P. Lemey, M. A. Suchard. 2016. Genealogical working distributions for Bayesian model testing with phylogenetic uncertainty. Systematic biology 65:250-264.
+* [Baele, G., P. Lemey, M. A. Suchard. 2016. Genealogical working distributions for Bayesian model testing with phylogenetic uncertainty. Systematic biology 65:250-264.](https://academic.oup.com/sysbio/article-lookup/doi/10.1093/sysbio/syv083)
 
-* Lemey, P., V. N. Minin, F. Bielejec, S. L. Kosakovsky Pond, and M. A. Suchard. 2012. A counting renaissance: Combining stochastic mapping and empirical Bayes to quickly detect amino acid sites under positive selection. Bioinformatics.
+* [Lemey, P., V. N. Minin, F. Bielejec, S. L. Kosakovsky Pond, and M. A. Suchard. 2012. A counting renaissance: Combining stochastic mapping and empirical Bayes to quickly detect amino acid sites under positive selection. Bioinformatics 28(24):3248–3256.](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/bts580)
 
-* Bielejec, F., G. Baele, B. Vrancken, M. A. Suchard, A. Rabat and P. Lemey. SpreaD3: interactive visualisation of spatiotemporal history and trait evolutionary processes. Mol. Biol. Evol., 2016, (in press). doi: 10.1093/molbev/msw082
+* [Bielejec, F., G. Baele, B. Vrancken, M. A. Suchard, A. Rabat and P. Lemey. 2016. SpreaD3: interactive visualisation of spatiotemporal history and trait evolutionary processes. Mol. Biol. Evol., 33(8): 2167–2169. doi: 10.1093/molbev/msw082](https://academic.oup.com/mbe/article-lookup/doi/10.1093/molbev/msw082)
 
 {% include links.html %}
