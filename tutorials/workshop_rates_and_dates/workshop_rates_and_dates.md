@@ -3,7 +3,7 @@ title: Estimating rates and dates from time-stamped sequences
 keywords: beast, tutorial, rate, date, workshop
 last_updated: August 2, 2017
 tags: [tutorial, workshop]
-summary: "This chapter provides a step-by-step tutorial for analyzing a set of virus sequences which have been isolated at different points in time (heterochronous data). The most commonly cited hypothesis of the origin of yellow fever virus (YFV) in the Americas is that the virus was introduced from Africa, along with <i>Aedes aegypti</i> mosquitoes, in the bilges of sailing vessels during the slave trade. Although the hypothesis of a slave trade introduction had often been suggested prior to paper by Bryant et al. (2007), it had not been subject to rigorous examination using gene sequence data and modern phylogenetic techniques for estimating divergence times. The aim of this exercise is to obtain an estimate of the rate of molecular evolution, an estimate of the date of the most recent common ancestor and to infer the phylogenetic relationships with appropriate measures of statistical support.
+summary: "This chapter provides a step-by-step tutorial for analyzing a set of virus sequences which have been isolated at different points in time (heterochronous data). The most commonly cited hypothesis of the origin of yellow fever virus (YFV) in the Americas is that the virus was introduced from Africa, along with <i>Aedes aegypti</i> mosquitoes, in the bilges of sailing vessels during the slave trade. Although the hypothesis of a slave trade introduction had often been suggested, prior to paper by Bryant et al. (2007), it had not been subject to rigorous examination using gene sequence data and modern phylogenetic techniques for estimating divergence times. The aim of this exercise is to obtain an estimate of the rate of molecular evolution, an estimate of the date of the most recent common ancestor and to infer the phylogenetic relationships with appropriate measures of statistical support.
 "
 sidebar: beast_sidebar
 permalink: workshop_rates_and_dates.html
@@ -395,7 +395,7 @@ Import the new longer log file, select the `treeModel.rootAge` statistic and cli
 
 {% include image.html prefix=root_url file="image17.png" %}
 
-The log file provided contains 2000 samples and with an ESS of 262 for the clock.rate there is still some degree of auto-correlation between the samples but 262 effectively independent samples will now provide an reasonable estimate of the posterior distribution. There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, and there are no large-scale fluctuations in the trace which would suggest poor mixing.
+The log file provided contains 2000 samples and with an ESS of 262 for the clock.rate there is still some degree of auto-correlation between the samples but 262 effectively independent samples will now provide an reasonable estimate of the posterior distribution. There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, and there are no large-scale fluctuations in the trace which would suggest poor mixing.   
 
 As we are happy with the behavior of posterior probability we can now move on to one of the parameters of interest: substitution rate. Select `clock.rate` in the left-hand table. This is the average substitution rate across all sites in the alignment. Now choose the density plot by selecting the tab labeled `Marginal Prob Distribution`. This plot shows a kernel density estimate (KDE) of the posterior probability density of this parameter. You should see a plot similar to this:
 
@@ -405,11 +405,15 @@ As you can see the posterior probability density is nicely bell-shaped. When loo
 
 {% include image.html prefix=root_url file="image19.png" %}
 
-Note that the three rates are markedly different, what does this tell us about the selective pressure on this gene? Now, let’s have a look at the time to the most recent common ancestor (TMRCA) for the strains from the Americas relative to the general tmrca (select the statistic labelled `tmrca(Americas)`:
+{% include callout.html type="warning" content="Note that the three rates are markedly different, what does this tell us about the selective pressure on this gene?<br /><br /><br />" %} 
+
+Now, let’s have a look at the timescale of the tree. Select the statistics called `age(root)` and `age(Americas)`. These are the dates of the root of the tree and the clade we defined for all of the American sequences. Because we have dated the tips of the tree, these statistics are given as the calendar year with the present day being on the right hand side (the most recently sample sequence is from 2009).
 
 {% include image.html prefix=root_url file="image20.png" %}
 
-This indicates that the tmrca for the Americas is significantly younger than the root height and argues for more recent origin of YFV in the Americas.
+{% include note.html content="Negative numbers denote years as Before the Common Era (BCE) but technically the calendar goes from 1 BCE to 1 CE --- there was no year zero. So if you want to report BCE years, you should take the absolute value and add 1" %} 
+
+This indicates that the TMRCA for the Americas is significantly more recent than the entire tree and argues for a relatively recent introduction of yellow fever virus into the Americas. Note, however, that there is considerable uncertainty in these estimates. Switching to the `Estimates` panel shows that the mean date of of the TMRCA into the Americas is the year 1590 but the 95% HPD credible interval spans 1377 to 1755. Bryant et al. (2007) suggest that the introduction of YFV into the Americas is likely the result of the Atlantic slave trade which occurred from the 16th to 19th Centuries.
 
 ## Summarizing the trees
 
@@ -452,11 +456,30 @@ Once you have selected all the options above, press the `Run` button. TreeAnnota
 
 Run FigTree now and select the `Open...` command from the `File` menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the FigTree window. On the left hand side of the window are the options and settings which control how the tree is displayed. In this case we want to display the posterior probabilities of each of the clades present in the tree and estimates of the age of each node. In order to do this you need to change some of the settings.
 
-First, re-order the node order by Increasing Node Order under the Tree Menu. Click on Branch Labels in the control panel on the left and open its section by clicking on the arrow on the left. Now select posterior under the Display option. The relative magnitude of such annotations can also be represented by node shapes.
+First, re-order the node order by `Increasing Node Order` under the `Tree` menu. Click on `Branch Labels` in the control panel on the left and open its section by clicking on the arrow on the left. Now select `posterior` under the `Display:` option. 
 
-We can also plot a time scale axis for this evolutionary history (select ‘Scale Axis’ and deselect ‘Scale bar’). For appropriate scaling, open the ‘Time Scale’ section of the control panel, set the ‘Offset’ to 2009.0, the scale factor to -1.0. and ‘Reverse Axis’ under ‘Scale Axis’.
+We can also plot a time scale axis for this evolutionary history: select `Scale Axis` and deselect `Scale bar`. By default the timescale is going forwards in time from the root of the tree. For appropriate scaling, set the `Reverse Axis` option in the `Scale Axis` panel and open the `Time Scale` section of the control panel setting the `Offset` to <samp>2009.0</samp>.
 
-Finally, open the Appearance panel and alter the Line Weight to draw the tree with thicker lines. You can also color clades by selecting a branch, select the `Clade` selection mode and choose a color. None of the options actually alter the tree's topology or branch lengths in anyway so feel free to explore the options and settings (Highlight or collapse for example the Americas clade). You can also save the tree and this will save most of your settings so that when you load it into FigTree again it will be displayed almost exactly as you selected. The tree can also be exported to a graphics file (pdf, eps, etc.).
-How do the viruses from the Americas cluster relative to the African viruses and what conclusions can we draw from the inferred time scale?
+Finally, open the `Appearance` panel and alter the `Line Weight` to draw the tree with thicker lines. You can also color clades by selecting a branch, select the `Clade` selection mode and choose a color. None of the options actually alter the tree's topology or branch lengths in anyway so feel free to explore the options and settings (`Highlight` or `Collapse` the Americas clade, for example ). 
+
+{% include image.html prefix=root_url file="image22.png" %}
+
+You can also save the tree and this will save most of your settings so that when you load it into FigTree again it will be displayed almost exactly as you selected. 
+
+Finally, the tree can also be exported to a graphics file (pdf, svg, etc.) using the options in the `File` menu.
+
+{% include callout.html type="warning" content="How do the viruses from the Americas cluster relative to the African viruses and what conclusions can we draw from the inferred time scale?<br /><br /><br />" %} 
+
+## References
+
+Bryant JE, Holmes EC and Barrett ADT (2007) Out of Africa: A Molecular Perspective on the Introduction of Yellow Fever Virus into the Americas. *PLoS Pathogens*, **3**: e75. [doi: 10.1371/journal.ppat.0030075](https://doi.org/10.1371/journal.ppat.0030075)
+
+## Help and documentation
+
+The BEAST website: [http://beast.community](http://beast.community)
+
+Tutorials: [http://beast.community/tutorials](http://beast.community/tutorials)
+
+Frequently asked questions: [http://beast.community/faq](http://beast.community/faq)
 
 {% include links.html %}
