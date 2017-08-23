@@ -83,6 +83,16 @@ Use an icon call out to introduce the software being used:
 
 There are icons for most of the main bits of software: beauti-icon.png, beast-icon.png, tracer-icon.png, utility-icon.png etc.
 
+To make it even easier there are some premade callouts for main software packages:
+
+```
+{% include beast_callout.md %}
+{% include tracer_callout.md %}
+{% include figtree_callout.md %}
+{% include spread3_callout.md %}
+{% include beagle_callout.md %}
+```
+
 #### Downloads boxes
 
 Use this box to give directions and links for a file download:

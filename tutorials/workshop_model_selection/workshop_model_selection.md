@@ -11,7 +11,12 @@ folder: beast
 
 {% capture root_url %}{{ site.tutorials_root_url }}/workshop_model_selection/{% endcapture %}
 
-## Estimating rates and dates from time-stamped sequences: a hands-on tutorial
+## Model selection and testing
+
+{% include note.html content="This tutorial follows on from [Estimating rates and dates from time-stamped sequences](workshop_rates_and_dates] which should be completed before starting this one." %}
+
+<!--
+*** Need to write an appropriate introduction, (the first paragraph should be the summary, above.
 
 This tutorial provides a step-by-step tutorial for analyzing a set of virus sequences which have been isolated at different points in time (heterochronous data). 
 The data are 71 sequences from the prM/E gene of yellow fever virus (YFV) from Africa and the Americas with isolation dates ranging from 1940-2009. 
@@ -39,7 +44,8 @@ Prior to BEAST analysis of the YFV data, it is advisable to confirm that the seq
 This can be achieved using a simple exploratory regression approach as implemented in [TempEst](http://tree.bio.ed.ac.uk/software/tempest/) (Rambaut et al., 2016). 
 TempEst takes as input a 'non-clock' phylogeny, which can be estimated using a standard neighbour-joining, maximum likelihood or Bayesian approach.
 
-**Important:** [This link will take you to the first part of this tutorial](rates_and_dates).
+**Important:** [This link will take you to the first part of this tutorial](workshop_rates_and_dates).
+-->
 
 
 ## Evaluating rate variation (using model selection)
