@@ -4,16 +4,16 @@ You can use the [editor on GitHub](https://github.com/beast-dev/doc/edit/master/
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### BEASTdoc conventions
+## BEASTdoc conventions
 
 A few conventions to follow when creating content:
 
-#### Internal Links:
+### Internal Links:
 
 These go in square brackets i.e., `[beauti]` will link to a page called BEAUti.html (case is ignored and the .html should be omitted for simplicity). To create a link with more readable text: 
 `[BEAUti application](beauti)`. 
 
-#### Images:
+### Images:
 
 Use the 'image.html' include like this:
 
@@ -37,7 +37,7 @@ A caption can also be included:
 
 `{% include image.html caption="This is a nice image" width="50%" prefix="tutorials/tutorial1/" file="image1.png" %}`
 
-#### Preample material
+### Preample material
 
 Provide the title (used both on the page and as a title for the browser), a permalink (how the page will be displayed in the url), whether you want a table of contents and some tags for searching and indexing.
 
@@ -45,11 +45,11 @@ At the top of the page is a field called `summary:`. Include some text here to b
 
 `summary: "This page provides a step-by-step tutorial for analyzing..."`
 
-#### Callouts
+### Callouts
 
 Various callouts/boxes can be used to break up the text. Here are the suggested uses:
 
-##### Program icons 
+#### Program icons 
 
 Use an icon call out to introduce the software being used:
 
@@ -59,7 +59,7 @@ Use an icon call out to introduce the software being used:
 
 There are icons for most of the main bits of software: beauti-icon.png, beast-icon.png, tracer-icon.png, utility-icon.png etc.
 
-##### Downloads boxes
+#### Downloads boxes
 
 Use this box to give directions and links for a file download:
 
@@ -67,7 +67,7 @@ Use this box to give directions and links for a file download:
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>YFV.nex</samp>' and can be found in the BEAST package in the '<samp>examples/Data/</samp>' folder or <a href="{{ root_url }}files/YFV.nex">can be downloaded from here</a>.</div>
 ```
 
-### Notes, Warnings etc.
+#### Notes, Warnings etc.
 
 A range of callout boxes are available for notes and warnings etc. These take the form:
 
@@ -77,7 +77,7 @@ A range of callout boxes are available for notes and warnings etc. These take th
 
 For the note version. Also available are `warning.html`, `important.html` and `tip.html` which each give different colours and icons.
 
-### Other callouts
+#### Other callouts
 
 Finally there are some simple callout boxes that have a coloured bar on the left. The general form is:
 
