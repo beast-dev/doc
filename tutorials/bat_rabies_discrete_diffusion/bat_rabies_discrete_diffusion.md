@@ -3,11 +3,10 @@ title: Phylogenetic diffusion in discrete space
 keywords: phylogeography, rabies, bats, tutorial
 last_updated: August 9, 2017
 tags: [tutorial]
-summary: "This chapter provides a step-by-step tutorial on reconstructing the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations based on a set of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353). The data set comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States 
- <a href="http://science.sciencemag.org/content/329/5992/676.long">Streicker et al., Science, 2010, 329, 676-679</a> 
- ([Streicker et al., Science, 2010, 329, 676-679](http://science.sciencemag.org/content/329/5992/676.long)). Following Faria et al. (Phil. Trans. Roy. Soc. B, 2013), two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, Myotis austroriparius (Ma) and Parastrellus hesperus (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from Lasiurus borealis), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics. "
+summary: 'This chapter provides a step-by-step tutorial on reconstructing the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations based on a set of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353). The data set comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States 
+ (<a href="http://science.sciencemag.org/content/329/5992/676.long">Streicker et al., Science, 2010, 329, 676-679</a>). Following Faria et al. (Phil. Trans. Roy. Soc. B, 2013), two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, Myotis austroriparius (Ma) and Parastrellus hesperus (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from Lasiurus borealis), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics. '
 sidebar: beast_sidebar
-permalink: batrabies_discrete_diffusion.html
+permalink: bat_rabies_discrete_diffusion.html
 folder: beast
 ---
 
@@ -275,6 +274,7 @@ SpreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using
 
 To visualize an MCC tree, start SpreaD3 by double-clicking on the jar file and select `MCC tree with DISCRETE traits` in the `Data` panel. Load the MCC tree and set the location attribute to ‘state’. Then, use `Setup location attribute coordinates` and load the states and their coordinates in the ‘locationStates.txt’ file, which should look like this:
 
+```
 	Arizona		33.7712	-111.3877
 	California	36.17	-119.7462
 	Georgia		32.9866	-83.6487
@@ -289,6 +289,7 @@ To visualize an MCC tree, start SpreaD3 by double-clicking on the jar file and s
 	Idaho		44.2394	-114.5103
 	Indiana		39.8647	-86.2604
 	Mississippi	32.7673	-89.6812
+```
 
 This will load the locations and their lat/long coordinates. Click done after uploading the locations and their coordinates. Set the most recent sampling date to 2005.5 and load a map of the United States in GeoJSON format. Such a map can be downloaded [here](files/gz_2010_us_040_00_500k.json). Once this is done, go to `Generate Output` and select a file name for the JSON file to be written. Finally, go to the Rendering panel in SpreaD3 and load the JSON file you just saved. Click `Render` to D3 and select a directory name which will contain the HMTL page that will automatically load in a browser (example below). Note that Google Chrome needs to be started with specific privileges for local file access in order to display the resulting visualisation (Firefox and Safari should work fine with default settings).
 
@@ -352,6 +353,7 @@ Click on `Setup GLM` and a new window will pop up:
 This window allows specifying a set of GLM predictors or covariates by importing them through `Import Predictors...`. All predictors can be downloaded as a zipped folder [here](files/predictors.zip) or as individual files linked below.
 Start by loading the distance matrix between bat rabies hosts based on mitochondrial gene distances ([hostDistances.csv](files/predictors/hostDistances.csv)). This is a csv file with the following content (the two-character labels represent the bat species):
 
+```
 	,Ap,Ef,Lb,Lbl,Lc,Li,Ln,Ls,Lx,Ma,Mc,Ml,My,Nh,Ph,Ps,Tb
 	Ap,0,0.745,0.878,0.8,0.71,0.86,0.711,0.916,0.788,0.794,0.717,0.736,0.78,0.74,0.596,0.67,0.923
 	Ef,0.745,0,0.971,0.893,0.803,0.953,0.586,1.009,0.881,0.887,0.81,0.829,0.873,0.615,0.689,0.763,1.016
@@ -370,7 +372,7 @@ Start by loading the distance matrix between bat rabies hosts based on mitochond
 	Ph,0.596,0.689,0.746,0.668,0.578,0.728,0.655,0.784,0.656,0.576,0.499,0.518,0.562,0.684,0,0.434,0.791
 	Ps,0.67,0.763,0.82,0.742,0.652,0.802,0.729,0.858,0.73,0.65,0.573,0.592,0.636,0.758,0.434,0,0.865
 	Tb,0.923,1.016,0.839,0.761,0.671,0.821,0.982,0.877,0.749,0.989,0.912,0.931,0.975,1.011,0.791,0.865,0
-
+```
 
 Note that by default, the values in the distance matrix are selected to be log-transformed and standardised. This is because the GLM-diffusion model parameterizes the log of the CTMC rates as a log linear function of the predictor and we grant the same variance to the predictors a priori. Repeat this procedure for range overlap ([rangeOverlap.csv](files/predictors/rangeOverlap.csv)), roost structure overlap ([roostOverlap.csv](files/predictors/roostOverlap.csv)), differences in wing aspect ratio ([wingAspectRatio.csv](files/predictors/wingAspectRatio.csv)), differences in wing loading ([wingLoading.csv](files/predictors/wingLoading.csv)) and differences in body size ([bodySize.csv](files/predictors/bodySize.csv)).
 
@@ -409,7 +411,8 @@ Sample sizes may have a strong impact on rate estimates in discrete ancestral re
 
 {% include image.html file="32_GLM8PSetup.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
-Based on the estimates provided for a long run ([here](batRABV_8Pglm.host.glm.log)), do samples sizes appear to affect the GLM parameter estimates in this case?
+{% include callout.html type="warning" content="Based on the estimates provided for a long run ([here](batRABV_8Pglm.host.glm.log)), do samples sizes appear to affect the GLM parameter estimates in this case?<br /><br /><br />" %}
+
 
 
 ## References
@@ -420,14 +423,13 @@ Based on the estimates provided for a long run ([here](batRABV_8Pglm.host.glm.lo
 * [Lemey, P., A. Rambaut, T. Bedford, N. Faria, F. Bielejec, G. Baele, C. A. Russell, D. J. Smith, O. G. Pybus, D. Brockmann, and M. A. Suchard. 2014. Unifying Viral Genetics and Human Transportation Data to Predict the Global Transmission Dynamics of Human Influenza H3N2. PLoS pathogens 10:e1003932.](http://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1003932)
 * [Bloomquist, E. W., P. Lemey, and M. A. Suchard. 2010. Three roads diverged? Routes to phylogeographic inference. Trends Ecol Evol 25:626-632.## Help and documentation.](https://www.ncbi.nlm.nih.gov/pubmed/20863591)
 
-<!--
-The BEAST software download: http://beast.bio.ed.ac.uk/ (or  https://github.com/beast-dev/beast-mcmc)
+## Help and documentation
 
-The BEAST website: http://beast.bio.ed.ac.uk/
+The BEAST website: [http://beast.community](http://beast.community)
 
-Tutorials: http://beast.bio.ed.ac.uk/Tutorials/
+Tutorials: [http://beast.community/tutorials](http://beast.community/tutorials)
 
-Frequently asked questions: http://beast.bio.ed.ac.uk/FAQ/
--->
+Frequently asked questions: [http://beast.community/faq](http://beast.community/faq)
+
 
 {% include links.html %}
