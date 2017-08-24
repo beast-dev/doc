@@ -345,6 +345,49 @@ In the `Priors` tab, set the allMus prior to a lognormal distribution with mean 
 
 ### Run SpreaD3.
 
+We will first summarise an MCC tree and then summarise the information in the entire tree distribution.
+
+* Select as input type in the `Data` panel: `MCC tree with CONTINUOUS traits`, load your MCC tree file.
+
+* Select ‘location1’ as `Latitute attribute` name and ‘location2’ as `Longitude attribute` name.
+
+* Set the `most recent sampling date` to 2007-07-15.
+
+* Load a GeoJSON [file](../bat_rabies_discrete_diffusion/files/gz_2010_us_040_00_500k.json) of the United States.
+
+* Keep all other default settings and click `Output` to generate a JSON file.
+
+* Go to the `Rendering` panel, keep the D3 renderer as the renderer of choice, and load the generated JSON file.
+
+* Click `Render to D3` to generate the HTML page and a browser window will open automatically.
+
+{% include image.html file="24_Spread.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+
+This visualizes the MCC tree an the uncertainty for its node locations. To summarize the location uncertainty based on the entire tree distribution we can continue with the following procedure.
+
+* Select as input type in the `Data` panel: `Tree distribution with CONTINUOUS traits`, load your '.trees' file. 
+
+* Keep the default Time slices (`Generated from MCC tree`) and load this MCC tree. 
+
+* Set the `most recent sampling date` to 2007-07-15.
+
+* Set the `2D rate attribute` to 'location.rate'.
+
+* Keep all other default settings and click `Output` to generate a JSON file.
+
+* Go to the `Merge` panel and choose the JSON that you have just created. Add a second line using the `+` button in the lower left corner. Choose the MCC tree JSON file.
+
+* Select the `Areas` from the first JSON file and the `Points`, `Lines` and `GeoJSON` from the second (MCC tree) JSON file.
+
+* Select `Merge...` from the `File` menu and save the new merged JSON.
+
+* Go to the `Rendering` panel, keep the D3 renderer as the renderer of choice, and load the generated JSON file.
+
+* Click `Render to D3` to generate the HTML page and a browser window will open automatically.
+
+{% include image.html file="24_Spread.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+
+<!--
 * Select as input type in the `Data` panel: `MCC tree with CONTINUOUS traits`, load your MCC tree file.
 
 * Select ‘location1’ as `Latitute attribute` name and ‘location2’ as `Longitude attribute` name.
@@ -360,7 +403,7 @@ Keep all other default settings and click `Output` to generate a JSON file.
 * Click `Render to D3` to generate the HTML page and a browser window will open automatically.
 
 {% include image.html file="24_Spread.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
-
+-->
 
 ## Conclusion and Resources
 
