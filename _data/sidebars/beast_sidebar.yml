@@ -163,7 +163,7 @@ entries:
       output: web, pdf
 
     - title: Discrete Spatial Diffusion of Bat Rabies
-      url: /batrabies_discrete_diffusion
+      url: /bat_rabies_discrete_diffusion
       output: web, pdf
 
     - title: Continuous Spatial Diffusion of West Nile Virus 
