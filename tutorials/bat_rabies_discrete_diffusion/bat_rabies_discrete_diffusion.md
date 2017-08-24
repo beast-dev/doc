@@ -4,8 +4,7 @@ keywords: phylogeography, rabies, bats, tutorial
 last_updated: August 9, 2017
 tags: [tutorial]
 summary: "This chapter provides a step-by-step tutorial on reconstructing the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations based on a set of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353). The data set comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States 
- <a href="http://science.sciencemag.org/content/329/5992/676.long">Streicker et al., Science, 2010, 329, 676-679</a> 
- ([Streicker et al., Science, 2010, 329, 676-679](http://science.sciencemag.org/content/329/5992/676.long)). Following Faria et al. (Phil. Trans. Roy. Soc. B, 2013), two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, Myotis austroriparius (Ma) and Parastrellus hesperus (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from Lasiurus borealis), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics. "
+ <a href="http://science.sciencemag.org/content/329/5992/676.long">Streicker et al., Science, 2010, 329, 676-679</a>. Following <a href="http://rstb.royalsocietypublishing.org/content/368/1614/20120196.long">Faria et al. (Phil. Trans. Roy. Soc. B, 2013)</a>, two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, Myotis austroriparius (Ma) and Parastrellus hesperus (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from Lasiurus borealis), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics. "
 sidebar: beast_sidebar
 permalink: batrabies_discrete_diffusion.html
 folder: beast
@@ -27,7 +26,7 @@ To undertake this tutorial, you will need to download three software packages in
 
 {% include spread3_callout.md %}
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> A zipped folder with all files needed for this tutorial <a href="{{ root_url }}discreteTutorialFiles.zip">can be downloaded from here</a>. (If you download this zipped folder, there is no need anymore to download the individual files linked in the tutorial text. </div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> A zipped folder with all files needed for this tutorial <a href="{{ root_url }}discreteTutorialFiles.zip">can be downloaded from here</a>. (If you download this zipped folder, there is no need anymore to download the individual files linked in the tutorial text) </div>
 
 
 ## EXERCISE 1: Host and location ancestral reconstruction
