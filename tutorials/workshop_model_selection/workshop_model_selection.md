@@ -90,7 +90,10 @@ Note that in both folders containing the large output files for PS/SS/GSS provid
 These XML files will merely read in the samples from the power posteriors collected and will hence take only a short time to compute the actual estimates using these samples. 
 Again, these simple XML files can be used when the actual MLE was lost but the log files are still available (which is a better alternative than rerunning the whole analysis).
 
-
+For the strict clock analysis, we arrive at -5676.04 and -5676.10 for PS and SS respectively. 
+For the uncorrelated relaxed clock analysis, we get -5656.8 and -5658.14 for the same estimators. 
+How do the PS/SS MLEs compare to those obtained by the HME, and the Bayes factors resulting from these different estimators? 
+What can be observed concerning the difference between the PS estimate and the SS estimate of the log marginal likelihood (also compared to the shorter runs)?
 
 ### Setting up a GSS analysis
 
@@ -109,7 +112,7 @@ The working priors/distribution for the models' parameters are automatically gen
 For parametric coalescent models, such as the constant population size model, the fastest approach is to use a 'matching coalescent model'; whereas for non- parametric coalescent models, such as the Bayesian Skygrid model, the general-purpose 'product of exponential distributions' is the only appropriate option.
 Additionally, for speciation models (typically when using contemporaneous/isochronous sequences), the 'matching speciation model' is the only appropriate option.
 
-{% include callout.html type="warning" content="For the strict clock analysis, we arrive at -5696.32 using GSS whereas for the uncorrelated relaxed clock analysis, we get -5680.06 using GSS. How do these MLEs compare to those obtained using PS/SS, and the Bayes factors resulting from these different estimators?" %}
+{% include callout.html type="warning" content="For the strict clock analysis, we arrive at -5696.32 using GSS whereas for the uncorrelated relaxed clock analysis, we get -5680.06 using GSS. How do these MLEs compare to those obtained using PS/SS, and the Bayes factors resulting from these different estimators?<br /><br /><br />" %}
 
 The number of power posteriors needed as well as the chain length per power posterior are important settings to achieve a reliable estimate of the (log) marginal likelihood. 
 However, these settings can depend on the data set being analysed and hence different PS/SS/GSS analyses (with differing computational settings) are required when performing model comparison. 
@@ -121,20 +124,11 @@ For example, try to compare the model fit of the HKY model of nucleotide substit
 
 ## References
 
-Baele G., Lemey P., Bedford T., Rambaut A., Suchard M.A., Alekseyenko A.V. (2012) Improving the accuracy of demographic and molecular clock model comparison while accommodating phylogenetic uncertainty. Mol. Biol. Evol. 29:2157-2167.
-
-Baele G., Li W.L.S., Drummond A.J., Suchard M.A., Lemey P. (2013) Accurate model selection of relaxed molecular clocks in bayesian phylogenetics. Mol. Biol. Evol. 30:239-243.
-
-Baele, G., Lemey, P., Suchard, M. A. (2016) Genealogical working distributions for Bayesian model testing with phylogenetic uncertainty. Syst. Biol. 65(2), 250-264.
-
-Lartillot N., Philippe H. (2006) Computing Bayes factors using thermo- dynamic integration. Syst Biol. 55:195-207.
-
-Newton M.A., Raftery A.E. (1994) Approximating Bayesian inference with the weighted likelihood bootstrap. J R Stat Soc B. 56:3-48.
-
-Suchard M.A., Weiss R.E., Sinsheimer J.S. (2001) Bayesian selection of continuous-time Markov chain evolutionary models. Mol Biol Evol. 18:1001-1013.
-
-Xie W., Lewis P.O., Fan Y., Kuo L., Chen M.H. (2011) Improving marginal likelihood estimation for Bayesian phylogenetic model selection. Syst Biol. 60:150-160.
-
+Suchard et al., 2001, MBE 18: 1001-1013
+Newton and Raftery 1994
+Baele et al., 2013, MBE, doi:10.1093/molbev/mss243)
+Baele et al., 2012, 2013, 2016
+Lartillot and Philippe 2006
 
 ## Help and documentation
 
