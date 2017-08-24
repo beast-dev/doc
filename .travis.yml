@@ -1,6 +1,9 @@
-sudo: false
+sudo: required
 language: ruby
 rvm: 2.0.0
+
+before_script:
+  - sudo update-ca-certificates
 
 script:
 #  - bundle exec jekyll serve --detach --config _config.yml,pdfconfigs/config_beast_pdf.yml;
