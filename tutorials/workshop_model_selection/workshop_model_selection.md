@@ -122,19 +122,6 @@ For example, try to compare the model fit of the HKY model of nucleotide substit
 
 ## References
 
-Baele G., Lemey P., Bedford T., Rambaut A., Suchard M.A., Alekseyenko A.V. (2012) Improving the accuracy of demographic and molecular clock model comparison while accommodating phylogenetic uncertainty. Mol. Biol. Evol. 29:2157-2167.
-
-Baele G., Li W.L.S., Drummond A.J., Suchard M.A., Lemey P. (2013) Accurate model selection of relaxed molecular clocks in bayesian phylogenetics. Mol. Biol. Evol. 30:239-243.
-
-Baele, G., Lemey, P., Suchard, M. A. (2016) Genealogical working distributions for Bayesian model testing with phylogenetic uncertainty. Syst. Biol. 65(2), 250-264.
-
-Lartillot N., Philippe H. (2006) Computing Bayes factors using thermo- dynamic integration. Syst Biol. 55:195-207.
-
-Newton M.A., Raftery A.E. (1994) Approximating Bayesian inference with the weighted likelihood bootstrap. J R Stat Soc B. 56:3-48.
-
-Suchard M.A., Weiss R.E., Sinsheimer J.S. (2001) Bayesian selection of continuous-time Markov chain evolutionary models. Mol Biol Evol. 18:1001-1013.
-
-Xie W., Lewis P.O., Fan Y., Kuo L., Chen M.H. (2011) Improving marginal likelihood estimation for Bayesian phylogenetic model selection. Syst Biol. 60:150-160.
 
 
 ## Help and documentation
