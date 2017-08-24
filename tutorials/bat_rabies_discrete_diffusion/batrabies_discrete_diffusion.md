@@ -3,7 +3,9 @@ title: Phylogenetic diffusion in discrete space
 keywords: phylogeography, rabies, bats, tutorial
 last_updated: August 9, 2017
 tags: [tutorial]
-summary: "This chapter provides a step-by-step tutorial on reconstructing the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations based on a set of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353). The data set comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States ([Streicker et al., Science, 2010, 329, 676-679](http://science.sciencemag.org/content/329/5992/676.long)). Following Faria et al. (Phil. Trans. Roy. Soc. B, 2013), two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, Myotis austroriparius (Ma) and Parastrellus hesperus (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from Lasiurus borealis), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics. "
+summary: "This chapter provides a step-by-step tutorial on reconstructing the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations based on a set of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353). The data set comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States 
+ <a href="http://science.sciencemag.org/content/329/5992/676.long">Streicker et al., Science, 2010, 329, 676-679</a> 
+ ([Streicker et al., Science, 2010, 329, 676-679](http://science.sciencemag.org/content/329/5992/676.long)). Following Faria et al. (Phil. Trans. Roy. Soc. B, 2013), two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, Myotis austroriparius (Ma) and Parastrellus hesperus (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from Lasiurus borealis), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics. "
 sidebar: beast_sidebar
 permalink: batrabies_discrete_diffusion.html
 folder: beast
@@ -25,7 +27,8 @@ To undertake this tutorial, you will need to download three software packages in
 
 {% include spread3_callout.md %}
 
-<!-- maybe also add a link to a zipped folder containing all input files -->
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> A zipped folder with all files needed for this tutorial <a href="{{ root_url }}discreteTutorialFiles.zip">can be downloaded from here</a>. (If you download this zipped folder, there is no need anymore to download the individual files linked in the tutorial text. </div>
+
 
 ## EXERCISE 1: Host and location ancestral reconstruction
 
@@ -268,7 +271,7 @@ Finally, open the Appearance panel and alter the `Line Weight` to 2 to draw the 
 
 ### Visualizing MCC trees and calculating Bayes factor support for rates using SpreaD3
 
-SpreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using Data-Driven Documents (D3), is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreaD3 allows to visualise spatial reconstructions on custom maps and generates HTML pages for display in modern-day browsers such as Firefox, Safari and Chrome. Some of the functionalities of SpreaD3 that relate to the discrete phylogeographic analysis include visualizing location-annotated MCC trees and identification of well-supported rates using a Bayes Factor test. The latter option takes as input the rate matrix file (batRABV.state.rates.log for location states and batRABV.host.rates.log for host states) generated under the analysis using the Bayesian Stochastic Search Variable Selection (BSSVS) procedure. This test aims at identifying frequently invoked rates to explain the diffusion process and, in case of locations, visualize them on a circle and on a globe or a map, which needs to be provided to SpreaD3. A detailed tutorial for this particular step is available at https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourTwo. We have also provided a PDF version of the entire SpreaD3 tutorial.
+SpreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using Data-Driven Documents (D3), is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreaD3 allows to visualise spatial reconstructions on custom maps and generates HTML pages for display in modern-day browsers such as Firefox, Safari and Chrome. Some of the functionalities of SpreaD3 that relate to the discrete phylogeographic analysis include visualizing location-annotated MCC trees and identification of well-supported rates using a Bayes Factor test. The latter option takes as input the rate matrix file ([batRABV.state.rates.log](files/batRABV.state.rates.log) for location states and [batRABV.host.rates.log](files/batRABV.host.rates.log) for host states) generated under the analysis using the Bayesian Stochastic Search Variable Selection (BSSVS) procedure. This test aims at identifying frequently invoked rates to explain the diffusion process and, in case of locations, visualize them on a circle and on a globe or a map, which needs to be provided to SpreaD3. A detailed tutorial for this particular step is available [here](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourTwo). We have also provide a PDF version of the entire SpreaD3 tutorial for download [here](files/SpreaD3Tutorial.pdf).
 
 To visualize an MCC tree, start SpreaD3 by double-clicking on the jar file and select `MCC tree with DISCRETE traits` in the `Data` panel. Load the MCC tree and set the location attribute to ‘state’. Then, use `Setup location attribute coordinates` and load the states and their coordinates in the ‘locationStates.txt’ file, which should look like this:
 
@@ -375,7 +378,7 @@ Note that the roost structure overlap values are '1' or '0' indicating whether t
 
 {% include image.html file="27_GLM6PSetup.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
-Proceed with the next steps as in the previous exercise. Note that in the `Priors` panel, a normal prior with mean 0 and a standard deviation of 2 is specified on the log GLM coefficients ('host.coefficients'). We can again set up a short test run (e.g. 100,000 MCMC iterations), but proceed with diagnosing and summarising a long run. Here, you can find the output of an MCMC analysis that has been run for 200 million iterations sampled every 50,000 generations.
+Proceed with the next steps as in the previous exercise. Note that in the `Priors` panel, a normal prior with mean 0 and a standard deviation of 2 is specified on the log GLM coefficients ('host.coefficients'). We can again set up a short test run (e.g. 100,000 MCMC iterations), but proceed with diagnosing and summarising a long run. You can download the output of an MCMC analysis that has been run for 100 million iterations sampled every 50,000 generations [here](batRABV_6Pglm.host.glm.log).
 
 ### Analyzing the GLM-diffusion model output
 
@@ -406,7 +409,7 @@ Sample sizes may have a strong impact on rate estimates in discrete ancestral re
 
 {% include image.html file="32_GLM8PSetup.png" prefix="tutorials/bat_rabies_discrete_diffusion/" caption="" %}
 
-Based on the estimates provided for a long run ('batRABV_8Pglm.host.glm.log'), do samples sizes appear to affect the GLM parameter estimates in this case?
+Based on the estimates provided for a long run ([here](batRABV_8Pglm.host.glm.log)), do samples sizes appear to affect the GLM parameter estimates in this case?
 
 
 ## References
