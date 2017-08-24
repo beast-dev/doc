@@ -311,14 +311,10 @@ Smith GJD, Vijaykrishna D, Bahl J, Lycett SJ, Worobey M, Pybus OG, Ma SK, Cheung
 
 ## Help and documentation
 
-The BEAST software download: http://beast-mcmc.googlecode.com/
+The BEAST website: http://beast.community
 
-The BEAST website: http://beast.bio.ed.ac.uk/
+Tutorials: http://beast.community/tutorials
 
-Tutorials: http://beast.bio.ed.ac.uk/Tutorials/
-
-Frequently asked questions: http://beast.bio.ed.ac.uk/FAQ/
-
-H1N1/09: http://tree.bio.ed.ac.uk/wiki/projects/influenza/
+Frequently asked questions: http://beast.community/faq
 
 {% include links.html %}
