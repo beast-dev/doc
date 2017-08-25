@@ -290,7 +290,7 @@ In the Trees tab, set the option for Tree Prior to Coalescent: Bayesian SkyGrid 
 
 In the Priors tab, keep the default prior settings.
 
-In the MCMC tab, set the chain length to 25,000,000 and both the sampling frequencies to 5000. Set the File name stem to NewYork.HA.2000-2003 and generate the beast file (NewYork.HA.2000-2003.xml).
+In the MCMC tab, set the chain length to <samp>25,000,000</samp> and both the sampling frequencies to 5000. Set the File name stem to NewYork.HA.2000-2003 and generate the beast file (NewYork.HA.2000-2003.xml).
 
 #### Run BEAST and load the xml file.
 
