@@ -11,6 +11,8 @@ permalink: WNV_continuous_diffusion.html
 folder: beast
 ---
 
+{% capture root_url %}{{ site.tutorials_root_url }}/WNV_continuous_diffusion/{% endcapture %}
+
 ## Introduction
 
 The first step will be to convert an alignment file in fasta format into a BEAST XML input file. This is done using the program BEAUti (this stands for Bayesian Evolutionary Analysis Utility). This is a user-friendly program for setting the evolutionary model and options for the MCMC analysis. The second step is to actually run BEAST using the input file that contains the data, model and settings. The final step is to explore the output of BEAST in order to diagnose problems and to summarize the results.
@@ -43,10 +45,10 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 
 #### Loading the sequence data file 
 
-The input file for this tutorial, batRABV.fas, can be [downloaded from here](files/batRABV.fas).
+The input file for this tutorial, batRABV.fas, can be [downloaded from here]({{ root_url }}files/WNV.fas).
 To load the alignment, simply select the `Import Data...` option from the File menu:
 
-{% include image.html file="01_ImportData.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="01_ImportData.png" prefix=root_url caption="" %}
 
 
 <!--
@@ -55,12 +57,12 @@ To load the alignment, simply select the `Import Data...` option from the File m
 
 Select the WNV.fas file. This file contains an alignment of 104 WNV genomes 11029 nucleotides in length. Once loaded, the sequence data will be listed under `Partitions` as shown in the figure:
 
-{% include image.html file="02_sequencePartition.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="02_sequencePartition.png" prefix=root_url caption="" %}
 
 <!--
 Double-click on the row of the table (but not on Partition Name) to display the actual sequence alignment:
 
-{% include image.html file="sequenceAlignment.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="sequenceAlignment.png" prefix=root_url caption="" %}
 -->
 
 #### Specifying the sampling date information 
@@ -68,28 +70,28 @@ Double-click on the row of the table (but not on Partition Name) to display the 
 By default all the taxa are assumed to have a date of zero (i.e. the sequences are assumed to be sampled at the same time). In this case, the WNV sequences have been sampled at various years going back to 1999. To set these dates switch to the `Tips` panel using the tabs at the top of the window.
 
 <!--
-{% include image.html file="fig3.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="fig3.png" prefix=root_url caption="" %}
 -->
 
 Select the box labelled `Use tip dates`. The actual sampling time in years is encoded in the name of each taxon and we could simply edit the value in the ‘Date’ column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the `Parse Dates` button at the top left of the `Data` panel. Clicking this will make a dialog box appear:
 
-{% include image.html file="03_guessDates.png" prefix="tutorials/WNV_continuous_diffusion/"  max-width="25%" align="center" caption="" %}
+{% include image.html file="03_guessDates.png" prefix=root_url  max-width="25%" align="center" caption="" %}
 
 This operation attempts to guess what the dates are from information contained within the taxon names. It works by trying to find a numerical field within each name. If the taxon names contain more than one numerical field then you can specify how to find the one that corresponds to the date of sampling. You can (1) specify the order that the date field comes (e.g., first, last or various positions in between) or (2) specify a prefix (some characters that come immediately before the date field in each name) and the order of the field, or (3) define a regular expression (REGEX).
 
 When parsing a number, you can ask BEAUti to add a fixed value to each guessed date. For example, the value `1900` can be added to turn the dates from 2 digit years to 4 digit. Any dates in the taxon names given as `00` would thus become `1900`. However, if these `00` or `01`, etc. represent sequences sampled in 2000, 2001, etc., `2000` needs to be added to those. This can be achieved by selecting the `unless less than: ..` and `..in which case add:..` options adding for example 2000 to any date less than 10. These operations are not necessary in our case since the dates are fully specified at the end of the sequence names. There is also an option to parse calendar dates and one for calendar dates with various precisions. For the WNV sequences you can keep the default `Defined just by its order`, select `last` from the drop-down menu for the order, set the `Prefix` to an underscore and press `OK`. The dates will appear in the appropriate column of the main window.
 
-{% include image.html file="04_datesSpecified.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="04_datesSpecified.png" prefix=root_url caption="" %}
 
 You can now check these and edit them manually as required. At the top of the window you can set the units that the dates are given in (years, months, days) and whether they are specified relative to a point in the past (as is the case for years such as 2005) or backwards in time from the present (as in the case of radiocarbon ages).
 
 The `Height` column lists the ages of the tips relative to time 0 (in our case 2007.63). The `Uncertainty` column allows specifying with what precision the sampling time is know. This is useful in our case because some sampling dates are known to the exact day, while others are only known up to the year of sampling (those without decimal in the taxa name or with the .0 decimal in the Date column), and BEAST allows to integrate over the uncertainty of the latter. To make use of the ability to adequately accommodate the uncertainty of our sampling dates, select all the taxa (holding down the cmd key) with sampling dates only known up to the year in the Tips window and click on `Set Uncertainty`.
 
-{% include image.html file="05_setUncertainty.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="05_setUncertainty.png" prefix=root_url caption="" %}
 
 Enter ‘1.0’ as the precision value for 1 year. This will instruct BEAST to add a half year to those sampling dates and construct a uniform window of 1 year around this new value. To estimate the respective sampling dates within the constraint of this window in the MCMC analysis, select `sampling uniformly from precision` at the bottom left of the Tips panel and keep the `Apply to taxon set: All taxa` default.
 
-{% include image.html file="06_tipdateSampling.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="06_tipdateSampling.png" prefix=root_url caption="" %}
 
 
 #### Specifying the trait information
@@ -114,11 +116,11 @@ The next thing to do is to click on the `Traits` tab at the top of the main wind
 	
 After clicking `OK`, select both the 'lat' and 'long' trait in the left window and click on `create partition from trait..`. In the window that pops up, enter a name for this partitions, e.g. 'location':
 
-{% include image.html file="07_traitSelection.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="07_traitSelection.png" prefix=root_url caption="" %}
 
 This new 'location' partition with 2 'Sites' and with a continuous 'Data Type' will be shown under the `Partitions` tab:
 
-{% include image.html file="08_traitPartitions.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="08_traitPartitions.png" prefix=root_url caption="" %}
 
 #### Setting the sequence and trait evolutionary models
 
@@ -134,20 +136,20 @@ Selecting the `Unlink rate heterogeneity model across codon positions` will spec
 
 For the nucleotide substitution model in this tutorial, keep the default HKY substitution model, keep the base frequencies to be 'Estimated', the ‘Site Rate Heterogeneity’ to ‘None’, and partition the data into 3 partitions for the coding positions (3 partitions: positions 1,2,3). Because of the renaissance counting procedure that we will apply to obtain site-specific dN/dS estimates, we cannot model rate heterogeneity within each codon position partition, so we will assume that we capture most among site rate heterogeneity by modeling relative rates among the coding position partitions.
 
-{% include image.html file="09_substModel.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="09_substModel.png" prefix=root_url caption="" %}
 
 <!-- PL edited up to here -->
 
 Next, click on 'location' in the `Substitution model` window and keep the 
 `Homogenous Brownian model`, and select `Bivariate trait represents latitude and longitude`. This option generates diffusion statistics that are specific for bivariate spatial traits (with latitude and longitude in that order). Also select the `add random jitter to tips`, which adds noise drawn uniformly at random from a particular jitter window size to duplicated (location) traits. Set the `jitter window size` to 0.5. The noise avoids a poor performance of Brownian diffusion models when not all sequences are associated with unique locations.
 
-{% include image.html file="10_traitModel.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="10_traitModel.png" prefix=root_url caption="" %}
 
 #### Setting the ‘molecular clock’ model
 
 The ‘Molecular Clock Model’ options in the `Clocks` panel allows us to choose between a strict and a relaxed (uncorrelated lognormal or uncorrelated exponential) clock. We will perform our run using the Lognormal relaxed molecular clock  (Uncorrelated) model:
 
-{% include image.html file="11_clockModel.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="11_clockModel.png" prefix=root_url caption="" %}
 
 Now move on to the `Trees` panel.
 
@@ -155,29 +157,29 @@ Now move on to the `Trees` panel.
 
 This panel contains settings about the tree. Firstly the starting tree is specified to be ‘randomly generated’. The other main setting here is to specify the ‘Tree prior’ which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. We will select an exponential growth coalescent model as demographic tree prior (`Coalescent: Exponential Growth`) with standard parametrisation, which is intuitively appealing for viral outbreaks.
 
-{% include image.html file="12_treePrior.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="12_treePrior.png" prefix=root_url caption="" %}
 
 #### The ancestral states settings
 
 In the `States` panel, we can turn on the Renaissance counting procedure by selection `Reconstruct synonymous/non-synonymous change counts`:
 
-{% include image.html file="13_robustCounting.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="13_robustCounting.png" prefix=root_url caption="" %}
 
 For the 'location' partition, check that the option to `Reconstruct states at all ancestors` is selected (by default):
 
-{% include image.html file="14_locationStates.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="14_locationStates.png" prefix=root_url caption="" %}
 
 #### Setting up the priors
 
 Review the prior settings under the `Priors` tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. Priors that would not be explicitly specified would appear in red, whereas priors that are improper (and hence lead to an improper posterior and improper marginal likelihoods) appear in yellow (e.g. allMus). Click on the prior for this parameter and a prior selection window will appear. The codon position-specific relative rates (CP1.mu, CP2.mu and CP3.mu), which are constrained to have a mean of 1, still require proper priors. We here specify lognormal distributions with a log(mean) of 0.0 and a log(stdev) of 1.5 for these parameters. Notice that the prior setting turns black after confirming this setting by clicking OK.
 
-{% include image.html file="15_priors.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="15_priors.png" prefix=root_url caption="" %}
 
 #### Setting up the operators
 
 Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs. The `Operators` tab in BEAUti has a table that lists the parameters, their operators and the tuning settings for these operators:
 
-{% include image.html file="16_operators.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="16_operators.png" prefix=root_url caption="" %}
 
 In the first column are the parameter names. These will be called things like kappa which means the HKY model's kappa parameter (the transition-transversion bias). The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a proportion, the random walk operator adds or subtracts an amount to the parameter and the uniform operator simply picks a new value uniformly within a range. Some parameters relate to the tree or to the divergence times of the nodes of the tree and these have special operators. As of BEAST v1.8.4, different options are available w.r.t. exploring tree space. In this tutorial, we will use the ‘classic operator mix’, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a ‘new experimental mix’, which is currently under development with the aim to improve mixing for large phylogenetic trees.
 
@@ -195,7 +197,7 @@ The `MCMC` tab in BEAUti provides settings to control the MCMC chain. Firstly we
 
 The next couple of options specify how often the current parameter values should be displayed on the screen and recorded in the log file. The screen output is simply for monitoring the program's progress so can be set to any value (although if set too small, the sheer quantity of information being displayed on the screen will slow the program down). For the log file, the value should be set relative to the total length of the chain. Sampling too often will result in very large files with little extra benefit in terms of the precision of the estimates. Sample too infrequently and the log file will not contain much information about the distributions of the parameters. You probably want to aim to store no more than 10,000 samples so this should be set to the chain length / 10,000. 
 
-{% include image.html file="17_mcmc.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="17_mcmc.png" prefix=root_url caption="" %}
 
 For this dataset let's initially set the chain length to 100,000 as this will run reasonably quickly on most modern computers. Because the renaissance counting procedure, which is executed each time a state is logged, can be computationally expensive for a large coding sequence alignment, we will set the parameter logging to file to 5000 and the state echo to screen every 100 state.
 
@@ -207,7 +209,7 @@ Finally, one can select to perform marginal likelihood estimation to assess mode
 
 Once the BEAST XML file has been created the analysis itself can be performed using BEAST. The exact instructions for running BEAST depends on the computer you are using, but in most cases a dialog box will appear in which you select the XML file:
 
-{% include image.html file="18_BEASTgui.png" prefix="tutorials/WNV_continuous_diffusion/"  max-width="50%" align="center" caption="" %}
+{% include image.html file="18_BEASTgui.png" prefix=root_url  max-width="50%" align="center" caption="" %}
 
 Press the ‘Choose File’ button and select the XML file you just created and press ‘Run’. When you have installed the BEAGLE library (https://github.com/beagle-dev/beagle-lib), you can use this in conjunction with BEAST to speed up the calculations. If not installed, unselect the use of the BEAGLE library. If the command line version of BEAST is being used then the name of the XML file is given after the name of the BEAST executable. The analysis will then be performed with detailed information about the progress of the run being written to the screen. When it has finished, the log file and the trees file will have been created in the same location as your XML file. 
 
@@ -217,7 +219,7 @@ To analyze the results of running BEAST we are going to use the program Tracer. 
 
 Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section (WNV_homogeneous.log). Alternative, drag and drop your log file into the Tracer window. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
 
-{% include image.html file="19_tracerShort.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="19_tracerShort.png" prefix=root_url caption="" %}
 
 On the left hand side is the name of the log file loaded and the traces that it contains. There are traces for the posterior (this is the log of the product of the tree likelihood and the prior probabilities), and the continuous parameters. Selecting a trace on the left brings up analyses for this trace on the right hand side depending on tab that is selected. When first opened, the 'posterior' trace is selected and various statistics of this trace are shown under the `Estimates` tab.
 
@@ -237,7 +239,7 @@ The simple response to this situation is that we need to run the chain for longe
 
 As we are happy with the behavior of posterior probability we can now move on to our statistic of interest: the dispersion rate. Select 'location.diffusionRate' in the left-hand table. This shows a plot of the posterior probability density of this statistic that keeps track of the rate of diffusion by measuring the distance covered along each branch (based on the spatial coordinates inferred at the parent and descendent node of each branch), summing this distance for the complete tree and dividing this by the tree length. It uses the great circle distance between the two coordinates, which will provide an estimate in km/yr. You should see a plot similar to this in the `Estimates` tab:
 
-{% include image.html file="20_dispersalRate.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="20_dispersalRate.png" prefix=root_url caption="" %}
 		
 At what rate has WNV invaded North America?
 
@@ -247,7 +249,7 @@ We have seen how we can diagnose our MCMC run using Tracer and produce estimates
 
 In this tutorial, however, we are going to use a tool that is provided as part of the BEAST package to summarize the information contained within our sampled trees. The tool is called TreeAnnotator and once running, you will be presented with a window like the one below.
 
-{% include image.html file="21_treeAnnotator.png" max-width="50%" align="center" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="21_treeAnnotator.png" max-width="50%" align="center" prefix=root_url caption="" %}
 
 * TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree. It has the following options:
 
@@ -273,7 +275,7 @@ Run FigTree and select the `Open...` command from the `File` menu. Select the tr
 
 First, re-order the node order by Increasing Node Order under the `Tree` Menu. Click on Branch Labels in the control panel on the left and open its section by clicking on the arrow on the left. Now select 'posterior' under the `Display` popup menu. The posterior probabilities won't actually be displayed until you tick the check-box next to the `Branch Labels` title.
 
-{% include image.html file="22_FigTree.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="22_FigTree.png" prefix=root_url caption="" %}
 
 We now want to display bars on the tree to represent the estimated uncertainty in the date for each node. TreeAnnotator will have placed this information in the tree file in the shape of the 95% highest posterior density (HPD) intervals (see the description of HPDs, above). Select `Node Bars` in the control panel and open this section; select `height_95%_HPD` to display the 95% HPDs of the node heights. We can also plot a time scale axis for this evolutionary history (select `Scale Axis` and deselect `Scale bar`). For appropriate scaling, open the `Time Scale` section of the control panel, set the `Offset` to 2007.63 (date of the most recent sample), and select `Reverse Axis` under `Scale Axis`.
 
@@ -285,11 +287,11 @@ Finally, open the Appearance panel and alter the `Line Weight` to draw the tree 
 
 To investigate whether the rate of spread was roughly constant throughout the rabies epidemic we can fit models that allow for branch-specific rate variation in the diffusion process (termed ‘relaxed random walks’, RRWs) and test whether these result in a model fit improvement compared to the standard homogeneous Brownian diffusion process. To this purpose, we have also analyzed the same data under a 'Cauchy RRW'. This can be set under the `Sites` tab for the 'location' Substitution model:
 
-{% include image.html file="23_cauchy.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="23_cauchy.png" prefix=root_url caption="" %}
 
 For the different models, we can estimate marginal likelihoods (MLE) using path sampling (PS) and stepping stone sampling, which have recently been implemented in BEAST (Baele at al., 2012, 2013). Typically, PS/SS model selection is performed after doing a standard MCMC analysis. PS and SS sampling can then start where the MCMC analysis has stopped (i.e. you should have run the MCMC analysis long enough so that it has converged towards the posterior before attempting a PS/SS analysis), thereby eliminating the need for PS and SS to first converge towards the posterior. To set up such analyses, we can return to BEAUti and select 'path sampling (PS) / stepping-stone sampling (SS)' from the `Perform marginal likelihood estimation (MLE)` menu, which performs an additional analysis after the standard MCMC chain has finished. In the MCMC panel, Click on `settings` to specify the PS/SS settings.
 
-{% include image.html file="23_PSSSsampling.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="23_PSSSsampling.png" prefix=root_url caption="" %}
 
 We need to set the number of steps (in this case 50) for the path between the posterior and the prior, the length of the MCMC chain (in this case 1,000,000) for each step that estimates a specific power posterior, and the logging frequency for each MCMC sampling (in this case every 1,000). Note that using these settings, the marginal likelihood estimation will take approximately the time it takes to complete a standard MCMC run of 50,000,000 generations for this data. The powers for the different power posteriors are defined using evenly spaced quantiles of a Beta(\alpha,1.0) distribution, with α here equal to 0.30, as suggested in the stepping-stone sampling paper (Xie et al. 2011) since this approach is shown to outperform a uniform spreading suggested in the path sampling paper (Lartillot and Philippe 2006). Note that a more recently developed marginal likelihood estimator, i.e. generalised stepping-stone sampling (Fan et al., 2011; Baele et al., 2016), is now availble, but this has not been tested yet for the comparison of trait diffusion models.
 
@@ -363,7 +365,7 @@ We will first summarise an MCC tree and then summarise the information in the en
 
 * Click `Render to D3` to generate the HTML page and a browser window will open automatically.
 
-{% include image.html file="24_Spread.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="24_Spread.png" prefix=root_url caption="" %}
 
 This visualizes the MCC tree an the uncertainty for its node locations. To summarize the location uncertainty based on the entire tree distribution we can continue with the following procedure.
 
@@ -403,7 +405,7 @@ Keep all other default settings and click `Output` to generate a JSON file.
 
 * Click `Render to D3` to generate the HTML page and a browser window will open automatically.
 
-{% include image.html file="24_Spread.png" prefix="tutorials/WNV_continuous_diffusion/" caption="" %}
+{% include image.html file="24_Spread.png" prefix=root_url caption="" %}
 -->
 
 ## Conclusion and Resources
