@@ -3,7 +3,7 @@ title: Revealing the evolutionary dynamics of influenza
 keywords: phylodynamics, influenza, tutorial
 last_updated: August 8, 2017
 tags: [tutorial, workshop]
-summary: "This tutorial provides a step-by-step explanation on how to reconstruct the evolutionary dynamics of influenza based on a set of virus sequences which have been isolated at different points in time (‘heterochronous’ data) using BEAST. We will focus on influenza A virus evolution, in particular on the emergence of swine-origin pandemic influenza A (H1N1) virus in 2009 (H1N1pdm) and on the seasonal dynamics of H3N2 in the New York State. The H1N1pdm data set is a subset of an analyzed set genomes in a study that provides insights into the origins and evolutionary genomics of this outbreak (Smith et al., 2009). The H3N2 data is a subset of a comprehensive data set spanning several epidemic seasons in the New York state, which has been used to unravel the genomic and epidemiological dynamics of this virus (Rambaut et al., 2008). In the first exercise, the aim is to obtain an estimate of the rate of molecular evolution, an estimate of the date of the most recent common ancestor, an estimate of the H1N1pdm epidemic growth or the H1N1/09 basic reproductive number. In the second exercise, we will examine how H3N2 diversity fluctuates through time."
+summary: "This tutorial provides a step-by-step explanation on how to reconstruct the evolutionary dynamics of influenza based on a set of virus sequences which have been isolated at different points in time (‘heterochronous’ data) using BEAST. We will focus on influenza A virus evolution, in particular on the emergence of swine-origin pandemic influenza A (H1N1) virus in 2009 (H1N1pdm) and on the seasonal dynamics of H3N2 in the New York State. The H1N1pdm data set is a subset of an analyzed set genomes in a study that provides insights into the origins and evolutionary genomics of this pandemic (Smith et al., 2009). The H3N2 data is a subset of a comprehensive data set spanning several epidemic seasons in the New York state, which has been used to unravel the genomic and epidemiological dynamics of this virus (Rambaut et al., 2008). In the first exercise, the aim is to obtain an estimate of the date of the origin of the epidemic and an estimate of the H1N1pdm epidemic growth and basic reproductive number. In the second exercise, we will examine how H3N2 diversity fluctuates through time."
 sidebar: beast_sidebar
 permalink: workshop_influenza_phylodynamics.html
 folder: beast
@@ -163,7 +163,7 @@ Select `Demographic Model: Exponential Growth (Growth Rate)` --- note, you must 
 
 {% include image.html file="image17.png" prefix=root_url %}
 
-This shows the exponential growth line for the median growth rate and the 95% HPD intervals for this growth as a solid area. It is on a log scale so is a straight line. You can play with the axis settings using the `Setup...` button.
+This shows the exponential growth line for the median growth rate and the 95% HPD intervals for this growth as a solid area. It is on a log scale so is a straight line. You can play with the axis settings using the `Setup...` button. The dotted vertical lines represent the 95% HPD for the date of the root of the tree. 
 
 {% include callout.html type="primary" content="The exponential.growthRate (\\( r \\)) provides an estimate of the epidemic growth of H1N1pdm 2009. Given that \\( N t = N_0 e^{-r t} \\) (with \\( N_0 \\) being the population size at present), the doubling time for \\( r = 21 \\) is about 0.03 years or 12 days. Interestingly, it has been shown that the basic reproductive ratio (\\( R_0 \\)) is related to the growth rate --- see [this page for details](/estimating_R0.html). However, the basic reproductive number is dependent not just on an estimate of (\\( r \\)), but also a good estimate of the generation time distribution, which reflects the time between successive infections in a chain of transmission. If we assume a generation time distribution that follows the gamma distribution, then \\( R_0 = (1 +  r / b) ^a \\), where \\( a \\) and \\( b \\) are the parameters of the gamma distribution (and \\( a = \mu^2 / \sigma^2 \\), \\( b = \mu / \sigma^2 \\)). " %} 
 
@@ -207,7 +207,7 @@ None of the options actually alter the tree's topology or branch lengths in anyw
 
 ## EXERCISE 2: reconstructing H3N2 epidemic dynamics in the New York state.
 
-In this exercise, we will reconstruct a Bayesian skygrid of H3N2 spread during three epidemic seasons. The data set contains 165 Hemagglutinin gene sequences and takes more time to run in BEAST than available during a practical session. Therefore, this tutorial will discuss how to set up this analysis and how to summarize the results based on runs that have already been performed.
+In this tutorial, we will reconstruct a [Bayesian skygrid](tree_priors#skygrid) of human influenza A, H3N2 subtype, over three northern hemisphere epidemic seasons. The data set contains 165 Hemagglutinin gene sequences and takes more time to run in BEAST than available during a practical session. Therefore, this tutorial will discuss how to set up this analysis and how to summarize the results based on runs that have already been performed.
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>NewYork.HA.2000-2003.nex</samp>' and can be found in the shared folder:<br />
  <div style="margin: 16px"><code>Tutorials\Tutorial 2 - Phylodynamics\Data\NewYork.HA.2000-2003.nex</code></div>
@@ -228,7 +228,7 @@ At this point we would usually generate the BEAST XML file, load it into BEAST a
 
 ### Analyzing the BEAST output
 
-Using Tracer, we can analyze the run based on the output files provided (load the file called ‘NewYork.HA.2000-2003.log’). This has been run with a chain length of <samp>50,000,000</samp> sampling every <samp>5,000</samp> steps so a total of 10,000 samples:
+Using Tracer, we can analyze the run based on the output files provided (load the file called <samp>NewYork.HA.2000-2003.log</samp>). This has been run with a chain length of 50,000,000 sampling every 5,000 steps so a total of 10,000 samples:
 
 {% include image.html file="image20.png" prefix=root_url %}
 

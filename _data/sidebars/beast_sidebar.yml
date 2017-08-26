@@ -89,6 +89,14 @@ entries:
       url: /rates_and_dates
       output: web, pdf
 
+    - title: Phylodynamics of an epidemic
+      url: /phylodynamics_of_epidemic_influenza
+      output: web, pdf
+
+    - title: Phylodynamics of seasonal influenza
+      url: /phylodynamics_of_seasonal_influenza
+      output: web, pdf
+
     - title: Analysing Continuous Traits
       url: /continuous_traits
       output: web, pdf
