@@ -139,12 +139,12 @@ entries:
       url: /hierarchical_models
       output: web, pdf
 
-    - title: Epoch Tutorial
-      url: /epoch_tutorial
+    - title: Epoch Model Tutorial
+      url: /epoch_models
       output: web, pdf
 
     - title: Adaptive MCMC Tutorial
-      url: /adaptive_mcmc_tutorial
+      url: /adaptive_mcmc
       output: web, pdf
 
     - title: Model Selection Tutorial

@@ -5,7 +5,7 @@ last_updated: July 6, 2017
 tags: [tutorial]
 summary: "Using adaptive MCMC to update continuous parameters in BEAST."
 sidebar: beast_sidebar
-permalink: adaptive_mcmc_tutorial.html
+permalink: adaptive_mcmc.html
 folder: beast
 ---
 

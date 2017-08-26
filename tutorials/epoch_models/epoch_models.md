@@ -5,7 +5,7 @@ last_updated: July 6, 2017
 tags: [tutorial]
 summary: "Setting up time-heterogeneous epoch substitution models in BEAST."
 sidebar: beast_sidebar
-permalink: epoch_tutorial.html
+permalink: epoch_models.html
 folder: beast
 ---
 
