@@ -12,12 +12,20 @@ folder: beast
 
 {% capture root_url %}{{ site.tutorials_root_url }}/workshop_rates_and_dates/{% endcapture %}
 
+## Introduction
+
+The first step will be to convert a NEXUS file with a DATA or CHARACTERS block into a BEAST XML input file. This is done using the program BEAUti (this stands for Bayesian Evolutionary Analysis Utility). This is a user-friendly program for setting the evolutionary model and options for the MCMC analysis. The second step is to actually run BEAST using the input file that contains the data, model and settings. The final step is to explore the output of BEAST in order to diagnose problems and to summarize the results.
+
+To undertake this tutorial, you will need to download three software packages in a format that is compatible with your computer system (all three are available for Mac OS X, Windows and Linux/UNIX operating systems):
+
+{% include beast_callout.md %}
+
+{% include tracer_callout.md %}
+
+{% include figtree_callout.md %}
+
 The data are 71 sequences from the prM/E gene of yellow fever virus (YFV) from Africa and the Americas with isolation dates ranging from 1940-2009.
 The sequences represent a subset of the data set analyzed by Bryant et al. ([Bryant JE, Holmes EC, Barrett ADT, 2007 Out of Africa: A Molecular Perspective on the Introduction of Yellow Fever Virus into the Americas. PLoS Pathog 3(5): e75](http://doi.org/10.1371/journal.ppat.0030075)).
-
-## Loading the data into BEAUti
-
-{% include icon-callout.html file='icons/beauti-icon.png' content='Run <a href="beauti">BEAUti</a> by double clicking on its icon. BEAUti is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis.' %}
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>YFV.nex</samp>' and can be found in the shared folder:<br />
  <div style="margin: 16px"><code>Tutorials\Tutorial 1 - Rates and Dates\Data\YFV.nex</code></div>
@@ -26,12 +34,19 @@ The sequences represent a subset of the data set analyzed by Bryant et al. ([Bry
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>YFV.nex</samp>' and can be found in the BEAST package in the '<samp>examples/Data/</samp>' folder or <a href="{{ root_url }}files/YFV.nex">can be downloaded from here</a>.</div>
 -->
 
-### Loading the NEXUS file
+## Loading the data into BEAUti
+
+{% include icon-callout.html file='icons/beauti-icon.png' content='Run <a href="beauti">BEAUti</a> by double clicking on its icon. BEAUti is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis.' %}
+
 To load a NEXUS format alignment, simply select the `Import Data...` option from the `File` menu and select the file called `YFV.nex`. 
 This file contains an alignment of 71 sequences from the prM/E gene of YFV, 654 nucleotides in length. 
 Once loaded, the sequence data will be listed under Data Partitions:
 
 {% include image.html prefix=root_url file="image1.png" %}
+
+Double-click on the File Name in the table (but not on Partition Name) to display the actual sequence alignment:
+
+{% include image.html prefix=root_url file="image1b.png" %}
 
 ### Specifying a taxon set
 
@@ -57,7 +72,9 @@ After these operations, the screen should look like this:
 
 {% include image.html prefix=root_url file="image3.png" %}
 
-To inform BEAUti/BEAST about the sampling dates of the sequences, go to the Tips menu and select the `Use tip dates` option. By default all the taxa are assumed to have a date of zero (i.e. the sequences are assumed to be sampled at the same time; BEAST considers the present or most recent sampling time as time 0). In this case, the YFV sequences have been sampled at various dates going back to the 1940s. The actual year of sampling is given in the name of each taxon and we could simply edit the value in the Date column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the `Parse Dates` button at the top of the Data panel. Clicking this will make a dialog box appear:
+#### Setting the tip dates
+
+To inform BEAUti/BEAST about the sampling dates of the sequences, go to the `Tips` panel and select the `Use tip dates` option. By default all the taxa are assumed to have a date of zero (i.e. the sequences are assumed to be sampled at the same time; BEAST considers the present or most recent sampling time as time 0). In this case, the YFV sequences have been sampled at various dates going back to the 1940s. The actual year of sampling is given in the name of each taxon and we could simply edit the value in the Date column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the `Parse Dates` button at the top of the Data panel. Clicking this will make a dialog box appear:
 
 {% include image.html prefix=root_url file="image4.png" %}
 
@@ -67,11 +84,24 @@ When parsing a number, you can ask BEAUti to add a fixed value to each date whic
 
 {% include image.html prefix=root_url file="image5.png" %}
 
-The `Height` column lists the ages of the tips relative to time 0 (in our case 2009). For these sequences, only the sampling year is provided and not the exact sampling dates. This uncertainty will negligible with respect to the relatively large evolutionary time scale of this example, however, [it is possible to accommodate the sampling time uncertainty --- see here](sampling_tipdates).
+The `Height` column lists the ages of the tips relative to time 0 (in our case 2009). 
+
+{% include tip.html content='There are many other options for reading and parsing tip dates in different formats. <a href="tip_dates.html">See this page for a more detailed description of these options.</a>' %}
+
+For these sequences, only the sampling year is provided and not the exact sampling dates. This uncertainty will negligible with respect to the relatively large evolutionary time scale of this example, however, [it is possible to accommodate the sampling time uncertainty --- see here](sampling_tipdates).
 
 ### Setting the evolutionary model
 
-The next thing to do is to click on the `Sites` tab at the top of the main window. This will reveal the evolutionary model settings for BEAST. Exactly which options appear depend on whether the data are nucleotides or amino acids (or traits). This tutorial assumes that you are familiar with the evolutionary models available; however there are a couple of points to note about selecting a model in BEAUti:
+The next thing to do is to click on the `Sites` tab at the top of the main window. This will reveal the evolutionary model settings for BEAST. Exactly which options appear depend on whether the data are nucleotides or amino acids (or traits). This tutorial assumes that you are familiar with the evolutionary models available --- however there are a couple of points to note about selecting a model in BEAUti:
+
+Substitution Model:
+: For nucleotide data, this is a choice of `JC`, `HKY`, `GTR` or `TN93`. Other substitution models are possible by constraining one of these model. [See this page for more details](custom_substitution_models).
+
+Base frequencies:
+: The nucleotide base frequencies can be `Estimated` (estimated as a parameter in the model), `Empirical` (estimated emprically from the data and then fixed) or `All equal` (fixed to be 0.25 each). 
+
+Site Heterogeneity Model:
+: A choice of the discrete gamma distribution model, the invariant site model or both.
 
 Partition into codon positions:
 : Selecting the `Partition into codon positions` option assumes that the data are aligned as codons. This option will then estimate a separate rate of substitution for each codon position, or for 1+2 versus 3, depending on the setting.
@@ -117,17 +147,19 @@ Note that the default prior on the rate of evolution (clock.rate) is an approxim
 
 ### Setting up the operators
 
-Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs. As of BEAST v1.8.4, different options are available w.r.t. exploring tree space. In this tutorial, we will use the ‘classic operator mix’, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a ‘new experimental mix’, which is currently under development with the aim to improve mixing for large phylogenetic trees.
+Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs. As of BEAST v1.8.4, different options are available with respect to exploring tree space. In this tutorial, we will use the ‘classic operator mix’, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a ‘new experimental mix’, which is currently under development with the aim to improve mixing for large phylogenetic trees.
 
 The `Operators` panel in BEAUti has a table that lists the parameters, their operators and the tuning settings for these operators:
  
 {% include image.html prefix=root_url file="image11.png" %}
 
-In the first column are the parameter names. These will be called things like `CP1.kappa` which means the HKY model's kappa parameter (the transition-transversion bias) for the first codon position. The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a random proportion and the uniform operator simply picks a new value uniformly within a range. Some parameters related to the tree or to the node ages in the tree are associated with specific operators.
+In the first column are the parameter names. These will be called things like `CP1.kappa` which means the HKY model's kappa parameter (the transition-transversion bias) for the first codon position. The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a proportion, the random walk operator adds or subtracts an amount to the parameter and the uniform operator simply picks a new value uniformly within a range. Some parameters relate to the tree or to the divergence times of the nodes of the tree and these have special operators.
 
-The next column, labelled Tuning, gives a tuning setting to the operator. Some operators don't have any tuning settings so have n/a under this column. The tuning parameter will determine how large a move each operator will make which will affect how often that change is accepted by the MCMC which will affect the efficiency of the analysis. For most operators (like the subtree slide operator) a larger tuning parameter means larger moves. However for the scale operator a tuning parameter value closer to 0.0 means bigger moves. At the top of the window is an option called Auto Optimize which, when selected, will automatically adjust the tuning setting as the MCMC runs to try to achieve maximum efficiency. At the end of the run a table of the operators, their performance and the final values of these tuning settings can be written to standard output. 
+The next column, labelled `Tuning`, gives a tuning setting to the operator. Some operators don't have any tuning settings so have n/a under this column. The tuning parameter will determine how large a move each operator will make which will affect how often that change is accepted by the MCMC which will in turn affect the efficiency of the analysis. For most operators (like random walk and subtree slide operators) a larger tuning parameter means larger moves. However for the scale operator a tuning parameter value closer to 0.0 means bigger moves. At the top of the window is an option called `Auto Optimize` which, when selected, will automatically adjust the tuning setting as the MCMC runs to try to achieve maximum efficiency. At the end of the run a table of the operators, their performance and the final values of these tuning settings will be written to standard output. In general, the auto-optimization of the operators works well end and nothing needs to be changed.
 
-The next column, labelled Weight, specifies how often each operator is applied relative to the others. Some parameters tend to be sampled very efficiently from their target distribution (e.g. the kappa parameter); these parameters can have their operators down-weighted so that they are not changed as often. We will start by using the default settings for this analysis.
+The next column, labelled `Weight`, specifies how often each operator is applied relative to the others. Some parameters tend to be sampled very efficiently - an example is the kappa parameter - these parameters can have their operators down-weighted so that they are not changed as often. We will start by using the default settings for this analysis. As of BEAST v1.8.4, different options are available w.r.t. exploring tree space. In this tutorial, we will use the `classic operator mix`, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a `new experimental mix`, which is currently under development with the aim to improve mixing for large phylogenetic trees.
+
+In most cases, no changes are required to this table but operators can be 'turned-off' which has the effect of fixing the parameter to its initial value.
 
 ### Setting the MCMC options
 
@@ -159,11 +191,11 @@ We are now ready to create the BEAST XML file. Select `Generate XML...` from the
 
 {% include tip.html content="For convenience, leave the BEAUti window open so that you can change the values and re-generate the BEAST file as required later in this tutorial." %}
 
-We are now ready to run the file through BEAST.
-
 ## Running BEAST
 
-{% include icon-callout.html file='icons/beast-icon.png' content='Run BEAST by double clicking on the BEAST icon in the package you downloaded.' %}
+We are now ready to run the file through BEAST.
+
+{% include icon-callout.html file='icons/beast-icon.png' content='Run BEAST by double clicking on the BEAST icon.' %}
 
 The following dialog box will appear:
 
@@ -393,7 +425,7 @@ You may see some improvement in the ESSs but they will still be very low. In the
 
 The simple response to this situation is that we need to run the chain for longer. Go back to BEAUti (which hopefully you left open), go to the `MCMC` options section, above, and create a new BEAST XML file with a longer chain length (e.g. 10,000,000).  
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> To continue the tutorial without having to wait for a long run to complete, you can make use of the log files provided with this tutorial (a chain length of 20,000,000 and logged every 10,000 sample). The file <a href="{{ root_url }}files/LongRun.zip">can be downloaded from here</a>.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> To continue the tutorial without having to wait for a long run to complete, you can make use of the log files provided with this tutorial (a chain length of 20,000,000 and logged every 10,000 sample). The file <a href="{{ root_url }}files/YFVLongRun.zip"><samp>YFVLongRun.zip</samp> can be downloaded from here</a>.</div>
 
 Import the new longer log file, select the `treeModel.rootAge` statistic and click on the `Trace` tab to look at the raw trace plot.
 
