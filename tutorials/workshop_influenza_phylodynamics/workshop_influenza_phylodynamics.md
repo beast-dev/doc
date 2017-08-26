@@ -269,10 +269,10 @@ Here you can see that the seasonal peaks very strong (but that the uncertainty d
 
 ## Help and documentation
 
-The BEAST website: http://beast.community
+The BEAST website: [http://beast.community](http://beast.community)
 
-Tutorials: http://beast.community/tutorials
+Tutorials: [http://beast.community/tutorials](http://beast.community/tutorials)
 
-Frequently asked questions: http://beast.community/faq
+Frequently asked questions: [http://beast.community/faq](http://beast.community/faq)
 
 {% include links.html %}
