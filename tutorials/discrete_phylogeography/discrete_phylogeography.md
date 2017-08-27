@@ -9,6 +9,6 @@ permalink: discrete_phylogeography.html
 folder: beast
 ---
 
-{% include warning.html content="This page is not written." %}
+{% include warning.html content="This page is coming soon." %}
 
 {% include links.html %}

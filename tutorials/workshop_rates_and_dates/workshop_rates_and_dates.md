@@ -457,6 +457,9 @@ We have seen how we can diagnose our MCMC run using Tracer and produce estimates
 
 In this tutorial, however, we are going to use a tool that is provided as part of the BEAST package to summarize the information contained within our sampled trees. 
 
+{% include modules/treeannotator.md %}
+
+<!--
 {% include icon-callout.html file='icons/utility-icon.png' content='To summarize the trees from BEAST into a single representitive tree that we can view we are going to use the BEAST utility called <a href="treeannotator">TreeAnnotator</a>. Run TreeAnnotator by double clicking on the icon.' %}
 
 Once running, you will be presented with a window like the one below:
@@ -483,6 +486,9 @@ Target Tree File
 Input Tree File
 : Use the "Choose File..." button to select an input trees file. This will be the trees file produced by BEAST. 
 Output File - Select a name for the output tree file (e.g., YFV.MCC.tre).
+-->
+
+Select a `Burnin (as states)` of <samp>2,000,000</samp>, `Posterior probability limit` of <samp>0.0</samp>, `Target tree type:` <samp>Maximum clade credibility tree</samp>, and `Node heights:` <samp>Median heights</samp>. Then select <samp>YFV.trees</samp> as the `Input Tree File`.
 
 Once you have selected all the options above, press the `Run` button. TreeAnnotator will analyze the input tree file and write the summary tree to the file you specified. This tree is in standard NEXUS tree file format so may be loaded into any tree drawing package that supports this. However, it also contains additional information that can only be displayed using the FigTree program.
 
