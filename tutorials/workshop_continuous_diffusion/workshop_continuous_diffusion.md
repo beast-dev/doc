@@ -1,5 +1,5 @@
 ---
-title: Phylogenetic diffusion in continuous space
+title: Phylogeographic Diffusion in Continuous Space
 keywords: phylogeography, WNV, tutorial
 last_updated: August 9, 2017
 tags: [tutorial]
@@ -7,11 +7,11 @@ summary: 'This tutorial provides a step-by-step explanation on reconstructing th
 (<a href="http://www.pnas.org/content/109/37/15066.short">Pybus et al., 2012, PNAS, 109(37), 15066-15071</a>).
 WNV is a mosquito-borne RNA virus whose primary host is birds, and was first detected in the United States in New York City in August 1999. The data are 104 genomes collected between 1999 and 2008. We will estimate the ancestral locations of the virus in continuous space, the rate of spread during the WNV invasion and test whether the virus spread at a relatively constant rate through time. In addition, we will apply a procedure referred to as ‘Renaissance counting’ (<a href="https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/bts580">Lemey et al., 2012, Bioinformatics, 28(24), 3248-3256</a>), to quantify site-specific selection pressures in the form of nonsynonymous/synonymous substitution rate ratios (dN/dS). Renaissance counting maps substitutions throughout evolutionary history in nucleotide space, and then ‘counts’ the corresponding number of nonsynonymous and synonymous substitutions, their ‘neutral’ expectations, and applies a empirical Bayes procedure to those counts to arrive at dN/dS estimates.'
 sidebar: beast_sidebar
-permalink: WNV_continuous_diffusion.html
+permalink: workshop_continuous_diffusion.html
 folder: beast
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/WNV_continuous_diffusion/{% endcapture %}
+{% capture root_url %}{{ site.tutorials_root_url }}/workshop_continuous_diffusion/{% endcapture %}
 
 ## Introduction
 
@@ -357,7 +357,7 @@ We will first summarise an MCC tree and then summarise the information in the en
 
 * Set the `most recent sampling date` to 2007-07-15.
 
-* Load a GeoJSON [file](../bat_rabies_discrete_diffusion/files/gz_2010_us_040_00_500k.json) of the United States.
+* Load a GeoJSON [file](../workshop_discrete_diffusion/files/gz_2010_us_040_00_500k.json) of the United States.
 
 * Keep all other default settings and click `Output` to generate a JSON file.
 

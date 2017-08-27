@@ -1,5 +1,5 @@
 ---
-title: Phylogenetic diffusion in discrete space
+title: Phylogeographic diffusion in discrete space
 keywords: phylogeography, rabies, bats, tutorial
 last_updated: August 9, 2017
 tags: [tutorial]
@@ -7,11 +7,11 @@ summary: 'This chapter provides a step-by-step tutorial on reconstructing the sp
  (<a href="http://science.sciencemag.org/content/329/5992/676.long">Streicker et al., Science, 2010, 329, 676-679</a>). Following <a href="http://rstb.royalsocietypublishing.org/content/368/1614/20120196.long">Faria et al. (Phil. Trans. Roy. Soc. B, 2013)</a>, two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, Myotis austroriparius (Ma) and Parastrellus hesperus (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from Lasiurus borealis), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics.'
 
 sidebar: beast_sidebar
-permalink: bat_rabies_discrete_diffusion.html
+permalink: workshop_discrete_diffusion.html
 folder: beast
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/bat_rabies_discrete_diffusion/{% endcapture %}
+{% capture root_url %}{{ site.tutorials_root_url }}/workshop_discrete_diffusion/{% endcapture %}
 
 ## Introduction
 

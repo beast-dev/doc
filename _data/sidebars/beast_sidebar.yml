@@ -170,12 +170,12 @@ entries:
       url: /workshop_model_selection
       output: web, pdf
 
-    - title: Discrete Spatial Diffusion of Bat Rabies
-      url: /bat_rabies_discrete_diffusion
+    - title: Phylogeographic Diffusion in Discrete Space
+      url: /workshop_discrete_diffusion
       output: web, pdf
 
-    - title: Continuous Spatial Diffusion of West Nile Virus 
-      url: /WNV_continuous_diffusion
+    - title: Phylogeographic Diffusion in Continuous Space
+      url: /workshop_continuous_diffusion
       output: web, pdf
 
   - title: Reference
