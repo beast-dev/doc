@@ -135,7 +135,7 @@ Similarly to the [previous tutorial](workshop_rates_and_dates) the effective sam
 
 If we select the tab on the right-hand-side labelled `Trace` we can view the raw trace --- the sampled values against the  step in the MCMC chain:
 
-{% include image.html file="fig14.png" prefix=root_url %}
+{% include image.html file="image14.png" prefix=root_url %}
 
 Here it is clear default burn-in of 10% of the chain length is inadequate (the posterior values are still increasing over the first part of the chain). Double-click on the `Burn-In` column in the top left and edit (in the case, above, a minimum of <samp>20,000</samp> is needed). However, it is still clear that a chain length of <samp>100,000</samp> was in adequate. Looking at the ESS values (generally in the low double-digits) suggests that a chain length of <samp>10,000,000</samp> would be more appropriate. On a modern computer this would probably only take about 20 minutes but we have provided the output of a run of this length which you can use for the rest of this section. 
 

@@ -3,7 +3,7 @@ title: Model Selection and Testing
 keywords: rates, dates, mcmc, tutorial
 last_updated: August 20, 2017
 tags: [tutorial, workshop]
-summary: "This tutorial provides a step-by-step tutorial for analyzing a set of virus sequences which have been isolated at different points in time (heterochronous data). The most commonly cited hypothesis of the origin of yellow fever virus (YFV) in the Americas is that the virus was introduced from Africa, along with <i>Aedes aegypti</i> mosquitoes, in the bilges of sailing vessels during the slave trade. Although the hypothesis of a slave trade introduction had often been suggested, prior to paper by Bryant et al. (2007), it had not been subject to rigorous examination using gene sequence data and modern phylogenetic techniques for estimating divergence times. The aim of this exercise is to obtain an estimate of the rate of molecular evolution, an estimate of the date of the most recent common ancestor and to infer the phylogenetic relationships with appropriate measures of statistical support."
+summary: 'This tutorial continues the analysis of yellow fever virus (YFV) from the <a href="workshop_rates_and_dates">Estimating rates and dates from time-stamped sequences</a> tutorial. Here we use marginal likelihood estimators to perform model selection and testing in BEAST. We will compare the fit of the relaxed clock model with a strict clock model. '
 sidebar: beast_sidebar
 permalink: workshop_model_selection.html
 folder: beast
@@ -15,12 +15,14 @@ folder: beast
 
 {% include note.html content='This tutorial follows on from the <a href="workshop_rates_and_dates">Estimating rates and dates from time-stamped sequences</a> which should be completed before starting this one.' %}
 
-
-
-
 ## Evaluating rate variation (using model selection)
 
 To investigate lineage-specific rate heterogeneity in this data set and its impact on divergence date estimates, a log and trees file is available for an analysis using an uncorrelated lognormal relaxed clock. 
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
+The log file, <samp>YFV_relaxed_clock.log</samp>, can be found in the shared folder: 
+<div style="margin: 16px"><code>Tutorials\Tutorial 3 - Model Selection\</code></div></div>
+
 Import this log file in Tracer in addition to the previously imported strict clock log file. 
 Investigate the posterior density for the lognormal standard deviation; if this density excludes zero (= no rate variation), it would suggest that the strict clock model can be rejected in favor of the relaxed clock model.
 
