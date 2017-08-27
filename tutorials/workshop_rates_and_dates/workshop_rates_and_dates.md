@@ -510,7 +510,7 @@ You can also save the tree and this will save most of your settings so that when
 
 Finally, the tree can also be exported to a graphics file (pdf, svg, etc.) using the options in the `File` menu.
 
-{% include callout.html type="warning" content="How do the viruses from the Americas cluster relative to the African viruses and what conclusions can we draw from the inferred time scale?<br /><br /><br />" %} 
+{% include question.html space="0" content="How do the viruses from the Americas cluster relative to the African viruses and what conclusions can we draw from the inferred time scale?" %} 
 
 ## References
 

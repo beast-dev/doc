@@ -1,0 +1,7 @@
+<div markdown="span" class="bs-callout bs-callout-warning">{{include.content}}
+    {% if include.space %}
+    {% for i in (1..include.space) %}
+    <br />
+    {% endfor %}
+    {% else %}<br /><br /><br />{% endif %}
+</div>
