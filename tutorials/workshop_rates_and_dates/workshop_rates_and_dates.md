@@ -94,6 +94,8 @@ For these sequences, only the sampling year is provided and not the exact sampli
 
 The next thing to do is to click on the `Sites` tab at the top of the main window. This will reveal the evolutionary model settings for BEAST. Exactly which options appear depend on whether the data are nucleotides or amino acids (or traits). This tutorial assumes that you are familiar with the evolutionary models available --- however there are a couple of points to note about selecting a model in BEAUti:
 
+{% include modules/substitution_models.md %}
+<!--
 Substitution Model:
 : For nucleotide data, this is a choice of `JC`, `HKY`, `GTR` or `TN93`. Other substitution models are possible by constraining one of these model. [See this page for more details](custom_substitution_models).
 
@@ -114,6 +116,7 @@ Unlink rate heterogeneity model across codon positions:
 
 Unlink base frequencies across codon positions:
 : Selecting the `Unlink base frequencies across codon positions` will specify that BEAST should estimate a separate set of base frequencies for each codon position.
+-->
 
  For this tutorial, select the `3 partitions: positions 1, 2, 3` option so that each codon position has its own HKY substitution model, rate of evolution, Estimated base frequencies, and Gamma-distributed rate variation among sites:
 
@@ -147,19 +150,9 @@ Note that the default prior on the rate of evolution (clock.rate) is an approxim
 
 ### Setting up the operators
 
-Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs. As of BEAST v1.8.4, different options are available with respect to exploring tree space. In this tutorial, we will use the ‘classic operator mix’, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a ‘new experimental mix’, which is currently under development with the aim to improve mixing for large phylogenetic trees.
+{% include modules/operator_table.md %}
 
-The `Operators` panel in BEAUti has a table that lists the parameters, their operators and the tuning settings for these operators:
- 
-{% include image.html prefix=root_url file="image11.png" %}
-
-In the first column are the parameter names. These will be called things like `CP1.kappa` which means the HKY model's kappa parameter (the transition-transversion bias) for the first codon position. The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a proportion, the random walk operator adds or subtracts an amount to the parameter and the uniform operator simply picks a new value uniformly within a range. Some parameters relate to the tree or to the divergence times of the nodes of the tree and these have special operators.
-
-The next column, labelled `Tuning`, gives a tuning setting to the operator. Some operators don't have any tuning settings so have n/a under this column. The tuning parameter will determine how large a move each operator will make which will affect how often that change is accepted by the MCMC which will in turn affect the efficiency of the analysis. For most operators (like random walk and subtree slide operators) a larger tuning parameter means larger moves. However for the scale operator a tuning parameter value closer to 0.0 means bigger moves. At the top of the window is an option called `Auto Optimize` which, when selected, will automatically adjust the tuning setting as the MCMC runs to try to achieve maximum efficiency. At the end of the run a table of the operators, their performance and the final values of these tuning settings will be written to standard output. In general, the auto-optimization of the operators works well end and nothing needs to be changed.
-
-The next column, labelled `Weight`, specifies how often each operator is applied relative to the others. Some parameters tend to be sampled very efficiently - an example is the kappa parameter - these parameters can have their operators down-weighted so that they are not changed as often. We will start by using the default settings for this analysis. As of BEAST v1.8.4, different options are available w.r.t. exploring tree space. In this tutorial, we will use the `classic operator mix`, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a `new experimental mix`, which is currently under development with the aim to improve mixing for large phylogenetic trees.
-
-In most cases, no changes are required to this table but operators can be 'turned-off' which has the effect of fixing the parameter to its initial value.
+For this analysis, no changes are required to this table.
 
 ### Setting the MCMC options
 
@@ -441,7 +434,7 @@ As you can see the posterior probability density is nicely bell-shaped. When loo
 
 {% include image.html prefix=root_url file="image19.png" %}
 
-{% include callout.html type="warning" content="Note that the three rates are markedly different, what does this tell us about the selective pressure on this gene?<br /><br /><br />" %} 
+{% include question.html content="Note that the three rates are markedly different, what does this tell us about the selective pressure on this gene?<br /><br /><br />" %} 
 
 Now, let’s have a look at the timescale of the tree. Select the statistics called `age(root)` and `age(Americas)`. These are the dates of the root of the tree and the clade we defined for all of the American sequences. Because we have dated the tips of the tree, these statistics are given as the calendar year with the present day being on the right hand side (the most recently sample sequence is from 2009).
 
@@ -510,7 +503,7 @@ You can also save the tree and this will save most of your settings so that when
 
 Finally, the tree can also be exported to a graphics file (pdf, svg, etc.) using the options in the `File` menu.
 
-{% include question.html space="0" content="How do the viruses from the Americas cluster relative to the African viruses and what conclusions can we draw from the inferred time scale?" %} 
+{% include question.html content="How do the viruses from the Americas cluster relative to the African viruses and what conclusions can we draw from the inferred time scale?" %} 
 
 ## References
 
