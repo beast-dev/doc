@@ -154,7 +154,7 @@ Now switch to the `Priors` tab. This panel has a table showing every parameter o
 
 The default prior on the rate of evolution (clock.rate) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). The same is applied to the discrete host and location state rate. There is also a default uniform prior specification for the age of TX5275 (age(TX5275_2002.5) ). We will assume that the sampling time for this tip is bounded by the sampling time range for all taxa this data set, implying that it is sampled between 1997.5 and 2005.5. Click on the current uniform prior setting, set the `Upper` age to 8 years (reflecting the 1997.5 boundary) and click `OK`.
 
-{% include image.html file="14_uniformPrior.png" prefix=root_url %}
+{% include image.html file="14_uniformPrior.png" width="80%" prefix=root_url %}
 
 The resulting prior table will look like this:
 
@@ -198,73 +198,47 @@ Press the `Choose File...` button and select the XML file you just created and p
 
 To analyze the results of running BEAST we are going to use the program Tracer. The exact instructions for running Tracer differs depending on which computer you are using. Double click on the Tracer icon; once running, Tracer will look similar irrespective of which computer system it is running on.
 
-Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section (batRABV.log). Alternative, drag and drop your log file into the Tracer window. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
+Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section (<samp>batRABV.log</samp>). Alternatively, drag and drop your log file into the Tracer window. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
 
 {% include image.html file="18_tracerShort.png" prefix=root_url %}
 
 On the left hand side is the name of the log file loaded and the traces that it contains. There are traces for the posterior (this is the log of the product of the tree likelihood and the prior probabilities), and the continuous parameters. Selecting a trace on the left brings up analyses for this trace on the right hand side depending on tab that is selected. When first opened, the 'posterior' trace is selected and various statistics of this trace are shown under the `Estimates` tab.
 
-In the top right of the window is a table of calculated statistics for the selected trace. The statistics and their meaning are described in the table below.
+{% include callout.html content='For an explanation of the various summary statistics displayed, above, <a href="workshop_rates_and_dates#analysing-the-beast-output">see this section of the \'Estimating rates and dates from time-stamped sequences\' tutorial</a>.' %}
 
-* Mean - The mean value of the samples (excluding the burn-in). 
-* Stdev - The standard error of the mean. This takes into account the effective sample size so a small ESS will give a large standard error. 
-* Median - The median value of the samples (excluding the burn-in). 
-* 95% HPD Lower - The lower bound of the highest posterior density (HPD) interval. The HPD is the shortest interval that contains 95% of the sampled values. 
-* 95% HPD Upper - The upper bound of the highest posterior density (HPD) interval. 
-* Auto-Correlation Time (ACT) - The average number of states in the MCMC chain that two samples have to be separated by for them to be uncorrelated (i.e. independent samples from the posterior). The ACT is estimated from the samples in the trace (excluding the burn-in). 
-* Effective Sample Size (ESS) - The effective sample size (ESS) is the number of independent samples that the trace is equivalent to. This is calculated as the chain length (excluding the burn-in) divided by the ACT.
+Note that the effective sample sizes (ESSs) for all the traces are small. Select the `Trace` panel from the top of the window and inspecting the traces of the various parameters. You will see that the chain is still in the burn-in phase (the posterior values are still increasing over the entire chain), and this run does not allow us to summarize marginal posterior probability distributions for the parameters. 
 
-Note that the effective sample sizes (ESSs) for all the traces are small (ESSs less than 100 are highlighted in red by Tracer and values > 100 but < 200 are in yellow). This is not good. A low ESS means that the trace contained a lot of correlated samples and thus may not represent the posterior distribution well. In the bottom right of the window is a frequency plot of the samples which is expected given the low ESSs is extremely rough. Inspecting the Trace of many continuous parameters  shows that the chain is still in the burn-in phase (the posterior values are still increasing over the entire chain), and this run does not allow us to summarize marginal posterior probability distributions for the parameters. 
+The simple response to this situation is that we need to run the chain for longer. We have provided the results of a very long run --- 200 million steps, sampling every 50,000th step, resulting in 4,000 samples. In this case, the MCMC run has reached stationarity, and almost all parameter traces still show satisfactory ESSs. 
 
-The simple response to this situation is that we need to run the chain for longer. The example below was run for 200 million steps, sampling every 50,000th step, which means that 4,000 samples where stored in the log file. In this case, the MCMC run has reached stationarity, and almost all parameter traces still show satisfactory ESSs.
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The long runs can be found in the shared folder:<br />
+<div style="margin: 16px"><code>Tutorials\Tutorial 4 - Discrete Phylogeography\longRuns\BSSVS</code></div>
+</div>
+
+You can load the long run log file (<samp>batRABV.log</samp>) into the same Tracer window for comparison to the short run. This  gives this:
 
 {% include image.html file="19_tracerLong.png" prefix=root_url %}
 
-We can continue to summarize the annotated phylogeographic tree inferred with the BSSVS procedure and estimate the most significant rates of diffusion. If you are only interested in summarizing the Bayes Factor rates from the BSSVS analysis and not in summarizing the tree from your run, jump to the last section of this tutorial entitled 'Visualizing tree and calculating Bayes factor support for rates using SpreadD3'. If you are also interested in summarizing the tree, continue to next section. 
+We can continue to summarize the annotated phylogeographic tree inferred with the BSSVS procedure and estimate the most significant rates of diffusion. If you are only interested in summarizing the Bayes Factor rates from the BSSVS analysis and not in summarizing the tree from your run, jump to the last section of this tutorial entitled [Visualizing tree and calculating Bayes factor support for rates using SpreadD3](#visualizing-mcc-trees-and-calculating-bayes-factor-support-for-rates-using-spread3).  
 
-### Summarizing the trees
+### Summarizing and visualizing the trees
 
-We have seen how we can diagnose our MCMC run using Tracer and produce estimates of the marginal posterior distributions of parameters of our model. However, BEAST also samples trees (either phylogenies or genealogies) at the same time as the other parameters of the model. These are written to a separate file called the 'trees' file. This file is a standard NEXUS format file. As such it can easily be loaded into other software in order to examine the trees it contains. One possibility is to load the trees into a program such as PAUP* and construct a consensus tree in a similar manner to summarizing a set of bootstrap trees. In this case, the support values reported for the resolved nodes in the consensus tree will be the posterior probability of those clades.
-
-In this tutorial, however, we are going to use a tool that is provided as part of the BEAST package to summarize the information contained within our sampled trees. The tool is called TreeAnnotator and once running, you will be presented with a window like the one below.
-
-{% include image.html file="20_treeAnnotator.png" width="80%" align="center" prefix=root_url %}
-
-* TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree. It has the following options:
-
-* Burnin - This is the number of steps in the MCMC chain, Burnin (as states), or the number of trees, Burnin (as trees), that should be excluded from the summarization. For the example above, with a chain of 200,000,000 steps, a 10% burnin corresponds to 20,000,000 steps. Alternatively, sampling every 50,000 steps results in 4000 trees in the file, and to obtain at the same 10% burnin, the number of trees needs to be set to 400.
-
-* Posterior probability limit - This is the minimum posterior probability for a node in order for TreeAnnotator to store the annotated information. The default is 0.0 so every node, no matter what its support, will have information summarized. Make sure this value remains 0.0 as every node will require location annotation for further visualization. 
-
-* Target tree type - This has three options `Maximum clade credibility tree` or `User target tree` For the latter option, a NEXUS tree file can be specified as the Target Tree File, below. Select the first option, TreeAnnotator will examine every tree in the Input Tree File and select the tree that has the highest product of the posterior probabilities of all its nodes. 
-
-* Node heights - This option specifies what node heights (times) should be used for the output tree. If the `Keep target heights` is selected, then the node heights will be the same as the target tree. Node heights can also be summarised as  a Mean or a Median over the sample of trees. Sometimes a mean or median height for a node may actually be higher than the mean or median height of its parental node (because particular ancestral-descendent relationships in the MCC tree may still be different compared to a large number of other tree sampled). This will result in artifactual negative branch  lengths, but can be avoided by the `Common Ancestor heights` option. Let’s use the default Median heights for our summary tree.
-
-* Target Tree File - If the `User target tree` option is selected then you can use `Choose File...` to select a NEXUS file containing the target tree.
-
-Input Tree File - Use the `Choose File...` button to select an input trees file. This will be the trees file produced by BEAST. 
-
-* Output File - Select a name for the output tree file (e.g., batRABV.MCC.tre).
-
-Once you have selected all the options, above, press the `Run` button. TreeAnnotator will analyse the input tree file and write the summary tree to the file you specified. This tree is in standard NEXUS tree file format so may be loaded into any tree drawing package that supports this. However, it also contains additional information that can only be displayed using the FigTree program.
-
-### Viewing the annotated tree
-
-Run FigTree and select the `Open...` command from the `File` menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the FigTree window. On the left hand side of the window are the options and settings which control how the tree is displayed. In this case we want to display the posterior probabilities of each of the clades present in the tree and estimates of the age of each node. In order to do this you need to change some of the settings.
-
-First, re-order the node order by Increasing Node Order under the `Tree` Menu. Click on Branch Labels in the control panel on the left and open its section by clicking on the arrow on the left. Now select 'posterior' under the Display popup menu. The posterior probabilities won't actually be displayed until you tick the check-box next to the Branch Labels title.
-
-{% include image.html file="21_FigTree.png" prefix=root_url %}
-
-We now want to display bars on the tree to represent the estimated uncertainty in the date for each node. TreeAnnotator will have placed this information in the tree file in the shape of the 95% highest posterior density (HPD) intervals (see the description of HPDs, above). Select `Node Bars` in the control panel and open this section; select `height_95%_HPD` to display the 95% HPDs of the node heights. We can also plot a time scale axis for this evolutionary history (select `Scale Axis` and deselect `Scale bar`). For appropriate scaling, open the `Time Scale` section of the control panel, set the `Offset` to 2005.5 (date of the most recent sample), and select `Reverse Axis` under `Scale Axis`.
-
-Finally, open the Appearance panel and alter the `Line Weight` to 2 to draw the tree with thicker lines. Under the same panel, alter `Colour by` and select 'state'. Alternatively, color the branches by 'host'. Unselect the `Tip Labels` and the `Scale Bar` option. Finally, in the Legend panel select the 'state' or 'host' attribute depending on what you have used to color the branches with. None of the options actually alter the tree's topology or branch lengths in anyway so feel free to explore the options and settings. You can also save the tree and this will save all your settings so that when you load it into FigTree again it will be displayed exactly as you selected.
+At this point you can summarize the sampled trees using the [TreeAnnotator](treeannotator) utility and then visualize the resulting tree using the [FigTree](figtree) application.
+ 
+{% include callout.html content='A detailed description of how to do this was introduced in the earlier <a href="workshop_rates_and_dates#analysing-the-beast-output">\'Estimating rates and dates from time-stamped sequences\' tutorial</a>.' %}
 
 ### Visualizing MCC trees and calculating Bayes factor support for rates using SpreaD3
 
-SpreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using Data-Driven Documents (D3), is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreaD3 allows to visualise spatial reconstructions on custom maps and generates HTML pages for display in modern-day browsers such as Firefox, Safari and Chrome. Some of the functionalities of SpreaD3 that relate to the discrete phylogeographic analysis include visualizing location-annotated MCC trees and identification of well-supported rates using a Bayes Factor test. The latter option takes as input the rate matrix file ([batRABV.state.rates.log](files/batRABV.state.rates.log) for location states and [batRABV.host.rates.log](files/batRABV.host.rates.log) for host states) generated under the analysis using the Bayesian Stochastic Search Variable Selection (BSSVS) procedure. This test aims at identifying frequently invoked rates to explain the diffusion process and, in case of locations, visualize them on a circle and on a globe or a map, which needs to be provided to SpreaD3. A detailed tutorial for this particular step is available [here](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourTwo). We have also provide a PDF version of the entire SpreaD3 tutorial for download [here](files/SpreaD3Tutorial.pdf).
+SpreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using Data-Driven Documents (D3), is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreaD3 allows to visualise spatial reconstructions on custom maps and generates HTML pages for display in modern-day browsers such as Firefox, Safari and Chrome. 
 
-To visualize an MCC tree, start SpreaD3 by double-clicking on the jar file and select `MCC tree with DISCRETE traits` in the `Data` panel. Load the MCC tree and set the location attribute to ‘state’. Then, use `Setup location attribute coordinates` and load the states and their coordinates in the ‘locationStates.txt’ file, which should look like this:
+Some of the functions that relate to the discrete phylogeographic analysis include visualizing location-annotated MCC trees and identification of well-supported rates using a Bayes Factor test. The latter option takes as input the rate matrix file (<samp>batRABV.state.rates.log</samp> for location states and <samp>batRABV.host.rates.log</samp> for host states) generated under the analysis using the Bayesian Stochastic Search Variable Selection (BSSVS) procedure. This test aims at identifying frequently invoked rates to explain the diffusion process and, in case of locations, visualize them on a circle and on a globe or a map, which needs to be provided to SpreaD3. 
+
+{% include callout.html content='A detailed tutorial for this particular step <a href="https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourTwo">is available here</a>. We have also provide a PDF version of the entire SpreaD3 tutorial <a href="files/SpreaD3Tutorial.pdf">for download</a>.
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data files required for the analyses can be found in the shared folder:<br />
+<div style="margin: 16px"><code>Tutorials\Tutorial 4 - Discrete Phylogeography\</code></div>
+</div>
+
+To visualize an MCC tree, start SpreaD3 by double-clicking on the jar file and select `MCC tree with DISCRETE traits` in the `Data` panel. Load the MCC tree and set the location attribute to ‘state’. Then, use `Setup location attribute coordinates` and load the states and their coordinates in the '<samp>locationStates.txt</samp>’ file, which should look like this:
 
 ```
 	Arizona		33.7712	-111.3877
@@ -283,52 +257,27 @@ To visualize an MCC tree, start SpreaD3 by double-clicking on the jar file and s
 	Mississippi	32.7673	-89.6812
 ```
 
-This will load the locations and their lat/long coordinates. Click done after uploading the locations and their coordinates. Set the most recent sampling date to 2005.5 and load a map of the United States in GeoJSON format. Such a map can be downloaded [here](files/gz_2010_us_040_00_500k.json). Once this is done, go to `Generate Output` and select a file name for the JSON file to be written. Finally, go to the Rendering panel in SpreaD3 and load the JSON file you just saved. Click `Render` to D3 and select a directory name which will contain the HMTL page that will automatically load in a browser (example below). Note that Google Chrome needs to be started with specific privileges for local file access in order to display the resulting visualisation (Firefox and Safari should work fine with default settings).
+This will load the locations and their lat/long coordinates. Click done after uploading the locations and their coordinates. Set the most recent sampling date to 2005.5 and load a map of the United States in GeoJSON format. Such a map is provided amongst the data files --- <samp>gz_2010_us_040_00_500k.json</samp>. 
+
+Go to `Generate Output` and select a file name for the JSON file to be written. Finally, go to the Rendering panel in SpreaD3 and load the JSON file you just saved. Click `Render` to D3 and select a directory name which will contain the HMTL page that will automatically load in a browser (example below). Note that Google Chrome needs to be started with specific privileges for local file access in order to display the resulting visualisation (Firefox and Safari should work fine with default settings).
 
 {% include image.html file="22_spread3MCC.png" prefix=root_url %}
 
-To summarise Bayes factor support for rates, select `Log file from BSSVS analysis` in the `Data` panel. Set an appropriate burn-in level and use `Load log file` to upload the output BEAST file containing the spatial rates and rate indicators (batRABV.state.rates.log). Then, use `Setup location attribute coordinates` to visualise the Bayes Factors on a map of North America. Select `Load` and get the location file (locationStates.txt). Click `Done`. In the same `Data` panel, you can also specify the Poisson prior mean and offset, which do not need to be changed in our case. Load a map of the United States in GeoJSON format. Once this is done, go to `Generate Output` and select a file name for the JSON file to be written. Note that a plain text file will also be created with an additional '.txt' extension that will contain the actual Bayes Factor values. Finally, go to the `Rendering` panel in SpreaD3 and load the JSON file you just saved. Click `Render to D3` and select a directory name. An examples visualisation can be found below. Note that the visual aspects of the lines representing the rates can be modified and that the lines can also be filtered by a cut-off (under `Lines cut-off`).
+To summarise Bayes factor support for rates, select `Log file from BSSVS analysis` in the `Data` panel. Set an appropriate burn-in level and use `Load log file` to upload the output BEAST file containing the spatial rates and rate indicators (batRABV.state.rates.log). Then, use `Setup location attribute coordinates` to visualise the Bayes Factors on a map of North America. Select `Load` and get the location file (<samp>locationStates.txt</samp>). Click `Done`. 
+
+In the same `Data` panel, you can also specify the Poisson prior mean and offset, which do not need to be changed in our case. Load a map of the United States in GeoJSON format. Once this is done, go to `Generate Output` and select a file name for the JSON file to be written. Note that a plain text file will also be created with an additional '.txt' extension that will contain the actual Bayes Factor values. Finally, go to the `Rendering` panel in SpreaD3 and load the JSON file you just saved. Click `Render to D3` and select a directory name. An examples visualisation can be found below. Note that the visual aspects of the lines representing the rates can be modified and that the lines can also be filtered by a cut-off (under `Lines cut-off`).
 
 {% include image.html file="23_spread3stateRates.png" prefix=root_url %}
 
-We can obtain a similar summary for the host transition rates. Since these cannot be plotted on a map, we will organise them on a circle. Load the file containing the host rates and rate indicators (batRABV.host.rates.log). In setting up the locations, select `Generate` and enter the number of unique host states ('17' in this case). If you want the names of the locations to be drawn rather than location1, location2, …, enter the names of each of the 17 locations (Ap, Ef, Lb, Lbl, Lc, Li, Ln, Ls, Lx, Ma, Mc, Ml, My, Nh, Ph, Ps, Tb). Click done when all the information has been entered and click on output under `Generate Output` and select a file name for the JSON file to be written. Finally, go to the `Rendering` panel in SpreaD3, load the JSON file you just saved, and click `Render to D3`.
+We can obtain a similar summary for the host transition rates. Since these cannot be plotted on a map, we will organise them on a circle. Load the file containing the host rates and rate indicators (<samp>batRABV.host.rates.log</samp>). In setting up the locations, select `Generate` and enter the number of unique host states ('17' in this case). If you want the names of the locations to be drawn rather than location1, location2, …, enter the names of each of the 17 locations (Ap, Ef, Lb, Lbl, Lc, Li, Ln, Ls, Lx, Ma, Mc, Ml, My, Nh, Ph, Ps, Tb). Click done when all the information has been entered and click on output under `Generate Output` and select a file name for the JSON file to be written. Finally, go to the `Rendering` panel in SpreaD3, load the JSON file you just saved, and click `Render to D3`.
 
 {% include image.html file="24_spread3hostRates.png" prefix=root_url %}
 
-Which rates receive the highest Bayes factor support?
+{% include question.md content='Which rates receive the highest Bayes factor support?' %}
 
-<!-- This needs to be updated for this tutorial -->
-<!--
-### A quick how-to summary for Exercise 1
+## EXERCISE 2: Identifying predictors for the host switching process
 
-#### Run BEAUti.
-
-Load a NEXUS format alignment by selecting the Import Data... option from the File menu. Select the file called H1N109.nex. 
-
-In the Tips tab, select the box labelled Use tip dates and click the Guess Dates button. Keep the default Defined just by its order and select last from the drop-down menu for the order and press OK.
-
-In the Sites tab, keep the default HKY substitution model for the nucleotide data and base frequencies as Estimated. Select ‘Gamma’ as ‘Site Heterogeneity Model’ (with 4 discrete categories) before proceeding to the ‘Clocks’ tab.
-
-In the Clocks tab, keep a strict clock model.
-
-In the Trees tab, set the option for Tree Prior to Coalescent: Exponential Growth..
-
-In the MCMC tab, set the chain length to 1,00,000 and both the sampling frequencies to 100. Set the File name stem to H1N109 and generate the beast file (H1N109.xml).
-
-#### Run BEAST and load the xml file.
-
-Analyze the output using Tracer. Analyze the output file for the longer runs.
-
-Calculate the growth rate for pandemic influenza H1N1 (see page 12 of this tutorial).
-
-Summarize the trees of the longer run using treeAnnotator (burn-in = 500,000 states or 100 trees).
-
-#### Visualize the tree in FigTree.
--->
-
-## EXERCISE 2: Identifying predictors for the host transitioning process
-
-### background
+### Background
 
 This exercise builds on the previous analysis and aims at testing the factors that drive the host transitioning process for bat rabies viruses in North America. The original analyses resorted a population genetic approach and post hoc statistical procedures to test such predictors (Streicker et al., 2010); here we adopt an extension of the discrete diffusion model as applied by Faria et al. (2013). This extension parameterizes the CTMC matrix as a generalized linear model (GLM), in which log CTMC rates are a log linear function of several potential predictors (most of the detail on the model can be found in Lemey et al., 2014). We use the predictors originally proposed by Streicker et al. (2010): host phylogenetic distance (based on host mitochondrial DNA), geographic range overlap, roost structure overlap, and foraging niche overlap as approximated using three morphological measurements: wing aspect ratio, wing loading and body length, which are associated with foraging behavior in bats. We also consider sequence sample sizes, which can bias ancestral reconstructions, for both the 'donor' and 'recipient' host as additional predictors (cfr. Lemey et al., 2014).
 
@@ -403,7 +352,7 @@ Sample sizes may have a strong impact on rate estimates in discrete ancestral re
 
 {% include image.html file="32_GLM8PSetup.png" prefix=root_url %}
 
-{% include callout.html type="warning" content="Based on the estimates provided for a long run ([here](batRABV_8Pglm.host.glm.log)), do samples sizes appear to affect the GLM parameter estimates in this case?<br /><br /><br />" %}
+{% include qustion.md content='Based on the estimates provided for a long run ([here](batRABV_8Pglm.host.glm.log)), do samples sizes appear to affect the GLM parameter estimates in this case?' %}
 
 
 
