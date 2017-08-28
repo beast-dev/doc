@@ -1,7 +1,7 @@
 ---
 title: How to setup hierarchical models for sets of parameters
 keywords: beast, tutorial
-last_updated: August 9, 2017
+last_updated: August 28, 2017
 tags: [tutorial]
 summary: "Setting up hierarchical phylogenetic models for different scenarios."
 sidebar: beast_sidebar
@@ -170,6 +170,8 @@ Is there a difference in overall rate, and if so, which viruses tend to evolve f
 
 
 ## References
+
+Streicker D. G., Turmelle A. S., Vonhof M. J., Kuzmin I. V., McCracken G. F., Rupprecht C. E. (2010) Host phylogeny constrains cross-species emergence and establishment of rabies virus in bats. Science 329:676-679.
 
 Streicker D. G., Altizer S. M., Velasco-Villa A. and Rupprecht C. E. (2012) Variable evolutionary routes to host establishment across repeated rabies virus host shifts among bats. Proc. Natl. Acad. Sci. USA 109(48): 19715-19720.
 
