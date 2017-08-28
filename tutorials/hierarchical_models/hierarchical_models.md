@@ -10,7 +10,7 @@ folder: beast
 redirect_from: "/HPMs"
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/hpm_tutorial/{% endcapture %}
+{% capture root_url %}{{ site.tutorials_root_url }}/hierarchical_models/{% endcapture %}
 
 ## Setting up Hierarchical Phylogenetic Models (HPMs)
 
