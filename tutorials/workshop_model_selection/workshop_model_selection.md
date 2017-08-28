@@ -1,7 +1,7 @@
 ---
 title: Model Selection and Testing
 keywords: rates, dates, mcmc, tutorial
-last_updated: August 20, 2017
+last_updated: August 28, 2017
 tags: [tutorial, workshop]
 summary: 'This tutorial continues the analysis of yellow fever virus (YFV) from the <a href="workshop_rates_and_dates">Estimating rates and dates from time-stamped sequences</a> tutorial. Here we use marginal likelihood estimators to perform model selection and testing in BEAST. We will compare the fit of the relaxed clock model with a strict clock model. '
 sidebar: beast_sidebar
