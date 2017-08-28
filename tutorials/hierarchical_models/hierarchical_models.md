@@ -63,8 +63,7 @@ In total, we end up with 6 HPMs, equal to the number of codon positions times (3
 This part of the HPM tutorial describes how to set up an BEAST analysis with a hierarchical phylogenetic model (HPM) aimed at identifying the factors responsible for evolutionary rate variation in bat rabies viruses (RABV) based on a data set previously analysed by Streicker et al. (2012). 
 Bat rabies viruses in the Americas have established host-associated lineages through sequential host jumping followed by successful transmission in the new bat species (see Streicker et al., 2010). 
 This provides a rare occasion to test the impact of host factors (physiological, environmental or ecological) on virus evolutionary rates. 
-We will test these factors by setting up a mixed effects model for the evolutionary rate, which requires manual xml editing. 
-We will first set up an xml using BEAUti that specifies hierarchical prior distributions for the clock rates and substitution model parameters (which models the random effects) and then manually introduce the fixed effects by editing the xml.
+We will here set up an xml using BEAUti that specifies hierarchical prior distributions for the clock rates and substitution model parameters (which models the random effects).
 
 Separate alignments in fasta format are available for each host-associated lineage and can be downloaded below. 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
