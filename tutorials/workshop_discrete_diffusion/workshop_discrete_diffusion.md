@@ -232,7 +232,7 @@ SpreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using
 
 Some of the functions that relate to the discrete phylogeographic analysis include visualizing location-annotated MCC trees and identification of well-supported rates using a Bayes Factor test. The latter option takes as input the rate matrix file (<samp>batRABV.state.rates.log</samp> for location states and <samp>batRABV.host.rates.log</samp> for host states) generated under the analysis using the Bayesian Stochastic Search Variable Selection (BSSVS) procedure. This test aims at identifying frequently invoked rates to explain the diffusion process and, in case of locations, visualize them on a circle and on a globe or a map, which needs to be provided to SpreaD3. 
 
-{% include callout.html content='A detailed tutorial for this particular step <a href="https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourTwo">is available here</a>. We have also provide a PDF version of the entire SpreaD3 tutorial <a href="files/SpreaD3Tutorial.pdf">for download</a>.
+{% include callout.html content='A detailed tutorial for this particular step <a href="https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourTwo">is available here</a>. We have also provide a PDF version of the entire SpreaD3 tutorial <a href="files/SpreaD3Tutorial.pdf">for download</a>.' %}
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data files required for the analyses can be found in the shared folder:<br />
 <div style="margin: 16px"><code>Tutorials\Tutorial 4 - Discrete Phylogeography\</code></div>
@@ -273,7 +273,7 @@ We can obtain a similar summary for the host transition rates. Since these canno
 
 {% include image.html file="24_spread3hostRates.png" prefix=root_url %}
 
-{% include question.md content='Which rates receive the highest Bayes factor support?' %}
+{% include question.html content='Which rates receive the highest Bayes factor support?' %}
 
 ## EXERCISE 2: Identifying predictors for the host switching process
 
@@ -352,7 +352,7 @@ Sample sizes may have a strong impact on rate estimates in discrete ancestral re
 
 {% include image.html file="32_GLM8PSetup.png" prefix=root_url %}
 
-{% include qustion.md content='Based on the estimates provided for a long run ([here](batRABV_8Pglm.host.glm.log)), do samples sizes appear to affect the GLM parameter estimates in this case?' %}
+{% include question.html content='Based on the estimates provided for a long run ([here](batRABV_8Pglm.host.glm.log)), do samples sizes appear to affect the GLM parameter estimates in this case?' %}
 
 
 
