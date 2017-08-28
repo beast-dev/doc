@@ -152,9 +152,20 @@ In the mcmc panel, set the chain frequency to 250,000,000 and the logging freque
 We run a relatively chain for this analysis because we need to operate on a large set of parameters (each of the 21 alignments/partitions is associated with its own phylogeny, substitution model and clock rate). 
 Check that the xml file runs in BEAST, but there is no real need to run this to completion.
 
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
+The full length log file for this first HPM setup can be downloaded from here:
+<a href="{{ root_url }}files/BatRabies_HPM.log"><samp>BatRabies_HPM.log</samp></a>
+</div>
+
 We can also examine whether there is a difference in substitution rates for rabies viruses in bats in temperate climate (with a 'Te_' prefix) compared to viral lineages in bats in subtropical and tropical climates (with a 'Tr_' prefix). 
 To do this, we can put independent hierarchical priors over all clock rates for partitions with the 'Te_' prefix and over all clock rates for partitions with the 'Tr_' prefix in Priors panel. 
 A long run is available to examine the results; in this case the hierarchical means in the log files are 'Te_clock.rate.mean' and 'Tr_clock.rate.mean' (they are in log space). 
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
+The full length log file for this first HPM setup can be downloaded from here:
+<a href="{{ root_url }}files/BatRabies_HPM2.log"><samp>BatRabies_HPM2.log</samp></a>
+</div>
+
 Is there a difference in overall rate, and if so, which viruses tend to evolve faster?
 
 
