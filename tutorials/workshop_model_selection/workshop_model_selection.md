@@ -56,7 +56,8 @@ Further, for the PS/SS procedure, we need to sample from the prior at the end of
 
 ### Setting up a PS/SS analysis
 
-To set up the analysis follow all the BEAUti steps in the [Estimating rates and dates from time-stamped sequences](workshop_rates_and_dates) tutorial up until the point of setting the `MCMC` panel options. Specify a chain length of <samp>100,000</samp> and log parameters every <samp>100</samp> steps. 
+To set up the analysis follow all the BEAUti steps in the [Estimating rates and dates from time-stamped sequences](workshop_rates_and_dates) tutorial up until the point of setting the `MCMC` panel options. 
+Specify a chain length of <samp>1,000,000</samp> and log parameters every <samp>1,000</samp> steps. 
 
 To set up the PS/SS analyses, in the `MCMC` panel select `Marginal likelihood estimation (MLE):` `path sampling / stepping-stone sampling' as the technique we will use to perform marginal likelihood estimation: 
 
