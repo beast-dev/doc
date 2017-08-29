@@ -1,7 +1,7 @@
 ---
 title: How to setup hierarchical models for sets of parameters
 keywords: beast, tutorial
-last_updated: August 9, 2017
+last_updated: August 28, 2017
 tags: [tutorial]
 summary: "Setting up hierarchical phylogenetic models for different scenarios."
 sidebar: beast_sidebar
@@ -63,8 +63,7 @@ In total, we end up with 6 HPMs, equal to the number of codon positions times (3
 This part of the HPM tutorial describes how to set up an BEAST analysis with a hierarchical phylogenetic model (HPM) aimed at identifying the factors responsible for evolutionary rate variation in bat rabies viruses (RABV) based on a data set previously analysed by Streicker et al. (2012). 
 Bat rabies viruses in the Americas have established host-associated lineages through sequential host jumping followed by successful transmission in the new bat species (see Streicker et al., 2010). 
 This provides a rare occasion to test the impact of host factors (physiological, environmental or ecological) on virus evolutionary rates. 
-We will test these factors by setting up a mixed effects model for the evolutionary rate, which requires manual xml editing. 
-We will first set up an xml using BEAUti that specifies hierarchical prior distributions for the clock rates and substitution model parameters (which models the random effects) and then manually introduce the fixed effects by editing the xml.
+We will here set up an xml using BEAUti that specifies hierarchical prior distributions for the clock rates and substitution model parameters.
 
 Separate alignments in fasta format are available for each host-associated lineage and can be downloaded below. 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
@@ -153,13 +152,26 @@ In the mcmc panel, set the chain frequency to 250,000,000 and the logging freque
 We run a relatively chain for this analysis because we need to operate on a large set of parameters (each of the 21 alignments/partitions is associated with its own phylogeny, substitution model and clock rate). 
 Check that the xml file runs in BEAST, but there is no real need to run this to completion.
 
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
+The full length log file for this first HPM setup can be downloaded from here:
+<a href="{{ root_url }}files/BatRabies_HPM.log"><samp>BatRabies_HPM.log</samp></a>
+</div>
+
 We can also examine whether there is a difference in substitution rates for rabies viruses in bats in temperate climate (with a 'Te_' prefix) compared to viral lineages in bats in subtropical and tropical climates (with a 'Tr_' prefix). 
 To do this, we can put independent hierarchical priors over all clock rates for partitions with the 'Te_' prefix and over all clock rates for partitions with the 'Tr_' prefix in Priors panel. 
 A long run is available to examine the results; in this case the hierarchical means in the log files are 'Te_clock.rate.mean' and 'Tr_clock.rate.mean' (they are in log space). 
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
+The full length log file for the second HPM setup can be downloaded from here:
+<a href="{{ root_url }}files/BatRabies_HPM2.log"><samp>BatRabies_HPM2.log</samp></a>
+</div>
+
 Is there a difference in overall rate, and if so, which viruses tend to evolve faster?
 
 
 ## References
+
+Streicker D. G., Turmelle A. S., Vonhof M. J., Kuzmin I. V., McCracken G. F., Rupprecht C. E. (2010) Host phylogeny constrains cross-species emergence and establishment of rabies virus in bats. Science 329:676-679.
 
 Streicker D. G., Altizer S. M., Velasco-Villa A. and Rupprecht C. E. (2012) Variable evolutionary routes to host establishment across repeated rabies virus host shifts among bats. Proc. Natl. Acad. Sci. USA 109(48): 19715-19720.
 
