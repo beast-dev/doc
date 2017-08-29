@@ -1,7 +1,7 @@
 ---
 title: Model Selection and Testing
 keywords: rates, dates, mcmc, tutorial
-last_updated: August 28, 2017
+last_updated: August 29, 2017
 tags: [tutorial, workshop]
 summary: 'This tutorial continues the analysis of yellow fever virus (YFV) from the <a href="workshop_rates_and_dates">Estimating rates and dates from time-stamped sequences</a> tutorial. Here we use marginal likelihood estimators to perform model selection and testing in BEAST. We will compare the fit of the relaxed clock model with a strict clock model. '
 sidebar: beast_sidebar
@@ -75,7 +75,6 @@ Note that there is an additional option available in the MLE panel: `Print opera
 When selected, this option will print an operator analysis for each power posterior to the screen, which can then be used to spot potential problems with the operators’ performance across the path from posterior to prior. 
 This option is useful when employing highly complex models and when having obtained improbable results.
 
-
 Having set the PS/SS settings and proper priors, we can write to xml and run the analysis in BEAST. 
 Use the same settings for the strict clock and the uncorrelated relaxed clock and run the analyses. 
 What can we conclude from these (much too) short PS/SS analyses?
@@ -85,13 +84,13 @@ For example, by setting the number of path steps to 50 and the length of the MCM
 The length of the initial standard MCMC chain should also be increased to ensure convergence towards the posterior before the PS/SS calculations are initiated. 
 An initial chain length of 5,000,000 iterations should be sufficient here. 
 Note that using these settings, the marginal likelihood estimation will take approximately the time it takes to complete a standard MCMC run of 25,000,000 generations for this data (+ 5,000,000 iterations for the initial chain). 
-Due to time constraints, the output files of these analyses have been made available.
+Due to time constraints, we won't run this full-length analysis now (although more demanding computational settings can be attempted during the free computer time or left running over night).
 
 {% include important.html content="It makes no sense to load the output files from a PS/SS/GSS analysis into Tracer as these files contain the output of a series of MCMC analyses." %}
 
-Note that in both folders containing the large output files for PS/SS/GSS provided, there is a BEAST XML file available to compute the MLE: calculate-PS-SS.xml or calculate-GSS.xml. 
-These XML files will merely read in the samples from the power posteriors collected and will hence take only a short time to compute the actual estimates using these samples. 
-Again, these simple XML files can be used when the actual MLE was lost but the log files are still available (which is a better alternative than rerunning the whole analysis).
+**Note:** in early implementations of PS/SS/GSS in BEAST, the estimated log marginal likelihood estimate wasn't saved to disk.
+Technically, simple XML files can be used when the actual MLE was lost but the log files are still available (which is a better alternative than rerunning the whole analysis).
+However, the latest release of BEAST saves the final result to a specified file name, so that this result is easily accessible, even when your terminal has been closed or your standard output is no longer available.
 
 For the strict clock analysis, we arrive at -5676.04 and -5676.10 for PS and SS respectively. 
 For the uncorrelated relaxed clock analysis, we get -5656.8 and -5658.14 for the same estimators. 
