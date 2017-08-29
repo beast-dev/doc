@@ -76,26 +76,28 @@ When selected, this option will print an operator analysis for each power poster
 This option is useful when employing highly complex models and when having obtained improbable results.
 
 Having set the PS/SS settings and proper priors, we can write to xml and run the analysis in BEAST. 
-Use the same settings for the strict clock and the uncorrelated relaxed clock and run the analyses. 
-What can we conclude from these (much too) short PS/SS analyses?
+Use the same settings for the strict clock and the uncorrelated relaxed clock and run the analyses.
+ 
+{% include callout.html type="warning" content="What is the log marginal likelihood for the strict clock model? And for the relaxed clock model? How do these compare to your neighbour's results? What can we conclude from these (much too) short PS/SS analyses?<br /><br /><br />" %}
 
-In order to obtain reliable estimates for the marginal likelihoods using PS/SS, we need to rerun these analyses using much more demanding computational settings. 
+**Important:** in order to obtain reliable estimates for the marginal likelihoods using PS/SS, we need to rerun these analyses using much more demanding computational settings. 
 For example, by setting the number of path steps to 50 and the length of the MCMC chain for each power posterior to 500,000 (the logging frequency could also be increased). 
 The length of the initial standard MCMC chain should also be increased to ensure convergence towards the posterior before the PS/SS calculations are initiated. 
 An initial chain length of 5,000,000 iterations should be sufficient here. 
 Note that using these settings, the marginal likelihood estimation will take approximately the time it takes to complete a standard MCMC run of 25,000,000 generations for this data (+ 5,000,000 iterations for the initial chain). 
 Due to time constraints, we won't run this full-length analysis now (although more demanding computational settings can be attempted during the free computer time or left running over night).
 
-{% include important.html content="It makes no sense to load the output files from a PS/SS/GSS analysis into Tracer as these files contain the output of a series of MCMC analyses." %}
+{% include important.html content="It makes no sense to load the output files from a PS/SS/GSS analysis into Tracer as these files contain the output of a series of MCMC analyses (i.e. a series of power posteriors)." %}
 
 **Note:** in early implementations of PS/SS/GSS in BEAST, the estimated log marginal likelihood estimate wasn't saved to disk.
 Technically, simple XML files can be used when the actual MLE was lost but the log files are still available (which is a better alternative than rerunning the whole analysis).
 However, the latest release of BEAST saves the final result to a specified file name, so that this result is easily accessible, even when your terminal has been closed or your standard output is no longer available.
 
-For the strict clock analysis, we arrive at -5676.04 and -5676.10 for PS and SS respectively. 
+For the full-length strict clock analysis, we arrive at -5676.04 and -5676.10 for the log marginal likelihoods using PS and SS respectively. 
 For the uncorrelated relaxed clock analysis, we get -5656.8 and -5658.14 for the same estimators. 
-How do the PS/SS MLEs compare to those obtained by the HME, and the Bayes factors resulting from these different estimators? 
-What can be observed concerning the difference between the PS estimate and the SS estimate of the log marginal likelihood (also compared to the shorter runs)?
+
+{% include callout.html type="warning" content="How do the PS/SS MLEs compare to those obtained by the HME, and the Bayes factors resulting from these different estimators? What can be observed concerning the difference between the PS estimate and the SS estimate of the log marginal likelihood (also compared to the shorter runs)?<br /><br /><br />" %}
+
 
 ### Setting up a GSS analysis
 
