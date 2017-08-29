@@ -106,7 +106,7 @@ To set up the GSS analyses, we can return to the MCMC panel in BEAUti and select
 {% include image.html file="selectGSS.png" prefix=root_url width="90%" alt="select gss for marginal likelihood estimation" caption="" %}
 
 Click on 'settings' to specify the GSS settings. 
-Because of time constraints, we will keep the length of the standard MCMC chain set to 100,000 and we will collect samples from 11 power posteriors (i.e. 10 path steps between 1.0 and 0.0). 
+Because of time constraints, we will keep the length of the standard MCMC chain set to 1,000,000 and we will collect samples from 11 power posteriors (i.e. 10 path steps between 1.0 and 0.0). 
 The length of the chain for the power posteriors can differ from the length of the standard MCMC chain, but we set it here to 100,000 as well.
 We again define the powers for the different power posteriors using evenly spaced quantiles of a Beta(0.3,1.0) distribution, since this has been shown to outperform a uniform spreading for generalised stepping-stone sampling (Baele et al., 2016).
 
