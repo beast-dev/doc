@@ -78,7 +78,7 @@ This option is useful when employing highly complex models and when having obtai
 Having set the PS/SS settings and proper priors, we can write to xml and run the analysis in BEAST. 
 Use the same settings for the strict clock and the uncorrelated relaxed clock and run the analyses.
  
-{% include question.html content="What is the log marginal likelihood for the strict clock model? And for the relaxed clock model? How do these compare to your neighbour's results? What can we conclude from these (much too) short PS/SS analyses?<br /><br /><br />" %}
+{% include question.html content="What is the log marginal likelihood for the strict clock model? And for the relaxed clock model? How do these compare to your neighbour's results? What can we conclude from these (much too) short PS/SS analyses?" %}
 
 **Important:** in order to obtain reliable estimates for the marginal likelihoods using PS/SS, we need to rerun these analyses using much more demanding computational settings. 
 For example, by setting the number of path steps to 50 and the length of the MCMC chain for each power posterior to 500,000 (the logging frequency could also be increased). 
@@ -96,7 +96,7 @@ However, the latest release of BEAST saves the final result to a specified file 
 For the full-length strict clock analysis, we arrive at -5676.04 and -5676.10 for the log marginal likelihoods using PS and SS respectively. 
 For the uncorrelated relaxed clock analysis, we get -5656.8 and -5658.14 for the same estimators. 
 
-{% include question.html content="How do the PS/SS MLEs compare to those obtained by the HME, and the Bayes factors resulting from these different estimators? What can be observed concerning the difference between the PS estimate and the SS estimate of the log marginal likelihood (also compared to the shorter runs)?<br /><br /><br />" %}
+{% include question.html content="How do the PS/SS MLEs compare to those obtained by the HME, and the Bayes factors resulting from these different estimators? What can be observed concerning the difference between the PS estimate and the SS estimate of the log marginal likelihood (also compared to the shorter runs)?" %}
 
 
 ### Setting up a GSS analysis
@@ -116,7 +116,7 @@ The working priors/distribution for the models' parameters are automatically gen
 For parametric coalescent models, such as the constant population size model, the fastest approach is to use a 'matching coalescent model'; whereas for non- parametric coalescent models, such as the Bayesian Skygrid model, the general-purpose 'product of exponential distributions' is the only appropriate option.
 Additionally, for speciation models (typically when using contemporaneous/isochronous sequences), the 'matching speciation model' is the only appropriate option.
 
-{% include question.html content="For the strict clock analysis, we arrive at -5696.32 using GSS whereas for the uncorrelated relaxed clock analysis, we get -5680.06 using GSS. How do these MLEs compare to those obtained using PS/SS, and the Bayes factors resulting from these different estimators?<br /><br /><br />" %}
+{% include question.html content="For the strict clock analysis, we arrive at -5696.32 using GSS whereas for the uncorrelated relaxed clock analysis, we get -5680.06 using GSS. How do these MLEs compare to those obtained using PS/SS, and the Bayes factors resulting from these different estimators?" %}
 
 The number of power posteriors needed as well as the chain length per power posterior are important settings to achieve a reliable estimate of the (log) marginal likelihood. 
 However, these settings can depend on the data set being analysed and hence different PS/SS/GSS analyses (with differing computational settings) are required when performing model comparison. 
