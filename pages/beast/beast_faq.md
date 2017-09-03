@@ -438,6 +438,7 @@ Thus it is particularly important that constraints, like &lt;booleanLikelihood&g
 		</div>
 	</div>
 	<!-- /.panel -->
+</div>
 <!-- /.panel-group -->
 
 {% include links.html %}
