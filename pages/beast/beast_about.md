@@ -135,7 +135,7 @@ subtitle='University Research Fellowship to Andrew Rambaut<br />Newton Fellowshi
 
 {% include icon-callout.html
 type='danger'
-file='logos/FWO_Logo.jpg'
+file='logos/FWO_Logo.png'
 url='http://www.fwo.be'
 width='17%'
 title='Research Foundation - Flanders (FWO)'
