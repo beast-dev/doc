@@ -26,13 +26,13 @@ This is a list of some of the models and features in BEAST:
 
 : **Substitution model heterogeneity across sites** \| Different substitution models can be specified for different sets of sites. For example, each codon position can be allowed a different substitution matrix and gamma model of rate heterogeneity.
 
-: **Flexible model specification** \| The model-specification file format allows considerable flexibility. 
+: **Flexible model specification** \| The model-specification file format allows considerable flexibility.
 For example, it is possible to specify that each codon position has a different rate, a different degree of rate heterogeneity but the same transition/transversion ratio.
 
 : **Flexible choice of priors on parameters** \| Any estimable parameter can be given a prior probability distribution from a wide range of options. Priors can also be used to introduce information --- i.e., a known distribution for a substitution rate.
 
 : **Coalescent models of population size and growth** \| Various parametric models of coalescent population growth can be used including constant population size, expansion growth, exponential growth, and logistic growth. Additionally, multi-epoch parametric coalescent models are also available: constant-logistic, constant-exponential-constant, exponential-constant, etc.
-                  
+
     A range of implementations of multi-change-point, non-parametric coalescent models are available such as the Bayesian skyline, skyride, and skygrid (the latter, with or without covariates).
 
     These models basically act as priors on the ages of nodes in the tree but their parameters can be sampled and estimated.
@@ -56,14 +56,14 @@ BEAST was designed and developed by Alexei J. Drummond, Andrew Rambaut and Marc 
 : **Alexei J. Drummond** \| Department of Computer Science \| University of Auckland <br />
 [http://compevol.auckland.ac.nz](http://compevol.auckland.ac.nz) <br />
 alexei--at-cs.auckland.ac.nz
-                              
+
 : **Andrew Rambaut** \| Institute of Evolutionary Biology \| University of Edinburgh <br />
 [http://tree.bio.ed.ac.uk](http://tree.bio.ed.ac.uk) <br />
 a.rambaut---at---ed.ac.uk
-                              
+
 : **Marc A. Suchard** \| David Geffen School of Medicine \| University of California, Los Angeles <br />
 [http://faculty.biomath.ucla.edu/msuchard/](http://faculty.biomath.ucla.edu/msuchard/) (Warning: 1990's style)<br />
-msuchard--@--ucla.edu                              
+msuchard--@--ucla.edu
 
 BEAST and modules within it have developed by
 
@@ -93,7 +93,17 @@ file='logos/nih-logo.png'
 url='http://nih.gov'
 width='17%'
 title='The National Institutes of Health'
-subtitle='XXX and XXX to Marc Suchard'
+subtitle='R01 grants GM086887 and HG006139 to Marc Suchard <br/>
+          and AI107034 to Vladimir Minin and Marc Suchard'
+%}
+
+{% include icon-callout.html
+type='default'
+file='logos/nsf-logo.png'
+url='http://nsf.gov'
+width='17%'
+title='The National Science Foundation'
+subtitle='Grant DMS1264153 to Marc Suchard'
 %}
 
 {% include icon-callout.html
@@ -138,7 +148,7 @@ file='logos/marsden-logo.png'
 url='http://royalsociety.org.nz/what-we-do/funds-and-opportunities/marsden'
 width='17%'
 title='The Marsden Fund'
-subtitle='Grant to Alexei Drummond & Marc Suchard'
+subtitle='Grant to Alexei Drummond and Marc Suchard'
 %}
 
 ### The BEAST logo
