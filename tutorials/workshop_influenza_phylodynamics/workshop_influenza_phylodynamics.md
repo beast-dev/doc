@@ -179,7 +179,7 @@ TreeAnnotator takes a single 'target' tree and annotates it with the summarized 
 
 Use a `Burnin (as states):` of <samp>1,000,000</samp>. This is 10% of the chain and we confirmed that this was adequate in Tracer, above. Use the defaults for the rest of the options --- `Posterior probability limit: 0`, `Target tree type: Maximum clade credibility tree`, and `Node heights: Median`.
 
-Use the `Choose File...` button to select an input trees file, <samp>H1N1pdm_2009.log</samp>.
+Use the `Choose File...` button to select an input trees file, <samp>H1N1pdm_2009.trees</samp>.
  
 {% include tip.html content='In most of the BEAST package, if there is a button to select a file, you can also simply drag the file into this area.' %}
 

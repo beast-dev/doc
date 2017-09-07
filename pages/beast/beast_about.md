@@ -124,6 +124,15 @@ subtitle='University Research Fellowship to Andrew Rambaut<br />Newton Fellowshi
 %}
 
 {% include icon-callout.html
+type='danger'
+file='logos/FWO_Logo.jpg'
+url='http://www.fwo.be'
+width='17%'
+title='Research Foundation - Flanders (FWO)'
+subtitle='FWO project grants G0B9317N & G0D5117N to Philippe Lemey'
+%}
+
+{% include icon-callout.html
 type='warning'
 file='logos/marsden-logo.png'
 url='http://royalsociety.org.nz/what-we-do/funds-and-opportunities/marsden'
