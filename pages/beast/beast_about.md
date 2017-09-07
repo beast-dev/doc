@@ -55,15 +55,15 @@ For example, it is possible to specify that each codon position has a different 
 BEAST was designed and developed by Alexei J. Drummond, Andrew Rambaut and Marc A. Suchard:
 : **Alexei J. Drummond** \| Department of Computer Science \| University of Auckland <br />
 [http://compevol.auckland.ac.nz](http://compevol.auckland.ac.nz) <br />
-alexei--at-cs.auckland.ac.nz
+alexei--at--cs.auckland.ac.nz
 
 : **Andrew Rambaut** \| Institute of Evolutionary Biology \| University of Edinburgh <br />
 [http://tree.bio.ed.ac.uk](http://tree.bio.ed.ac.uk) <br />
-a.rambaut---at---ed.ac.uk
+a.rambaut--at--ed.ac.uk
 
 : **Marc A. Suchard** \| David Geffen School of Medicine \| University of California, Los Angeles <br />
 [http://faculty.biomath.ucla.edu/msuchard/](http://faculty.biomath.ucla.edu/msuchard/) (Warning: 1990's style)<br />
-msuchard--@--ucla.edu
+msuchard--at--ucla.edu
 
 BEAST and modules within it have developed by
 
