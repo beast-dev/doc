@@ -89,6 +89,14 @@ entries:
       url: /rates_and_dates
       output: web, pdf
 
+    - title: Phylodynamics of an epidemic
+      url: /phylodynamics_of_epidemic_influenza
+      output: web, pdf
+
+    - title: Phylodynamics of seasonal influenza
+      url: /phylodynamics_of_seasonal_influenza
+      output: web, pdf
+
     - title: Analysing Continuous Traits
       url: /continuous_traits
       output: web, pdf
@@ -131,12 +139,12 @@ entries:
       url: /hierarchical_models
       output: web, pdf
 
-    - title: Epoch Tutorial
-      url: /epoch_tutorial
+    - title: Epoch Model Tutorial
+      url: /epoch_models
       output: web, pdf
 
     - title: Adaptive MCMC Tutorial
-      url: /adaptive_mcmc_tutorial
+      url: /adaptive_mcmc
       output: web, pdf
 
     - title: Model Selection Tutorial
@@ -162,12 +170,12 @@ entries:
       url: /workshop_model_selection
       output: web, pdf
 
-    - title: Discrete Spatial Diffusion of Bat Rabies
-      url: /bat_rabies_discrete_diffusion
+    - title: Phylogeographic Diffusion in Discrete Space
+      url: /workshop_discrete_diffusion
       output: web, pdf
 
-    - title: Continuous Spatial Diffusion of West Nile Virus 
-      url: /WNV_continuous_diffusion
+    - title: Phylogeographic Diffusion in Continuous Space
+      url: /workshop_continuous_diffusion
       output: web, pdf
 
   - title: Reference

@@ -12,22 +12,42 @@ folder: beast
 
 {% capture root_url %}{{ site.tutorials_root_url }}/workshop_rates_and_dates/{% endcapture %}
 
+## Introduction
+
+The first step will be to convert a NEXUS file with a DATA or CHARACTERS block into a BEAST XML input file. This is done using the program BEAUti (this stands for Bayesian Evolutionary Analysis Utility). This is a user-friendly program for setting the evolutionary model and options for the MCMC analysis. The second step is to actually run BEAST using the input file that contains the data, model and settings. The final step is to explore the output of BEAST in order to diagnose problems and to summarize the results.
+
+To undertake this tutorial, you will need to download three software packages in a format that is compatible with your computer system (all three are available for Mac OS X, Windows and Linux/UNIX operating systems):
+
+{% include beast_callout.md %}
+
+{% include tracer_callout.md %}
+
+{% include figtree_callout.md %}
+
 The data are 71 sequences from the prM/E gene of yellow fever virus (YFV) from Africa and the Americas with isolation dates ranging from 1940-2009.
 The sequences represent a subset of the data set analyzed by Bryant et al. ([Bryant JE, Holmes EC, Barrett ADT, 2007 Out of Africa: A Molecular Perspective on the Introduction of Yellow Fever Virus into the Americas. PLoS Pathog 3(5): e75](http://doi.org/10.1371/journal.ppat.0030075)).
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called <samp>YFV.nex</samp> and can be found in the shared folder:<br />
+ <div style="margin: 16px"><code>Tutorials\Tutorial 1 - Rates and Dates\Data\YFV.nex</code></div>
+ <a href="{{ root_url }}files/YFV.nex">It can also be downloaded from here</a>.</div>
+
+<!--
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>YFV.nex</samp>' and can be found in the BEAST package in the '<samp>examples/Data/</samp>' folder or <a href="{{ root_url }}files/YFV.nex">can be downloaded from here</a>.</div>
+-->
 
 ## Loading the data into BEAUti
 
 {% include icon-callout.html file='icons/beauti-icon.png' content='Run <a href="beauti">BEAUti</a> by double clicking on its icon. BEAUti is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis.' %}
 
-
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>YFV.nex</samp>' and can be found in the BEAST package in the '<samp>examples/Data/</samp>' folder or <a href="{{ root_url }}files/YFV.nex">can be downloaded from here</a>.</div>
-
-### Loading the NEXUS file
 To load a NEXUS format alignment, simply select the `Import Data...` option from the `File` menu and select the file called `YFV.nex`. 
 This file contains an alignment of 71 sequences from the prM/E gene of YFV, 654 nucleotides in length. 
 Once loaded, the sequence data will be listed under Data Partitions:
 
 {% include image.html prefix=root_url file="image1.png" %}
+
+Double-click on the File Name in the table (but not on Partition Name) to display the actual sequence alignment:
+
+{% include image.html prefix=root_url file="image1b.png" %}
 
 ### Specifying a taxon set
 
@@ -53,7 +73,9 @@ After these operations, the screen should look like this:
 
 {% include image.html prefix=root_url file="image3.png" %}
 
-To inform BEAUti/BEAST about the sampling dates of the sequences, go to the Tips menu and select the `Use tip dates` option. By default all the taxa are assumed to have a date of zero (i.e. the sequences are assumed to be sampled at the same time; BEAST considers the present or most recent sampling time as time 0). In this case, the YFV sequences have been sampled at various dates going back to the 1940s. The actual year of sampling is given in the name of each taxon and we could simply edit the value in the Date column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the `Parse Dates` button at the top of the Data panel. Clicking this will make a dialog box appear:
+#### Setting the tip dates
+
+To inform BEAUti/BEAST about the sampling dates of the sequences, go to the `Tips` panel and select the `Use tip dates` option. By default all the taxa are assumed to have a date of zero (i.e. the sequences are assumed to be sampled at the same time; BEAST considers the present or most recent sampling time as time 0). In this case, the YFV sequences have been sampled at various dates going back to the 1940s. The actual year of sampling is given in the name of each taxon and we could simply edit the value in the Date column of the table to reflect these. However, if the taxa names contain the calibration information, then a convenient way to specify the dates of the sequences in BEAUti is to use the `Parse Dates` button at the top of the `Tips` panel. Clicking this will make a dialog box appear:
 
 {% include image.html prefix=root_url file="image4.png" %}
 
@@ -63,23 +85,17 @@ When parsing a number, you can ask BEAUti to add a fixed value to each date whic
 
 {% include image.html prefix=root_url file="image5.png" %}
 
-The `Height` column lists the ages of the tips relative to time 0 (in our case 2009). For these sequences, only the sampling year is provided and not the exact sampling dates. This uncertainty will negligible with respect to the relatively large evolutionary time scale of this example, however, [it is possible to accommodate the sampling time uncertainty --- see here](sampling_tipdates).
+The `Height` column lists the ages of the tips relative to time 0 (in our case 2009). 
+
+{% include tip.html content='There are many other options for reading and parsing tip dates in different formats. <a href="tip_dates.html">See this page for a more detailed description of these options.</a>' %}
+
+For these sequences, only the sampling year is provided and not the exact sampling dates. This uncertainty will negligible with respect to the relatively large evolutionary time scale of this example, however, [it is possible to accommodate the sampling time uncertainty --- see here](sampling_tipdates).
 
 ### Setting the evolutionary model
 
-The next thing to do is to click on the `Sites` tab at the top of the main window. This will reveal the evolutionary model settings for BEAST. Exactly which options appear depend on whether the data are nucleotides or amino acids (or traits). This tutorial assumes that you are familiar with the evolutionary models available; however there are a couple of points to note about selecting a model in BEAUti:
+The next thing to do is to click on the `Sites` tab at the top of the main window. This will reveal the evolutionary model settings for BEAST. Exactly which options appear depend on whether the data are nucleotides or amino acids (or traits). This tutorial assumes that you are familiar with the evolutionary models available --- however there are a couple of points to note about selecting a model in BEAUti:
 
-Partition into codon positions:
-: Selecting the `Partition into codon positions` option assumes that the data are aligned as codons. This option will then estimate a separate rate of substitution for each codon position, or for 1+2 versus 3, depending on the setting.
-
-Unlink substitution model across codon positions:
-: Selecting the `Unlink substitution model across codon positions` will specify that BEAST should estimate a separate transition-transversion ratio or general time reversible rate matrix for each codon position. 
-
-Unlink rate heterogeneity model across codon positions:
-: Selecting the `Unlink rate heterogeneity model across codon positions` will specify that BEAST should estimate set of rate heterogeneity parameters (gamma shape parameter and/or proportion of invariant sites) for each codon position.
-
-Unlink base frequencies across codon positions:
-: Selecting the `Unlink base frequencies across codon positions` will specify that BEAST should estimate a separate set of base frequencies for each codon position.
+{% include modules/substitution_models.md %}
 
  For this tutorial, select the `3 partitions: positions 1, 2, 3` option so that each codon position has its own HKY substitution model, rate of evolution, Estimated base frequencies, and Gamma-distributed rate variation among sites:
 
@@ -113,17 +129,9 @@ Note that the default prior on the rate of evolution (clock.rate) is an approxim
 
 ### Setting up the operators
 
-Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs. As of BEAST v1.8.4, different options are available w.r.t. exploring tree space. In this tutorial, we will use the ‘classic operator mix’, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a ‘new experimental mix’, which is currently under development with the aim to improve mixing for large phylogenetic trees.
+{% include modules/operator_table.md %}
 
-The `Operators` panel in BEAUti has a table that lists the parameters, their operators and the tuning settings for these operators:
- 
-{% include image.html prefix=root_url file="image11.png" %}
-
-In the first column are the parameter names. These will be called things like `CP1.kappa` which means the HKY model's kappa parameter (the transition-transversion bias) for the first codon position. The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a random proportion and the uniform operator simply picks a new value uniformly within a range. Some parameters related to the tree or to the node ages in the tree are associated with specific operators.
-
-The next column, labelled Tuning, gives a tuning setting to the operator. Some operators don't have any tuning settings so have n/a under this column. The tuning parameter will determine how large a move each operator will make which will affect how often that change is accepted by the MCMC which will affect the efficiency of the analysis. For most operators (like the subtree slide operator) a larger tuning parameter means larger moves. However for the scale operator a tuning parameter value closer to 0.0 means bigger moves. At the top of the window is an option called Auto Optimize which, when selected, will automatically adjust the tuning setting as the MCMC runs to try to achieve maximum efficiency. At the end of the run a table of the operators, their performance and the final values of these tuning settings can be written to standard output. 
-
-The next column, labelled Weight, specifies how often each operator is applied relative to the others. Some parameters tend to be sampled very efficiently from their target distribution (e.g. the kappa parameter); these parameters can have their operators down-weighted so that they are not changed as often. We will start by using the default settings for this analysis.
+For this analysis, no changes are required to this table.
 
 ### Setting the MCMC options
 
@@ -155,11 +163,11 @@ We are now ready to create the BEAST XML file. Select `Generate XML...` from the
 
 {% include tip.html content="For convenience, leave the BEAUti window open so that you can change the values and re-generate the BEAST file as required later in this tutorial." %}
 
-We are now ready to run the file through BEAST.
-
 ## Running BEAST
 
-{% include icon-callout.html file='icons/beast-icon.png' content='Run BEAST by double clicking on the BEAST icon in the package you downloaded.' %}
+We are now ready to run the file through BEAST.
+
+{% include icon-callout.html file='icons/beast-icon.png' content='Run BEAST by double clicking on the BEAST icon.' %}
 
 The following dialog box will appear:
 
@@ -336,42 +344,7 @@ Select the `Import Trace File...` option from the `File` menu. If you have it av
 
 {% include image.html prefix=root_url file="image14.png" %}
 
-On the left hand side at the top is the name of the log file loaded (`YFB.log`), the number of states in the log and the burn-in (10% by default). Below this is a table containing all the columns in the log file, including various statistics and continuous parameters. Selecting a trace on the left brings up analyses for this trace on the right hand side depending on the tab that is selected at the top. When first opened, the `posterior` trace (a quantity proportional to posterior --- the product of the data likelihood and the prior probabilities, on the log-scale) is selected and various statistics of this trace are shown under the `Estimates` tab.
-
-In the top right of the window is a table of calculated statistics for the selected trace. The statistics and their meaning are described in the table below.
-
-mean
-: The mean value of the samples.
-
-stderr of mean
-: The standard error of the mean. This takes into account the effective sample size so a small ESS will give a large standard error.
-
-stdev
-: The standard deviation of the samples.
-
-variance
-: The variance of the samples.
-
-median
-: The median value of the samples.
-
-value range
-: The full range of values sampled.
-
-geometric mean
-: The central tendency or typical value of the set of samples.
-
-95% HPD Interval
-: The lower bound and upper bound of the highest posterior density (HPD) interval. The HPD is the shortest interval that contains 95% of the sampled values.
-
-auto-correlation time (ACT)
-: The average number of states in the MCMC chain that two samples have to be separated by for them to be uncorrelated (i.e. independent samples from the posterior). The ACT is estimated from the samples in the trace (excluding the burn-in).
-
-effective sample size (ESS)
-: The effective sample size (ESS) is the number of independent samples that the trace is equivalent to. This is calculated as the chain length (excluding the burn-in) divided by the ACT.
-
-number of samples
-: The number of samples (values) used to compute the above statistics. This will be the total number of samples minus the burn-in.
+{% include modules/tracer_statistics.md %}
 
 Note that the effective sample sizes (ESSs) for all the traces are small (ESSs less than 100 are highlighted in red by Tracer and values > 100 but < 200 are in yellow). This is not good. A low ESS means that the trace contained a lot of correlated samples and thus may not represent the posterior distribution well. In the bottom right of the window is a frequency plot of the samples which is expected given the low ESSs is extremely rough.
 
@@ -389,7 +362,10 @@ You may see some improvement in the ESSs but they will still be very low. In the
 
 The simple response to this situation is that we need to run the chain for longer. Go back to BEAUti (which hopefully you left open), go to the `MCMC` options section, above, and create a new BEAST XML file with a longer chain length (e.g. 10,000,000).  
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> To continue the tutorial without having to wait for a long run to complete, you can make use of the log files provided with this tutorial (a chain length of 20,000,000 and logged every 10,000 sample). The file <a href="{{ root_url }}files/LongRun.zip">can be downloaded from here</a>.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
+To continue the tutorial without having to wait for a long run to complete, you can make use of the log files provided with this tutorial (a chain length of 20,000,000 and logged every 10,000 sample). The data files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, can be found in the shared folder: 
+<div style="margin: 16px"><code>Tutorials\Tutorial 1 - Rates and Dates\Long_Run_YFV\</code></div>
+The file, <a href="{{ root_url }}files/YFVLongRun.zip"><samp>YFVLongRun.zip</samp>, can be downloaded from here</a>.</div>
 
 Import the new longer log file, select the `treeModel.rootAge` statistic and click on the `Trace` tab to look at the raw trace plot.
 
@@ -405,9 +381,9 @@ As you can see the posterior probability density is nicely bell-shaped. When loo
 
 {% include image.html prefix=root_url file="image19.png" %}
 
-{% include callout.html type="warning" content="Note that the three rates are markedly different, what does this tell us about the selective pressure on this gene?<br /><br /><br />" %} 
+{% include question.html content="Note that the three rates are markedly different, what does this tell us about the selective pressure on this gene?<br /><br /><br />" %} 
 
-Now, let’s have a look at the timescale of the tree. Select the statistics called `age(root)` and `age(Americas)`. These are the dates of the root of the tree and the clade we defined for all of the American sequences. Because we have dated the tips of the tree, these statistics are given as the calendar year with the present day being on the right hand side (the most recently sample sequence is from 2009).
+Now, let’s have a look at the timescale of the tree. Select the statistics called `age(root)` and `age(Americas)`. These are the dates of the root of the tree and the clade we defined for all of the American sequences. Because we have dated the tips of the tree, these statistics are given as the calendar year with the present day being on the right hand side (the most recently sampled sequence is from 2009).
 
 {% include image.html prefix=root_url file="image20.png" %}
 
@@ -421,32 +397,9 @@ We have seen how we can diagnose our MCMC run using Tracer and produce estimates
 
 In this tutorial, however, we are going to use a tool that is provided as part of the BEAST package to summarize the information contained within our sampled trees. 
 
-{% include icon-callout.html file='icons/utility-icon.png' content='To summarize the trees from BEAST into a single representitive tree that we can view we are going to use the BEAST utility called <a href="treeannotator">TreeAnnotator</a>. Run TreeAnnotator by double clicking on the icon.' %}
+{% include modules/treeannotator.md %}
 
-Once running, you will be presented with a window like the one below:
-
-{% include image.html prefix=root_url file="image21.png" %}
-
-TreeAnnotator takes a single `target` tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree.
-
-Burnin
-: This is either the number of states or the number of trees in the input file that should be excluded from the summarization. This value is given as the number of trees rather than the number of steps in the MCMC chain. Thus for the example above, with a chain of 20,000,000 steps, a burn-in of 10% as the number of states can be specified as 2,000,000 states. Alternatively, with a chain of 20,000,000 steps, sampling every 10000 steps, there are 2000 trees in the file. To obtain a 10% burnin, set the burnin as the number of trees value to 200.
-
-Posterior probability limit
-: This is the minimum posterior probability for a node in order for TreeAnnotator to store the annotated information. Keep this value to the default of  0.0 to summarize all nodes in the target tree.  
-
-Target tree type
-: This has two options "Maximum clade credibility" or "User target tree". For the latter option, a NEXUS tree file can be specified as the Target Tree File, below. For the former option, TreeAnnotator will examine every tree in the Input Tree File and select the tree that has the highest product of the posterior probabilities of all its nodes. 
-
-Node heights
-: This option specifies what node heights (times) should be used for the output tree. If the ’Keep target heights’ is selected, then the node heights will be the same as the target tree. Node heights can also be summarised as  a Mean or a Median over the sample of trees. Sometimes a mean or median height for a node may actually be higher than the mean or median height of its parental node (because particular ancestral-descendent relationships in the MCC tree may still be different compared to a large number of other tree sampled). This will result in artifactual negative branch  lengths, but can be avoided by the ‘Common Ancestor heights’ option. Let’s use the default Median heights for our summary tree.
-
-Target Tree File
-: If the "User target tree" option is selected then you can use "Choose File..." to select a NEXUS file containing the target tree.
-
-Input Tree File
-: Use the "Choose File..." button to select an input trees file. This will be the trees file produced by BEAST. 
-Output File - Select a name for the output tree file (e.g., YFV.MCC.tre).
+Select a `Burnin (as states)` of <samp>2,000,000</samp>, `Posterior probability limit` of <samp>0.0</samp>, `Target tree type:` <samp>Maximum clade credibility tree</samp>, and `Node heights:` <samp>Median heights</samp>. Then select <samp>YFV.trees</samp> as the `Input Tree File`.
 
 Once you have selected all the options above, press the `Run` button. TreeAnnotator will analyze the input tree file and write the summary tree to the file you specified. This tree is in standard NEXUS tree file format so may be loaded into any tree drawing package that supports this. However, it also contains additional information that can only be displayed using the FigTree program.
 
@@ -468,7 +421,7 @@ You can also save the tree and this will save most of your settings so that when
 
 Finally, the tree can also be exported to a graphics file (pdf, svg, etc.) using the options in the `File` menu.
 
-{% include callout.html type="warning" content="How do the viruses from the Americas cluster relative to the African viruses and what conclusions can we draw from the inferred time scale?<br /><br /><br />" %} 
+{% include question.html content="How do the viruses from the Americas cluster relative to the African viruses and what conclusions can we draw from the inferred time scale?" %} 
 
 ## References
 

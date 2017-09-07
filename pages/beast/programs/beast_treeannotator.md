@@ -113,7 +113,7 @@ TreeAnnotator will state the number of trees that have been read, will find the 
 The progress of this will be monitored by the * symbols moving across the screen.
 When the program says 'Finished', the annotated tree file will have been written. Close the program by selecting the `Quit` option.
 
-The tree file can then be displayed in [FigTree].
+The tree file can then be displayed in [FigTree](figtree).
 
 ## Command-line use
 

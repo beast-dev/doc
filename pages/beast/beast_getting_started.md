@@ -26,16 +26,6 @@ To help you get started with BEAST and get familiar with the different component
 [Estimating Rates and Dates](rates_and_dates)
 : This tutorial provides a step-by-step tutorial for analyzing a set of virus sequences which have been isolated at different points in time (heterochronous data). The aim of this exercise is to obtain an estimate of the rate of molecular evolution, an estimate of the date of the most recent common ancestor and to infer the phylogenetic relationships with appropriate measures of statistical support.
 
-## How-tos
-
-We also provide a number of stand-alone 'how-to' documents which describe the procedures for specific analyses, data types, or models in greater detail.
-
-[Creating taxon sets](taxon_sets)
-
-[Setting tip dates](tip_dates)
-
-[Analysing BEAST output](analysing_beast_output)
-
-[Sampling the dates of tips](tip_date_sampling)
+[A full list of tutorials and specific 'how-to' instructions can be found here.](tutorial_contents)
 
 {% include links.html %}
