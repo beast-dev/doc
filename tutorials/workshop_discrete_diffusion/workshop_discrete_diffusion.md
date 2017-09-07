@@ -246,8 +246,8 @@ To visualize an MCC tree, start SpreaD3 by double-clicking on the jar file and s
 	Georgia		32.9866	-83.6487
 	Iowa		42.0046	-93.214
 	Michigan	43.3504	-84.5603
-	NewJersey	40.314	-74.5089
-	Virginia	18.0001	-64.8199
+	NewJersey	40.314  -74.5089
+	Virginia	37.43157    -78.656895
 	Washington	47.3917	-121.5708
 	Florida		27.8333	-81.717
 	Tennessee	35.7449	-86.7489

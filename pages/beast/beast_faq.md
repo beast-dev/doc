@@ -4,7 +4,7 @@ permalink: faq.html
 sidebar: beast_sidebar
 tags: [help, trouble-shooting]
 keywords: frequently asked questions, FAQ, question and answer, help
-last_updated: July 5, 2017
+last_updated: September 3, 2017
 summary: "Frequently asked questions about BEAST."
 toc: true
 folder: beast
@@ -408,6 +408,70 @@ Thus it is particularly important that constraints, like &lt;booleanLikelihood&g
         			</div>
         		</div>
         	</div>
+</div>
+<!-- /.panel-group -->
+
+## Starting tree and fixing trees
+
+<div class="panel-group" id="accordion">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#qudtree">Can you specify a user-defined starting tree?</a>
+			</div>
+		</div>
+		<div id="qudtree" class="panel-collapse collapse noCrossRef">
+			<div class="panel-body">
+				Yes, you can insert a starting tree in Newick format into the BEAST XML using a text editor: 
+<pre>
+&lt;newick id="startingTree"&gt;
+    insert you starting tree here in Newick format
+&lt;/newick&gt;
+</pre>
+				The &lt;treeModel&gt; XML element then needs to contain a reference to this starting tree XML element:
+<pre>
+&lt;newick idref="startingTree"/&gt;
+</pre>
+				Alternatively, you can provide a starting tree using BEAUti, in the Trees panel.
+				You can load a file containg one or more trees (in Newick format) into BEAUti using the "Import Data" menu option.
+			</div>
+		</div>
+	</div>
+	<!-- /.panel -->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#qcontop">How can you keep this topology constant while estimating other parameters, e.g. node height?</a>
+			</div>
+		</div>
+		<div id="qcontop" class="panel-collapse collapse noCrossRef">
+			<div class="panel-body">
+			In short, you need to remove all the operators that act on the treeModel. 
+			In BEAUti, you can do this by deselecting the following operators: narrow exchange, wide exchange, Wilson Balding and subtree slide. 
+			Alternatively, you can remove these operators from the XML using a text editor (but don't remove the operators acting upon treeModel.rootHeight or treeModel.internalNodeHeights). 
+			Without these operators, the actual topology of the tree will not be altered.
+			</div>
+		</div>
+	</div>
+	<!-- /.panel -->
+<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#qprinttree">How can I see the initial tree of my analysis?</a>
+			</div>
+		</div>
+		<div id="qprinttree" class="panel-collapse collapse noCrossRef">
+			<div class="panel-body">
+			If you want to print the initial tree for your analysis printed to screen, you can add the following to the BEAST XML file using a text editor:
+<pre>
+&lt;report&gt;
+    &lt;treeModel idref="treeModel"/&gt;
+&lt;/report&gt;
+</pre>
+			</div>
+		</div>
+	</div>
+	<!-- /.panel -->
 </div>
 <!-- /.panel-group -->
 
