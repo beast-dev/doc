@@ -3,21 +3,22 @@ title: Markov Jumps and Rewards
 keywords: CTMC, Markov jumps, Markov rewards
 last_updated: October 18, 2017
 tags: [tutorial]
-summary: "Obtaining Markov jump counts and Markov rewards."
+summary: "A process of discrete state transitioning in evolutionary history is generally modelled using a continuous-time Markov chain (CTMC) model. 
+This is the case for both sequence evolution and discrete trait evolution, e.g. for location traits in phylogeographic inference.
+Fitting a CMTC model to discrete data results yields model parameter estimates, but the realisation of the process remains unobserved. 
+This realisation includes all the transitions (Markov jumps) between states along phylogenetic branches and the time (Markov rewards) spent in the states between two transitions.
+This tutorial discusses how to estimate such quantities using stochastic mapping techniques implemented in BEAST. 
+"
 
 sidebar: beast_sidebar
 permalink: markov_jumps_rewards.html
 folder: beast
 ---
 
+{% capture root_url %}{{ site.tutorials_root_url }}/markov_jumps_rewards/{% endcapture %}
+
 ## Markov jumps and rewards tutorial
 
-A process of discrete state transitioning in evolutionary history is generally modelled using a continuous-time Markov chain (CTMC) model. 
-This is the case for both sequence evolution and discrete trait evolution, e.g. for location traits in phylogeographic inference.
-Fitting a CMTC model to discrete data results yields model parameter estimates, but the realisation of the process remains unobserved. 
-This realisation includes all the transitions (Markov jumps) between states along phylogenetic branches and the time (Markov rewards) spent in the states between two transitions.
-This tutorial discusses how to estimate such quantities using stochastic mapping techniques implemented in BEAST. 
-It builds on the discrete diffusion analysis of bat rabies in the Americas that is set up as part of the workshop tutorial on discrete phylogeographic diffusion.
 {% include callout.html content='The tutorial builds on the discrete diffusion analysis of bat rabies in the Americas that is set up as part of the workshop tutorial on discrete phylogeographic diffusion. <a href="workshop_discrete_diffusion">\'Phylogeographic diffusion in discrete space\' tutorial</a>.' %}
 
 
