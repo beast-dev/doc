@@ -140,7 +140,7 @@ entries:
       output: web, pdf
 
     - title: Markov Jumps and Rewards Tutorial
-      url: /markov_jumops_rewards
+      url: /markov_jumps_rewards
       output: web, pdf
 
     - title: Epoch Model Tutorial
