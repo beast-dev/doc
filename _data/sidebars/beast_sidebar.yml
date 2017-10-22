@@ -139,6 +139,10 @@ entries:
       url: /hierarchical_models
       output: web, pdf
 
+    - title: Markov Jumps and Rewards Tutorial
+      url: /markov_jumops_rewards
+      output: web, pdf
+
     - title: Epoch Model Tutorial
       url: /epoch_models
       output: web, pdf

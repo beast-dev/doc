@@ -76,7 +76,7 @@ The parameter with 'id=host.count' ensures that the total number of (all possibl
 	</generalDataType>
 ```
 
-This is easier to interpret in we add carriage returns after every 17th element of the vector:
+The vector is easier to interpret as a matrix if we add carriage returns after every 17th element:
 
 ```xml
 		<parameter id="host.count" value=" 
@@ -99,7 +99,7 @@ This is easier to interpret in we add carriage returns after every 17th element 
 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0"/>
 ```
 
-This makes that clear that the 0's represent the diagonal elements of the matrix (of course, we cannot ge 'jumps' if the CTMC stays in the same state). Suppose we only would like to count all jumps from 'Ap' to 'Ef', we need to add the following parameter:
+This makes that clear that the 0's represent the diagonal elements of the matrix (of course, we cannot get 'jumps' if the CTMC stays in the same state). Suppose we only would like to count all jumps from 'Ap' to 'Ef', we need to add the following parameter to 'label' that jump:
 
 ```xml
 		<parameter id="host.ApToEf" value=" 
@@ -219,7 +219,7 @@ will be logged by adding reward parameters to the markovJumpsTreeLikelihood. Thi
 ```
 
 Feel free to add any other Markov jump or reward parameter to the markovJumpsTreeLikelihood. The fact that the markovJumpsTreeLikelihood element is added by default to the log file ensures that all the quantities registered as parameters will be logged. 
-The xml example that has can edited to include the Markov jumps and rewards can be [downloaded from here]({{ root_url }}files/batRABV.xml). When running this file in BEAST, the Markov jumps and rewards can be summarized in Tracer:
+The xml example that has been edited to include the Markov jumps and rewards can be [downloaded from here]({{ root_url }}files/batRABV.xml). When running this file in BEAST, the Markov jumps and rewards can be summarized in Tracer:
 
 
 
