@@ -220,9 +220,12 @@ will be logged by adding reward parameters to the markovJumpsTreeLikelihood. Thi
 ```
 
 Feel free to add any other Markov jump or reward parameter to the markovJumpsTreeLikelihood. The fact that the markovJumpsTreeLikelihood element is added by default to the log file ensures that all the quantities registered as parameters will be logged. 
-The xml example that has been edited to include the Markov jumps and rewards can be [downloaded from here]({{ root_url }}files/batRABV.xml). When running this file in BEAST, the Markov jumps and rewards can be summarized in Tracer:
+The xml example that has been edited to include the Markov jumps and rewards can be [downloaded from here]({{ root_url }}files/batRABV.xml). When running this file in BEAST, the Markov jumps and rewards can be summarized in Tracer. 
+For this analysis, their appear near the bottom of the Tracer window:
 
+{% include image.html file="02_tracer.png" prefix=root_url %}
 
+Note that this short run has not reached past burn-in yet, so a much longer run is required to obtain a proper sample from the posterior.
 
 ## References
 
