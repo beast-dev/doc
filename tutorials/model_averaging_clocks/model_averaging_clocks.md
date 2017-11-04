@@ -59,7 +59,100 @@ It's of course possible to edit the prior distributions and the transition kerne
 
 ### Modifying Bayesian Model Averaging through XML editing {#BMAXML}
 
+Using the default mixture of models in BEAUti, the following XML code is generated in the output XML file:
 
+```xml
+<beast>
+    ...
+    <mixtureModelBranchRates id="branchRates">
+        <treeModel idref="treeModel"/>
+        <distribution>
+            <logNormalDistributionModel meanInRealSpace="true">
+                <mean>
+                    <parameter id="ucld.mean" value="1.0"/>
+                </mean>
+                <stdev>
+                    <parameter id="ucld.stdev" value="0.3333333333333333" lower="0.0"/>
+                </stdev>
+            </logNormalDistributionModel>
+        </distribution>
+        <distribution>
+            <gammaDistributionModel>
+                <mean>
+                    <parameter id="ucgd.mean" value="1.0"/>
+                </mean>
+                <shape>
+                    <parameter id="ucgd.shape" value="0.3333333333333333" lower="0.0"/>
+                </shape>
+            </gammaDistributionModel>
+        </distribution>
+        <distribution>
+            <exponentialDistributionModel>
+                <mean>
+                    <parameter id="uced.mean" value="1.0"/>
+                </mean>
+            </exponentialDistributionModel>
+        </distribution>
+        <distributionIndex>
+            <parameter id="branchRates.distributionIndex" value="0.0" lower="0.0"/>
+        </distributionIndex>
+        <rateCategoryQuantiles>
+            <parameter id="branchRates.quantiles" value="0.5" lower="0.0" upper="1.0"/>
+        </rateCategoryQuantiles>
+    </mixtureModelBranchRates> 
+    ...
+</beast>
+```
+
+It's however quite straight forward to add or replace the provided distributions with underlying distributions of your own choosing.
+For example, in the BMA paper of Li and Drummond (2012), an inverse Gaussian distribution is used rather than a gamma distribution.
+In order to create such a mixture of models, the &lt;gammaDistributionModel&gt;...&lt;/gammaDistributionModel&gt; block can be replaced by the following XML code:
+
+```xml
+<inverseGaussianDistributionModel>
+    <mean>
+        <parameter id="ucid.mean" value="1.0"/>
+    </mean>
+    <stdev>
+        <parameter id="ucid.stdev" value="0.3333333333333333"/>
+    </stdev>
+</inverseGaussianDistributionModel>
+```
+
+Additionally, the transition kernels for the ucgd.mean and ucgd.shape parameters need to be replaced by the following:
+
+```xml
+<scaleOperator scaleFactor="0.75" weight="10">
+    <parameter idref="ucid.mean"/>
+</scaleOperator>
+<scaleOperator scaleFactor="0.75" weight="5">
+    <parameter idref="ucid.stdev"/>
+</scaleOperator>
+<upDownOperator scaleFactor="0.75" weight="3">
+    <up>
+        <parameter idref="ucid.mean"/>
+    </up>
+    <down>
+        <parameter idref="treeModel.allInternalNodeHeights"/>
+    </down>
+</upDownOperator>
+```
+
+The prior specifications also need to be adjusted, i.e. the priors on ucgd.mean and ucgd.shape need to be removed and the following priors can be added:
+
+```xml
+<ctmcScalePrior>
+    <ctmcScale>
+        <parameter idref="ucid.mean"/>
+    </ctmcScale>
+    <treeModel idref="treeModel"/>
+</ctmcScalePrior>
+<exponentialPrior mean="0.3333333333333333" offset="0.0">
+    <parameter idref="ucid.stdev"/>
+</exponentialPrior>
+```
+
+Finally, don't forget to modify the parameters that are being written to file.
 
 
 ## References
