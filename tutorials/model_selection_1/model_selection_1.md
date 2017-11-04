@@ -87,7 +87,7 @@ Path sampling and stepping-stone sampling can be set up in BEAUti, resulting in 
 The collected samples will be used to construct both the path sampling and the stepping-stone sampling estimator for the log marginal likelihood.
 In other words, one set of additional calculations will result in two log marginal likelihood estimates and both will be printed to screen.
 
-There is also tutorial available on [how to set up log marginal likelihood estimation using generalized stepping-stone sampling](model_selection_2).
+There is also a tutorial available on [how to set up log marginal likelihood estimation using generalized stepping-stone sampling](model_selection_2).
 
 In BEAUti, and after loading a data set, go to the 'MCMC' panel.
 At the bottom, you can select your method of choice to estimate the log marginal likelihood for your selection of models on this data set.
