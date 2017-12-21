@@ -56,7 +56,9 @@ We also provide a number of stand-alone 'how-to' documents which describe the pr
 
 These tutorials tackle a range of advanced, technical, topics. They usually involve editing the BEAST XML configuration files.
 
-[Hierarchical Phylogenetic Model](hierarchical_models)
+[Hierarchical Phylogenetic Models](hierarchical_models)
+
+[Markov Jumps and Rewards](markov_jumps_rewards)
 
 [Epoch Models](epoch_tutorial)
 

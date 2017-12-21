@@ -139,6 +139,10 @@ entries:
       url: /hierarchical_models
       output: web, pdf
 
+    - title: Markov Jumps and Rewards Tutorial
+      url: /markov_jumps_rewards
+      output: web, pdf
+
     - title: Epoch Model Tutorial
       url: /epoch_models
       output: web, pdf
@@ -153,6 +157,10 @@ entries:
 
     - title: Model Selection Advanced Tutorial
       url: /model_selection_2
+      output: web, pdf
+
+    - title: Clock Model Averaging Tutorial
+      url: /model_averaging_clocks
       output: web, pdf
 
   - title: Workshop Tutorials
