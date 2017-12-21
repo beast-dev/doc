@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How many rooted trees are there?</title>
+    <meta name="description" content="">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.4.3.min.js" ></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <style type="text/css">
+    body {
+    	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight: 300;
+    }
+   </style>
+</head>
+
+<body>
+<form id="parameters">
+	<label for="tips">Number of tips: </label>	
+	<input type="text" id="tips"  /><br />
+	<input type="submit" value="Calculate" />
+</form>
+<hr />
+<div id="result"></div>
+</body>
+
+<script type="text/javascript">
+
+	$('#tips').val("10");
+
+	$( "#parameters" ).submit(function( event ) {
+		calculate();
+		event.preventDefault();
+	});
+	
+	calculate();
+	
+	function calculate() {
+		var nTips = parseFloat($('#tips').val());
+				
+		sum1 = 0;
+		x = 2 * nTips - 3;
+		
+		for (i = 1; i <= x; i++) {	
+			sum1 += Math.log10(i);
+		}
+	
+		sum2 = 0;
+		x = nTips-2;
+		for (i = 1; i <= x; i++) {	
+			sum2 += Math.log10(i);
+		}
+
+		logNr = sum1 - ((nTips - 2) * Math.log10(2)) - sum2;
+		
+		expon = Math.floor(logNr);
+		mant = logNr % 1;
+	
+		console.log("logNr = " + logNr);
+		console.log("   Nr = " + Math.pow(10, mant) + " E " + expon);
+		
+		result = "Number of rooted trees = " + Math.pow(10, mant).toFixed(6) + " E " + expon;
+		document.getElementById("result").innerHTML = result;
+	}
+
+
+</script>
+
+</html>
