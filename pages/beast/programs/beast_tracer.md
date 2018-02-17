@@ -9,7 +9,7 @@ toc: false
 folder: beast/programs
 ---
 
-{% include icon-callout.html file='icons/tracer-icon.png' content='Tracer is graphical tool for visualization and diagnostics of MCMC output.' %}
+{% include icon-callout.html file='icons/tracer-icon.png' content='Tracer is a graphical tool for visualization and diagnostics of MCMC output.' %}
 
 Tracer (now at version 1.7) is a software package for visualising and analysing the MCMC trace files generated through Bayesian phylogenetic inference. 
 Tracer provides kernel density estimation, multivariate visualisation, demographic trajectory reconstruction, conditional posterior distribution summary and more.
