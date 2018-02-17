@@ -34,11 +34,9 @@ We also include a viral sequence with an unknown sampling date (accession no. TX
 A uniform prior specification for the age of TX5275 adequately is used in our inference, based on the assumption that its sampling time is bounded by the sampling time distribution of the data set, implying that it is sampled between 1997.5 and 2005.5.
 We estimate RABV ancestral locations and host-jumping history using a Bayesian discrete phylogeographic approach with BSSVS (Lemet et al., 2009), while simultaneously estimating effective population sizes over time through a Bayesian skygrid coalescent model (Gill et al., 2012).
 
-### Loading the BEAST log files
+### The main Tracer panel
 
-#### The main Tracer panel
-
-Select the Open option from the File menu.
+To load the BEAST log file(s), select the Open option from the File menu or drag and drop the log file into the Tracer window.
 The file will load and you will be presented with a window similar to the one below. 
 Remember that BEAST is a stochastic program so the actual numbers will not be exactly the same.
 
@@ -109,7 +107,7 @@ Notice how all the other parameters now also show (much) increased ESS values, s
 Most of those parameters have ESS values of about 200, meaning there is still auto-correlation between the samples but 200 effectively independent samples is fairly acceptable. 
 Note that, while this analysis consists of multiple parameter types (Real/Integer/Categorical), ESS values only apply to Real (or continuous) parameters.
 
-#### The marginal density panel
+### The marginal density panel
 
 
 
@@ -121,6 +119,12 @@ Note that, while this analysis consists of multiple parameter types (Real/Intege
 
 ## References
 
+Streicker, D., Turmelle, A., Vonhof, M., Kuzmin, I., McCracken, G. F., and Rupprecht, C. (2010). Host phylogeny constrains cross-species emergence and establishment of rabies virus in bats. Science, 329, 676–679.
 
+Faria, N., Suchard, M., Rambaut, A., Streicker, D., and Lemey, P. (2013). Simultaneously reconstructing viral cross-species transmission history and identifying the underlying constraint. Phil. Trans. R. Soc. London B, Biol. Sci., 368, 20120196.
+
+Lemey, P., Rambaut, A., Drummond, A., and Suchard, M. (2009). Bayesian phylogeography finds its root. PLoS Comp Biol, 5(9), e1000520.
+
+Gill, M.S., Lemey, P., Faria, N.R., Rambaut, A., Shapiro, B. and Suchard M.A. (2013). Improving Bayesian population dynamics inference: a coalescent-based model for multiple loci. Mol. Biol. Evol. 30:713–724.
 
 {% include links.html %}
