@@ -10,7 +10,6 @@ folder: beast
 redirect_from: "/analysing-beast-output"
 ---
 
-{% include warning.html content="This page is currently under construction (February 17, 2018)." %}
 
 ## Analysing BEAST output using Tracer
 
@@ -124,9 +123,9 @@ Note that, while this analysis consists of multiple parameter types (Real/Intege
 A separate [reference page on ESS values and how to increase them](ess_tutorial) is available.
 
 
-### The Marginal density panel
+### The Marginal Density panel
 
-Keeping our selection of two parameters (host.clock.rate and state.clock.rate) and switching to the marginal density panel provides us with the following kernel density plot:
+Keeping our selection of two parameters (host.clock.rate and state.clock.rate) and switching to the Marginal Density panel provides us with the following kernel density plot:
 
 {% include image.html file="tracer5.png" prefix="/tutorials/howtos/" %}<br />
 
@@ -146,8 +145,53 @@ Histograms are used to visualize a parameter of the Categorical type:
 
 ### The Joint-Marginal panel
 
+Much like the Marginal Density panel, the visualization options in the Joint-Marginal panel depend on the trace type of the selected parameter(s).
+Selecting two continuous (or Real) parameters leads to a classic scatter plot being shown, allowing to assess the correlation between those parameters:
+
+{% include image.html file="tracer9.png" prefix="/tutorials/howtos/" %}<br />
+
+When multiple continuous (or Real) parameters are selected, extensions for correlations using large correlation matrices are used (Murdoch and Chow; 1996):
+
+{% include image.html file="tracer10.png" prefix="/tutorials/howtos/" %}<br />
+
+Colour gradients indicate strength and direction of the correlation, from red (strong negative) to blue (strong positive). 
+Ellipse shapes re-enforce the strength of correlation, with no correlation appearing as a circle and perfect (anti-)correlation as a line.
+
+For Integer parameters, selecting exactly two parameters yields a visualization of the joint probability distribution of those two integer variables through a bubble chart:
+
+{% include image.html file="tracer11.png" prefix="/tutorials/howtos/" %}<br />
+
+Tracer 1.7 also allows selecting parameters of different trace types, such as one Integer and one Real parameter:
+
+{% include image.html file="tracer12.png" prefix="/tutorials/howtos/" %}<br />
+
+This draws one box and whisker plot for each unique value of the Integer parameter selected.
 
 
+### Visualizing effective population sizes over time
+
+Tracer 1.7 provides demographic reconstruction resulting in a graphical plot, often applied to reconstruct epidemic dynamics. 
+Available models are constant size, exponential and logistic growth (Drummond et al., 2002), and the non-parametric Bayesian skyline (Drummond et al., 2005; Heled and Drummond, 2008), skyride (Minin et al., 2008) and skygrid (Gill et al., 2012).
+Note that a separate page is available on the various possible [tree priors in BEAST](tree_priors).
+
+For the data analysis in this tutorial, the non-parameter skygrid coalescent model (Gill et al., 2012) was used and we show here how to perform a demographic reconstruction.
+In the Tracer menu bar, select Analysis which will show the following options:
+
+{% include image.html file="tracer13.png" prefix="/tutorials/howtos/" %}<br />
+
+The next window allows setting various options, but typically only the 'Age of the youngest tip' needs to be provided:
+
+{% include image.html file="tracer14.png" prefix="/tutorials/howtos/" %}<br />
+
+For this data set, we advise to manually set the range of the X axis in the graphical plot (which you can for any plot in Tracer 1.7):
+
+{% include image.html file="tracer15.png" prefix="/tutorials/howtos/" %}<br />
+
+These steps allow Tracer to reconstruct the demographic history of RABV by drawing the effective population sizes over time. 
+RABV has successfully established itself in North American bat species, with its effective population size rising steadily throughout recent centuries. 
+Following a rapid decline at the end of last century, we observe a recent sharp increase in size.
+
+{% include image.html file="tracer16.png" prefix="/tutorials/howtos/" %}<br />
 
 
 ## References
@@ -156,8 +200,18 @@ Streicker, D., Turmelle, A., Vonhof, M., Kuzmin, I., McCracken, G. F., and Ruppr
 
 Faria, N., Suchard, M., Rambaut, A., Streicker, D., and Lemey, P. (2013). Simultaneously reconstructing viral cross-species transmission history and identifying the underlying constraint. Phil. Trans. R. Soc. London B, Biol. Sci., 368, 20120196.
 
-Lemey, P., Rambaut, A., Drummond, A., and Suchard, M. (2009). Bayesian phylogeography finds its root. PLoS Comp Biol, 5(9), e1000520.
+Lemey, P., Rambaut, A., Drummond, A., and Suchard, M. (2009). Bayesian phylogeography finds its root. PLoS Comp. Biol., 5(9), e1000520.
 
 Gill, M.S., Lemey, P., Faria, N.R., Rambaut, A., Shapiro, B. and Suchard M.A. (2013). Improving Bayesian population dynamics inference: a coalescent-based model for multiple loci. Mol. Biol. Evol. 30:713–724.
+
+Murdoch, D. and Chow, E. (1996). A graphical display of large correlation matrices. Am. Stat., 50, 178–180.
+
+Drummond, A. J., Nicholls, G. K., Rodrigo, A. G., and Solomon, W. (2002). Estimating mutation parameters, population history and genealogy simultaneously from temporally spaced sequence data. Genetics, 161(3), 1307–1320.
+
+Drummond, A. J., Rambaut, A., Shapiro, B., and Pybus, O. G. (2005). Bayesian coalescent inference of past population dynamics from molecular sequences. Mol. Biol. Evol., 22(5), 1185–1192.
+
+Heled, J. and Drummond, A. J. (2008). Bayesian inference of population size history from multiple loci. BMC Evol. Biol., 8, 289.
+
+Minin, V. N., Bloomquist, E. W., and Suchard, M. A. (2008). Smooth skyride through a rough skyline: Bayesian coalescent- based inference of population dynamics. Mol. Biol. Evol., 25(7), 1459–1471.
 
 {% include links.html %}
