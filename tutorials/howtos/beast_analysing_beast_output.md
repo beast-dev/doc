@@ -1,7 +1,7 @@
 ---
 title: Analysing BEAST Output
 keywords: tracer, tutorial
-last_updated: July 6, 2017
+last_updated: February 17, 2018
 tags: [how-to]
 summary: "Analysing BEAST output files"
 sidebar: beast_sidebar
@@ -13,52 +13,70 @@ redirect_from: "/analysing-beast-output"
 {% include warning.html content="This page unfinished." %}
 
 ## Analysing BEAST output using Tracer
-This document provides a step-by-step tutorial to analysing the output of BEAST in a GUI application called Tracer.
 
-Running Tracer
-The exact instructions for running Tracer differs depending on which computer you are using. Please see the README text file that was distributed with the version you downloaded.
+This document provides a step-by-step tutorial to analysing the output of BEAST in a GUI application called Tracer 1.7.
 
-Once running, Tracer will look similar irrespective of which computer system it is running on. For this tutorial, the Mac OS X version will be shown but the Linux & Windows versions will have exactly the same layout and functionality.
+### Running Tracer
 
+The exact instructions for running Tracer differs depending on which computer you are using. 
+Please see the README text file that was distributed with the version you downloaded.
+Once running, Tracer will look similar irrespective of which computer system it is running on. 
+For this tutorial, the Mac OS X version will be shown but the Linux and Windows versions will have exactly the same layout and functionality.
 
-Loading the BEAST log files
-Select the Open option from the File menu. If you have it available, select the log file that you created in the [first tutorial|Tutorial 1]. The file will load and you will presented with a window similar to the one below. Remember that BEAST is a stochastic program so the actual numbers will not be exactly the same.
+### Data set information
 
-tracer0.png
+For this tutorial, if you have it available, you can use the log file that you created in the [first tutorial|Tutorial 1]. 
 
-On the left hand side is the name of the log file loaded and the traces that it contains. There are traces for the likelihood (this is the combined log likelihood of the tree and the coalescent model), and the continuous parameters. Selecting a trace on the left brings up analyses for this trace on the right hand side depending on tab that is selected. In the picture above, the log likelihood trace is selected and various statistics of this trace is shown under the Estimates tab.
+Here, we use Tracer 1.7 to infer the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations. 
+The data set consists of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353) and comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States (Streicker et al., Science, 2010, 329, 676-679). 
+Following Faria et al. (Phil. Trans. Roy. Soc. B, 2013), two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, Myotis austroriparius (Ma) and Parastrellus hesperus (Ph), are also included here. 
+We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from Lasiurus borealis). 
+A uniform prior specification for the age of TX5275 adequately is used in our inference, based on the assumption that its sampling time is bounded by the sampling time distribution of the data set, implying that it is sampled between 1997.5 and 2005.5.
+We estimate RABV ancestral locations and host-jumping history using a Bayesian discrete phylogeographic approach with BSSVS (Lemet et al., 2009), while simultaneously estimating effective population sizes over time through a Bayesian skygrid coalescent model (Gill et al., 2012).
 
-Note that the Effective Sample Sizes(ESSs) for all the traces are small (ESSs less than 100 are highlighted in red by Tracer). This is not good. A low ESS means that the trace contained a lot of correlated samples and thus may not represent the posterior distribution well. In the bottom right of the window is a frequency plot of the samples which as expected given the low ESSs is extremely rough.
+### Loading the BEAST log files
 
-In the top right of the window is a table of calculated statistics for the selected trace. The statistics and their meaning are described in the table below.
+#### The main Tracer panel
 
-Mean
+Select the Open option from the File menu.
+The file will load and you will be presented with a window similar to the one below. 
+Remember that BEAST is a stochastic program so the actual numbers will not be exactly the same.
 
-The mean value of the sampled trace across the chain (excluding the burn-in).
+{% include image.html file="tracer0.png" prefix="/tutorials/howtos/" %}<br />
 
-Stdev
+On the left hand side is the name of the log file loaded and the traces that it contains. 
+There are traces for the posterior, prior, likelihood, and all the integer, categorical and continuous parameters that are being estimated. 
+Selecting a trace on the left brings up analyses for this trace on the right hand side depending on the tab that is selected and the parameter type (Real/Integer/Categorical). 
+In the figure above, the state.clock.rate trace is selected and various statistics of this trace is shown under the Estimates tab.
 
-The standard deviation of the mean. This takes into account the effective sample size so a small ESS will give a large Stdev.
+Note that the Effective Sample Sizes(ESSs) for many of the traces are small (ESSs less than 100 are highlighted in red by Tracer). 
+This indicates that the current analysis did not yet yield a sufficient number of independent samples from the posterior distribution for that parameter. 
+A low ESS means that the trace contained a lot of correlated samples and thus may not represent the posterior distribution well. 
+In the bottom right of the window is a frequency plot of the samples.
 
-Median
+In the top right of the window is a table of calculated statistics for the selected trace. 
+The statistics and their meaning are described in the table below.
 
-The median value of the sampled trace across the chain (excluding the burn-in).
+`Mean`
+: The mean value of the sampled trace across the chain (excluding the burn-in).
 
-95% HPD Lower
+`Stdev`
+: The standard deviation of the mean. This takes into account the effective sample size so a small ESS will give a large Stdev.
 
-The lower bound of the highest posterior density (HPD) interval. The HPD is a credible set that contains 95% of the sampled values.
+`Median`
+: The median value of the sampled trace across the chain (excluding the burn-in).
 
-95% HPD Upper
+`95% HPD Lower`
+: The lower bound of the highest posterior density (HPD) interval. The HPD is a credible set that contains 95% of the sampled values.
 
-The upper bound of the highest posterior density (HPD) interval. The HPD is a credible set that contains 95% of the sampled values.
+`95% HPD Upper`
+: The upper bound of the highest posterior density (HPD) interval. The HPD is a credible set that contains 95% of the sampled values.
 
-Auto-Correlation Time (ACT)
+`Auto-Correlation Time (ACT)`
+: The number of states in the MCMC chain that two samples have to be from each other for them to be uncorrelated. The ACT is estimated from the samples in the trace (excluding the burn-in).
 
-The number of states in the MCMC chain that two samples have to be from each other for them to be uncorrelated. The ACT is estimated from the samples in the trace (excluding the burn-in).
-
-Effective Sample Size (ESS)
-
-The ESS is the number of independent samples that the trace is equivalent to. This is essentially the chain length (excluding the burn-in) divided by the ACT.
+`Effective Sample Size (ESS)`
+: The ESS is the number of independent samples that the trace is equivalent to. This is essentially the chain length (excluding the burn-in) divided by the ACT.
 
 If we select the Trace we can view the raw trace, that is, the sampled values against the step in the MCMC chain:
 
@@ -97,5 +115,13 @@ tracer9.png
 tracer10.png
 
 tracer11.png
+
+#### The marginal density panel
+
+
+
+## References
+
+
 
 {% include links.html %}
