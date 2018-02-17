@@ -16,12 +16,14 @@ redirect_from: "/analysing-beast-output"
 
 This document provides a step-by-step tutorial to analysing the output of BEAST in a GUI application called Tracer 1.7.
 
+
 ### Running Tracer
 
 The exact instructions for running Tracer differs depending on which computer you are using. 
 Please see the README text file that was distributed with the version you downloaded.
 Once running, Tracer will look similar irrespective of which computer system it is running on. 
 For this tutorial, the Mac OS X version will be shown but the Linux and Windows versions will have exactly the same layout and functionality.
+
 
 ### Data set information
 
@@ -33,6 +35,7 @@ Following Faria et al. (Phil. Trans. Roy. Soc. B, 2013), two additional species 
 We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from Lasiurus borealis). 
 A uniform prior specification for the age of TX5275 adequately is used in our inference, based on the assumption that its sampling time is bounded by the sampling time distribution of the data set, implying that it is sampled between 1997.5 and 2005.5.
 We estimate RABV ancestral locations and host-jumping history using a Bayesian discrete phylogeographic approach with BSSVS (Lemet et al., 2009), while simultaneously estimating effective population sizes over time through a Bayesian skygrid coalescent model (Gill et al., 2012).
+
 
 ### The main Tracer panel
 
@@ -76,6 +79,17 @@ The statistics and their meaning are described in the table below.
 `Effective Sample Size (ESS)`
 : The ESS is the number of independent samples that the trace is equivalent to. This is essentially the chain length (excluding the burn-in) divided by the ACT.
 
+Selecting two parameters in the left column creates (by default) box and whisker plots for continuous parameters:
+
+{% include image.html file="tracer0-1.png" prefix="/tutorials/howtos/" %}<br />
+
+An alternative visualization is available when selecting multiple parameters of the Integer trace type:
+
+{% include image.html file="tracer0-2.png" prefix="/tutorials/howtos/" %}<br />
+
+
+### The Trace panel
+
 If we select the Trace (panel) we can view the raw trace, that is, the sampled values against the step in the MCMC chain:
 
 {% include image.html file="tracer1.png" prefix="/tutorials/howtos/" %}<br />
@@ -107,11 +121,30 @@ Notice how all the other parameters now also show (much) increased ESS values, s
 Most of those parameters have ESS values of about 200, meaning there is still auto-correlation between the samples but 200 effectively independent samples is fairly acceptable. 
 Note that, while this analysis consists of multiple parameter types (Real/Integer/Categorical), ESS values only apply to Real (or continuous) parameters.
 
-### The marginal density panel
+A separate [reference page on ESS values and how to increase them](ess_tutorial) is available.
 
 
+### The Marginal density panel
+
+Keeping our selection of two parameters (host.clock.rate and state.clock.rate) and switching to the marginal density panel provides us with the following kernel density plot:
 
 {% include image.html file="tracer5.png" prefix="/tutorials/howtos/" %}<br />
+
+It's convenient to switch between these kernel density plots and other visualization options, such as histograms and violin plots for continuous parameters. 
+For example, a violin plot of our two currently selected parameters shows the following:
+
+{% include image.html file="tracer6.png" prefix="/tutorials/howtos/" %}<br />
+
+Frequency plots are used to visualize (multiple) parameters of the Integer type:
+
+{% include image.html file="tracer7.png" prefix="/tutorials/howtos/" %}<br />
+
+Histograms are used to visualize a parameter of the Categorical type:
+
+{% include image.html file="tracer8.png" prefix="/tutorials/howtos/" %}<br />
+
+
+### The Joint-Marginal panel
 
 
 
