@@ -51,6 +51,8 @@ Drummond AJ, Nicholls GK, Rodrigo AG & Solomon W (2002) Estimating mutation para
 
 Rambaut A (2000) Estimating the rate of molecular evolution: incorporating non-contemporaneous sequences into maximum likelihood phylogenies. *Bioinformatics*, **16**, 395-399.
 
+Pybus OG & Rambaut A (2002) GENIE: estimating demographic history from molecular phylogenies. *Bioinformatics*, **18**, 1404-1405.
+
 It is built on a large body of prior work and appropriate citations for individual modules, models and components will be listed when BEAST is run.
 
 ### BEAST-Users mailing list
