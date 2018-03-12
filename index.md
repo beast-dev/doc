@@ -42,8 +42,16 @@ Some downloadable packages containing tutorial worksheets and associated data. T
 
 The recommended citation for this program is:
 
-Drummond AJ, Suchard MA, Xie D & Rambaut A (2012) Bayesian phylogenetics with BEAUti and the BEAST 1.7 Molecular Biology And Evolution 29: 1969-1973 full text
+Drummond AJ, Suchard MA, Xie D & Rambaut A (2012) Bayesian phylogenetics with BEAUti and the BEAST 1.7 *Molecular Biology And Evolution* **29**, 1969-1973 full text
 See this page for a more detailed list of publications for citing individual models and components.
+
+BEAST is descended from earlier work:
+
+Drummond AJ, Nicholls GK, Rodrigo AG & Solomon W (2002) Estimating mutation parameters, population history and genealogy simultaneously from temporally spaced sequence data. *Genetics*, **161**, 1307-1320.
+
+Rambaut A (2000) Estimating the rate of molecular evolution: incorporating non-contemporaneous sequences into maximum likelihood phylogenies. *Bioinformatics*, **16**, 395-399.
+
+It is built on a large body of prior work and appropriate citations for individual modules, models and components will be listed when BEAST is run.
 
 ### BEAST-Users mailing list
 
