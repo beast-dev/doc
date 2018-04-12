@@ -17,16 +17,18 @@ Tracer 1.7 can read output files from [MrBayes](http://mrbayes.csit.fsu.edu/), [
 
 ### Downloading
 
-You can download Tracer 1.7 from here: [http://tree.bio.ed.ac.uk/software/tracer/](http://tree.bio.ed.ac.uk/software/tracer/)
+You can download Tracer 1.7 from here: [https://github.com/beast-dev/tracer/releases](https://github.com/beast-dev/tracer/releases)
 
 ### Using Tracer
 
 A tutorial is available describing [how to use Tracer to analyse the output from BEAST](analysing_beast_output).
 
+Another tutorial focuses on [how to identify convergence problems using Tracer](tracer_convergence).
+
 ### Citing Tracer
 
 The recommended citation for this program is:
 
-Rambaut A, Drummond AJ, Xie D, Baele G &  Suchard MA (2018) Tracer v1.7, Available from [http://tree.bio.ed.ac.uk/software/tracer/](http://tree.bio.ed.ac.uk/software/tracer/)
+Rambaut A, Drummond AJ, Xie D, Baele G and Suchard MA (2018) Tracer v1.7, Available from [http://beast.community/tracer](http://beast.community/tracer)
 
 {% include links.html %}
