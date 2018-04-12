@@ -12,18 +12,18 @@ folder: beast
 ## Identifying convergence problems using Tracer
 
 In a [previous tutorial](analysing_beast_output), analysing the output of a standard BEAST analysis using Tracer 1.7 was discussed.
-Here, this tutorial is extended towards analysing multiple independent runs, using different starting seeds (which leads to different random draws for all parameters involved to act as the initial estimates), in Tracer 1.7.
-
-AWTY (Nylander et al., 2007) and its R counterpart RWTY (Warren et al., 2017) provide visual aids to diagnose phylogenetic MCMC convergence, focusing on convergence of the tree topology by comparing different replicates of an analysis.
-As such, these tools are considered to be complementary to Tracer's functionality.
+Here, this tutorial is extended towards analysing multiple independent runs (using the same combination of models), using different starting seeds (which leads to different random draws for all parameters involved to act as the initial estimates), in Tracer 1.7.
 
 Note also that various tree metrics are available through BEAST, in a stand-alone program called TopologyTracer, which takes a .trees file and computes tree metrics for each tree.
 TopologyTracer will generate an output .log file, which can then be loaded into Tracer 1.7.
 
+AWTY (Nylander et al., 2007) and its R counterpart RWTY (Warren et al., 2017) provide visual aids to diagnose phylogenetic MCMC convergence, focusing on convergence of the tree topology by comparing different replicates of an analysis.
+As such, these tools are considered to be complementary to Tracer's functionality.
+
 
 ### Data set information
 
-Here, we take a look at an analysis of a (n unpublished) simulated data set based on an empirical hepatitis C virus (HCV) data set, which comprises 378 taxa sampled between 1965 and July 2012.
+Here, we take a look at an analysis of a (n unpublished) simulated data set based on a hepatitis C virus (HCV) data set, which consists of 378 taxa sampled between 1965 and July 2012.
 The original data set was analysed using a Bayesian skygrid coalescent model (Gill et al., 2013) and unlinked general time-reversible substitution models with among-site rate heterogeneity and relative rates across the three codon positions.
 A tree from the posterior distribution was selected to serve as the reference tree for the simulation process using πBUSS (Bielejec et al., 2014).
 The same substitution model setup was used for the simulation process, but relative rates across codon positions were set to 1.
@@ -42,16 +42,16 @@ The files will load and you will be presented with a window similar to the one b
 {% include image.html file="convergence_0.png" prefix="/tutorials/howtos/" %}<br />
 
 As with loading a single log file, the name of the log file loaded and the traces that it contains can be seen on the left hand side. 
-When the different files loaded contain the same set of logged parameters, then a *Combined* trace will automatically appear.
+When the different files loaded contain the same set of logged parameters, then a *Combined* trace will automatically appear (with a number of iterations equal to the sum of the two traces minus their burn-in length).
 
 #### Exploring combined traces
 
-Selecting this *Combined* trace allows to explore a concatenation of the log files.
-For the example we're exploring here, selection the *Combined* trace will yield the following visualisation:
+Selecting the *Combined* trace allows to explore a concatenation of the log files.
+For the example we're exploring here, selecting the *Combined* trace will yield the following visualisation:
 
 {% include image.html file="convergence_1.png" prefix="/tutorials/howtos/" %}<br />
 
-The histogram shown indicates a clear problem with the analysis, as the distribution of the joint density (or posterior) seems to be bimodal. 
+The histogram shown indicates a clear problem with the analysis, as the distribution of the joint density (or posterior) is bimodal. 
 To obtain a better understanding of what's going on, we can select the *Trace* panel which will show the following combined trace:
 
 {% include image.html file="convergence_2.png" prefix="/tutorials/howtos/" %}<br />
@@ -86,7 +86,8 @@ Obviously, with the current state of the analyses, no conclusions can be drawn a
 These types of convergence problems can be solved by a number of different approaches.
 The most obvious proposed solution would be to run the analyses for longer, in the hope that both replicate analyses convergence to the same joint density.
 Alternatively, it can be argued that both analyses are stuck in different (possibly local) optima and that the transition kernels need to be adjusted so that the Markov chains can escape these local optima.
-For example, a transition kernel that occasionally proposes a large jump across parameter space may allow these analyses to converge towards the same joint density.
+For example, a transition kernel that occasionally proposes a large jump across parameter space for one or more parameters may allow these analyses to converge towards the same joint density.
+In order to identify for which parameters this would be useful, careful inspection of the different parameter traces may be useful (to check which parameters clearly differ in their posterior estimates or if one or more parameters differ between replicate analyses).
 
 
 ### Citing Tracer
