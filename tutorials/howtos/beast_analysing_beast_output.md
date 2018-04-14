@@ -23,6 +23,13 @@ Please see the README text file that was distributed with the version you downlo
 Once running, Tracer will look similar irrespective of which computer system it is running on. 
 For this tutorial, the Mac OS X version will be shown but the Linux and Windows versions will have exactly the same layout and functionality.
 
+Note that loading **extremely** large output files into Tracer may cause it to become unresponsive.
+Should that be the case, we suggest to allocate more memory to Tracer, which can be done by running Tracer from command line (e.g. using the tracer.jar in the ```lib``` folder of the Tracer download).
+For example, to allocate 4Gb of memory to Tracer, run the following from command line:
+```
+java -Xmx4096m -jar tracer.jar
+```
+
 
 ### Data set information
 
