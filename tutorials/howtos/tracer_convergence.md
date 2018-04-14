@@ -24,19 +24,14 @@ As such, these tools are considered to be complementary to Tracer's functionalit
 ### Data set information
 
 Here, we take a look at an analysis of a (n unpublished) simulated data set based on a hepatitis C virus (HCV) data set, which consists of 378 taxa sampled between 1965 and July 2012.
-The original data set was analysed using a Bayesian skygrid coalescent model (Gill et al., 2013) and unlinked general time-reversible substitution models with among-site rate heterogeneity and relative rates across the three codon positions.
-A tree from the posterior distribution was selected to serve as the reference tree for the simulation process using πBUSS (Bielejec et al., 2014).
-The same substitution model setup was used for the simulation process, but relative rates across codon positions were set to 1.
-The Bayesian skyline model (Drummond et al., 2005) serves as the coalescent model of choice to perform Bayesian inference on the simulated data set.
-
-Two independent BEAST analyses (i.e. with different starting seeds) were performed on the simulated data set, each comprising 90 million iterations.
+Two independent BEAST analyses (i.e. analysing the same simulated data set but with different starting seeds) were performed on this simulated data set, each comprising 90 million iterations, and should hence converge to the same posterior distribution.
 Comparison of marginal distributions and/or traces from multiple replicate chains can assist in diagnosing problems with phylogenetic MCMC analyses, given that well-behaved replicate chains will lead to similar posterior distributions.
 
 
 ### Loading output files into Tracer
 
 We start by loading the output .log files of both replicates of the same BEAST XML into Tracer 1.7.
-To load the BEAST log file(s), select the Open option from the File menu or drag and drop the log file into the Tracer window.
+To load the log file(s), select the Open option from the File menu or drag and drop the log file into the Tracer window.
 The files will load and you will be presented with a window similar to the one below.
 
 {% include image.html file="convergence_0.png" prefix="/tutorials/howtos/" %}<br />
@@ -102,11 +97,5 @@ Rambaut A, Drummond AJ, Xie D, Baele G and Suchard MA (2018) Tracer v1.7, Availa
 Nylander, J. A. A., Wilgenbusch, J. C., Warren D. L., Swofford, D. L. (2007) AWTY (Are We There Yet?): a system for graphical exploration of MCMC convergence in Bayesian phylogenetics. Bioinformatics 24(4):581-583.
 
 Warren, D. L, Geneva, A. J., Lanfear, R. (2017) RWTY (R We There Yet): an R package for examining convergence of Bayesian phylogenetic analyses. Mol. Biol. Evol. 34(4):1016-1020.
-
-Gill, M. S., Lemey, P., Faria, N. R., Rambaut, A., Shapiro, B., & Suchard, M. A. (2012). Improving Bayesian population dynamics inference: a coalescent-based model for multiple loci. Molecular biology and evolution, 30(3), 713-724.
-
-Bielejec, F., Lemey, P., Carvalho, L. M., Baele, G., Rambaut, A., Suchard, M. A. (2014) πBUSS: a parallel BEAST/BEAGLE utility for sequence simulation under complex evolutionary scenarios. BMC Bioinformatics 15:133.
-
-Drummond, A., Rambaut, A., Shapiro, B., Pybus, O. (2005) Bayesian coalescent inference of past population dynamics from molecular sequences. Mol. Biol. Evol. 22:1185-1192.
 
 {% include links.html %}
