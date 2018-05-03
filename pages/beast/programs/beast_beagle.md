@@ -106,37 +106,36 @@ The full list of command-line BEAGLE options can be listed using ```beast -help`
 
 * When attempting to run BEAST with BEAGLE, I get the following error message and BEAST/BEAGLE crashes:
 
-```
-# A fatal error has been detected by the Java Runtime Environment:
-#
-#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x476bcb8d, pid=2548, tid=0x00000244
-#
-# JRE version: Java(TM) SE Runtime Environment (8.0_144-b01) (build 1.8.0_144-b01)
-# Java VM: Java HotSpot(TM) Client VM (25.144-b01 mixed mode windows-x86 )
-# Problematic frame:
-# C  [hmsbeagle-cpu-sse32-21.DLL+0xcb8d]
-#
-# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
-#
-# If you would like to submit a bug report, please visit:
-#   http://bugreport.java.com/bugreport/crash.jsp
-# The crash happened outside the Java Virtual Machine in native code.
-# See problematic frame for where to report the bug.
-```
-This isn't so much a BEAGLE error as it is a compatibility problem with the operating system and the Java installation.
-Notice how the error message mentions a mixed mode installation, which usually indicates that a 32-bit Java version was installed on a 64-bit Windows operating system.
-Upgrading the 32-bit Java installation to a 64-bit version usually fixes this problem.
-
+    ```
+    # A fatal error has been detected by the Java Runtime Environment:
+    #
+    #  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x476bcb8d, pid=2548, tid=0x00000244
+    #
+    # JRE version: Java(TM) SE Runtime Environment (8.0_144-b01) (build 1.8.0_144-b01)
+    # Java VM: Java HotSpot(TM) Client VM (25.144-b01 mixed mode windows-x86 )
+    # Problematic frame:
+    # C  [hmsbeagle-cpu-sse32-21.DLL+0xcb8d]
+    #
+    # Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+    #
+    # If you would like to submit a bug report, please visit:
+    #   http://bugreport.java.com/bugreport/crash.jsp
+    # The crash happened outside the Java Virtual Machine in native code.
+    # See problematic frame for where to report the bug.
+    ```
+    This isn't so much a BEAGLE error as it is a compatibility problem with the operating system and the Java installation.
+    Notice how the error message mentions a mixed mode installation, which usually indicates that a 32-bit Java version was installed on a 64-bit Windows operating system.
+    Upgrading the 32-bit Java installation to a 64-bit version usually fixes this problem.
 
 * Upon building the BEAGLE library from source, I get the following error message when running the ```configure``` script:
 
-```
-configure: error: cannot find JDK header files
-```
-This can be fixed by correctly setting the ```JAVA_HOME``` variable. For example, on a MacBook running Java version 8 Update 121, this can be done as follows:
-```
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/
-```
+    ```
+    configure: error: cannot find JDK header files
+    ```
+    This can be fixed by correctly setting the ```JAVA_HOME``` variable. For example, on a MacBook running Java version 8 Update 121, this can be done as follows:
+    ```
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/
+    ```
 
 
 
