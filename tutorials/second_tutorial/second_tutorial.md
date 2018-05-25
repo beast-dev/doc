@@ -50,19 +50,41 @@ The most important thing here is to ascertain that none of the standard transiti
 
 
 ## Summarizing parameter estimates
-
-
+Loading the .log files, containing parameter samples from all the parameters in our analysis with exception of the trees and their corresponding branch lengths, into Tracer yields the following screen: 
 
 {% include image.html file="tracer.png" prefix="/tutorials/second_tutorial/" %}<br />
 
+Tracer immediately shows that the [ESS values](ess_tutorial) for all the continuous parameters are more than sufficient to terminate the analysis.
+Note that [ESS values](ess_tutorial) should not be used/estimated for categorical or discrete parameters, and neither for the posterior, likelihood and prior density samples.
+However, for those latter estimates, low [ESS values](ess_tutorial) may reflect underlying problems in estimating certain parameters, so they do have their use for such densities.
+For discrete parameters, it may be of interest to inspect the traces of those parameters so that proper convergence towards the posterior distribution can be assessed.
+
+Note that constant parameters, i.e. parameters that are not being estimated (such as the clock.rate and the meanRate) or normalizing constants (such as the branchRates), are shown for completeness but need not be inspected for convergence and/or ESS values.
+
+More detailed Tracer tutorials are available, focusing on [analysing BEAST output](analysing_beast_output) and [assessing convergence](tracer_convergence).
 
 
 ## Building an MCC tree
+It's simply not feasible to inspect every tree that was visited during the BEAST analysis, hence we will create a consensus tree summarizing the posterior tree distribution.
+Within the BEAST package, this is done by constructing a maximum clade credibilty (MCC) tree using the program [TreeAnnotator](treeannotator).
 
+Upon running [TreeAnnotator](treeannotator), you will be presented with the following window:
+
+{% include image.html file="mcc_settings.png" prefix="/tutorials/second_tutorial/" %}<br />
+
+Typically, 10% of the total number of iterations is used as the burn-in for an analysis, provided that this is sufficient to have made it past the actual burn-in phase (which can be inspected/checked in Tracer).
+For the 'Input Tree File', the apes.trees file that generated during the BEAST run needs to be selected.
+For the 'Output File', no such file can be selected but rather it's file name needs to be entered manually in the following window (where it says 'Save As'):
+
+{% include image.html file="mcc_output.png" prefix="/tutorials/second_tutorial/" %}<br />
+
+After all the required settings have been entered, you can start constructing the MCC tree by clicking 'Run'.
+Progress can monitored in the following window, at the end of which you will be asked to quit the program and the MCC tree will have been written to the selected output file:
+
+{% include image.html file="mcc_window.png" prefix="/tutorials/second_tutorial/" %}<br />
 
 
 ## Visualising the MCC tree in FigTree
-
 
 
  
