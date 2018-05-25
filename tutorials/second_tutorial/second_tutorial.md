@@ -68,15 +68,15 @@ Within the BEAST package, this is done by constructing a maximum clade credibilt
 
 Upon running [TreeAnnotator](treeannotator), you will be presented with the following window:
 
-{% include image.html file="mcc_settings.png" prefix="/tutorials/second_tutorial/" %}<br />
+{% include image.html file="mcc_settings.png" prefix="/tutorials/second_tutorial/" width='80%' %}<br />
 
 Typically, 10% of the total number of iterations is used as the burn-in for an analysis, provided that this is sufficient to have made it past the actual burn-in phase (which can be inspected/checked in Tracer).
-For the 'Input Tree File', the apes.trees file that generated during the BEAST run needs to be selected.
-For the 'Output File', no such file can be selected but rather it's file name needs to be entered manually in the following window (where it says 'Save As'):
+For the `Input Tree File`, the apes.trees file that generated during the BEAST run needs to be selected.
+For the `Output File`, no such file can be selected but rather it's file name needs to be entered manually in the following window (where it says `Save As):
 
-{% include image.html file="mcc_output.png" prefix="/tutorials/second_tutorial/" %}<br />
+{% include image.html file="mcc_output.png" prefix="/tutorials/second_tutorial/" width='80%' %}<br />
 
-After all the required settings have been entered, you can start constructing the MCC tree by clicking 'Run'.
+After all the required settings have been entered, you can start constructing the MCC tree by clicking `Run.
 Progress can monitored in the following window, at the end of which you will be asked to quit the program and the MCC tree will have been written to the selected output file:
 
 {% include image.html file="mcc_window.png" prefix="/tutorials/second_tutorial/" %}<br />
