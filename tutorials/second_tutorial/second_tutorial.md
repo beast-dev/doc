@@ -10,8 +10,6 @@ folder: beast
 redirect_from: "/tutorial-2"
 ---
 
-{% include warning.html content="This page is being written." %}
-
 In the [first introductory tutorial](first_tutorial) we looked at importing data into [BEAUti](beauti), setting up a model and analysis, and running this analysis in [BEAST](beast).
 In this second tutorial, we will analyse the output of that analysis by examining its output file in Tracer and by building a consensus tree and visualising it in FigTree.
 But first, we explain how to combine the output files of multiple independent replicates (i.e. running the same BEAST XML using different starting seeds).
@@ -54,7 +52,7 @@ Loading the .log files, containing parameter samples from all the parameters in 
 
 {% include image.html file="tracer.png" prefix="/tutorials/second_tutorial/" %}<br />
 
-Tracer immediately shows that the [ESS values](ess_tutorial) for all the continuous parameters are more than sufficient to terminate the analysis.
+From the Tracer window, it's clear that the [ESS values](ess_tutorial) for all the continuous parameters are more than sufficient to terminate the analysis.
 Note that [ESS values](ess_tutorial) should not be used/estimated for categorical or discrete parameters, and neither for the posterior, likelihood and prior density samples.
 However, for those latter estimates, low [ESS values](ess_tutorial) may reflect underlying problems in estimating certain parameters, so they do have their use for such densities.
 For discrete parameters, it may be of interest to inspect the traces of those parameters so that proper convergence towards the posterior distribution can be assessed.
@@ -85,7 +83,13 @@ Progress can monitored in the following window, at the end of which you will be 
 
 
 ## Visualising the MCC tree in FigTree
+The final step is to load the constructed MCC tree into [FigTree](figtree), which allows to visualise the tree and accompanying summary information produced by [TreeAnnotator](treeannotator).
+After starting [FigTree](figtree), simply go to `File` and `Open...` the apes.mcc.tree file.
+Typically, nodes from the tree are drawn in increasing node order (go to `Tree` and select `Increasing Node Order` to do so).
+Given that we did not incorporate any timing information into our analysis, for example by providing a calibration prior, the scale beneath the tree will be expressed in average number of substitutions per time unit (and no time axis can hence be added).
+Increase the font size of the tip labels by setting a `Font Size` of e.g. 14 in the `Tip Labels` section on the left hand side:
 
+{% include image.html file="figtree.png" prefix="/tutorials/second_tutorial/" %}<br />
 
  
 {% include links.html %}
