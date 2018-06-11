@@ -34,6 +34,8 @@ To get the latest version of Java you will need to download the Java JDK from [h
 
 {% include warning.html content="Do not install the Java software offered on the http://java.com website. This will install java only as a plug in to your web browser. This version of Java will not be able to run BEAST." %}
 
+The Mac version of BEAST is not yet compatible with Java 10. Please use Java 8 or 9.
+
 ## Installing BEAST
 
 Double-clicking the disk image file will open the a virtual 'disk' in a Finder window. At this point the applications are still on the 'disk' created by the disk image. We suggest that you drag the entire folder into your ```Applications``` folder (either the main Applications folder or the one in your user folder). You can drag the folder by clicking, holding and then dragging the little white icon at the top of the disk image finder window.
