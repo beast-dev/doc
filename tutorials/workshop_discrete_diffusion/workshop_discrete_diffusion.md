@@ -31,7 +31,7 @@ To undertake this tutorial, you will need to download three software packages in
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial can be found in the shared folder:<br />
 <div style="margin: 16px"><code>Tutorials\Tutorial 4 - Discrete Phylogeography\</code></div>
-A zipped folder, <a href="{{ root_url }}files/discreteTutorialFiles.zip">, can be downloaded from here</a>. </div>
+A zipped folder <a href="{{ root_url }}files/discreteTutorialFiles.zip"> can be downloaded from here</a>. </div>
 <!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> A zipped folder with all files needed for this tutorial <a href="{{ root_url }}discreteTutorialFiles.zip">can be downloaded from here</a>. (If you download this zipped folder, there is no need anymore to download the individual files linked in the tutorial text) </div>
 -->
@@ -257,7 +257,7 @@ To visualize an MCC tree, start SpreaD3 by double-clicking on the jar file and s
 	Mississippi	32.7673	-89.6812
 ```
 
-The coordinates can be downloaded <a href="{{ root_url }}files/locationStates.txt">here</a>.
+The coordinates [can be downloaded]({{ root_url }}files/locationStates.txt).
 
 This will load the locations and their lat/long coordinates. Click done after uploading the locations and their coordinates. Set the most recent sampling date to 2005.5 and load a map of the United States in GeoJSON format. Such a map is provided amongst the data files --- <samp>gz_2010_us_040_00_500k.json</samp>. 
 
