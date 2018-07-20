@@ -257,6 +257,7 @@ To visualize an MCC tree, start SpreaD3 by double-clicking on the jar file and s
 	Mississippi	32.7673	-89.6812
 ```
 
+The coordinates can be downloaded as a file can be downloaded here: <a href="{{ root_url }}files/locationStates.txt">
 This will load the locations and their lat/long coordinates. Click done after uploading the locations and their coordinates. Set the most recent sampling date to 2005.5 and load a map of the United States in GeoJSON format. Such a map is provided amongst the data files --- <samp>gz_2010_us_040_00_500k.json</samp>. 
 
 Go to `Generate Output` and select a file name for the JSON file to be written. Finally, go to the Rendering panel in SpreaD3 and load the JSON file you just saved. Click `Render` to D3 and select a directory name which will contain the HMTL page that will automatically load in a browser (example below). Note that Google Chrome needs to be started with specific privileges for local file access in order to display the resulting visualisation (Firefox and Safari should work fine with default settings).
