@@ -15,6 +15,8 @@ Recent years have seen the development of several new approaches to perform mode
 We aim to relax this latter assumption by providing two working distributions in a genealogical framework (Baele et al., 2016, Syst. Biol.), showing that a generalized stepping-stone sampling approach which accommodates phylogenetic uncertainty avoids possible numerical issues that may plague path sampling and stepping-stone sampling. 
 Further, our proposed approach also has lower variance and yields accurate estimates of the (log) marginal likelihood, whereas PS and SS tend to overestimate the (log) marginal likelihood when vague priors are used (which is almost always the case).
 
+Note that there is [a page with specific examples for setting up generalized stepping-stone sampling analyses](model_selection_examples), which deals with use cases that are difficult to set up using BEAUti (for example because the model is not available in BEAUti yet).
+
 ### Coalescent models {#coalescent}
 
 #### BEAUti
@@ -482,7 +484,7 @@ Note again that you will have to change the values for the chainLength (and poss
 
 ## Citation
 
-If you use this code we would encourage you to cite the following paper:
+If you use this generalized stepping-stone sampling approach, we would encourage you to cite the following paper:
 
 G. Baele, P. Lemey and M. A. Suchard (2016) Genealogical working distributions for Bayesian model testing with phylogenetic uncertainty. Syst. Biol. 65(2), 250-264.
 

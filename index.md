@@ -30,20 +30,22 @@ This website is for BEAST v1.X (currently version `v{{ site.beast_version }}`). 
 
 ### Introductory Tutorials
 
-These tutorials use the graphical applications of BEAST to perform analyses using the provided example files:
+As [an introduction to using BEAST we provide some basic introductory tutorials](/getting_started) using the graphical applications of BEAST to perform analyses using provided example files. 
 
-Tutorial 1: Using sequences sampled at different points in time to estimate rates
-Tutorial 2: Estimating the divergence time of a monophyletic group using a known mutation rate
-And more Tutorials available.
+### Citing BEAST
 
-Some downloadable packages containing tutorial worksheets and associated data. These are used in workshops and classes.
+> The recommended citation for this program is:
+> : Suchard MA, Lemey P, Baele G, Ayres DL, Drummond AJ & Rambaut A (2018) Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10 *Virus Evolution* **4**, vey016. [DOI:10.1093/ve/vey016](https://doi.org/10.1093/ve/vey016)
 
-## Citing BEAST
+#### BEAST is descended from earlier work:
 
-The recommended citation for this program is:
+Drummond AJ, Nicholls GK, Rodrigo AG & Solomon W (2002) Estimating mutation parameters, population history and genealogy simultaneously from temporally spaced sequence data. *Genetics*, **161**, 1307-1320.
 
-Drummond AJ, Suchard MA, Xie D & Rambaut A (2012) Bayesian phylogenetics with BEAUti and the BEAST 1.7 Molecular Biology And Evolution 29: 1969-1973 full text
-See this page for a more detailed list of publications for citing individual models and components.
+Rambaut A (2000) Estimating the rate of molecular evolution: incorporating non-contemporaneous sequences into maximum likelihood phylogenies. *Bioinformatics*, **16**, 395-399.
+
+Pybus OG & Rambaut A (2002) GENIE: estimating demographic history from molecular phylogenies. *Bioinformatics*, **18**, 1404-1405.
+
+**BEAST is built on a large body of prior work and appropriate citations for individual modules, models and components will be listed when BEAST is run.**
 
 ### BEAST-Users mailing list
 
@@ -51,8 +53,6 @@ Users are strongly advised to join the BEAST mailing-list. This will be used to 
 
 Send an email to beast-users-subscribe@googlegroups.com or go to the mailing list site: 
 
-http://groups.google.com/group/beast-users
-
-{{site.data.alerts.note}} This is work in progress to produce a central repository for BEAST v1.x documentation.{{site.data.alerts.end}}
+[http://groups.google.com/group/beast-users](http://groups.google.com/group/beast-users)
 
 {% include links.html %}

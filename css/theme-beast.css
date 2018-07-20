@@ -35,6 +35,10 @@ h3 {
 }
 h4 { color: var(--grey-color); }
 
+blockquote {
+    font-size: 14px;
+}
+
 code {
     color: #12608a;
     background-color: #e6ecf0;

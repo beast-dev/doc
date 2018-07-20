@@ -119,9 +119,11 @@ Review the prior settings under the `Priors` panel:
 
 {% include image.html prefix=root_url file="image9.png" %}
 
-Some of the default marginal priors may be improper --- this means that the probability distribution does not integrate to a finite value. An example of an improper prior is a uniform prior between 0 and infinity. You will see that the prior on the relative rates between codon positions (`allMus`) takes this form and is in yellow to denote it is improper.
+Some of the default marginal priors may be improper --- this means that the probability distribution does not integrate to a finite value. An example of an improper prior is a uniform prior between 0 and infinity. 
+<You will see that the prior on the relative rates between codon positions (`allMus`) takes this form and is in yellow to denote it is improper.>
+In our current default settings, the `1/x` prior on the `constant.popSize` is an example of an improper prior.
  
-It’s important to provide proper priors for all the parameters being estimated as improper priors lead to improper posteriors and improper marginal likelihoods (when performing Bayesian model selection, see further in this tutorial). To change the prior on the relative rates (allMus) for example, click on the corresponding prior and a prior selection window will appear. Set the prior to a gamma distribution with `shape = 0.001` and `scale = 1000`. The graphical representation of this prior distribution indicates that most prior mass is put on small values, but the density remains sufficiently diffuse. Notice that the prior setting turns black after confirming this setting by clicking ”OK”. 
+It is important to provide proper priors for all the parameters being estimated as improper priors lead to improper posteriors and improper marginal likelihoods (when performing Bayesian model selection, see further in this tutorial). To change the prior on the `constant.popSize` for example, click on the corresponding prior and a prior selection window will appear. Set the prior to a lognormal distribution with `mu = 1` and `sigma = 10`. The graphical representation of this prior distribution indicates that most prior mass is put on relatively small values, but the density remains sufficiently diffuse over larger values. <Notice that the prior setting turns black after confirming this setting by clicking ”OK”.>
 
 {% include image.html prefix=root_url file="image10.png" %}
 

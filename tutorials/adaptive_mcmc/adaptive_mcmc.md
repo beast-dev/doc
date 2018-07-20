@@ -69,7 +69,7 @@ Other transition kernels in this example include those that work upon the tree t
 
 ## Adaptive MCMC transition kernels
 
-### XML Representation #1
+### XML Representation #1 (Deprecated)
 
 The approach we've taken in our paper (Baele et al., 2017) is to combine all the (continuous) parameters above into one single adaptive MCMC transition kernel.
 One possible approach to achieve this, is to first create a compound parameter - before the ```<operators>...</operators>``` block in the BEAST XML - that contains all the parameters which you want to estimate using an adaptive MCMC approach:
@@ -111,18 +111,24 @@ We also typically set the burn-in phase of the operator at half that value, i.e.
 
 Apart from the compound parameter that needs to be provided to the operator, a number of transformation - corresponding to the parameters included in the operator - need to be provided.
 Typically, a 'log'-transformation needs to be provided for those parameters with domain [0, +&infin;], whereas the transformation type 'none' can be used for those parameters with domain [-&infin;,+&infin;].
-The transformation type 'logConstrainedSum' should be used for those continuous parameters that sum to a fixed value, such as for example the relative rates between codon positions.
 Note that, in this representation, 'start' and 'end' values need to be provided for the transformations (with the first parameters receiving index 1).
 For example, parameters 1 through 7 - corresponding to 'ND5.CP1.kappa' through 'yule.birthRate' all need to be 'log'-transformed independently from one another.
 
-Note that it is possible to use multiple adaptable variance multivariate normal operators in a BEAST XML, operating on (not necessarily) different sets of (continuous) parameters.
+The transformation type 'logConstrainedSum' should be used for those continuous parameters that sum to a fixed value, such as for example the relative rates between codon positions.
+This XML specification has since been updated (see the following section), and this old XML specification had the logConstrainedSum-transformation apply only to parameter collections, where the fixed sum is equal to the number of parameters in the collection.
+For example, in the case of relative rates, the fixed total sum is equal to 3 in the case of partitioning by codon position, and there are 3 relative rate parameters.
+This means that using this old XML specification, a set of base frequencies that need to be estimated could be included in the adaptive MCMC transition kernel (but see the next section).
+
+Finally, note that it is possible to use multiple adaptable variance multivariate normal operators in a BEAST XML, operating on (not necessarily) different sets of (continuous) parameters.
 For example, in our paper (Baele et al., 2017) we show the possibility of creating a separate operator for the parameters of the tree prior.
 
-### XML Representation #2
+
+### XML Representation #2 (Recommended)
 
 The first XML representation (as used in the XML examples accompanying our paper; Baele et al., 2017) is not very flexible when it comes to dealing with many parameters, each with their own transformation.
 Additionally, there's the need to construct a compound parameter in the XML file, for specific use with the novel transition kernel.
 In this section, we present an XML representation of the adaptive MCMC transition kernel that does not require the construction of a compound parameter nor manual derivation of the indices for the transformation.
+Additionally, for the example presented here, we will also assume that the base frequencies for each codon position will be estimated.
 
 Given that a compound parameter for the relative rate parameters is automatically created by BEAUti, the following XML representation of the novel transition kernel on the same set of parameters can be specfied by:
 
@@ -141,19 +147,83 @@ Given that a compound parameter for the relative rate parameters is automaticall
 		
             <parameter idref="yule.birthRate"/>
         </transform>
-			
-        <transform type="logConstrainedSum">
-            <compoundParameter idref="allMus"/>
+        
+        <transform type="logConstrainedSum" sum="1.0">
+        	<parameter idref="CP1.frequencies"/>
+        </transform>
+        <transform type="logConstrainedSum" sum="1.0">
+        	<parameter idref="CP2.frequencies"/>
+        </transform>
+        <transform type="logConstrainedSum" sum="1.0">
+        	<parameter idref="CP3.frequencies"/>
+        </transform>
+        			
+        <transform type="logConstrainedSum" sum="1.0">
+        	<parameter idref="allNus"/>
         </transform>
 			
     </adaptableVarianceMultivariateNormalOperator>	
 ```
 
 While all the parameters that need an individual log-transformation can be specified within one set of ```<transform type="log">...</transform>``` tags, a separate set of ```<transform type="logConstrainedSum">...</transform>``` tags is needed for each set of parameters that sum to a certain constant.
+Note that this XML specification for the relative rates between the different codon positions uses a recently (i.e. BEAST 1.10) introduced specification (which will be automatically generated by BEAUti) for the relative rates:
 
-Note that at the moment, the logConstrainedSum-transformation only applies to parameter collections, where that fixed sum is equal to the number of parameters in the collection.
-For example, in the case of relative rates, the fixed total sum is equal to 3 in the case of partitioning by codon position, and there are 3 relative rate parameters.
-This means that, for now (but this is work in progress), a set of base frequencies that need to be estimated cannot yet be included in the adaptive MCMC transition kernel.
+```xml
+    <siteModel id="CP1.siteModel">
+    	<substitutionModel>
+    		<hkyModel idref="CP1.hky"/>
+    	</substitutionModel>
+    	<relativeRate weight="3.0">
+    		<parameter id="CP1.nu" value="0.3333333333333333" lower="0.0" upper="1.0"/>
+    	</relativeRate>
+    	<gammaShape gammaCategories="4">
+    		<parameter id="CP1.alpha" value="0.5" lower="0.0"/>
+    	</gammaShape>
+    </siteModel>
+    
+    <siteModel id="CP2.siteModel">
+        <substitutionModel>
+       		<hkyModel idref="CP2.hky"/>
+        </substitutionModel>
+       	<relativeRate weight="3.0">
+        	<parameter id="CP2.nu" value="0.3333333333333333" lower="0.0" upper="1.0"/>
+        </relativeRate>
+        <gammaShape gammaCategories="4">
+       		<parameter id="CP2.alpha" value="0.5" lower="0.0"/>
+        </gammaShape>
+    </siteModel>
+        
+    <siteModel id="CP3.siteModel">
+        <substitutionModel>
+       		<hkyModel idref="CP3.hky"/>
+        </substitutionModel>
+        <relativeRate weight="3.0">
+        	<parameter id="CP3.nu" value="0.3333333333333333" lower="0.0" upper="1.0"/>
+       	</relativeRate>
+        <gammaShape gammaCategories="4">
+       		<parameter id="CP3.alpha" value="0.5" lower="0.0"/>
+        </gammaShape>
+    </siteModel>
+```
+
+This new XML specification is typically complemented with Dirichlet priors for the sets of base frequencies and the relative rate parameterization:
+
+```xml
+    <dirichletPrior alpha="1.0" sumsTo="1.0">
+		<parameter idref="CP1.frequencies"/>
+	</dirichletPrior>
+	<dirichletPrior alpha="1.0" sumsTo="1.0">
+		<parameter idref="CP2.frequencies"/>
+	</dirichletPrior>
+	<dirichletPrior alpha="1.0" sumsTo="1.0">
+		<parameter idref="CP3.frequencies"/>
+	</dirichletPrior>
+
+	<dirichletPrior alpha="1.0" sumsTo="1.0">
+		<parameter idref="allNus"/>
+	</dirichletPrior>
+```
+
 
 ## Automated load balancing
 

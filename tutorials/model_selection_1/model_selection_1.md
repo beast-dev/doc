@@ -22,6 +22,8 @@ The publication is accompanied by 2 example BEAST XML files to indicate how to u
 Below the mcmc block is provided of the BEAST XML example for a Bayesian skyline plot model (BSP) and an uncorrelated relaxed clock model with an underlying lognormal distribution (UCLD). This code runs an MCMC chain for 100 million iterations and stores samples from this chain in an output file. Besides collecting these samples, the definitions of prior and posterior in the code below are used when calculating the marginal likelihood using path sampling and stepping-stone sampling.
 As shown in Baele et al. (2013), it is important to specify proper priors for all the parameters being estimated in the analyses, especially to avoid convergence issues and numerical problems when performing path sampling (PS) and stepping-stone sampling (SS), although it is generally considered to be good practice in any case:
 
+{% include note.html content='As of BEAST v1.10, the ```<posterior id="posterior">``` XML element has been renamed to a ```<joint id="joint">``` XML element. Both will however remain valid but cannot be used interchangeably, i.e. we suggest you pick one of the two and stick with your choice throughout the entire XML.' %}
+
 ```xml
 <beast>
     <mcmc id="mcmc" chainLength="100000000" autoOptimize="true">
@@ -87,7 +89,7 @@ Path sampling and stepping-stone sampling can be set up in BEAUti, resulting in 
 The collected samples will be used to construct both the path sampling and the stepping-stone sampling estimator for the log marginal likelihood.
 In other words, one set of additional calculations will result in two log marginal likelihood estimates and both will be printed to screen.
 
-There is also tutorial available on [how to set up log marginal likelihood estimation using generalized stepping-stone sampling](model_selection_2).
+There is also a tutorial available on [how to set up log marginal likelihood estimation using generalized stepping-stone sampling](model_selection_2).
 
 In BEAUti, and after loading a data set, go to the 'MCMC' panel.
 At the bottom, you can select your method of choice to estimate the log marginal likelihood for your selection of models on this data set.
