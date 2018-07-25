@@ -213,6 +213,10 @@ entries:
       url: /tree_priors
       output: web, pdf
 
+    - title: Parameter Priors
+      url: /parameter_priors
+      output: web, pdf
+
     - title: XML Reference
       url: /xml_reference
       output: web, pdf
