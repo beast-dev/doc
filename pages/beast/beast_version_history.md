@@ -11,6 +11,19 @@ folder: beast
 ---
 
 ```
+Version 1.10.1 released 9th June 2018
+
+A minor bug fix release: Fixes issues with selecting the GTR model in BEAUti and running under Java 10 on Macs.
+```
+
+```
+Version 1.10.0 released 11th June 2018
+New Features:
+
+    BEAST v1.10 is a major new version with many new features focusing on flexibility of model specification, integration of different data sources, and increasing the speed and efficiency of sampling.
+```
+
+```
 Version 1.8.4 released 17th June 2016
 New Features:
 

@@ -109,12 +109,12 @@ url: http://github.com/beast-dev
 gems:
   - jekyll-redirect-from
 
-beast_version: "1.10.0"
+beast_version: "1.10.1"
 beast_download_url: "https://github.com/beast-dev/beast-mcmc/releases"
 beast_source_url: "https://github.com/beast-dev/beast-mcmc"
-beast_mac_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.0/BEAST.v10.0.0.dmg"
-beast_linux_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.0/BEAST_v10.0.0.tgz"
-beast_windows_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.0/BEAST.v10.0.0.zip"
+beast_mac_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.1/BEAST.v1.10.1.dmg"
+beast_linux_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.1/BEAST_v1.10.1.tgz"
+beast_windows_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.1/BEAST.v1.10.1.zip"
 
 tracer_version: "1.7.0"
 tracer_url: "http://tree.bio.ed.ac.uk/software/tracer/"
