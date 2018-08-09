@@ -1,0 +1,14 @@
+Arizona	33.7712	-111.3877
+California	36.17	-119.7462
+Georgia	32.9866	-83.6487
+Iowa	42.0046	-93.214
+Michigan	43.3504	-84.5603
+NewJersey	40.314	-74.5089
+Virginia	37.43157	-78.656895
+Washington	47.3917	-121.5708
+Florida	27.8333	-81.717
+Tennessee	35.7449	-86.7489
+Texas	31.106	-97.6475
+Idaho	44.2394	-114.5103
+Indiana	39.8647	-86.2604
+Mississippi	32.7673	-89.6812

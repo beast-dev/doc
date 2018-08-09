@@ -139,6 +139,14 @@ The full list of command-line BEAGLE options can be listed using ```beast -help`
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/
     ```
 
+* When running BEAST using the installation packages (i.e. BEAST v1.10.0.app on Mac OS and BEAST v1.10.0.exe on Windows), the BEAGLE installation cannot be found:
+
+    ``` 
+    Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path
+    ```
+
+    Possibly, the issue here is that you're using the installation packages for BEAST but have installed BEAGLE from its source files (i.e. not using BEAGLE's installation package).
+    At the moment, it's indeed not readily possible to combine these two approaches and we suggest to either use the installation packages for both BEAST and BEAGLE or to build both from source.
 
 
 ### Citing BEAGLE
