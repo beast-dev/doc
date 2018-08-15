@@ -11,7 +11,7 @@ folder: beast
 ---
 
 ```
-Version 1.10.1 released 9th June 2018
+Version 1.10.1 released 9th August 2018
 
 A minor bug fix release: Fixes issues with selecting the GTR model in BEAUti and running under Java 10 on Macs.
 ```
