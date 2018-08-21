@@ -30,10 +30,6 @@ To undertake this tutorial, you will need to download three software packages in
 {% include spread3_callout.md %}
 
 <!-- maybe also add a link to a zipped folder containing all input files -->
-<!--
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>H1N1pdm_2009.nex</samp>' and can be <a href="{{ root_url }}files/H1N1pdm_2009.nex">can be downloaded from here</a>.</div>
--->
-
 
 <!--
 ## EXERCISE 1: Host and location ancestral reconstruction
@@ -45,11 +41,16 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 
 #### Loading the sequence data file 
 
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file for this tutorial is called '<samp>WNV.fas</samp>' and <a href="{{ root_url }}files/WNF.fas">can be downloaded from here</a>.</div>
+
+<!--
 The input file for this tutorial, batRABV.fas, can be [downloaded from here]({{ root_url }}files/WNV.fas).
+-->
 To load the alignment, simply select the `Import Data...` option from the File menu:
 
 {% include image.html file="01_ImportData.png" prefix=root_url caption="" %}
 
+and browse to the WNV.fas file to load it.
 
 <!--
 ##### The sequence alignment
