@@ -27,9 +27,12 @@ To undertake this tutorial, you will need to download three software packages in
 The data are 71 sequences from the prM/E gene of yellow fever virus (YFV) from Africa and the Americas with isolation dates ranging from 1940-2009.
 The sequences represent a subset of the data set analyzed by Bryant et al. ([Bryant JE, Holmes EC, Barrett ADT, 2007 Out of Africa: A Molecular Perspective on the Introduction of Yellow Fever Virus into the Americas. PLoS Pathog 3(5): e75](http://doi.org/10.1371/journal.ppat.0030075)).
 
+<!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called <samp>YFV.nex</samp> and can be found in the shared folder:<br />
  <div style="margin: 16px"><code>Tutorials\Tutorial 1 - Rates and Dates\Data\YFV.nex</code></div>
  <a href="{{ root_url }}files/YFV.nex">It can also be downloaded from here</a>.</div>
+-->
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>YFV.nex</samp>' and <a href="{{ root_url }}files/YFV.nex">can be downloaded from here</a>.</div>
 
 <!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>YFV.nex</samp>' and can be found in the BEAST package in the '<samp>examples/Data/</samp>' folder or <a href="{{ root_url }}files/YFV.nex">can be downloaded from here</a>.</div>
@@ -123,7 +126,7 @@ Some of the default marginal priors may be improper --- this means that the prob
 <You will see that the prior on the relative rates between codon positions (`allMus`) takes this form and is in yellow to denote it is improper.>
 In our current default settings, the `1/x` prior on the `constant.popSize` is an example of an improper prior.
  
-It is important to provide proper priors for all the parameters being estimated as improper priors lead to improper posteriors and improper marginal likelihoods (when performing Bayesian model selection, see further in this tutorial). To change the prior on the `constant.popSize` for example, click on the corresponding prior and a prior selection window will appear. Set the prior to a lognormal distribution with `mu = 1` and `sigma = 10`. The graphical representation of this prior distribution indicates that most prior mass is put on relatively small values, but the density remains sufficiently diffuse over larger values. <Notice that the prior setting turns black after confirming this setting by clicking ”OK”.>
+It is important to provide proper priors for all the parameters being estimated as improper priors lead to improper posteriors and improper marginal likelihoods (when performing Bayesian model selection, cfr a different workshop tutorial). To change the prior on the `constant.popSize` for example, click on the corresponding prior and a prior selection window will appear. Set the prior to a lognormal distribution with `mu = 1` and `sigma = 10`. The graphical representation of this prior distribution indicates that most prior mass is put on relatively small values, but the density remains sufficiently diffuse over larger values. <Notice that the prior setting turns black after confirming this setting by clicking ”OK”.>
 
 {% include image.html prefix=root_url file="image10.png" %}
 
