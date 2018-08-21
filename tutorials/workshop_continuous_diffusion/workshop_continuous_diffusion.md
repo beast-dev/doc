@@ -97,7 +97,7 @@ Enter ‘1.0’ as the precision value for 1 year. This will instruct BEAST to a
 
 #### Specifying the trait information
 
-The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a latitude and longitude as geographical location to each taxa based on the trait specification for each sequence. <!-- in the WNV\_lat\_long.txt file, which [downloaded from here](files/WNV_lat_long.txt). -->
+The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a latitude and longitude as bivariate geographical location to each taxa based on the trait specification for each sequence. <!-- in the WNV\_lat\_long.txt file, which [downloaded from here](files/WNV_lat_long.txt). -->
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The tab-delimited file associating each taxon with a latitude and longitude '<samp>WNV_lat_long.txt</samp>' <a href="{{ root_url }}files/WNV_lat_long.txt">can be downloaded from here</a>.</div>
 
 To associate the sequences with the traits, we need to import a new trait under the `Traits` tab (click `Import Traits...`). This will open a new window that allows importing a file with the traits. Browse to and Open the WNV\_lat\_long.txt tab-delimited file, with the following content:
@@ -241,7 +241,12 @@ In the top right of the window is a table of calculated statistics for the selec
 
 Note that the effective sample sizes (ESSs) for all the traces are small (ESSs less than 100 are highlighted in red by Tracer and values > 100 but < 200 are in yellow). This is not good. A low ESS means that your samples are equivalent to only few uncorrelated samples trace and this may not represent the posterior distribution well. In the bottom right of the window is a frequency plot of the samples which is expected given the low ESSs is extremely rough. Inspecting the Trace of many continuous parameters  shows that the chain is still in the burn-in phase (the posterior values are still increasing over the entire chain), and this run does not allow us to summarize marginal posterior probability distributions for the parameters. 
 
-The simple response to this situation is that we need to run the chain for longer. For this exercise, output files from longer runs are made available [here](files/WNVlongRuns.zip). Import the log file for the long run of the homogenous model and reassure yourself that the MCMC run has reached stationarity: there are no obvious trends in the plot which would suggest that the MCMC has not yet converged, and there are no large-scale fluctuations in the trace which would suggest poor mixing.
+The simple response to this situation is that we need to run the chain for longer. 
+
+For this exercise, output files from longer runs are made available: <!-- [here](files/WNVlongRuns.zip).-->
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The log and trees files for longer WNV continuous phylogeography runs <a href="{{ root_url }}files/WNVlongRuns.zip">can be downloaded from here</a>.</div>
+
+Import the log file for the long run of the homogenous model and reassure yourself that the MCMC run has reached stationarity: there are no obvious trends in the plot which would suggest that the MCMC has not yet converged, and there are no large-scale fluctuations in the trace which would suggest poor mixing.
 
 As we are happy with the behavior of posterior probability we can now move on to our statistic of interest: the dispersion rate. Select 'location.diffusionRate' in the left-hand table. This shows a plot of the posterior probability density of this statistic that keeps track of the rate of diffusion by measuring the distance covered along each branch (based on the spatial coordinates inferred at the parent and descendent node of each branch), summing this distance for the complete tree and dividing this by the tree length. It uses the great circle distance between the two coordinates, which will provide an estimate in km/yr. You should see a plot similar to this in the `Estimates` tab:
 
