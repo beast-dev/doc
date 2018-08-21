@@ -27,6 +27,13 @@ To undertake this tutorial, you will need to download three software packages in
 The data are 71 sequences from the prM/E gene of yellow fever virus (YFV) from Africa and the Americas with isolation dates ranging from 1940-2009.
 The sequences represent a subset of the data set analyzed by Bryant et al. ([Bryant JE, Holmes EC, Barrett ADT, 2007 Out of Africa: A Molecular Perspective on the Introduction of Yellow Fever Virus into the Americas. PLoS Pathog 3(5): e75](http://doi.org/10.1371/journal.ppat.0030075)).
 
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
+<a href="{{ root_url }}files/YFVtutorialFiles.zip"> can be downloaded from here</a>. 
+If you download this zipped folder, there is no need to download other files/folders linked further in the tutorial.
+</div>
+
+## Loading the data into BEAUti
+
 <!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called <samp>YFV.nex</samp> and can be found in the shared folder:<br />
  <div style="margin: 16px"><code>Tutorials\Tutorial 1 - Rates and Dates\Data\YFV.nex</code></div>
@@ -37,8 +44,6 @@ The sequences represent a subset of the data set analyzed by Bryant et al. ([Bry
 <!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>YFV.nex</samp>' and can be found in the BEAST package in the '<samp>examples/Data/</samp>' folder or <a href="{{ root_url }}files/YFV.nex">can be downloaded from here</a>.</div>
 -->
-
-## Loading the data into BEAUti
 
 {% include icon-callout.html file='icons/beauti-icon.png' content='Run <a href="beauti">BEAUti</a> by double clicking on its icon. BEAUti is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis.' %}
 
