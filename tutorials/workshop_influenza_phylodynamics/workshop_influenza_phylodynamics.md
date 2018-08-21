@@ -28,12 +28,12 @@ To undertake this tutorial, you will need to download three software packages in
 
 ## EXERCISE 1: The swine-origin influenza A outbreak
 
+<!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>H1N1pdm_2009.nex</samp>' and can be found in the shared folder:<br />
  <div style="margin: 16px"><samp>Tutorials\Tutorial 2 - Phylodynamics\Data\H1N1pdm_2009.nex</samp></div>
  <a href="{{ root_url }}files/H1N1pdm_2009.nex">It can also be downloaded from here</a>.</div>
-<!--
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>H1N1pdm_2009.nex</samp>' and can be <a href="{{ root_url }}files/H1N1pdm_2009.nex">can be downloaded from here</a>.</div>
 -->
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>H1N1pdm_2009.nex</samp>' and can be <a href="{{ root_url }}files/H1N1pdm_2009.nex">can be downloaded from here</a>.</div>
 
 ### Running BEAUti
 
@@ -209,9 +209,13 @@ None of the options actually alter the tree's topology or branch lengths in anyw
 
 In this tutorial, we will reconstruct a [Bayesian skygrid](tree_priors#skygrid) of human influenza A, H3N2 subtype, over three northern hemisphere epidemic seasons. The data set contains 165 Hemagglutinin gene sequences and takes more time to run in BEAST than available during a practical session. Therefore, this tutorial will discuss how to set up this analysis and how to summarize the results based on runs that have already been performed.
 
+<!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>NewYork.HA.2000-2003.nex</samp>' and can be found in the shared folder:<br />
  <div style="margin: 16px"><code>Tutorials\Tutorial 2 - Phylodynamics\Data\NewYork.HA.2000-2003.nex</code></div>
  <a href="{{ root_url }}files/NewYork.HA.2000-2003.nex">It can also be downloaded from here</a>.</div>
+-->
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>NewYork.HA.2000-2003.nex</samp>' and  <a href="{{ root_url }}files/NewYork.HA.2000-2003.nex">can be downloaded from here</a>.</div>
+
 
 ### Running BEAUti
 
