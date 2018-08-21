@@ -26,6 +26,11 @@ To undertake this tutorial, you will need to download three software packages in
 
 {% include note.html content='This tutorial builds on the <a href="workshop_rates_and_dates">Estimating rates and dates from time-stamped sequences</a> which should be completed before starting this one.' %}
 
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
+<a href="{{ root_url }}files/influenzaTutorialFiles.zip"> can be downloaded from here</a>. 
+If you download this zipped folder, there is no need to download other files/folders linked further in the tutorial.
+</div>
+
 ## EXERCISE 1: The swine-origin influenza A outbreak
 
 <!--
