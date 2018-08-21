@@ -41,7 +41,7 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 
 #### Loading the sequence data file 
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file for this tutorial is called '<samp>WNV.fas</samp>' and <a href="{{ root_url }}files/WNF.fas">can be downloaded from here</a>.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file for this tutorial is called '<samp>WNV.fas</samp>' and <a href="{{ root_url }}files/WNV.fas">can be downloaded from here</a>.</div>
 
 <!--
 The input file for this tutorial, batRABV.fas, can be [downloaded from here]({{ root_url }}files/WNV.fas).
@@ -97,7 +97,10 @@ Enter ‘1.0’ as the precision value for 1 year. This will instruct BEAST to a
 
 #### Specifying the trait information
 
-The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a latitude and longitude as geographical location to each taxa based on the trait specification for each sequence in the WNV\_lat\_long.txt file, which [downloaded from here](files/WNV_lat_long.txt). To associate the sequences with the traits, we need to import a new trait under the `Traits` tab (click `Import Traits...`). This will open a new window that allows importing a file with the traits. Browse to and Open the WNV\_lat\_long.txt tab-delimited file, with the following content:
+The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a latitude and longitude as geographical location to each taxa based on the trait specification for each sequence. <!-- in the WNV\_lat\_long.txt file, which [downloaded from here](files/WNV_lat_long.txt). -->
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The tab-delimited file associating each taxon with a latitude and longitude '<samp>WNV_lat_long.txt</samp>' <a href="{{ root_url }}files/WNV_lat_long.txt">can be downloaded from here</a>.</div>
+
+To associate the sequences with the traits, we need to import a new trait under the `Traits` tab (click `Import Traits...`). This will open a new window that allows importing a file with the traits. Browse to and Open the WNV\_lat\_long.txt tab-delimited file, with the following content:
 
 	traits	lat	long
 	WG007_Hs_2005.59	31.82	-106.56
