@@ -33,7 +33,7 @@ To undertake this tutorial, you will need to download three software packages in
  <div style="margin: 16px"><samp>Tutorials\Tutorial 2 - Phylodynamics\Data\H1N1pdm_2009.nex</samp></div>
  <a href="{{ root_url }}files/H1N1pdm_2009.nex">It can also be downloaded from here</a>.</div>
 -->
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>H1N1pdm_2009.nex</samp>' and can be <a href="{{ root_url }}files/H1N1pdm_2009.nex">can be downloaded from here</a>.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>H1N1pdm_2009.nex</samp>' and <a href="{{ root_url }}files/H1N1pdm_2009.nex">can be downloaded from here</a>.</div>
 
 ### Running BEAUti
 
