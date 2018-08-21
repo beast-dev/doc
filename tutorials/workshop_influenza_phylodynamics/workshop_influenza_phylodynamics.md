@@ -139,9 +139,13 @@ If we select the tab on the right-hand-side labelled `Trace` we can view the raw
 
 Here it is clear default burn-in of 10% of the chain length is inadequate (the posterior values are still increasing over the first part of the chain). Double-click on the `Burn-In` column in the top left and edit (in the case, above, a minimum of <samp>20,000</samp> is needed). However, it is still clear that a chain length of <samp>100,000</samp> was in adequate. Looking at the ESS values (generally in the low double-digits) suggests that a chain length of <samp>10,000,000</samp> would be more appropriate. On a modern computer this would probably only take about 20 minutes but we have provided the output of a run of this length which you can use for the rest of this section. 
 
+<!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The log files for the long run can be found in the shared folder:<br />
  <div style="margin: 16px"><samp>Tutorials\Tutorial 2 - Phylodynamics\Long_Run_H1N1pdm_Exponential\</samp></div>
  </div>
+-->
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The log and trees files for a longer H1N1 exponential growth rate run <a href="{{ root_url }}files/Long_Run_H1N1pdm_Exponential.zip">can be downloaded from here</a>.</div>
+
 
 Load the new log file (<samp>H1N1pdm_2009.log</samp>) into Tracer (you can leave the old one loaded for comparison). Click on the `Trace` tab and look at the raw trace plot.
 
@@ -223,11 +227,14 @@ Run BEAUti, load the nexus file (<samp>NewYork.HA.2000-2003.nex</samp>) and set 
 
 {% include image.html file="image19.png" prefix=root_url %}
 
-At this point we would usually generate the BEAST XML file, load it into BEAST and run it. However, this data set is a bit bigger than before and the model is a bit more computationally intensive so rather than waiting around for it to finish, you can go straight on an analyse some results files that have already been run.
- 
+At this point we would usually generate the BEAST XML file, load it into BEAST and run it. However, this data set is a bit bigger than before and the model is a bit more computationally intensive so rather than waiting around for it to finish, you can go straight on and analyse some results files that have already been run.
+
+<!-- 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The log files for the long run can be found in the shared folder:<br />
     <div style="margin: 16px"><samp>Tutorials\Tutorial 2 - Phylodynamics\Long_Run_H3N2_SkyGrid\</samp></div>
 </div>
+-->
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The log and trees files for a longer H3N2 SkyGrid run <a href="{{ root_url }}files/Long_Run_H3N2_SkyGrid.zip">can be downloaded from here</a>.</div>
  
 
 ### Analyzing the BEAST output
