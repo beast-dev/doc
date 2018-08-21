@@ -211,9 +211,13 @@ Note that the effective sample sizes (ESSs) for all the traces are small. Select
 
 The simple response to this situation is that we need to run the chain for longer. We have provided the results of a very long run --- 200 million steps, sampling every 50,000th step, resulting in 4,000 samples. In this case, the MCMC run has reached stationarity, and almost all parameter traces still show satisfactory ESSs. 
 
+<!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The long runs can be found in the shared folder:<br />
 <div style="margin: 16px"><code>Tutorials\Tutorial 4 - Discrete Phylogeography\longRuns\BSSVS</code></div>
 </div>
+-->
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The log and trees files for longer RABV discrete phylogeography runs <a href="{{ root_url }}files/RABV_longRuns.zip">can be downloaded from here</a>.</div>
 
 You can load the long run log file (<samp>batRABV.log</samp>) into the same Tracer window for comparison to the short run. This  gives this:
 
