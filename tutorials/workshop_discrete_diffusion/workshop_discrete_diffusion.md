@@ -29,9 +29,10 @@ To undertake this tutorial, you will need to download three software packages in
 
 {% include spread3_callout.md %}
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial can be found in the shared folder:<br />
-<div style="margin: 16px"><code>Tutorials\Tutorial 4 - Discrete Phylogeography\</code></div>
-A zipped folder <a href="{{ root_url }}files/discreteTutorialFiles.zip"> can be downloaded from here</a>. </div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
+<a href="{{ root_url }}files/discreteTutorialFiles.zip"> can be downloaded from here</a>. 
+If you download this zipped folder, there is no need to download other files/folders linked further in the tutorial.
+</div>
 <!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> A zipped folder with all files needed for this tutorial <a href="{{ root_url }}discreteTutorialFiles.zip">can be downloaded from here</a>. (If you download this zipped folder, there is no need anymore to download the individual files linked in the tutorial text) </div>
 -->
