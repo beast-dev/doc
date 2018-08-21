@@ -367,10 +367,14 @@ You may see some improvement in the ESSs but they will still be very low. In the
 
 The simple response to this situation is that we need to run the chain for longer. Go back to BEAUti (which hopefully you left open), go to the `MCMC` options section, above, and create a new BEAST XML file with a longer chain length (e.g. 10,000,000).  
 
+<!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
 To continue the tutorial without having to wait for a long run to complete, you can make use of the log files provided with this tutorial (a chain length of 20,000,000 and logged every 10,000 sample). The data files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, can be found in the shared folder: 
 <div style="margin: 16px"><code>Tutorials\Tutorial 1 - Rates and Dates\Long_Run_YFV\</code></div>
 The file, <a href="{{ root_url }}files/YFVLongRun.zip"><samp>YFVLongRun.zip</samp>, can be downloaded from here</a>.</div>
+-->
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
+To continue the tutorial without having to wait for a long run to complete, you can make use of the BEAST output files provided with this tutorial (a chain length of 20,000,000 and logged every 10,000 sample). The files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, <a href="{{ root_url }}files/YFVLongRun.zip"><samp>YFVLongRun.zip</samp>, can be downloaded from here</a>.</div>
 
 Import the new longer log file, select the `treeModel.rootAge` statistic and click on the `Trace` tab to look at the raw trace plot.
 
