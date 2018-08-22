@@ -381,7 +381,7 @@ The file, <a href="{{ root_url }}files/YFVLongRuns.zip"><samp>YFVLongRun.zip</sa
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
 To continue the tutorial without having to wait for a long run to complete, you can make use of the BEAST output files provided with this tutorial (a chain length of 20,000,000 and logged every 10,000 sample). The files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, <a href="{{ root_url }}files/YFVLongRun.zip"><samp>YFVLongRuns.zip</samp>, can be downloaded from here</a>.</div>
 
-Import the new longer log file, select the `treeModel.rootAge` statistic and click on the `Trace` tab to look at the raw trace plot.
+Import the new longer log file for the strict clock run, select the `treeModel.rootAge` statistic and click on the `Trace` tab to look at the raw trace plot.
 
 {% include image.html prefix=root_url file="image17.png" %}
 
@@ -436,6 +436,24 @@ You can also save the tree and this will save most of your settings so that when
 Finally, the tree can also be exported to a graphics file (pdf, svg, etc.) using the options in the `File` menu.
 
 {% include question.html content="How do the viruses from the Americas cluster relative to the African viruses and what conclusions can we draw from the inferred time scale?" %} 
+
+## Relaxed molecular clock analysis
+
+A relaxed clock analysis using a lognormal distribution can also be set up for this data set, by selecting the relevant clock model in the `Clocks` tab:
+
+{% include image.html prefix=root_url file="image23.png" %}
+
+Also for this analysis, we made available the output files for a longer run: 
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
+You can make use of the BEAST output files provided with this tutorial (a chain length of 50,000,000 and logged every 50,000 sample). The files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, <a href="{{ root_url }}files/YFVLongRun.zip"><samp>YFVLongRuns.zip</samp>, can be downloaded from here</a>.</div>
+
+{% include question.html content="Is the default 10% burn-in sufficient for this sample?" %} 
+
+{% include question.html content="Does the standard deviation estimate for the lognormal distribution in the relaxed clock suggest significant rate variation among lineages? How can we formally test this" %} 
+
+{% include question.html content="Does the hypothesis of YFV introduction in the Americas during the slave trade also hold under this model?" %} 
+
 
 ## References
 
