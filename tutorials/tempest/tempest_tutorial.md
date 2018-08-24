@@ -1,5 +1,5 @@
 ---
-title: TempEst Tutorial
+title: Using TempEst for data exploration
 keywords: tempest, tutorial
 last_updated: Aug 23, 2018
 tags: [tempest, tutorial]

@@ -2,7 +2,7 @@
 title: First Tutorial
 keywords: beast, tutorial
 last_updated: July 22, 2017
-tags: [getting-started, tutorial]
+tags: [tutorial]
 summary: "An introductory tutorial to getting started with BEAST. This tutorial describes the use of BEAUti and BEAST to analyse some primate sequences and estimate a phylogenetic tree. It will take you through the process of importing an alignment, making choices about the model, generating a BEAST XML file. You will then run BEAST."
 sidebar: beast_sidebar
 permalink: first_tutorial.html

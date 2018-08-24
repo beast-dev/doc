@@ -92,7 +92,7 @@ folder: beast
     </div>
 
 
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["howto"]'>
+    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["how-to"]'>
 
         <div class="panel panel-default">
             <div class="panel-heading">How-tos</div>
@@ -101,7 +101,7 @@ folder: beast
                 <ul>
                     {% for page in site.pages %}
                     {% for tag in page.tags %}
-                    {% if tag == "howto" %}
+                    {% if tag == "how-to" %}
                     <li><a href="{{page.url | remove: '/'}}">{{page.title}}</a></li>
                     {% endif %}
                     {% endfor %}

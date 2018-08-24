@@ -1,6 +1,6 @@
 ---
 title: Analysing BEAST output using Tracer
-keywords: tracer, tutorial
+keywords: tracer, how-to, tutorial
 last_updated: February 17, 2018
 tags: [how-to]
 summary: "Analysing BEAST output files using Tracer"

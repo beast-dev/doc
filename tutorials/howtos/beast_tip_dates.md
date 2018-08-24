@@ -1,6 +1,6 @@
 ---
 title: How to specify dates for tips
-keywords: software, molecular clocks, tipdates, beast, beauti
+keywords: how-to, software, molecular clocks, tipdates, beast, beauti
 last_updated: August 2, 2017
 tags: [how-to]
 summary: "A key feature of BEAST is the ability to specify dates for individual sequences (i.e., tips in the tree --- so called tipdates). This is important when the organism being studies is evolving on the same scale as the time range of the tree. Common cases of this are fast evolving pathogens such as viruses and bacteria or DNA recovered from relatively ancient material such as sub-fossil bones. This pages walks you through how to specify these dates within the user interface of BEAUti."

@@ -1,6 +1,6 @@
 ---
 title: Construct a model in BEAUti
-keywords: tracer, tutorial
+keywords: tracer, how-to
 last_updated: August 12, 2017
 tags: [how-to]
 summary: "This page discusses how to construct a phylogenetic model for your data using the graphical user interface in BEAUti. It describes how to link and unlink model components for different data partitions (such as substitution models or molecular clock models). It also discusses linking individual parameters for even more flexibility."

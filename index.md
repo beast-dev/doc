@@ -1,7 +1,7 @@
 ---
 keywords: beast mcmc documentation tutorial
 browser_title: BEAST Software - Bayesian Evolutionary Analysis Sampling Trees
-tags: [getting-started]
+tags: [home]
 sidebar: beast_sidebar
 permalink: index.html
 toc: false
@@ -10,7 +10,6 @@ redirect_from: "/main_page"
 ---
  
 <div><img style="max-width: 100%" src="images/beast-banner.png" /></div>
-
 
 ## What is BEAST?
 

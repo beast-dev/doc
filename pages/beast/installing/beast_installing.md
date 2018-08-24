@@ -2,7 +2,7 @@
 title: Installing BEAST
 keywords: beast, install, download
 last_updated: July 6, 2017
-tags: [getting-started installing]
+tags: [getting-started, installing]
 summary: "How to download and install BEAST on your computer."
 sidebar: beast_sidebar
 permalink: installing.html

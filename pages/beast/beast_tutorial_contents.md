@@ -22,6 +22,9 @@ To help you get started with BEAST and get familiar with the different component
 [Estimating Rates and Dates](rates_and_dates)
 : A basic tutorial on inferring rates and dates from tip-dated virus data.
 
+[Using TempEst for data exploration](tempest_tutorial)
+: This tutorial describes the use of TempEst to examine the temporal signal of a data set and to look for problematic or erroneous sequences.
+
 ## Tutorials for particular types of analyses
 
 [The evolutionary dynamics of a influenza epidemic](phylodynamics_of_epidemic_influenza)
