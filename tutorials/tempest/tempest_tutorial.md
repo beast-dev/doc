@@ -22,7 +22,7 @@ To examine the relationship between genetic divergence and time (temporal signal
 <br/><div style="text-align: center"><a href="{{ root_url }}files/ice_viruses.fasta"><i class="fa fa-download fa-lg"></i> You can download the file, <code class="highlighter-rouge">ice_viruses.fasta</code>, here</a>.</div>
 </div>
 
-Install **IQ-Tree** using [the instructions on the website](http://www.iqtree.org) and open a command-line prompt, navigating to the directory containting the data file `ice_viruses.fasta`.
+Install **IQ-Tree** using [the instructions on the website](http://www.iqtree.org) and open a command-line prompt, navigating to the directory containing the data file `ice_viruses.fasta`.
 
 To build a maximum likelihood phylogenetic tree using the GTR+gamma model type:
 
@@ -185,7 +185,7 @@ Repeating the steps above to build a tree and load it into **TempEst** now shows
 
 {% include image.html prefix="/tutorials/tempest/" file="fig16_human_root_to_tip.png" %}
 
-In this image everything after 1975 is highlighted in blue. What you should be able to see is that there is actually two lines of points here, one from 1918 to 1957 and one from 1977 to 2000. There is a gap in time (in the horizonal axis) of about 20 years but no gap in the divergence from the root. 
+In this image everything after 1975 is highlighted in blue. What you should be able to see is that there is actually two lines of points here, one from 1918 to 1957 and one from 1977 to 2000. There is a gap in time (in the horizontal axis) of about 20 years but no gap in the divergence from the root. 
 
 {% include note.html content="This gap in time for the H1N1 human lineage has been well described. In the influenza pandemic of 1957-1958 an H2N2 subtype emerged which diplaced the H1N1 lineage which had been circulating as season flu since 1918. The H2N2 lineage became the seasonal flu until it in turn was replaced by the H3N2 subtype in 1968. Then in 1977 another pandemic occurred in which the same H1N1 lineage as had previously been circulating reemerged as a second season flu type (it then continued to circulate until 2009 when it was replaced by the 'swine flu' H1N1). What was remarkable about the H1N1 viruses that emerged in 1977 (as we can see in our tree) was that they were very similar to those from the 1940s and 1950s. So similar that they seemed not to have been evolving for 20 years. This was not a case of contamination as 1000s of post 1977 viruses have been sequenced. It is almost certain that the H1N1 virus that emerged in 1977 had been frozen and was the result of an escape from a lab."  %}
 
