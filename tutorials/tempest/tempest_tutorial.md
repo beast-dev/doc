@@ -9,7 +9,9 @@ permalink: tempest_tutorial.html
 folder: beast
 ---
 
-In this tutorial, .
+{% capture root_url %}{{ site.tutorials_root_url }}/tempest/{% endcapture %}
+
+In this tutorial, we will explore the use of the interactive graphical program [TempEst](tempest) to examine virus sequence data that has been sampled through time to look for problematic sequence and to explore the degree and pattern of temporal signal. This can be a useful way of examining the data for potential issues before committing significant time to running [BEAST](beast).
 
 ## Building a non-molecular clock tree
 
