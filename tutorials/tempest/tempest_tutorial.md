@@ -176,9 +176,9 @@ You can see that the correlation between divergence from root and time of sampli
 
 You will notice that the relationship is still not very clean. The reason for this is that there are 3 different lineages here (human, swine and avian) and the combining them all into a single tree (which is then fixed) may obscure their individual patterns.
 
-The final file in this analysis, `ice_viruses_human_pre1977.fasta`, is one that contains only the human viruses.
+The final file in this analysis, `ice_viruses_human.fasta`, is one that contains only the human viruses.
 
-<div class="alert alert-success" role="alert"><div style="text-align: center"><a href="{{ root_url }}files/ice_viruses_human_pre1977.fasta"><i class="fa fa-download fa-lg"></i> Download the file, <code class="highlighter-rouge">ice_viruses_human_pre1977.fasta</code>, here</a>.</div>
+<div class="alert alert-success" role="alert"><div style="text-align: center"><a href="{{ root_url }}files/ice_viruses_human.fasta"><i class="fa fa-download fa-lg"></i> Download the file, <code class="highlighter-rouge">ice_viruses_human.fasta</code>, here</a>.</div>
 </div>
 
 Repeating the steps above to build a tree and load it into **TempEst** now shows this relationship:
