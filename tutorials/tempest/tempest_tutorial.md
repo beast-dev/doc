@@ -97,6 +97,24 @@ Now there is a better correlation between the dates of the tips and the divergen
 
 To make the tree easier to view, switch the `Order` option in the panel at the bottom to `increasing`. This rotates each node so the branch with the most tips is at the top. You can see now that there are 3 main lineages in this influenza tree - the human lineage at the top starting with the BrevigMission virus from 1918, the swine lineage in the middle and the avian lineage at the bottom.
 
+The tree branches are colour to show the residual with blue for tips with positive residuals (above the regression line), red for negative.
+
+On the left hand side of the window there is a table of statistics:
+
+{% include image.html prefix="/tutorials/tempest/" width="70%" file="fig8a_stats_table.png" %}
+<br/>
+
+As well as the statistical metrics (`Correlation Coefficient`, `R squared` and `Residual Mean Squared`) there are the following:
+
+`Date range`
+: The span of dates for the viruses.
+
+`Slope (rate)`
+: The slope of the regression line. This is an estimate of the rate of evolution in substitutions per site per year. 
+
+`X-Intercept (TMRCA)`
+: The point on the x-axis at which the regression line crosses. This is an estimate of the date of the root of the tree.
+
 ## Finding and interpreting problematic sequences
 
 Switch to the `Root-to-tip` panel. Look for the point furthest from the line in the top left hand quadrant. If you click and drag you pointer over the point it will be hilighted in a blue colour:
@@ -119,9 +137,54 @@ One further tool is available that can be useful to find problematic sequences. 
   
 {% include image.html prefix="/tutorials/tempest/" file="fig12_positive_outlier_ancestor_line.png" %}
 
-This option draws a green line from the selected virus to the point on the regression line where the immediate ancestor should lie (i.e., given its divergence from the root). 
+This option draws a green line from the selected virus to the point on the regression line where the immediate ancestor should lie (i.e., given its divergence from the root). If the line, like the example here, is horizontal and extends to the left, this suggests the sequence is actually more recent than the date that it has been given. This may be indicative of contamination from a recent virus than the supposed date or a mislabelling (another issue is that the date format could be wrongly parsed).
 
-Tree shows blue for tips with +ve residuals, red for -ve.
+Ancestor lines that are vertical upwards suggest that the sequence has too many unique differences compared to its ancestor. This may be indicative of sequencing error, degraded samples, host restriction-factor editing, alignment issues, or recombination.
 
+Ancestor lines that are horizontal and to the right mean that the supposed date of the virus is more recent than the divergence would suggest. This can be due to contamination by an older virus (or a mislabelling). 
+
+The ancestor lines can never be downwards as this would denote a negative divergence. Shorter ancestor lines and ones that lie close to the regression gradient are less likely to be problematic.
+
+Go to the `Residuals` panel and select the most left hand (negative) residual point: 
+
+{% include image.html prefix="/tutorials/tempest/" file="fig13_negative_residual_hilighted.png" %}
+ 
+Then return to the tree and examine the selected virus:
+
+{% include image.html prefix="/tutorials/tempest/" file="fig14_tree_1990_hilighted.png" %}
+
+You can see here that the selected virus, `A.swine.StHyacinthe.148.1990`, although supposedly from 1990, is identical to a virus from Iowa in 1930. `A/swine/Iowa/15/1930` is a commonly used lab virus and thus this is likely, again, a contamination issue. 
+
+{% include note.html content="If the ascribed date of `A.swine.StHyacinthe.148.1990` is correct, it would mean that this virus is directly descended from the 1930s viruses but hasn't evolved at all in this time. This would require the virus to have been frozen and then re-emerge 60 years later. Although this is not entirely implausible it is unlikely to have happened in this case."  %}
+
+There are 4 other examples of this type of problematic sequences in this data set. See if you can identify them.
+
+## Cleaning the data set
+
+Once all of the problematic sequences have been identified, these can be removed from the alignment and the tree rebuilt to see the effect they were having onb the analysis. Download the file, `ice_viruses_cleaned.fasta`, which has had 7 problematic sequences removed.
+
+<div class="alert alert-success" role="alert"><div style="text-align: center"><a href="{{ root_url }}files/ice_viruses_cleaned.fasta"><i class="fa fa-download fa-lg"></i> Download the file, <code class="highlighter-rouge">ice_viruses_cleaned.fasta</code>, here</a>.</div>
+</div>
+
+Using the instructions given above, for the file `ice_viruses_cleaned.fasta`, repeat the tree building procedure using **IQ-Tree**, load the resulting tree into **TempEst** and parse the dates for each virus. Switch to the `Root-to-tip` panel, turn on `Best-fitting root` and compare the plot to the one you got before. You should see something like this:
+                           
+{% include image.html prefix="/tutorials/tempest/" file="fig15_cleaned_root_to_tip.png" %}
+
+You can see that the correlation between divergence from root and time of sampling is much better (the `Correlation Coefficent` in the table on the left is now 0.733). 
+
+You will notice that the relationship is still not very clean. The reason for this is that there are 3 different lineages here (human, swine and avian) and the combining them all into a single tree (which is then fixed) may obscure their individual patterns.
+
+The final file in this analysis, `ice_viruses_human_pre1977.fasta`, is one that contains only the human viruses.
+
+<div class="alert alert-success" role="alert"><div style="text-align: center"><a href="{{ root_url }}files/ice_viruses_human_pre1977.fasta"><i class="fa fa-download fa-lg"></i> Download the file, <code class="highlighter-rouge">ice_viruses_human_pre1977.fasta</code>, here</a>.</div>
+</div>
+
+Repeating the steps above to build a tree and load it into **TempEst** now shows this relationship:
+
+{% include image.html prefix="/tutorials/tempest/" file="fig16_human_root_to_tip.png" %}
+
+In this image everything after 1975 is highlighted in blue. What you should be able to see is that there is actually two lines of points here, one from 1918 to 1957 and one from 1977 to 2000. There is a gap in time (in the horizonal axis) of about 20 years but no gap in the divergence from the root. 
+
+{% include note.html content="This gap in time for the H1N1 human lineage has been well described. In the influenza pandemic of 1957-1958 an H2N2 subtype emerged which diplaced the H1N1 lineage which had been circulating as season flu since 1918. The H2N2 lineage became the seasonal flu until it in turn was replaced by the H3N2 subtype in 1968. Then in 1977 another pandemic occurred in which the same H1N1 lineage as had previously been circulating reemerged as a second season flu type (it then continued to circulate until 2009 when it was replaced by the 'swine flu' H1N1). What was remarkable about the H1N1 viruses that emerged in 1977 (as we can see in our tree) was that they were very similar to those from the 1940s and 1950s. So similar that they seemed not to have been evolving for 20 years. This was not a case of contamination as 1000s of post 1977 viruses have been sequenced. It is almost certain that the H1N1 virus that emerged in 1977 had been frozen and was the result of an escape from a lab."  %}
 
 {% include links.html %}
