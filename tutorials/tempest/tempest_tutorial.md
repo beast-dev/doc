@@ -11,11 +11,11 @@ folder: beast
 
 {% capture root_url %}{{ site.tutorials_root_url }}/tempest/{% endcapture %}
 
-In this tutorial, we will explore the use of the interactive graphical program [TempEst](tempest) to examine virus sequence data that has been sampled through time to look for problematic sequence and to explore the degree and pattern of temporal signal. This can be a useful way of examining the data for potential issues before committing significant time to running [BEAST](beast).
+In this tutorial, we will explore the use of the interactive graphical program [TempEst](tempest) (formerly known as Path-O-Gen) to examine virus sequence data that has been sampled through time to look for problematic sequences and to explore the degree and pattern of temporal signal. This can be a useful way of examining the data for potential issues before committing significant time to running [BEAST](beast).
 
 ## Building a non-molecular clock tree
 
-To examine the relationship between genetic divergence and time (temporal signal) we require a phylogenetic tree constructed without assuming a molecular clock. There is a wide range of suitable software packages (i.e., Phyml, RAXML, Garli) but for this tutorial we are going to use [IQ-Tree](http://www.iqtree.org) which i 
+To examine the relationship between genetic divergence and time (temporal signal), we require a phylogenetic tree constructed without assuming a molecular clock. There is a wide range of suitable software packages (i.e., PhyML, RAxML, GARLI) but for this tutorial we are going to use [IQ-Tree](http://www.iqtree.org) which uses a fast and effective stochastic algorithm to infer phylogenetic trees by maximum likelihood. 
 
 <div class="alert alert-success" role="alert"><div>The data for this tutorial was compiled for this paper: Worobey (2009) Phylogenetic Evidence against Evolutionary Stasis and Natural Abiotic Reservoirs of Influenza A Virus. <i>Journal of Virology</i>, <b>82</b>, 3769–3774. <a href="http://doi.org/10.1128/JVI.02207-07">DOI: 10.1128/JVI.02207-07</a>. This was a response to an earlier paper (Zhang et al (2006) <i>J Virol</i> <b>80</b>, 12229–12235 <a href="http://doi.org/10.1128/JVI.00986-06">DOI: 10.1128/JVI.00986-06</a> ) which claimed to have isolated and sequenced influenza viruses from glacial ice.</div> 
 
@@ -65,11 +65,11 @@ Once the tree is loaded the main window will appear and look like this:
 
 Ignore the panel on the left for the moment. The first thing that needs doing is to give the date of sampling to each of the sequences. 
 
-The actual year of sampling is given at the end of the name of each taxon and to specify the dates of the sequences in BEAUti we will use the `Parse Dates` button at the top of the panel. Clicking this will make a dialog box appear:
+The actual year of sampling is given at the end of the name of each taxon. To specify the dates of the sequences in BEAUti we will use the `Parse Dates` button at the top of the panel. Clicking this will make a dialog box appear:
 
 {% include image.html prefix="/tutorials/tempest/" width="90%" file="fig3_parse_dates_dialog.png" %}
 
-This operation attempts to extract the dates are from the taxon names. It works by trying to find a numerical field within each name. This dialog box is the same as that in [BEAUti](beauti) and there are a wide range of options for doing this - [See this page for details about the various options for setting dates in this panel](tip_dates). For these sequences you can set the options to look like the figure above: `Defined just by its order`, `Order: last` and `Parse as a number` option.
+This operation attempts to extract the dates from the taxon names. It works by trying to find a numerical field within each name. This dialog box is the same as that in [BEAUti](beauti) and there are a wide range of options for doing this - [See this page for details about the various options for setting dates in this panel](tip_dates). For these sequences you can set the options to look like the figure above: `Defined just by its order`, `Order: last` and `Parse as a number` option.
 
 When parsing a number, you can ask BEAUti to add a fixed value to each date which can be useful for [transforming a 2 digit year into a 4 digit year](tip_dates). Because all dates are specified in a four digit format in this case, no additional settings are needed.  So, we can press `OK`.
 
@@ -79,7 +79,7 @@ The table will now have the year of sampling for each virus in the `Dates` colum
 
 ## The temporal signal and rooting
 
-We can now explore the data using the tabs at the top of the window - `Tree`, `Root-to-tip` & `Residuals`. If you click on the `Tree` tab you will see the tree as loaded from the tree file. Because we constructed this tree using a non-molecular-clock model, it will arbitrarily rooted. If you look at the dates of each virus in the tree you will see that there is no correlation with the horizontal position:
+We can now explore the data using the tabs at the top of the window - `Tree`, `Root-to-tip` & `Residuals`. If you click on the `Tree` tab you will see the tree as loaded from the tree file. Because we constructed this tree using a non-molecular-clock model, it will be arbitrarily rooted. If you look at the date of each virus in the tree you will see that there is no correlation with the horizontal position:
 
 {% include image.html prefix="/tutorials/tempest/" file="fig5_unrooted_tree.png" %}
 
@@ -87,7 +87,8 @@ Now switch to the `Root-to-tip` panel. This shows a plot of the divergence from 
 
 {% include image.html prefix="/tutorials/tempest/" file="fig6_unrooted_root_to_tip.png" %}
 
-You can see that there is very little correlation in this plot (the line is the best-fit regression). In the table on the left you can see the `Correlation Coefficient` is `0.35`. This lack of correlation is expected as the root is arbitrarily set by the phylogeny reconstruction software and thus divergence from root is meaningless. **TempEst** can try to find the root of the tree that optimizes the temporal signal. It does this by trying all possible roots and picks the one that produces the optimal value of a range of statistics. The function it uses is selected in the menu at the top left. The options are to minimize the mean of the squares of the residuals (`residual-mean-squared`), or to maximize the correlation coefficient (`correlation`) or R^2 (`R squared`). These are all _ad hoc_ procedures and no particular one is best but `residual-mean-squared` may be most consistent with the investigations here.
+You can see that there is very little correlation in this plot (the line is the best-fit regression). In the table on the left you can see the `Correlation Coefficient` is `0.35`. This lack of correlation is expected as the root is arbitrarily set by the phylogeny reconstruction software and thus divergence from root is meaningless. **TempEst** can try to find the root of the tree that optimizes the temporal signal. It does this by trying all possible roots and picks the one that produces the optimal value of a range of statistics. The function it uses is selected in the menu at the top left. 
+The options are to minimize the mean of the squares of the residuals (`residual-mean-squared`), or to maximize the correlation coefficient (`correlation`) or R<sup>2</sup> (`R squared`). These are all _ad hoc_ procedures and no particular one is best but `residual-mean-squared` may be most consistent with the investigations here.
 
 Click `Best-fitting root` to root the tree at the place that minimizes the mean of the squares of the residuals. 
 
@@ -99,7 +100,7 @@ Now there is a better correlation between the dates of the tips and the divergen
 
 To make the tree easier to view, switch the `Order` option in the panel at the bottom to `increasing`. This rotates each node so the branch with the most tips is at the top. You can see now that there are 3 main lineages in this influenza tree - the human lineage at the top starting with the BrevigMission virus from 1918, the swine lineage in the middle and the avian lineage at the bottom.
 
-The tree branches are colour to show the residual with blue for tips with positive residuals (above the regression line), red for negative.
+The tree branches are coloured to show the residual with blue for tips with positive residuals (above the regression line), red for negative.
 
 On the left hand side of the window there is a table of statistics:
 
@@ -119,11 +120,11 @@ As well as the statistical metrics (`Correlation Coefficient`, `R squared` and `
 
 ## Finding and interpreting problematic sequences
 
-Switch to the `Root-to-tip` panel. Look for the point furthest from the line in the top left hand quadrant. If you click and drag you pointer over the point it will be hilighted in a blue colour:
+Switch to the `Root-to-tip` panel. Look for the point furthest from the line in the top left hand quadrant. If you click and drag your pointer over the point it will be highlighted in a blue colour:
 
 {% include image.html prefix="/tutorials/tempest/" file="fig9_positive_outlier_hilighted.png" %}
 
-If you now switch to the `Residual` panel you will see a plot all the residual (the tangental deviation from the regression line). The virus we selected will still be hilighted and you can see it is an outlier. It is often easiest to select outliers in this plot.
+If you now switch to the `Residual` panel you will see a plot of all the residuals (the tangental deviation from the regression line). The virus we selected will still be highlighted and you can see it is an outlier. It is often easiest to select outliers in this plot.
 
 {% include image.html prefix="/tutorials/tempest/" file="fig10_positive_residual_hilighted.png" %}
 
@@ -174,7 +175,7 @@ Using the instructions given above, for the file `ice_viruses_cleaned.fasta`, re
 
 You can see that the correlation between divergence from root and time of sampling is much better (the `Correlation Coefficent` in the table on the left is now 0.733). 
 
-You will notice that the relationship is still not very clean. The reason for this is that there are 3 different lineages here (human, swine and avian) and the combining them all into a single tree (which is then fixed) may obscure their individual patterns.
+You will notice that the relationship is still not very clean. The reason for this is that there are 3 different lineages here (human, swine and avian) and that combining them all into a single tree (which is then fixed) may obscure their individual patterns.
 
 The final file in this analysis, `ice_viruses_human.fasta`, is one that contains only the human viruses.
 
@@ -187,6 +188,6 @@ Repeating the steps above to build a tree and load it into **TempEst** now shows
 
 In this image everything after 1975 is highlighted in blue. What you should be able to see is that there are actually two lines of points here, one from 1918 to 1957 and one from 1977 to 2000. There is a gap in time (in the horizontal axis) of about 20 years but no gap in the divergence from the root. 
 
-{% include note.html content="This gap in time for the H1N1 human lineage has been well described. In the influenza pandemic of 1957-1958 an H2N2 subtype emerged which diplaced the H1N1 lineage which had been circulating as season flu since 1918. The H2N2 lineage became the seasonal flu until it in turn was replaced by the H3N2 subtype in 1968. Then in 1977 another pandemic occurred in which the same H1N1 lineage as had previously been circulating reemerged as a second season flu type (it then continued to circulate until 2009 when it was replaced by the 'swine flu' H1N1). What was remarkable about the H1N1 viruses that emerged in 1977 (as we can see in our tree) was that they were very similar to those from the 1940s and 1950s. So similar that they seemed not to have been evolving for 20 years. This was not a case of contamination as 1000s of post 1977 viruses have been sequenced. It is almost certain that the H1N1 virus that emerged in 1977 had been frozen and was the result of an escape from a lab."  %}
+{% include note.html content="This gap in time for the H1N1 human lineage has been well described. In the influenza pandemic of 1957-1958 an H2N2 subtype emerged which displaced the H1N1 lineage which had been circulating as seasonal flu since 1918. The H2N2 lineage became the seasonal flu until it in turn was replaced by the H3N2 subtype in 1968. Then in 1977 another pandemic occurred in which the same H1N1 lineage as had previously been circulating reemerged as a second season flu type (it then continued to circulate until 2009 when it was replaced by the 'swine flu' H1N1). What was remarkable about the H1N1 viruses that emerged in 1977 (as we can see in our tree) was that they were very similar to those from the 1940s and 1950s. So similar that they seemed not to have been evolving for 20 years. This was not a case of contamination as 1000s of post 1977 viruses have been sequenced. It is almost certain that the H1N1 virus that emerged in 1977 had been frozen and was the result of an escape from a lab."  %}
 
 {% include links.html %}
