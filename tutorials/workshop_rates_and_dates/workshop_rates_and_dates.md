@@ -379,7 +379,7 @@ To continue the tutorial without having to wait for a long run to complete, you 
 The file, <a href="{{ root_url }}files/YFVLongRuns.zip"><samp>YFVLongRun.zip</samp>, can be downloaded from here</a>.</div>
 -->
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
-To continue the tutorial without having to wait for a long run to complete, you can make use of the BEAST output files provided with this tutorial (a chain length of 20,000,000 and logged every 10,000 sample). The files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, <a href="{{ root_url }}files/YFVLongRun.zip"><samp>YFVLongRuns.zip</samp>, can be downloaded from here</a>.</div>
+To continue the tutorial without having to wait for a long run to complete, you can make use of the BEAST output files provided with this tutorial (a chain length of 20,000,000 and logged every 10,000 sample). The files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, <a href="{{ root_url }}files/YFVLongRuns.zip"><samp>YFVLongRuns.zip</samp>, can be downloaded from here</a>.</div>
 
 Import the new longer log file for the strict clock run, select the `treeModel.rootAge` statistic and click on the `Trace` tab to look at the raw trace plot.
 
