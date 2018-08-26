@@ -15,13 +15,15 @@ folder: beast
 
 {% include note.html content='This tutorial follows on from the <a href="workshop_rates_and_dates">Estimating rates and dates from time-stamped sequences</a> which should be completed before starting this one.' %}
 
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>YFV.nex</samp>' and <a href="{{ root_url }}files/YFV.nex">can be downloaded from here</a>.</div>
+
 ## Evaluating rate variation (using model selection)
 
 To investigate lineage-specific rate heterogeneity in this data set and its impact on divergence date estimates, a log and trees file is available for an analysis using an uncorrelated lognormal relaxed clock. 
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
-The log file, <samp>YFV_relaxed_clock.log</samp>, can be found in the shared folder: 
-<div style="margin: 16px"><code>Tutorials\Tutorial 3 - Model Selection\</code></div></div>
+Note that you can make use of the BEAST output files of long(er) runs provided with the <a href="workshop_rates_and_dates">previous tutorial</a> (a chain length of 20,000,000 and logged every 10,000 sample). The file <a href="{{ root_url }}files/YFVLongRun.zip"><samp>YFVLongRuns.zip</samp> can be downloaded from here</a>.
+</div>
 
 Import this log file in Tracer in addition to the previously imported strict clock log file. 
 Investigate the posterior density for the lognormal standard deviation; if this density excludes zero (= no rate variation), it would suggest that the strict clock model can be rejected in favor of the relaxed clock model.
