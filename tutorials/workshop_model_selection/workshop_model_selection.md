@@ -22,7 +22,7 @@ folder: beast
 To investigate lineage-specific rate heterogeneity in this data set and its impact on divergence date estimates, a log and trees file is available for an analysis using an uncorrelated lognormal relaxed clock. 
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
-Note that you can make use of the BEAST output files of long(er) runs provided with the <a href="workshop_rates_and_dates">previous tutorial</a> (a chain length of 20,000,000 and logged every 10,000 sample). The file <a href="{{ root_url }}files/YFVLongRun.zip"><samp>YFVLongRuns.zip</samp> can be downloaded from here</a>.
+Note that you can make use of the BEAST output files of long(er) runs provided with the <a href="workshop_rates_and_dates">previous tutorial</a> (a chain length of 20,000,000 and logged every 10,000 sample). The file <a href="{{ site.tutorials_root_url }}/workshop_rates_and_dates/files/YFVLongRun.zip"><samp>YFVLongRuns.zip</samp> can be downloaded from here</a>.
 </div>
 
 Import this log file in Tracer in addition to the previously imported strict clock log file. 
