@@ -25,7 +25,7 @@ To investigate lineage-specific rate heterogeneity in this data set and its impa
 Note that you can make use of the BEAST output files of long(er) runs provided with the <a href="workshop_rates_and_dates">previous tutorial</a> (a chain length of 20,000,000 and logged every 10,000 sample). The file <a href="{{ site.tutorials_root_url }}/workshop_rates_and_dates/files/YFVLongRuns.zip"><samp>YFVLongRuns.zip</samp> can be downloaded from here</a>.
 </div>
 
-Import this log file in Tracer in addition to the previously imported strict clock log file. 
+Import this log file in Tracer in addition to the strict clock log file. 
 Investigate the posterior density for the lognormal standard deviation; if this density excludes zero (= no rate variation), it would suggest that the strict clock model can be rejected in favor of the relaxed clock model.
 
 A more formal test can be performed using a marginal likelihood estimator (MLE, Suchard et al., 2001, MBE 18: 1001-1013), which employs a mixture of model prior and posterior samples (Newton and Raftery 1994). 
