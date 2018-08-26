@@ -7,6 +7,48 @@
     --grey-color:#707070;
 }
 
+@page {
+    size: A4;
+    margin-top: 1.5cm;
+    margin-left: 2cm;
+    margin-bottom: 2cm;
+    margin-right: 1.5cm;
+    padding-top: 1cm;
+}
+
+@media print {
+    :root {
+        --body-font-size: 9pt;
+        --h1-font-size: 20pt;
+        --h2-font-size: 14pt;
+        --h3-font-size: 12pt;
+    }
+
+    body {
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 500;
+
+        /* max-width: 900px; */
+        font-size: var(--body-font-size);
+        color: black;
+        background-color: white;
+        margin: auto;
+    }
+
+    #mysidebar {
+        display: none;
+    }
+
+    figure { /* this doesn't seem to work */
+        width: 80%;
+    }
+    
+    .pagebreak {
+        page-break-before: always;
+    }
+}
+
+
 html {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
