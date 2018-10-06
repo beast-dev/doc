@@ -125,8 +125,10 @@ Click on the `Trees` tab at the top of the main window. We keep a default random
 
 Review the prior settings under the `Priors` panel:
 
+<!-- this image is out of date - shows allMus rather than allNus -->
 {% include image.html prefix=root_url file="image9.png" %}
 
+<!-- perhaps this should be left for model selection section? -->
 Some of the default marginal priors may be improper --- this means that the probability distribution does not integrate to a finite value. In our current default settings, the `1/x` prior on the `constant.popSize` is an example of an improper prior.
  
 It is important to provide proper priors for all the parameters being estimated as improper priors lead to improper posteriors and improper marginal likelihoods (when performing Bayesian model selection, cfr a different workshop tutorial). To change the prior on the `constant.popSize` for example, click on the corresponding prior and a prior selection window will appear. Set the prior to a lognormal distribution with `mu = 1` and `sigma = 10`. The graphical representation of this prior distribution indicates that most prior mass is put on relatively small values, but the density remains sufficiently diffuse over larger values. <Notice that the prior setting turns black after confirming this setting by clicking ”OK”.>
