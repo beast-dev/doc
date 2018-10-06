@@ -444,7 +444,7 @@ A relaxed clock analysis using a lognormal distribution can also be set up for t
 Also for this analysis, we made available the output files for a longer run: 
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
-You can make use of the BEAST output files provided with this tutorial (a chain length of 50,000,000 and logged every 50,000 sample). The files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, <a href="{{ root_url }}files/YFVLongRun.zip"><samp>YFVLongRuns.zip</samp>, can be downloaded from here</a>.</div>
+You can make use of the BEAST output files provided with this tutorial (a chain length of 50,000,000 and logged every 50,000 sample). The files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, <a href="{{ root_url }}files/YFVLongRuns.zip"><samp>YFVLongRuns.zip</samp>, can be downloaded from here</a>.</div>
 
 {% include question.html content="Is the default 10% burn-in sufficient for this sample?" %} 
 
