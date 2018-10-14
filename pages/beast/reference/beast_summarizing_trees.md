@@ -5,7 +5,7 @@ last_updated: July 6, 2017
 tags: [reference]
 summary: "Approaches to summarizing trees."
 sidebar: beast_sidebar
-permalink: summarizing_trees.html
+permalink: summarizing-posterior-trees.html
 folder: beast
 redirect_from: "/Summarizing-BEAST-trees"
 ---
