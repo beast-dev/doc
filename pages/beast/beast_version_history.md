@@ -11,6 +11,18 @@ folder: beast
 ---
 
 ```
+Version 1.10.3 released 28th August 2018
+
+Important bug fix where performance was degraded when using BEAGLE 3 on CPUs (compared with using BEAGLE 2 or using GPUs).
+```
+
+```
+Version 1.10.2 released 9th August 2018
+
+A minor bug fix release: Fixes issue with using the Generalized Stepping Stone sampling with the GTR model.
+```
+
+```
 Version 1.10.1 released 9th August 2018
 
 A minor bug fix release: Fixes issues with selecting the GTR model in BEAUti and running under Java 10 on Macs.
