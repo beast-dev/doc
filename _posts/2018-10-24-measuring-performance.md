@@ -115,9 +115,14 @@ they are acting inefficiently at exploring the tree-space but consume considerab
 On the other hand they may be important for convergence initially where large moves are favoured. 
 
 We can try reweighting these operators down by a factor of 10 (this can be done in BEAUti's operator
-table) and see the effect.
+table or by editing the XML) and see the effect. Firstly the total runtime is 54 minutes (down
+from 85 minutes) meaning a considerable speed up. However, we need to check that this hasn't been 
+at the cost of getting a good posterior sample of the parameters. Looking at the ESS values in Tracer:
 
-Thus a better measure of BEAST performance than the average time per million steps would be the
-average time per effectively independent sample (i.e., ESS/hour). The complication with this is we
-can't easily measure ESS for the tree which is often what we are often interested in (although work
-is being done on such metrics for trees). 
+```
+Parameter   mean    ESS
+``` 
+
+{% include note.html content="The operator weights that BEAUti generates by default are intended to be robust (we want to try to ensure convergence) and may not be optimal in all circumstances. Adjustment of these might achieve significant improvements in ESS/hour but caution should be exercised and the results examined closely to ensure that that convergence has been achieved. As always we strongly recommend that at least 2 replicate runs are performed and the results compared."  %}
+
+Thus a better measure of BEAST performance than the average time per million steps would be the average time per effectively independent sample (i.e., ESS/hour). 
