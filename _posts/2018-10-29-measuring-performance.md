@@ -5,8 +5,6 @@ permalink: measuring-beast-performance.html
 tags: [news]
 ---
 
-## Measuring BEAST performance
-
 When running BEAST it reports the time taken to calculate a certain number of states 
 (e.g., minutes/million states). It is obviously tempting to compare this time between
 runs as a measure of performance.
@@ -24,7 +22,7 @@ rate will require the recalculation of absolutely everything). Thus if the compu
 operators are given more `weight` then the average time per operation over the course of the chain
 will go up. But this is not necessarily a bad thing.
          
-{% include note.html content="This posting is primarily about improving the statistical performance of BEAST irrespective of the hardware being used. For a discussion of improving the computational performance on various types of hardware."  %}
+{% include note.html content="This posting is primarily about improving the statistical performance of BEAST irrespective of the hardware being used. For a discussion of improving the computational performance on various types of hardware, [see this page](performance)."  %}
          
                              
 ### Efficient sampling and ESSs
@@ -40,10 +38,10 @@ likelihood for the partition, but we are rarely interested in the value. We simp
 our other parameters over their distributions. So we can accept a lower ESS for `kappa` as the cost of 
 focusing on other parameters. 
 
-To demonstrate this we can look at an example BEAST run. This is a data set of 64 carnivore mitochondrial
+To demonstrate this we can look at an example BEAST run. This is a data set of 62 carnivore mitochondrial
 genome coding sequences giving a total of about 5000 site patterns. The model was an `HKY+gamma`, 
 `strict molecular clock`, `constant size coalescent` 
-([the XML file is available here](/files/carnivores.HKYG.SC.CPC.classic.xml)).
+([the XML file is available here](/files/carnivores.HKYG.SC.CPC.classic.xml.zip)).
 The data was run on [BEAST v1.10.3](installing) on an iMac Pro for 10M steps for a total run time of
 **1.42 hours** (**85.2 minutes**).
 
@@ -157,6 +155,8 @@ A few summary points:
 * A better measure of BEAST performance than the average time per million steps would be the average time per effectively independent sample (i.e., ESS/hour). In the example above, the `treeLength` measure goes from 752 independent values per hour to 1407, nearly doubling.
 
 * Choosing operator weights to achieve better performance (as ESS/hour) is a difficult balancing act and may need multiple runs and examination of operator analyses and ESSs. It may usually be better to be conservative about these and worry about getting statistically correct results more than saving a few hours of runtime.
+
+* The optimal weights for operators will also vary considerably by data set meaning it is difficult to come up with reliable rules.  
 
 * We are currently working on improving the operators and weights to achieve a reliable increase in statistical performance. More soon on this... 
 
