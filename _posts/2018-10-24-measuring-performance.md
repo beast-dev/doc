@@ -32,7 +32,7 @@ the same ESS for all parameters in the model but we are often less interested in
 than others and we could allow a lower ESS for those. A high ESS is more important the more we are
 interested in the tails of the distribution of a parameter. So some parameters, in particular those
 that are part of the substition model such as the transition-transversion ratio `kappa` are down 
-weighted. Changing these are computationally expensive, requiring a complete recalculation of the 
+weighted. Changing these is computationally expensive, requiring a complete recalculation of the 
 likelihood for the partition, but we are rarely interested in the value. We simply want to marginalize 
 our other parameters over their distributions. So we can accept a lower ESS for `kappa` as the cost of 
 focusing on other parameters. 
