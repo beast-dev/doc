@@ -114,13 +114,13 @@ these indicate good mixing.
 Overall this implies that we are in a reasonably good shape here with reasonable balance in the mixing
 of the different aspects of the model. 
 
-One other thing to note here is `Pr(accept)` column, above. This measures how often an proposed operation
+One other thing to note here is `Pr(accept)` column, above. This records how often an proposed operation
 is actually accepted according to the Metropolis-Hastings algorithm. A rule of thumb is that a move
 should be accepted about 23% of the time to be optimally efficient (this is an analytical result for
 certain continuous moves but we assume it also applies for tree moves). Operators are generally 'tuned'
 to achieve this ratio by adjusting the `size` of the move (how big a change is made to the parameter – 
 big moves will be accepted less often than small). Some moves (`Narrow Exchange`, `Wide Exchange` and
-`WilsonBalding`) are not tunable and you can see they have a very small acceptance ratio. This means
+`WilsonBalding`) are not tunable and you can see they have a very small acceptance probability. This means
 they are acting inefficiently at exploring the tree-space but consume considerable computational time.
 On the other hand they may be important for convergence initially where large moves are favoured. 
 
@@ -145,7 +145,7 @@ frequencies4	        0.223	    816
 alpha	                0.235	    1411
 ``` 
 
-The first thing to note is that the mean values are pretty much identical to before (looking at each parameter individually, the distributions for the two runs are indistinguishable). Therefore we have achieved a significant improvement in runtime with no cost to the quality of the results. Furthermore, the ESSs are all significantly higher meaning that we are obtaining more effectively independent samples in considerably less time, a double win. The reason for this is that we have removed most of the moves that were not being accepted so in our 10,000,000 moves, more of them were useful for exploring tree space. The relative weighting of substitution model moves to tree moves also went up, increasing the ESSs of these - but remember these are expensive moves so perhaps should be down-weighted. `constant.popSize` now has an ESS of 9001 which means every sample after burnin is independent - suggesting we could down-weight this operator significantly however, it is a cheap move so down-weighting this relative to tree moves will actually increase runtime (but increase ESS of tree parameters).
+The first thing to note is that the mean values are pretty much identical to before (looking at each parameter individually, the distributions for the two runs are indistinguishable). Therefore we have achieved a significant improvement in runtime with no cost to the quality of the results. Furthermore, the ESSs are all significantly higher meaning that we are obtaining more effectively independent samples in considerably less time, a double win. The reason for this is that we have removed most of the moves that were not being accepted so in our 10,000,000 moves, more of them were useful for exploring tree space. The relative weighting of substitution model moves to tree moves also went up, increasing the ESSs of these - but remember these are expensive moves so perhaps should be down-weighted. `constant.popSize` now has an ESS of 9001 which means every sample after burnin is independent - suggesting we could down-weight this operator significantly. However, it is a cheap move so down-weighting this relative to tree moves will actually increase runtime (but increase ESS of tree-related parameters).
 
 A few summary points:
 
@@ -153,7 +153,7 @@ A few summary points:
 
 * A better measure of BEAST performance than the average time per million steps would be the average time per effectively independent sample (i.e., ESS/hour). In the example above, the `treeLength` measure goes from 752 independent values per hour to 1407, nearly doubling.
 
-* Balancing operator weights to achieve better performance (as ESS/hour) is a difficult balancing act and may need multiple runs and examination of operator analyses and ESSs. It may usually be better to be conservative about these and worry about getting statistically correct results more than saving a few hours of runtime.
+* Choosing operator weights to achieve better performance (as ESS/hour) is a difficult balancing act and may need multiple runs and examination of operator analyses and ESSs. It may usually be better to be conservative about these and worry about getting statistically correct results more than saving a few hours of runtime.
 
 * We are currently working on improving the operators and weights to achieve a reliable increase in statistical performance. More soon on this... 
 
