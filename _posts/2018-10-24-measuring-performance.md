@@ -80,15 +80,15 @@ If we load the resulting log file into `Tracer` we can calculate the ESS for eac
 
 ```
 Parameter               mean    ESS
-treeModel.rootHeight	0.506	1095
-treeLength              8.142	1068
-constant.popSize        1.994	7885
-kappa	                27.168	531
-frequencies1	        0.39	321
-frequencies2	        0.305	417
-frequencies3	        0.082	523
-frequencies4	        0.223	415
-alpha	                0.235	960
+treeModel.rootHeight	  0.506  1095
+treeLength              8.142	 1068
+constant.popSize        1.994	 7885
+kappa	                  27.16  531
+frequencies1	          0.39   321
+frequencies2	          0.305  417
+frequencies3	          0.082  523
+frequencies4	          0.223  415
+alpha	                  0.235	 960
 ```
 
 You can see that all of the ESSs are quite high. The ESSs for the substitution model parameters, which 
