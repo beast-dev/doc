@@ -121,8 +121,49 @@ at the cost of getting a good posterior sample of the parameters. Looking at the
 
 ```
 Parameter   mean    ESS
+joint	-1.934E5	4124
+prior	-107.52	3507
+likelihood	-1.933E5	4188
+treeModel.rootHeight	0.506	1401
+treeLength	8.14	1267
+constant.popSize	1.995	9001
+kappa	27.154	795
+frequencies1	0.39	621
+frequencies2	0.305	771
+frequencies3	8.157E-2	771
+frequencies4	0.223	816
+alpha	0.235	1411
 ``` 
+The first thing to note is that the mean values are pretty much identical to before (looking at each parameter individually, the distributions for the two runs are indistinguishable). Therefore we have achieved a significant improvement in runtime with no cost to the quality of the results. Furthermore, the ESSs are all significantly higher meaning that we are obtaining more effectively independent samples in considerably less time, a double win. The reason for this is that we have removed most of the moves that were not being accepted so in our 10,000,000 moves, more of them were useful for exploring tree space. The relative weighting of substitution model moves to tree moves also went up, increasing the ESSs of these - but remember these are expensive moves so perhaps should be down-weighted. `constant.popSize` now has an ESS of 9001 which means every sample after burnin is independent - suggesting we could down-weight this operator significantly however, it is a cheap move so down-weighting this relative to tree moves will actually increase runtime (but increase ESS of tree parameters).
+
+A few summary points:
+
+* Don't use time/sample as a comparative measure of performance for different data or sampling regimes.
+
+* A better measure of BEAST performance than the average time per million steps would be the average time per effectively independent sample (i.e., ESS/hour). In the example above, the `treeLength` measure goes from 752 independent values per hour to 1407, nearly doubling.
+
+* Balancing operator weights to achieve better performance (as ESS/hour) is a difficult balancing act and may need multiple runs and examination of operator analyses and ESSs. It may usually be better to be conservative about these and worry about getting statistically correct results more than saving a few hours of runtime.
+
+* We are currently working on improving the operators and weights to achieve a reliable increase in statistical performance. More soon on this... 
 
 {% include note.html content="The operator weights that BEAUti generates by default are intended to be robust (we want to try to ensure convergence) and may not be optimal in all circumstances. Adjustment of these might achieve significant improvements in ESS/hour but caution should be exercised and the results examined closely to ensure that that convergence has been achieved. As always we strongly recommend that at least 2 replicate runs are performed and the results compared."  %}
 
-Thus a better measure of BEAST performance than the average time per million steps would be the average time per effectively independent sample (i.e., ESS/hour). 
+<!--
+As an aside to this, I tried to run the same model in BEAST2 v2.5. I generated the same model for the same data in BEAUti and adjusted a few things to ensure that the operator schedule and priors were the same. Running this for the same number of steps on the same computer resulted in a total runtime of 2.10 hours (126.3 minutes), thus running at 67% of the speed of BEAST1. This surprised me as both programs use the same algorithm and the same BEAGLE library to calculate the likelihood. 
+
+Looking at the operator analysis also shows a possible reason for
+
+```Operator                                                         Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+   ScaleOperator(KappaScaler.s:carnivores)                         0.77092        891      12430    0.00133    0.06689 Try setting scaleFactor to about 0.878
+   DeltaExchangeOperator(FrequenciesExchanger.s:carnivores)        0.01280       1897      11366    0.00133    0.14303 
+   ScaleOperator(gammaShapeScaler.s:carnivores)                    0.82372       1050      12045    0.00133    0.08018 Try setting scaleFactor to about 0.908
+   ScaleOperator(CoalescentConstantTreeScaler.t:carnivores)        0.89269      46061     352024    0.03984    0.11571 
+   ScaleOperator(CoalescentConstantTreeRootScaler.t:carnivores)    0.86420      38899     359216    0.03984    0.09771 Try setting scaleFactor to about 0.93
+   Uniform(CoalescentConstantUniformOperator.t:carnivores)               -     479531    3506150    0.39841    0.12031 
+   SubtreeSlide(CoalescentConstantSubtreeSlide.t:carnivores)       0.07237      74797    1916944    0.19920    0.03755 Try decreasing size to about 0.036
+   Exchange(CoalescentConstantNarrow.t:carnivores)                       -      25205    1967173    0.19920    0.01265 
+   Exchange(CoalescentConstantWide.t:carnivores)                         -         77     398187    0.03984    0.00019 
+   WilsonBalding(CoalescentConstantWilsonBalding.t:carnivores)           -         44     397367    0.03984    0.00011 
+   ScaleOperator(PopSizeScaler.t:carnivores)                       0.48241     102445     296202    0.03984    0.25698 
+```
+-->
