@@ -111,7 +111,7 @@ prior	        -107.542	5783
 likelihood	    -1.933E5	3782
 ```
 
-These are not really ESSs as we they are not parameters we are sampling but they are a measure of howuncorrelated the values are over the run which will be an indication of mixing. 
+These are not really ESSs as we they are not parameters we are sampling but they are a measure of how (un)correlated the values are over the run which will be an indication of mixing. 
 The `likelihood` value is the probability density of the data given the tree which will be another indication of how well the tree has been mixing. 
 The `prior` contains the coalescent density along with all the parameters priors and `joint` is the sum. 
 All of these indicate good mixing.
