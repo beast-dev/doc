@@ -17,7 +17,7 @@ to their `weight`. Some operators change a single parameter value, some change m
 and others will alter the tree. BEAST tries to only recalculate the likelihood of the new state
 for the bits of the state that have changed. Thus some operators will only produce a modest amount 
 of recomputation (e.g., changing a bit of the tree may only require the likelihood at a few nodes
-to be recalculated) where as others will require a lot of computation (e.g., changing the evolutionary
+to be recalculated) whereas others will require a lot of computation (e.g., changing the evolutionary
 rate will require the recalculation of absolutely everything). Thus if the computationally heavy
 operators are given more `weight` then the average time per operation over the course of the chain
 will go up. But this is not necessarily a bad thing.
@@ -27,16 +27,18 @@ will go up. But this is not necessarily a bad thing.
                              
 ### Efficient sampling and ESSs
                                                                         
-The ultimate aim of an MCMC is to get the maximum amount effectively independent samples from the 
+The ultimate aim of an MCMC analysis is to get the maximum amount effectively independent samples from the 
 posterior as possible (as measured by effective sample size, ESS). Ideally, we would aim to get 
 the same ESS for all parameters in the model but we are often less interested in some parameters
 than others and we could allow a lower ESS for those. A high ESS is more important the more we are
 interested in the tails of the distribution of a parameter. So some parameters, in particular those
-that are part of the substition model such as the transition-transversion ratio `kappa` are down 
+that are part of the substitution model such as the transition-transversion ratio `kappa` are down 
 weighted. Changing these is computationally expensive, requiring a complete recalculation of the 
 likelihood for the partition, but we are rarely interested in the value. We simply want to marginalize 
 our other parameters over their distributions. So we can accept a lower ESS for `kappa` as the cost of 
 focusing on other parameters. 
+
+{% include note.html content="In most cases, substitution model parameters easily achieve high ESS values, which is why they are typically updated less often than for example clock and coalescent model parameters."  %}
 
 To demonstrate this we can look at an example BEAST run. This is a data set of 62 carnivore mitochondrial
 genome coding sequences giving a total of about 5000 site patterns. The model was an `HKY+gamma`, 
@@ -74,7 +76,7 @@ so comprises a tiny fraction of runtime).
 
 A further complication is that different choices of operators, priors etc., can effect the efficiency
 of `mixing` of the MCMC (how fast it converges and explores the parameter space). This is reflected in
-a higher ESS perhaps even at the cost of more computation per step - what matters is the gain in ESS is 
+a higher ESS perhaps even at the cost of more computation per step - what matters is that the gain in ESS is 
 proportionally higher than the computational cost. 
 
 If we load the resulting log file into `Tracer` we can calculate the ESS for each parameter (10% burnin):
@@ -109,18 +111,18 @@ likelihood  -1.933E5	2897
 These are not really ESSs as we they are not parameters we are sampling but they are a measure of how
 uncorrelated the values are over the run which will be an indication of mixing. The `likelihood` value
 is the probability density of the data given the tree which will be another indication of how well the 
-tree has been mixing. The `prior` is the contains the coalescent density and `joint` is the sum. All of
-these indicate good mixing.
+tree has been mixing. The `prior` contains the coalescent density along with all the parameters priors 
+and `joint` is the sum. All of these indicate good mixing.
 
 Overall this implies that we are in a reasonably good shape here with reasonable balance in the mixing
 of the different aspects of the model. 
 
-One other thing to note here is `Pr(accept)` column, above. This records how often an proposed operation
+One other thing to note here is the `Pr(accept)` column, above. This records how often a proposed operation
 is actually accepted according to the Metropolis-Hastings algorithm. A rule of thumb is that a move
 should be accepted about 23% of the time to be optimally efficient (this is an analytical result for
 certain continuous moves but we assume it also applies for tree moves). Operators are generally 'tuned'
 to achieve this ratio by adjusting the `size` of the move (how big a change is made to the parameter – 
-big moves will be accepted less often than small). Some moves (`Narrow Exchange`, `Wide Exchange` and
+big moves will be accepted less often than small ones). Some moves (`Narrow Exchange`, `Wide Exchange` and
 `WilsonBalding`) are not tunable and you can see they have a very small acceptance probability. This means
 they are acting inefficiently at exploring the tree-space but consume considerable computational time.
 On the other hand they may be important for convergence initially where large moves are favoured. 
@@ -146,9 +148,19 @@ frequencies4	        0.223	    816
 alpha	                0.235	    1411
 ``` 
 
-The first thing to note is that the mean values are pretty much identical to before (looking at each parameter individually, the distributions for the two runs are indistinguishable). Therefore we have achieved a significant improvement in runtime with no cost to the quality of the results. Furthermore, the ESSs are all significantly higher meaning that we are obtaining more effectively independent samples in considerably less time, a double win. The reason for this is that we have removed most of the moves that were not being accepted so in our 10,000,000 moves, more of them were useful for exploring tree space. The relative weighting of substitution model moves to tree moves also went up, increasing the ESSs of these - but remember these are expensive moves so perhaps should be down-weighted. `constant.popSize` now has an ESS of 9001 which means every sample after burnin is independent - suggesting we could down-weight this operator significantly. However, it is a cheap move so down-weighting this relative to tree moves will actually increase runtime (but increase ESS of tree-related parameters).
+The first thing to note is that the mean values are pretty much identical as before (looking at each parameter 
+individually, the distributions for the two runs are indistinguishable). Therefore we have achieved a significant 
+improvement in runtime with no cost to the quality of the results. Furthermore, the ESSs are all significantly higher 
+meaning that we are obtaining more effectively independent samples in considerably less time, a double win. 
+The reason for this is that we have removed most of the moves that were not being accepted so in our 10 million moves, 
+more of them were useful for exploring tree space. The relative weighting of substitution model moves to tree moves 
+also went up, increasing the ESSs of these - but remember these are expensive moves so perhaps should be down-weighted. 
+`constant.popSize` now has an ESS of 9001 which means every sample after burnin is independent - suggesting we could 
+down-weight this operator significantly. However, it is a cheap move so down-weighting this relative to tree moves will 
+actually increase runtime (but increase ESS of tree-related parameters).
 
-A few summary points:
+
+### Concluding remarks
 
 * Don't use time/sample as a comparative measure of performance for different data or sampling regimes.
 
@@ -158,7 +170,7 @@ A few summary points:
 
 * The optimal weights for operators will also vary considerably by data set meaning it is difficult to come up with reliable rules.  
 
-* We are currently working on improving the operators and weights to achieve a reliable increase in statistical performance. More soon on this... 
+* We are currently working on improving the operators and weights to achieve a reliable increase in statistical performance. More on this soon ... 
 
 {% include note.html content="The operator weights that BEAUti generates by default are intended to be robust (we want to try to ensure convergence) and may not be optimal in all circumstances. Adjustment of these might achieve significant improvements in ESS/hour but caution should be exercised and the results examined closely to ensure that that convergence has been achieved. As always we strongly recommend that at least 2 replicate runs are performed and the results compared."  %}
 
