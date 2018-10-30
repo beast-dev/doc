@@ -5,47 +5,37 @@ permalink: measuring-beast-performance.html
 tags: [news]
 ---
 
-When running BEAST it reports the time taken to calculate a certain number of states 
-(e.g., minutes/million states). It is obviously tempting to compare this time between
-runs as a measure of performance.
+When running BEAST it reports the time taken to calculate a certain number of states (e.g., minutes/million states). It is obviously tempting to compare this time between runs as a measure of performance.
 
-Unless you are testing the performance of the *same XML file* on different hardware or for
-different parallelization options, this will never be a reliable measure.
+Unless you are testing the performance of the *same XML file* on different hardware or for different parallelization options, this will never be a reliable measure.
 
 The MCMC algorithm in BEAST picks operators (transition kernels or 'moves') from the list of potential operators proportional
-to their `weight`. Some operators change a single parameter value, some change multiple parameters
-and others will alter the tree. BEAST tries to only recalculate the likelihood of the new state
-for the bits of the state that have changed. Thus some operators will only produce a modest amount 
-of recomputation (e.g., changing a bit of the tree may only require the likelihood at a few nodes
-to be recalculated) whereas others will require a lot of computation (e.g., changing the evolutionary
-rate will require the recalculation of absolutely everything). Thus if the computationally heavy
-operators are given more `weight` then the average time per operation over the course of the chain
-will go up. But this is not necessarily a bad thing.
+to their `weight`. 
+Some operators change a single parameter value, some change multiple parameters and others will alter the tree. 
+BEAST tries to only recalculate the likelihood of the new state for the bits of the state that have changed. 
+Thus some operators will only produce a modest amount of recomputation (e.g., changing a bit of the tree may only require the likelihood at a few nodes to be recalculated) whereas others will require a lot of computation (e.g., changing the evolutionary rate will require the recalculation of absolutely everything). 
+Thus if the computationally heavy operators are given more `weight` then the average time per operation over the course of the chain will go up. 
+But this is not necessarily a bad thing.
          
 {% include note.html content="This posting is primarily about improving the statistical performance of BEAST irrespective of the hardware being used. For a discussion of improving the computational performance on various types of hardware, [see this page](performance)."  %}
          
                              
 ### Efficient sampling and ESSs
                                                                         
-The ultimate aim of an MCMC analysis is to get the maximum amount effectively independent samples from the 
-posterior as possible (as measured by effective sample size, ESS). Ideally, we would aim to get 
-the same ESS for all parameters in the model but we are often less interested in some parameters
-than others and we could allow a lower ESS for those. A high ESS is more important the more we are
-interested in the tails of the distribution of a parameter. So some parameters, in particular those
-that are part of the substitution model such as the transition-transversion ratio `kappa` are down 
-weighted. Changing these is computationally expensive, requiring a complete recalculation of the 
-likelihood for the partition, but we are rarely interested in the value. We simply want to marginalize 
-our other parameters over their distributions. So we can accept a lower ESS for `kappa` as the cost of 
-focusing on other parameters. 
+The ultimate aim of an MCMC analysis is to get the maximum amount effectively independent samples from the posterior as possible (as measured by effective sample size, ESS). 
+Ideally, we would aim to get the same ESS for all parameters in the model but we are often less interested in some parameters than others and we could allow a lower ESS for those. 
+A high ESS is more important the more we are interested in the tails of the distribution of a parameter. 
+So some parameters, in particular those that are part of the substitution model such as the transition-transversion ratio `kappa` are down weighted. 
+Changing these is computationally expensive, requiring a complete recalculation of the likelihood for the partition, but we are rarely interested in the value. 
+We simply want to marginalize our other parameters over their distributions. 
+So we can accept a lower ESS for `kappa` as the cost of focusing on other parameters. 
 
 {% include note.html content="In most cases, substitution model parameters easily achieve high ESS values, which is why they are typically updated less often than for example clock and coalescent model parameters."  %}
 
-To demonstrate this we can look at an example BEAST run. This is a data set of 62 carnivore mitochondrial
-genome coding sequences giving a total of about 5000 site patterns. The model was an `HKY+gamma`, 
-`strict molecular clock`, `constant size coalescent` 
-([the XML file is available here](/files/carnivores.HKYG.SC.CPC.classic.xml.zip)).
-The data was run on [BEAST v1.10.3](installing) on an iMac Pro for 10M steps for a total run time of
-**3.12 hours** (**187.2 minutes**).
+To demonstrate this we can look at an example BEAST run. 
+This is a data set of 62 carnivore mitochondrial genome coding sequences giving a total of about 5000 site patterns. 
+The model was an `HKY+gamma`, `strict molecular clock`, `constant size coalescent` ([the XML file is available here](/files/carnivores.HKYG.SC.CPC.classic.xml.zip)).
+The data was run on [BEAST v1.10.3](installing) on an iMac Pro for 10M steps for a total run time of **3.12 hours** (**187.2 minutes**).
 
 You can see the effect of different operators by looking at the operator table reported at the end of the run:
 
