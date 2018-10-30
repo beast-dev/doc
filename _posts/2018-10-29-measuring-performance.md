@@ -105,10 +105,10 @@ These are not necessarily indicative of how well the tree is mixing overall.
 We call also look at the 'ESS' for the probability densities:
 
 ```
-Parameter       mean        ESS
+Parameter          mean    ESS
 joint	        -1.934E5	3892
 prior	        -107.542	5783
-likelihood	    -1.933E5	3782
+likelihood       -1.933E5	3782
 ```
 
 These are not really ESSs as we they are not parameters we are sampling but they are a measure of how (un)correlated the values are over the run which will be an indication of mixing. 
