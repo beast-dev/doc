@@ -66,13 +66,13 @@ This is reflected in a higher ESS perhaps even at the cost of more computation p
 If we load the resulting log file into `Tracer` we can calculate the ESS for these parameters (10% burnin):
 
 ```
-Parameter               mean    ESS
-kappa	                27.169	    1772
+Parameter                 mean          ESS
+kappa	                 27.169	    1772
 frequencies1	        0.39	    2075
 frequencies2	        0.305	    2782
 frequencies3	        0.082	    2974
 frequencies4	        0.223	    2527
-alpha	                0.235	    3879
+alpha	                 0.235	    3879
 ```
 
 You can see that all of the ESSs are quite high. 
@@ -81,13 +81,13 @@ If we down-weight them by a factor of 10, the total runtime goes down to **169.8
 The ESSs for these parameters all predictably go down but are still reasonable:  
 
 ```
-Parameter               mean    ESS
-kappa	                27.178	475	
+Parameter                 mean      ESS
+kappa	                 27.178	475	
 frequencies1	        0.39	281	
 frequencies2	        0.305	272	
 frequencies3	        0.082	357	
 frequencies4	        0.223	367	
-alpha	                0.235	722	
+alpha	                 0.235	722	
 ```
 
 The two parameters that relate to the tree, `treeModel.rootHeight` and `treeLength` (the sum of all the branch lengths - not technically a parameter but a metric) show ESSs of >1000. 
@@ -125,16 +125,16 @@ Looking at the ESS values in Tracer:
 Parameter               mean        ESS
 joint	                -1.934E5	2646	
 prior	                -107.531	2291	
-likelihood	            -1.933E5	2708	
-treeModel.rootHeight	0.506	    1199	
-treeLength	            8.146	    1116	
-constant.popSize	    1.996	    9001	
-kappa	                27.175	    381	
-frequencies1	        0.39	    234	
-frequencies2	        0.305	    263	
-frequencies3	        0.081	    381
-frequencies4	        0.223	    352
-alpha	                0.235	    645
+likelihood	       -1.933E5	2708	
+treeModel.rootHeight     0.506     1199	
+treeLength	       8.146	1116	
+constant.popSize	       1.996	9001	
+kappa	                27.175	381	
+frequencies1	       0.39	234	
+frequencies2	       0.305	263	
+frequencies3	       0.081	381
+frequencies4	       0.223	352
+alpha	                0.235	645
 ``` 
 
 The first thing to note is that the mean values are pretty much identical as before (looking at each parameter 
