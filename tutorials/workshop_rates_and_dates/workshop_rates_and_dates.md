@@ -125,11 +125,11 @@ Click on the `Trees` tab at the top of the main window. We keep a default random
 
 Review the prior settings under the `Priors` panel:
 
+<!-- this image is out of date - shows allMus rather than allNus -->
 {% include image.html prefix=root_url file="image9.png" %}
 
-Some of the default marginal priors may be improper --- this means that the probability distribution does not integrate to a finite value. An example of an improper prior is a uniform prior between 0 and infinity. 
-<You will see that the prior on the relative rates between codon positions (`allMus`) takes this form and is in yellow to denote it is improper.>
-In our current default settings, the `1/x` prior on the `constant.popSize` is an example of an improper prior.
+<!-- perhaps this should be left for model selection section? -->
+Some of the default marginal priors may be improper --- this means that the probability distribution does not integrate to a finite value. In our current default settings, the `1/x` prior on the `constant.popSize` is an example of an improper prior.
  
 It is important to provide proper priors for all the parameters being estimated as improper priors lead to improper posteriors and improper marginal likelihoods (when performing Bayesian model selection, cfr a different workshop tutorial). To change the prior on the `constant.popSize` for example, click on the corresponding prior and a prior selection window will appear. Set the prior to a lognormal distribution with `mu = 1` and `sigma = 10`. The graphical representation of this prior distribution indicates that most prior mass is put on relatively small values, but the density remains sufficiently diffuse over larger values. <Notice that the prior setting turns black after confirming this setting by clicking ”OK”.>
 
@@ -379,7 +379,7 @@ To continue the tutorial without having to wait for a long run to complete, you 
 The file, <a href="{{ root_url }}files/YFVLongRuns.zip"><samp>YFVLongRun.zip</samp>, can be downloaded from here</a>.</div>
 -->
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
-To continue the tutorial without having to wait for a long run to complete, you can make use of the BEAST output files provided with this tutorial (a chain length of 20,000,000 and logged every 10,000 sample). The files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, <a href="{{ root_url }}files/YFVLongRun.zip"><samp>YFVLongRuns.zip</samp>, can be downloaded from here</a>.</div>
+To continue the tutorial without having to wait for a long run to complete, you can make use of the BEAST output files provided with this tutorial (a chain length of 20,000,000 and logged every 10,000 sample). The files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, <a href="{{ root_url }}files/YFVLongRuns.zip"><samp>YFVLongRuns.zip</samp>, can be downloaded from here</a>.</div>
 
 Import the new longer log file for the strict clock run, select the `treeModel.rootAge` statistic and click on the `Trace` tab to look at the raw trace plot.
 
@@ -446,7 +446,7 @@ A relaxed clock analysis using a lognormal distribution can also be set up for t
 Also for this analysis, we made available the output files for a longer run: 
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
-You can make use of the BEAST output files provided with this tutorial (a chain length of 50,000,000 and logged every 50,000 sample). The files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, <a href="{{ root_url }}files/YFVLongRun.zip"><samp>YFVLongRuns.zip</samp>, can be downloaded from here</a>.</div>
+You can make use of the BEAST output files provided with this tutorial (a chain length of 50,000,000 and logged every 50,000 sample). The files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, <a href="{{ root_url }}files/YFVLongRuns.zip"><samp>YFVLongRuns.zip</samp>, can be downloaded from here</a>.</div>
 
 {% include question.html content="Is the default 10% burn-in sufficient for this sample?" %} 
 

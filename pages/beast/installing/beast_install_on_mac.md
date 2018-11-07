@@ -2,7 +2,7 @@
 title: Installing BEAST on Mac OS X
 keywords: beast, install, download, mac
 last_updated: July 22, 2017
-tags: [getting_started installing]
+tags: [installing]
 summary: "How to download and install BEAST on Mac OS X."
 sidebar: beast_sidebar
 permalink: install_on_mac.html

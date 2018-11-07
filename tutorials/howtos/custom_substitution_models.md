@@ -1,6 +1,6 @@
 ---
 title: How to create custom substitution models
-keywords: beast, tutorial
+keywords: beast, xml, tutorial
 last_updated: August 9, 2017
 tags: [how-to]
 summary: "How to create custom substitution models other than the ones available in BEAUti."

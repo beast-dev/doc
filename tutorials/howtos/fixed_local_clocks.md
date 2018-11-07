@@ -1,6 +1,6 @@
 ---
 title: How to create taxon sets
-keywords: beast, tutorial
+keywords: beauti, how-to, tutorial
 last_updated: August 2, 2017
 tags: [how-to]
 summary: ""

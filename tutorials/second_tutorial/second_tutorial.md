@@ -2,7 +2,7 @@
 title: Second Tutorial
 keywords: beast, tutorial
 last_updated: May 24, 2018
-tags: [getting-started, tutorial]
+tags: [tutorial]
 summary: "This is the second introductory tutorial to BEAST. Here we will continue the analysis from the first tutorial looking at the output, diagnosing problems and summarising the results. This tutorial will introduce some of the utilities packaged with BEAST, logcombiner and treeannotator, as well as the external applications, Tracer and FigTree."
 sidebar: beast_sidebar
 permalink: second_tutorial.html
