@@ -60,8 +60,25 @@ beast_state_2018.11.12.10.32.32
 ```
 
 As you can see, a new (and unique) state file is created roughly every 30 seconds (but this will depend upon how fast the analysis is running).
+Alternatively, you can provide a stem file name using the following program argument: **'-save_stem filestem'** (without the quotation marks).
+This will generate a series of state files with file names made up of the provided stem file name and the iteration number.
+For example, you can use the following command to do so:
 
-If you only want a single state file with the latest state information of the BEAST analysis, you will also have to provide a file name using the **'-save_state filename'** argument (without the quotation marks).
+```bash
+beast -save_every 20000 -save_stem custom epiWeekX1.xml
+```
+
+This will, for an analysis of 100.000 iterations, generate the following state files:
+
+```bash
+custom_20000
+custom_40000
+custom_60000
+custom_80000
+custom_100000
+```
+
+If you only want a single state file with the latest state information of the BEAST analysis (e.g. at the final iteration of the analysies you're currently performing), you will also have to provide a file name using the **'-save_state filename'** argument (without the quotation marks).
 To this end, you can use the following command, with checkpoint.state being the desired checkpoint file name::
 
 ```bash
@@ -127,7 +144,7 @@ In anticipation of (even) more data becoming available, we suggest to keep using
 
 ## References
 
-M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2019) Online Bayesian phylodynamic inference in BEAST, with an application to reconstructing epidemics. Submitted.
+M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2018) Online Bayesian phylodynamic inference in BEAST with application to epidemic reconstruction. In preparation.
 
 M. A. Suchard, P. Lemey, G. Baele, D. L. Ayres, A. J. Drummond, A. Rambaut (2018) Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10. Virus Evolution 4(1): vey016.
 
