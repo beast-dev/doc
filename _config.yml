@@ -109,12 +109,12 @@ url: http://github.com/beast-dev
 gems:
   - jekyll-redirect-from
 
-beast_version: "1.10.3"
+beast_version: "1.10.4"
 beast_download_url: "https://github.com/beast-dev/beast-mcmc/releases"
 beast_source_url: "https://github.com/beast-dev/beast-mcmc"
-beast_mac_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.3/BEAST.v1.10.3.dmg"
-beast_linux_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.3/BEAST_v1.10.3.tgz"
-beast_windows_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.3/BEAST.v1.10.3.zip"
+beast_mac_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.4/BEAST.v1.10.4.dmg"
+beast_linux_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.4/BEAST_v1.10.4.tgz"
+beast_windows_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.4/BEAST.v1.10.4.zip"
 
 tracer_version: "1.7.1"
 tracer_url: "https://github.com/beast-dev/tracer/"
@@ -122,7 +122,7 @@ tracer_url: "https://github.com/beast-dev/tracer/"
 figtree_version: "1.4.3"
 figtree_url: "http://tree.bio.ed.ac.uk/software/figtree/"
 
-beagle_version: "3.0.1"
+beagle_version: "3.1.1"
 beagle_url: "https://github.com/beagle-dev/beagle-lib"
 
 spread3_version: "0.9.7.1"
