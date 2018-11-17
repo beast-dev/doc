@@ -1,5 +1,6 @@
 ---
-title:  "Measuring BEAST performance"
+title: "Measuring BEAST performance"
+author: Andrew Rambaut
 categories: release
 permalink: measuring-beast-performance.html
 tags: [news]
