@@ -122,19 +122,6 @@ The ESSs for `kappa` (and the other down-weighted operators) predictably goes do
 
 > **Table 4**
 > 
-> | Parameter            | mean value |     ESS |
-> |---|--:|--:|
-> | kappa                |      27.14 |     515 |
-> | constant.popSize     |      1.994 |    9001 |
-> | treeModel.rootHeight |      0.506 |    1090 |
-> | treeLength           |      8.140 |     922 |
-> | treeLikelihood       |    -1.93E5 |    2793 |
-
-Note that the ESSs for `treeModel.rootHeight`, `treeLength` and `treeLikelihood` have also gone down (but not by as greater degree as `kappa`) and `constant.popSize` has actually gone up in ESS (to the maximum where every sample is independent). 
-Another thing to see is that the mean values are pretty much identical as before (looking at each parameter individually in [Tracer](tracer), the distributions for the runs are indistinguishable). 
-
-> **Table 5**
-> 
 > | Parameter                |  ESS    |   ESS/hour |
 > |---|--:|--:|
 > | kappa	            	 |    515  |        138 |
@@ -143,13 +130,15 @@ Another thing to see is that the mean values are pretty much identical as before
 > | treeLength          	 |    922  |        247 |
 > | treeLikelihood      	 |   2793  |        749 |
 
+
+Note that the ESSs for `treeModel.rootHeight`, `treeLength` and `treeLikelihood` have also gone down (but not by as greater degree as `kappa`) and `constant.popSize` has actually gone up in ESS (to the maximum where every sample is independent). 
 So by down-weighting the substitution model operators we have reduced the ESS/hour across the board (with the exception of the coalescent prior).
 It is still possible that the tree topology is mixing better but we aren't measuring that directly.
 
 We could look at reducing the `weight` of the `constant.popSize` operator by a factor of 3 (returning the substitution model operators back to their original weights). 
 The total run time goes up to **4.16 hours** because we are doing fewer cheap moves and more expensive ones -- but the ESS/hour for all the other parameters goes up:
 
-> **Table 6**
+> **Table 5**
 >
 > | Parameter                 | ESS     |  ESS/hour |
 > |---|--:|--:|
@@ -174,7 +163,7 @@ We can try reweighting these operators down by a factor of 10 and see the effect
 Firstly the total runtime is **4.33 hours** – more than 6% slower than our original run. 
 However, if we look at the `ESS` and `ESS/hour` values:
 
-> **Table 7**
+> **Table 6**
 > 
 > | Parameter                 | ESS     |   ESS/hour |
 > |---|--:|--:|
