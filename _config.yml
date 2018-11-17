@@ -113,7 +113,7 @@ beast_version: "1.10.4"
 beast_download_url: "https://github.com/beast-dev/beast-mcmc/releases"
 beast_source_url: "https://github.com/beast-dev/beast-mcmc"
 beast_mac_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.4/BEAST.v1.10.4.dmg"
-beast_linux_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.4/BEAST_v1.10.4.tgz"
+beast_linux_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.4/BEASTv1.10.4.tgz"
 beast_windows_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.4/BEAST.v1.10.4.zip"
 
 tracer_version: "1.7.1"

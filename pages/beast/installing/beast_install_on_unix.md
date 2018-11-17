@@ -15,7 +15,7 @@ folder: beast/installing
 
 BEAST can be downloaded from the following link:
 
-- [BEAST v{{ site.beast_version }} - UNIX/Linux version 18.9MB]({{ beast_mac_download_url }})
+- [BEAST v{{ site.beast_version }} - UNIX/Linux version 18.9MB]({{ site.beast_linux_download_url }})
 
 This will download a compressed tar archive (a '.tgz' file). 
 
@@ -69,13 +69,13 @@ JRE_HOME=/usr/lib/jvm/java-8-oracle/jre
 Start by downloading and unpacking the compressed .tar.gz file:
 
 ```bash
-tar -zxvf BEASTv1.10.1.tgz
+tar -zxvf BEASTv{{ site.beast_version }}.tgz
 ```
 
 You can now go to the /bin directory and run BEAUti and BEAST from this directory:
 
 ```bash
-cd BEASTv1.10.1/bin
+cd BEASTv{{ site.beast_version }}/bin
 ./beauti
 ./beast
 ```
@@ -91,7 +91,7 @@ nano ~/.bash_profile
 and add the path to the /bin directory:
 
 ```bash
-export PATH=$PATH:$HOME/BEASTv1.10.1/bin/
+export PATH=$PATH:$HOME/BEASTv{{ site.beast_version }}/bin/
 ```
 
 To reload the changes to the profile immediately without logging out or restarting your computer, run the following:
@@ -109,8 +109,8 @@ echo $PATH
 ### Creating symbolic links in a directory of choice
 
 ```bash
-ln -s Downloads/BEASTv1.10.1/bin/beauti beauti
-ln -s Downloads/BEASTv1.10.1/bin/beast beast
+ln -s Downloads/BEASTv{{ site.beast_version }}/bin/beauti beauti
+ln -s Downloads/BEASTv{{ site.beast_version }}/bin/beast beast
 ```
 
 # Running BEAST from a jar file (with GUI)
@@ -118,7 +118,7 @@ ln -s Downloads/BEASTv1.10.1/bin/beast beast
 Go to the /lib directory where you extracted the linux .tar.gz file:
 
 ```bash
-cd BEASTv1.10.1/libb
+cd BEASTv{{ site.beast_version }}/lib
 java -jar beauti.jar
 java -jar beast.jar
 ```
