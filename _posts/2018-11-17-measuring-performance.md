@@ -190,11 +190,14 @@ We are generally doing much better than before with the `ESS/hour` up over the p
 
 * Don't use time/sample as a comparative measure of performance for different data or sampling regimes.
 
-* A better measure of BEAST performance than the average time per million steps would be the average time per effectively independent sample (i.e., ESS/hour). In the example above, the `treeLength` measure goes from 396 independent values per hour to 628, nearly doubling.
+* A better measure of BEAST performance than the average time per million steps would be the average time per effectively independent sample (i.e., ESS/hour). 
+In the example above, the `treeLength` measure goes from 396 independent values per hour to 628, nearly doubling.
 
-* Choosing operator weights to achieve better performance (as ESS/hour) is a difficult balancing act and may need multiple runs and examination of operator analyses and ESSs. It may usually be better to be conservative about these and worry about getting statistically correct results more than saving a few hours of runtime.
+* Choosing operator weights to achieve better performance (as ESS/hour) is a difficult balancing act and may need multiple runs and examination of operator analyses and ESSs. 
+It may usually be better to be conservative about these and worry about getting statistically correct results more than saving a few hours of runtime.
 
-* Because of the stochastic nature of the algorithm BEAST will be quite variable from run to run both in the total total runtime (because of variability in the operators picked and their computational cost) and the ESS of parameters. For example three independent runs on the same hardware for the first treatment took **4.29**, **4.38**, and **4.08 hours**, respectively.
+* Because of the stochastic nature of the algorithm BEAST can be variable from run to run both in the total total runtime (because of variability in the operators picked and their computational cost) and the ESS of parameters. 
+The run time will also depend on what else the computer is doing at the same time (these results were done on a many core machine with nothing else of significance running). 
 
 * The optimal weights for operators will also vary considerably by data set meaning it is difficult to come up with reliable rules.  
 
