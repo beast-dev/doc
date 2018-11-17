@@ -33,7 +33,11 @@ So we can accept a lower ESS for `kappa` as the cost of focusing on other parame
 To demonstrate this we can look at an example BEAST run. 
 This is a data set of 62 carnivore mitochondrial genome coding sequences giving a total of about 5000 site patterns. 
 The model was an `HKY+gamma`, `strict molecular clock`, `constant size coalescent` ([the XML file is available here](/files/carnivores.HKYG.SC.CPC.classic.xml.zip)).
-The data was run on [BEAST v1.10.4](installing) on an Dell server (3.10GHz Intel Xeon CPU E5-2687) for 10M steps for a total run time of **4.08 hours**.
+The data was run on [BEAST v1.10.4](installing) on an Dell server for 10M steps for a total run time of **4.08 hours**.
+
+> Data: Carnivores mtDNA 62 taxa, 10869bp, 5565 unique site patterns
+> Model: HKY+G, Strict clock, Constant size coalescent
+> Machine: Dell Precision 3.10GHz Intel Xeon CPU E5-2687
 
 You can see the effect of different operators by looking at the operator table reported at the end of the run:
 
