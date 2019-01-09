@@ -68,7 +68,6 @@ If you use the Mac OS X command-line you are probably familiar with [Homebrew](h
 To install BEAST using HomeBrew type:
 
 ```bash
-brew tap homebrew/science
 brew install beast
 ```
 
@@ -84,5 +83,10 @@ If a new version of BEAST is released, to update you just need to type:
 brew upgrade beast
 ```
 
+You can also install the latest development version but this is at your own risk:
+
+```bash
+brew install --HEAD beast
+```
 
 {% include links.html %}
