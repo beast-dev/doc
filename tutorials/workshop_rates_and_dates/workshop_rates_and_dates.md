@@ -450,7 +450,7 @@ You can make use of the BEAST output files provided with this tutorial (a chain 
 
 {% include question.html content="Is the default 10% burn-in sufficient for this sample?" %} 
 
-{% include question.html content="Does the standard deviation estimate for the lognormal distribution in the relaxed clock suggest significant rate variation among lineages? How can we formally test this" %} 
+{% include question.html content="Does the standard deviation estimate for the lognormal distribution in the relaxed clock suggest significant rate variation among lineages? How can we formally test this?" %} 
 
 {% include question.html content="Does the hypothesis of YFV introduction in the Americas during the slave trade also hold under this model?" %} 
 

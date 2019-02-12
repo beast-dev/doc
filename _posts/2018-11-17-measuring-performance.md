@@ -1,5 +1,6 @@
 ---
-title:  "Measuring BEAST performance"
+title: "Measuring BEAST performance"
+author: Andrew Rambaut
 categories: release
 permalink: measuring-beast-performance.html
 tags: [news]
@@ -33,7 +34,15 @@ So we can accept a lower ESS for `kappa` as the cost of focusing on other parame
 To demonstrate this we can look at an example BEAST run. 
 This is a data set of 62 carnivore mitochondrial genome coding sequences giving a total of about 5000 site patterns. 
 The model was an `HKY+gamma`, `strict molecular clock`, `constant size coalescent` ([the XML file is available here](/files/carnivores.HKYG.SC.CPC.classic.xml.zip)).
-The data was run on [BEAST v1.10.4](installing) on an Dell server (3.10GHz Intel Xeon CPU E5-2687) for 10M steps for a total run time of **4.08 hours**.
+The data was run on [BEAST v1.10.4](installing) on an Dell server for 10M steps for a total run time of **4.08 hours**.
+
+> Data: Carnivores mtDNA 62 taxa, 10869bp, 5565 unique site patterns
+>
+> Model: HKY+G, Strict clock, Constant size coalescent
+>
+> Machine: Dell Precision 3.10GHz Intel Xeon CPU E5-2687
+>
+> XML file: [carnivores.HKYG.SC.CPC.classic.xml](/files/carnivores.HKYG.SC.CPC.classic.xml.zip) 
 
 You can see the effect of different operators by looking at the operator table reported at the end of the run:
 
@@ -113,19 +122,6 @@ The ESSs for `kappa` (and the other down-weighted operators) predictably goes do
 
 > **Table 4**
 > 
-> | Parameter            | mean value |     ESS |
-> |---|--:|--:|
-> | kappa                |      27.14 |     515 |
-> | constant.popSize     |      1.994 |    9001 |
-> | treeModel.rootHeight |      0.506 |    1090 |
-> | treeLength           |      8.140 |     922 |
-> | treeLikelihood       |    -1.93E5 |    2793 |
-
-Note that the ESSs for `treeModel.rootHeight`, `treeLength` and `treeLikelihood` have also gone down (but not by as greater degree as `kappa`) and `constant.popSize` has actually gone up in ESS (to the maximum where every sample is independent). 
-Another thing to see is that the mean values are pretty much identical as before (looking at each parameter individually in [Tracer](tracer), the distributions for the runs are indistinguishable). 
-
-> **Table 5**
-> 
 > | Parameter                |  ESS    |   ESS/hour |
 > |---|--:|--:|
 > | kappa	            	 |    515  |        138 |
@@ -134,13 +130,15 @@ Another thing to see is that the mean values are pretty much identical as before
 > | treeLength          	 |    922  |        247 |
 > | treeLikelihood      	 |   2793  |        749 |
 
+
+Note that the ESSs for `treeModel.rootHeight`, `treeLength` and `treeLikelihood` have also gone down (but not by as greater degree as `kappa`) and `constant.popSize` has actually gone up in ESS (to the maximum where every sample is independent). 
 So by down-weighting the substitution model operators we have reduced the ESS/hour across the board (with the exception of the coalescent prior).
 It is still possible that the tree topology is mixing better but we aren't measuring that directly.
 
 We could look at reducing the `weight` of the `constant.popSize` operator by a factor of 3 (returning the substitution model operators back to their original weights). 
 The total run time goes up to **4.16 hours** because we are doing fewer cheap moves and more expensive ones -- but the ESS/hour for all the other parameters goes up:
 
-> **Table 6**
+> **Table 5**
 >
 > | Parameter                 | ESS     |  ESS/hour |
 > |---|--:|--:|
@@ -165,7 +163,7 @@ We can try reweighting these operators down by a factor of 10 and see the effect
 Firstly the total runtime is **4.33 hours** – more than 6% slower than our original run. 
 However, if we look at the `ESS` and `ESS/hour` values:
 
-> **Table 7**
+> **Table 6**
 > 
 > | Parameter                 | ESS     |   ESS/hour |
 > |---|--:|--:|
@@ -181,11 +179,14 @@ We are generally doing much better than before with the `ESS/hour` up over the p
 
 * Don't use time/sample as a comparative measure of performance for different data or sampling regimes.
 
-* A better measure of BEAST performance than the average time per million steps would be the average time per effectively independent sample (i.e., ESS/hour). In the example above, the `treeLength` measure goes from 396 independent values per hour to 628, nearly doubling.
+* A better measure of BEAST performance than the average time per million steps would be the average time per effectively independent sample (i.e., ESS/hour). 
+In the example above, the `treeLength` measure goes from 396 independent values per hour to 628, nearly doubling.
 
-* Choosing operator weights to achieve better performance (as ESS/hour) is a difficult balancing act and may need multiple runs and examination of operator analyses and ESSs. It may usually be better to be conservative about these and worry about getting statistically correct results more than saving a few hours of runtime.
+* Choosing operator weights to achieve better performance (as ESS/hour) is a difficult balancing act and may need multiple runs and examination of operator analyses and ESSs. 
+It may usually be better to be conservative about these and worry about getting statistically correct results more than saving a few hours of runtime.
 
-* Because of the stochastic nature of the algorithm BEAST will be quite variable from run to run both in the total total runtime (because of variability in the operators picked and their computational cost) and the ESS of parameters. For example three independent runs on the same hardware for the first treatment took **4.29**, **4.38**, and **4.08 hours**, respectively.
+* Because of the stochastic nature of the algorithm BEAST can be variable from run to run both in the total total runtime (because of variability in the operators picked and their computational cost) and the ESS of parameters. 
+The run time will also depend on what else the computer is doing at the same time (these results were done on a many core machine with nothing else of significance running). 
 
 * The optimal weights for operators will also vary considerably by data set meaning it is difficult to come up with reliable rules.  
 

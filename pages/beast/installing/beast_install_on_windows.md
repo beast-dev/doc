@@ -13,7 +13,7 @@ folder: beast/installing
 
 BEAST can be downloaded from the following link:
 
-- [BEAST v{{ site.beast_version }} - Windows version 58MB]({{ beast_mac_download_url }})
+- [BEAST v{{ site.beast_version }} - Windows version 58MB]({{ site.beast_windows_download_url }})
 
 This will download a compressed ZIP archive (a '.zip' file). 
 

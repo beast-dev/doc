@@ -328,7 +328,7 @@ Note that the roost structure overlap values are '1' or '0' indicating whether t
 
 {% include image.html file="27_GLM6PSetup.png" prefix=root_url %}
 
-Proceed with the next steps as in the previous exercise. Note that in the `Priors` panel, a normal prior with mean 0 and a standard deviation of 2 is specified on the log GLM coefficients ('host.coefficients'). We can again set up a short test run (e.g. 100,000 MCMC iterations), but proceed with diagnosing and summarising a long run. You can download the output of an MCMC analysis that has been run for 100 million iterations sampled every 50,000 generations [here](batRABV_6Pglm.host.glm.log).
+Proceed with the next steps as in the previous exercise. Note that in the `Priors` panel, a normal prior with mean 0 and a standard deviation of 2 is specified on the log GLM coefficients ('host.coefficients'). We can again set up a short test run (e.g. 100,000 MCMC iterations), but proceed with diagnosing and summarising a long run. You can download the output of an MCMC analysis that has been run for 100 million iterations sampled every 50,000 generations [here](files/longRuns/GLM/batRABV_6Pglm.host.glm.log).
 
 ### Analyzing the GLM-diffusion model output
 
@@ -359,7 +359,7 @@ Sample sizes may have a strong impact on rate estimates in discrete ancestral re
 
 {% include image.html file="32_GLM8PSetup.png" prefix=root_url %}
 
-{% include question.html content='Based on the estimates provided for a long run ([here](batRABV_8Pglm.host.glm.log)), do samples sizes appear to affect the GLM parameter estimates in this case?' %}
+{% include question.html content='Based on the estimates provided for a long run ([here](files/longRuns/GLM/batRABV_8Pglm.host.glm.log)), do samples sizes appear to affect the GLM parameter estimates in this case?' %}
 
 
 
