@@ -1,7 +1,7 @@
 ---
 title: Online Bayesian Phylodynamic Inference Tutorial
 keywords: online, checkpoint, resume, tutorial
-last_updated: November 12, 2018
+last_updated: March 6, 2019
 tags: [tutorial]
 summary: "Using online Bayesian phylodynamic inference to add sequences to an ongoing analysis in BEAST."
 sidebar: beast_sidebar
@@ -144,7 +144,7 @@ In anticipation of (even) more data becoming available, we suggest to keep using
 
 ## References
 
-M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2018) Online Bayesian phylodynamic inference in BEAST with application to epidemic reconstruction. In preparation.
+M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2019) Online Bayesian phylodynamic inference in BEAST with application to epidemic reconstruction. In preparation.
 
 M. A. Suchard, P. Lemey, G. Baele, D. L. Ayres, A. J. Drummond, A. Rambaut (2018) Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10. Virus Evolution 4(1): vey016.
 
