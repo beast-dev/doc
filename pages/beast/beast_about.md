@@ -1,7 +1,7 @@
 ---
 title: About BEAST
 keywords: beast, authors, developers
-last_updated: July 4, 2017
+last_updated: March 6, 2019
 tags: [getting-started]
 summary: BEAST is a software package for phylogenetic analysis with an emphasis on time-scaled trees.
 sidebar: beast_sidebar
