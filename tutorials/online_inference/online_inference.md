@@ -141,10 +141,17 @@ beast -load_state updated.checkpoint.state -save_every 20000 -save_state updated
 In anticipation of (even) more data becoming available, we suggest to keep using the **'-save_every x'** (without the quotation marks) and **'-save_state newfilename'** (without the quotation marks) arguments.
 
 
+## BEAST XML files
+
+We make available <a href="{{ root_url }}files/XMLs.zip">10 BEAST XML files</a> accompanying our submitted manuscript on this online Bayesian phylodynamic inference framework.
+
+
+
+
 
 ## References
 
-M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2019) Online Bayesian phylodynamic inference in BEAST with application to epidemic reconstruction. In preparation.
+M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2019) Online Bayesian phylodynamic inference in BEAST with application to epidemic reconstruction. Submitted.
 
 M. A. Suchard, P. Lemey, G. Baele, D. L. Ayres, A. J. Drummond, A. Rambaut (2018) Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10. Virus Evolution 4(1): vey016.
 
