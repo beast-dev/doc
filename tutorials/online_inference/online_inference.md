@@ -143,7 +143,7 @@ In anticipation of (even) more data becoming available, we suggest to keep using
 
 ## BEAST XML files
 
-We make available <a href="{{ root_url }}files/XMLs.zip">10 BEAST XML files</a> accompanying our submitted manuscript on this online Bayesian phylodynamic inference framework.
+We make available [10 BEAST XML files]({{ root_url }}files/XMLs.zip) accompanying our submitted manuscript on this online Bayesian phylodynamic inference framework.
 
 
 
