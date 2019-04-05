@@ -9,6 +9,8 @@ permalink: online_inference.html
 folder: beast
 ---
 
+{% capture root_url %}{{ site.tutorials_root_url }}/online_inference/{% endcapture %}
+
 ## Online Bayesian Phylodynamic Inference Tutorial
 
 Oftentimes, when a phylogenetic analysis has finished or even while it's still running, new sequence data become available and need to be incorporated into the analysis that has been run or that's still running.
