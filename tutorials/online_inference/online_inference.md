@@ -9,6 +9,8 @@ permalink: online_inference.html
 folder: beast
 ---
 
+{% capture root_url %}{{ site.tutorials_root_url }}/online_inference/{% endcapture %}
+
 ## Online Bayesian Phylodynamic Inference Tutorial
 
 Oftentimes, when a phylogenetic analysis has finished or even while it's still running, new sequence data become available and need to be incorporated into the analysis that has been run or that's still running.
@@ -141,10 +143,17 @@ beast -load_state updated.checkpoint.state -save_every 20000 -save_state updated
 In anticipation of (even) more data becoming available, we suggest to keep using the **'-save_every x'** (without the quotation marks) and **'-save_state newfilename'** (without the quotation marks) arguments.
 
 
+## BEAST XML files
+
+We make available [10 BEAST XML files]({{ root_url }}files/XMLs.zip) accompanying our submitted manuscript on this online Bayesian phylodynamic inference framework.
+
+
+
+
 
 ## References
 
-M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2019) Online Bayesian phylodynamic inference in BEAST with application to epidemic reconstruction. In preparation.
+M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2019) Online Bayesian phylodynamic inference in BEAST with application to epidemic reconstruction. Submitted.
 
 M. A. Suchard, P. Lemey, G. Baele, D. L. Ayres, A. J. Drummond, A. Rambaut (2018) Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10. Virus Evolution 4(1): vey016.
 
