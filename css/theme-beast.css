@@ -54,6 +54,11 @@ html {
     font-weight: 300;
 }
 
+.small-text {
+    font-size:12px;
+}
+
+
 .summary {
     color: var(--grey-color);
     border-left: 5px solid var(--hilite-color);
