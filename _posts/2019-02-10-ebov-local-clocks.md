@@ -8,6 +8,8 @@ tags: [news]
 
 {% capture root_url %}{{ site.tutorials_root_url }}/first_tutorial/{% endcapture %}
 
+by Andrew Rambaut, JT McCrone & Guy Baele.
+
 In 2014 there was an outbreak of Ebola virus disease in the Democratic Republic of Congo. 
 When the first genome sequences were published (Maganga *et al.* 2014) it was noticed that the amount of divergence from the earliest EBOV genomes from the 1970s was considerably less than for the West African epidemic genomes which were from the same year. 
 This suggested that the DRC lineage had exhibited a substantially lower rate of evolution (Lam *et al.* 2015). 
