@@ -8,18 +8,18 @@ tags: [news]
 
 {% capture root_url %}{{ site.tutorials_root_url }}/first_tutorial/{% endcapture %}
 
-In 2014 there was another outbreak of Ebola virus disease in the Democratic Republic of Congo. 
-When the first genome sequences were published (Maganga et al. 2014) it was noticed that the amount of divergence from the earliest EBOV genomes from the 1970s was considerably less than for the West African epidemic genomes (Baize et al. 2014) which were from the same year. 
-This caused speculation that the DRC lineage had exhibited a substantially lower rate of evolution (Lam et al. 2015). 
-Lam et al speculated that this may be due to it being in a different host species with different evolutionary forces at work. 
+In 2014 there was an outbreak of Ebola virus disease in the Democratic Republic of Congo. 
+When the first genome sequences were published (Maganga *et al.* 2014) it was noticed that the amount of divergence from the earliest EBOV genomes from the 1970s was considerably less than for the West African epidemic genomes (Baize *et al.* 2014) which were from the same year. 
+This suggested that the DRC lineage had exhibited a substantially lower rate of evolution (Lam *et al.* 2015). 
+Lam *et al.* speculated that this may be due to it being in a different host species with different evolutionary forces at work. 
 
-However, during the West African outbreak, a number of examples of long-term latency were observed where someone who had recovered from EVD months later transmitted the virus to another individual -- usually a sexual partner (Blackley et al. 2016). 
-In the most extreme example, there was a 15 month interval between the acute infection and the onward transmission (Diallo et al. 2016). 
+However, during the West African outbreak, a number of examples of long-term latency were observed where someone who had recovered from EVD months later transmitted the virus to another individual -- usually a sexual partner (Blackley *et al.* 2016). 
+In the most extreme example, there was a 15 month interval between the acute infection and the onward transmission (Diallo *et al.* 2016). 
 It was noticed that these cases were often associated with a short branch length suggesting a reduced rate of evolution or a form of latency with reduced replication for much of the period. 
 This suggests that a similar process could be at work for EBOV in the non-human animal hosts over longer timescales.
 
 Sequences from the last 3 DRC outbreaks (in 2017, summer 2018 and the currently ongoing one in the North East of the country) also exhibit this apparently reduced branch length. 
-[See this post for a tree produced by the INRB and USAMRIID that shows this effect](http://virological.org/t/drc-2018-viral-genome-characterization/230) and also [Mbala-Kingebeni et al. 2019b](https://doi.org/10.1016/S1473-3099(19)30118-5). 
+[See this post for a tree produced by the INRB and USAMRIID that shows this effect](http://virological.org/t/drc-2018-viral-genome-characterization/230) and also [Mbala-Kingebeni *et al.* 2019b](https://doi.org/10.1016/S1473-3099(19)30118-5). 
 
 Most EBOV genomes have been sampled from human cases so we have included one genome per outbreak, preferring those with precise dates of sampling. 
 A list of sequences used is given in Table 1 along with their Genbank accession numbers and, where available, a reference to the published work describing them.
@@ -81,7 +81,7 @@ Firstly the local clock tree.
 The branches are coloured by rate with blue meaning lower than average. 
 You can see the two clades that have been allowed a different rate and both have a slower rate than the rest of the tree.
 
-{% include image.html prefix="" file="news/EBOV_Reference_Set_13_LC1.MCC.tree.png" %}
+{% include image.html prefix="" file="news/EBOV_Reference_Set_15_LC1.MCC.tree.png" %}
 
 > **Figure 3.**
 
@@ -91,14 +91,14 @@ Note however that the age of the root of the tree is much further back in time a
 Essentially the lognormal distribution is struggling to adequately describe the variation in rates given the extreme outlier seen in Figure 3. 
 
 
-{% include image.html prefix="" file="news/EBOV_Reference_Set_13_UCLN.MCC.tree.png" %}
+{% include image.html prefix="" file="news/EBOV_Reference_Set_15_UCLN.MCC.tree.png" %}
 
 > **Figure 4.**
 
 Finally, as a comparison, here is the strict molecular clock tree with the same rate over the whole tree. 
 Once again, the root of the tree is much older than the local clock model and the relative branch lengths are very different. 
  
-{% include image.html prefix="" file="news/EBOV_Reference_Set_13_SC.MCC.tree.png" %}
+{% include image.html prefix="" file="news/EBOV_Reference_Set_15_SC.MCC.tree.png" %}
 
 > **Figure 5.**
 
@@ -107,9 +107,11 @@ This suggests another possibility - that it is not the whole clade that has a lo
 This makes more sense if this is being produced by a process of latency (i.e., a switch between active replication and no replication). 
 This would mean that, parsimoniously, there were just this one branch where the virus was latent for some period of time.
 
+{% include image.html width="320" prefix="" file="news/EBOV_Reference_Set_15_iqtree_highlighted_stem.png" %}
+
 To examine this we can set up a new local clock model which just has the internal stem branch given the different rate of evolution with the tip branches in this clades having the same rate as the rest of the tree.
 
-{% include image.html prefix="" file="news/EBOV_Reference_Set_13_LC2.MCC.tree.png" %}
+{% include image.html prefix="" file="news/EBOV_Reference_Set_15_LC2.MCC.tree.png" %}
 
 > **Figure 6.**
 
@@ -129,12 +131,12 @@ But if we look at the local clock models and compare the rate for the Lokolia/Bi
 
 ### References
 
-> Baize, Sylvain, Delphine Pannetier, Lisa Oestereich, Toni Rieger, Lamine Koivogui, N ’faly Magassouba, Barrè Soropogui, et al. 2014. “Emergence of Zaire Ebola Virus Disease in Guinea.” The New England Journal of Medicine 371 (15): 1418–25.
+> Baize, Sylvain, Delphine Pannetier, Lisa Oestereich, Toni Rieger, Lamine Koivogui, N ’faly Magassouba, Barrè Soropogui, et al. 2014. “Emergence of Zaire Ebola Virus Disease in Guinea.” *The New England Journal of Medicine* **371** (15): 1418–25.
 >
-> Carroll, Serena A., Jonathan S. Towner, Tara K. Sealy, Laura K. McMullan, Marina L. Khristova, Felicity J. Burt, Robert Swanepoel, Pierre E. Rollin, and Stuart T. Nichol. 2013. “Molecular Evolution of Viruses of the Family Filoviridae Based on 97 Whole-Genome Sequences.” Journal of Virology 87 (5): 2608–16.
+> Carroll, Serena A., Jonathan S. Towner, Tara K. Sealy, Laura K. McMullan, Marina L. Khristova, Felicity J. Burt, Robert Swanepoel, Pierre E. Rollin, and Stuart T. Nichol. 2013. “Molecular Evolution of Viruses of the Family Filoviridae Based on 97 Whole-Genome Sequences.” *Journal of Virology* **87** (5): 2608–16.
 >
-> Diallo, Boubacar, Daouda Sissoko, Nicholas J. Loman, Hadja Aïssatou Bah, Hawa Bah, Mary Claire Worrell, Lya Saidou Conde, et al. 2016. “Resurgence of Ebola Virus Disease in Guinea Linked to a Survivor With Virus Persistence in Seminal Fluid for More Than 500 Days.” Clinical Infectious Diseases: An Official Publication of the Infectious Diseases Society of America 63 (10): 1353–56.
+> Diallo, Boubacar, Daouda Sissoko, Nicholas J. Loman, Hadja Aïssatou Bah, Hawa Bah, Mary Claire Worrell, Lya Saidou Conde, et al. 2016. “Resurgence of Ebola Virus Disease in Guinea Linked to a Survivor With Virus Persistence in Seminal Fluid for More Than 500 Days.” *Clinical Infectious Diseases* **63** (10): 1353–56.
 >
-> Lam, Tommy Tsan-Yuk, Huachen Zhu, Yee Ling Chong, Edward C. Holmes, and Yi Guan. 2015. “Puzzling Origins of the Ebola Outbreak in the Democratic Republic of the Congo, 2014.” Journal of Virology, July, JVI.01226–15.
+> Lam, Tommy Tsan-Yuk, Huachen Zhu, Yee Ling Chong, Edward C. Holmes, and Yi Guan. 2015. “Puzzling Origins of the Ebola Outbreak in the Democratic Republic of the Congo, 2014.” *Journal of Virology*, July, JVI.01226–15.
 >
-> Maganga, Gaël D., Jimmy Kapetshi, Nicolas Berthet, Benoît Kebela Ilunga, Felix Kabange, Placide Mbala Kingebeni, Vital Mondonge, et al. 2014. “Ebola Virus Disease in the Democratic Republic of Congo.” The New England Journal of Medicine 371 (22): 2083–91.
+> Maganga, Gaël D., Jimmy Kapetshi, Nicolas Berthet, Benoît Kebela Ilunga, Felix Kabange, Placide Mbala Kingebeni, Vital Mondonge, et al. 2014. “Ebola Virus Disease in the Democratic Republic of Congo.” *The New England Journal of Medicine* **371** (22): 2083–91.
