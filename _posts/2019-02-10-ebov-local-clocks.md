@@ -9,7 +9,7 @@ tags: [news]
 {% capture root_url %}{{ site.tutorials_root_url }}/first_tutorial/{% endcapture %}
 
 In 2014 there was an outbreak of Ebola virus disease in the Democratic Republic of Congo. 
-When the first genome sequences were published (Maganga *et al.* 2014) it was noticed that the amount of divergence from the earliest EBOV genomes from the 1970s was considerably less than for the West African epidemic genomes (Baize *et al.* 2014) which were from the same year. 
+When the first genome sequences were published (Maganga *et al.* 2014) it was noticed that the amount of divergence from the earliest EBOV genomes from the 1970s was considerably less than for the West African epidemic genomes which were from the same year. 
 This suggested that the DRC lineage had exhibited a substantially lower rate of evolution (Lam *et al.* 2015). 
 Lam *et al.* speculated that this may be due to it being in a different host species with different evolutionary forces at work. 
 
@@ -124,34 +124,51 @@ To examine this we can set up a new local clock model which just has the interna
 
 {% include image.html prefix="" file="news/EBOV_Reference_Set_15_LC2.MCC.tree.png" %}
 
-> **Figure 7.**
+> **Figure 7.** Stem branch only local clock model. Only the stem branches above the two clades of interest are allowed different rates of evolution.
 
-In comparison with the clade specific local clock (Figure 3), the most recent common ancestor of the Muembe.1/18FHV090 pair Lokolia/Bikoro pair are much more recent. Other than that, the trees are very similar. The rates of evolution on the two stem lineages is even slower (more blue). We compare the actual values of these rate in Figure 8.
+In comparison with the clade specific local clock (Figure 3), the most recent common ancestor of the Muembe.1/18FHV090 pair Lokolia/Bikoro pair are much more recent. Other than that, the trees are very similar. The rates of evolution on the two stem lineages is even slower (more blue). We compare the actual values of these rates in Figure 9.
 
-Looking at the average rate of evolution over the whole tree shows the slow-down in the in the Lokolia/Bikoro clade affects the strict clock to a much greater degree than the relaxed clocks.
+Looking at the average rate of evolution over the whole tree (Figure 8) shows the slow-down in the in the two lineages affects the strict clock to a much greater degree than the relaxed clocks. 
 
 {% include image.html prefix="" width="450px" file="news/Mean_rate_LC1_LC2_SC_UCLN.png" %}
 
-> **Figure 8.**
+> **Figure 8.** Box-and-whisker plot of the mean rates of evolution across all four models.
 
-But if we look at the local clock models and compare the rate for the Lokolia/Bikoro clade and the stem branch we see the slow rates (the stem only model gives an even slower rate for this one branch - supporting the idea that this is the branch that experienced some ‘latency’).
+But if we look at the local clock models and compare the rate for the Likati/North Kivu and Lokolia/Équateur clades and the respective stem branches (Figure 9) we see the slow rates (the stem-only model gives an even slower rate for this one branch - supporting the idea that this is the branch that experienced some ‘latency’). Interestingly the rates for the two stem branches are even lower than the clades and very similar (whereas the rates for the clades are different because they include a mixture of fast and slow branches for different amounts of time).
 
-<!-- {% include image.html prefix="" width="450px" file="news/Local_rates_LC1_LC2.png" %} -->
+{% include image.html prefix="" width="450px" file="news/Local_rates_LC1_LC2.png" %}
 
-> **Figure 9.**
+> **Figure 9.** Box-and-whisker plot of the estimated rates for the two local clock model variants. The rate labelled 'Tree' is the rate for the rest of the tree (excluding the local clocks), then the rates for the Likati/North Kivu and Lokolia/Équateur lineages when the whole clade is included and then only the stem lineages. 
+
+Finally we ran the strict clock model on a data set where we omitted the four most recent DRC genomes that are involved in the apperent slow down in rates (the last 4 sequences in Table 1). We compared this rate with the two local clock models for the rate of evolution estimated for the parts of the tree that are not included in the local clocks (the red branches in Figures 3 and 7). 
 
 {% include image.html prefix="" width="450px" file="news/Primary_rate_LC1_LC2_SC_SC11.png" %}
 
-> **Figure 10.**
+> **Figure 10.** Box-and-whisker plot of the estimated rate for the tree (excluding the local clock rates for these models) in comparison to the strict clock rate and the rate for a strict clock on a data set that excludes the 4 recent DRC genomes (i.e., excluding the lineages that are exhibiting slow downs).
+
+### Final points
+
+Although we forced the rooting of the tree to be the same for each model, it is likely that the strict clock model and the relaxed clock model would give a different rooting (and possibly rates) if the constraint was removed. 
+
+We currently running generalised stepping-stone sampling to obtain marginal likelihood estimates and test the fit of each model to the data.
+
+Finally, we are developing an explicit model of latency which will act as a molecular clock model, infer the branches that have evidence of latency and estimate parameters of the process. More on this soon.
 
 ### References
 
-> Baize, Sylvain, Delphine Pannetier, Lisa Oestereich, Toni Rieger, Lamine Koivogui, N ’faly Magassouba, Barrè Soropogui, et al. 2014. “Emergence of Zaire Ebola Virus Disease in Guinea.” *The New England Journal of Medicine* **371** (15): 1418–25.
+> Baize, S. et al., 2014. Emergence of Zaire Ebola Virus Disease in Guinea. The New England journal of medicine, 371(15), pp.1418–1425.
 >
-> Carroll, Serena A., Jonathan S. Towner, Tara K. Sealy, Laura K. McMullan, Marina L. Khristova, Felicity J. Burt, Robert Swanepoel, Pierre E. Rollin, and Stuart T. Nichol. 2013. “Molecular Evolution of Viruses of the Family Filoviridae Based on 97 Whole-Genome Sequences.” *Journal of Virology* **87** (5): 2608–16.
+> Carroll, S.A. et al., 2013. Molecular Evolution of Viruses of the Family Filoviridae Based on 97 Whole-Genome Sequences. Journal of virology, 87(5), pp.2608–2616.
 >
-> Diallo, Boubacar, Daouda Sissoko, Nicholas J. Loman, Hadja Aïssatou Bah, Hawa Bah, Mary Claire Worrell, Lya Saidou Conde, et al. 2016. “Resurgence of Ebola Virus Disease in Guinea Linked to a Survivor With Virus Persistence in Seminal Fluid for More Than 500 Days.” *Clinical Infectious Diseases* **63** (10): 1353–56.
+> Diallo, B. et al., 2016. Resurgence of Ebola Virus Disease in Guinea Linked to a Survivor With Virus Persistence in Seminal Fluid for More Than 500 Days. Clinical infectious diseases: an official publication of the Infectious Diseases Society of America, 63(10), pp.1353–1356.
+Grard, G. et al., 2011. Emergence of divergent Zaire ebola virus strains in Democratic Republic of the Congo in 2007 and 2008. The Journal of infectious diseases, 204 Suppl 3, pp.S776–84.
 >
-> Lam, Tommy Tsan-Yuk, Huachen Zhu, Yee Ling Chong, Edward C. Holmes, and Yi Guan. 2015. “Puzzling Origins of the Ebola Outbreak in the Democratic Republic of the Congo, 2014.” *Journal of Virology*, July, JVI.01226–15.
+> Lam, T.T.-Y. et al., 2015. Puzzling origins of the Ebola outbreak in the Democratic Republic of the Congo, 2014. Journal of virology, pp.JVI.01226–15.
 >
-> Maganga, Gaël D., Jimmy Kapetshi, Nicolas Berthet, Benoît Kebela Ilunga, Felix Kabange, Placide Mbala Kingebeni, Vital Mondonge, et al. 2014. “Ebola Virus Disease in the Democratic Republic of Congo.” *The New England Journal of Medicine* **371** (22): 2083–91.
+> Maganga, G.D. et al., 2014. Ebola Virus Disease in the Democratic Republic of Congo. The New England journal of medicine, 371(22), pp.2083–2091.
+>
+> Mbala-Kingebeni, P., Pratt, C.B., et al., 2019. 2018 Ebola virus disease outbreak in Équateur Province, Democratic Republic of the Congo: a retrospective genomic characterisation. The Lancet infectious diseases. Available at: http://dx.doi.org/10.1016/S1473-3099(19)30124-0.
+>
+> Mbala-Kingebeni, P., Aziza, A., et al., 2019. Medical countermeasures during the 2018 Ebola virus disease outbreak in the North Kivu and Ituri Provinces of the Democratic Republic of the Congo: a rapid genomic assessment. The Lancet infectious diseases. Available at: http://dx.doi.org/10.1016/S1473-3099(19)30118-5.
+>
+> Nsio, J. et al., 2019. 2017 Outbreak of Ebola Virus Disease in Northern Democratic Republic of Congo. The Journal of infectious diseases. Available at: https://academic.oup.com/jid/advance-article-pdf/doi/10.1093/infdis/jiz107/28269521/jiz107.pdf
