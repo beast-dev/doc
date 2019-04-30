@@ -71,7 +71,7 @@ As a comparison we ran the analysis with a strict molecular clock (assumes a sin
 We also ran a strict molecular clock but excluding the recent DRC outbreak genomes.
 
 For all of these analyses we constrained the tree topology so all of the viruses after the 1970s were monophyletic to maintain a consistent rooting. 
-This was the rooting suggested by a much earlier an alysis(Dudas and Rambaut 2014). 
+This was the rooting suggested by a much earlier an analysis (Dudas and Rambaut 2014). 
 
 Analysis was done by partitioning the genomes into 1st, 2nd & 3rd codon positions for the concatenated protein coding regions and a 4th partition comprising the concatenated intergenic regions. 
 Each partition was given an HKY model with gamma distributed site-specific rates and parameters for each were unlinked. [XML files for all the analyses are available here]().
