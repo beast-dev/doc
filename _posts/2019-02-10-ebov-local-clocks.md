@@ -6,7 +6,7 @@ permalink: ebov_local_clocks.html
 tags: [news]
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/first_tutorial/{% endcapture %}
+{% capture root_url %}/{% endcapture %}
 
 by Andrew Rambaut, JT McCrone & Guy Baele.
 
@@ -84,7 +84,11 @@ For all of these analyses we constrained the tree topology so all of the viruses
 This was the rooting suggested by a much earlier an analysis (Dudas and Rambaut 2014). 
 
 Analysis was done by partitioning the genomes into 1st, 2nd & 3rd codon positions for the concatenated protein coding regions and a 4th partition comprising the concatenated intergenic regions. 
-Each partition was given an HKY model with gamma distributed site-specific rates and parameters for each were unlinked. [XML files for all the analyses are available here]().
+Each partition was given an HKY model with gamma distributed site-specific rates and parameters for each were unlinked. 
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> <a href="{{ root_url }}files/EBOV_local_clock_XMLs.zip">XML files for all the analyses are available here.</a>. 
+</div>
+
 
 ## Results
  
@@ -152,9 +156,9 @@ Finally we ran the strict clock model on a data set where we omitted the four mo
 
 Although we forced the rooting of the tree to be the same for each model, it is likely that the strict clock model and the relaxed clock model would give a different rooting (and possibly rates) if the constraint was removed. 
 
-We currently running generalised stepping-stone sampling to obtain marginal likelihood estimates and test the fit of each model to the data.
+We currently running generalised stepping-stone sampling to obtain marginal likelihood estimates and test the fit of each model to the data.  
 
-Finally, we are developing an explicit model of latency which will act as a molecular clock model, infer the branches that have evidence of latency and estimate parameters of the process. More on this soon.
+Finally, we are developing an explicit model of latency which will act as a molecular clock model to infer the branches that have evidence of latency and estimate parameters of the process. More on this soon.
 
 ### References
 
