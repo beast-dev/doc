@@ -78,18 +78,19 @@ The two lineages  are labelled *clade a* ("EBOV/Tum" & "EBOV/Lom") and *clade c*
 Firstly we used the Local Clock model which allows us to specify which parts of the tree have different rates (although this doesn't specify which bits are fast and which are slow).
 This allows us to assign a different rate of evolution to the two lineages described above (including the ‘stem’ branch leading to each clade).
 
-As a comparison we also ran the analysis with a strict molecular clock (assumes a single rate over the whole tree) and a log-normal uncorrelated relaxed clock (allows each branch to have a different rate, independently drawn from a log-normal distribution). 
+As a comparison we also ran the analysis with a strict molecular clock (which assumes a single rate over the whole tree) and a log-normal uncorrelated relaxed clock (which allows each branch to have a different rate, independently drawn from a log-normal distribution). 
 We also ran a strict molecular clock but excluding the recent DRC outbreak genomes.
 
 For all of these analyses we constrained the tree topology so all of the viruses after the 1970s were monophyletic to maintain a consistent rooting. 
 This was the rooting suggested by a much earlier an analysis (Dudas and Rambaut 2014). 
 
 Analysis was done by partitioning the genomes into 1st, 2nd & 3rd codon positions for the concatenated protein coding regions and a 4th partition comprising the concatenated intergenic regions. 
-Each partition was given an HKY model with gamma distributed site-specific rates and parameters for each were unlinked. [XML files for all the analyses are available here]().
+Each partition was given an HKY model with gamma distributed site-specific rates and parameters for each were unlinked.
 
 ## Results
  
-For the local clock model (Figure 3), you can see the two lineages that have been allowed a different rate and both have a slower rate than the rest of the tree (The branches are coloured by rate with blue meaning lower than average). This and all the subsequent trees are drawn on the same timescale to allow a comparison of the depth of the trees.
+For the local clock model (Figure 3), you can see the two lineages that have been allowed a different rate and both have a slower rate than the rest of the tree (i.e. the branches are coloured by rate with blue meaning lower than average).
+This and all the subsequent trees are drawn on the same timescale to allow a comparison of the depth of the trees.
 
 {% include image.html prefix="" file="news/EBOV_Reference_Set_15_LC1.MCC.tree.png" %}
 
@@ -115,21 +116,21 @@ Once again, the root of the tree is much older than the local clock model and th
 Looking at the relaxed clock tree in Figure 4, we notice that for the two clades of interest, the tip branches seem to have a higher rate than the stem branches (they are less blue and they are shorter than in the local clock model). 
 This suggests another possibility --- that it is not the whole clade that has a lower rate of evolution but just the branch leading to the common ancestor of the pair. 
 This makes more sense if this is being produced by a process of latency (i.e., a switch between active replication and no replication). 
-This would mean that, parsimoniously, there were just these two branch where the virus was latent for some period of time.
+This would mean that, parsimoniously, there were just these two branches where the virus was latent for some period of time.
 We would assume that an internal node in the tree represents active replication and epidemiological spread and thus the virus being in the non-latent state. 
-This it is unlikely that a whole clade and stem exhibits latency (unless the propensity to latency increased on the stem lineage). 
+Thus it is unlikely that a whole clade and stem exhibits latency (unless the propensity to latency increased on the stem lineage). 
 
 {% include image.html width="320" prefix="" file="news/EBOV_Reference_Set_15_iqtree_highlighted_stem.png" %}
 
 > **Figure 6.** The two stem branches given a different rate of evolution in the refined local clock model (the rest of the tree is assumed to have the same rate including the tip branches of the two clades identified in Figure 2. 
 
-To examine this we can set up a new local clock model which just has the internal stem branch given the different rate of evolution with the tip branches in this clades having the same rate as the rest of the tree (Figure 6).
+To examine this we can set up a new local clock model which just has the internal stem branch given the different rate of evolution with the tip branches in this clade having the same rate as the rest of the tree (Figure 6).
 
 {% include image.html prefix="" file="news/EBOV_Reference_Set_15_LC2.MCC.tree.png" %}
 
 > **Figure 7.** Stem branch only local clock model. Only the stem branches above the two clades of interest are allowed different rates of evolution.
 
-In comparison with the clade specific local clock (Figure 3), the most recent common ancestor of the Muembe.1/18FHV090 pair Lokolia/Bikoro pair are much more recent. Other than that, the trees are very similar. The rates of evolution on the two stem lineages is even slower (more blue). We compare the actual values of these rates in Figure 9.
+In comparison with the clade-specific local clock (Figure 3), the most recent common ancestors of the Muembe.1/18FHV090 pair and Lokolia/Bikoro pair are much more recent. Other than that, the trees are very similar. The rates of evolution on the two stem lineages are even slower (more blue). We compare the actual values of these rates in Figure 9.
 
 Looking at the average rate of evolution over the whole tree (Figure 8) shows the slow-down in the in the two lineages affects the strict clock to a much greater degree than the relaxed clocks. 
 
@@ -137,7 +138,7 @@ Looking at the average rate of evolution over the whole tree (Figure 8) shows th
 
 > **Figure 8.** Box-and-whisker plot of the mean rates of evolution across all four models.
 
-But if we look at the local clock models and compare the rate for the Likati/North Kivu and Lokolia/Équateur clades and the respective stem branches (Figure 9) we see the slow rates (the stem-only model gives an even slower rate for this one branch - supporting the idea that this is the branch that experienced some ‘latency’). Interestingly the rates for the two stem branches are even lower than the clades and very similar (whereas the rates for the clades are different because they include a mixture of fast and slow branches for different amounts of time).
+But if we look at the local clock models and compare the rates for the Likati/North Kivu and Lokolia/Équateur clades and the respective stem branches (Figure 9), we see the slow rates (the stem-only model gives an even slower rate for this one branch - supporting the idea that this is the branch that experienced some ‘latency’). Interestingly the rates for the two stem branches are even lower than the clades and very similar (whereas the rates for the clades are different because they include a mixture of fast and slow branches for different amounts of time).
 
 {% include image.html prefix="" width="450px" file="news/Local_rates_LC1_LC2.png" %}
 
