@@ -23,7 +23,7 @@ This suggests that a similar process could be at work for EBOV in the non-human 
 Sequences from the last 3 DRC outbreaks (in 2017, summer 2018 and the currently ongoing one in the North East of the country) also exhibit this apparently reduced branch length. 
 [See this post for a tree produced by the INRB and USAMRIID that shows this effect](http://virological.org/t/drc-2018-viral-genome-characterization/230) and also [Mbala-Kingebeni *et al.* 2019b](https://doi.org/10.1016/S1473-3099(19)30118-5). 
 
-Most EBOV genomes have been sampled from human cases so we have included one genome per outbreak, preferring those with precise dates of sampling. 
+To explore EBOV rate varation in non-human hosts, we assembled a data set of genomes that spans the known history of the virus. Most EBOV genomes have been sampled from human cases so we have included one genome per outbreak, preferring those with precise dates of sampling. 
 A list of sequences used is given in Table 1 along with their Genbank accession numbers and, where available, a reference to the published work describing them.
 
 <div class="small-text"  markdown='1'>
@@ -47,6 +47,7 @@ A list of sequences used is given in Table 1 along with their Genbank accession 
 | [MK007330](https://www.ncbi.nlm.nih.gov/nuccore/MK007330) | DRC | Ituri-18FHV090 | 2018-07-28 | Kivu/2018 | [Mbala-Kingebeni et al. 2019b](https://doi.org/10.1016/S1473-3099(19)30118-5) |
 
 </div>
+
 > **Table 1** A list of the genomes used in this post and their references. 
 
 Building a maximum likelihood tree of these genomes shows the apparent slow down in the recent lineages (Figure 1; yellow dots). 
@@ -62,7 +63,7 @@ Click on a branch of the tree to re-root the tree at that position.
 
 ## Methods
 
-To explore this effect we have used relaxed-clock models in BEAST to allow different rates of evolution for different parts of the tree. 
+To characterise this effect, we have used relaxed-clock models in BEAST to allow different rates of evolution for different parts of the tree. 
              
 {% include image.html width="320" prefix="" file="news/EBOV_Reference_Set_15_iqtree_highlighted.png" %}
 
