@@ -15,8 +15,8 @@ A Markov-modulated model (MMM) is an extension of the standard nucleotide substi
 Such an MMM is constructed by using a combination of multiple continuous-time Markov chain (CTMC) models such as the HKY and GTR models.
 In this tutorial, we show how to construct MMMs by using combinations of 2 and 3 CTMC models of the same type, i.e. always HKY or always GTR, which will effectively yield an 8x8 and a 12x12 dimensional MMM.
 
-We note that the increased dimensionality of MMMs will lead to increased computation times for the corresponding BEAST analysis.
-However, this can largely be mitigated by running the analysis on a powerful GPU; we assess the computational performance of these MMMs on different hardware in our manuscript (Baele *et al.*, 2019).
+We note that the increased dimensionality of MMMs will lead to increased computation times for the corresponding BEAST analysis (Suchard *et al.*, 2018).
+However, this can largely be mitigated by running the analysis on a powerful GPU using the BEAGLE library (Ayres *et al.*, 2019); we assess the computational performance of these MMMs on different hardware in our manuscript (Baele *et al.*, 2019).
 Despite the increased computational demands of MMM analyses, these models can be compared to one another and to popular nucleotide substitution models using (log) marginal likelihood estimation.
 
 We refer to Gascuel and Guindon (2007) and our own manuscript (Baele *et al.*, 2019) for a detailed overview of MMMs in phylogenetics.
@@ -329,7 +329,7 @@ Finally, the only thing left is to make sure the parameter estimate are being wr
     <parameter idref="ac.2"/>
     <parameter idref="ag.2"/>
     <parameter idref="at.2"/>
-	<parameter idref="cg.2"/>
+    <parameter idref="cg.2"/>
     <parameter idref="gt.2"/>
 			
     <parameter idref="gtr.frequencies1"/>
@@ -341,6 +341,15 @@ Finally, the only thing left is to make sure the parameter estimate are being wr
 ...
 </log>
 ```
+
+## Model simplication
+
+Given the (potentially much) increased parameter space corresponding to the MMM specification, these analyses may require a substantial number of iterations in BEAST.
+While the time the analysis takes can be shortened by using a powerful GPU using the BEAGLE library, the added parameters may not (all) be supported by the signal in the underlying data set, in which case their posterior distributions may not differ substantially from their prior distributions.
+We have here presented a full version of an 8x8 MMM, but simplifications to the model can easily be made to reduce the number of parameters.
+For example, an XML with a single set of GTR substitution model parameters may provide higher ESS values and higher (log) marginal likelihoods than a full parameter-rich MMM.
+Note that both models will still need to be defined in the XML however.
+
 
 
 ## References
@@ -356,6 +365,11 @@ N. Galtier and A. Jean-Marie (2004) Markov-modulated markov chains and the covar
 S. Guindon, A. G. Rodrigo, K. A. Dyer, and J. P. Huelsenbeck (2004) Modeling the site-specific variation of selection patterns along lineages. Proceedings of the National Academy of Sciences of the United States of America 101:12957–12962.
 
 C. Tuffley and M. Steel (1998) Modeling the covarion hypothesis of nucleotide substitution. Mathematical Biosciences 147:63–91.
+
+M. A. Suchard, P. Lemey, G. Baele, D. L. Ayres, A. J. Drummond, and A. Rambaut (2018) Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10. Virus Evol. 4:vey016.
+
+D. L. Ayres, M. P. Cummings, G. Baele, A. E. Darling, P. O. Lewis, D. L. Swofford, J. P. Huelsenbeck, P. Lemey, A. Rambaut, and M. A. Suchard (2019) BEAGLE 3: Improved performance, scaling, and usability for a high-performance computing library for statistical phylogenetics. Syst. Biol. (in press).
+
 
 
 {% include links.html %}
