@@ -316,7 +316,7 @@ Again, the XML snippet shown here doesn't include all the prior necessary to run
 
 ## Don't forget to log all the additional parameters
 
-Finally, the only thing left is to make sure the parameter estimate are being written to file and/or to screen, which is easily achieved by including them in the relevant ```log``` XML elements:
+Finally, the only thing left is to make sure the parameter estimate are being written to file and/or to screen, which is easily achieved by including them in the relevant ```<log>``` XML elements:
 
 ```xml
 <log ...>
@@ -342,7 +342,7 @@ Finally, the only thing left is to make sure the parameter estimate are being wr
 </log>
 ```
 
-## Model simplication
+## Model reduction / simplification
 
 Given the (potentially much) increased parameter space corresponding to the MMM specification, these analyses may require a substantial number of iterations in BEAST.
 While the time the analysis takes can be shortened by using a powerful GPU using the BEAGLE library, the added parameters may not (all) be supported by the signal in the underlying data set, in which case their posterior distributions may not differ substantially from their prior distributions.
