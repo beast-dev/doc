@@ -180,10 +180,7 @@ We now define a ```<siteModel>``` XML element for the MMM, exactly like for stan
 </siteModel>
 ```
 
-Finally, we need to provide **both** the ``<siteModel>``` and the ```<markovModulatedSubstitutionModel>``` to the ```<treeLikelihood>``` XML element.
-
-{% include note.html content='The ```useAmbiguities``` XML attribute in the ```treeLikelihood``` XML element **must be set to true**.' %}
-
+Finally, we need to provide **both** the ``<siteModel>``` and the ```<markovModulatedSubstitutionModel>``` to the ```<treeLikelihood>``` XML element:
 
 ```xml
 <treeLikelihood id="treeLikelihood" useAmbiguities="true">
@@ -194,6 +191,8 @@ Finally, we need to provide **both** the ``<siteModel>``` and the ```<markovModu
     <markovModulatedSubstitutionModel idref="mm"/>
 </treeLikelihood>
 ```
+
+{% include note.html content='The ```useAmbiguities``` XML attribute in the ```treeLikelihood``` XML element **must be set to true**.' %}
 
 
 ## Providing additional transition kernels
