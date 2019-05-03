@@ -150,11 +150,36 @@ Finally we ran the strict clock model on a data set where we omitted the four mo
 
 > **Figure 10.** Box-and-whisker plot of the estimated rate for the tree (excluding the local clock rates for these models) in comparison to the strict clock rate and the rate for a strict clock on a data set that excludes the 4 recent DRC genomes (i.e., excluding the lineages that are exhibiting slow downs).
 
+## Model selection
+
+BEAST implements a number of related approaches for comparing competing models ([see here for some detailed instructions on applying these](/model_selection_1)). These compute a marginal likelihood estimate - essentially a goodness-of-fit which takes into account the complexity of the models. The ratio of these provides a Bayes factor - a measure of the relative 'plausibility' of the models given the data.
+
+| **model** | **log MLE** | **log Bayes factor** |
+|---|---|---|
+| strict clock | -33661.96 | --- |
+| clade local clock | -33566.74 | 95.22 |
+| stem local clock | -33563.86 |2.88 |
+| UCLN relaxed clock | -33539.62 | 24.24 |
+
+> **Table 2** Marginal likelihood estimates (MLE) and Bayes factors for the models discussed here. The 3rd column gives the difference between the log MLE for the model and the model above which is the log Bayes factor for the two. 
+
+The uncorrelated lognormal relaxed clock (UCLN) is the best fitting model (by a good margin) as it clearly accommodates some of the 'slow-down' in the two stem branches but also other variation in rate across the tree (Figure 4). However, the time and rate estimates are very variable.
+
+The good fit of the UCLN model suggests there is random variation in rate across the tree as well as the specific 'latency' slow downs. So we construct a model that is a mix of the stem local clock and the UCLN --- this essentially states that the two stem branches have their own rate and the rates for the rest of the tree are drawn from the lognormal relaxed clock (Figure 11). 
+
+{% include image.html prefix="" file="news/EBOV_Reference_Set_15_LC2+UCLN.MCC.png" %}
+
+> **Figure 11.** MCC tree constructed for the mix of the stem local clock model and the UCLN relaxed clock. 
+
+Over all this tree is quite similar to the straight UCLN one (Figure 4) but with much tighter credible (HPD) intervals on the node ages. This suggests overall better model fit (less of a struggle to fit competing patterns of rate variation). Indeed the MLE estimate for this model is XXX giving a Bayes factor of XXX over the UCLN model. The rates are comparable (Figure 12) but as expected the addition of the relaxed clock gives more variation in these.
+
+{% include image.html prefix="" width="450px" file="news/Local_rates_LC2_LC2+UCLN.png" %}
+
+> **Figure 12.** The rates for the tree and the two stem branches under the stem local clock model (left) and the stem local clock + relaxed clock model (right). 
+
 ### Final points
 
 Although we forced the rooting of the tree to be the same for each model, it is likely that the strict clock model and the relaxed clock model would give a different rooting (and possibly rates) if the constraint was removed. 
-
-We currently running generalised stepping-stone sampling to obtain marginal likelihood estimates and test the fit of each model to the data.
 
 Finally, we are developing an explicit model of latency which will act as a molecular clock model, infer the branches that have evidence of latency and estimate parameters of the process. More on this soon.
 
