@@ -157,15 +157,15 @@ BEAST implements a number of related approaches for comparing competing models (
 | **model** | **log MLE** | **log Bayes factor** |
 |---|---|---|
 | strict clock | -33661.96 | --- |
-| clade local clock | -33566.74 | 95.22 |
-| stem local clock | -33563.86 |2.88 |
-| UCLN relaxed clock | -33539.62 | 24.24 |
+| clade local clock | -33566.74 | 95.22 (vs. strict clock) |
+| stem local clock | -33563.86 |2.88 (vs. clade local clock) |
+| UCLN relaxed clock | -33539.62 | 24.24 (vs. stem local clock)|
 
 > **Table 2** Marginal likelihood estimates (MLE) and Bayes factors for the models discussed here. The 3rd column gives the difference between the log MLE for the model and the model above which is the log Bayes factor for the two. 
 
 The uncorrelated lognormal relaxed clock (UCLN) is the best fitting model (by a good margin) as it clearly accommodates some of the 'slow-down' in the two stem branches but also other variation in rate across the tree (Figure 4). However, the time and rate estimates are very variable.
 
-The good fit of the UCLN model suggests there is random variation in rate across the tree as well as the specific 'latency' slow downs. So we construct a model that is a mix of the stem local clock and the UCLN --- this essentially states that the two stem branches have their own rate and the rates for the rest of the tree are drawn from the lognormal relaxed clock (Figure 11). 
+The good fit of the UCLN model suggests there is random variation in rate across the tree as well as the specific 'latency' slow downs. So we constructed a model that is a mix of the stem local clock and the UCLN --- this essentially states that the two stem branches have their own rate and the rates for the rest of the tree are drawn from the lognormal relaxed clock (Figure 11). 
 
 {% include image.html prefix="" file="news/EBOV_Reference_Set_15_LC2+UCLN.MCC.png" %}
 
