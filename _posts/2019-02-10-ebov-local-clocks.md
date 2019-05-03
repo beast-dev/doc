@@ -171,7 +171,7 @@ The good fit of the UCLN model suggests there is random variation in rate across
 
 > **Figure 11.** MCC tree constructed for the mix of the stem local clock model and the UCLN relaxed clock. 
 
-Over all this tree is quite similar to the straight UCLN one (Figure 4) but with much tighter credible (HPD) intervals on the node ages. This suggests overall better model fit (less of a struggle to fit competing patterns of rate variation). Indeed the MLE estimate for this model is XXX giving a Bayes factor of XXX over the UCLN model. The rates are comparable (Figure 12) but as expected the addition of the relaxed clock gives more variation in these.
+Over all this tree is quite similar to the straight UCLN one (Figure 4) but with much tighter credible (HPD) intervals on the node ages. This suggests overall better model fit (less of a struggle to fit competing patterns of rate variation). Indeed the MLE estimate for this model is `-33536.59` giving a log Bayes factor of `3.03` (more than 20-fold) over the UCLN model. The rates are comparable (Figure 12) but as expected the addition of the relaxed clock gives more variation in these.
 
 {% include image.html prefix="" width="450px" file="news/Local_rates_LC2_LC2+UCLN.png" %}
 
