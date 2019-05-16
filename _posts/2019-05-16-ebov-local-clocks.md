@@ -192,12 +192,12 @@ Finally, we are developing an explicit model of latency which will act as a mole
 > Diallo, B. et al., 2016. Resurgence of Ebola Virus Disease in Guinea Linked to a Survivor With Virus Persistence in Seminal Fluid for More Than 500 Days. Clinical infectious diseases: an official publication of the Infectious Diseases Society of America, 63(10), pp.1353–1356.
 Grard, G. et al., 2011. Emergence of divergent Zaire ebola virus strains in Democratic Republic of the Congo in 2007 and 2008. The Journal of infectious diseases, 204 Suppl 3, pp.S776–84.
 >
-> Lam, T.T.-Y. et al., 2015. Puzzling origins of the Ebola outbreak in the Democratic Republic of the Congo, 2014. Journal of virology, pp.JVI.01226–15.
+> Lam, T.T.-Y. et al., 2015. Puzzling origins of the Ebola outbreak in the Democratic Republic of the Congo, 2014. Journal of virology, pp.JVI.01226–15. [https://doi.org/10.1128/JVI.01226-15](https://doi.org/10.1128/JVI.01226-15)
 >
 > Maganga, G.D. et al., 2014. Ebola Virus Disease in the Democratic Republic of Congo. The New England journal of medicine, 371(22), pp.2083–2091.
 >
-> Mbala-Kingebeni, P., Pratt, C.B., et al., 2019. 2018 Ebola virus disease outbreak in Équateur Province, Democratic Republic of the Congo: a retrospective genomic characterisation. The Lancet infectious diseases. Available at: http://dx.doi.org/10.1016/S1473-3099(19)30124-0.
+> Mbala-Kingebeni, P., Pratt, C.B., et al., 2019. 2018 Ebola virus disease outbreak in Équateur Province, Democratic Republic of the Congo: a retrospective genomic characterisation. The Lancet infectious diseases. [http://dx.doi.org/10.1016/S1473-3099(19)30124-0](http://dx.doi.org/10.1016/S1473-3099(19)30124-0).
 >
-> Mbala-Kingebeni, P., Aziza, A., et al., 2019. Medical countermeasures during the 2018 Ebola virus disease outbreak in the North Kivu and Ituri Provinces of the Democratic Republic of the Congo: a rapid genomic assessment. The Lancet infectious diseases. Available at: http://dx.doi.org/10.1016/S1473-3099(19)30118-5.
+> Mbala-Kingebeni, P., Aziza, A., et al., 2019. Medical countermeasures during the 2018 Ebola virus disease outbreak in the North Kivu and Ituri Provinces of the Democratic Republic of the Congo: a rapid genomic assessment. The Lancet infectious diseases. [http://dx.doi.org/10.1016/S1473-3099(19)30118-5](http://dx.doi.org/10.1016/S1473-3099(19)30118-5).
 >
-> Nsio, J. et al., 2019. 2017 Outbreak of Ebola Virus Disease in Northern Democratic Republic of Congo. The Journal of infectious diseases. Available at: https://academic.oup.com/jid/advance-article-pdf/doi/10.1093/infdis/jiz107/28269521/jiz107.pdf
+> Nsio, J. et al., 2019. 2017 Outbreak of Ebola Virus Disease in Northern Democratic Republic of Congo. The Journal of infectious diseases. [https://http://doi.org/10.1093/infdis/jiz107](https://http://doi.org/10.1093/infdis/jiz107)
