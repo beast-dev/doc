@@ -27,7 +27,7 @@ Following the settings for these models, the molecular clock settings and tree p
 
 {% include image.html file="01_stateChangeCounts.png" prefix=root_url %}
 
-This will set up a Markov jump count parameter for total number of (all possible) transitions.
+This will set up a Markov jump count parameter for the total number of (all possible) transitions.
 There is also an option to annotate all Markov jump counts to the trees by selecting `Reconstruct complete change history on tree`. Beware that this may produce very large trees files (and custom scripts may be needed to extract the information of interest from these files). 
 After setting the prior specifications and mcmc options according to the the workshop tutorial, the xml can be generated.
 
@@ -51,7 +51,30 @@ We can find the relevant section in the xml by searching for markovJumpsTreeLike
 	</markovJumpsTreeLikelihood>
 ```
  
-The parameter with 'id=host.count' ensures that the total number of (all possible) transitions will be logged. The vector of 0's and 1's follows the order of the host states in the 'host.dataType' generalDataType:
+By labelling all possible transitions, the parameter with 'id=host.count' ensures that the total number of transitions will be logged. The vector is easier to interpret as a matrix if we add carriage returns after every 17th element:
+
+```xml
+		<parameter id="host.count" value=" 
+0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
+1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0
+1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0
+1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0
+1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0
+1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0
+1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0
+1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0"/>
+```
+
+Both the row and column of the matrix-formatted vector of 0's and 1's follow the order of the host states in the 'host.dataType' generalDataType:
 
 ```xml
 	<generalDataType id="host.dataType">
@@ -77,30 +100,7 @@ The parameter with 'id=host.count' ensures that the total number of (all possibl
 	</generalDataType>
 ```
 
-The vector is easier to interpret as a matrix if we add carriage returns after every 17th element:
-
-```xml
-		<parameter id="host.count" value=" 
-0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
-1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
-1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
-1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
-1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
-1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
-1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
-1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
-1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
-1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0
-1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0
-1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 1.0
-1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0
-1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0
-1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0
-1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0
-1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0"/>
-```
-
-This makes that clear that the 0's represent the diagonal elements of the matrix (of course, we cannot get 'jumps' if the CTMC stays in the same state). Suppose we only would like to count all jumps from 'Ap' to 'Ef', we need to add the following parameter to 'label' that jump:
+The 0's represent the diagonal elements of the matrix (of course, we cannot get 'jumps' if the CTMC stays in the same state). Suppose we only would like to count all jumps from 'Ap' to 'Ef', we need to add the following parameter to 'label' that jump:
 
 ```xml
 		<parameter id="host.ApToEf" value=" 
@@ -195,7 +195,7 @@ For all possible transitions to 'Lbl', we would need to add:
 These are a few examples of labelling specific jumps, or jumps out of or into a specific state. Any labbeling can be added as a parameter to markovJumpsTreeLikelihood.
 
 We can also ensure markov rewards -- the time spent in a particular state -- 
-will be logged by adding reward parameters to the markovJumpsTreeLikelihood. This rewards block will result in logging the rewards for all 17 host states in this example:  
+will be logged by adding reward parameters to the markovJumpsTreeLikelihood. This rewards block will result in logging of the rewards for all 17 host states (again in order of the host states in the 'host.dataType' generalDataType):  
 
 ```xml
 		<rewards>
@@ -226,6 +226,33 @@ For this analysis, their appear near the bottom of the Tracer window:
 {% include image.html file="02_tracer.png" prefix=root_url %}
 
 Note that this short run has not reached past burn-in yet, so a much longer run is required to obtain a proper sample from the posterior.
+
+If many or all jumps are required, it may be tedious to specify all jumps as parameters in the markovJumpsTreeLikelihood. In addition, only the frequency of the jumps can be obtained in this way.
+A convenient way to obtain all jumps as well as the times of the jumps (so that time distributions can be summarised for particular jumps) is by adding a completeHistoryLogger.
+This can be added as a log element in the mcmc block: 
+
+```xml
+		<log id="completeJumpHistory" logEvery="100" fileName="batRABV.jumpHistory.log">
+			<completeHistoryLogger>
+				<markovJumpsTreeLikelihood idref="host.treeLikelihood"/>				
+			</completeHistoryLogger>
+		</log>
+```
+
+To ensure that the completeHistoryLogger will work, we need to add the following arguments to the markovJumpsTreeLikelihood: useUniformization="true" numberOfSimulants="1" saveCompleteHistory="true".
+
+```xml
+	<markovJumpsTreeLikelihood id="host.treeLikelihood" stateTagName="host.states" useUniformization="true" numberOfSimulants="1" saveCompleteHistory="true">
+```
+
+The output of the completeHistoryLogger includes the state number, the total number of jumps for that state and all the jumps in a nested format. Each jump is represented as follows:
+{1,7.043328239686238,Lc,Ef}, 
+where the first number represents the site (for a single discrete trait, this will always be '1') and the second number is the height of the jump (the time since the most recent sampling time). Next, we have the origin state ('Lc' in this case) and the destination state ('Ef' in this case).
+To convert this into a simpler tab-delimited format with a single line for each jump in each tree, a perl script can be [downloaded from here]({{ root_url }}files/collect_times).
+This takes as argument a burn-in (the state number) and as input the completeJumpHistory log file, e.g.:
+./collect_times 10000 < batRABV.jumpHistory.log > jumpTimes.txt
+
+
 
 ## References
 

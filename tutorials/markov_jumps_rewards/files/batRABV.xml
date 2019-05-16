@@ -5154,7 +5154,7 @@
 	</siteModel>
 
 	<!-- Likelihood for tree given discrete trait data                           -->
-	<markovJumpsTreeLikelihood id="host.treeLikelihood" stateTagName="host.states">
+	<markovJumpsTreeLikelihood id="host.treeLikelihood" stateTagName="host.states" useUniformization="true" numberOfSimulants="1" saveCompleteHistory="true">
 		<attributePatterns idref="host.pattern"/>
 		<treeModel idref="treeModel"/>
 		<siteModel idref="host.siteModel"/>
@@ -5527,6 +5527,11 @@
 
 		<!-- END Discrete Traits Model                                               -->
 
+		<log id="completeJumpHistory" logEvery="100" fileName="batRABV.jumpHistory.log">
+			<completeHistoryLogger>
+				<markovJumpsTreeLikelihood idref="host.treeLikelihood"/>				
+			</completeHistoryLogger>
+		</log>
 
 		<!-- write tree log to file                                                  -->
 		<logTree id="treeFileLog" logEvery="100" nexusFormat="true" fileName="batRABV.trees" sortTranslationTable="true">
