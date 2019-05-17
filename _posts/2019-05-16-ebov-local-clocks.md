@@ -6,7 +6,7 @@ permalink: ebov_local_clocks.html
 tags: [news]
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/first_tutorial/{% endcapture %}
+{% capture root_url %}/{% endcapture %}
 
 by Andrew Rambaut, JT McCrone & Guy Baele.
 
@@ -87,7 +87,11 @@ For all of these analyses we constrained the tree topology so all of the viruses
 This was the rooting suggested by a much earlier an analysis (Dudas and Rambaut 2014). 
 
 Analysis was done by partitioning the genomes into 1st, 2nd & 3rd codon positions for the concatenated protein coding regions and a 4th partition comprising the concatenated intergenic regions. 
-Each partition was given an HKY model with gamma distributed site-specific rates and parameters for each were unlinked.
+Each partition was given an HKY model with gamma distributed site-specific rates and parameters for each were unlinked. 
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> <a href="{{ root_url }}files/EBOV_local_clock_XMLs.zip">XML files for all the analyses are available here.</a>. 
+</div>
+
 
 ## Results
  
