@@ -73,10 +73,12 @@ Two lineages are identified as having lower than expected divergence by [Mbala-K
 * One comprising the outbreak in 2017 in Likati and the on-going 2018-2019 outbreak in North Kivu Province -- represented by the genomes *Muembe.1* and *Ituri-18FHV090*. 
 * The other comprising the outbreak in 2014 in Lokolia and the 2018 outbreak in Équateur Province -- represented by the genomes *Lomela-Lokolia16* and *Tumba-BIK009*. 
 
-The two lineages  are labelled *clade a* ("EBOV/Tum" & "EBOV/Lom") and *clade c* ("EBOV/Muy" & "EBOV/Itu"), respectively, in Figure 5 of [Mbala-Kingebeni et al. 2019b](https://doi.org/10.1016/S1473-3099(19)30118-5).
 
 Firstly we used the Local Clock model which allows us to specify which parts of the tree have different rates (although this doesn't specify which bits are fast and which are slow).
 This allows us to assign a different rate of evolution to the two lineages described above (including the ‘stem’ branch leading to each clade).
+
+This model was used in [Mbala-Kingebeni et al. (2019b)](https://doi.org/10.1016/S1473-3099(19)30118-5) where these two lineages are labelled *clade a* ("EBOV/Tum" & "EBOV/Lom") and *clade c* ("EBOV/Muy" & "EBOV/Itu"), respectively (Figure S8 of the Supplementary information). 
+This paper shows that both these clades have a lower rate of evolution over all (Figure S8B).
 
 As a comparison we also ran the analysis with a strict molecular clock (which assumes a single rate over the whole tree) and a log-normal uncorrelated relaxed clock (which allows each branch to have a different rate, independently drawn from a log-normal distribution). 
 We also ran a strict molecular clock but excluding the recent DRC outbreak genomes.
@@ -89,7 +91,7 @@ Each partition was given an HKY model with gamma distributed site-specific rates
 
 ## Results
  
-For the local clock model (Figure 3), you can see the two lineages that have been allowed a different rate and both have a slower rate than the rest of the tree (i.e. the branches are coloured by rate with blue meaning lower than average).
+For the local clock model (Figure 3), you can see the two lineages that have been allowed a different rate and both have a slower rate than the rest of the tree (i.e. the branches are coloured by rate with blue meaning lower than average). 
 This and all the subsequent trees are drawn on the same timescale to allow a comparison of the depth of the trees.
 
 {% include image.html prefix="" file="news/EBOV_Reference_Set_15_LC1.MCC.tree.png" %}
