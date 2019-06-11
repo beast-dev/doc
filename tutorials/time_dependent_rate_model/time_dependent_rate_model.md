@@ -105,7 +105,7 @@ Where we deleted the strict clock model, paste the following blocks that specify
 In this GLM specification, the values of the 'designMatrix.time' parameter are the natural logarithms of the midpoints of each epoch.
 Note that the dimension of GLM specification in this case corresponds to nine rates and hence nine epochs.
 This epoch-covariate specification will need to adjusted for each specific data set that needs to be analyzed.
-The values of the rate.coefficients parameter, $$\beta_0$$ and $$\beta_0$$ respectively, provide starting values for the GLM parameters.
+The values of the rate.coefficients parameter, $$\beta_0$$ and $$\beta_1$$ respectively, provide starting values for the GLM parameters.
 
 In the epoch specification that will follow, we will need to associate each epoch interval with a specific rate on a natural scale. For this purpose, we create a transformed parameter for each epoch rate that pulls a single rate out of the 'all.rates' parameter vector using a 'maskedParameter'. The inverse="true" argument transforms the log rate back to the natural scale.
 The transformedParameter block for the first epoch rate should be pasted after the 'matrixVectorProductParameter' block and should look like the following:
@@ -212,9 +212,9 @@ In the operators block, we define a random walk operator for the rate coefficien
 Paste this XML block within the operators block:
 
 ```
-		<randomWalkOperator windowSize="0.01" weight="5"  autoOptimize="true">
-			<parameter idref="rate.coefficients"/>
-		</randomWalkOperator> 
+	<randomWalkOperator windowSize="0.01" weight="5"  autoOptimize="true">
+		<parameter idref="rate.coefficients"/>
+	</randomWalkOperator> 
 ```
 
 In the prior block (part of the mcmc block), delete the 'strictClockBranchRates' line, and replace this with 'rateEpochBranchRates':
@@ -223,7 +223,7 @@ In the prior block (part of the mcmc block), delete the 'strictClockBranchRates'
 				<rateEpochBranchRates idref="epochRates"/>
 ```
 
-In addition, we will also add the calibrations in the prior block.
+In addition, we will also add the calibrations to the prior block.
 These calibrations are important in our analysis as these are the data that BEAST uses to inform our TDR model.
 These ten internal node calibrations and one MRCA calibration were presented in the study of [Aiewsakun and Katzourakis (2015)](https://bmcevolbiol.biomedcentral.com/articles/10.1186/s12862-015-0408-z).
 Paste the following codes in the prior block:
@@ -341,7 +341,7 @@ Once the analysis has been finished, you load the log file in <a href="http://tr
 In our analysis, we obtained an estimate that indicates a strong TDR effect ($$\beta_1 = -0.533 [-0.594, -0.475]$$).
 In fact, this can be seen in Figure 2, which is a plot that shows the different epoch rate estimates in a log-time scale.
 In comparison to a previous estimate (Schweizer et al., 1999) for the short-term FV rate at $$3.75􏰁 10^{-4}$$ substitutions/site/year (s/s/yr), we estimate a lower rate close to the present (2.60 [95\% highest posterior density interval: 1.61–3.73] $$10^{-5}$$ s/s/yr at $$t_m = 5$$ years).
-At the same time, the epoch models infer very slow evolutionary rates close to the root of the phylogeny ((1.32 [95\%  highest posterior density interval: 1.11–1.54] $$\times 10^{-9}$$ s/s/yr at 99 My)
+At the same time, the epoch models infer very slow evolutionary rates close to the root of the phylogeny ((1.32 [95\%  highest posterior density interval: 1.11–1.54] $$10^{-9}$$ s/s/yr at 99 My)
 
 {% include image.html file="images/tracer_epoch_estimates.png" prefix=root_url %}
 
