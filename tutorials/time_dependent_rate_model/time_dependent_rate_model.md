@@ -20,7 +20,7 @@ As example dataset, we using the foamy virus (FV) dataset analyzed by Aiewsakun 
 The input file for this tutorial, <samp>TDRP_foamy.fas</samp>, can be [downloaded here]({{ root_url }}files/TDRP_foamy.fas).
 
 Note that in this dataset, we consider a time scale in millions of years (My).
-We use this data set to demonstrate how to apply the time dependent rate (TDR) clock model described in [Membrebe et al. (2019)]: https://academic.oup.com/mbe/advance-article/doi/10.1093/molbev/msz094/5475507 .
+We use this data set to demonstrate how to apply the time dependent rate (TDR) clock model described in [Membrebe et al. (2019)](https://academic.oup.com/mbe/advance-article/doi/10.1093/molbev/msz094/5475507).
 We first create an xml using BEAuti whihc will serve as the basis for further editing in order to set up the epoch-TDR model.
 
 ### Generating an XML File
@@ -336,7 +336,7 @@ We can run BEAST using either the GUI interface or using the command line.
 
 ###Analyzing the Output
 
-Once the analysis has been finished, you load the log file in Tracer <a href="http://tree.bio.ed.ac.uk/software/tracer/">Tracer</a> to diagnize and summarize the MCMC run.
+Once the analysis has been finished, you load the log file in <a href="http://tree.bio.ed.ac.uk/software/tracer/">Tracer</a> to diagnize and summarize the MCMC run.
 
 In our analysis, we obtained an estimate that indicates a strong TDR effect ($\beta_1 = -0.533 [-0.594, -0.475]$).
 In fact, this can be seen in Figure 2, which is a plot that shows the different epoch rate estimates in a log-time scale.
