@@ -104,7 +104,7 @@ Where we deleted the strict clock model, paste the following blocks that specify
 
 In this GLM specification, the values of the 'designMatrix.time' parameter are the natural logarithms of the midpoints of each epoch.
 Note that the dimension of GLM specification in this case corresponds to nine rates and hence nine epochs.
-This epoch-covariate specification will need to adjusted for each specific data set that needs to be analyzed.
+This epoch-covariate specification will need to be adjusted for each specific data set that needs to be analyzed.
 The values of the rate.coefficients parameter, $$\beta_0$$ and $$\beta_1$$ respectively, provide starting values for the GLM parameters.
 
 In the epoch specification that will follow, we will need to associate each epoch interval with a specific rate on a natural scale. For this purpose, we create a transformed parameter for each epoch rate that pulls a single rate out of the 'all.rates' parameter vector using a 'maskedParameter'. The inverse="true" argument transforms the log rate back to the natural scale.
@@ -176,7 +176,7 @@ Next, we need to create the actual epoch structure for the rates by pasting the 
 ```
 
 The 'rateEpochBranchRates' creates the epoch intervals (through transition times) and associates each epoch interval with an individual rate.
-Un this case, the rate referred to as 'epoch.rate01' is associated with the interval from time 0 to 0.00001 My, the rate 'epoch.rate02' is the rate from time 0.00001 My to 0.0001 My, and so on.
+In this case, the rate referred to as 'epoch.rate01' is associated with the interval from time 0 to 0.00001 My, the rate 'epoch.rate02' is the rate from time 0.00001 My to 0.0001 My, and so on.
 
 In addition, we can create a compound parameter which compiles all the epoch rates (on a natural scale). To this purpose, paste the following after the 'rateEpochBranchRates' block:
 
@@ -325,25 +325,25 @@ Finally, in the treeFileLog block, delete the line with the 'branchRates 'and re
 ```
 
 We have now completed the XML editing and we can analyze this using BEAST.
-The final XML file should look like [this]({{ root_url }}files/TDRP_foamy1.xml).
+The final XML file should look like [this](tutorials/time_dependent_rate_model/files/TDRP_foamy1.xml)
 
-###Running BEAST
+### Running BEAST
 
 Run the XML file in BEAST. We recommend to use BEAGLE with BEAST to increase the performance in terms of computation time.
 The installation and setup of the BEAGLE library on various platforms is covered on <a href="https://github.com/beagle-dev/beagle-lib">this website</a>.
 
 We can run BEAST using either the GUI interface or using the command line.
 
-###Analyzing the Output
+### Analyzing the Output
 
 Once the analysis has been finished, you load the log file in <a href="http://tree.bio.ed.ac.uk/software/tracer/">Tracer</a> to diagnize and summarize the MCMC run.
 
 In our analysis, we obtained an estimate that indicates a strong TDR effect ($$\beta_1 = -0.533 [-0.594, -0.475]$$).
-In fact, this can be seen in Figure 2, which is a plot that shows the different epoch rate estimates in a log-time scale.
+In fact, this can be seen in Figure 1, which is a plot that shows the different epoch rate estimates in a log-time scale.
 In comparison to a previous estimate (Schweizer et al., 1999) for the short-term FV rate at $$3.75􏰁 10^{-4}$$ substitutions/site/year (s/s/yr), we estimate a lower rate close to the present (2.60 [95\% highest posterior density interval: 1.61–3.73] $$10^{-5}$$ s/s/yr at $$t_m = 5$$ years).
 At the same time, the epoch models infer very slow evolutionary rates close to the root of the phylogeny ((1.32 [95\%  highest posterior density interval: 1.11–1.54] $$10^{-9}$$ s/s/yr at 99 My)
 
-{% include image.html file="images/tracer_epoch_estimates.png" prefix=root_url %}
+{% include image.html file="tutorials/time_dependent_rate_model/images/tracer_epoch_estimates.png" %}
 
 
 ## References
