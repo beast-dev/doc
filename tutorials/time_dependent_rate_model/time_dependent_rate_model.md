@@ -17,7 +17,7 @@ folder: beast
 {% include callout.html content='The tutorial combines the concept of epoch modelling, discussed in the <a href="epoch_models">\'Epoch model\' tutorial</a>, and a generalized linear model formulation for the epoch parameters.' %}
 
 As example dataset, we use the foamy virus (FV) dataset analyzed by [Aiewsakun and Katzourakis (2015)](https://bmcevolbiol.biomedcentral.com/articles/10.1186/s12862-015-0408-z) to show the presence of time dependent rates.
-The input file for this tutorial, <samp>TDRP_foamy.fas</samp>, can be [downloaded here]({{ root_url }}files/TDRP_foamy.fas).
+The input file for this tutorial, <samp>TDRP_foamy.fas</samp>, can be [downloaded here](tutorials/time_dependent_rate_model/files/TDRP_foamy.fas)
 
 Note that in this dataset, we consider a time scale in millions of years (My).
 We use this data set to demonstrate how to apply the time dependent rate (TDR) clock model described in [Membrebe et al. (2019)](https://academic.oup.com/mbe/advance-article/doi/10.1093/molbev/msz094/5475507).
@@ -84,7 +84,7 @@ So, for the first epoch, this value is log(5)=-12.2060726455.
 Because the last epoch extends to $$\infty$$, we assume in practice an alternative time for its midpoint that extends the time series of the preceding boundaries in order to compute a finite last midpoint time.
 That is, for the last epoch, the time-covariate value is log(550)=6.3099182782
 
-Where we deleted the strict clock model, paste the following blocks that specify the generalized linear model (GLM) for all the rates ('all.rates') on a log-scale through a `designMatrix' and a `matrixVectorProductParameter':
+Where we deleted the strict clock model, paste the following blocks that specify the generalized linear model (GLM) for all the rates ('all.rates') on a log-scale through a 'designMatrix' and a 'matrixVectorProductParameter':
 
 ```
     <designMatrix id="epochDesignMatrix">
@@ -105,7 +105,7 @@ Where we deleted the strict clock model, paste the following blocks that specify
 In this GLM specification, the values of the 'designMatrix.time' parameter are the natural logarithms of the midpoints of each epoch.
 Note that the dimension of GLM specification in this case corresponds to nine rates and hence nine epochs.
 This epoch-covariate specification will need to adjusted for each specific data set that needs to be analyzed.
-The values of the rate.coefficients parameter, $$\beta_0$ and $\beta_0$$ respectively, provide starting values for the GLM parameters.
+The values of the rate.coefficients parameter, $$\beta_0$$ and $$\beta_0$$ respectively, provide starting values for the GLM parameters.
 
 In the epoch specification that will follow, we will need to associate each epoch interval with a specific rate on a natural scale. For this purpose, we create a transformed parameter for each epoch rate that pulls a single rate out of the 'all.rates' parameter vector using a 'maskedParameter'. The inverse="true" argument transforms the log rate back to the natural scale.
 The transformedParameter block for the first epoch rate should be pasted after the 'matrixVectorProductParameter' block and should look like the following:
@@ -340,7 +340,7 @@ Once the analysis has been finished, you load the log file in <a href="http://tr
 
 In our analysis, we obtained an estimate that indicates a strong TDR effect ($$\beta_1 = -0.533 [-0.594, -0.475]$$).
 In fact, this can be seen in Figure 2, which is a plot that shows the different epoch rate estimates in a log-time scale.
-In comparison to a previous estimate (Schweizer et al., 1999) for the short-term FV rate at $$3.75􏰁 \times 10^{-4}$$ substitutions/site/year (s/s/yr), we estimate a lower rate close to the present (2.60 [95\% highest posterior density interval: 1.61–3.73] $$times 10^{-5}$$ s/s/yr at $$t_m = 5$$ years).
+In comparison to a previous estimate (Schweizer et al., 1999) for the short-term FV rate at $$3.75􏰁 10^{-4}$$ substitutions/site/year (s/s/yr), we estimate a lower rate close to the present (2.60 [95\% highest posterior density interval: 1.61–3.73] $$10^{-5}$$ s/s/yr at $$t_m = 5$$ years).
 At the same time, the epoch models infer very slow evolutionary rates close to the root of the phylogeny ((1.32 [95\%  highest posterior density interval: 1.11–1.54] $$\times 10^{-9}$$ s/s/yr at 99 My)
 
 {% include image.html file="images/tracer_epoch_estimates.png" prefix=root_url %}
