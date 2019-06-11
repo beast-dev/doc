@@ -341,16 +341,16 @@ Once the analysis has been finished, you load the log file in <a href="http://tr
 In our analysis, we obtained an estimate that indicates a strong TDR effect ($$\beta_1 = -0.533 [-0.594, -0.475]$$).
 In fact, this can be seen in Figure 1, which is a plot that shows the different epoch rate estimates in a log-time scale.
 In comparison to a previous estimate (Schweizer et al., 1999) for the short-term FV rate at $$3.75􏰁 10^{-4}$$ substitutions/site/year (s/s/yr), we estimate a lower rate close to the present (2.60 [95\% highest posterior density interval: 1.61–3.73] $$10^{-5}$$ s/s/yr at $$t_m = 5$$ years).
-At the same time, the epoch models infer very slow evolutionary rates close to the root of the phylogeny ((1.32 [95\%  highest posterior density interval: 1.11–1.54] $$10^{-9}$$ s/s/yr at 99 My)
+At the same time, the epoch models infer very slow evolutionary rates close to the root of the phylogeny (1.32 [95\%  highest posterior density interval: 1.11–1.54] $$10^{-9}$$ s/s/yr at 99 My)
 
 {% include image.html prefix=root_url file="tracer_epoch_estimates.png" %}
 
 
 ## References
 
-Ho SY, Duchene S, Molak M, Shapiro B. 2015. Time-dependent estimates of molecular evolutionary rates: evidence and causes. Mol Ecol. 24(24):6007–6012.
-
 Aiewsakun P, Katzourakis A. 2015. Time dependency of foamy virus evolutionary rate estimates. BMC Evol Biol. 15:119.
+
+Ho SY, Duchene S, Molak M, Shapiro B. 2015. Time-dependent estimates of molecular evolutionary rates: evidence and causes. Mol Ecol. 24(24):6007–6012.
 
 Membrebe, J. V., Suchard, M. A., Rambaut, A., Baele, G., Lemey, P. (2019) Bayesian inference of evolutionary histories under time-dependent substitution rates. Mol. Biol. Evol.
 
