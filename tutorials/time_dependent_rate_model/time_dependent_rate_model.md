@@ -76,15 +76,15 @@ Next, we must compute the values of the time-covariates for the rates in our TDR
 
 $$\log r_m = \beta_0 + \beta_1 \log t_m$$
 
-In this model, we parameterize each epoch rate ($r_m$) as a log-linear function of time.
-The parameter $\beta_0$ represents the log rate at log(time) = 0, while $\beta_1$ quantifies the time-dependent effect.
-For the time-covariate $t_m$, we take the midpoint of epoch $m$ ($m=1,...,M$ epochs).
+In this model, we parameterize each epoch rate ($$r_m$$) as a log-linear function of time.
+The parameter $$\beta_0$$ represents the log rate at log(time) = 0, while $$\beta_1$$ quantifies the time-dependent effect.
+For the time-covariate $$t_m$$, we take the midpoint of epoch $$m$$ ($$m=1,...,M$$ epochs).
 However, we must put the natural logarithm of this value in our XML file.
-So, for the first epoch, this value is $log(5)=-12.2060726455$.
-Because the last epoch extends to $\infty$, we assume in practice an alternative time for its midpoint that extends the time series of the preceding boundaries in order to compute a finite last midpoint time.
-That is, for the last epoch, the time-covariate value is $log(550)=6.3099182782$
+So, for the first epoch, this value is log(5)=-12.2060726455.
+Because the last epoch extends to $$\infty$$, we assume in practice an alternative time for its midpoint that extends the time series of the preceding boundaries in order to compute a finite last midpoint time.
+That is, for the last epoch, the time-covariate value is log(550)=6.3099182782
 
-Where we deleted the strict clock model, paste the following blocks that specify the generalized linear model (GLM) for all the rates (`all.rates') on a log-scale through a `designMatrix' and a `matrixVectorProductParameter':
+Where we deleted the strict clock model, paste the following blocks that specify the generalized linear model (GLM) for all the rates ('all.rates') on a log-scale through a `designMatrix' and a `matrixVectorProductParameter':
 
 ```
     <designMatrix id="epochDesignMatrix">
@@ -102,13 +102,13 @@ Where we deleted the strict clock model, paste the following blocks that specify
 	</matrixVectorProductParameter>
 ```
 
-In this GLM specification, the values of the `designMatrix.time' parameter are the natural logarithms of the midpoints of each epoch.
+In this GLM specification, the values of the 'designMatrix.time' parameter are the natural logarithms of the midpoints of each epoch.
 Note that the dimension of GLM specification in this case corresponds to nine rates and hence nine epochs.
 This epoch-covariate specification will need to adjusted for each specific data set that needs to be analyzed.
-The values of the rate.coefficients parameter, $\beta_0$ and $\beta_0$ respectively, provide starting values for the GLM parameters.
+The values of the rate.coefficients parameter, $$\beta_0$ and $\beta_0$$ respectively, provide starting values for the GLM parameters.
 
-In the epoch specification that will follow, we will need to associate each epoch interval with a specific rate on a natural scale. For this purpose, we create a transformed parameter for each epoch rate that pulls a single rate out of the 'all.rates' parameter vector using a `maskedParameter'. The inverse="true" argument transforms the log rate back to the natural scale.
-The transformedParameter block for the first epoch rate should be pasted after the `matrixVectorProductParameter' block and should look like the following:
+In the epoch specification that will follow, we will need to associate each epoch interval with a specific rate on a natural scale. For this purpose, we create a transformed parameter for each epoch rate that pulls a single rate out of the 'all.rates' parameter vector using a 'maskedParameter'. The inverse="true" argument transforms the log rate back to the natural scale.
+The transformedParameter block for the first epoch rate should be pasted after the 'matrixVectorProductParameter' block and should look like the following:
 
 ```
 	<transformedParameter id="epoch.rate01" inverse="true">
@@ -122,7 +122,7 @@ The transformedParameter block for the first epoch rate should be pasted after t
 	</transformedParameter>
 ```
 
-In this case, the `maskedParameter' pulls out the first rate from the 'all.rates' parameter vector, which is why we define the `transformedParameter' as epoch.rate01.
+In this case, the 'maskedParameter' pulls out the first rate from the 'all.rates' parameter vector, which is why we define the 'transformedParameter' as epoch.rate01.
 Create a transformedParameter block for each epoch, while adjusting its 'id' and the value of the masking parameter value.
 That is, the last block should look like the following:
 
@@ -138,7 +138,7 @@ That is, the last block should look like the following:
 	</transformedParameter>
 ```
 
-Next, we need to create the actual epoch structure for the rates by pasting the following rateEpochBranchRates after the transformedParameter blocks:
+Next, we need to create the actual epoch structure for the rates by pasting the following 'rateEpochBranchRates' after the 'transformedParameter' blocks:
 
 ```
 	<rateEpochBranchRates id="epochRates">
@@ -175,10 +175,10 @@ Next, we need to create the actual epoch structure for the rates by pasting the 
 	</rateEpochBranchRates>
 ```
 
-The rateEpochBranchRates creates the epoch intervals (through transition times) and associates each epoch interval with an individual rate.
-Un this case, the rate referred to as epoch.rate01 is associated with the interval from time 0 to 0.00001 My, the rate epoch.rate02 is the rate from time 0.00001 My to 0.0001 My, and so on.
+The 'rateEpochBranchRates' creates the epoch intervals (through transition times) and associates each epoch interval with an individual rate.
+Un this case, the rate referred to as 'epoch.rate01' is associated with the interval from time 0 to 0.00001 My, the rate 'epoch.rate02' is the rate from time 0.00001 My to 0.0001 My, and so on.
 
-In addition, we can create a compound parameter which compiles all the epoch rates (on a natural scale). To this purpose, aaste the following after the rateEpochBranchRates block:
+In addition, we can create a compound parameter which compiles all the epoch rates (on a natural scale). To this purpose, paste the following after the 'rateEpochBranchRates' block:
 
 ```
 	<compoundParameter id="epoch.rates">
@@ -195,7 +195,7 @@ In addition, we can create a compound parameter which compiles all the epoch rat
 ```
 
 Finally, we need to instruct BEAST to use the values of the epochRates and not the strict clock branch rates, which was in the original file we generated from BEAUti, when computing the likelihood.
-To this purpose, we reference our TDR model in the treeDataLikelihood block instead of the branchRates as follows:
+To this purpose, we reference our TDR model in the 'treeDataLikelihood' block instead of the branchRates as follows:
 
 ```
 	<treeDataLikelihood id="treeLikelihood" useAmbiguities="false">
@@ -217,7 +217,7 @@ Paste this XML block within the operators block:
 		</randomWalkOperator> 
 ```
 
-In the prior block (part of the mcmc block), delete the strictClockBranchRates line, and replace this with:
+In the prior block (part of the mcmc block), delete the 'strictClockBranchRates' line, and replace this with 'rateEpochBranchRates':
 
 ```
 				<rateEpochBranchRates idref="epochRates"/>
@@ -225,7 +225,7 @@ In the prior block (part of the mcmc block), delete the strictClockBranchRates l
 
 In addition, we will also add the calibrations in the prior block.
 These calibrations are important in our analysis as these are the data that BEAST uses to inform our TDR model.
-These ten internal node calibrations and one MRCA calibration were presented in the study of Aiewsakun and Katzourakis (2015).
+These ten internal node calibrations and one MRCA calibration were presented in the study of [Aiewsakun and Katzourakis (2015)](https://bmcevolbiol.biomedcentral.com/articles/10.1186/s12862-015-0408-z).
 Paste the following codes in the prior block:
 
 ```
@@ -275,7 +275,7 @@ Paste the following codes in the prior block:
 ```
 
 We also need to specify a prior over our rate coefficients in the priors block.
-In this case, we specify a multivariate normal prior with the parameterization used in Membrebe et al. (2019).
+In this case, we specify a multivariate normal prior with the parameterization used in [Membrebe et al. (2019)](https://academic.oup.com/mbe/advance-article/doi/10.1093/molbev/msz094/5475507).
 Paste the following lines in the mcmc block, within the prior section:
 
 ```
@@ -318,7 +318,7 @@ Delete these lines in the fileLog block as BEAST would not compute them anymore:
 			<rateStatistic idref="meanRate"/>
 ```
 
-Finally, in the treeFileLog block, delete the line with the branchRates and replace this with the epochRates:
+Finally, in the treeFileLog block, delete the line with the 'branchRates 'and replace this with the 'epochRates':
 
 ```
             <rateEpochBranchRates idref="epochRates"/>
@@ -338,10 +338,10 @@ We can run BEAST using either the GUI interface or using the command line.
 
 Once the analysis has been finished, you load the log file in <a href="http://tree.bio.ed.ac.uk/software/tracer/">Tracer</a> to diagnize and summarize the MCMC run.
 
-In our analysis, we obtained an estimate that indicates a strong TDR effect ($\beta_1 = -0.533 [-0.594, -0.475]$).
+In our analysis, we obtained an estimate that indicates a strong TDR effect ($$\beta_1 = -0.533 [-0.594, -0.475]$$).
 In fact, this can be seen in Figure 2, which is a plot that shows the different epoch rate estimates in a log-time scale.
-In comparison to a previous estimate (Schweizer et al., 1999) for the short-term FV rate at $3.75􏰁 \times 10^{-4}$ substitutions/site/year (s/s/yr), we estimate a lower rate close to the present ($2.60$ [$95\%$  highest posterior density interval: $1.61–3.73$] $\times 10^{-5}$ s/s/yr at $t_m = 5$ years).
-At the same time, the epoch models infer very slow evolutionary rates close to the root of the phylogeny (($1.32$ [$95\%$  highest posterior density interval: $1.11–1.54$] $\times 10^{-9}$ s/s/yr at 99 My)
+In comparison to a previous estimate (Schweizer et al., 1999) for the short-term FV rate at $$3.75􏰁 \times 10^{-4}$$ substitutions/site/year (s/s/yr), we estimate a lower rate close to the present (2.60 [95\% highest posterior density interval: 1.61–3.73] $$times 10^{-5}$$ s/s/yr at $$t_m = 5$$ years).
+At the same time, the epoch models infer very slow evolutionary rates close to the root of the phylogeny ((1.32 [95\%  highest posterior density interval: 1.11–1.54] $$\times 10^{-9}$$ s/s/yr at 99 My)
 
 {% include image.html file="images/tracer_epoch_estimates.png" prefix=root_url %}
 
