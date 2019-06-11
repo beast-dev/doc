@@ -343,7 +343,7 @@ In fact, this can be seen in Figure 1, which is a plot that shows the different 
 In comparison to a previous estimate (Schweizer et al., 1999) for the short-term FV rate at $$3.75􏰁 10^{-4}$$ substitutions/site/year (s/s/yr), we estimate a lower rate close to the present (2.60 [95\% highest posterior density interval: 1.61–3.73] $$10^{-5}$$ s/s/yr at $$t_m = 5$$ years).
 At the same time, the epoch models infer very slow evolutionary rates close to the root of the phylogeny ((1.32 [95\%  highest posterior density interval: 1.11–1.54] $$10^{-9}$$ s/s/yr at 99 My)
 
-{% include image.html file="tracer_epoch_estimates.png" prefix="tutorials/time_dependent_rate_model/" indent="64px" width="640px" alt="Tracer estimates" caption="" %}
+{% include image.html prefix=root_url file="tracer_epoch_estimates.png" %}
 
 
 ## References
