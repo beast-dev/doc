@@ -45,7 +45,7 @@ We keep the Clock model as "Strict clock" for now in the Clocks panel.
 In the Trees panel, we select a Yule speciation model.
 In the Priors panel, we would be able to set up all the calibration distributions for the nodes we have set as taxa sets. However, we will do this when editing the xml and keep all priors to their defaults for now.
 
-Finally, we generate the XML file which should look like <a href="TDRP_foamy1.xml" download>this</a>.
+Finally, we generate the XML file which should look like [this]({{ root_url }}files/TDRP_foamy1.xml).
 
 ### Specifying the Time Dependent Rate Clock Model
 
@@ -325,7 +325,7 @@ Finally, in the treeFileLog block, delete the line with the branchRates and repl
 ```
 
 We have now completed the XML editing and we can analyze this using BEAST.
-The final XML file should look like <a href="files/TDRP_foamy1.xml" download>this</a>.
+The final XML file should look like [this]({{ root_url }}files/TDRP_foamy1.xml).
 
 ###Running BEAST
 
