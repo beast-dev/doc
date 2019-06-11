@@ -14,10 +14,11 @@ folder: beast
 
 ## Time Dependent Rate Model Tutorial
 
-{% include callout.html content='The tutorial combines the concept of epoch modelling which was discussed in the <a href="epoch_models">\'Epoch model\' tutorial</a> and a generalized linear model formulation over the epoch parameters' %}
+{% include callout.html content='The tutorial combines the concept of epoch modelling, discussed in the <a href="epoch_models">\'Epoch model\' tutorial</a>, and a generalized linear model formulation over the epoch parameters.' %}
 
 As example dataset, we using the foamy virus (FV) dataset analyzed by Aiewsakun and Katzourakis (2015) to show the presence of time dependent rates.
-You can download the FV alignment <a href="files/TDRP_foamy.fas" download>here</a>.
+The input file for this tutorial, <samp>TDRP_foamy.fas</samp>, can be [downloaded here]({{ root_url }}files/TDRP_foamy.fas).
+
 Note that in this dataset, we consider a time scale in millions of years (My).
 We use this data set to demonstrate how to apply the time dependent rate (TDR) clock model described in [Membrebe et al. (2019)]: https://academic.oup.com/mbe/advance-article/doi/10.1093/molbev/msz094/5475507 .
 We first create an xml using BEAuti whihc will serve as the basis for further editing in order to set up the epoch-TDR model.
