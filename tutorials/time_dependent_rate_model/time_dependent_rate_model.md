@@ -14,18 +14,18 @@ folder: beast
 
 ## Time Dependent Rate Model Tutorial
 
-{% include callout.html content='The tutorial combines the concept of epoch modelling, discussed in the <a href="epoch_models">\'Epoch model\' tutorial</a>, and a generalized linear model formulation over the epoch parameters.' %}
+{% include callout.html content='The tutorial combines the concept of epoch modelling, discussed in the <a href="epoch_models">\'Epoch model\' tutorial</a>, and a generalized linear model formulation for the epoch parameters.' %}
 
-As example dataset, we using the foamy virus (FV) dataset analyzed by Aiewsakun and Katzourakis (2015) to show the presence of time dependent rates.
+As example dataset, we use the foamy virus (FV) dataset analyzed by [Aiewsakun and Katzourakis (2015)](https://bmcevolbiol.biomedcentral.com/articles/10.1186/s12862-015-0408-z) to show the presence of time dependent rates.
 The input file for this tutorial, <samp>TDRP_foamy.fas</samp>, can be [downloaded here]({{ root_url }}files/TDRP_foamy.fas).
 
 Note that in this dataset, we consider a time scale in millions of years (My).
 We use this data set to demonstrate how to apply the time dependent rate (TDR) clock model described in [Membrebe et al. (2019)](https://academic.oup.com/mbe/advance-article/doi/10.1093/molbev/msz094/5475507).
-We first create an xml using BEAuti whihc will serve as the basis for further editing in order to set up the epoch-TDR model.
+We first create an xml using BEAuti which will serve as the basis for further editing in order to set up the epoch-TDR model.
 
 ### Generating an XML File
 
-The first thing that we need to do is to upload the sequences in BEAUti and generate an XML file. Upload the dataset in the Partitions tab. The TDR model requires internal node calibrations, preferrably distributed across the time-scale of the evolutionary history. Because of the history of FV-host co-speciation, we can calibrate most nodes in the FV tree using host divergence date estimates. To specify such calibrations, we first need to define taxon sets  for the relevant nodes as follows in the Taxa panel and enforce them to be monophyletic:
+The first thing that we need to do is to upload the sequences in BEAUti and generate an XML file. Upload the dataset in the Partitions tab. The TDR model requires internal node calibrations, preferrably distributed across the time-scale of the evolutionary history. Because of the history of FV-host co-speciation, we can calibrate most nodes in the FV tree using estimates of host divergence dates. To specify such calibrations, we first need to define taxon sets for the relevant nodes as follows in the Taxa panel and enforce them to be monophyletic:
 
 | Taxon Set | Included Taxa                                                              |
 |-----------|----------------------------------------------------------------------------|
@@ -40,8 +40,8 @@ The first thing that we need to do is to upload the sequences in BEAUti and gene
 | node9     | BFV,EFV                                                                    |
 | node10    | BFV,EFV,FFV                                                                |
 
-In the Sites panel, we select the general time-reversible (GTR) substitution model for a single nucleotide partition, keep the base frequencies as 'Estimated' and select gamma distributed rate heterogeneity among sites.
-We keep the Clock model as "Strict clock" for now in the Clocks panel.
+In the Sites panel, we select the general time-reversible (GTR) substitution model for a single nucleotide partition, keep the base frequencies as 'Estimated' and select 'Gamma' distributed rate heterogeneity among sites.
+We keep the Clock model as 'Strict clock' for now in the Clocks panel.
 In the Trees panel, we select a Yule speciation model.
 In the Priors panel, we would be able to set up all the calibration distributions for the nodes we have set as taxa sets. However, we will do this when editing the xml and keep all priors to their defaults for now.
 
@@ -68,9 +68,9 @@ To do this, look for the block where the clock model and its associated rate sta
 
 To allow rates to vary over time, we will set up an epoch structure that specifies a different rate parameter for each epoch interval and then model a specific relationshop between these epoch rates.
 Membrebe et al. (2019) explore to different epoch structures that cover a time period beyond the expected depth of the phylogeny.
-For this tutorial, we follow the exponential epoch structure and create the boundaries of the epochs as $0 < 10^{-5} < 10^{-5} < ... < 10^{2} < \infty$ My.
+For this tutorial, we follow the exponential epoch structure and create the boundaries of the epochs as $$0 < 10^{-5} < 10^{-5} < ... < 10^{2} < \infty$$ My.
 Hence, the first epoch is bounded between 0 and 10 years into the past.
-The alternative uniform epoch structure set up in Membrebe et al. (2019) used the following boundaries: $0 < 10 < 20 < ... < 90 < \infty% My.
+The alternative uniform epoch structure set up in Membrebe et al. (2019) used the following boundaries: $$0 < 10 < 20 < ... < 90 < \infty$$ My.
 
 Next, we must compute the values of the time-covariates for the rates in our TDR clock model, which has the form:
 
