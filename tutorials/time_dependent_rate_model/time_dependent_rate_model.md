@@ -10,7 +10,7 @@ permalink: time_dependent_rate_model.html
 folder: beast
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/time_dependent_rates/{% endcapture %}
+{% capture root_url %}{{ site.tutorials_root_url }}/time_dependent_rate_model/{% endcapture %}
 
 ## Time Dependent Rate Model Tutorial
 
