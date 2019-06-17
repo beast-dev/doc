@@ -38,7 +38,7 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 
 #### Loading the sequence data file 
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file for this tutorial is called '<samp>YFV\_sequences.fasta</samp>' and <a href="{{ root_url }}files/YFV_sequences.fasta">can be downloaded from here</a>.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file for this tutorial is called '<samp>YFV_sequences.fasta</samp>' and <a href="{{ root_url }}files/YFV_sequences.fasta">can be downloaded from here</a>.</div>
 
 To load the alignment, simply select the `Import Data...` option from the File menu and browse to the YFV\_sequences.fasta file to load it. This file contains an alignment of 65 YFV genomes 10236 nucleotides in length. Once loaded, the sequence data will be listed under `Partitions` as shown in the figure:
 
