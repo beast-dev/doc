@@ -68,7 +68,7 @@ The `Height` column lists the ages of the tips relative to time 0 (in our case 2
 
 The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a latitude and longitude as bivariate geographical location to each taxa based on the trait specification for each sequence.
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The tab-delimited file associating each taxon with a latitude and longitude '<samp>YFV\_coordinates.txt</samp>' <a href="{{ root_url }}files/YFV\_coordinates.txt">can be downloaded from here</a>.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The tab-delimited file associating each taxon with a latitude and longitude '<samp>YFV_coordinates.txt</samp>' <a href="{{ root_url }}files/YFV_coordinates.txt">can be downloaded from here</a>.</div>
 
 To associate the sequences with the traits, we need to import a new trait under the `Traits` tab (click `Import Traits...`). This will open a new window that allows importing a file with the traits. Browse to and Open the YFV\_coordinates.txt tab-delimited file, with the following content:
 

@@ -1,5 +1,5 @@
 ---
-title: Phylogeographic Diffusion in Continuous Space
+title: Phylogeographic Diffusion in Continuous Space - WNV example
 keywords: phylogeography, WNV, tutorial
 last_updated: August 9, 2017
 tags: [tutorial]
