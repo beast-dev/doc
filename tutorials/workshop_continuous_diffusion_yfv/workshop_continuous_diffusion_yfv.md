@@ -13,7 +13,7 @@ folder: beast
 
 ## Introduction
 
-The first step will be to convert an alignment file in fasta format into a BEAST XML input file. This is done using the program BEAUti (this stands for Bayesian Evolutionary Analysis Utility). This is a user-friendly program for setting the evolutionary model and options for the MCMC analysis. The second step is to actually run BEAST using the input file that contains the data, model and settings. The final step is to explore the output of BEAST in order to diagnose problems and to summarize the results.
+The first step will be to convert an alignment file in fasta format into a BEAST XML input file. This is done using the program BEAUti (this stands for Bayesian Evolutionary Analysis Utility). This is a user-friendly program for setting the evolutionary model and options for the MCMC analysis. The second step is to actually run BEAST using the input file that contains the data, model and settings. The final step is to explore the output of BEAST in order to diagnose potential problems and to summarize the results.
 
 To undertake this tutorial, you will need to download three software packages in a format that is compatible with your computer system (all three are available for Mac OS X, Windows and Linux/UNIX operating systems):
 
@@ -38,7 +38,7 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 
 #### Loading the sequence data file 
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file for this tutorial is called '<samp>YFV\_sequences.fasta</samp>' and <a href="{{ root_url }}files/YFV\_sequences.fasta">can be downloaded from here</a>.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file for this tutorial is called '<samp>YFV\_sequences.fasta</samp>' and <a href="{{ root_url }}files/YFV_sequences.fasta">can be downloaded from here</a>.</div>
 
 To load the alignment, simply select the `Import Data...` option from the File menu and browse to the YFV\_sequences.fasta file to load it. This file contains an alignment of 65 YFV genomes 10236 nucleotides in length. Once loaded, the sequence data will be listed under `Partitions` as shown in the figure:
 
