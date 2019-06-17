@@ -198,8 +198,12 @@ entries:
       url: /workshop_discrete_diffusion
       output: web, pdf
 
-    - title: Phylogeographic Diffusion in Continuous Space
-      url: /workshop_continuous_diffusion
+    - title: Phylogeographic Diffusion in Continuous Space, YFV
+      url: /workshop_continuous_diffusion_yfv
+      output: web, pdf
+
+    - title: Phylogeographic Diffusion in Continuous Space, WNV
+      url: /workshop_continuous_diffusion_wnv
       output: web, pdf
 
   - title: Reference
