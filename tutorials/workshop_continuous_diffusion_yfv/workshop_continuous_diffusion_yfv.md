@@ -40,7 +40,7 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file for this tutorial is called '<samp>YFV_sequences.fasta</samp>' and <a href="{{ root_url }}files/YFV_sequences.fasta">can be downloaded from here</a>.</div>
 
-To load the alignment, simply select the `Import Data...` option from the File menu and browse to the YFV\_sequences.fasta file to load it. This file contains an alignment of 65 YFV genomes 10236 nucleotides in length. Once loaded, the sequence data will be listed under `Partitions` as shown in the figure:
+To load the alignment, simply select the `Import Data...` option from the File menu and browse to the 'YFV\_sequences.fasta' file to load it. This file contains an alignment of 65 YFV genomes 10,236 nucleotides in length. Once loaded, the sequence data will be listed under `Partitions` as shown in the figure:
 
 {% include image.html file="YFV_screenshot_01_partitions_1.png" prefix=root_url caption="" %}
 
@@ -62,7 +62,7 @@ For the YFV sequences, dates values have to be parsed as calendar dates by speci
 
 You can now check these and edit them manually as required. At the top of the window you can set the units that the dates are given in (years, months, days) and whether they are specified relative to a point in the past (as is the case for years such as 2017) or backwards in time from the present (as in the case of radiocarbon ages).
 
-The `Height` column lists the ages of the tips relative to time 0 (in our case 2007.63). The `Uncertainty` column allows specifying with what precision the sampling time is know. This is not useful in our case because all sampling dates are known to the exact day, but BEAST allows to integrate over the uncertainty for less precise sampling date (e.g. when only the sampling month or year is known).
+The `Height` column lists the ages of the tips relative to time 0 (in our case 2007.63). The `Uncertainty` column allows specifying with what precision the sampling time is know. This is not useful in our case because all sampling dates are known to the exact day, but BEAST allows to integrate over the uncertainty for less precise sampling date (e.g., when only the sampling month or year is known).
 
 #### Specifying the trait information
 
@@ -70,7 +70,7 @@ The next thing to do is to click on the `Traits` tab at the top of the main wind
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The tab-delimited file associating each taxon with a latitude and longitude '<samp>YFV_coordinates.txt</samp>' <a href="{{ root_url }}files/YFV_coordinates.txt">can be downloaded from here</a>.</div>
 
-To associate the sequences with the traits, we need to import a new trait under the `Traits` tab (click `Import Traits...`). This will open a new window that allows importing a file with the traits. Browse to and Open the YFV\_coordinates.txt tab-delimited file, with the following content:
+To associate the sequences with the traits, we need to import a new trait under the `Traits` tab (click `Import Traits...`). This will open a new window that allows importing a file with the traits. Browse to and Open the 'YFV\_coordinates.txt' tab-delimited file, with the following content:
 
 	traits	lat	long
 	NC|ES504|NHPrimate|DomingosMartins|EspiritoSanto|20-02-2017	-20.360797	-40.65981
@@ -90,11 +90,11 @@ To associate the sequences with the traits, we need to import a new trait under 
 	
 After clicking `OK`, select both the 'lat' and 'long' trait in the left window and click on `create partition from trait..`. In the window that pops up, enter a name for this partitions, e.g. 'location':
 
-{% include image.html file="07_traitSelection.png" prefix=root_url caption="" %}
+{% include image.html file="YFV_screenshot_05_traits_2.png" prefix=root_url caption="" %}
 
 This new 'location' partition with 2 'Sites' and with a continuous 'Data Type' will be shown under the `Partitions` tab:
 
-{% include image.html file="YFV_screenshot_05_traits_2.png" prefix=root_url caption="" %}
+{% include image.html file="YFV_screenshot_06_partitions_2.png" prefix=root_url caption="" %}
 
 #### Setting the sequence and trait evolutionary models
 
@@ -123,7 +123,7 @@ Now move on to the `Trees` panel.
 
 #### Setting the tree prior
 
-This panel contains settings about the tree. Firstly the starting tree is specified to be ‘randomly generated’. The other main setting here is to specify the ‘Tree prior’ which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. Here, we will select a flexible skygrid coalescent model as demographic tree prior (`Coalescent: Bayesian SkyGrid`), with 36 grid points (`Number of parameters`) and `A time at last transition point` set to `0.6948424`. By doing so, the grid points actually approximate the number of epidemiological weeks spanned by the duration of the phylogeny (Faria et al, 2018).
+This panel contains settings about the tree. Firstly the starting tree is specified to be ‘randomly generated’. The other main setting here is to specify the ‘Tree prior’ which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. Here, we will select a flexible skygrid coalescent model as demographic tree prior (`Coalescent: Bayesian SkyGrid`), with 36 grid points (`Number of parameters`) and `A time at last transition point` set to `0.6948424`. By doing so, the grid points actually approximate the number of epidemiological weeks spanned by the duration of the phylogeny (Faria et al. 2018).
 
 {% include image.html file="YFV_screenshot_10_trees.png" prefix=root_url caption="" %}
 
@@ -205,10 +205,10 @@ In this tutorial, however, we are going to use a tool that is provided as part o
 
 {% include image.html file="YFV_screenshot_19_TreeAnnotator.png" max-width="50%" align="center" prefix=root_url caption="" %}
 
-* TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree. It has the following options:
+TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree. It has the following options:
 
 * Burnin - This is the number of steps in the MCMC chain, Burnin (as states), or the number of trees, Burnin (as trees), that should be excluded from the summarization.
-* 
+
 * Posterior probability limit - This is the minimum posterior probability for a node in order for TreeAnnotator to store the annotated information. The default is 0.0 so every node, no matter what its support, will have information summarized. Make sure this value remains 0.0 as every node will require location annotation for further visualization. 
 
 * Target tree type - This has three options `Maximum clade credibility tree` or `User target tree` For the latter option, a NEXUS tree file can be specified as the Target Tree File, below. Select the first option, TreeAnnotator will examine every tree in the Input Tree File and select the tree that has the highest product of the posterior probabilities of all its nodes. 
