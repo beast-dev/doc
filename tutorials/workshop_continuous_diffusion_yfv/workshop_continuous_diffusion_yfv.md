@@ -104,7 +104,7 @@ This tutorial assumes that you are familiar with the available evolutionary mode
 
 Selecting the `Partition into codon positions` option assumes that the data are aligned as codons. This option will then estimate a separate rate of substitution for each codon position, or for 1+2 versus 3, depending on the setting. Selecting the `Unlink substitution model across codon positions` will specify that BEAST should estimate a separate transition-transversion ratio or general time reversible rate matrix for each codon position. Selecting the `Unlink rate heterogeneity model across codon positions` will specify that BEAST should estimate a set of rate heterogeneity parameters (gamma shape parameter and/or proportion of invariant sites) for each codon position. 
 
-For the nucleotide substitution model in this tutorial, keep the default HKY substitution model, keep the base frequencies to be `Estimated`, specify the `Site Rate Heterogeneity` to `Gamma`, and the keep the default `Partition into codon positions` to `off`.
+For the nucleotide substitution model in this tutorial, keep the default HKY substitution model, keep the base frequencies to be `Estimated`, specify the `Site Rate Heterogeneity` to `Gamma`, and the keep the default `Partition into codon positions` to `Off`.
 
 {% include image.html file="YFV_screenshot_07_sites_1.png" prefix=root_url caption="" %}
 
@@ -123,7 +123,7 @@ Now move on to the `Trees` panel.
 
 #### Setting the tree prior
 
-This panel contains settings about the tree. Firstly the starting tree is specified to be ‘randomly generated’. The other main setting here is to specify the ‘Tree prior’ which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. Here, we will select a flexible skygrid coalescent model as demographic tree prior (`Coalescent: Bayesian SkyFrid`), with 36 grid points (`number of parameters`) and `A time at last transition point` set to `0.6948424`. By doing so, the grid points actually approximate the number of epidemiological weeks spanned by the duration of the phylogeny (Faria et al, 2018).
+This panel contains settings about the tree. Firstly the starting tree is specified to be ‘randomly generated’. The other main setting here is to specify the ‘Tree prior’ which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. Here, we will select a flexible skygrid coalescent model as demographic tree prior (`Coalescent: Bayesian SkyGrid`), with 36 grid points (`Number of parameters`) and `A time at last transition point` set to `0.6948424`. By doing so, the grid points actually approximate the number of epidemiological weeks spanned by the duration of the phylogeny (Faria et al, 2018).
 
 {% include image.html file="YFV_screenshot_10_trees.png" prefix=root_url caption="" %}
 
@@ -161,7 +161,7 @@ The next couple of options specify how often the current parameter values should
 
 {% include image.html file="YFV_screenshot_14_MCMC.png" prefix=root_url caption="" %}
 
-For this dataset let's set the chain length to 500,000,000 and the parameter logging to file as well the state echo to screen every 50000 state.
+For this dataset let's set the chain length to 500,000,000 and the parameter logging to file as well the state echo to screen every 50,000 state.
 
 The next option allows the user to set the File stem name; set this to 'YFV\_RRW\_cauchy' ('RRW\_RRW\_cauchy' for 'relaxed random walk Cauchy diffusion model'). The next two options give the file names of the log files for the parameters and the trees. These will be set based on the file stem name. You can also log the operator analysis to a file. An option is also available to sample from the prior only, which can be useful to evaluate how divergent our posterior estimates are when information is drawn from the data. Here, we will not select this option, but analyze the actual data. 
 
@@ -256,9 +256,9 @@ Compare the animated version for both the homogeneous and RRW model: do you noti
 
 * In the `Clocks` tab, select the Lognormal relaxed molecular clock  (Uncorrelated) model.
 
-* In the `Trees` tab, select the skygrid model as the demographic tree prior (`Coalescent: Bayesian SkyFrid`), with 36 grid points (`number of parameters`) and `A time at last transition point` set to `0.6948424` (to define grid points approximating the number of epidemiological weeks spanned by the duration of the phylogeny).
+* In the `Trees` tab, select the skygrid model as the demographic tree prior (`Coalescent: Bayesian SkyGrid`), with 36 grid points (`number of parameters`) and `A time at last transition point` set to `0.6948424` (to define grid points approximating the number of epidemiological weeks spanned by the duration of the phylogeny).
 
-* In the `MCMC` tab, set the chain length to 500,000,000 and the sampling frequencies to 50000. Set the File name stem to 'YFV\_RRW\_cauchy' and generate the beast file ('YFV\_RRW\_cauchy.xml').
+* In the `MCMC` tab, set the chain length to 500,000,000 and the sampling frequencies to 50,000. Set the File name stem to 'YFV\_RRW\_cauchy' and generate the beast file ('YFV\_RRW\_cauchy.xml').
 
 ### Run BEAST and load the xml file.
 
