@@ -9,7 +9,7 @@ permalink: workshop_continuous_diffusion_yfv.html
 folder: beast
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/workshop_continuous_diffusion/{% endcapture %}
+{% capture root_url %}{{ site.tutorials_root_url }}/workshop_continuous_diffusion_yfv/{% endcapture %}
 
 ## Introduction
 

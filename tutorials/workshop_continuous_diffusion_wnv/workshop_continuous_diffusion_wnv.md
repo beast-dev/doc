@@ -11,7 +11,7 @@ permalink: workshop_continuous_diffusion_wnv.html
 folder: beast
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/workshop_continuous_diffusion/{% endcapture %}
+{% capture root_url %}{{ site.tutorials_root_url }}/workshop_continuous_diffusion_wnv/{% endcapture %}
 
 ## Introduction
 
