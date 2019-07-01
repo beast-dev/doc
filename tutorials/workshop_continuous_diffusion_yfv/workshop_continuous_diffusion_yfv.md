@@ -278,7 +278,7 @@ We will first summarise an MCC tree and then summarise the information in the en
 
 * Set the `most recent sampling date` to 2017-04-22.
 
-* Load a GeoJSON 'South_America.json'.
+* Load a GeoJSON 'Brazil_states.geojson'.
 
 * Keep all other default settings and click `Output` to generate a JSON file.
 
