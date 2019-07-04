@@ -113,73 +113,73 @@ BEAST也可导入FASTA文件（只要序列比对过）或者BEAST XML文件（�
 
 `Tree Prior`选项有许多选择，通常分为'Coalescent聚结'模型(通常适用于群体遗传学)和'物种分化'模型(顾名思义，这些模型适用于物种水平数据）。由于我们有来自少数物种的序列数据，我们将选择`Speciation: Yule process`模型。Yule过程[Yule (1925) *Phil Trans Royal Soc B* **213**: 402-420](http://rstb.royalsocietypublishing.org/content/213/402-410/21) 是最简单的物种形成模型，其假设每个谱系都以固定的速率进行了吴中分化。该模型只有一个参数，即新物种的'birth rate(出生率)'。
 
-The bottom half of this panel allows you to choose how BEAST selects a starting tree. In most situations it is better to leave this as `Random starting tree`. This generates a random tree to start the BEAST run with. 
+此面板的下半部分允许您选择BEAST如何选择起始树。在大多数情况下，最好将其保留为`Random starting tree`。这将生成一个随机树以启动BEAST运行。
 
-Select the Yule process and move to the next `Priors` tab.
+选择Yule模型并移至`Priors(先验分布)`标签。
 
-### Priors
+### 先验分布
 
-The next tab allows priors to be specified for each parameter in the model:
+该模块允许指定模型中参数的先验值：
 
 {% include image.html prefix=root_url file="image9.png" %}
 
-Selecting priors is one of the most challenging aspects of Bayesian analysis. In BEAST we have tried to pick some reasonably appropriate and robust priors as defaults for most parameters. In this tutorial, the default options will be used.
+设定先验值是贝叶斯分析中最具有挑战性的一件事。在BEAST中，多数参数值我们试图选择合理且合适的默认值。本教程中，选择的都是默认值。
 
-### MCMC operators
+### MCMC采样模块
 
-The next stage is to look at the operators for the MCMC. To do this select the `Operators` tab at the top of the main window. For the `ape.nex` dataset, with the model set up as shown in the screen shot above, you will see the following table:
+接下来需要设置MCMC的采样部分,可以在主窗口的`Operators`看到。对于本教程的ape.nex数据和已经选择的模型，如截屏所示：
 
 {% include image.html prefix=root_url file="image10.png" %}
 
-Each parameter in the model has one or more "operators". The operators specify how the parameter changes as the MCMC runs. This table lists the parameters, their operators and the tuning settings for these operators. In the first column are the parameter names. These will be called things like `kappa` which means the HKY model's kappa parameter (the transition-transversion bias). The next column has the type of operators that are acting on each parameter. For example, the `scale` operator scales the parameter up or down by a proportion, the `random walk` operator adds or subtracts an amount to the parameter and the `uniform` operator simply picks a new value uniformally within a range. Some parameters relate to the tree or to the heights of the nodes of the tree and these have special operators.
+模型中的每个参量都有一个或多个"operators(采样模块)"。该模块指定了参量是如何随着MCMC的运行而改变的。该表列出了参量，采样模块及其参数设置。第一列是参量名称。类似于`kappa`（HKY模型的kappa参数，即转化-巅换值）之类的。接下来一列是影响每一个参数所对应的运行模块。比如，`scale`按比例向上或向下缩放参数，`random walk`增加或减少参数的量，`uniform`允许在一定范围内统一设定一个新值。一些参数与树或树的节点的高度有关，并且这些参数具有特殊的采样模块。
 
-The next column, labelled `Tuning`, gives a tuning setting to the operator. Some operators don't have any tuning settings so have n/a under this column. Changing the tuning setting will set how large a move that operator will make which will affect how often that change is accepted by the MCMC which will affect the efficency of the analysis. At the top of the window is an option called `Auto Optimize` which, when selected, will automatically adjust the tuning setting as the MCMC runs to try to achieve maximum efficiency. 
+下一列的`Tuning`为采样模块提供调整参数设置。某些参数是没有任何调整设置的，在此列下标有n/a。更改调整参数设置将改变运行模块的移动大小，这将影响MCMC接受更改的频率，从而影响分析的效率。在窗口的顶部是选项`Auto Optimize`，当选择该选项时，将在MCMC运行时自动调整设置以尝试实现最高效率。
 
-The next column, labelled `Weight`, specifies how often each operator is applied relative to each other. Some parameters have very little interaction with the rest of the model and as a result tend to be estimated very efficiently - an example is the `kappa` parameter - these parameters can have their operators down-weighted so that they are not changed as often.
+下一列称作`Weight`，指定调用采样模块的相对频率。某些参量与其他模型的相互作用很少，因此会非常有效地估计 - 例如`kappa`参数 - 这些参量的采样模块可以相应降低权重，以便它们不会经常更改。
 
-Once again leave the settings at their defaults and move on to the next tab.
+再一次使用默认值，移动到下一个标签。
 
-### Setting the MCMC options
+### 设置MCMC选项
 
-The last tab, `MCMC`, provides settings to control the actual running of BEAST:
+最后一个`MCMC`标签提供控制BEAST运行的设置。
 
 {% include image.html prefix=root_url file="image11.png" %}
 
-Firstly we have the Length of chain. This is the number of steps the MCMC will make in the chain before finishing. How long this should be depends on the size of the dataset, the complexity of the model and the quality of answer required. The default value of 10,000,000 is entirely arbitrary and should be adjusted according to the size of your dataset. In order examine whether a particular chain length is adequate, the resulting log file can be analysed using Tracer. The aim of setting the chain length is to achieve a reasonable Effective Sample Size (ESS). Ways of doing this are discussed in another tutorial.
+首先是链长的设置，即在MCMC完成之前在马科夫链所运行的步数。运行多长时间取决于数据集的大小，模型的复杂度和所需统计量的精度。默认值10,000,000完全是随机的，该设置应根据数据集的大小进行调整。为了检查特定链长是否足够，可以使用Tracer分析生成的存档文件。设定链长的目的是获得合理的有效样本量(ESS)。在另一个教程中讲述了如何操作。
 
-The next options specify how often the current parameter values should be displayed on the screen and recorded in the log file. The screen output is simply for monitoring the programs progress so can be set to any value (although if set too small, the sheer quantity of information being displayed on the screen may actually slow the program down). For the log file, the value should be set relative to the total length of the chain. Sampling too often will result in very large files with little extra benefit in terms of the precision of the analysis. Sample too infrequently and the log file will not contain much information about the distributions of the parameters. You probably want to aim to store about 10,000 samples so this should be set to the chain length / 10,000.
+下一个选项指定当前参数值在屏幕上显示并记录在存档文件中的频率。屏幕输出仅用于监视程序进度，因此可以设置为任意值（但是设置得太小，屏幕上显示的大量信息实际上可能会减慢程序速度）。对于存档文件，应该与链的总长度相关。过于频繁的采样将导致非常大的文件，会影响分析精度。样本太频繁，存档文件中不包含有关参数分布的大量信息。如果希望存储１0,000个样本，因此应将其设置为链长的/10,000。
 
-For this dataset (which is very small) let's initially setting the chain length to 1,000,000 as this will run very quickly on most modern computers. Set the sampling frequency to 100, accordingly.
+对于本教程数据集（非常小），我们最初将链长设置为1,000,000，因为这在大多数现代计算机上运行得非常快。相应地将采样频率设置为100。
 
-{% include note.html content="You can set the screen sampling frequency something different from the main log files. Here, the analysis is going to run very fast so printing to the screen every 100 steps will cause a large amount of information to scroll up the screen. Try setting the `Echo state to screen` option to `10000` resulting in only 100 updates to the screen as the analysis runs." %}
+{% include note.html content="可以将屏幕采样频率设置为与主存档文件不同。在这里，分析将以非常快的速度运行，因此间隔100步将导致大量信息显示在屏幕。尝试将`Echo state to screen`选项设置`10000`为在分析运行时仅对屏幕进行100次更新。" %}
 
-The final two options give the file names of the log files for the parameters and the trees. These will be set to a default based on the name of the imported NEXUS file but feel free to change these. The rest of the options can be ignored for the purposes of this tutorial.
+最后两个选项给出参数和树的存档文件的文件名。这些将根据导入的NEXUS文件的名称设置为默认值，但您可以随意更改这些。出于本教程的目的，可以忽略其余选项。
 
-{% include note.html content="On Windows machines the operating system patronisingly hides the extensions of files from you. It is sometimes easier to add an additional extension `.txt` to the log and the trees file --- Windows will hide the `.txt` but still show you the `.log` and `.trees` extensions so you can distinguish the files." %} 
+{% include note.html content="在Windows操作系统上，会隐藏您的文件扩展名。可以为存档和树文件添加额外的扩展名`.txt` ---Windows虽然隐藏`.txt`但仍然显示`.log`和`.trees`扩展名，以便区分文件。" %} 
 
-### Saving and Loading BEAUti files
+### 保存和加载BEAUti文件
 
-If you select the `Save` option from the `File` menu this will save a document in BEAUti's own format. Note that is not in the format that BEAST understands --- it can only be reopened by BEAUti. The idea is that the settings and data in BEAUti can be saved and loaded at a later time. We suggest you save BEAUti files with the extension '.beauti'.
+从`File`菜单选择`Save`将会以BEAUti的格式保存文档。但是它并不是BEAST识别的格式 --- 仅仅能被BEAUti再次打开。这是为了使得在BEAUti的设置和数据可以保存和后续导入。建议保存BEAUti文件时以扩展名'.beauti'保存。
 
-{% include note.html content="Just as BEAUti files cannot be read and understood by BEAST, BEAST XML files cannot be reloaded back into BEAUti. They can however be 'Imported' just like NEXUS or FASTA files. The sequence data contained within will be imported as will all the tipdates and certain other information." %}
+{% include note.html content="正如BEAST无法读取和理解BEAUti文件一样，BEAST XML文件也无法重新导入回BEAUti。然而，它们可以像NEXUS或FASTA文件一样导入其中包含的序列数据，以及所有叶节点日期和某些其他信息。" %}
 
-### Generating the BEAST XML file
+### 生成BEAST XML文件
 
-We are now ready to create the BEAST XML file. Select `Generate XML...` from the `File` menu (or the button at the bottom of the windo) and save the file with an appropriate name --- it will offer the name you gave it in the MCMC panel and we usually end the filename with '.xml' (although see the note, above, about extensions on Windows machines -- you may want to give the file the extension '.xml.txt'). 
+现在准备生成BEAST XML文件。从`File`菜单中选择`Generate XML...`（或窗口底部的按钮）并使用适当的名称保存文件 --- 它将在MCMC面板中显示给出的名称，我们通常以'.xml'结束文件名（尽管请参阅上面的注释，关于Windows操作系统上的扩展 --- 也可以为该文件提供扩展名'.xml.txt'）。
 
-We are now ready to run the file through BEAST.
+下面我们使用BEAST运行生成的XML文件。
 
-## Running BEAST
+## 运行BEAST
 
-{% include icon-callout.html file='icons/beast-icon.png' content='Run BEAST by double clicking on the BEAST icon in the package you downloaded.' %}
+{% include icon-callout.html file='icons/beast-icon.png' content='双击下载包中的BEAST图标运行BEAST。' %}
 
-The following dialog box will appear:
+将出现以下对话框：
 
 {% include image.html prefix=root_url file="image12.png" %}
 
-All you need to do is to click the `Choose File...` button, select the XML file you created in BEAUti, above, and press `Run`. For information about the other options see the page on the [BEAST program](beast).
+只需单击`Choose File...`按钮，选择您在上面的BEAUti中创建的XML文件，然后点击`Run`。有关其他选项的信息，请参阅[BEAST program](beast)页面。
 
-When you press `Run` BEAST will load the XML file, setup the analysis and then run it with no further interaction. In the output window you will see lots of information appearing. It starts by printing the title and credits:
+点击`Run`, BEAST时将导入XML文件，设置相关分析，然后运行。在输出窗口中，您将看到许多信息出现。首先打印标题和作者信息：
 
 ```
                    BEAST v1.X, 2002-2102
@@ -206,7 +206,7 @@ Source code distributed under the GNU Lesser General Public License:
           	http://github.com/beast-dev/beast-mcmc
 ```                              
 
-Then it gives some details about the data it loaded and the models you have specified. You should see that it has repeated all of the choices you made in BEAUti.
+然后给出导入数据和指定模型的详细信息。您将会看到所有在BEAUti中所做出的选择。
 
 ```
 Random number seed: 1500828054875
@@ -255,7 +255,7 @@ Creating the MCMC chain:
   autoOptimize delayed for 10000 steps
 ```
 
-Next it prints out a block of citations for BEAST and for the individual models and components selected. This is intended to help you write up the analysis, specifying and citing the models used:
+ 接下来，显示BEAST分析中选择的各个模型和相应的文章引用信息。旨在帮助您正确引用所使用的模型：
 
 ```
 Citations for this analysis: 
@@ -273,9 +273,9 @@ HKY nucleotide substitution model:
 	Hasegawa M, Kishino H, Yano T (1985) Dating the human-ape splitting by a molecular clock of mitochondrial DNA. J. Mol. Evol.. 22, 160-174
 ```
 
-Finally BEAST starts to run. It prints up various pieces of information that is useful for keeping track of what is happening. The first column is the 'state' number --- in this case it is incrementing by 1000 so between each of these lines it has made 1000 operations. The screen log shows only a few of the metrics and parameters but it is also recording a log file to disk with all of the results in it (along with a '.trees' file containing the sampled trees for these states).
+最后，BEAST开始运行。它打印出各种可用于追踪发生的情况的信息。第一列是'状态'号 --- 在这个教程的设置下,它每次递增1000，因此在每个行之间MCMC已经进行了1000次操作。屏幕日志仅显示一些指标和参量值，同时所有的结果会记录到存档文件保存在磁盘中（以及包含这些状态的采样树的'.trees'文件）。
 
-After a few thousand states it will start to report the number of hours per million states (or if it is running very fast, per billions states). This is useful to allow you to predict how long the run is going to take and whether you have time to go and get a cup of coffee, or lunch, or a two week vacation in the Caribbean.
+几千个"state"之后，BEAST将会开始报告每百万个"state"所需要的时间（如果运行的很快，则显示每百亿个“state”所需时间)。有助于推测运行需要大概多长时间，是否有时间去干别的事（喝杯咖啡，吃个午饭，或者去加勒比海度假两周）。
 
 ```
 # BEAST v1.X
@@ -292,7 +292,7 @@ state	Posterior   	Prior       	Likelihood  	rootAge
 .
 ```
 
-After waiting the expected amount of time, BEAST will finish.
+在等待预期时间后，BEAST将结束运行。
 
 ```
 950000	-2044.0265  	-227.1010   	-1816.9255  	5.98269E-2  	11.27 hours/billion states
@@ -317,10 +317,10 @@ scale(yule.birthRate)                             0.126   40749      305      0.
 41.987 seconds
 ```
 
-The table at the end lists each of the operators, how many times each was used, how much time they took and some other details. This information can be useful for optimising the performance of runs but generally it can be ignored.
+最后的表列出了每个采样模块的调用次数，它们花了多少时间以及其他一些细节。此信息可用于优化运行的性能，但通常可以忽略它。
 
-This took 40 seconds to run on a low-performance MacBook. Clearly we would be able to run it for much longer whilst getting a coffee but with such a small data set we may not need to. We will find out when we start to look at the output files from BEAST. 
+本教程示例在低性能的MacBooK上运行仅需要４０秒。很明显我们也可以加长运行时间，然而对于此教程的小数据集并不需要。我们在查看BEAST输出文件时会知道是否需要延长运行时间。
 
-{% include callout.html type="primary" content="**[The second tutorial will look at summarizing the output, diagnosing problems and building a tree](second_tutorial).**" %}
+{% include callout.html type="primary" content="**[教程二将会看到对输出文件的总结，问题的诊断以及如何构建树](second_tutorial).**" %}
 
 {% include links.html %}
