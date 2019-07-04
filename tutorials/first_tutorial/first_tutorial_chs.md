@@ -3,7 +3,7 @@ title: First Tutorial
 keywords: beast, tutorial
 last_updated: July 22, 2017
 tags: [tutorial]
-summary: "An introductory tutorial to getting started with BEAST. This tutorial describes the use of BEAUti and BEAST to analyse some primate sequences and estimate a phylogenetic tree. It will take you through the process of importing an alignment, making choices about the model, generating a BEAST XML file. You will then run BEAST."
+summary: "BEAST的入门教程。本课程描述了如何使用BEAUti 和BEAST分析一些灵长类的序列来估计系统发育树。旨在引导您完成如何完成导入比对的序列，选择模型，生成BEAST XML文件的过程。然后运行BEAST。"
 sidebar: beast_sidebar
 permalink: first_tutorial.html
 folder: beast
@@ -16,33 +16,33 @@ redirect_from: "/tutorial-1"
 
 ## 第一次运行BEAST
 
-This tutorial will guide you through running BEAST and some of its accessory programs to do a simple phylogenetic analysis. If you haven't already, [download and install BEAST following these instructions](installing). 
+本教程将引导你如何通过运行BEAST和其附属程序来完成简单的进化分析。如果还没有准备好，请按照这些说明[下载并安装BEAST](installing)。
 
-{% include note.html content="This tutorial assumes a basic knowledge of molecular phylogenetics and the models and terminology used in the field. If you know what the HKY model and the gamma model of rate heterogeneity are then you should be OK.
+{% include note.html content="本教程假设您对分子进化和模型以及该领域的专业术语有了一定的掌握。如果您知道什么是HKY模型，速率异质性的伽马模型，那么您应该没问题。
 
-You should also be familiar with at least the basics of Bayesian inference and Markov chain Monte Carlo sampling." %}
+您至少应该熟悉贝叶斯推断和马尔科夫蒙特卡罗采样的基本知识。" %}
 
-### Running BEAUti
+### 运行BEAUti
 
-{% include icon-callout.html file='icons/beauti-icon.png' content='Run BEAUti by double clicking on its icon. <a href="beauti">BEAUti</a> is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis.' %}
+{% include icon-callout.html file='icons/beauti-icon.png' content='双击其图标运行BEAUti。 <a href="beauti">BEAUti</a> 是一个交互式图形应用程序，该程序用来生成用于BEAST分析的控制文件（XML文件）。' %}
 
-Once running, BEAUti will look similar irrespective of which computer system it is running on. For this tutorial, the Mac OS X version will be shown but the Linux & Windows versions will have exactly the same layout and functionality.
+BEAUti的运行在每一种计算机系统上都是类似的。本教程显示的是在Mac OS X版本上的运行，但是和Linux和Windows版本具有完全相同的布局和功能。
 
-### Loading the NEXUS file
+### 载入NEXUS文件
 
-When running, you will see a window like this:
+运行时，您将看到如下窗口：
 
 {% include image.html prefix=root_url file="image1.png" %}
 
-The first thing you need to do is to load some data, in this case a small nucleotide alignment.
+首先需要做的是载入一些数据，本教程用的是少量比对过的核苷酸序列。
 
-To load a NEXUS format alignment, simply select the `Import Data...` option from the `File` menu. You can also click the `+` button at the bottom left of the window or just drag-and-drop the file into the main window.
+从`File`下拉按钮选择`Import Data...`,即可载入NEXUS格式的文件。也可以点击窗口左下角`＋`或者拖拽文件到主窗口。
 
-#### The NEXUS alignment
+#### NEXUS格式比对文件
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The examples folder in the BEAST download package contains a file called apes.nex - <a href="{{ root_url }}files/apes.nex">you can also download the file here</a>.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i>在下载的BEAST文件夹里可以找到示例文件ape.nex - <a href="{{ root_url }}files/apes.nex">也可以点这里下载</a>.</div>
 
-This file contains an alignment of mitochondrial tRNA sequences from 6 primate species (5 apes and a monkey outgroup). It starts out like this (the lines have been truncated):
+文件为比对过的来自６个灵长类物种(５个猿, 1个猴子外类群)的线粒体tRNA序列。文件看起来是这样的（超出屏幕的序列被截断了):
 
 ```
 #NEXUS
@@ -61,57 +61,57 @@ BEGIN DATA;
 END;
 ```
 
-BEAST can also import FASTA files (as long as the sequences have been aligned) or BEAST XML files (in which case the data will imported but the models and settings will not).
+BEAST也可导入FASTA文件（只要序列比对过）或者BEAST XML文件（该情况下数据可以被导入，但是模型和设置不能导入）。
 
-Once loaded, the alignment will be displayed in the main window in a table:
+一旦导入，序列就会像主窗口中表格展示的那样：
 
 {% include image.html prefix=root_url file="image2.png" %}
 
-If you want to look at the actual alignment, double click on the row in the table.
+如果想查看实际的比对序列，双击表格上的行。
 
 {% include image.html prefix=root_url file="image3.png" %}
 
-Along the top of the main window is a strip of 'tabs':
+主窗口上是一系列的`tabs(标签)`：
 
 {% include image.html width="720px" prefix=root_url file="image4.png" %}<br />
 
-Each of these has settings and options and in general you should work from left to right (although not all the tabs will be relevant to all analyses). After the `Partitions` tab where you imported data, skip the `Taxa` tab for now and move straight on to the `Tips` tab.                                       
+其中每个标签都有设置和选项，一般来说，顺序应该从左到右进行（尽管并非所有选项都与所有分析相关）。在`Partitions`标签导入数据之后，暂时跳过`Taxa`标签，然后直接转到`Tips`标签。                  
 
-### Setting the dates of the taxa
+### 设置叶节点日期
 
-In the `Tips` options you will see a table with all of the taxa that were in the alignment. This panel allows you go give the taxa dates. Taxon dates (or 'tip dates') are only important in certain cases, for example, when they sampled from fast evolving viruses or sub-fossil ancient DNA material. In the case of the apes we are analysing the tree represents millions of years of evolution so the dates of the tips can be assumed to be zero. This is the default --- the taxa all have a date of zero and the `Use tip dates` box is not selected.
+在`Tips`选项中将看到包含比对序列中所有分类单元的表格。此面板允许您提供叶节点日期。叶节点日期仅在某些情况下很重要，例如，当数据为快速进化的病毒序列或古化石的DNA样本。本教程分析的猿类的进化树代表数百万年的进化，因此提示的日期可以假设为零。这是默认值 --- 所有叶节点的日期均为零，不需要勾选`Use tip dates`选项。
 
 {% include image.html prefix=root_url file="image5.png" %}
 
-Skip the `Traits` tab and move on to the `Sites` tab.
+跳过`Traits`到`Sites`标签。
 
-### Setting the evolutionary model
+### 设置进化模型
 
-In the `Sites` tab you can set the model of molecular evolution for the sequence data you have loaded. Exactly which options appear depend on whether the data are nucleotides or amino acids (or other forms of data). The settings that will appear after loading the `apes.nex` data set will be as follows:
+在`Sites`选项中，可以为已导入的序列数据设置分子进化模型。哪些选项出现取决于数据是核苷酸还是氨基酸（或其他形式的数据）。加载`apes.nex`数据集后将显示的设置如下：　　
 
 {% include image.html prefix=root_url file="image6.png" %}
 
-This tutorial assumes you are familiar with the evolutionary models available, however there are a couple of points to note:
+本教程假设对进化模型比较熟悉，但有几点需要注意：
 
-The default is a simple HKY ([Hasegawa, Kishino & Yano (1985) *J Mol Evol* **22**: 160-174](https://www.ncbi.nlm.nih.gov/pubmed/3934395)) model of nucleotide evolution. We are going to use this model. 
+默认的进化模型是HKY ([Hasegawa, Kishino & Yano (1985) *J Mol Evol* **22**: 160-174](https://www.ncbi.nlm.nih.gov/pubmed/3934395)) 核苷酸进化模型。我们将使用这个模型。 
 
-{% include callout.html content="Selecting the Partition into codon positions option assumes that the data are aligned as codons. In this case the data are from mitochondrial tRNAs so this option is inappropriate." %}
+{% include callout.html content="选择分区为密码子选项假定数据作为密码子。在这种情况下，本教程数据为线粒体tRNA，因此这个选项是不合适的。" %}
 
-### Setting the molecular clock model
+### 设置分子钟模型
 
-In the next tab `Clock` we set the model of molecular clock we will use. Unlike many other phylogenetic software BEAST exclusively uses molecular clock models so that trees have a timescale (an inferred root and direction in time). The simplest model is the default 'Strict clock'. This assumes that all branches on the tree have the same rate of evolution. The other molecular clock models relax this assumptions in various ways which later tutorials will discuss.
+在下一个标签`Clock`　中我们将设置使用的分子钟模型。与许多其他系统发育软件不同，BEAST必须使用分子钟模型，因此构建的树具有时间尺度（即具有推断的根和时间方向）。最简单的模型是默认的'Strict clock(严格时钟)'，该模型假设树上的所有分支具有相同的进化速率。其他分子钟模型以各种方式放宽了该假设，后面的教程将讨论这些假设。
 
 {% include image.html prefix=root_url file="image7.png" %}
 
-For this analysis leave the `Clock Type` as `Strict clock` and move on to the `Trees` tab.
+对于此分析，保留`Clock Typeas`　为`Strict clock`并继续设置`Trees`标签。
 
-### Setting the tree prior model
+### 设置树的先验模型
 
-In this panel you can set the model that provides a prior on the tree and some choices about the starting tree in the MCMC run. 
+该面板可设置在树先验模型以及有关MCMC运行中的起始树的一些选择。
 
 {% include image.html prefix=root_url file="image8.png" %}
 
-The `Tree Prior` option has many choices divided generally into 'Coalescent' models which are generally suited to populations and 'Speciation' models which, as the name suggests are intended for species level data. As we have sequence data from a handful of species, we will select the `Speciation: Yule process` model. The Yule process [Yule (1925) *Phil Trans Royal Soc B* **213**: 402-420](http://rstb.royalsocietypublishing.org/content/213/402-410/21) is the simplest model of speciation where each lineage is assumed to have speciated at a fixed rate. The model has a single parameter, the 'birth rate' of new species.
+`Tree Prior`选项有许多选择，通常分为'Coalescent聚结'模型(通常适用于群体遗传学)和'物种分化'模型(顾名思义，这些模型适用于物种水平数据）。由于我们有来自少数物种的序列数据，我们将选择`Speciation: Yule process`模型。Yule过程[Yule (1925) *Phil Trans Royal Soc B* **213**: 402-420](http://rstb.royalsocietypublishing.org/content/213/402-410/21) 是最简单的物种形成模型，其假设每个谱系都以固定的速率进行了吴中分化。该模型只有一个参数，即新物种的'birth rate(出生率)'。
 
 The bottom half of this panel allows you to choose how BEAST selects a starting tree. In most situations it is better to leave this as `Random starting tree`. This generates a random tree to start the BEAST run with. 
 
