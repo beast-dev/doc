@@ -5,7 +5,7 @@ last_updated: July 22, 2017
 tags: [tutorial]
 summary: "BEAST的入门教程。本课程描述了如何使用BEAUti 和BEAST分析一些灵长类的序列来估计系统发育树。旨在引导您完成如何完成导入比对的序列，选择模型，生成BEAST XML文件的过程。然后运行BEAST。"
 sidebar: beast_sidebar
-permalink: first_tutorial.html
+permalink: first_tutorial_chs.html
 folder: beast
 redirect_from: "/tutorial-1"
 ---
