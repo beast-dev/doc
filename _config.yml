@@ -106,7 +106,7 @@ description: "Documentation for BEAST v1.x"
 # needed for sitemap.xml file only
 url: http://github.com/beast-dev
 
-gems:               ["jekyll-redirect-from", "jekyll-multiple-languages", "jekyll-paginate"]
+gems:               ["jekyll-redirect-from", "jekyll-multiple-languages"]
 
 # The all languages used
 languages:          ['en', 'cn']
