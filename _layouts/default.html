@@ -81,11 +81,11 @@
   	<div class="col">
 		<ul class="nav nav-tabs" align="right">
 			{% if page.language == 'cn' %}
-			<li class='active' role="presentation"><a href="{{page.url | replace:'_chs.html','.html'}}">English</a></li>
-			<li role="presentation"><a href="{{page.url}}">中文</a></li>
+			<li role="presentation"><a href="{{page.url | replace:'_chs.html','.html'}}">English</a></li>
+			<li class='active' role="presentation"><a href="{{page.url}}">中文</a></li>
 			{% else %}
-			<li role="presentation"><a href="{{page.url}}">English</a></li>
-			<li class='active' role="presentation"><a href="{{page.url | replace:'.html','_chs.html'}}">中文</a></li>
+			<li class='active' role="presentation"><a href="{{page.url}}">English</a></li>
+			<li role="presentation"><a href="{{page.url | replace:'.html','_chs.html'}}">中文</a></li>
 			{% endif %}
 		</ul>
 		<!-- Content Row -->
