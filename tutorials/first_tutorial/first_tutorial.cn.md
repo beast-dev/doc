@@ -8,6 +8,7 @@ sidebar: beast_sidebar
 permalink: first_tutorial_chs.html
 folder: beast
 redirect_from: "/tutorial-1"
+language: cn
 ---
 
 {% capture root_url %}{{ site.tutorials_root_url }}/first_tutorial/{% endcapture %}
