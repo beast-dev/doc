@@ -5,7 +5,8 @@ last_updated: May 24, 2018
 tags: [tutorial]
 summary: “本教程是BEAST入门教程的第二讲。将继续分析第一讲的输出，问题的诊断，以及结果的总结。同时会介绍BEAST包里的logcombiner和treeannotator,以及其以外的应用程序Tracer和FigTree。”
 sidebar: beast_sidebar
-permalink: second_tutorial.html
+permalink: second_tutorial_chs.html
+language: cn
 folder: beast
 redirect_from: "/tutorial-2"
 ---
