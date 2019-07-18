@@ -1,12 +1,13 @@
 ---
-标题: 估计具有时间标记序列的速率和日期
-关键词: beast, 教程, 速率, 日期
-最后更新: 2017.8.2
-标签: [教程]
-总结: "本章提供了对于不同时间点（异质数据）分离毒株组成的数据集的分步教程。在美洲，黄热病毒通常被引用的起源假说为源于非洲的埃及伊蚊，通过奴隶贸易期间的帆船舱底引入。尽管Bryant et al. (2007)在论文中已经提出奴隶贸易引入的假说，但是还没有通过用基因序列数据和现代系统发育技术相结合来估计其分歧时间的严格检验。本练习的目的是获得对分子进化速率的估计，最近的共同祖先的估计以及通过恰当的统计支持方法来推断系统发育关系。"
-边注栏: beast_sidebar
-永久链接: rates_and_dates.html
-文件夹: beast
+title: Estimating rates and dates from time-stamped sequences
+keywords: beast, tutorial, rate, date
+last_updated: August 2, 2017
+tags: [tutorial]
+summary: "本章提供了对于不同时间点（异质数据）分离毒株组成的数据集的分步教程。在美洲，黄热病毒通常被引用的起源假说为源于非洲的埃及伊蚊，通过奴隶贸易期间的帆船舱底引入。尽管Bryant et al. (2007)在论文中已经提出奴隶贸易引入的假说，但是还没有通过用基因序列数据和现代系统发育技术相结合来估计其分歧时间的严格检验。本练习的目的是获得对分子进化速率的估计，最近的共同祖先的估计以及通过恰当的统计支持方法来推断系统发育关系。"
+sidebar: beast_sidebar
+language: cn
+permalink: rates_and_dates.html
+folder: beast
 ---
 
 {% capture root_url %}{{ site.tutorials_root_url }}/rates_and_dates/{% endcapture %}
