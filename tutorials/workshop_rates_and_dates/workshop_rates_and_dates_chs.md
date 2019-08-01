@@ -5,7 +5,8 @@ last_updated: August 2, 2017
 tags: [tutorial, workshop]
 summary: "本章提供了对于不同时间点(异质数据)分离毒株组成的数据集的分步教程。在美洲，黄热病毒通常被引用的起源假说为源于非洲的埃及伊蚊，通过奴隶贸易期间的帆船舱底引入。尽管Bryant et al.(2007)在论文中已经提出奴隶贸易引入的假说，但是还没有通过用基因序列数据和现代系统发育技术相结合来估计其分歧时间的严格检验。本练习的目的是获得对分子进化速率的估计，最近共同祖先的估计以及通过恰当的统计支持方法来推断系统发育关系。"
 sidebar: beast_sidebar
-permalink: workshop_rates_and_dates.cns.html
+language: cn
+permalink: workshop_rates_and_dates_chs.html
 folder: beast
 ---
 

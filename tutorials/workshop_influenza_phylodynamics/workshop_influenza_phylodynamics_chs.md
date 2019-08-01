@@ -5,7 +5,8 @@ last_updated: August 8, 2017
 tags: [tutorial, workshop]
 summary: "本教程提供了如何通过BEAST对不同时间点(‘异质’数据)采集的样本序列集进行进化动力学分析的逐步讲解。我们将关注A型流感病毒的进化，尤其是2009年出现的猪源H1N1 A型流感病毒(H1N1pdm) 以及纽约州的季节性H3N2的动力学。H1N1pdm数据集是研究此次大流行的起源与进化基因组学的所分析的基因组的子集(Smith et al., 2009)。H3N2数据集是跨越纽约州几个流行季节的综合性数据集，该数据集已经被用来揭示该病毒的基因组及流行病学动力学(Rambaut et al., 2008)。在第一次练习中，目的是获得对该流行病起源日期的估计，以及对H1N1pdm流行病增长和基本生殖数量的估计。在第二个练习中，我们将研究H3N2多样性如何随时间波动。"
 sidebar: beast_sidebar
-permalink: workshop_influenza_phylodynamics.chs.html
+language: cn
+permalink: workshop_influenza_phylodynamics_chs.html
 folder: beast
 ---
 
