@@ -111,7 +111,7 @@ For the nucleotide substitution model in this tutorial, keep the default HKY sub
 Next, click on `location` in the `Substitution model` window and select the 
 `Cauchy RRW model`, and select `Bivariate trait represents latitude and longitude`. This option generates diffusion statistics that are specific for bivariate spatial traits (with latitude and longitude in that order). Also select the `add random jitter to tips`, which adds noise drawn uniformly at random from a particular jitter window size to duplicated (location) traits. Set the `jitter window size` to 0.01. The noise avoids a poor performance of Brownian diffusion models when not all sequences are associated with unique locations.
 
-{% include image.html file="YFV_screenshot_07_sites_2.png" prefix=root_url caption="" %}
+{% include image.html file="YFV_screenshot_08_sites_2.png" prefix=root_url caption="" %}
 
 #### Setting the ‘molecular clock’ model
 
@@ -163,7 +163,7 @@ The next couple of options specify how often the current parameter values should
 
 For this dataset let's set the chain length to 500,000,000 and the parameter logging to file as well the state echo to screen every 50,000 state.
 
-The next option allows the user to set the File stem name; set this to 'YFV\_RRW\_cauchy' ('RRW\_RRW\_cauchy' for 'relaxed random walk Cauchy diffusion model'). The next two options give the file names of the log files for the parameters and the trees. These will be set based on the file stem name. You can also log the operator analysis to a file. An option is also available to sample from the prior only, which can be useful to evaluate how divergent our posterior estimates are when information is drawn from the data. Here, we will not select this option, but analyze the actual data. 
+The next option allows the user to set the File stem name; set this to 'YFV\_RRW\_cauchy' ('YFV\_RRW\_cauchy' for 'relaxed random walk Cauchy diffusion model'). The next two options give the file names of the log files for the parameters and the trees. These will be set based on the file stem name. You can also log the operator analysis to a file. An option is also available to sample from the prior only, which can be useful to evaluate how divergent our posterior estimates are when information is drawn from the data. Here, we will not select this option, but analyze the actual data. 
 
 Finally, one can select to perform marginal likelihood estimation to assess model fit, which is not needed in this exercise. So, at this point we are ready to generate a BEAST XML file and to use this to run the Bayesian evolutionary analysis. To do this, either select the `Generate BEAST File...` option from the `File` menu or click the similarly labelled button at the bottom of the window. BContinue and choose a name for the file (for example, 'YFV\_RRW\_cauchy.xml' by adding the xml extension to the file name stem) and save the file. For convenience, you can leave the BEAUti window open so that you can change the values and re-generate the BEAST file if necessary.
 
@@ -278,7 +278,7 @@ We will first summarise an MCC tree and then summarise the information in the en
 
 * Set the `most recent sampling date` to 2017-04-22.
 
-* Load a GeoJSON 'South_America.json'.
+* Load a GeoJSON 'Brazil_states.geojson'.
 
 * Keep all other default settings and click `Output` to generate a JSON file.
 
