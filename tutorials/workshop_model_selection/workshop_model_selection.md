@@ -33,7 +33,7 @@ The ratio of marginal likelihoods defines a Bayes factor, which measures the rel
 Accurate estimation of the marginal likelihood is however not possible using Tracer, which has been shown on many occasions (Baele et al., 2012, 2013, 2016).
 
 The harmonic mean estimator (HME) unfortunately remains a frequently used method to obtain marginal likelihood estimates, in large part because it’s so easily computed but it is more and more being disregarded as a reliable marginal likelihood estimator.
-To compare demographic and molecular clock models, both HME and sHME have been shown to be unreliable (Baele et al., 2012, 2013).
+To compare demographic and molecular clock models, both HME and sHME have been shown to be unreliable (Baele et al., 2012, 2013, 2016).
 More accurate/reliable MLE estimates can be obtained using computationally more demanding approaches, such as:
 
 Path sampling (PS)
@@ -98,8 +98,6 @@ However, the latest release of BEAST saves the final result to a specified file 
 For the full-length strict clock analysis, we arrive at -5676.04 and -5676.10 for the log marginal likelihoods using PS and SS respectively. 
 For the uncorrelated relaxed clock analysis, we get -5656.8 and -5658.14 for the same estimators. 
 
-{% include question.html content="How do the PS/SS MLEs compare to those obtained by the HME, and the Bayes factors resulting from these different estimators? What can be observed concerning the difference between the PS estimate and the SS estimate of the log marginal likelihood (also compared to the shorter runs)?" %}
-
 
 ### Setting up a GSS analysis
 
@@ -111,6 +109,8 @@ Click on 'settings' to specify the GSS settings.
 Because of time constraints, we will keep the length of the standard MCMC chain set to 1,000,000 and we will collect samples from 11 power posteriors (i.e. 10 path steps between 1.0 and 0.0). 
 The length of the chain for the power posteriors can differ from the length of the standard MCMC chain, but we set it here to 100,000 as well.
 We again define the powers for the different power posteriors using evenly spaced quantiles of a Beta(0.3,1.0) distribution, since this has been shown to outperform a uniform spreading for generalised stepping-stone sampling (Baele et al., 2016).
+
+{% include important.html content="As for PS/SS, the initial MCMC chain needs to have converged to the posterior distribution before the marginal likelihood estimation process can be started. In addition, we need to collect some samples from the posterior distribution in order to be able to construct the necessary working priors for GSS." %}
 
 {% include image.html file="settingsGSS.png" prefix=root_url width="90%" alt="gss marginal likelihood estimation settings" caption="" %}
 
