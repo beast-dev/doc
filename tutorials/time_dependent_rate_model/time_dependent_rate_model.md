@@ -352,7 +352,7 @@ Aiewsakun P, Katzourakis A. 2015. Time dependency of foamy virus evolutionary ra
 
 Ho SY, Duchene S, Molak M, Shapiro B. 2015. Time-dependent estimates of molecular evolutionary rates: evidence and causes. Mol Ecol. 24(24):6007–6012.
 
-Membrebe, J. V., Suchard, M. A., Rambaut, A., Baele, G., Lemey, P. (2019) Bayesian inference of evolutionary histories under time-dependent substitution rates. Mol. Biol. Evol.
+Membrebe, J. V., Suchard, M. A., Rambaut, A., Baele, G., Lemey, P. (2019) Bayesian inference of evolutionary histories under time-dependent substitution rates. Mol. Biol. Evol. 36(8):1793-1803.
 
 {% include links.html %}
 
