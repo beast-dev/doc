@@ -52,7 +52,7 @@ Finally, we generate the XML file which should look like [this]({{ root_url }}fi
 The next step is to edit the XML file that we have created in the previous section to incorporate an epoch-TDR model.
 To do this, look for the block where the clock model and its associated rate statistic has been defined and delete this. We will replace this with our TDR clock model.
 
-```
+```xml
 	<!-- The strict clock (Uniform rates across branches)                        -->
 	<strictClockBranchRates id="branchRates">
 		<rate>
@@ -86,7 +86,7 @@ That is, for the last epoch, the time-covariate value is log(550)=6.3099182782
 
 Where we deleted the strict clock model, paste the following blocks that specify the generalized linear model (GLM) for all the rates ('all.rates') on a log-scale through a 'designMatrix' and a 'matrixVectorProductParameter':
 
-```
+```xml
     <designMatrix id="epochDesignMatrix">
         <parameter id="designMatrix.offset" value="1 1 1 1 1 1 1 1 1"/> 
         <parameter id="designMatrix.time"   value="-12.2060726455 -9.8081773727 -7.5055922797 -5.2030071867 -2.9004220937 -0.5978370008 1.7047480922 4.0073331852 6.3099182782"/>
@@ -110,7 +110,7 @@ The values of the rate.coefficients parameter, $$\beta_0$$ and $$\beta_1$$ respe
 In the epoch specification that will follow, we will need to associate each epoch interval with a specific rate on a natural scale. For this purpose, we create a transformed parameter for each epoch rate that pulls a single rate out of the 'all.rates' parameter vector using a 'maskedParameter'. The inverse="true" argument transforms the log rate back to the natural scale.
 The transformedParameter block for the first epoch rate should be pasted after the 'matrixVectorProductParameter' block and should look like the following:
 
-```
+```xml
 	<transformedParameter id="epoch.rate01" inverse="true">
 		<transform type="log"/>
 		<maskedParameter signalDependents="false">
@@ -126,7 +126,7 @@ In this case, the 'maskedParameter' pulls out the first rate from the 'all.rates
 Create a transformedParameter block for each epoch, while adjusting its 'id' and the value of the masking parameter value.
 That is, the last block should look like the following:
 
-```	
+```xml
 	<transformedParameter id="epoch.rate09" inverse="true">
 		<transform type="log"/>
 		<maskedParameter signalDependents="false">
@@ -140,7 +140,7 @@ That is, the last block should look like the following:
 
 Next, we need to create the actual epoch structure for the rates by pasting the following 'rateEpochBranchRates' after the 'transformedParameter' blocks:
 
-```
+```xml
 	<rateEpochBranchRates id="epochRates">
 		<epoch transitionTime="0.00001">
 			<parameter idref="epoch.rate01"/>
@@ -180,7 +180,7 @@ In this case, the rate referred to as 'epoch.rate01' is associated with the inte
 
 In addition, we can create a compound parameter which compiles all the epoch rates (on a natural scale). To this purpose, paste the following after the 'rateEpochBranchRates' block:
 
-```
+```xml
 	<compoundParameter id="epoch.rates">
 		<parameter idref="epoch.rate01"/>
 		<parameter idref="epoch.rate02"/>
@@ -197,7 +197,7 @@ In addition, we can create a compound parameter which compiles all the epoch rat
 Finally, we need to instruct BEAST to use the values of the epochRates and not the strict clock branch rates, which was in the original file we generated from BEAUti, when computing the likelihood.
 To this purpose, we reference our TDR model in the 'treeDataLikelihood' block instead of the branchRates as follows:
 
-```
+```xml
 	<treeDataLikelihood id="treeLikelihood" useAmbiguities="false">
 		<partition>
 			<patterns idref="patterns"/>
@@ -211,7 +211,7 @@ To this purpose, we reference our TDR model in the 'treeDataLikelihood' block in
 In the operators block, we define a random walk operator for the rate coefficients.
 Paste this XML block within the operators block:
 
-```
+```xml
 	<randomWalkOperator windowSize="0.01" weight="5"  autoOptimize="true">
 		<parameter idref="rate.coefficients"/>
 	</randomWalkOperator> 
@@ -219,8 +219,8 @@ Paste this XML block within the operators block:
 
 In the prior block (part of the mcmc block), delete the 'strictClockBranchRates' line, and replace this with 'rateEpochBranchRates':
 
-```
-				<rateEpochBranchRates idref="epochRates"/>
+```xml
+	    <rateEpochBranchRates idref="epochRates"/>
 ```
 
 In addition, we will also add the calibrations to the prior block.
@@ -228,100 +228,100 @@ These calibrations are important in our analysis as these are the data that BEAS
 These ten internal node calibrations and one MRCA calibration were presented in the study of [Aiewsakun and Katzourakis (2015)](https://bmcevolbiol.biomedcentral.com/articles/10.1186/s12862-015-0408-z).
 Paste the following codes in the prior block:
 
-```
-				<normalPrior mean="0.96" stdev="0.133">
-					<statistic idref="tmrca(node1)"/>
-				</normalPrior>
+```xml
+    <normalPrior mean="0.96" stdev="0.133">
+        <statistic idref="tmrca(node1)"/>
+    </normalPrior>
 
-				<normalPrior mean="2.17" stdev="0.531">
-					<statistic idref="tmrca(node2)"/>
-				</normalPrior>
+    <normalPrior mean="2.17" stdev="0.531">
+        <statistic idref="tmrca(node2)"/>
+    </normalPrior>
 
-				<normalPrior mean="8.3" stdev="0.903">
-					<statistic idref="tmrca(node3)"/>
-				</normalPrior>
+    <normalPrior mean="8.3" stdev="0.903">
+        <statistic idref="tmrca(node3)"/>
+    </normalPrior>
 
-				<normalPrior mean="11.50" stdev="1.199">
-					<statistic idref="tmrca(node4)"/>
-				</normalPrior>
+    <normalPrior mean="11.50" stdev="1.199">
+        <statistic idref="tmrca(node4)"/>
+    </normalPrior>
 
-				<normalPrior mean="16.52" stdev="1.610">
-					<statistic idref="tmrca(node5)"/>
-				</normalPrior>
+    <normalPrior mean="16.52" stdev="1.610">
+        <statistic idref="tmrca(node5)"/>
+    </normalPrior>
 
-				<normalPrior mean="31.56" stdev="3.225">
-					<statistic idref="tmrca(node6)"/>
-				</normalPrior>
+    <normalPrior mean="31.56" stdev="3.225">
+        <statistic idref="tmrca(node6)"/>
+    </normalPrior>
 
-				<normalPrior mean="43.47" stdev="2.51">
-					<statistic idref="tmrca(node7)"/>
-				</normalPrior>
+    <normalPrior mean="43.47" stdev="2.51">
+        <statistic idref="tmrca(node7)"/>
+    </normalPrior>
 
-				<normalPrior mean="87.18" stdev="5.847">
-					<statistic idref="tmrca(node8)"/>
-				</normalPrior>
+    <normalPrior mean="87.18" stdev="5.847">
+        <statistic idref="tmrca(node8)"/>
+    </normalPrior>
 
-				<normalPrior mean="87.3" stdev="1.02">
-					<statistic idref="tmrca(node9)"/>
-				</normalPrior>
+    <normalPrior mean="87.3" stdev="1.02">
+        <statistic idref="tmrca(node9)"/>
+    </normalPrior>
 
-				<normalPrior mean="88.7" stdev="1.02">
-					<statistic idref="tmrca(node10)"/>
-				</normalPrior>
+    <normalPrior mean="88.7" stdev="1.02">
+        <statistic idref="tmrca(node10)"/>
+    </normalPrior>
 
-				<normalPrior mean="98.9" stdev="1.378">
-					<parameter idref="treeModel.rootHeight"/>
-				</normalPrior>
+    <normalPrior mean="98.9" stdev="1.378">
+        <parameter idref="treeModel.rootHeight"/>
+    </normalPrior>
 ```
 
 We also need to specify a prior over our rate coefficients in the priors block.
 In this case, we specify a multivariate normal prior with the parameterization used in [Membrebe et al. (2019)](https://academic.oup.com/mbe/advance-article/doi/10.1093/molbev/msz094/5475507).
 Paste the following lines in the mcmc block, within the prior section:
 
-```
-				<multivariateNormalPrior id="rate.prior.effects">
-					<data>
-						<parameter idref="rate.coefficients"/>
-					</data>
-					<meanParameter>
-						<parameter value="0 0"/>
-					</meanParameter>
-					<precisionParameter>
-						<matrixParameter>
-							<parameter value="0.001 0"/>
-							<parameter value="0 0.5"/>
-						</matrixParameter>
-					</precisionParameter>
-				</multivariateNormalPrior>
+```xml
+    <multivariateNormalPrior id="rate.prior.effects">
+        <data>
+            <parameter idref="rate.coefficients"/>
+        </data>
+        <meanParameter>
+            <parameter value="0 0"/>
+        </meanParameter>
+        <precisionParameter>
+            <matrixParameter>
+                <parameter value="0.001 0"/>
+                <parameter value="0 0.5"/>
+            </matrixParameter>
+        </precisionParameter>
+    </multivariateNormalPrior>
 ```
 
 In the screenLog block, you can add a column to monitor the rate coefficients:
 
-```
- 			<column sf="6" width="12">
-				<parameter idref="rate.coefficients"/>
-			</column>
+```xml
+    <column sf="6" width="12">
+        <parameter idref="rate.coefficients"/>
+    </column>
 ```
 
 In order to log the coefficients of our TDR model and the value of the individual epoch rates to file, add the following lines to the fileLog block:
 
-```
-			<parameter idref="rate.coefficients"/>
-			<compoundParameter idref="epoch.rates"/>
+```xml
+        <parameter idref="rate.coefficients"/>
+        <compoundParameter idref="epoch.rates"/>
 ```
 
 Delete these lines in the fileLog block as BEAST would not compute them anymore:
 
-```
-			<strictClockBranchRates idref="branchRates"/>
-			<parameter idref="clock.rate"/>
-			<rateStatistic idref="meanRate"/>
+```xml
+        <strictClockBranchRates idref="branchRates"/>
+        <parameter idref="clock.rate"/>
+        <rateStatistic idref="meanRate"/>
 ```
 
 Finally, in the treeFileLog block, delete the line with the 'branchRates 'and replace this with the 'epochRates':
 
-```
-            <rateEpochBranchRates idref="epochRates"/>
+```xml
+        <rateEpochBranchRates idref="epochRates"/>
 ```
 
 We have now completed the XML editing and we can analyze this using BEAST.
