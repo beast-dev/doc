@@ -80,7 +80,7 @@ This option is useful when employing highly complex models and when having obtai
 Having set the PS/SS settings and proper priors, we can write to xml and run the analysis in BEAST. 
 Use the same settings for the strict clock and the uncorrelated relaxed clock and run the analyses.
  
-{% include question.html content="What is the log marginal likelihood for the strict clock model? And for the relaxed clock model? How do these compare to your neighbour's results? What can we conclude from these (much too) short PS/SS analyses?" %}
+{% include question.html content="What is the log marginal likelihood for the strict clock model? And for the relaxed clock model? How do these compare to your neighbour's results? What can we conclude from these (much too) short PS/SS analyses? Would you change the initial chain length that was run before the marginal likelihood estimation process was started? Why (not)?" %}
 
 **Important:** in order to obtain reliable estimates for the marginal likelihoods using PS/SS, we need to rerun these analyses using much more demanding computational settings. 
 For example, by setting the number of path steps to 50 and the length of the MCMC chain for each power posterior to 500,000 (the logging frequency could also be increased). 
