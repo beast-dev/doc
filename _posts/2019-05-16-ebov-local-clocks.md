@@ -54,7 +54,7 @@ A list of sequences used is given in Table 1 along with their Genbank accession 
 Building a maximum likelihood tree of these genomes shows the apparent slow down in the recent lineages (Figure 1; yellow dots). 
 A root-to-tip regression (the line is fitted only to the green dots) shows how far below the expected line these are (this is similar to Figure 5 in [Mbala-Kingebeni et al. 2019b](https://doi.org/10.1016/S1473-3099(19)30118-5)). 
 
-<iframe src="https://rambaut.github.io/figtree.js/ebov.html" style="width: 1100px; height: 450px; border: 0px"></iframe>
+<iframe src="https://rambaut.github.io/figtree.js/ebov.html" style="width: 1500px; height: 450px; border: 0px"></iframe>
 
 > **Figure 1.** A tree and root-to-tip plot for the 15 Ebola virus genomes in Table 1.
 This is an interactive figure: click the points to include/exclude them from the regression. 
