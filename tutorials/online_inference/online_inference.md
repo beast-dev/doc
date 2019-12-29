@@ -1,7 +1,7 @@
 ---
 title: Online Bayesian Phylodynamic Inference Tutorial
 keywords: online, checkpoint, resume, tutorial
-last_updated: March 6, 2019
+last_updated: December 19, 2019
 tags: [tutorial]
 summary: "Using online Bayesian phylodynamic inference to add sequences to an ongoing analysis in BEAST."
 sidebar: beast_sidebar
@@ -27,7 +27,7 @@ The state file can be kept up to date during the analysis by generating a new ve
 
 To write a state file to disk at a given iteration number, add the following program argument: **'-save_at iteration#'** (without the quotation marks).
 This will create a time-stamped file 'beast_state_xxxx.xx.xx' containing all the necessary information.
-For example, to generate a state file at iteration 2.000.000 for an XML file epiWeekX1.xml, the following command can be used:
+For example, to generate a state file at iteration 2,000,000 for an XML file epiWeekX1.xml, the following command can be used:
 
 ```bash
 beast -save_at 2000000 epiWeekX1.xml
@@ -45,13 +45,13 @@ beast_state_2018.11.11.17.14.47
 To write a state file to disk every x iterations, add the following program argument: **'-save_every x'** (without the quotation marks).
 If no file name has been provided and there is at least 1 second time difference between the previous attempt to write to file, a new time-stamped file will be created every time the information needs to be written to disk.
 
-For example, to generate a series of state files every 20.000th iteration for an XML file epiWeekX1.xml, you can use the following command:
+For example, to generate a series of state files every 20,000th iteration for an XML file epiWeekX1.xml, you can use the following command:
 
 ```bash
 beast -save_every 20000 epiWeekX1.xml
 ```
 
-For an analysis of 100.000 iterations, this command will then generate 5 state files with a time stamp in the file name:
+For an analysis of 100,000 iterations, this command will then generate 5 state files with a time stamp in the file name:
 
 ```bash
 beast_state_2018.11.12.10.30.23
@@ -70,7 +70,7 @@ For example, you can use the following command to do so:
 beast -save_every 20000 -save_stem custom epiWeekX1.xml
 ```
 
-This will, for an analysis of 100.000 iterations, generate the following state files:
+This will, for an analysis of 100,000 iterations, generate the following state files:
 
 ```bash
 custom_20000

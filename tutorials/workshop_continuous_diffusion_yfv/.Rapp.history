@@ -1,0 +1,3 @@
+library(rmarkdown)#
+render("workshop_continuous_diffusion.md", output_format="html_document")#
+system("open ./workshop_continuous_diffusion.html")

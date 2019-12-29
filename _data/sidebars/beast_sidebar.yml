@@ -151,10 +151,6 @@ entries:
       url: /markov_jumps_rewards
       output: web, pdf
 
-    - title: Epoch Model Tutorial
-      url: /epoch_models
-      output: web, pdf
-
     - title: Adaptive MCMC Tutorial
       url: /adaptive_mcmc
       output: web, pdf
@@ -173,6 +169,14 @@ entries:
 
     - title: Clock Model Averaging Tutorial
       url: /model_averaging_clocks
+      output: web, pdf
+
+    - title: Epoch Model Tutorial
+      url: /epoch_models
+      output: web, pdf
+
+    - title: Time-Dependent Rate Model Tutorial
+      url: /time_dependent_rate_model
       output: web, pdf
 
   - title: Workshop Tutorials
@@ -194,8 +198,12 @@ entries:
       url: /workshop_discrete_diffusion
       output: web, pdf
 
-    - title: Phylogeographic Diffusion in Continuous Space
-      url: /workshop_continuous_diffusion
+    - title: Phylogeographic Diffusion in Continuous Space, YFV
+      url: /workshop_continuous_diffusion_yfv
+      output: web, pdf
+
+    - title: Phylogeographic Diffusion in Continuous Space, WNV
+      url: /workshop_continuous_diffusion_wnv
       output: web, pdf
 
   - title: Reference

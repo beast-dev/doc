@@ -2,6 +2,7 @@
 title:  "BEAST v1.10.4 released"
 categories: release
 permalink: 2018-11-14.10.4_released.html
+sidebar: beast_sidebar
 tags: [news]
 ---
 

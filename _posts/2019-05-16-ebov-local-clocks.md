@@ -3,10 +3,11 @@ title: "Ebola Virus Local Clock Analysis"
 author: Andrew Rambaut
 categories: release
 permalink: ebov_local_clocks.html
+sidebar: beast_sidebar
 tags: [news]
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/first_tutorial/{% endcapture %}
+{% capture root_url %}/{% endcapture %}
 
 by Andrew Rambaut, JT McCrone & Guy Baele.
 
@@ -53,7 +54,7 @@ A list of sequences used is given in Table 1 along with their Genbank accession 
 Building a maximum likelihood tree of these genomes shows the apparent slow down in the recent lineages (Figure 1; yellow dots). 
 A root-to-tip regression (the line is fitted only to the green dots) shows how far below the expected line these are (this is similar to Figure 5 in [Mbala-Kingebeni et al. 2019b](https://doi.org/10.1016/S1473-3099(19)30118-5)). 
 
-<iframe src="https://rambaut.github.io/figtree.js/ebov.html" style="width: 1100px; height: 450px; border: 0px"></iframe>
+<iframe src="https://rambaut.github.io/figtree.js/ebov.html" style="width: 1500px; height: 450px; border: 0px"></iframe>
 
 > **Figure 1.** A tree and root-to-tip plot for the 15 Ebola virus genomes in Table 1.
 This is an interactive figure: click the points to include/exclude them from the regression. 
@@ -87,7 +88,11 @@ For all of these analyses we constrained the tree topology so all of the viruses
 This was the rooting suggested by a much earlier an analysis (Dudas and Rambaut 2014). 
 
 Analysis was done by partitioning the genomes into 1st, 2nd & 3rd codon positions for the concatenated protein coding regions and a 4th partition comprising the concatenated intergenic regions. 
-Each partition was given an HKY model with gamma distributed site-specific rates and parameters for each were unlinked.
+Each partition was given an HKY model with gamma distributed site-specific rates and parameters for each were unlinked. 
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> <a href="{{ root_url }}files/EBOV_local_clock_XMLs.zip">XML files for all the analyses are available here.</a>. 
+</div>
+
 
 ## Results
  

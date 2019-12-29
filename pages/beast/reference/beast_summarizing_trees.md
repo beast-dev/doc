@@ -5,9 +5,10 @@ last_updated: July 6, 2017
 tags: [reference]
 summary: "Approaches to summarizing trees."
 sidebar: beast_sidebar
-permalink: summarizing-posterior-trees.html
+permalink: summarizing_trees.html
 folder: beast
 redirect_from: "/Summarizing-BEAST-trees"
+redirect_from: "/summarizing-posterior-trees"
 ---
 
 ## 50% Majority consensus tree and extended majority consensus tree
