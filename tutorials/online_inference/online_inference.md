@@ -1,7 +1,7 @@
 ---
 title: Online Bayesian Phylodynamic Inference Tutorial
 keywords: online, checkpoint, resume, tutorial
-last_updated: December 19, 2019
+last_updated: February 27, 2020
 tags: [tutorial]
 summary: "Using online Bayesian phylodynamic inference to add sequences to an ongoing analysis in BEAST."
 sidebar: beast_sidebar
@@ -18,7 +18,7 @@ Many widely-used software packages for phylogenetic inference assume all of the 
 This means that, when new sequence data become available, the entire phylodynamic analyses is rerun from scratch with the full data set, which then includes the new sequence data.
 Restarting phylodynamic analyses over and over again can be extremely time-consuming and delay the time to results by days or even weeks.
 
-As of version [v1.10](installing), BEAST comes equipped with an online Bayesian phylodynamic inference procedure.
+As of version [v1.10.4](installing), BEAST comes equipped with an online Bayesian phylodynamic inference procedure.
 Briefly, this means that BEAST will generate a state file during each ongoing analysis, which can then be used to plug in new sequence data and resume the ongoing analysis without having to completely restart it.
 The state file can be kept up to date during the analysis by generating a new version at regular intervals.
 
@@ -122,7 +122,7 @@ Suppose you have run a BEAST analysis using all available data up to a certain e
 When new sequence data become available, you construct an updated XML file with the exact same collection of models, but an updated alignment: epiWeekX2.xml.
 
 Our approach consists in using the newly created XML file to update a checkpointed file with this newly obtained sequence information.
-BEAST [v1.10](installing) contains a new application, called CheckPointUpdaterApp, to achieve this using an existing checkpoint file and the updated XML file.
+BEAST [v1.10.4](installing) contains a new application, called CheckPointUpdaterApp, to achieve this using an existing checkpoint file and the updated XML file.
 Suppose we use the checkpoint file from the previous section (checkpoint.state), along with the updated XML file (epiWeekX2.xml), to generate a modified checkpoint file (updated.checkpoint.state):
 
 ```bash
@@ -145,7 +145,7 @@ In anticipation of (even) more data becoming available, we suggest to keep using
 
 ## BEAST XML files
 
-We make available [10 BEAST XML files]({{ root_url }}files/XMLs.zip) accompanying our submitted manuscript on this online Bayesian phylodynamic inference framework.
+We make available [10 BEAST XML files]({{ root_url }}files/XMLs.zip) accompanying our paper on this online Bayesian phylodynamic inference framework.
 
 
 
@@ -153,8 +153,8 @@ We make available [10 BEAST XML files]({{ root_url }}files/XMLs.zip) accompanyin
 
 ## References
 
-M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2019) Online Bayesian phylodynamic inference in BEAST with application to epidemic reconstruction. Submitted.
+M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2020) Online Bayesian phylodynamic inference in BEAST with application to epidemic reconstruction. Molecular Biology and Evolution (in press). DOI: [https://doi.org/10.1093/molbev/msaa047](https://doi.org/10.1093/molbev/msaa047)
 
-M. A. Suchard, P. Lemey, G. Baele, D. L. Ayres, A. J. Drummond, A. Rambaut (2018) Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10. Virus Evolution 4(1): vey016.
+M. A. Suchard, P. Lemey, G. Baele, D. L. Ayres, A. J. Drummond, A. Rambaut (2018) Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10. Virus Evolution 4(1): vey016. DOI: [https://doi.org/10.1093/ve/vey016](https://doi.org/10.1093/ve/vey016)
 
 {% include links.html %}
