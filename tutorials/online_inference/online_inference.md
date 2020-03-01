@@ -129,6 +129,11 @@ Suppose we use the checkpoint file from the previous section (checkpoint.state),
 java -cp beast.jar dr.app.realtime.CheckPointUpdaterApp -BEAST_XML epiWeekX2.xml -load_state checkpoint.state -output_file updated.checkpoint.state -update_choice JC69Distance
 ```
 
+There are currently three possible distances measures for the **update_choice** argument:
+* JC69Distance: the distance matrix uses the JC69 model (Jukes and Cantor, 1969)
+* F84Distance: the distance matrix uses the F84 model (Felsenstein and Churchill, 1996)
+* Simple: a custom distance matrix that counts the nucleotide differences between two sequences, when neither position is a gap nor an ambiguity
+
 {% include note.html content="There is no need to provide the original XML file for this step, as all of its information will be contained with the checkpoint state file."  %}
 
 
@@ -156,5 +161,9 @@ We make available [10 BEAST XML files]({{ root_url }}files/XMLs.zip) accompanyin
 M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2020) Online Bayesian phylodynamic inference in BEAST with application to epidemic reconstruction. Molecular Biology and Evolution (in press). DOI: [https://doi.org/10.1093/molbev/msaa047](https://doi.org/10.1093/molbev/msaa047)
 
 M. A. Suchard, P. Lemey, G. Baele, D. L. Ayres, A. J. Drummond, A. Rambaut (2018) Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10. Virus Evolution 4(1): vey016. DOI: [https://doi.org/10.1093/ve/vey016](https://doi.org/10.1093/ve/vey016)
+
+T. H. Jukes, C. R. Cantor (1969) Evolution of protein molecules. New York: Academic Press pp. 21–132.
+
+J. Felsenstein, G. A. Churchill (1996) A hidden Markov Model approach to variation among sites in rate of evolution. Molecular Biology and Evolution 13(1): 93–104.
 
 {% include links.html %}
