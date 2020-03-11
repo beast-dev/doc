@@ -1,7 +1,7 @@
 ---
 title: Using BETS to evaluate temporal signal
 keywords: bets, tutorial
-last_updated: February 23, 2020
+last_updated: March 11, 2020
 tags: [bets, tutorial]
 summary: "This tutorial describes the use of BETS (Bayesian Evaluation of Temporal Signal) to examine the temporal signal of a data set."
 sidebar: beast_sidebar
@@ -90,7 +90,7 @@ Specifically, the fixed local clock (Worobey et al., 2014) which assumes a diffe
 
 If you use BETS to test for temporal signal in your data set, we would appreciate citing the following paper:
 
-S. Duchene, P. Lemey, T. Stadler, S. Y. W. Ho, D. A. Duchene, V. Dhanasekaran, G. Baele (2020) Bayesian evaluation of temporal signal in measurably evolving populations. Submitted. [ArXiv version](https://arxiv.org/abs/2002.00245)
+S. Duchene, P. Lemey, T. Stadler, S. Y. W. Ho, D. A. Duchene, V. Dhanasekaran, G. Baele (2020) Bayesian evaluation of temporal signal in measurably evolving populations. Submitted. [bioRxiv version](https://www.biorxiv.org/content/10.1101/810697v1)
 
 
 ## References
