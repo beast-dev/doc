@@ -99,7 +99,9 @@ For example, the following command will load the checkpoint.state file generated
 beast -load_state checkpoint.state epiWeekX1.xml
 ```
 
-{% include note.html content="You still have to provide the XML file you used to generate the state file in the first place. Certain adjustments to this XML file, such as increasing the number of iterations, are possible before restarting the checkpointed analysis. Importantly, you can resume an analysis with different starting seeds from a single state file to generate multiple independent replicates."  %}
+{% include note.html content="You still have to provide the XML file you used to generate the state file in the first place. Certain adjustments to this XML file, such as increasing the number of iterations, are possible before restarting the checkpointed analysis."  %}
+
+{% include note.html content="Importantly, you can resume an analysis with different (manually provided) starting seeds from a single state file to generate multiple independent replicates. If you don't explicitly provide such a starting seed, the original starting seed will be restored and hence each resumed run will lead to the same output."  %}
 
 Note that you can combine the **-'load_state filename'** and **'-save_state newfilename'** arguments (but best to use different file names for both arguments).
 This would restore the state from a previous analysis and continue running that same analysis, creating new state (or checkpoint) files for the resumed run:
