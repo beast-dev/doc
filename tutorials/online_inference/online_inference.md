@@ -1,7 +1,7 @@
 ---
 title: Online Bayesian Phylodynamic Inference Tutorial
 keywords: online, checkpoint, resume, tutorial
-last_updated: December 19, 2019
+last_updated: February 27, 2020
 tags: [tutorial]
 summary: "Using online Bayesian phylodynamic inference to add sequences to an ongoing analysis in BEAST."
 sidebar: beast_sidebar
@@ -18,7 +18,7 @@ Many widely-used software packages for phylogenetic inference assume all of the 
 This means that, when new sequence data become available, the entire phylodynamic analyses is rerun from scratch with the full data set, which then includes the new sequence data.
 Restarting phylodynamic analyses over and over again can be extremely time-consuming and delay the time to results by days or even weeks.
 
-As of version [v1.10](installing), BEAST comes equipped with an online Bayesian phylodynamic inference procedure.
+As of version [v1.10.4](installing), BEAST comes equipped with an online Bayesian phylodynamic inference procedure.
 Briefly, this means that BEAST will generate a state file during each ongoing analysis, which can then be used to plug in new sequence data and resume the ongoing analysis without having to completely restart it.
 The state file can be kept up to date during the analysis by generating a new version at regular intervals.
 
@@ -101,6 +101,8 @@ beast -load_state checkpoint.state epiWeekX1.xml
 
 {% include note.html content="You still have to provide the XML file you used to generate the state file in the first place. Certain adjustments to this XML file, such as increasing the number of iterations, are possible before restarting the checkpointed analysis."  %}
 
+{% include note.html content="Importantly, you can resume an analysis with different (manually provided) starting seeds from a single state file to generate multiple independent replicates. If you don't explicitly provide such a starting seed, the original starting seed will be restored and hence each resumed run will lead to the same output."  %}
+
 Note that you can combine the **-'load_state filename'** and **'-save_state newfilename'** arguments (but best to use different file names for both arguments).
 This would restore the state from a previous analysis and continue running that same analysis, creating new state (or checkpoint) files for the resumed run:
 
@@ -122,12 +124,17 @@ Suppose you have run a BEAST analysis using all available data up to a certain e
 When new sequence data become available, you construct an updated XML file with the exact same collection of models, but an updated alignment: epiWeekX2.xml.
 
 Our approach consists in using the newly created XML file to update a checkpointed file with this newly obtained sequence information.
-BEAST [v1.10](installing) contains a new application, called CheckPointUpdaterApp, to achieve this using an existing checkpoint file and the updated XML file.
+BEAST [v1.10.4](installing) contains a new application, called CheckPointUpdaterApp, to achieve this using an existing checkpoint file and the updated XML file.
 Suppose we use the checkpoint file from the previous section (checkpoint.state), along with the updated XML file (epiWeekX2.xml), to generate a modified checkpoint file (updated.checkpoint.state):
 
 ```bash
 java -cp beast.jar dr.app.realtime.CheckPointUpdaterApp -BEAST_XML epiWeekX2.xml -load_state checkpoint.state -output_file updated.checkpoint.state -update_choice JC69Distance
 ```
+
+There are currently three possible distances measures for the **update_choice** argument:
+* JC69Distance: the distance matrix uses the JC69 model (Jukes and Cantor, 1969)
+* F84Distance: the distance matrix uses the F84 model (Felsenstein and Churchill, 1996)
+* Simple: a custom distance matrix that counts the nucleotide differences between two sequences, when neither position is a gap nor an ambiguity
 
 {% include note.html content="There is no need to provide the original XML file for this step, as all of its information will be contained with the checkpoint state file."  %}
 
@@ -145,7 +152,7 @@ In anticipation of (even) more data becoming available, we suggest to keep using
 
 ## BEAST XML files
 
-We make available [10 BEAST XML files]({{ root_url }}files/XMLs.zip) accompanying our submitted manuscript on this online Bayesian phylodynamic inference framework.
+We make available [10 BEAST XML files]({{ root_url }}files/XMLs.zip) accompanying our paper on this online Bayesian phylodynamic inference framework.
 
 
 
@@ -153,8 +160,12 @@ We make available [10 BEAST XML files]({{ root_url }}files/XMLs.zip) accompanyin
 
 ## References
 
-M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2019) Online Bayesian phylodynamic inference in BEAST with application to epidemic reconstruction. Submitted.
+M. S. Gill, P. Lemey, M. A. Suchard, A. Rambaut, G. Baele (2020) Online Bayesian phylodynamic inference in BEAST with application to epidemic reconstruction. Molecular Biology and Evolution (in press). DOI: [https://doi.org/10.1093/molbev/msaa047](https://doi.org/10.1093/molbev/msaa047)
 
-M. A. Suchard, P. Lemey, G. Baele, D. L. Ayres, A. J. Drummond, A. Rambaut (2018) Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10. Virus Evolution 4(1): vey016.
+M. A. Suchard, P. Lemey, G. Baele, D. L. Ayres, A. J. Drummond, A. Rambaut (2018) Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10. Virus Evolution 4(1): vey016. DOI: [https://doi.org/10.1093/ve/vey016](https://doi.org/10.1093/ve/vey016)
+
+T. H. Jukes, C. R. Cantor (1969) Evolution of protein molecules. New York: Academic Press pp. 21–132.
+
+J. Felsenstein, G. A. Churchill (1996) A hidden Markov Model approach to variation among sites in rate of evolution. Molecular Biology and Evolution 13(1): 93–104.
 
 {% include links.html %}

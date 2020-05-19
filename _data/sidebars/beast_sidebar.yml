@@ -93,6 +93,10 @@ entries:
       url: /tempest_tutorial
       output: web, pdf
 
+    - title: Online phylodynamic inference
+      url: /online_inference
+      output: web, pdf
+
     - title: Phylodynamics of an epidemic
       url: /phylodynamics_of_epidemic_influenza
       output: web, pdf
