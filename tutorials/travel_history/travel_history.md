@@ -67,15 +67,19 @@ or the location from which the individual travelled  (assuming that this was the
 
 ### Using location of sampling and travel history
 
+Unfortunately, neither of the two previous options offers a satisfactory solution.
+Using only the location of sampling ignores important information about the ancestral location of the sequence, whereas using the travel location together with the collection date represents a data mismatch and ignores the final transitions to the location of sampling.
+These events are particularly important when the infected traveller then produces a productive transmission chain in the sampling location.
+
+We propose to accommodate individuals' travel histories by augmenting the phylogeny with ancestral nodes that are associated with a location state (but not with a known sequence) and hence enforce that ancestral location at a particular, possibly random point in the past of a lineage (see figure below).
+
+{% include image.html file="concept_travel_history.png" width="90%" prefix=root_url %}
 
 
 
 
-{% include image.html file="concept_travel_history.png" width="150" prefix=root_url %}
 
-
-
-{% include image.html file="travel_origin_location.png" width="50%" prefix=root_url %}
+{% include image.html file="travel_origin_location.png" width="80%" prefix=root_url %}
 
 
 
