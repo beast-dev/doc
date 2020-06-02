@@ -3,7 +3,7 @@ title: Accommodating individual travel history in discrete phylogeographic diffu
 keywords: travel history, phylogeography, SARS-CoV-2, COVID-19, tutorial
 last_updated: June 2, 2020
 tags: [tutorial]
-summary: 'This chapter provides a step-by-step tutorial on accommodating/including the travel history of multiple individuals into discrete phylogeographic analysis.'
+summary: 'This tutorial provides a step-by-step explanation on accommodating/including the travel history of multiple individuals into discrete phylogeographic analysis.'
 sidebar: beast_sidebar
 permalink: travel_history.html
 folder: beast
@@ -141,12 +141,46 @@ Specifically it implies a transition from Hubei for the Italian patient that doe
 
 ### Using location of sampling and travel history
 
-Unfortunately, neither of the two previous options offers a satisfactory solution.
+Unfortunately, neither of the two previous approaches offers a satisfactory solution.
 Using only the location of sampling ignores important information about the ancestral location of the sequence, whereas using the travel location together with the collection date represents a data mismatch and ignores the final transitions to the location of sampling.
 These events are particularly important when the infected traveller then produces a productive transmission chain in the sampling location.
 
-We propose to accommodate individuals' travel histories by augmenting the phylogeny with ancestral nodes that are associated with a location state (but not with a known sequence) and hence enforce that ancestral location at a particular, possibly random point in the past of a lineage (see figure below).
+We propose to accommodate individuals' travel histories by augmenting the phylogeny with ancestral nodes that are associated with a location state (but not with a known sequence) and hence enforce that ancestral location at a particular, possibly random point in the past of a lineage.
+Apart from the standard ```<taxa>...</taxa>``` block in the XML file, we hence need to provide the origin location of each individual's travel when available.
+For our data set of 9 sequences, this additional XML block looks as follows:
+ 
+```xml
+<!-- Travel history: defining ancestral node taxa with their discrete trait state -->
+    <taxa id="ancestralTaxa">
+        <taxon id="Australia/NSW11/2020|EPI_ISL_413597|2020-03-02_ancestor_taxon">
+            <attr name="loc">
+                Iran
+            </attr>
+        </taxon>
+        <taxon id="Australia/NSW09/2020|EPI_ISL_413595|2020-02-28_ancestor_taxon">
+            <attr name="loc">
+                SEasia
+            </attr>
+        </taxon>
+        <taxon id="Australia/VIC01/2020|EPI_ISL_406844|2020-01-25_ancestor_taxon">
+            <attr name="loc">
+                Wuhan
+            </attr>
+        </taxon>
+        <taxon id="Australia/QLD02/2020|EPI_ISL_407896|2020-01-30_ancestor_taxon">
+            <attr name="loc">
+                Wuhan
+            </attr>
+        </taxon>
+        <taxon id="Italy/INMI1-cs/2020|EPI_ISL_410546|2020-01-31_ancestor_taxon">
+            <attr name="loc">
+                Wuhan
+            </attr>
+        </taxon>
+    </taxa>
+```
 
+The combined collection of discrete locations (i.e. sampling location and origin location of each travelling individual) then make up the 5 possible states of the location data type:
 
 ```xml
     <generalDataType id="loc.dataType">
@@ -159,8 +193,25 @@ We propose to accommodate individuals' travel histories by augmenting the phylog
     </generalDataType>
 ```
 
+The figure below illustrates the concept of introducing ancestral nodes associated with locations from which travellers returned.
+The ancestral nodes are indicated by arrows for five cases relating them to the genomes sampled from the travellers, and are introduced at different times in the ancestral path of each sampled genome.
 
 {% include image.html file="concept_travel_history.png" width="75%" prefix=root_url %}
+
+When a sampled traveller returned from location of origin to her/his destination, we take note of the time when the traveller started the return journey to her/his destination. 
+At this time point in the ancestral path of the tip (indicated with arrows for the 5 relevant tips), we introduce an ancestral node and associate it with the location of origin in order to inform the reconstruction that at this point in time the lineage was in that location.
+The upper arrow in the figure above represents the information introduced for the traveller that returned from Hubei to Italy.
+The same procedure is applied to the four genomes from travellers returning to Australian from Hubei, Iran, Southeast Asia and Hubei again (from top to bottom in the figure above). 
+
+
+
+
+
+
+
+
+
+
 
 
 
