@@ -21,9 +21,9 @@ Along with the unprecedented accumulation of genomic sequences from across the w
 This information can be exploited, as we will show here, in order to yield more realistic reconstructions of virus spread, particularly when travelers from undersampled locations are included to mitigate sampling bias.
 
 
-## Data set
+## Example data set
 
-The example data set here consists of 9 SARS-CoV-2 sequences, sampled from 3 different locations: Australia (4), Italy (3) and Wuhan (2).
+The small example data set here consists of 9 SARS-CoV-2 sequences, sampled from 3 different locations: Australia (4), Italy (3) and Wuhan (2).
 We refer to the pre-print (Lemey et al., 2020) for a large(r) real-life analysis from the COVID-19 pandemic.
 All analyses have been performed in a custom build of BEAST 1.10.5 (see below for the download link; Suchard et al., 2018).
 Including an individual's travel history requires manual XML editing in order to specify the different model components.
@@ -203,6 +203,75 @@ At this time point in the ancestral path of the tip (indicated with arrows for t
 The upper arrow in the figure above represents the information introduced for the traveller that returned from Hubei to Italy.
 The same procedure is applied to the four genomes from travellers returning to Australian from Hubei, Iran, Southeast Asia and Hubei again (from top to bottom in the figure above). 
 
+To specify this information in the XML, the standard ```<treeModel>``` is still defined and passed along to a new ```<ancestralTraitTreeModel>```:
+
+```xml
+<!-- Travel history: defining ancestral trait tree model: in this case times are defined since the tip height (relativeToTipHeight="true") -->
+    <ancestralTraitTreeModel id="ancestralTraitTreeModel">
+        <treeModel idref="treeModel"/>
+        <ancestor>
+            <taxon idref="Australia/NSW11/2020|EPI_ISL_413597|2020-03-02_ancestor_taxon"/>
+            <parameter id="pseudoBranchLength1" value="0.000" lower="0.0"/>
+            <ancestralPath relativeToTipHeight="true">
+                <taxon idref="Australia/NSW11/2020|EPI_ISL_413597|2020-03-02"/>
+                <parameter id="time1" lower="0.0" value="0.02739726"/>
+            </ancestralPath>
+        </ancestor>
+        <ancestor>
+            <taxon idref="Australia/NSW09/2020|EPI_ISL_413595|2020-02-28_ancestor_taxon"/>
+            <parameter id="pseudoBranchLength2" value="0.000" lower="0.0"/>
+            <ancestralPath relativeToTipHeight="true">
+                <taxon idref="Australia/NSW09/2020|EPI_ISL_413595|2020-02-28"/>
+                <parameter id="time2" lower="0.0" value="0.02739726"/>
+            </ancestralPath>
+        </ancestor>
+        <ancestor>
+            <taxon idref="Australia/VIC01/2020|EPI_ISL_406844|2020-01-25_ancestor_taxon"/>
+            <parameter id="pseudoBranchLength3" value="0.000" lower="0.0"/>
+            <ancestralPath relativeToTipHeight="true">
+                <taxon idref="Australia/VIC01/2020|EPI_ISL_406844|2020-01-25"/>
+                <parameter id="time3" lower="0.0" value="0.016438356"/>
+            </ancestralPath>
+        </ancestor>
+        <ancestor>
+            <taxon idref="Australia/QLD02/2020|EPI_ISL_407896|2020-01-30_ancestor_taxon"/>
+            <parameter id="pseudoBranchLength4" value="0.000" lower="0.0"/>
+            <ancestralPath relativeToTipHeight="true">
+                <taxon idref="Australia/QLD02/2020|EPI_ISL_407896|2020-01-30"/>
+                <parameter id="time4" lower="0.0" value="0.008219178"/>
+            </ancestralPath>
+        </ancestor>
+        <ancestor>
+            <taxon idref="Italy/INMI1-cs/2020|EPI_ISL_410546|2020-01-31_ancestor_taxon"/>
+            <parameter id="pseudoBranchLength5" value="0.000" lower="0.0"/>
+            <ancestralPath relativeToTipHeight="true">
+                <taxon idref="Italy/INMI1-cs/2020|EPI_ISL_410546|2020-01-31"/>
+                <parameter id="time5" lower="0.0" value="0.016438356"/>
+            </ancestralPath>
+        </ancestor>
+    </ancestralTraitTreeModel>
+```
+
+Inserting the travel history for 5 individuals (which are referenced through their taxon ID) hence leads to 5 ```<ancestor>``` XML elements being created in the ```<ancestralTraitTreeModel>``` XML block.
+In the XML code above, the travel history for an individual is specified using the ```<ancestralPath>``` XML element, with a node height (reflecting the travel time) relative to the sampling time for the inserted ancestral node without sequence data.
+We note that the travel time can be treated as a random variable in case the time of travelling to the sampling location is not known (with sufficient precision).
+We make use of this ability for the genomes associated with a travel location but without a clear travel time; in this particular example, we apply this approach to the first two Australian samples. 
+
+
+
+
+
+
+```xml
+    <ancestralTreeLikelihood id="loc.treeLikelihood" stateTagName="loc.states" useUniformization="true" saveCompleteHistory="false" logCompleteHistory="false">
+        <attributePatterns idref="loc.pattern"/>
+        <!-- Travel history: referring ancestral trait tree model instead of standard treeMdodel-->
+        <ancestralTraitTreeModel idref="ancestralTraitTreeModel"/>
+        <siteModel idref="loc.siteModel"/>
+        <generalSubstitutionModel idref="loc.model"/>
+        <strictClockBranchRates idref="loc.branchRates"/>
+    </ancestralTreeLikelihood>
+```
 
 
 
@@ -210,9 +279,7 @@ The same procedure is applied to the four genomes from travellers returning to A
 
 
 
-
-
-
+In our Bayesian inference, we specify normal prior distributions over Ti→j  informed by an estimate of time of infection and truncated to be positive (back-in-time) relative to sampling date. Specifically, we use a mean of 10 days before sampling based on a mean incubation time of 5 days (Lauer et al. 2020) and a constant ascertainment period of ​5 days between symptom onset and testing (Ferguson et al., n.d.), and a standard deviation of 3 days to incorporate the uncertainty on the incubation time.
 
 
 
