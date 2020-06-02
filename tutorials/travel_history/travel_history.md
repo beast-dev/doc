@@ -42,6 +42,8 @@ When the sampling location of a sequence is available, the tip state for that se
 This corresponds to the classic discrete phylogeographic inference scenario (Lemey et al., 2009), and is typically used in the absence of travel (history) information.
 
 
+{% include image.html file="sampling_location.png" prefix=root_url %}
+
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The BEAST 1.10.5 XML file corresponding to this analysis
 <a href="{{ root_url }}files/9seqs_sampled.xml"> can be downloaded from here</a>.
@@ -54,8 +56,13 @@ This corresponds to the classic discrete phylogeographic inference scenario (Lem
 
 or the location from which the individual travelled  (assuming that this was the location from which the infection was acquired)
 
+{% include image.html file="travel_origin_location.png" prefix=root_url %}
 
 
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The BEAST 1.10.5 XML file corresponding to this analysis
+<a href="{{ root_url }}files/9seqs_origin.xml"> can be downloaded from here</a>.
+</div>
 
 
 ### Using location of sampling and travel history
@@ -63,6 +70,18 @@ or the location from which the individual travelled  (assuming that this was the
 
 
 
+
+{% include image.html file="concept_travel_history.png" width="200" prefix=root_url %}
+
+
+
+{% include image.html file="travel_origin_location.png" prefix=root_url %}
+
+
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The BEAST 1.10.5 XML file corresponding to this analysis
+<a href="{{ root_url }}files/9seqs_travelHistory.xml"> can be downloaded from here</a>.
+</div>
 
 
 
