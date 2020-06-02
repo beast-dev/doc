@@ -71,11 +71,11 @@ or the location from which the individual travelled  (assuming that this was the
 
 
 
-{% include image.html file="concept_travel_history.png" width="200" prefix=root_url %}
+{% include image.html file="concept_travel_history.png" width="150" prefix=root_url %}
 
 
 
-{% include image.html file="travel_origin_location.png" prefix=root_url %}
+{% include image.html file="travel_origin_location.png" width="50%" prefix=root_url %}
 
 
 
