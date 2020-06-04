@@ -130,7 +130,7 @@ Other than replacing the sampling locations for some of the sequences with the l
 {% include image.html file="travel_origin_location.png" width="75%" prefix=root_url %}
 
 The result of this inference is shown in the figure above; the branch color reflects the modal state estimate at the child node.
-Using the location of travel origin results in a reconstruction that better matches the one including travel history in terms of inferring an ancestry in Hubei, but misses transitions along four tip branches and differs from the reconstruction including travel history for the upper two Italian genomes.
+Using the location of travel origin results in a reconstruction misses transitions along four tip branches and differs from the reconstruction including travel history for the upper two Italian genomes.
 Specifically it implies a transition from Hubei for the Italian patient that does not have travel history. 
 
 
@@ -255,12 +255,9 @@ To specify this information in the XML, the standard ```<treeModel>``` is still 
 Inserting the travel history for 5 individuals (which are referenced through their taxon ID) hence leads to 5 ```<ancestor>``` XML elements being created in the ```<ancestralTraitTreeModel>``` XML block.
 In the XML code above, the travel history for an individual is specified using the ```<ancestralPath>``` XML element, with a node height (reflecting the travel time) relative to the sampling time for the inserted ancestral node without sequence data.
 We note that the travel time can be treated as a random variable in case the time of travelling to the sampling location is not known (with sufficient precision).
-We make use of this ability for the genomes associated with a travel location but without a clear travel time; in this particular example, we apply this approach to the first two Australian samples. 
-
-
-
-
-
+We make use of this ability for the genomes associated with a travel location but without a clear travel time; in this particular example, we apply this approach to the first two Australian samples.
+The other 3 samples are provided with the actual travel times, expressed as the number of days before these samples were taken: 6 and 3 days for the other 2 Australian samples, and 6 days for the Italian sample. 
+Before we go into more detail, note that (again) instead of providing a reference to ```<treeModel>``` to the ```<ancestralTreeLikelihood>...</ancestralTreeLikelihood>```, we have to provide a reference to the constructed ```<ancestralTraitTreeModel>```:
 
 ```xml
     <ancestralTreeLikelihood id="loc.treeLikelihood" stateTagName="loc.states" useUniformization="true" saveCompleteHistory="false" logCompleteHistory="false">
@@ -273,16 +270,42 @@ We make use of this ability for the genomes associated with a travel location bu
     </ancestralTreeLikelihood>
 ```
 
+As mentioned before, in our Bayesian inference we specify normal prior distributions on the travel times, informed by an estimate of time of infection and truncated to be positive (back-in-time) relative to sampling date.
+Specifically, we use a mean of 10 days before sampling based on a mean incubation time of 5 days (Lauer et al., 2020) and a constant ascertainment period of ​5 days between symptom onset and testing (Ferguson et al., 2020), and a standard deviation of 3 days to incorporate the uncertainty on the incubation time.
+As mentioned before, we apply such a prior distribution to the travel times of the two first Australian samples as follows:
 
+```xml
+    <prior id="prior">
+        ...
+        <!-- Travel history: priors on two uncertain ancestral times; the mean corresponds to 10 days, the standard deviation to approximately 3 days -->
+        <normalPrior mean="0.02739726" stdev="0.006989097">
+            <parameter idref="time1"/>
+        </normalPrior>
+        <normalPrior mean="0.02739726" stdev="0.006989097">
+            <parameter idref="time2"/>
+        </normalPrior>
+        ...
+    </prior>
+```
 
+To complete the XML specification, we still need to add in transition kernels to estimate the travel times for the two Australian samples:
 
+```xml
+    <operators id="operators" optimizationSchedule="log">
+    ...
+    <!-- Travel history: sampling two uncertain ancestral times -->
+        <scaleOperator scaleFactor="0.75" weight="0.05">
+            <parameter idref="time1"/>
+        </scaleOperator>
+        <scaleOperator scaleFactor="0.75" weight="0.05">
+            <parameter idref="time2"/>
+        </scaleOperator>
+    ...
+    </operators>
+```
 
-
-
-In our Bayesian inference, we specify normal prior distributions over Ti→j  informed by an estimate of time of infection and truncated to be positive (back-in-time) relative to sampling date. Specifically, we use a mean of 10 days before sampling based on a mean incubation time of 5 days (Lauer et al. 2020) and a constant ascertainment period of ​5 days between symptom onset and testing (Ferguson et al., n.d.), and a standard deviation of 3 days to incorporate the uncertainty on the incubation time.
-
-
-
+The result of this inference is shown in the figure below; the branch color reflects the modal state estimate at the child node.
+Incorporating travel history in discrete phylogeographic inference yields more realistic reconstructions of virus spread compared to currently available approaches.
 
 {% include image.html file="travel_origin_location.png" width="75%" prefix=root_url %}
 
@@ -300,6 +323,8 @@ In our Bayesian inference, we specify normal prior distributions over Ti→j  in
 * [P. Lemey, A. Rambaut, A. J. Drummond, and M. A. Suchard. 2009. Bayesian phylogeography finds its roots. PLoS Computational Biology 5:e1000520.](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000520)
 * [P. Lemey, S. Hong, V. Hill, G. Baele, C. Poletto, V. Colizza, A. O'Toole, J. T. McCrone, K. G. Andersen, M. Worobey, M. I. Nelson, A. Rambaut, and M. A. Suchard. 2020. Accommodating individual travel history, global mobility, and unsampled diversity in phylogeography: a SARS-CoV-2 case study. Submitted.](still needs to be submitted)
 * [M. A. Suchard, P. Lemey, G. Baele, D. L. Ayres, A. J. Drummond, and A. Rambaut. 2018. Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10. Virus Evolution 4(1):vey016.](https://academic.oup.com/ve/article/4/1/vey016/5035211)
+* [S. A. Lauer, K. H. Grantz, Q. Bi, F. K. Jones, Q. Zheng, H. R. Meredith, A. S. Azman, N. G. Reich, and J. Lessler. 2020. The incubation period of coronavirus disease 2019 (COVID-19) from publicly reported confirmed cases: estimation and application. Annals of Internal Medicine 172:577-582.](https://www.acpjournals.org/doi/10.7326/M20-0504)
+* [N. M. Ferguson, D. Laydon, G. Nedjati-Gilani, N. Imai, K. Ainslie, M. Baguelin, S. Bhatia, A. Boonyasiri, Z. Cucunubá, G. Cuomo-Dannenburg, A. Dighe, I. Dorigatti, H. Fu, K. Gaythorpe, W. Green, A. Hamlet, W. Hinsley, L. C. Okell, S. van Elsland, H. Thompson, R. Verity, E. Volz, H. Wang, Y. Wang, P. G. T. Walker, C. Walters, P. Winskill, C. Whittaker, C. A. Donnelly, Steven Riley, A. C. Ghani. 2020. Report 9: Impact of non-pharmaceutical interventions (NPIs) to reduce COVID-19 mortality and healthcare demand.](https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf)
 
 
 ## Help and documentation
