@@ -307,7 +307,7 @@ To complete the XML specification, we still need to add in transition kernels to
 The result of this inference is shown in the figure below; the branch color reflects the modal state estimate at the child node.
 Incorporating travel history in discrete phylogeographic inference yields more realistic reconstructions of virus spread compared to currently available approaches.
 
-{% include image.html file="travel_origin_location.png" width="75%" prefix=root_url %}
+{% include image.html file="sampling_location_travel_history.png" width="75%" prefix=root_url %}
 
 
 
