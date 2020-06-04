@@ -11,7 +11,6 @@ folder: beast
 
 {% capture root_url %}{{ site.tutorials_root_url }}/travel_history/{% endcapture %}
 
-{% include warning.html content="The methodology discussed in this tutorial is currently under review. Further changes to the XML format may still occur." %}
 
 ## Introduction
 
