@@ -317,7 +317,7 @@ Incorporating travel history in discrete phylogeographic inference yields more r
 
 ## Summarizing and visualizing phylogeographic estimates
 In addition to the standard tools to summarize and visualizing Bayesian phylogeographic estimates (e.g. TreeAnnotator, FigTree, spreaD3), we also make available a tool as part of the BEAST distribution to summarize the spatial trajectories in the ancestral history of specific taxa (TaxaMarkovJumpHistoryAnalyzer) or the entire transition history (TreeMarkovJumpHistoryAnalyzer) based on tree distributions annotated with Markov jump histories.
-To visualize the spatial trajectories in the ancestral history of specific taxa, a new R package (MarkovJumpR) is available at [here]: https://github.com/beast-dev/MarkovJumpR. This package can be installed in R via devtools::install_github("beast-dev/MarkovJumpR").
+To visualize the spatial trajectories in the ancestral history of specific taxa, a new R package (MarkovJumpR) is available at [here]: (https://github.com/beast-dev/MarkovJumpR). This package can be installed in R via devtools::install_github("beast-dev/MarkovJumpR").
 
 ## References
 
