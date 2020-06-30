@@ -93,6 +93,10 @@ entries:
       url: /tempest_tutorial
       output: web, pdf
 
+    - title: Bayesian Evaluation of Temporal Signal
+      url: /bets_tutorial
+      output: web, pdf
+
     - title: Online phylodynamic inference
       url: /online_inference
       output: web, pdf
@@ -142,6 +146,10 @@ entries:
 
     - title: Create custom substitution models
       url: /custom_substitution_models
+      output: web, pdf
+
+    - title: Create Markov-modulated substitution models
+      url: /markov_modulated
       output: web, pdf
 
   - title: Advanced Tutorials
