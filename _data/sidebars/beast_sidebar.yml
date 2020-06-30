@@ -148,7 +148,7 @@ entries:
       url: /custom_substitution_models
       output: web, pdf
 
-    - title: Create Markov-modulated substitution models
+    - title: Create Markov-modulated models
       url: /markov_modulated
       output: web, pdf
 
