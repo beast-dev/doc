@@ -16,16 +16,20 @@ folder: beast
 
 Spatiotemporal bias in genome sequence sampling can severely confound phylogeographic inference based on discrete trait ancestral reconstruction.
 This has impeded our ability to accurately track the emergence and spread of SARS-CoV-2, which is the virus responsible for the COVID-19 pandemic.
-Along with the unprecedented accumulation of genomic sequences from across the world comes a vast collection of metadata on individual patients, such as - in some cases - details on their recent movements while already having been infected without having developed any symptoms.
+Along with the unprecedented accumulation of genomic sequences from across the world comes a vast collection of metadata on individual patients, such as - in some cases - details on their recent movements such as travel history prior to having developed any symptoms.
 This information can be exploited, as we will show here, in order to yield more realistic reconstructions of virus spread, particularly when travelers from undersampled locations are included to mitigate sampling bias.
 
 
-## Example data set
+## Example dataset
 
-The small example data set here consists of 9 SARS-CoV-2 sequences, sampled from 3 different locations: Australia (4), Italy (3) and Wuhan (2).
+The small example dataset here consists of 9 SARS-CoV-2 sequences, sampled from 3 different locations: Australia (4), Italy (3) and Wuhan (2).
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The GISAID acknowledgements for the sequences used can be seen here
+<a href="{{ root_url }}files/GISAID_acknowledgement.pdf"> here</a>.
+</div>
 We refer to the pre-print (Lemey et al., 2020) for a large(r) real-life analysis from the COVID-19 pandemic.
-All analyses have been performed in a custom build of BEAST 1.10.5 (see below for the download link; Suchard et al., 2018).
-Including an individual's travel history requires manual XML editing in order to specify the different model components.
+All analyses have been performed using a custom build of BEAST 1.10.5 (see below for the download link; Suchard et al., 2018).
+Incorporating an individual's travel history to the phylogeographic analysis requires manual XML editing in order to specify the different model components.
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the analyses described here can be performed using the following
 <a href="{{ root_url }}files/beast_travel_history.jar"> BEAST 1.10.5 jar file</a>.
@@ -34,12 +38,9 @@ Including an individual's travel history requires manual XML editing in order to
 
 ## Discrete phylogeographic inference
 
-Discrete (trait) phylogeographic inference attempts to reconstruct an ancestral location-transition history along a phylogeny based on the discrete states associated with the sampled sequences.
-This approach treats the phylogeny as random, which is critical to accommodate phylogenetic uncertainty.
-Three different procedures listed below can be considered to perform this type of phylogeographic inference.
-
+Discrete (trait) phylogeographic inference (Lemey et al., 2009) attempts to reconstruct an ancestral location-transition history along a phylogeny based on the discrete states associated with the sampled sequences. In this tutorial, we will consider three different ways of performing Bayesian phylogeographic inference.
 These approaches differ in the way that the sampling locations and travel history are being used/accommodated.
-The other analysis specifications are however identical: an exponentially growing population size, a single substitution model across the entire alignment (HKY+G) and a strict molecular clock model.
+The remaining model specifications are however identical: an exponentially growing population size, a single substitution model across the entire alignment (HKY+G) and a strict molecular clock model.
 The default prior on the growth rate of the coalescent model has been replaced by the following:
 
 ```xml
@@ -48,14 +49,14 @@ The default prior on the growth rate of the coalescent model has been replaced b
     </laplacePrior>
 ```
 
-In the following 3 subsections, we show how to specify 3 different discrete phylogeographic approaches and discuss how they impact inference results.
+In the following 3 subsections, we show how to specify these 3 different discrete phylogeographic approaches and discuss how they impact inference results.
 
 
 ### Using only location of sampling
 
 When the sampling location of a sequence is available, the tip state for that sequence in the phylogeny can be set to this location.
 This corresponds to the classic discrete phylogeographic inference scenario (Lemey et al., 2009), and is typically used in the absence of travel (history) information.
-As a result, only the 3 sampling locations are part of the location data type in the XML specification:
+As a result, only the 3 sampling locations are part of the location data type in the XML specification for this dataset:
 
 ```xml
     <generalDataType id="loc.dataType">
@@ -67,7 +68,21 @@ As a result, only the 3 sampling locations are part of the location data type in
 ```
 
 Such an analysis can be completely specified using the current version of BEAUti without requiring any manual XML editing.
-We refer to the following tutorial for more information on how to set up this type of analysis: [phylogeographic diffusion in discrete space](workshop_discrete_diffusion) 
+We refer to the following tutorial for more information on how to set up this type of analysis: [phylogeographic diffusion in discrete space](workshop_discrete_diffusion).
+
+Keep in mind that in order to visualize the complete transition history of a sample, we are required to reconstruct the complete state change history of the location trait along the trees. This can be easily set up in BEAUti by following the discrete space phylogeography tutorial. By default, BEAUti will create a separate `logTree` file that only includes the Markov jump histories. To visualize the Markov Jump trajectories, we must add the state node annotations into this file.
+
+```xml
+    <logTree logEvery="10000" nexusFormat="true" fileName="9seqs_sample.loc.history.trees" sortTranslationTable="true">
+        <treeModel idref="treeModel"/>
+        <!-- Location node annotations -->
+        <trait name="loc.states" tag="loc">
+            <ancestralTreeLikelihood idref="loc.treeLikelihood"/>
+        </trait>
+        <!-- Markov Jump histories -->
+        <markovJumpsTreeLikelihood idref="loc.treeLikelihood"/>
+    </logTree>
+```
 
 {% include image.html file="sampling_location.png" width="75%" prefix=root_url %}
 
@@ -82,7 +97,7 @@ Using sampling location only results in an unrealistic Australian ancestry and t
 
 ### Using the location from which an individual travelled
 
-In the previous approach/section, the tip location state for a sequence was set to the location of sampling.
+In the previous section, the tip location state for a sequence was set to the location of sampling.
 However, when information on travel history is available, the tip location state for a sequence can also be set to the location from which the individual travelled (assuming that this was the location from which the infection was acquired). 
 Such an approach constitutes a small variation of standard discrete phylogeographic inference, and we show some of the changes to the provided location information here:
 
@@ -103,14 +118,14 @@ Such an approach constitutes a small variation of standard discrete phylogeograp
         <attr name="loc">
             Wuhan
             <!-- travel: Wuhan -->
-            <!-- sampled: Italy -->				
+            <!-- sampled: Italy -->	
         </attr>
     </taxon>
     ...
 </taxa>
 ````
 
-The XML file below shows all the changes that were made in the ```<taxa>...</taxa>``` block to incorporate information on travel origin location.
+The XML block above shows some of the changes that were made in the ```<taxa>...</taxa>``` block to incorporate information on travel origin location.
 As a result of including these additional travel origin locations, the data type that describes the number of locations for this analysis now contains 5 locations:
 
 ```xml
@@ -128,9 +143,10 @@ Other than replacing the sampling locations for some of the sequences with the l
 
 {% include image.html file="travel_origin_location.png" width="75%" prefix=root_url %}
 
+
 The result of this inference is shown in the figure above; the branch color reflects the modal state estimate at the child node.
-Using the location of travel origin results in a reconstruction misses transitions along four tip branches and differs from the reconstruction including travel history for the upper two Italian genomes.
-Specifically it implies a transition from Hubei for the Italian patient that does not have travel history. 
+Using the location of travel origin results in a reconstruction that misses transitions along four tip branches and differs from the reconstruction including travel history for the upper two Italian genomes.
+Specifically it implies an independent transition from Hubei for the Italian patient that does not have travel history. 
 
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The BEAST 1.10.5 XML file corresponding to this analysis
@@ -144,10 +160,10 @@ Unfortunately, neither of the two previous approaches offers a satisfactory solu
 Using only the location of sampling ignores important information about the ancestral location of the sequence, whereas using the travel location together with the collection date represents a data mismatch and ignores the final transitions to the location of sampling.
 These events are particularly important when the infected traveller then produces a productive transmission chain in the sampling location.
 
-We propose to accommodate individuals' travel histories by augmenting the phylogeny with ancestral nodes that are associated with a location state (but not with a known sequence) and hence enforce that ancestral location at a particular, possibly random point in the past of a lineage.
-Apart from the standard ```<taxa>...</taxa>``` block in the XML file, we hence need to provide the origin location of each individual's travel when available.
-For our data set of 9 sequences, this additional XML block looks as follows:
- 
+We propose to accommodate travel histories by augmenting the phylogeny with ancestral nodes that are associated with a location state (but not with a known sequence) and hence enforce that ancestral location at a particular, possibly random point in the past of a lineage.
+Apart from the standard ```<taxa>...</taxa>``` block in the XML file, we need to provide the origin location of each individual's travel when available.
+For our dataset, this additional XML block looks as follows:
+
 ```xml
 <!-- Travel history: defining ancestral node taxa with their discrete trait state -->
     <taxa id="ancestralTaxa">
@@ -179,6 +195,15 @@ For our data set of 9 sequences, this additional XML block looks as follows:
     </taxa>
 ```
 
+Our augmented dataset is thus specified in a new `<taxa>` element that contains all sampled and ancestral taxa:
+
+```xml
+    <taxa id="allTaxa">
+        <taxa idref="taxa"/>
+        <taxa idref="ancestralTaxa"/>
+    </taxa>
+```
+
 The combined collection of discrete locations (i.e. sampling location and origin location of each travelling individual) then make up the 5 possible states of the location data type:
 
 ```xml
@@ -190,6 +215,11 @@ The combined collection of discrete locations (i.e. sampling location and origin
         <state code="SEasia"/>
         <state code="Wuhan"/>
     </generalDataType>
+
+    <attributePatterns id="loc.pattern" attribute="loc">
+        <taxa idref="allTaxa"/>
+        <generalDataType idref="loc.dataType"/>
+    </attributePatterns>
 ```
 
 The figure below illustrates the concept of introducing ancestral nodes associated with locations from which travellers returned.
@@ -251,27 +281,30 @@ To specify this information in the XML, the standard ```<treeModel>``` is still 
     </ancestralTraitTreeModel>
 ```
 
-Inserting the travel history for 5 individuals (which are referenced through their taxon ID) hence leads to 5 ```<ancestor>``` XML elements being created in the ```<ancestralTraitTreeModel>``` XML block.
-In the XML code above, the travel history for an individual is specified using the ```<ancestralPath>``` XML element, with a node height (reflecting the travel time) relative to the sampling time for the inserted ancestral node without sequence data.
-We note that the travel time can be treated as a random variable in case the time of travelling to the sampling location is not known (with sufficient precision).
-We make use of this ability for the genomes associated with a travel location but without a clear travel time; in this particular example, we apply this approach to the first two Australian samples.
-The other 3 samples are provided with the actual travel times, expressed as the number of days before these samples were taken: 6 and 3 days for the other 2 Australian samples, and 6 days for the Italian sample. 
-Before we go into more detail, note that (again) instead of providing a reference to ```<treeModel>``` to the ```<ancestralTreeLikelihood>...</ancestralTreeLikelihood>```, we have to provide a reference to the constructed ```<ancestralTraitTreeModel>```:
+The code shows how incorporating the travel history for 5 individuals (which are referenced through their taxon ID) leads to 5 ```<ancestor>``` XML elements being created in the ```<ancestralTraitTreeModel>``` XML block.
+The travel history for an individual is then specified using the ```<ancestralPath>``` XML element, with a node height reflecting the travel time relative to the sampling time for the inserted ancestral node.
+
+Before we go into more detail, notice that instead of providing a reference to ```<treeModel>``` in ```<markovJumpsTreeLikelihood>...</markovJumpsTreeLikelihood>```, we have to provide a reference to the constructed ```<ancestralTraitTreeModel>```:
 
 ```xml
-    <ancestralTreeLikelihood id="loc.treeLikelihood" stateTagName="loc.states" useUniformization="true" saveCompleteHistory="false" logCompleteHistory="false">
+    <markovJumpsTreeLikelihood id="loc.treeLikelihood" stateTagName="loc.states" useUniformization="true" saveCompleteHistory="true" logCompleteHistory="true">
         <attributePatterns idref="loc.pattern"/>
-        <!-- Travel history: referring ancestral trait tree model instead of standard treeMdodel-->
+        <!-- Travel history: referring ancestral trait tree model instead of standard treeModel-->
         <ancestralTraitTreeModel idref="ancestralTraitTreeModel"/>
         <siteModel idref="loc.siteModel"/>
         <generalSubstitutionModel idref="loc.model"/>
+        <generalSubstitutionModel idref="loc.model"/>
         <strictClockBranchRates idref="loc.branchRates"/>
-    </ancestralTreeLikelihood>
+    </markovJumpsTreeLikelihood>
 ```
 
-As mentioned before, in our Bayesian inference we specify normal prior distributions on the travel times, informed by an estimate of time of infection and truncated to be positive (back-in-time) relative to sampling date.
+We also note that the travel time can be treated as a random variable in case the time of travelling to the sampling location is not known (with sufficient precision).
+We make use of this ability for the genomes associated with a travel location but without a clear travel time. In this particular example, we apply this approach to the first two Australian samples.
+The other 3 samples are provided with the actual travel times, expressed as the number of days before these samples were taken: 6 and 3 days for the other 2 Australian samples, and 6 days for the Italian sample. 
+
+We formalize this in our Bayesian inference framework by specifying normal prior distributions on the travel times, informed by an estimate of time of infection and truncated to be positive (back-in-time) relative to sampling date.
 Specifically, we use a mean of 10 days before sampling based on a mean incubation time of 5 days (Lauer et al., 2020) and a constant ascertainment period of ​5 days between symptom onset and testing (Ferguson et al., 2020), and a standard deviation of 3 days to incorporate the uncertainty on the incubation time.
-As mentioned before, we apply such a prior distribution to the travel times of the two first Australian samples as follows:
+We apply such a prior distribution to the travel times of the two first Australian samples as follows:
 
 ```xml
     <prior id="prior">
@@ -287,7 +320,7 @@ As mentioned before, we apply such a prior distribution to the travel times of t
     </prior>
 ```
 
-To complete the XML specification, we still need to add in transition kernels to estimate the travel times for the two Australian samples:
+To complete the XML specification, we add in the transition kernels required to estimate the travel times for these two Australian samples:
 
 ```xml
     <operators id="operators" optimizationSchedule="log">
@@ -303,12 +336,23 @@ To complete the XML specification, we still need to add in transition kernels to
     </operators>
 ```
 
+Finally, to obtain the full Markov jump history using this approach, we replace the `<treeModel>` references in `<treeLog>` with `ancestralTreeLikelihood`:
+
+```xml
+    <logTree logEvery="10000" nexusFormat="true" fileName="9seqs_travelHistory.loc.history.trees" sortTranslationTable="true">
+        <!-- Travel history: referring ancestral trait tree model instead of standard treeMdodel -->
+        <ancestralTraitTreeModel idref="ancestralTraitTreeModel"/>
+        <trait name="loc.states" tag="loc">
+            <ancestralTreeLikelihood idref="loc.treeLikelihood"/>
+        </trait>
+        <markovJumpsTreeLikelihood idref="loc.treeLikelihood"/>
+    </logTree>
+```
+
 The result of this inference is shown in the figure below; the branch color reflects the modal state estimate at the child node.
 Incorporating travel history in discrete phylogeographic inference yields more realistic reconstructions of virus spread compared to currently available approaches.
 
 {% include image.html file="sampling_location_travel_history.png" width="75%" prefix=root_url %}
-
-
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The BEAST 1.10.5 XML file corresponding to this analysis
 <a href="{{ root_url }}files/9seqs_travelHistory.xml"> can be downloaded from here</a>.
@@ -316,8 +360,64 @@ Incorporating travel history in discrete phylogeographic inference yields more r
 
 
 ## Summarizing and visualizing phylogeographic estimates
-In addition to the standard tools to summarize and visualizing Bayesian phylogeographic estimates (e.g. TreeAnnotator, FigTree, spreaD3), we also make available a tool as part of the BEAST distribution to summarize the spatial trajectories in the ancestral history of specific taxa (TaxaMarkovJumpHistoryAnalyzer) or the entire transition history (TreeMarkovJumpHistoryAnalyzer) based on tree distributions annotated with Markov jump histories.
-To visualize the spatial trajectories in the ancestral history of specific taxa, a new R package (MarkovJumpR) is available at [here](https://github.com/beast-dev/MarkovJumpR). This package can be installed in R via devtools::install_github("beast-dev/MarkovJumpR").
+In addition to the standard tools to summarize and visualize Bayesian phylogeographic estimates (e.g. TreeAnnotator, FigTree, spreaD3), we also make available a tool as part of BEAST to summarize the spatial trajectories in the ancestral history of specific taxa based on posterior tree distributions annotated with Markov jump histories.
+
+As an example, we will look at the spatial trajectory of isolate EPI_ISL_413597 reconstructed under each different phylogeographic model. This is an isolate that was sampled in Australia, from a patient with a travel history to Iran. We begin by extracting all Markov jump reconstructions for this taxon using the `TaxaMarkovJumpHistoryAnalyzer` tool, which is included in the latest BEAST jar file:
+
+```console
+Usage: TaxonMarkovJumpHistory [-burnin <i>] [-taxaToProcess <list>] [-endState <end_state>] [-stateAnnotation <state_annotation_name>] [-mrsd <r>] [-help] <input-file-name> [<output-file-name>]
+      -burnin the number of states to be considered as 'burn-in' [default = 0]
+      -taxaToProcess a list of taxon names to process MJHs
+      -endState a state at which the MJH processing stops
+      -stateAnnotation The annotation name for the discrete state string
+      -mrsd The most recent sampling time to convert heights to times [default=MAX_VALUE]
+      -help option to print this message
+
+  Example: taxonMarkovJumpHistory -taxaToProcess taxon1,taxon2 input.trees output.trees
+```
+
+To extract all Markov jump histories for isolate EPI_ISL_413597 from the output of the travel history model, we type:
+
+```console
+java -cp beast_travel_history.jar dr.app.tools.TaxaMarkovJumpHistoryAnalyzer -taxaToProcess 'Australia/NSW11/2020|EPI_ISL_413597|2020-03-02' -stateAnnotation loc -burnin 100 -mrsd 2020.1693989071039 9seqs_travelHistory.loc.history.trees EPI_ISL_413597.travelHistory.csv
+```
+
+We repeat the process with the trees obtained from the two remaining models, to obtain a total of 3 csv files containing the spatial histories reconstructed over each posterior tree distribution. We can then use these files to visualize the spatial trajectories in the ancestral history of our taxon of interest by using a new R package we provide for this purpuse (MarkovJumpR), available [here](https://github.com/beast-dev/MarkovJumpR). This package can be installed in R via `devtools::install_github("beast-dev/MarkovJumpR")`. We can use the following R code to plot the Markov jump history on the travel history model:
+
+```R
+library(MarkovJumpR)
+library(lubridate)
+# set up mapping of locations and colors
+locations <- c("Wuhan","Italy","SEasia","Iran","Australia")
+locationColors <-c("#E3272F","#31B186","#931ECF","#C695BD","#9DC7DD")
+locationMap <- data.frame(
+    location = locations,
+    # ordering of countries in the plot
+    position = c(1, 2, 3, 4, 5))
+
+locationMap$color <- sapply(locationColors,as.character)
+
+# load Markov jump history
+travelHistPaths <- loadPaths(fileName = "EPI_ISL_413597.travel_hist.csv")
+# set x-axis date labels
+dateLabels <- c("01-Dec-19", "15-Dec-19", "01-Jan-20",
+                "15-Jan-20", "01-Feb-20", "15-Feb-20", "01-Mar-20" )
+# plot trajectories
+plotPaths(travelHistPaths$paths, locationMap = locationMap,
+          yJitterSd = 0.1, alpha = 0.1, minTime = 2019.9,
+          addLocationLine = TRUE,
+          xAt = decimal_date(dmy(dateLabels)),
+          xLabels = dateLabels,
+          mustDisplayAllLocations = TRUE)
+```
+
+Finally, we can compare the different Markov jump plots to assess the ancestral state reconstructions under each model:
+
+{% include image.html file="markov_jump_trajectories.png" width="80%" prefix=root_url %}
+
+We see from this plot that sampling location alone does not provide any support for Iranian ancestry, since the dataset does not include any genomes directly sampled from Iran. On the other hand, when using the locations of origin as tip locations, we see support for Iranian ancestry, but with considerable ambiguity. However, when we accommodate for travel history directly in the phylogeographic model, we not only see clear support for an ancestry that includes Iran, but also less variation in the spatial trajectories reconstructed.
+
+
 
 ## References
 
