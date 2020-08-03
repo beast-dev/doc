@@ -423,7 +423,7 @@ plotPaths(travelHistPaths$paths, locationMap = locationMap,
 ```
 
 
-Such a Markov jump trajectory plot depicts the ancestral transition history between locations from the sampling location of a specific taxon/sample (top of the plot) to the location of origin as inferred from the data set (bottom of the plot).
+Such a Markov jump trajectory plot depicts the posterior spatiotemporal ancestral transition history between locations from the sampling location of a specific taxon/sample (top of the plot) to the location of origin as inferred from the data set (bottom of the plot).
 Each trajectory plot constitutes a summary from a posterior tree distribution with Markov jump history annotation.
 We can compare these different Markov jump trajectory plots to assess the ancestral state reconstructions under each model:
 
