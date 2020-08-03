@@ -391,7 +391,9 @@ java -cp beast_travel_history.jar dr.app.tools.TaxaMarkovJumpHistoryAnalyzer -ta
 ```
 
 We repeat the process with the trees obtained from the two remaining methods, to obtain a total of 3 CSV files containing the spatial histories reconstructed over each posterior tree distribution.
-We can then use these files to visualize the spatial trajectories in the ancestral history of our taxon of interest by using a new R package we provide for this purpose (MarkovJumpR), available [here](https://github.com/beast-dev/MarkovJumpR). This package can be installed in R via `devtools::install_github("beast-dev/MarkovJumpR")`. We can use the following R code to plot the Markov jump history on the travel history model:
+We can then use these files to visualize the spatial trajectories in the ancestral history of our taxon of interest by using a new R package we provide for this purpose (MarkovJumpR), available [here](https://github.com/beast-dev/MarkovJumpR).
+This package can be installed in R via `devtools::install_github("beast-dev/MarkovJumpR")`.
+We can use the following R code to create a Markov jump trajectory plot for a given patient/sample/taxon:
 
 ```R
 library(MarkovJumpR)
@@ -420,7 +422,10 @@ plotPaths(travelHistPaths$paths, locationMap = locationMap,
           mustDisplayAllLocations = TRUE)
 ```
 
-Finally, we can compare the different Markov jump plots to assess the ancestral state reconstructions under each model:
+
+Such a Markov jump trajectory plot depicts the ancestral transition history between locations from the sampling location of a specific taxon/sample (top of the plot) to the location of origin as inferred from the data set (bottom of the plot).
+Each trajectory plot constitutes a summary from a posterior tree distribution with Markov jump history annotation.
+We can compare these different Markov jump trajectory plots to assess the ancestral state reconstructions under each model:
 
 {% include image.html file="markov_jump_trajectories.png" width="80%" prefix=root_url %}
 
