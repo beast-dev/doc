@@ -24,7 +24,7 @@ This information can be exploited, as we will show here, in order to yield more 
 
 The small example dataset here consists of 9 SARS-CoV-2 sequences, sampled from 3 different locations: Australia (4), Italy (3) and Wuhan (2).
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The GISAID acknowledgements for the sequences used can be seen here
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The GISAID acknowledgements for the sequences used can be seen
 <a href="{{ root_url }}files/GISAID_acknowledgement.pdf"> here</a>.
 </div>
 We refer to the pre-print (Lemey et al., 2020) for a large(r) real-life analysis from the COVID-19 pandemic.
@@ -49,6 +49,25 @@ The default prior on the growth rate of the coalescent model has been replaced b
     </laplacePrior>
 ```
 
+
+Note that in order to visualize the complete transition history throughout a phylogeny, we are required to reconstruct the complete state change history of the location trait along the trees.
+This can be easily set up in BEAUti by following the [phylogeographic diffusion in discrete space](workshop_discrete_diffusion) tutorial.
+By default, BEAUti will create a separate `logTree` output file that only includes the Markov jump histories.
+To visualize these Markov jump trajectories, we must add the state node annotations into this file as follows:
+
+
+```xml
+    <logTree logEvery="10000" nexusFormat="true" fileName="9seqs_sample.loc.history.trees" sortTranslationTable="true">
+        <treeModel idref="treeModel"/>
+        <!-- Location node annotations -->
+        <trait name="loc.states" tag="loc">
+            <ancestralTreeLikelihood idref="loc.treeLikelihood"/>
+        </trait>
+        <!-- Markov Jump histories -->
+        <markovJumpsTreeLikelihood idref="loc.treeLikelihood"/>
+    </logTree>
+```
+
 In the following 3 subsections, we show how to specify these 3 different discrete phylogeographic approaches and discuss how they impact inference results.
 
 
@@ -70,19 +89,6 @@ As a result, only the 3 sampling locations are part of the location data type in
 Such an analysis can be completely specified using the current version of BEAUti without requiring any manual XML editing.
 We refer to the following tutorial for more information on how to set up this type of analysis: [phylogeographic diffusion in discrete space](workshop_discrete_diffusion).
 
-Keep in mind that in order to visualize the complete transition history of a sample, we are required to reconstruct the complete state change history of the location trait along the trees. This can be easily set up in BEAUti by following the discrete space phylogeography tutorial. By default, BEAUti will create a separate `logTree` file that only includes the Markov jump histories. To visualize the Markov Jump trajectories, we must add the state node annotations into this file.
-
-```xml
-    <logTree logEvery="10000" nexusFormat="true" fileName="9seqs_sample.loc.history.trees" sortTranslationTable="true">
-        <treeModel idref="treeModel"/>
-        <!-- Location node annotations -->
-        <trait name="loc.states" tag="loc">
-            <ancestralTreeLikelihood idref="loc.treeLikelihood"/>
-        </trait>
-        <!-- Markov Jump histories -->
-        <markovJumpsTreeLikelihood idref="loc.treeLikelihood"/>
-    </logTree>
-```
 
 {% include image.html file="sampling_location.png" width="75%" prefix=root_url %}
 
