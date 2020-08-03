@@ -368,7 +368,9 @@ Incorporating travel history in discrete phylogeographic inference yields more r
 ## Summarizing and visualizing phylogeographic estimates
 In addition to the standard tools to summarize and visualize Bayesian phylogeographic estimates (e.g. TreeAnnotator, FigTree, spreaD3), we also make available a tool as part of BEAST to summarize the spatial trajectories in the ancestral history of specific taxa based on posterior tree distributions annotated with Markov jump histories.
 
-As an example, we will look at the spatial trajectory of isolate EPI_ISL_413597 reconstructed under each different phylogeographic model. This is an isolate that was sampled in Australia, from a patient with a travel history to Iran. We begin by extracting all Markov jump reconstructions for this taxon using the `TaxaMarkovJumpHistoryAnalyzer` tool, which is included in the latest BEAST jar file:
+As an example, we will look at the spatial trajectory of isolate EPI_ISL_413597 reconstructed under each phylogeographic model.
+This is an isolate that was sampled in Australia, from a patient with a travel history to Iran.
+We begin by extracting all Markov jump reconstructions for this taxon using the `TaxaMarkovJumpHistoryAnalyzer` tool, which is included in the latest BEAST jar file:
 
 ```console
 Usage: TaxonMarkovJumpHistory [-burnin <i>] [-taxaToProcess <list>] [-endState <end_state>] [-stateAnnotation <state_annotation_name>] [-mrsd <r>] [-help] <input-file-name> [<output-file-name>]
@@ -379,7 +381,7 @@ Usage: TaxonMarkovJumpHistory [-burnin <i>] [-taxaToProcess <list>] [-endState <
       -mrsd The most recent sampling time to convert heights to times [default=MAX_VALUE]
       -help option to print this message
 
-  Example: taxonMarkovJumpHistory -taxaToProcess taxon1,taxon2 input.trees output.trees
+  Example: taxonMarkovJumpHistory -taxaToProcess taxon1,taxon2 input.trees output.file
 ```
 
 To extract all Markov jump histories for isolate EPI_ISL_413597 from the output of the travel history model, we type:
@@ -388,7 +390,8 @@ To extract all Markov jump histories for isolate EPI_ISL_413597 from the output 
 java -cp beast_travel_history.jar dr.app.tools.TaxaMarkovJumpHistoryAnalyzer -taxaToProcess 'Australia/NSW11/2020|EPI_ISL_413597|2020-03-02' -stateAnnotation loc -burnin 100 -mrsd 2020.1693989071039 9seqs_travelHistory.loc.history.trees EPI_ISL_413597.travelHistory.csv
 ```
 
-We repeat the process with the trees obtained from the two remaining models, to obtain a total of 3 csv files containing the spatial histories reconstructed over each posterior tree distribution. We can then use these files to visualize the spatial trajectories in the ancestral history of our taxon of interest by using a new R package we provide for this purpuse (MarkovJumpR), available [here](https://github.com/beast-dev/MarkovJumpR). This package can be installed in R via `devtools::install_github("beast-dev/MarkovJumpR")`. We can use the following R code to plot the Markov jump history on the travel history model:
+We repeat the process with the trees obtained from the two remaining methods, to obtain a total of 3 CSV files containing the spatial histories reconstructed over each posterior tree distribution.
+We can then use these files to visualize the spatial trajectories in the ancestral history of our taxon of interest by using a new R package we provide for this purpose (MarkovJumpR), available [here](https://github.com/beast-dev/MarkovJumpR). This package can be installed in R via `devtools::install_github("beast-dev/MarkovJumpR")`. We can use the following R code to plot the Markov jump history on the travel history model:
 
 ```R
 library(MarkovJumpR)
@@ -421,7 +424,9 @@ Finally, we can compare the different Markov jump plots to assess the ancestral 
 
 {% include image.html file="markov_jump_trajectories.png" width="80%" prefix=root_url %}
 
-We see from this plot that sampling location alone does not provide any support for Iranian ancestry, since the dataset does not include any genomes directly sampled from Iran. On the other hand, when using the locations of origin as tip locations, we see support for Iranian ancestry, but with considerable ambiguity. However, when we accommodate for travel history directly in the phylogeographic model, we not only see clear support for an ancestry that includes Iran, but also less variation in the spatial trajectories reconstructed.
+We can see from this plot that sampling location alone does not provide any support for Iranian ancestry, since the dataset does not include any genomes directly sampled from Iran.
+On the other hand, when using the locations of origin as tip locations, we see support for Iranian ancestry, but with considerable ambiguity.
+However, when we accommodate known travel history directly into the phylogeographic model, we not only see clear support for an ancestry that includes Iran, but also less variation in the spatial trajectories reconstructed.
 
 
 
