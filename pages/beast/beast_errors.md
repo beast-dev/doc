@@ -336,9 +336,10 @@ LD_LIBRARY_PATH
 PKG_CONFIG_PATH
 </pre>
 How to set these variables depends on the operating system; more information can be found in the <a href="https://github.com/beagle-dev/beagle-lib">BEAGLE installation instructions</a>.
-                    		</div>
-                    	</div>
-        <!-- /.panel -->
+                                </div>
+                     		</div>
+                     	</div>
+         <!-- /.panel -->
         
 </div>
 
