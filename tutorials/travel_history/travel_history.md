@@ -424,7 +424,9 @@ plotPaths(travelHistPaths$paths, locationMap = locationMap,
 
 
 Such a Markov jump trajectory plot depicts the posterior spatiotemporal ancestral transition history between locations from the sampling location of a specific taxon/sample (top of the plot) to the location of origin as inferred from the data set (bottom of the plot).
-Each trajectory plot constitutes a summary from a posterior tree distribution with Markov jump history annotation.
+Each trajectory plot summarizes across the posterior distribution (with Markov jump history annotation) the time intervals in the phylogenetic ancestry during which the virus remains in the same location (horizontal lines) and the transitions between two locations (vertical lines).
+The relative density of lines reflects the posterior uncertainty in location state and transition time between states.
+
 We can compare these different Markov jump trajectory plots to assess the ancestral state reconstructions under each model:
 
 {% include image.html file="markov_jump_trajectories.png" width="80%" prefix=root_url %}
