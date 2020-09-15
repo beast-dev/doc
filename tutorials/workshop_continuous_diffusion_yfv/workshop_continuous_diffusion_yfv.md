@@ -115,7 +115,7 @@ Next, click on `location` in the `Substitution model` window and select the
 
 #### Setting the molecular clock model
 
-The `Molecular Clock Model` options in the `Clocks` panel allows us to choose between a strict and a relaxed (uncorrelated lognormal or uncorrelated exponential) clock. We will perform our run using the Lognormal relaxed molecular clock  (Uncorrelated) model:
+The `Molecular Clock Model` options in the `Clocks` panel allows us to choose between a strict and a relaxed (uncorrelated lognormal or uncorrelated exponential) clock. We will perform our run using the lognormal relaxed molecular clock (uncorrelated) model:
 
 {% include image.html file="YFV_screenshot_09_clocks.png" prefix=root_url caption="" %}
 
@@ -123,7 +123,7 @@ Now move on to the `Trees` panel.
 
 #### Setting the tree prior
 
-This panel contains settings about the tree. Firstly the starting tree is specified to be `randomly generated`. The other main setting here is to specify the `Tree prior` which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. Here, we will select a flexible skygrid coalescent model as demographic tree prior (`Coalescent: Bayesian SkyGrid`), with 36 grid points (`Number of parameters`) and `A time at last transition point` set to `0.6948424`. By doing so, the grid points actually approximate the number of epidemiological weeks spanned by the duration of the phylogeny (Faria *et al*. 2018).
+This panel contains settings about the tree. Firstly the starting tree is specified to be 'randomly generated'. The other main setting here is to specify the `Tree Prior` which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. Here, we will select a flexible skygrid coalescent model as demographic tree prior (`Coalescent: Bayesian SkyGrid`), with 36 grid points (`Number of parameters`) and `A time at last transition point` set to `0.6948424`. By doing so, the grid points actually approximate the number of epidemiological weeks spanned by the duration of the phylogeny (Faria *et al*. 2018).
 
 {% include image.html file="YFV_screenshot_10_trees.png" prefix=root_url caption="" %}
 
