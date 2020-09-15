@@ -3,7 +3,7 @@ title: Phylogeographic Diffusion in Continuous Space - YFV example
 keywords: phylogeography, YFV, tutorial
 last_updated: June 12, 2019
 tags: [tutorial]
-summary: 'This tutorial provides a step-by-step explanation on reconstructing the spatial dynamics of the Yellow fever virus (YFV) epidemic in Brazil based on a set of viral genome sequences which have been isolated at different points in time (Faria et al. 2018). YFV is responsible for 29,000 to 60,000 deaths annually in South America and Africa and is the most severe mosquito-borne infection in the tropics. YFV transmission occurs mainly via the sylvatic cycle, in which non-human primates are infected by mosquito vectors, but can also occur via an urban cycle, in which humans are infected by Aedes spp. mosquitoes that feed mostly on humans. Recently, Brazil has experienced its largest recorded Yellow fever outbreak in decades. In that context, Faria et al. (2018) have analysed a data set of 65 YFV genomes collected between January and April 2017 in order to characterise the dispersal history and dynamics of the virus during this recent outbreak. For this purpose, they have applied the continuous diffusion (Lemey et al. 2010, Pybus et al. 2012) to estimate the ancestral locations of the virus in continuous space. In the present tutorial, we detail how to set this continuous phylogeographic analysis and how to analyse/visualise the outputs.'
+summary: 'This tutorial provides a step-by-step explanation on reconstructing the spatial dynamics of the Yellow fever virus (YFV) epidemic in Brazil based on a set of viral genome sequences, which have been isolated at different points in time (Faria et al. 2018). YFV is responsible for 29,000 to 60,000 deaths annually in South America and Africa and is the most severe mosquito-borne infection in the tropics. YFV transmission occurs mainly via the sylvatic cycle, in which non-human primates are infected by mosquito vectors, but can also occur via an urban cycle, in which humans are infected by Aedes spp. mosquitoes that feed mostly on humans. Recently, Brazil has experienced its largest recorded Yellow fever outbreak in decades. In that context, Faria et al. (2018) have analysed a data set of 65 YFV genomes collected between January and April 2017 in order to characterise the dispersal history and dynamics of the virus during this recent outbreak. For this purpose, they have applied the continuous diffusion (Lemey et al. 2010, Pybus et al. 2012) to estimate the ancestral locations of the virus in continuous space. In the present tutorial, we detail how to set this continuous phylogeographic analysis and how to analyse/visualise the outputs.'
 sidebar: beast_sidebar
 permalink: workshop_continuous_diffusion_yfv.html
 folder: beast
@@ -123,7 +123,7 @@ Now move on to the `Trees` panel.
 
 #### Setting the tree prior
 
-This panel contains settings about the tree. Firstly the starting tree is specified to be 'randomly generated'. The other main setting here is to specify the `Tree Prior` which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. Here, we will select a flexible skygrid coalescent model as demographic tree prior (`Coalescent: Bayesian SkyGrid`), with 36 grid points (`Number of parameters`) and `Time at last transition point` set to `0.6948424`. By doing so, the grid points actually approximate the number of epidemiological weeks spanned by the duration of the phylogeny (Faria *et al*. 2018).
+This panel contains settings about the tree. Firstly the starting tree is specified to be 'randomly generated'. The other main setting here is to specify the `Tree Prior`, which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. Here, we will select a flexible skygrid coalescent model as demographic tree prior (`Coalescent: Bayesian SkyGrid`), with 36 grid points (`Number of parameters`) and `Time at last transition point` set to `0.6948424`. By doing so, the grid points actually approximate the number of epidemiological weeks spanned by the duration of the phylogeny (Faria *et al*. 2018).
 
 {% include image.html file="YFV_screenshot_10_trees.png" prefix=root_url caption="" %}
 
@@ -145,25 +145,25 @@ Each parameter in the model has one or more 'operators' (these are variously cal
 
 {% include image.html file="YFV_screenshot_13_operators.png" prefix=root_url caption="" %}
 
-In the first column are the parameter names. These will be called things like 'kappa' which means the HKY model's kappa parameter (the transition-transversion bias). The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a proportion, the random walk operator adds or subtracts an amount to the parameter and the uniform operator simply picks a new value uniformly within a range. Some parameters relate to the tree or to the divergence times of the nodes of the tree and these have special operators. In this tutorial, we will use the `classic operator mix`, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a `new experimental mix`, which is currently under development with the aim to improve mixing for large phylogenetic trees.
+In the first column are the parameter names. These will be called things like 'kappa', which means the HKY model's kappa parameter (the transition-transversion bias). The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a proportion, the random walk operator adds or subtracts an amount to the parameter and the uniform operator simply picks a new value uniformly within a range. Some parameters relate to the tree or to the divergence times of the nodes of the tree and these have special operators. In this tutorial, we will use the `classic operator mix`, which consists of a set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a `new experimental mix`, which is currently under development with the aim to improve mixing for large phylogenetic trees.
 
-The next column, labelled `Tuning`, gives a tuning setting to the operator. Some operators do not have any tuning settings so have n/a under this column. The tuning parameter will determine how large a move each operator will make which will affect how often that change is accepted by the MCMC which will in turn affect the efficiency of the analysis. For most operators (like random walk and subtree slide operators) a larger tuning parameter means larger moves. However for the scale operator a tuning parameter value closer to 0.0 means bigger moves. At the top of the window is an option called `Auto Optimize` which, when selected, will automatically adjust the tuning setting as the MCMC runs to try to achieve maximum efficiency. At the end of the run a table of the operators, their performance and the final values of these tuning settings will be written to standard output.
+The next column, labelled `Tuning`, gives a tuning setting to the operator. Some operators do not have any tuning settings so have 'n/a' under this column. The tuning parameter will determine how large a move each operator will make, which will affect how often that change is accepted by the MCMC, and which will in turn affect the efficiency of the analysis. For most operators (like random walk and subtree slide operators) a larger tuning parameter means larger moves. However for the scale operator a tuning parameter value closer to 0.0 means bigger moves. At the top of the window is an option called `Auto Optimize` which, when selected, will automatically adjust the tuning setting as the MCMC runs to try to achieve maximum efficiency. At the end of the run, a table of the operators, their performance, and the final values of these tuning settings will be written to standard output.
 
 The next column, labelled `Weight`, specifies how often each operator is applied relative to the others. Some parameters tend to be sampled very efficiently - an example is the kappa parameter - these parameters can have their operators down-weighted so that they are not changed as often. We will start by using the default settings for this analysis. As of BEAST v1.8.4, different options are available w.r.t. exploring tree space. In this tutorial, we will use the `classic operator mix`, which consists of a set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a `new experimental mix`, which is currently under development with the aim to improve mixing for large phylogenetic trees. We can keep the default operator settings for the analysis in this tutorial.
 
 #### Setting the MCMC options
 
-The `MCMC` tab in BEAUti provides settings to control the MCMC chain. Firstly we have the `Length of chain`. This is the number of steps the MCMC will make in the chain before finishing. How long this should be depends on the size of the dataset, the complexity of the model and the precision of the answer required. The default value of 10,000,000 is entirely arbitrary and should be adjusted according to the size of your dataset. We will see later how the resulting log file can be analysed using Tracer in order to examine whether a particular chain length is adequate.
+The `MCMC` tab in BEAUti provides settings to control the MCMC chain. Firstly we have the `Length of chain`. This is the number of steps the MCMC will make in the chain before finishing. How long this should be depends on the size of the data set, the complexity of the model and the precision of the answer required. The default value of 10,000,000 is entirely arbitrary and should be adjusted according to the size of your data set. We will see later how the resulting log file can be analysed using Tracer in order to examine whether a particular chain length is adequate.
 
 The next couple of options specify how often the current parameter values should be displayed on the screen and recorded in the log file. The screen output is simply for monitoring the program's progress so can be set to any value (although if set too small, the sheer quantity of information being displayed on the screen will slow the program down). For the log file, the value should be set relative to the total length of the chain. Sampling too often will result in very large files with little extra benefit in terms of the precision of the estimates. Sample too infrequently and the log file will not contain much information about the distributions of the parameters. You probably want to aim to store no more than 10,000 samples. 
 
 {% include image.html file="YFV_screenshot_14_MCMC.png" prefix=root_url caption="" %}
 
-For this dataset let's set the chain length to 500,000,000 and the parameter logging to file as well the state echo to screen every 50,000 state.
+For this data set let's set the chain length to 500,000,000 and the parameter logging to file as well the state echo to screen every 50,000 state.
 
-The next option allows the user to set the File stem name; set this to 'YFV\_RRW\_cauchy' ('YFV\_RRW\_cauchy' for 'relaxed random walk Cauchy diffusion model'). The next two options give the file names of the log files for the parameters and the trees. These will be set based on the file stem name. You can also log the operator analysis to a file. An option is also available to sample from the prior only, which can be useful to evaluate how divergent our posterior estimates are when information is drawn from the data. Here, we will not select this option, but analyze the actual data. 
+The next option allows the user to set the File stem name; set this to 'YFV\_RRW\_cauchy' ('YFV\_RRW\_cauchy' for 'relaxed random walk Cauchy diffusion model'). The next two options give the file names of the log files for the parameters and the trees. These will be set based on the file stem name. You can also log the operator analysis to a file. An option is also available to sample from the prior only, which can be useful to evaluate how divergent our posterior estimates are when information is drawn from the data. Here, we will not select this option, but analyse the actual data. 
 
-Finally, one can select to perform marginal likelihood estimation to assess model fit, which is not needed in this exercise. So, at this point we are ready to generate a BEAST XML file and to use this to run the Bayesian evolutionary analysis. To do this, either select the `Generate BEAST File...` option from the `File` menu or click the similarly labelled button at the bottom of the window. BContinue and choose a name for the file (for example, 'YFV\_RRW\_cauchy.xml' by adding the xml extension to the file name stem) and save the file. For convenience, you can leave the BEAUti window open so that you can change the values and re-generate the BEAST file if necessary.
+Finally, one can select an option to perform marginal likelihood estimation to assess model fit, which is not needed in this exercise. So, at this point we are ready to generate a BEAST XML file and to use this to run the Bayesian evolutionary analysis. To do this, either select the `Generate BEAST File...` option from the `File` menu or click the similarly labelled button at the bottom of the window. Continue and choose a name for the file (for example, 'YFV\_RRW\_cauchy.xml' by adding the xml extension to the file name stem) and save the file. For convenience, you can leave the BEAUti window open so that you can change the values and re-generate the BEAST file if necessary.
 
 ### Running BEAST
 
@@ -173,9 +173,9 @@ Once the BEAST XML file has been created the analysis itself can be performed us
 
 Press the `Choose File` button and select the XML file you just created and press `Run`. When you have installed the BEAGLE library (https://github.com/beagle-dev/beagle-lib), you can use this in conjunction with BEAST to speed up the calculations. If not installed, unselect the use of the BEAGLE library. If the command line version of BEAST is being used then the name of the XML file is given after the name of the BEAST executable. The analysis will then be performed with detailed information about the progress of the run being written to the screen. When it has finished, the log file and the trees file will have been created in the same location as your XML file. 
 
-### Analyzing the BEAST output
+### analysing the BEAST output
 
-To analyze the results of running BEAST we are going to use the program Tracer. The exact instructions for running Tracer differs depending on which computer you are using. Double click on the Tracer icon; once running, Tracer will look similar irrespective of which computer system it is running on.
+To analyse the results of running BEAST we are going to use the program Tracer. The exact instructions for running Tracer differs depending on which computer you are using. Double click on the Tracer icon; once running, Tracer will look similar irrespective of which computer system it is running on.
 
 Select the `Import Trace File...` option from the `File` menu. If you have it available, select the log file that you created in the previous section ('YFV\_RRW\_cauchy.log'). Alternative, drag and drop your log file into the Tracer window. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
 
@@ -185,53 +185,59 @@ On the left hand side is the name of the log file loaded and the traces that it 
 
 In the top right of the window is a table of calculated statistics for the selected trace. The statistics and their meaning are described in the table below.
 
-* Mean - The mean value of the samples (excluding the burn-in). 
-* Stdev - The standard error of the mean. This takes into account the effective sample size so a small ESS will give a large standard error. 
-* Median - The median value of the samples (excluding the burn-in). 
-* 95% HPD Lower - The lower bound of the highest posterior density (HPD) interval. The HPD is the shortest interval that contains 95% of the sampled values. 
-* 95% HPD Upper - The upper bound of the highest posterior density (HPD) interval. 
-* Auto-Correlation Time (ACT) - The average number of states in the MCMC chain that two samples have to be separated by for them to be uncorrelated (i.e. independent samples from the posterior). The ACT is estimated from the samples in the trace (excluding the burn-in). 
-* Effective Sample Size (ESS) - The effective sample size (ESS) is the number of independent samples that the trace is equivalent to. This is calculated as the chain length (excluding the burn-in) divided by the ACT.
+* `mean`: the mean value of the samples (excluding the burn-in)
 
-Note that when the effective sample sizes (ESSs) are small (ESSs less than 100 are highlighted in red by Tracer and values > 100 but < 200 are in yellow), this is not good. A low ESS means that your samples are equivalent to only few uncorrelated samples trace and this may not represent the posterior distribution well. A simple response to this kind of situation would be to run the chain for longer. Here, there are no obvious trends in the plot which would suggest that the MCMC has not yet converged, and there are no large-scale fluctuations in the trace which would suggest poor mixing.
+* `stdev`: The standard error of the mean. This takes into account the effective sample size so a small ESS will give a large standard error
+
+* `median`: the median value of the samples (excluding the burn-in)
+
+* `95% HPD lower`: the lower bound of the highest posterior density (HPD) interval. The HPD is the shortest interval that contains 95% of the sampled values
+
+* `95% HPD upper`: the upper bound of the highest posterior density (HPD) interval
+
+* `auto-correlation time (ACT)`: the average number of states in the MCMC chain that two samples have to be separated by for them to be uncorrelated (i.e. independent samples from the posterior). The ACT is estimated from the samples in the trace (excluding the burn-in) 
+
+* `effective sample size (ESS)`: the effective sample size (ESS) is the number of independent samples that the trace is equivalent to. This is calculated as the chain length (excluding the burn-in) divided by the ACT
+
+Note that when the effective sample sizes (ESSs) are small (ESSs less than 100 are highlighted in red by Tracer and values > 100 but < 200 are in yellow), this is not good. A low ESS means that your samples are equivalent to only few uncorrelated samples trace and this may not represent the posterior distribution well. A simple response to this kind of situation would be to run the chain for longer. Here, there are no obvious trends in the plot, which would suggest that the MCMC has not yet converged, and there are no large-scale fluctuations in the trace that would in turn suggest poor mixing.
 
 ### Summarizing the trees
 
 We have seen how we can diagnose our MCMC run using Tracer and produce estimates of the marginal posterior distributions of parameters of our model. However, BEAST also samples trees (either phylogenies or genealogies) at the same time as the other parameters of the model. These are written to a separate file called the 'trees' file. This file is a standard NEXUS format file. As such it can easily be loaded into other software in order to examine the trees it contains. One possibility is to load the trees into a program such as PAUP* and construct a consensus tree in a similar manner to summarizing a set of bootstrap trees. In this case, the support values reported for the resolved nodes in the consensus tree will be the posterior probability of those clades.
 
-In this tutorial, however, we are going to use a tool that is provided as part of the BEAST package to summarize the information contained within our sampled trees. The tool is called TreeAnnotator and once running, you will be presented with a window like the one below.
+In this tutorial, however, we are going to use a tool that is provided as part of the BEAST package to summarise the information contained within our sampled trees. The tool is called TreeAnnotator and once running, you will be presented with a window like the one below.
 
 {% include image.html file="YFV_screenshot_19_TreeAnnotator.png" max-width="50%" align="center" prefix=root_url caption="" %}
 
-TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree. It has the following options:
+TreeAnnotator takes a single 'target' tree and annotates it with the summarised information from the entire sample of trees. The summarised information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree. It has the following options:
 
-* Burnin - This is the number of steps in the MCMC chain, Burnin (as states), or the number of trees, Burnin (as trees), that should be excluded from the summarization.
+* `Burnin`: the number of steps in the MCMC chain, `Burnin (as states)`, or the number of trees, `Burnin (as trees)`, that should be excluded from the summarisation
 
-* Posterior probability limit - This is the minimum posterior probability for a node in order for TreeAnnotator to store the annotated information. The default is 0.0 so every node, no matter what its support, will have information summarized. Make sure this value remains 0.0 as every node will require location annotation for further visualization. 
+* `Posterior probability limit`: the minimum posterior probability for a node in order for TreeAnnotator to store the annotated information. The default is 0.0 so every node, no matter what its support, will have information summarised. Make sure this value remains 0.0 as every node will require location annotation for further visualisation
 
-* Target tree type - This has three options `Maximum clade credibility tree` or `User target tree` For the latter option, a NEXUS tree file can be specified as the Target Tree File, below. Select the first option, TreeAnnotator will examine every tree in the Input Tree File and select the tree that has the highest product of the posterior probabilities of all its nodes. 
+* `Target tree type`: this has three options `Maximum clade credibility tree` or `User target tree` For the latter option, a NEXUS tree file can be specified as the Target Tree File, below. Select the first option, TreeAnnotator will examine every tree in the Input Tree File and select the tree that has the highest product of the posterior probabilities of all its nodes
 
-* Node heights - This option specifies what node heights (times) should be used for the output tree. If the `Keep target heights` is selected, then the node heights will be the same as the target tree. Node heights can also be summarised as  a Mean or a Median over the sample of trees. Sometimes a mean or median height for a node may actually be higher than the mean or median height of its parental node (because particular ancestral-descendent relationships in the MCC tree may still be different compared to a large number of other tree sampled). This will result in artifactual negative branch  lengths, but can be avoided by the `Common Ancestor heights` option. Let’s use the default Median heights for our summary tree.
+* `Node heights`: an option specifies what node heights (times) should be used for the output tree. If the `Keep target heights` is selected, then the node heights will be the same as the target tree. Node heights can also be summarised as  a Mean or a Median over the sample of trees. Sometimes a mean or median height for a node may actually be higher than the mean or median height of its parental node (because particular ancestral-descendent relationships in the MCC tree may still be different compared to a large number of other tree sampled). This will result in artifactual negative branch  lengths, but can be avoided by the `Common Ancestor heights` option. Let’s use the default Median heights for our summary tree
 
-* Target Tree File - If the `User target tree` option is selected then you can use `Choose File...` to select a NEXUS file containing the target tree.
+* `Target Tree File`: if the `User target tree` option is selected then you can use `Choose File...` to select a NEXUS file containing the target tree
 
-Input Tree File - Use the `Choose File...` button to select an input trees file. This will be the trees file produced by BEAST. 
+Input Tree File - Use the `Choose File...` button to select an input trees file. This will be the trees file produced by BEAST
 
-* Output File - Select a name for the output tree file (e.g. 'YFV\_RRW\_cauchy\_MCC.tree').
+* `Output File` - Select a name for the output tree file (e.g. 'YFV\_RRW\_cauchy\_MCC.tree')
 
 Once you have selected all the options, above, press the `Run` button. TreeAnnotator will analyse the input tree file and write the summary tree to the file you specified. This tree is in standard NEXUS tree file format so may be loaded into any tree drawing package that supports this. However, it also contains additional information that can only be displayed using the FigTree program.
 
 ### Viewing the annotated tree
 
-Run FigTree and select the `Open...` command from the `File` menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the FigTree window. On the left hand side of the window are the options and settings which control how the tree is displayed.
+Run FigTree and select the `Open...` command from the `File` menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the FigTree window. On the left hand side of the window are the options and settings, which control how the tree is displayed.
 
 {% include image.html file="YFV_screenshot_20_FigTree.png" prefix=root_url caption="" %}
 
-In the `Layout` panel select the check-box `Align Tip Labels` to increase clarity. We can also plot a time scale axis for this evolutionary history (select `Scale Axis` and deselect `Scale bar`).
+In the `Layout` panel select the check-box `Align Tip Labels` to increase clarity. We can also plot a time scale axis for this evolutionary history (select `Scale Axis` and deselect `Scale Bar`).
 
 ### Visualizing Bayesian phylogeographic reconstructions using SpreaD3
 
-SpreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using Data-Driven Documents (D3), is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize pathogen phylodynamic reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreaD3 allows to visualise on custom maps and generates HTML pages for display in modern-day browsers such as Firefox, Safari and Chrome. One of the functionalities of SpreaD3 that relate to the continuous phylogeographic analysis performed previously include visualizing location-annotated MCC trees. A detailed tutorial for this particular step is available [here](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourThree). 
+spreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using Data-Driven Documents (D3), is a software to visualise the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyse and visualise pathogen phylodynamic reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreaD3 allows to visualise on custom maps and generates HTML pages for display in modern-day browsers such as Firefox, Safari and Chrome. One of the functionalities of SpreaD3 that relate to the continuous phylogeographic analysis performed previously include visualizing location-annotated MCC trees. A detailed tutorial for this particular step is available [here](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourThree). 
 
 Brief instructions can be found in the quick how-to summary below.
 Compare the animated version for both the homogeneous and RRW model: do you notice any difference?
@@ -240,51 +246,51 @@ Compare the animated version for both the homogeneous and RRW model: do you noti
 
 ### Run BEAUti
 
-* Load a NEXUS format alignment by selecting the `Import Data...` option from the File menu. Select the file called 'YFV\_sequences.fasta'. 
+* Load a NEXUS format alignment by selecting the `Import Data...` option from the File menu. Select the file called 'YFV\_sequences.fasta'
 
-* In the `Tips` tab, select the `Use tip dates` option and use the `Parse Dates` button. In the new window, select the option `Defined by a prefix and its order`, and the `last` for the order. Finally, set the `Prefix` to the symbol `|` and press `OK`. The dates will appear in the appropriate column of the main window.
+* In the `Tips` tab, select the `Use tip dates` option and use the `Parse Dates` button. In the new window, select the option `Defined by a prefix and its order`, and the `last` for the order. Finally, set the `Prefix` to the symbol `|` and press `OK`. The dates will appear in the appropriate column of the main window
 
 * In the `Traits` tab, click `Import trait`. Browse to and load the 'YFV\_coordinates.txt' tab-delimited file
 
-* After loading the file, select both the `Lat` and `Long` traits in the panel on the left and select `Create partition from trait...` Enter the name 'location' for this partition.
+* After loading the file, select both the `Lat` and `Long` traits in the panel on the left and select `Create partition from trait...` Enter the name 'location' for this partition
 
-* In the `Sites` tab, keep the default HKY substitution model, keep the base frequencies to be Estimated, and the `Site Rate Heterogeneity` to `Gamma`.
+* In the `Sites` tab, keep the default HKY substitution model, keep the base frequencies to be Estimated, and the `Site Heterogeneity Model` to `Gamma`
 
-* Click on location in the `Substitution model` window on the left and keep the default `Homogenous Brownian model` and select `Bivariate trait represents latitude and longitude` and a `Jitter` set to '0.01'.
+* Click on location in the `Substitution model` window on the left and keep the default `Homogenous Brownian model` and select `Bivariate trait represents latitude and longitude` and a `Jitter` set to '0.01'
 
-* In the `Clocks` tab, select the Lognormal relaxed molecular clock  (Uncorrelated) model.
+* In the `Clocks` tab, select the Lognormal relaxed molecular clock  (Uncorrelated) model
 
-* In the `Trees` tab, select the skygrid model as the demographic tree prior (`Coalescent: Bayesian SkyGrid`), with 36 grid points (`number of parameters`) and `A time at last transition point` set to `0.6948424` (to define grid points approximating the number of epidemiological weeks spanned by the duration of the phylogeny).
+* In the `Trees` tab, select the skygrid model as the demographic tree prior (`Coalescent: Bayesian SkyGrid`), with 36 grid points (`number of parameters`) and `A time at last transition point` set to `0.6948424` (to define grid points approximating the number of epidemiological weeks spanned by the duration of the phylogeny)
 
-* In the `MCMC` tab, set the chain length to 500,000,000 and the sampling frequencies to 50,000. Set the File name stem to 'YFV\_RRW\_cauchy' and generate the beast file ('YFV\_RRW\_cauchy.xml').
+* In the `MCMC` tab, set the chain length to 500,000,000 and the sampling frequencies to 50,000. Set the File name stem to 'YFV\_RRW\_cauchy' and generate the beast file ('YFV\_RRW\_cauchy.xml')
 
 ### Run BEAST and load the xml file.
 
-### Analyze the output using Tracer. Analyze the output file for the longer runs.
+### analyse the output using Tracer. analyse the output file for the longer runs.
 
-### Summarize the trees for the longer run using treeAnnotator.
+### summarise the trees for the longer run using treeAnnotator.
 
-### Visualize the tree in FigTree.
+### visualise the tree in FigTree.
 
 ### Run SpreaD3.
 
 We will first summarise an MCC tree and then summarise the information in the entire tree distribution.
 
-* Select as input type in the `Data` panel: `MCC tree with CONTINUOUS traits`, load your MCC tree file.
+* Select as input type in the `Data` panel: `MCC tree with CONTINUOUS traits`, load your MCC tree file
 
-* Select ‘location1’ as `Latitute attribute` name and ‘location2’ as `Longitude attribute` name.
+* Select ‘location1’ as `Latitute attribute` name and ‘location2’ as `Longitude attribute` name
 
-* Set the `most recent sampling date` to 2017-04-22.
+* Set the `most recent sampling date` to 2017-04-22
 
-* Load a GeoJSON 'Brazil_states.geojson'.
+* Load a GeoJSON 'Brazil_states.geojson'
 
-* Keep all other default settings and click `Output` to generate a JSON file.
+* Keep all other default settings and click `Output` to generate a JSON file
 
-* Go to the `Rendering` panel, keep the D3 renderer as the renderer of choice, and load the generated JSON file.
+* Go to the `Rendering` panel, keep the D3 renderer as the renderer of choice, and load the generated JSON file
 
-* Click `Render to D3` to generate the HTML page and a browser window will open automatically.
+* Click `Render to D3` to generate the HTML page and a browser window will open automatically
 
-This visualizes the MCC tree an the uncertainty for its node locations:
+This visualises the MCC tree an the uncertainty for its node locations:
 
 {% include image.html file="YFV_screenshot_23_spreaD3_3.png" prefix=root_url caption="" %}
 
