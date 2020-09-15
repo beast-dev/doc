@@ -40,7 +40,7 @@ The program BEAUti is a user-friendly program for setting the model parameters f
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file for this tutorial is called '<samp>YFV_sequences.fasta</samp>' and <a href="{{ root_url }}files/YFV_sequences.fasta">can be downloaded from here</a>.</div>
 
-To load the alignment, simply select the `Import Data...` option from the File menu and browse to the 'YFV\_sequences.fasta' file to load it. This file contains an alignment of 65 YFV genomes 10,236 nucleotides in length. Once loaded, the sequence data will be listed under `Partitions` as shown in the figure:
+To load the alignment, simply select the `Import Data...` option from the `File` menu and browse to the 'YFV\_sequences.fasta' file to load it. This file contains an alignment of 65 YFV genomes 10,236 nucleotides in length. Once loaded, the sequence data will be listed under `Partitions` as shown in the figure:
 
 {% include image.html file="YFV_screenshot_01_partitions_1.png" prefix=root_url caption="" %}
 
@@ -54,7 +54,7 @@ Select the box labelled `Use tip dates`. The actual sampling time in years is en
 
 This operation attempts to guess what the dates are from information contained within the taxon names. It works by trying to find a numerical field within each name. If the taxon names contain more than one numerical field then you can specify how to find the one that corresponds to the date of sampling. You can (1) specify the order that the date field comes (e.g. first, last or various positions in between) or (2) specify a prefix (some characters that come immediately before the date field in each name) and the order of the field, or (3) define a regular expression (REGEX).
 
-When parsing a number, you can ask BEAUti to add a fixed value to each guessed date. For example, the value `1900` can be added to turn the dates from 2 digit years to 4 digit years. Any dates in the taxon names given as `00` would thus become `1900`. However, if these `00` or `01`, etc. represent sequences sampled in 2000, 2001, etc., `2000` needs to be added to those. This can be achieved by selecting the `unless less than: ..` and `..in which case add:..` options adding for example 2000 to any date less than 10. These operations are not necessary in the present case because the dates are fully specified at the end of the sequence names. There is also an option to parse calendar dates and one for calendar dates with various precisions. 
+When parsing a number, you can ask BEAUti to add a fixed value to each guessed date. For example, the value `1900` can be added to turn the dates from 2 digit years to 4 digit years. Any dates in the taxon names given as `00` would thus become `1900`. However, if these `00` or `01`, etc. represent sequences sampled in 2000, 2001, etc., `2000` needs to be added to those. This can be achieved by selecting the `unless less than: ...` and `... in which case add: ...` options adding for example 2000 to any date less than 10. These operations are not necessary in the present case because the dates are fully specified at the end of the sequence names. There is also an option to parse calendar dates and one for calendar dates with various precisions. 
 
 For the YFV sequences, dates values have to be parsed as calendar dates by specifying the format `dd-MM-yyyy`. For the other options, select `Defined by a prefix and its order`, select `last` from the drop-down menu for the order, set the `Prefix` to the symbol `|` and press `OK`. The dates will appear in the appropriate column of the main window.
 
@@ -88,7 +88,7 @@ To associate the sequences with the traits, we need to import a new trait under 
 		...
 	MF170971|Monkey|MinasGerais_SaoRoqueDeMinas|NA|30-01-2017	-20.177911	-46.439305
 	
-After clicking `OK`, select both the `lat` and `long` trait in the left window and click on `create partition from trait...`. In the window that pops up, enter a name for this partitions, e.g. 'location':
+After clicking `OK`, select both the `lat` and `long` trait in the left window and click on `Create partition from trait...`. In the window that pops up, enter a name for this partitions, e.g. 'location':
 
 {% include image.html file="YFV_screenshot_05_traits_2.png" prefix=root_url caption="" %}
 
@@ -104,18 +104,18 @@ This tutorial assumes that you are familiar with the available evolutionary mode
 
 Selecting the `Partition into codon positions` option assumes that the data are aligned as codons. This option will then estimate a separate rate of substitution for each codon position, or for 1+2 versus 3, depending on the setting. Selecting the `Unlink substitution model across codon positions` will specify that BEAST should estimate a separate transition-transversion ratio or general time reversible rate matrix for each codon position. Selecting the `Unlink rate heterogeneity model across codon positions` will specify that BEAST should estimate a set of rate heterogeneity parameters (gamma shape parameter and/or proportion of invariant sites) for each codon position. 
 
-For the nucleotide substitution model in this tutorial, keep the default HKY substitution model, keep the base frequencies to be `Estimated`, specify the `Site Rate Heterogeneity` to `Gamma`, and the keep the default `Partition into codon positions` to `Off`.
+For the nucleotide substitution model in this tutorial, keep the default HKY substitution model, keep the base frequencies to be `Estimated`, specify the `Site Heterogeneity Model` to `Gamma`, and the keep the default `Partition into codon positions` to `Off`.
 
 {% include image.html file="YFV_screenshot_07_sites_1.png" prefix=root_url caption="" %}
 
-Next, click on `location` in the `Substitution model` window and select the 
-`Cauchy RRW model`, and select `Bivariate trait represents latitude and longitude`. This option generates diffusion statistics that are specific for bivariate spatial traits (with latitude and longitude in that order). Also select the `add random jitter to tips`, which adds noise drawn uniformly at random from a particular jitter window size to duplicated (location) traits. Set the `jitter window size` to 0.01. The noise avoids a poor performance of Brownian diffusion models when not all sequences are associated with unique locations.
+Next, click on `location` in the `Substitution Model` window and select the 
+`Cauchy RRW model`, and select `Bivariate trait represents latitude and longitude`. This option generates diffusion statistics that are specific for bivariate spatial traits (with latitude and longitude in that order). Also select the `Add random jitter to tips`, which adds noise drawn uniformly at random from a particular jitter window size to duplicated (location) traits. Set the `Jitter window size` to 0.01. The noise avoids a poor performance of Brownian diffusion models when not all sequences are associated with unique locations.
 
 {% include image.html file="YFV_screenshot_08_sites_2.png" prefix=root_url caption="" %}
 
 #### Setting the molecular clock model
 
-The `Molecular Clock Model` options in the `Clocks` panel allows us to choose between a strict and a relaxed (uncorrelated lognormal or uncorrelated exponential) clock. We will perform our run using the lognormal relaxed molecular clock (uncorrelated) model:
+The molecular clock model options in the `Clocks` panel allows us to choose between a strict and a relaxed (uncorrelated lognormal or uncorrelated exponential) clock. We will perform our run using the lognormal relaxed molecular clock (uncorrelated) model:
 
 {% include image.html file="YFV_screenshot_09_clocks.png" prefix=root_url caption="" %}
 
@@ -123,7 +123,7 @@ Now move on to the `Trees` panel.
 
 #### Setting the tree prior
 
-This panel contains settings about the tree. Firstly the starting tree is specified to be 'randomly generated'. The other main setting here is to specify the `Tree Prior` which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. Here, we will select a flexible skygrid coalescent model as demographic tree prior (`Coalescent: Bayesian SkyGrid`), with 36 grid points (`Number of parameters`) and `A time at last transition point` set to `0.6948424`. By doing so, the grid points actually approximate the number of epidemiological weeks spanned by the duration of the phylogeny (Faria *et al*. 2018).
+This panel contains settings about the tree. Firstly the starting tree is specified to be 'randomly generated'. The other main setting here is to specify the `Tree Prior` which describes how the population size is expected to change over time according to a coalescent model. The default tree prior is set to a constant size coalescent prior. Here, we will select a flexible skygrid coalescent model as demographic tree prior (`Coalescent: Bayesian SkyGrid`), with 36 grid points (`Number of parameters`) and `Time at last transition point` set to `0.6948424`. By doing so, the grid points actually approximate the number of epidemiological weeks spanned by the duration of the phylogeny (Faria *et al*. 2018).
 
 {% include image.html file="YFV_screenshot_10_trees.png" prefix=root_url caption="" %}
 
