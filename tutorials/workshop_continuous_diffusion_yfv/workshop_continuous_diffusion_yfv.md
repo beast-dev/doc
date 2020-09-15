@@ -3,7 +3,7 @@ title: Phylogeographic Diffusion in Continuous Space - YFV example
 keywords: phylogeography, YFV, tutorial
 last_updated: June 12, 2019
 tags: [tutorial]
-summary: 'This tutorial provides a step-by-step explanation on reconstructing the spatial dynamics of the Yellow fever virus (YFV) epidemic in Brazil based on a set of viral genome sequences which have been isolated at different points in time (Faria _et al_. 2018). YFV is responsible for 29,000 to 60,000 deaths annually in South America and Africa and is the most severe mosquito-borne infection in the tropics. YFV transmission occurs mainly via the sylvatic cycle, in which non-human primates are infected by mosquito vectors, but can also occur via an urban cycle, in which humans are infected by _Aedes_ spp. mosquitoes that feed mostly on humans. Recently, Brazil has experienced its largest recorded Yellow fever outbreak in decades. In that context, Faria _et al_. (2018) have analysed a data set of 65 YFV genomes collected between January and April 2017 in order to characterise the dispersal history and dynamics of the virus during this recent outbreak. For this purpose, they have applied the continuous diffusion (Lemey _et al_. 2010, Pybus _et al_. 2012) to estimate the ancestral locations of the virus in continuous space. In the present tutorial, we detail how to set this continuous phylogeographic analysis and how to analyse/visualise the outputs.'
+summary: 'This tutorial provides a step-by-step explanation on reconstructing the spatial dynamics of the Yellow fever virus (YFV) epidemic in Brazil based on a set of viral genome sequences which have been isolated at different points in time (Faria et al. 2018). YFV is responsible for 29,000 to 60,000 deaths annually in South America and Africa and is the most severe mosquito-borne infection in the tropics. YFV transmission occurs mainly via the sylvatic cycle, in which non-human primates are infected by mosquito vectors, but can also occur via an urban cycle, in which humans are infected by Aedes spp. mosquitoes that feed mostly on humans. Recently, Brazil has experienced its largest recorded Yellow fever outbreak in decades. In that context, Faria et al. (2018) have analysed a data set of 65 YFV genomes collected between January and April 2017 in order to characterise the dispersal history and dynamics of the virus during this recent outbreak. For this purpose, they have applied the continuous diffusion (Lemey et al. 2010, Pybus et al. 2012) to estimate the ancestral locations of the virus in continuous space. In the present tutorial, we detail how to set this continuous phylogeographic analysis and how to analyse/visualise the outputs.'
 sidebar: beast_sidebar
 permalink: workshop_continuous_diffusion_yfv.html
 folder: beast
@@ -13,7 +13,7 @@ folder: beast
 
 ## Introduction
 
-The first step is to convert an alignment file in fasta format into a BEAST XML input file. This is done using the program BEAUti (this stands for Bayesian Evolutionary Analysis Utility). This is a user-friendly program for setting the evolutionary model and options for the MCMC analysis. The second step is to run BEAST using the input file that contains the data, model and settings. The final step is to explore the output of BEAST in order to diagnose potential problems and to summarise the results.
+The first step is to convert an alignment file in FASTA format into a BEAST XML input file. This is done using the program BEAUti (which stands for Bayesian Evolutionary Analysis Utility). This is a user-friendly program for setting the evolutionary model and options for the MCMC analysis. The second step is to run BEAST using the input file that contains the data, model and settings. The final step is to explore the output of BEAST in order to diagnose potential problems and to summarise the results.
 
 To undertake this tutorial, you will need to download three software packages in a format that is compatible with your computer system (all three are available for Mac OS X, Windows and Linux/UNIX operating systems):
 
@@ -54,7 +54,7 @@ Select the box labelled `Use tip dates`. The actual sampling time in years is en
 
 This operation attempts to guess what the dates are from information contained within the taxon names. It works by trying to find a numerical field within each name. If the taxon names contain more than one numerical field then you can specify how to find the one that corresponds to the date of sampling. You can (1) specify the order that the date field comes (e.g. first, last or various positions in between) or (2) specify a prefix (some characters that come immediately before the date field in each name) and the order of the field, or (3) define a regular expression (REGEX).
 
-When parsing a number, you can ask BEAUti to add a fixed value to each guessed date. For example, the value `1900` can be added to turn the dates from 2 digit years to 4 digit. Any dates in the taxon names given as `00` would thus become `1900`. However, if these `00` or `01`, etc. represent sequences sampled in 2000, 2001, etc., `2000` needs to be added to those. This can be achieved by selecting the `unless less than: ..` and `..in which case add:..` options adding for example 2000 to any date less than 10. These operations are not necessary in our case since the dates are fully specified at the end of the sequence names. There is also an option to parse calendar dates and one for calendar dates with various precisions. 
+When parsing a number, you can ask BEAUti to add a fixed value to each guessed date. For example, the value `1900` can be added to turn the dates from 2 digit years to 4 digit years. Any dates in the taxon names given as `00` would thus become `1900`. However, if these `00` or `01`, etc. represent sequences sampled in 2000, 2001, etc., `2000` needs to be added to those. This can be achieved by selecting the `unless less than: ..` and `..in which case add:..` options adding for example 2000 to any date less than 10. These operations are not necessary in the present case because the dates are fully specified at the end of the sequence names. There is also an option to parse calendar dates and one for calendar dates with various precisions. 
 
 For the YFV sequences, dates values have to be parsed as calendar dates by specifying the format `dd-MM-yyyy`. For the other options, select `Defined by a prefix and its order`, select `last` from the drop-down menu for the order, set the `Prefix` to the symbol `|` and press `OK`. The dates will appear in the appropriate column of the main window.
 
@@ -62,7 +62,7 @@ For the YFV sequences, dates values have to be parsed as calendar dates by speci
 
 You can now check these and edit them manually as required. At the top of the window you can set the units that the dates are given in (years, months, days) and whether they are specified relative to a point in the past (as is the case for years such as 2017) or backwards in time from the present (as in the case of radiocarbon ages).
 
-The `Height` column lists the ages of the tips relative to time 0 (in our case 2007.63). The `Uncertainty` column allows specifying with what precision the sampling time is know. This is not useful in our case because all sampling dates are known to the exact day, but BEAST allows to integrate over the uncertainty for less precise sampling date (e.g., when only the sampling month or year is known).
+The `Height` column lists the ages of the tips relative to time 0 (in our case 2007.63). The `Uncertainty` column allows specifying with what precision the sampling time is known. This is not useful in our case because all sampling dates are known to the exact day, but BEAST allows to integrate over the uncertainty for less precise sampling date (e.g. when only the sampling month or year is known).
 
 #### Specifying the trait information
 
@@ -88,11 +88,11 @@ To associate the sequences with the traits, we need to import a new trait under 
 		...
 	MF170971|Monkey|MinasGerais_SaoRoqueDeMinas|NA|30-01-2017	-20.177911	-46.439305
 	
-After clicking `OK`, select both the 'lat' and 'long' trait in the left window and click on `create partition from trait..`. In the window that pops up, enter a name for this partitions, e.g. 'location':
+After clicking `OK`, select both the `lat` and `long` trait in the left window and click on `create partition from trait...`. In the window that pops up, enter a name for this partitions, e.g. 'location':
 
 {% include image.html file="YFV_screenshot_05_traits_2.png" prefix=root_url caption="" %}
 
-This new 'location' partition with 2 'Sites' and with a continuous 'Data Type' will be shown under the `Partitions` tab:
+This new `location` partition with 2 `Sites` and with a continuous `Data Type` will be shown under the `Partitions` tab:
 
 {% include image.html file="YFV_screenshot_06_partitions_2.png" prefix=root_url caption="" %}
 
@@ -149,7 +149,7 @@ Each parameter in the model has one or more “operators” (these are variously
 
 In the first column are the parameter names. These will be called things like kappa which means the HKY model's kappa parameter (the transition-transversion bias). The next column has the type of operators that are acting on each parameter. For example, the scale operator scales the parameter up or down by a proportion, the random walk operator adds or subtracts an amount to the parameter and the uniform operator simply picks a new value uniformly within a range. Some parameters relate to the tree or to the divergence times of the nodes of the tree and these have special operators. As of BEAST v1.10, different options are available w.r.t. exploring tree space. In this tutorial, we will use the ‘classic operator mix’, which consists of of set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a ‘new experimental mix’, which is currently under development with the aim to improve mixing for large phylogenetic trees.
 
-The next column, labelled `Tuning`, gives a tuning setting to the operator. Some operators don't have any tuning settings so have n/a under this column. The tuning parameter will determine how large a move each operator will make which will affect how often that change is accepted by the MCMC which will in turn affect the efficiency of the analysis. For most operators (like random walk and subtree slide operators) a larger tuning parameter means larger moves. However for the scale operator a tuning parameter value closer to 0.0 means bigger moves. At the top of the window is an option called `Auto Optimize` which, when selected, will automatically adjust the tuning setting as the MCMC runs to try to achieve maximum efficiency. At the end of the run a table of the operators, their performance and the final values of these tuning settings will be written to standard output.
+The next column, labelled `Tuning`, gives a tuning setting to the operator. Some operators do not have any tuning settings so have n/a under this column. The tuning parameter will determine how large a move each operator will make which will affect how often that change is accepted by the MCMC which will in turn affect the efficiency of the analysis. For most operators (like random walk and subtree slide operators) a larger tuning parameter means larger moves. However for the scale operator a tuning parameter value closer to 0.0 means bigger moves. At the top of the window is an option called `Auto Optimize` which, when selected, will automatically adjust the tuning setting as the MCMC runs to try to achieve maximum efficiency. At the end of the run a table of the operators, their performance and the final values of these tuning settings will be written to standard output.
 
 The next column, labelled `Weight`, specifies how often each operator is applied relative to the others. Some parameters tend to be sampled very efficiently - an example is the kappa parameter - these parameters can have their operators down-weighted so that they are not changed as often. We will start by using the default settings for this analysis. As of BEAST v1.8.4, different options are available w.r.t. exploring tree space. In this tutorial, we will use the `classic operator mix`, which consists of a set of tree transition kernels that propose changes to the tree. There is also an option to fix the tree topology as well as a `new experimental mix`, which is currently under development with the aim to improve mixing for large phylogenetic trees. We can keep the default operator settings for the analysis in this tutorial.
 
@@ -183,7 +183,7 @@ Select the `Import Trace File...` option from the `File` menu. If you have it av
 
 {% include image.html file="YFV_screenshot_16_Tracer_1.png" prefix=root_url caption="" %}
 
-On the left hand side is the name of the log file loaded and the traces that it contains. Selecting a trace on the left brings up analyses for this trace on the right hand side depending on tab that is selected. When first opened, the 'age(root)' trace is selected and various statistics of this trace are shown under the `Estimates` tab.
+On the left hand side is the name of the log file loaded and the traces that it contains. Selecting a trace on the left brings up analyses for this trace on the right hand side depending on tab that is selected. When first opened, the `age(root)` trace is selected and various statistics of this trace are shown under the `Estimates` tab.
 
 In the top right of the window is a table of calculated statistics for the selected trace. The statistics and their meaning are described in the table below.
 
@@ -219,7 +219,7 @@ TreeAnnotator takes a single 'target' tree and annotates it with the summarized 
 
 Input Tree File - Use the `Choose File...` button to select an input trees file. This will be the trees file produced by BEAST. 
 
-* Output File - Select a name for the output tree file (e.g., 'YFV\_RRW\_cauchy\_MCC.tree').
+* Output File - Select a name for the output tree file (e.g. 'YFV\_RRW\_cauchy\_MCC.tree').
 
 Once you have selected all the options, above, press the `Run` button. TreeAnnotator will analyse the input tree file and write the summary tree to the file you specified. This tree is in standard NEXUS tree file format so may be loaded into any tree drawing package that supports this. However, it also contains additional information that can only be displayed using the FigTree program.
 
@@ -248,11 +248,11 @@ Compare the animated version for both the homogeneous and RRW model: do you noti
 
 * In the `Traits` tab, click `Import trait`. Browse to and load the 'YFV\_coordinates.txt' tab-delimited file
 
-* After loading the file, select both the 'Lat' and 'Long' traits in the panel on the left and select `Create partition from trait...` Enter the name 'location' for this partition.
+* After loading the file, select both the `Lat` and `Long` traits in the panel on the left and select `Create partition from trait...` Enter the name 'location' for this partition.
 
-* In the `Sites` tab, keep the default HKY substitution model, keep the base frequencies to be Estimated, and the ‘Site Rate Heterogeneity’ to 'Gamma'.
+* In the `Sites` tab, keep the default HKY substitution model, keep the base frequencies to be Estimated, and the `Site Rate Heterogeneity` to `Gamma`.
 
-* Click on location in the `Substitution model` window on the left and keep the default 'Homogenous Brownian model' and select `Bivariate trait represents latitude and longitude` and a `Jitter` set to '0.01'.
+* Click on location in the `Substitution model` window on the left and keep the default `Homogenous Brownian model` and select `Bivariate trait represents latitude and longitude` and a `Jitter` set to '0.01'.
 
 * In the `Clocks` tab, select the Lognormal relaxed molecular clock  (Uncorrelated) model.
 
