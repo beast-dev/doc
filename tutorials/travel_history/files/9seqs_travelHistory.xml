@@ -447,6 +447,14 @@
 		<scaleOperator scaleFactor="0.75" weight="15" scaleAllIndependently="true">
 			<parameter idref="loc.rates"/>
 		</scaleOperator>
+
+		<!-- Travel history: sampling two uncertain ancestral times -->
+        <scaleOperator scaleFactor="0.75" weight="0.05">
+            <parameter idref="time1"/>
+        </scaleOperator>
+        <scaleOperator scaleFactor="0.75" weight="0.05">
+            <parameter idref="time2"/>
+        </scaleOperator>
 	</operators>
 	
 
