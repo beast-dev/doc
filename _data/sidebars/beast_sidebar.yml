@@ -191,6 +191,10 @@ entries:
       url: /time_dependent_rate_model
       output: web, pdf
 
+    - title: Phylogeography with individual travel history
+      url: /travel_history
+      output: web, pdf
+
   - title: Workshop Tutorials
     output: web, pdf
     folderitems:
