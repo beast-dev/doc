@@ -107,7 +107,7 @@ Interestingly, all data sets with temporal signal favoured the strict clock over
 
 ## Citation
 
-If you use BETS to test for temporal signal in your data set, we would appreciate citing the following paper:
+If you use BETS to test for temporal signal in your data set, we would appreciate citing the following paper(s):
 
 S. Duchene, P. Lemey, T. Stadler, S. Y. W. Ho, D. A. Duchene, V. Dhanasekaran, G. Baele (2020) Bayesian evaluation of temporal signal in measurably evolving populations. Mol. Biol. Evol. (in press). DOI: [https://doi.org/10.1093/molbev/msaa163](https://doi.org/10.1093/molbev/msaa163)
 
