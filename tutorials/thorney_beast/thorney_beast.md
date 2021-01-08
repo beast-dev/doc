@@ -48,7 +48,7 @@ recalculation.
 Although the cost of the tree-data-likelihood can be greatly reduced by fixing the parameters that govern the substitution model, 
 estimates of the these parameters are not always transferable between datasets, even datasets from the same
 pandemic. This is certainly true of SARS-CoV-2 where estimates of the rate can vary based on the time-scale and context of the 
-data. Even when it is valid to fix these parameters, large dataset become challenging for a second reason. 
+data. Even when it is valid to fix these parameters, large datasets become challenging for a second reason. 
 All GPUs have finite memory, and it is challenging if not impossible to find hardware configurations that 
 can cope with alignments of tens of thousands of sequences. 
 
@@ -57,36 +57,36 @@ can cope with alignments of tens of thousands of sequences.
 Based on these challenges, we have implemented a more efficient likelihood based on 
 a simple Poisson model commonly used in maximum likelihood methods that scale genetic phylogenies into time trees
 (See [Didelot et al., 2020](https://doi.org/10.1093/molbev/msaa193) for a thorough discussion of these methods). 
-Instead of an alignment, this likelihood takes a pre-estimated, rooted phylogeny with branchlengths scaled to the 
+Instead of an alignment, this likelihood takes a pre-estimated, rooted phylogeny with branch lengths scaled to the 
 number of expected substitutions/site. This likelihood can be specified with a few xml modifications.
 
 If you are starting from a standard BEAUTi-generated xml you can delete the `<alignment>` block and instead specify a 
 "data tree" and a starting tree that is topologically consistent (every clade in the data tree must be present in the starting tree).
 
 ```xml
-	<newick id="startingTree" usingDates="true">
-		((taxa1|2020-02-17,...);
-	</newick>
+<newick id="startingTree" usingDates="true">
+	((taxa1|2020-02-17,...);
+</newick>
 
-	<newick id="dataTree" usingDates="false" usingHeights="true">
-		((taxa1|2020-02-17,...);
-	</newick>
+<newick id="dataTree" usingDates="false" usingHeights="true">
+	((taxa1|2020-02-17,...);
+</newick>
 ```
 
 After the `<treeModel>` block we construct a `<constrainedTreeModel>` that ensures clades in the data tree are always 
 present in the `<treeModel>`, which represents the estimated the time tree. 
 ```xml
-	<constrainedTreeModel id = "constrainedTreeModel">
-		<treeModel idref="treeModel"/>
-		<constraintsTree>
-			<tree idref="dataTree"/>
-		</constraintsTree>
-	</constrainedTreeModel>
+<constrainedTreeModel id = "constrainedTreeModel">
+	<treeModel idref="treeModel"/>
+	<constraintsTree>
+		<tree idref="dataTree"/>
+	</constraintsTree>
+</constrainedTreeModel>
 ```
 We can now replace the standard `<treeDataLikelihood>` and its components with our new likelihood as indicated by the comments
 below.
 ```xml
-		<!-- Likelihood for tree given sequence data                                 -->
+<!-- Likelihood for tree given sequence data                                 -->
 
 <!-- The strict clock (Uniform rates across branches)                        -->
 <!--<strictClockBranchRates id="branchRates">-->
@@ -101,7 +101,7 @@ below.
 <!--</rateStatistic>-->
 
 
-        <!-- The HKY substitution model (Hasegawa, Kishino & Yano, 1985)             -->
+<!-- The HKY substitution model (Hasegawa, Kishino & Yano, 1985)             -->
 <!--<HKYModel id="hky">-->
 <!--<frequencies>-->
 <!-- <frequencyModel dataType="nucleotide">-->
@@ -115,7 +115,7 @@ below.
 <!--</kappa>-->
 <!--</HKYModel>-->
 
-        <!-- site model                                                              -->
+<!-- site model                                                              -->
 <!--<siteModel id="siteModel">-->
 <!--<substitutionModel>-->
 <!-- <HKYModel idref="hky"/>-->
@@ -125,13 +125,12 @@ below.
 <!--</gammaShape>-->
 <!--</siteModel>-->
 
-        <!--                                                                         -->
 <!--<statistic id="mu" name="mu">-->
 <!--<siteModel idref="siteModel"/>-->
 <!--</statistic>-->
 
 
-        <!-- Likelihood for tree given sequence data                                 -->
+<!-- Likelihood for tree given sequence data                                 -->
 <!--<treeDataLikelihood id="treeLikelihood" useAmbiguities="false">-->
 <!--<partition>-->
 <!-- <patterns idref="patterns"/>-->
@@ -237,9 +236,9 @@ The tree class can be used by commenting out the standard treemodel and replacin
 <!--<scaleOperator scaleFactor="0.75" weight="3">-->
 <!--     <parameter idref="treeModel.rootHeight"/>-->
 <!-- </scaleOperator>-->
-    <nodeHeightOperator type="scaleRoot" weight="3" scaleFactor="0.75" >
-        <treeModel idref="treeModel"/>
-    </nodeHeightOperator>
+<nodeHeightOperator type="scaleRoot" weight="3" scaleFactor="0.75" >
+	<treeModel idref="treeModel"/>
+</nodeHeightOperator>
 ```
 Note that this change affects how the root height is stored and so we need a new root height statistic and operator.
 
