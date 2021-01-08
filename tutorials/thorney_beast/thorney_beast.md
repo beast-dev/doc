@@ -15,14 +15,14 @@ folder: beast
 
 # Introduction
 
-The SARS-CoV-2 pandemic has highlighted the importance and challenge of large scale molecular epidemiology. Through 
+The SARS-CoV-2 pandemic has highlighted the importance and challenge of large-scale molecular epidemiology. Through 
 Herculean effort, academic and public health labs over the world have undertaken genomic sequencing on a scale that 
 dwarfs any previous outbreak response. The magnitude of the resulting dataset makes many standard phylogenetic
 approaches impractical. Here, we highlight some recent modifications we have made to make the analysis of tens of thousand of 
-taxa in BEAST feasible on a time-scale in that can help inform public health responses.
+taxa in BEAST feasible on a time-scale that can help inform public health responses.
 
 Many of these improvements are based on re-implementations of approaches used in other phylogenetic software, and we
-are grateful to the entire phylogenetic community. Incorporating these models allows us to leverage the full
+are grateful to the entire phylogenetic community. Incorporating these approaches allows us to leverage the full
 suite of models already available in BEAST. While the model used here dates back to Zuckerkandl E, Pauling L. 1962, this 
 implementation was inspired by [Didelot et al., 2018](https://doi.org/10.1093/nar/gky783).
 
@@ -38,7 +38,7 @@ represents the first implementation of related approaches in a Bayesian framewor
 
 The cost of an operation in a standard BEAST analysis is the product of how long that operation
 takes, and how many times it is called. In any analysis calculating the likelihood of the sequence data over a tree (tree-data-likelihood) 
-is the most computationally taxing step. BEAST mitigates this by delegating to the BEAGLE library,which limits this cost by
+is the most computationally taxing step. BEAST mitigates this by delegating to the BEAGLE library, which limits this cost by
 caching calculations on subtrees that remain unchanged between states, and computing the likelihood in parallel on high 
 performance GPUs when available. These approaches reduce the number of times the full likelihood is calculated and
 increase the speed of that calculation when it is needed. The analysis can be sped up further by fixing the substitution
@@ -47,21 +47,21 @@ recalculation.
 
 Although the cost of the tree-data-likelihood can be greatly reduced by fixing the parameters that govern the substitution model, 
 estimates of the these parameters are not always transferable between datasets, even datasets from the same
-pandemic. This is certainly true of SARS-CoV-2 where estimates of the rate can vary based on the time scale and context of the 
+pandemic. This is certainly true of SARS-CoV-2 where estimates of the rate can vary based on the time-scale and context of the 
 data. Even when it is valid to fix these parameters, large dataset become challenging for a second reason. 
-Even the biggest GPUs have finite memory, and it is challenging if not impossible to find hardware configurations that 
-can fit an alignments of tens of thousands of sequences. 
+All GPUs have finite memory, and it is challenging if not impossible to find hardware configurations that 
+can cope with alignments of tens of thousands of sequences. 
 
 # An alternative likelihood function
 
-Based on these challenges, we have implemented a more efficient likelihood  (in both computational and memory usage) based on 
+Based on these challenges, we have implemented a more efficient likelihood based on 
 a simple Poisson model commonly used in maximum likelihood methods that scale genetic phylogenies into time trees
 (See [Didelot et al., 2020](https://doi.org/10.1093/molbev/msaa193) for a thorough discussion of these methods). 
 Instead of an alignment, this likelihood takes a pre-estimated, rooted phylogeny with branchlengths scaled to the 
 number of expected substitutions/site. This likelihood can be specified with a few xml modifications.
 
 If you are starting from a standard BEAUTi-generated xml you can delete the `<alignment>` block and instead specify a 
-"data tree"and a starting tree that is topologically consistent (every clade in the data tree must be present in the starting tree).
+"data tree" and a starting tree that is topologically consistent (every clade in the data tree must be present in the starting tree).
 
 ```xml
 	<newick id="startingTree" usingDates="true">
@@ -159,13 +159,14 @@ below.
 Here `<strictClockBranchLengthLikelihood>` replaces `<strictClockBranchRates>`. It also scales the substitution
 rate from substitutions/site/year to substitutions/year (i.e. `scale` represents the number of sites). 
 `<constrainedBranchLengthProvider>` maps the branches in the data tree to those in the time tree and provides the number 
-of mutations that occur along that branch. Similar to above, `scale` represents a multiplier to scale the branchslengths
-in the data tree. 
+of mutations that occur along that branch. Similar to above, `scale` represents a multiplier to scale the branchlengths
+in the data tree. In this example the original alignment used to make the data tree had 29,903 sites.
 
 ### A note about topologies
+
 Our reliance on a fixed data tree means that every clade in the data must be present in the time tree. However, if the 
 data tree is unresolved and contains polytomies, we can sample from possible resolutions without breaking that mapping.
-In these cases we know the inserted branches have 0 mutations. The tree operators below accept a `<constrainedTreeModel>` 
+(In these cases we know the inserted branches have 0 mutations.) The tree operators below accept a `<constrainedTreeModel>` 
 and are compatible with these constraints. They allow us to sample node heights and polytomy resolutions within the 
 constraints imposed by the data tree.
 
@@ -193,15 +194,16 @@ constraints imposed by the data tree.
 ```
 		
 # More efficient data structures  
+
 Without the computational cost of the tree-data-likelihood, the routine processes of collating many coalescent
-intervals and managing a large tree's internal structure were computational bottlenecks. Although these operations
+intervals and managing a large tree's internal structure become computational bottlenecks. Although these operations
 are relatively efficient they occur at every state in the MCMC chain, and so even small inefficiencies add up.
 
-To increase efficiency on large datasets we have implemented new data structure for the time tree and coalescent 
-intervals, which are better suited for large trees. These implementations can be used in any analysis and improve 
+To increase efficiency on large datasets we have implemented new data structures for the time tree and coalescent 
+intervals. These implementations can be used in any analysis and improve 
 performance in even moderately sized datasets (a few hundred taxa).
 
-The tree class can be used by commented out the standard treemodel and replacing it as below.
+The tree class can be used by commenting out the standard treemodel and replacing it as below.
 
 ```xml
 
@@ -264,7 +266,7 @@ with `<intervals>`. The example below is for an exponential coalescent model.
 # Managing large xmls with beastgen
 
 These changes can be made to any xml generated by BEAUti. However, BEAUTi requires an alignment which can be very large,
-and editing large xmls is clunky and tedious. An alternative is to use [BEASTGen](http://beast.community/beastgen), a small commandline
+and editing large xmls is clunky and tedious. An alternative is to use [BEASTGen](http://beast.community/beastgen), a small command line
 utility that generates xmls from an Apache FreeMarker template and an input data file, which can be an alignment, a nexus tree, 
 or a BEAST xml. 
 
@@ -273,8 +275,9 @@ or a BEAST xml.
 An example template that utilizes a skygrid coalescent prior as well as the new classes and likelihood discussed 
 above can be downloaded from <a href="{{ root_url }}files/SG-thorney.template">here</a> along with a 
 <a href="{{ root_url }}files/1K_SARS-CoV-2.nexus">nexus tree</a> containing 
-1,000 SARS-CoV-2 taxa whose genomes were downloaded from GISAID and [COG-UK](https://www.cogconsortium.uk/data/).
-An acknowledgement table for the genomes from GISAID is <a href="{{ root_url }}files/GISAID_acknowledgements.csv">here</a>
+1,000 SARS-CoV-2 taxa whose genomes were downloaded from GISAID and <a href="(https://www.cogconsortium.uk/data/)">COG-UK</a>.
+An acknowledgement table for the genomes from GISAID is available
+<a href="https://github.com/beast-dev/doc/blob/master/tutorials/thorney_beast/files/%20GISAID_acknowledgements.csv">here</a>
 </div>
 
 The xml can be generated with
