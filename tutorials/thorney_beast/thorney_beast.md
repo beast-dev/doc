@@ -27,7 +27,7 @@ suite of models already available in BEAST. While the model used here dates back
 implementation was inspired by [Didelot et al., 2018](https://doi.org/10.1093/nar/gky783).
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i>
-All the analyses described here can be performed using the <a href="https://github.com/beast-dev/beast-mcmc/releases/tag/v1.10.5pre_thorney"> BEASTv.1.10.5pre_thorney </a>pre-release.
+All the analyses described here can be performed using the <a href="https://github.com/beast-dev/beast-mcmc/releases/tag/v1.10.5pre_thorney_v0.1.0"> BEASTv.1.10.5pre_thorney_v0.1.0 </a>pre-release.
 </div>
 
 
@@ -73,16 +73,46 @@ If you are starting from a standard BEAUTi-generated xml you can delete the `<al
 </newick>
 ```
 
-After the `<treeModel>` block we construct a `<constrainedTreeModel>` that ensures clades in the data tree are always 
-present in the `<treeModel>`, which represents the estimated the time tree. 
+The new likelihood function requires a map between the number of mutations along a branch in the data tree and 
+the duration of that same branch in the estimated time tree. To ensure this mapping is never broken, we have implemented
+a  `<constrainedTreeModel>` that takes the place of the standard `<treeModel>` block. The constrained tree model allows
+for sampling different resolutions of polytomies that may be present in the data tree without violating the topological requirements
+of the tree likelihood.
 ```xml
-<constrainedTreeModel id = "constrainedTreeModel">
-	<treeModel idref="treeModel"/>
+<!-- <treeModel id="treeModel">-->
+<!--    <coalescentTree idref="startingTree"/>-->
+<!--    <rootHeight>-->
+<!--        <parameter id="treeModel.rootHeight"/>-->
+<!--    </rootHeight>-->
+<!--    <nodeHeights internalNodes="true">-->
+<!--        <parameter id="treeModel.internalNodeHeights"/>-->
+<!--    </nodeHeights>-->
+<!--    <nodeHeights internalNodes="true" rootNode="true">-->
+<!--        <parameter id="treeModel.allInternalNodeHeights"/>-->
+<!--    </nodeHeights>-->
+<!-- </treeModel>-->
+<constrainedTreeModel id = "treeModel">
+	<tree idref="startingTree"/>
 	<constraintsTree>
 		<tree idref="dataTree"/>
 	</constraintsTree>
 </constrainedTreeModel>
+        
+<!-- Statistic for root height of the tree       -->
+<treeHeightStatistic id="treeModel.rootHeight">
+    <treeModel idref="treeModel"/>
+</treeHeightStatistic>
+    --snip--
+<nodeHeightOperator type="scaleRoot" weight="3" scaleFactor="0.75" >
+    <treeModel idref="treeModel"/>
+</nodeHeightOperator>
+
 ```
+Note that because of how the a `<constrainedTreeModel>` stores its root height we need a
+different root height statistic and root height operator than what is used in a standard analysis.
+
+
+
 We can now replace the standard `<treeDataLikelihood>` and its components with our new likelihood as indicated by the comments
 below.
 ```xml
@@ -141,14 +171,14 @@ below.
 <!--</treeDataLikelihood>-->
 
 <thorneyTreeLikelihood id="treeLikelihood">
-	<constrainedTreeModel idref="constrainedTreeModel"/>
+	<constrainedTreeModel idref="treeModel"/>
 			 
     <strictClockBranchLengthLikelihood id="branchLengthLikelihood" scale="29903.0">
 		<parameter id="clock.rate" value="0.00075" lower="0.0"/>
 	</strictClockBranchLengthLikelihood>
 		
 	<constrainedBranchLengthProvider scale="29903.0"> 
-		<constrainedTreeModel idref="constrainedTreeModel"/>
+		<constrainedTreeModel idref="treeModel"/>
 		<dataTree>
 			<tree idref="dataTree"/>
 		</dataTree>
@@ -169,26 +199,32 @@ data tree is unresolved and contains polytomies, we can sample from possible res
 and are compatible with these constraints. They allow us to sample node heights and polytomy resolutions within the 
 constraints imposed by the data tree.
 
+*NB: The topological operators below will exit with an error if the constraints tree is fully resolved (i.e. there are
+no polytomies over which to sample). In that case only the node height operators can be used.*
+
 ```xml
-                
+<nodeHeightOperator type="scaleRoot" weight="3" scaleFactor="0.75" >
+    <treeModel idref="treeModel"/>
+</nodeHeightOperator>           
+
 <nodeHeightOperator type="uniform" weight="10">
-    <constrainedTreeModel idref="constrainedTreeModel"/>
+    <constrainedTreeModel idref="treeModel"/>
 </nodeHeightOperator>
 		
 <uniformSubtreePruneRegraft weight="10">
-    <constrainedTreeModel idref="constrainedTreeModel"/>
+    <constrainedTreeModel idref="treeModel"/>
 </uniformSubtreePruneRegraft>
 		
 <narrowExchange weight="10">
-    <constrainedTreeModel idref="constrainedTreeModel"/>
+    <constrainedTreeModel idref="treeModel"/>
 </narrowExchange>
 		
 <wideExchange weight="10">
-    <constrainedTreeModel idref="constrainedTreeModel"/>
+    <constrainedTreeModel idref="treeModel"/>
 </wideExchange>
 		
 <wilsonBalding weight="10">
-    <constrainedTreeModel idref="constrainedTreeModel"/>
+    <constrainedTreeModel idref="treeModel"/>
 </wilsonBalding>
 ```
 		
@@ -199,8 +235,8 @@ intervals and managing a large tree's internal structure become computational bo
 are relatively efficient they occur at every state in the MCMC chain, and so even small inefficiencies add up.
 
 To increase efficiency on large datasets we have implemented new data structures for the time tree and coalescent 
-intervals. These implementations can be used in any analysis and improve 
-performance in even moderately sized datasets (a few hundred taxa).
+intervals. These implementations form the basis of the `<constrainedTreeModel>` above, but they can be used in any 
+analysis and improve performance in even moderately sized datasets (a few hundred taxa).
 
 The tree class can be used by commenting out the standard treemodel and replacing it as below.
 
@@ -240,7 +276,7 @@ The tree class can be used by commenting out the standard treemodel and replacin
 	<treeModel idref="treeModel"/>
 </nodeHeightOperator>
 ```
-Note that this change affects how the root height is stored and so we need a new root height statistic and operator.
+Note: As is in the case of the `<constrainedTreeModel>`, this change affects how the root height is stored and so we need a new root height statistic and operator.
 
  
 The new coalescent intervals can be added to any demographic model by replacing the `<populationTree>` in a coalescent model
@@ -289,7 +325,8 @@ The xml file can also be downloaded directly from <a href="{{ root_url }}files/1
 
 
 The template, `SG-thorney.template`, is small and easy to edit. It can also be used to generate similar analysis on much
-larger datsets without the tedious task of editing a large xml.
+larger datsets without the tedious task of editing a large xml. The operator weights are experimental and may need to be 
+adjusted. 
 
 A brief introduction to BEASTGen can be found [here](http://beast.community/beastgen). The Apache FreeMarker template
 engine is quite powerful, which makes BEASTGen a useful tool for managing large datasets and analyses. 

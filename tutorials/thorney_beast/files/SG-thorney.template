@@ -43,31 +43,27 @@
 	</newick>
 
 
-	<!-- Generate a tree model                                                   -->
-	<bigFastTreeModel id="treeModel">
+
+	<constrainedTreeModel id = "treeModel">
 		<tree idref="startingTree"/>
-	</bigFastTreeModel>
-	<!-- Statistic for root height of the tree       -->
-	<treeHeightStatistic id="treeModel.rootHeight">
-		<treeModel idref="treeModel"/>
-	</treeHeightStatistic>
-	<!-- Statistic for sum of the branch lengths of the tree (tree length)       -->
-	<treeLengthStatistic id="treeLength">
-		<treeModel idref="treeModel"/>
-	</treeLengthStatistic>
-	<!-- Statistic for time of most recent common ancestor of tree               -->
-	<tmrcaStatistic id="age(root)" absolute="true">
-		<treeModel idref="treeModel"/>
-	</tmrcaStatistic>
-	
-	<constrainedTreeModel id = "constrainedTreeModel">
-		<treeModel idref="treeModel"/>
 		<constraintsTree>
 			<tree idref="dataTree"/>
 		</constraintsTree>
 	</constrainedTreeModel>
+		<!-- Statistic for root height of the tree       -->
+	<treeHeightStatistic id="treeModel.rootHeight">
+	<treeModel idref="treeModel"/>
+	</treeHeightStatistic>
+			<!-- Statistic for sum of the branch lengths of the tree (tree length)       -->
+	<treeLengthStatistic id="treeLength">
+	<treeModel idref="treeModel"/>
+	</treeLengthStatistic>
+			<!-- Statistic for time of most recent common ancestor of tree               -->
+	<tmrcaStatistic id="age(root)" absolute="true">
+	<treeModel idref="treeModel"/>
+	</tmrcaStatistic>
 
-	<!-- Generate a coalescent likelihood                                        -->
+		<!-- Generate a coalescent likelihood                                        -->
 	<!-- Generate a gmrfSkyGridLikelihood for the Bayesian SkyGrid process       -->
 	<gmrfSkyGridLikelihood id="skygrid">
 		<populationSizes>
@@ -95,14 +91,14 @@
 
 
 	<thorneyTreeLikelihood id="treeLikelihood">
-		<constrainedTreeModel idref="constrainedTreeModel"/>
+		<constrainedTreeModel idref="treeModel"/>
 		
 		<strictClockBranchLengthLikelihood id="branchLengthLikelihood" scale="29903.0">
 			<parameter id="clock.rate" value="0.00075" lower="0.0"/>
 		</strictClockBranchLengthLikelihood>
 		
 		<constrainedBranchLengthProvider scale="29903.0">
-			<constrainedTreeModel idref="constrainedTreeModel"/>
+			<constrainedTreeModel idref="treeModel"/>
 			<dataTree>
 				<tree idref="dataTree"/>
 			</dataTree>
@@ -127,19 +123,19 @@
 		</nodeHeightOperator>
 		
 		<uniformSubtreePruneRegraft weight="${taxa?size/2}">
-			<constrainedTreeModel idref="constrainedTreeModel"/>
+			<constrainedTreeModel idref="treeModel"/>
 		</uniformSubtreePruneRegraft>
 		
 		<narrowExchange weight="${taxa?size/10}">
-			<constrainedTreeModel idref="constrainedTreeModel"/>
+			<constrainedTreeModel idref="treeModel"/>
 		</narrowExchange>
 		
 		<wideExchange weight="${taxa?size/10}">
-			<constrainedTreeModel idref="constrainedTreeModel"/>
+			<constrainedTreeModel idref="treeModel"/>
 		</wideExchange>
 		
 		<wilsonBalding weight="${taxa?size/10}">
-			<constrainedTreeModel idref="constrainedTreeModel"/>
+			<constrainedTreeModel idref="treeModel"/>
 		</wilsonBalding>
 		<gmrfSkygridBlockUpdateOperator scaleFactor="1.1" weight="10">
 			<gmrfSkygridLikelihood idref="skygrid"/>
