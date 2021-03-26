@@ -27,9 +27,10 @@ suite of models already available in BEAST. While the model used here dates back
 implementation was inspired by [Didelot et al., 2018](https://doi.org/10.1093/nar/gky783).
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i>
-All the analyses described here can be performed using the <a href="https://github.com/beast-dev/beast-mcmc/releases/tag/v1.10.5pre_thorney_v0.1.0"> BEASTv.1.10.5pre_thorney_v0.1.0 </a>pre-release.
+All the analyses described here can be performed using the <a href="https://github.com/beast-dev/beast-mcmc/releases/tag/v1.10.5pre_thorney_v0.1.1"> BEASTv.1.10.5pre_thorney_v0.1.1 </a>pre-release.
 </div>
 
+{% include warning.html content="Previous prereleases included a small bug that resulted in root hieght estimates that were biased towards grid points, when intervals were passed directly to the skygrid as is done with BigFastTreeIntervals below. This is fixed in pre-release v0.1.1" %}
 
 *NB: To the best of our knowledge Jeff Thorne and colleges work in [multidivtime](https://brcwebportal.cos.ncsu.edu/thorne/multidivtime.html) 
 represents the first implementation of related approaches in a Bayesian framework.*
