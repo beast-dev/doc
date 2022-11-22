@@ -3,7 +3,7 @@ title: 揭示流感的进化动力学
 keywords: phylodynamics, influenza, tutorial
 last_updated: August 8, 2017
 tags: [tutorial, workshop]
-summary: "本教程提供了如何通过BEAST对不同时间点(‘异质’数据)采集的样本序列集进行进化动力学分析的逐步讲解。我们将关注A型流感病毒的进化，尤其是2009年出现的猪源H1N1 A型流感病毒(H1N1pdm) 以及纽约州的季节性H3N2的动力学。H1N1pdm数据集是研究此次大流行的起源与进化基因组学的所分析的基因组的子集(Smith et al., 2009)。H3N2数据集是跨越纽约州几个流行季节的综合性数据集，该数据集已经被用来揭示该病毒的基因组及流行病学动力学(Rambaut et al., 2008)。在第一次练习中，目的是获得对该流行病起源日期的估计，以及对H1N1pdm流行病增长和基本生殖数量的估计。在第二个练习中，我们将研究H3N2多样性如何随时间波动。"
+summary: "本教程提供了如何通过BEAST对不同时间点(‘异质’数据)采集的样本序列集进行进化动力学分析的逐步讲解。我们将关注A型流感病毒的进化，尤其是2009年出现的猪源H1N1 A型流感病毒(H1N1pdm) 以及纽约州的季节性H3N2的动力学。H1N1pdm数据集是研究此次大流行的起源与进化基因组学的所分析的基因组的子集(Smith et al., 2009)。H3N2数据集是跨越纽约州几个流行季节的综合性数据集的一个子集，该数据集已经被用来揭示该病毒的基因组及流行病学动力学(Rambaut et al., 2008)。在第一次练习中，目的是获得对该流行病起源日期的估计，以及对H1N1pdm流行病增长和基本生殖数量的估计。在第二个练习中，我们将研究H3N2多样性如何随时间波动。"
 sidebar: beast_sidebar
 language: cn
 permalink: workshop_influenza_phylodynamics_chs.html
@@ -25,7 +25,7 @@ folder: beast
 
 {% include figtree_callout.md %}
 
-{% include note.html content='本教程基于<a href="workshop_rates_and_dates">Estimating rates and dates from time-stamped sequences</a>，因此在开始本教程前应该先完成该教程。' %}
+{% include note.html content='本教程基于<a href="workshop_rates_and_dates">估测具有时间标记序列的速率和日期</a>，因此在开始本教程前应该先完成该教程。' %}
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 本教程所需的所有文件<a href="{{ root_url }}files/influenzaTutorialFiles.zip"> 可以在此处下载</a>。
 如果你下载了压缩文件，没有必要再下载本教程链接的其他文件或文件夹。
@@ -40,7 +40,7 @@ folder: beast
 -->
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 数据文件为'<samp>H1N1pdm_2009.nex</samp>' 和<a href="{{ root_url }}files/H1N1pdm_2009.nex">可以在此处下载</a>.</div>
 
-### 运行BEAUti
+### 运行 BEAUti
 
 {% include icon-callout.html file='icons/beauti-icon.png' content='<a href="beauti">BEAUti</a> 通过双击其图标运行BEAUti。BEAUti 是一个交互式图形应用程序，用于设计分析和生成控制文件(BEAST XML文件)，BEAST将会运行该文件。' %}
 
@@ -118,7 +118,7 @@ BEAUti中的`MCMC` 选项提供了控制MCMC链和生成log文件的设置。
 
 创建BEAST XML文件后，可以使用BEAST执行分析。
 
-{% include icon-callout.html file='icons/beast-icon.png' content='Run <a href="beast">BEAST</a> by double-clicking on the BEAST icon.' %}
+{% include icon-callout.html file='icons/beast-icon.png' content='Run <a href="beast">BEAST</a> 通过双击其图标运行BEAST.' %}
 
 BEAST启动后，将出现一个对话框，您可以在其中选择XML文件:
 
@@ -226,7 +226,7 @@ TreeAnnotator采样单个'target'树，以及使用来自整个树样本的汇�
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i>数据文件为'<samp>NewYork.HA.2000-2003.nex</samp>'和 <a href="{{ root_url }}files/NewYork.HA.2000-2003.nex">可以在此处下载</a>.</div>
 
 
-### 运行BEAUti
+### 运行 BEAUti
 
 运行BEAUti，加载nexus文件(<samp>NewYork.HA.2000-2003.nex</samp>)并且设置`Tips`面板的`Parse Dates`为之前所说的序列名称中的最后一个数字字段。 设置和上节练习相同的进化模型(包括伽马分布的变化速率)和分子钟模型。`Trees`选项选择`Coalescent: Bayesian SkyGrid`作为`Tree Prior`。本教程中，我们将会对在最近采样日期之前(<samp>2003.98</samp>因此追溯到1999年)的5年间隔(`Time at last point:` <samp>5</samp>)分为<samp>50</samp>网格，因此每年估计10个种群大小。应看到如下所示:
 
@@ -256,7 +256,7 @@ TreeAnnotator采样单个'target'树，以及使用来自整个树样本的汇�
 
 {% include image.html file="image22.png" prefix=root_url %}
 
-默认情况下y轴采样对数刻度。点击`Axes`按钮，关掉`Log axis`的`Y axis`。由于HPD上限非常大，因此也需要设置`Manual range`。设置<samp>0</samp> 到<samp>100</samp> ，将会得到如下所示a:
+默认情况下y轴采样对数刻度。点击`Axes`按钮，关掉`Log axis`的`Y axis`。由于HPD上限非常大，因此也需要设置`Manual range`。设置<samp>0</samp> 到<samp>100</samp> ，将会得到如下所示:
 
 {% include image.html file="image23.png" prefix=root_url %}
 
@@ -283,7 +283,7 @@ TreeAnnotator采样单个'target'树，以及使用来自整个树样本的汇�
 - Rambaut A, Pybus OG, Nelson MI, Viboud C, Taubenberger JK, Holmes EC (2008) The genomic and epidemiological dynamics of human influenza A virus. Nature, 453: 615-9.
 - Smith GJD, Vijaykrishna D, Bahl J, Lycett SJ, Worobey M, Pybus OG, Ma SK, Cheung CL, Raghwani J, Bhatt S, Peiris JSM, Guan Y & Rambaut A (2009) Origins and evolutionary genomics of the 2009 swine-origin H1N1 influenza A epidemic. Nature 459, 1122-1125.
 
-## Help and documentation
+## 帮助文档
 
 BEAST网站: [http://beast.community](http://beast.community)
 
