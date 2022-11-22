@@ -86,11 +86,11 @@ To estimate the epidemic growth rate, we will change this demographic model to a
 
 #### Setting up the priors
 
-Now switch to the `Priors` tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. A strong prior allows the user to ‘inform’ the analysis by selecting a particular distribution with a small variance. Alternatively we can select a weak (diffuse) prior to try to minimise the effect on the analysis. Note that a prior distribution must be specified for every parameter and whilst BEAUti provides default options these are not necessarily tailored to the problem and data being analyzed. 
+Now switch to the `Priors` tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. A strong prior allows the user to ‘inform’ the analysis by selecting a particular distribution with a small variance. Alternatively we can select a weak (diffuse) prior to try to minimize the effect on the analysis. Note that a prior distribution must be specified for every parameter and whilst BEAUti provides default options these are not necessarily tailored to the problem and data being analyzed. 
 
 {% include image.html file="image9.png" prefix=root_url %}
 
-In this case, the default prior for the exponential growth rate (the Laplace distribution) prefers relatively small growth rates because the of the default scale (<samp>1.0</samp>). However, on this epidemic scale, the growth rate parameter take could take on relatively large values. Therefore, we will increase the variance of this prior distribution by setting the scale to <samp>100</samp>. A useful exercise could be to examine the sensitity of the growth rate estimates to different scale values for this prior distribution (e.g. scale = 1, 10, 100).
+In this case, the default prior for the exponential growth rate (the Laplace distribution) prefers relatively small growth rates because the of the default scale (<samp>1.0</samp>). However, on this epidemic scale, the growth rate parameter take could take on relatively large values. Therefore, we will increase the variance of this prior distribution by setting the scale to <samp>100</samp>. A useful exercise could be to examine the sensitivity of the growth rate estimates to different scale values for this prior distribution (e.g. scale = 1, 10, 100).
 
 The other priors can be left at their default options.
 
