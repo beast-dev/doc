@@ -12,7 +12,7 @@ folder: beast
 
 Based on an original page posted by Nick Grassly on the [H1N1 pandemic website](https://tree.bio.ed.ac.uk/wiki/pages/t769F5D1/Relationship_between_R0_and_the_epidemic_growth_rate.html).
 
-The basic reproduction number of the swine influenza epidemic, $ R_{0} $ can be estimated from its initial rate of spread. If we assume roughly exponential growth then the basic reproductive number is related to the growth rate by the so-called Lotka-Euler estimating equation:
+The basic reproduction number of the swine influenza epidemic, $R_{0}$ can be estimated from its initial rate of spread. If we assume roughly exponential growth then the basic reproductive number is related to the growth rate by the so-called Lotka-Euler estimating equation:
 
 $$ R_{0}=\int_{0}^{\infty} \frac{1}{w(\tau)e^{-rt}} d\tau $$
 
