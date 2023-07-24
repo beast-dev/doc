@@ -168,7 +168,7 @@ Select `Demographic Model: Exponential Growth (Growth Rate)` --- note, you must 
 
 This shows the exponential growth line for the median growth rate and the 95% HPD intervals for this growth as a solid area. It is on a log scale so is a straight line. You can play with the axis settings using the `Axes...` button. The dotted vertical lines represent the 95% HPD for the date of the root of the tree. 
 
-{% include callout.html type="primary" content="The exponential.growthRate ($r$) provides an estimate of the epidemic growth of the SARS-CoV-2 alpha variant in the U.K. Interestingly, it has been shown that the basic reproductive ratio \\(R_0 \\) is related to the growth rate --- see [this page for details](/estimating_R0.html). However, the basic reproductive number is dependent not just on an estimate of (\\( r \\)), but also a good estimate of the generation time distribution, which reflects the time between successive infections in a chain of transmission. If we assume a generation time distribution that follows the gamma distribution, then $(R_0 = (1 +  r / b) ^a)$, where $a$ and $b$ are the parameters of the gamma distribution (and $(a = \mu^2 / \sigma^2)$, $(b = \mu / \sigma^2)$). " %} 
+{% include callout.html type="primary" content="The exponential.growthRate ($r$) provides an estimate of the epidemic growth of the SARS-CoV-2 alpha variant in the U.K. Interestingly, it has been shown that the basic reproductive ratio $$ R_0 $$ is related to the growth rate --- see [this page for details](/estimating_R0.html). However, the basic reproductive number is dependent not just on an estimate of (\\( r \\)), but also a good estimate of the generation time distribution, which reflects the time between successive infections in a chain of transmission. If we assume a generation time distribution that follows the gamma distribution, then $(R_0 = (1 +  r / b) ^a)$, where $a$ and $b$ are the parameters of the gamma distribution (and $$a = \mu^2 / \sigma^2$$, $$b = \mu / \sigma^2)$$. " %} 
 
 {% include callout.html type="warning" content="Following Volz et al. (2021), if we use  $`\mu = 6.44`$ days and $`\sigma = 4.25`$ days, what would be the mean estimate of $`R_t`$ for alpha in the U.K.? How does this compare to the estimate by Volz et al. (2021) of 1.79 (1.22-2.49) for 1 November 2020 to 16 January 2021 <br /><br /><br />" %} 
 
@@ -178,7 +178,7 @@ In order to compare the expansion of alpha with another SARS-CoV-2 variant in th
 
 {% include image.html file="image18.png" prefix=root_url %}
  
-Also for this data set, long runs have been provided both for the growth rate and doubling time parameterisation. Based on these, and a generation distribution mean of 3 and a standard deviation of 1 day (Park et al., 2023), what would be the mean estimates for $`R_t`$ and the doubling time? How do these compare to estimates of $`R_t = 2.1`$ for South Africa (Khan et al., 2022) and a doubling time of 4.28 days for Oregon, U.S. (Smith et al., 2022)?
+Also for this data set, long runs have been provided both for the growth rate and doubling time parameterisation. Based on these, and a generation distribution mean of 3 and a standard deviation of 1 day (Park et al., 2023), what would be the mean estimates for $$R_t$$ and the doubling time? How do these compare to estimates of $$R_t = 2.1$$ for South Africa (Khan et al., 2022) and a doubling time of 4.28 days for Oregon, U.S. (Smith et al., 2022)?
 
 
 ## EXERCISE 2: reconstructing H3N2 epidemic dynamics in the New York state.
