@@ -1,10 +1,10 @@
 ---
-title: Revealing the evolutionary dynamics of respiratory viruses
+title: Phylodynamic inference of respiratory viruses
 keywords: phylodynamics, SARS-CoV-2, influenza, tutorial
 last_updated: July 16, 2023
 tags: [tutorial, workshop]
-summary: "This tutorial provides a step-by-step explanation on how to reconstruct the evolutionary dynamics of respiratory viruses based on a set of virus sequences which have been isolated at different points in time (‘heterochronous’ data) using BEAST. We will focus on SARS-CoV-2 and influenza A virus evolution, in particular on the emergence and invasion dynamics of the alpha (B.1.1.7) and omicron BA.1 variant of SARS-CoV-2 in the UK, and the seasonal transmission dynamics of influenza A virus H3N2 in the U.S. The alpha data set has previously been analysed to study the origins and molecular evolution of this lineage (Hill et al., 2022). The omicron BA.1 data set is a subset of genomes of the largest BA.1 transmission lineage identified in the England (Tsui et al, 2023).
-The H3N2 data is a subset of a comprehensive data set spanning several epidemic seasons in the New York state, which has been used to unravel the genomic and epidemiological dynamics of this virus (Rambaut et al., 2008). In the first exercise, the aim is to obtain an estimate of the epidemic growth and basic reproductive number of the SARS-CoV-2 variants in the U.K. In the second exercise, we will examine how H3N2 diversity fluctuates through time."
+summary: "This tutorial provides a step-by-step explanation on how to reconstruct the evolutionary dynamics of respiratory viruses based on sets of virus sequences that been isolated at different points in time (‘heterochronous’ data) using BEAST. We will focus on SARS-CoV-2 and influenza A virus evolution, in particular on the emergence and invasion dynamics of the alpha (B.1.1.7) and omicron BA.1 variant of SARS-CoV-2 in the UK, and the seasonal transmission dynamics of influenza A virus H3N2 in the U.S. The alpha data set has previously been analysed to study the origins and molecular evolution of this lineage (Hill et al., 2022). The omicron BA.1 data set is a subset of genomes of the largest BA.1 transmission lineage identified in the England (Tsui et al, 2023).
+The H3N2 data is a subset of a comprehensive data set spanning several epidemic seasons in the New York state, which has been used to unravel the genomic and epidemiological dynamics of this virus (Rambaut et al., 2008). In the first exercise, the aim is to obtain an estimate of the epidemic growth and basic reproductive number of the SARS-CoV-2 variants in the U.K. In the second exercise, we will examine how H3N2 population sizes fluctuates through time."
 sidebar: beast_sidebar
 permalink: workshop_respiratory_virus_phylodynamics.html
 folder: beast
@@ -52,7 +52,7 @@ To undertake a phylodynamic analysis we need to specify the dates that the indiv
 
 {% include image.html file="image2.png" prefix=root_url %}
 
-Select the box labelled `Use tip dates`. The actual sampling time in fractional years is encoded in the name of each taxon and we can use the `Parse Dates` button at the top of the panel to extract these. For the alpha sequences, select the `Defined by a prefix and its order` option. Select `last` from the `Order` drop-down menu and enter the pipe symbol `|` as `Prefix`. Select the `Parse as a calendar date` (and keep the default `Date` format) and press `OK`. The dates will appear in the appropriate column of the main window. You can then check these and edit them manually in case this would be required. 
+Select the box labelled `Use tip dates`. The actual sampling time is encoded in the name of each taxon (at the end, using the year-mm-dd format) and we can use the `Parse Dates` button at the top of the panel to extract these. For the alpha sequences, select the `Defined by a prefix and its order` option. Select `last` from the `Order` drop-down menu and enter the pipe symbol `|` as `Prefix`. Select the `Parse as a calendar date` (and keep the default `Date` format) and press `OK`. The dates will appear in the appropriate column of the main window. You can then check these and edit them manually in case this would be required. 
 
 {% include image.html file="image3.png" prefix=root_url %}
 
@@ -76,7 +76,7 @@ Now move on to the `Trees` panel.
 
 #### Setting the tree prior
 
-This panel contains settings about the tree. Firstly the starting tree is specified to be ‘randomly generated’. The other main setting here is to specify the ‘Tree prior’ which describes how the population size is expected to change over time for coalescent models. The default tree prior is set to a constant size coalescent prior. [The range of different tree priors (coalescent and other models) are described on this page](tree_priors).
+This panel contains settings about the tree. Firstly the starting tree is specified to be ‘randomly generated’. The other main setting here is to specify the `Tree prior` which describes how the population size is expected to change over time for coalescent models. The default tree prior is set to a constant size coalescent prior. [The range of different tree priors (coalescent and other models) are described on this page](tree_priors).
 
 To estimate the epidemic growth rate, we will change this demographic model to an exponential growth coalescent prior, which is intuitively appealing for viral outbreaks. Switch the option for `Tree Prior` to `Coalescent: Exponential Growth`:
 
@@ -168,9 +168,9 @@ Select `Demographic Model: Exponential Growth (Growth Rate)` --- note, you must 
 
 This shows the exponential growth line for the median growth rate and the 95% HPD intervals for this growth as a solid area. It is on a log scale so is a straight line. You can play with the axis settings using the `Axes...` button. The dotted vertical lines represent the 95% HPD for the date of the root of the tree. 
 
-{% include callout.html type="primary" content="The exponential.growthRate (\\( r \\)) provides an estimate of the epidemic growth of the SARS-CoV-2 alpha variant in the U.K. Interestingly, it has been shown that the basic reproductive ratio (\\( R_0 \\)) is related to the growth rate --- see [this page for details](/estimating_R0.html). However, the basic reproductive number is dependent not just on an estimate of (\\( r \\)), but also a good estimate of the generation time distribution, which reflects the time between successive infections in a chain of transmission. If we assume a generation time distribution that follows the gamma distribution, then \\( R_0 = (1 +  r / b) ^a \\), where \\( a \\) and \\( b \\) are the parameters of the gamma distribution (and \\( a = \mu^2 / \sigma^2 \\), \\( b = \mu / \sigma^2 \\)). " %} 
+{% include callout.html type="primary" content="The exponential.growthRate ($r$) provides an estimate of the epidemic growth of the SARS-CoV-2 alpha variant in the U.K. Interestingly, it has been shown that the basic reproductive ratio ($`R_0`$) is related to the growth rate --- see [this page for details](/estimating_R0.html). However, the basic reproductive number is dependent not just on an estimate of (\\( r \\)), but also a good estimate of the generation time distribution, which reflects the time between successive infections in a chain of transmission. If we assume a generation time distribution that follows the gamma distribution, then $`R_0 = (1 +  r / b) ^a`$, where $a$ and $b$ are the parameters of the gamma distribution (and $`a = \mu^2 / \sigma^2`$, $`b = \mu / \sigma^2`$). " %} 
 
-{% include callout.html type="warning" content="Following Volz et al. (2021), if we use  \\( \mu = 6.44 \\) days and \\( \sigma = 4.25 \\) days, what would be the mean estimate of \\( R_t \\) for alpha in the U.K.? How does this compare to the estimate by Volz et al. (2021) of 1.79 (1.22-2.49) for 1 November 2020 to 16 January 2021 <br /><br /><br />" %} 
+{% include callout.html type="warning" content="Following Volz et al. (2021), if we use  $`\mu = 6.44`$ days and $`\sigma = 4.25`$ days, what would be the mean estimate of $`R_t`$ for alpha in the U.K.? How does this compare to the estimate by Volz et al. (2021) of 1.79 (1.22-2.49) for 1 November 2020 to 16 January 2021 <br /><br /><br />" %} 
 
 An alternative way of assessing viral population growth would be through the doubling time estimate. This can be obtained based on the growth rate (how would you get this?), or it can be estimated through a coalescent growth model model with a doubling time parameterisation (cfr. above). Similar to the growth rate analysis, a long run has been made available for the doubling time parameterisation that you can summarise in Tracer. How does the estimate compare to a doubling time estimate based on the spike gene target failure PCR method for Oregon, U.S., of 9.54 (Smith et al., 2022) for example?
 
@@ -178,7 +178,7 @@ In order to compare the expansion of alpha with another SARS-CoV-2 variant in th
 
 {% include image.html file="image18.png" prefix=root_url %}
  
-Also for this data set, long runs have been provided both for the growth rate and doubling time parameterisation. Based on these, and a generation distribution mean of 3 and a standard deviation of 1 day (Park et al., 2023), what would be the mean estimates for \\( R_t \\) and the doubling time? How do these compare to estimates of \\( R_t = 2.1 \\) for South Africa (Khan et al., 2022) and a doubling time of 4.28 days for Oregon, U.S. (Smith et al., 2022)?
+Also for this data set, long runs have been provided both for the growth rate and doubling time parameterisation. Based on these, and a generation distribution mean of 3 and a standard deviation of 1 day (Park et al., 2023), what would be the mean estimates for $`R_t`$ and the doubling time? How do these compare to estimates of $`R_t = 2.1`$ for South Africa (Khan et al., 2022) and a doubling time of 4.28 days for Oregon, U.S. (Smith et al., 2022)?
 
 
 ## EXERCISE 2: reconstructing H3N2 epidemic dynamics in the New York state.
@@ -249,7 +249,7 @@ This clearly shows the seasonal peaks but the uncertainty represented by the cre
 - Park SW, Sun K, Abbott S, Sender R, Bar-On YM, Weitz JS, Funk S, Grenfell BT, Backer JA, Wallinga J, Viboud C, Dushoff J. Inferring the differences in incubation-period and generation-interval distributions of the Delta and Omicron variants of SARS-CoV-2. Proc Natl Acad Sci U S A. 2023 May 30;120(22):e2221887120. doi: 10.1073/pnas.2221887120. Epub 2023 May 22. PMID: 37216529; PMCID: PMC10235974.
 - Rambaut A, Pybus OG, Nelson MI, Viboud C, Taubenberger JK, Holmes EC (2008) The genomic and epidemiological dynamics of human influenza A virus. Nature, 453: 615-9.
 - Smith, B. F., Graven, P. F., Yang, D. Y., Downs, S. M., Hansel, D. E., Fan, G., & Qin, X. (2022). Using Spike Gene Target Failure to Estimate Growth Rate of the Alpha and Omicron Variants of SARS-CoV-2. Journal of Clinical Microbiology, 60(4). https://doi.org/10.1128/jcm.02573-21.
-- . Joseph L.-H. Tsui et al. (2023). Genomic assessment of invasion dynamics of SARS-CoV-2 Omicron BA.1.Science381,336-343(2023).DOI:10.1126/science.adg6605.
+- Joseph L.-H. Tsui et al. (2023). Genomic assessment of invasion dynamics of SARS-CoV-2 Omicron BA.1.Science381,336-343(2023).DOI:10.1126/science.adg6605.
 - Volz, E., Mishra, S., Chand, M. et al. Assessing transmissibility of SARS-CoV-2 lineage B.1.1.7 in England. Nature 593, 266–269 (2021). https://doi.org/10.1038/s41586-021-03470-x.
 
 ## Help and documentation

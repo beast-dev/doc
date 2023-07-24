@@ -210,7 +210,7 @@ entries:
       url: /workshop_influenza_phylodynamics
       output: web, pdf
 
-    - title: Evolutionary Dynamics of respiratory viruses
+    - title: Phylodynamics inference of respiratory viruses
       url: /workshop_respiratory_virus_phylodynamics
       output: web, pdf
 
