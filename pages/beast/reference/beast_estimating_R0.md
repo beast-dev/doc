@@ -14,7 +14,7 @@ Based on an original page posted by Nick Grassly on the [H1N1 pandemic website](
 
 The basic reproduction number of the swine influenza epidemic, \\( R_{0} \\) can be estimated from its initial rate of spread. If we assume roughly exponential growth then the basic reproductive number is related to the growth rate by the so-called Lotka-Euler estimating equation:
 
-\\[ R_{0}=\int_{0}^{\infty} \frac{1}{w(\tau)e^{-rt}} d\tau \\]
+$$R_{0}=\int_{0}^{\infty} \frac{1}{w(\tau)e^{-rt}} d\tau$$
 
 where \\( r \\) is the rate of exponential growth and \\( w(\tau) \\) the generation time distribution [1]. The generation time distribution can be thought of as the probability density function describing the distribution of times between successive infections in a chain of transmission.
 
