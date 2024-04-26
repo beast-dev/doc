@@ -4,7 +4,7 @@ permalink: faq.html
 sidebar: beast_sidebar
 tags: [help, trouble-shooting]
 keywords: frequently asked questions, FAQ, question and answer, help
-last_updated: September 3, 2017
+last_updated: April 26, 2024
 summary: "Frequently asked questions about BEAST."
 toc: true
 folder: beast
@@ -39,9 +39,7 @@ folder: beast
 			<div class="panel-body">
 			    <div>BEAST is a software package to perform Bayesian analysis of molecular sequences using MCMC and focuses on estimating phylogenies using a wide range of models.
 			    </div>
-			    
                 <div><a href="about">Here is list some of BEAST's features and models.</a></div>
-                
                 <div><a href="tutorials">Introductory, advanced and workshop tutorials can be found on this website.</a></div>
 			</div>
 		</div>

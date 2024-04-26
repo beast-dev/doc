@@ -1,7 +1,7 @@
 ---
 title: About BEAST
 keywords: beast, authors, developers
-last_updated: March 6, 2019
+last_updated: April 26, 2024
 tags: [getting-started]
 summary: BEAST is a software package for phylogenetic analysis with an emphasis on time-scaled trees.
 sidebar: beast_sidebar
@@ -67,11 +67,12 @@ msuchard--at--ucla.edu
 
 BEAST and modules within it have developed by
 
-: Alex Alekseyenko, Daniel Ayres, Guy Baele, Trevor Bedford, Filip Bielejec, Erik Bloomquist, Aaron Darling, Matthew Hall, Joseph Heled, Sebastian Hoehna, Philippe Lemey, Wai Lok Sibon Li, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, Walter Xie
+:Alex Alekseyenko, Daniel Ayres, Guy Baele, Trevor Bedford, Filip Bielejec, Erik Bloomquist, Luiz Max Carvalho, Gabriela Cybis, Mandev Gill, Matthew Hall, Gabe Hassler, Joseph Heled, Sebastian Hoehna, Xiang Ji, Michael Karcher, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, Gerton Lunter, Andy Magee, Sidney Markowitz, JT McCrone, Volodymyr Minin, Julia Palacios, Michael Defoin Platel, Oliver Pybus, Yucai Shao, Max Tolkoff, Chieh-Hsi Wu, Walter Xie and Zhenyu Zhang",
+
 
 As an Open Source project, BEAST has benefited from contributions and assistance from a large number of people over the years. In particular we would like to thank:
 
-: Peter Beerli, Gytis Dudas, Roald Forsberg, Jess Hedge, Simon Ho, Mark Holder, Denise Kuehnert, Paul Lewis, Gerton Lunter, Sam Lycett, Oliver Pybus, Tulio de Oliveira, Jayna Ragwani, Beth Shapiro, Korbinian Strimmer, David Swofford, Ziheng Yang
+: Peter Beerli, Gytis Dudas, Roald Forsberg, Jess Hedge, Simon Ho, Mark Holder, Paul Lewis, Gerton Lunter, Sam Lycett, Oliver Pybus, Tulio de Oliveira, Ifeanyi Omah, Áine O'Toole, Jayna Ragwani, Beth Shapiro, Korbinian Strimmer, David Swofford, Ziheng Yang
 
 ### Funding
 
@@ -113,15 +114,6 @@ url='http://wellcome.ac.uk'
 width='17%'
 title='The Wellcome Trust'
 subtitle='Collaborators Award 206298/Z/17/Z --- <a href="artic.network">ARTIC network</a><br />Project grant 092807'
-%}
-
-{% include icon-callout.html
-type='primary'
-file='logos/bbsrc-logo.png'
-url='http://bbsrc.ac.uk'
-width='17%'
-title='BBSRC'
-subtitle='"XXXX" to Andrew Rambaut'
 %}
 
 {% include icon-callout.html

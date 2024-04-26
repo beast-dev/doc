@@ -4,11 +4,35 @@ permalink: version_history.html
 sidebar: beast_sidebar
 tags: [reference]
 keywords: beast
-last_updated: July 21, 2017
+last_updated: April 26, 2024
 summary: 
 toc: false
 folder: beast
 ---
+
+### Version 10.0.0  released 26th April 2024
+
+- New Major Version - BEAST X v10.0.0
+	
+#### New Features:
+
+#### Bug Fixes:
+> See [Issue List](https://github.com/beast-dev/beast-mcmc/issues?q=is%3Aissue+is%3Aclosed) for full list.	
+
+### Previous versions:
+```
+Version 1.10.4  released 11th November 2018
+
+    New command line options for BEAGLE v3.1:
+        -beagle_threading_off | Turn off CPU multithreading in BEAGLE.
+        -beagle_thread_count  | Limit how many CPU threads BEAGLE uses.
+        By default BEAGLE tries to occupy the entire CPU (i.e., all the
+        available cores). Use this option to share the CPU with other users
+        or processes.
+
+	Bug Fixes:
+		Issue 1038: logcombiner -burnin issue.
+```
 
 ```
 Version 1.10.3 released 28th August 2018
