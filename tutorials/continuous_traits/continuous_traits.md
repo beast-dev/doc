@@ -10,6 +10,8 @@ folder: beast
 redirect_from: "/continuous-traits"
 ---
 
+# With sequence data
+
 ## Loading the sequence data
 
 To load a NEXUS format alignment, simply select the `Import Data...` option from the `File` menu.
@@ -115,3 +117,7 @@ This is corresponds to a strong positive correlation (the variance/covariance ma
 You can also construct a summary MCC tree using the TreeAnnotator tool and then visualise individual dimensions of the traits using FigTree (i.e., by colouring the branches). We currently don't have any multivariate visualisation tools for these analyses but we hope to provide some in the future.
 
 {% include links.html %}
+
+# Without sequence data
+
+__TODO__

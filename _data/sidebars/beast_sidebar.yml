@@ -113,6 +113,10 @@ entries:
       url: /continuous_traits
       output: web, pdf
 
+    - title: Analysing Continuous Traits without Sequence Data
+      url: /continuous_traits_no_sequence
+      output: web, pdf
+
   - title: How-To Guides
     output: web, pdf
     folderitems:
