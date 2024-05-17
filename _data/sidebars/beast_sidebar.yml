@@ -117,6 +117,7 @@ entries:
       url: /continuous_traits_no_sequence
       output: web, pdf
 
+
   - title: How-To Guides
     output: web, pdf
     folderitems:

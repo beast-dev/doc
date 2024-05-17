@@ -118,6 +118,3 @@ You can also construct a summary MCC tree using the TreeAnnotator tool and then 
 
 {% include links.html %}
 
-# Without sequence data
-
-__TODO__
