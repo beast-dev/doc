@@ -209,7 +209,7 @@ On the left hand side is the name of the log file loaded and the traces that it 
 
 Note that the effective sample sizes (ESSs) for all the traces are small. Select the `Trace` panel from the top of the window and inspecting the traces of the various parameters. You will see that the chain is still in the burn-in phase (the posterior values are still increasing over the entire chain), and this run does not allow us to summarize marginal posterior probability distributions for the parameters. 
 
-The simple response to this situation is that we need to run the chain for longer. We have provided the results of a very long run --- 200 million steps, sampling every 50,000th step, resulting in 4,000 samples. In this case, the MCMC run has reached stationarity, and almost all parameter traces still show satisfactory ESSs. 
+The simple response to this situation is that we need to run the chain for longer. We have provided the results of a very long run --- 150 million steps, sampling every 150,000th step, resulting in 1,000 samples. In this case, the MCMC run has reached stationarity, and almost all parameter traces still show satisfactory ESSs. 
 
 <!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The long runs can be found in the shared folder:<br />
