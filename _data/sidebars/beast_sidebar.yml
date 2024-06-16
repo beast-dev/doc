@@ -93,6 +93,10 @@ entries:
       url: /tempest_tutorial
       output: web, pdf
 
+    - title: Bayesian Evaluation of Temporal Signal
+      url: /bets_tutorial
+      output: web, pdf
+
     - title: Online phylodynamic inference
       url: /online_inference
       output: web, pdf
@@ -144,6 +148,10 @@ entries:
       url: /custom_substitution_models
       output: web, pdf
 
+    - title: Create Markov-modulated models
+      url: /markov_modulated
+      output: web, pdf
+
   - title: Advanced Tutorials
     output: web, pdf
     folderitems:
@@ -183,6 +191,14 @@ entries:
       url: /time_dependent_rate_model
       output: web, pdf
 
+    - title: Phylogeography with individual travel history
+      url: /travel_history
+      output: web, pdf
+
+    - title: Analysing datasets with tens of thousands of taxa
+      url: /thorney_beast
+      output: web, pdf
+
   - title: Workshop Tutorials
     output: web, pdf
     folderitems:
@@ -192,6 +208,10 @@ entries:
 
     - title: Evolutionary Dynamics of Influenza
       url: /workshop_influenza_phylodynamics
+      output: web, pdf
+
+    - title: Phylodynamics inference of respiratory viruses
+      url: /workshop_respiratory_virus_phylodynamics
       output: web, pdf
 
     - title: Model Selection and Testing

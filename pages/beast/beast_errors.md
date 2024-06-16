@@ -313,7 +313,34 @@ If so, you may need to give it the path to the CUDA SDK installation (or perhaps
                     		</div>
                     	</div>
         <!-- /.panel -->
-
+        
+        <div class="panel panel-default">
+                        		<div class="panel-heading">
+                        			<div class="panel-title">
+                        				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#beagle-accordion" href="#collapseThirteen">
+        BEAGLE resources: (but no hardware devices are listed)
+                        				</a>
+                        			</div>
+                        		</div>
+                        		<div id="collapseThirteen" class="panel-collapse collapse noCrossRef">
+                        			<div class="panel-body">
+When the BEAST output indicates that BEAGLE has been found (the BEAGLE version is printed after the BEAST development acknowledgements) but your analysis still throws a BEAGLE-related error, it may be the case that no hardware resources have been found by BEAGLE.
+This can easily be checked by running BEAST and selecting the option "Show list of available BEAGLE resources and Quit".
+If BEAGLE then only prints the following without any additional output, no suitable resources have been found and hence the analysis cannot be run:
+<pre>
+BEAGLE resources:
+</pre>
+This can be solved by properly setting the following environment variables:
+<pre>
+LD_LIBRARY_PATH
+PKG_CONFIG_PATH
+</pre>
+How to set these variables depends on the operating system; more information can be found in the <a href="https://github.com/beagle-dev/beagle-lib">BEAGLE installation instructions</a>.
+                                </div>
+                     		</div>
+                     	</div>
+         <!-- /.panel -->
+        
 </div>
 
 {% include links.html %}
