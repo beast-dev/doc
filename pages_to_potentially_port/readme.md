@@ -20,6 +20,7 @@ Version_History
 ## Pages with a redirect
 analysing-beast-output	analysing_beast_output
 continuous-traits	continuous_traits_tutorial
+continuous-traits-no-sequence   continuous_traits_no_sequence_tutorial
 downloads	installing
 Error-Messages errors
 Increasing-ESSs	ess_tutorial

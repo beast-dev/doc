@@ -137,3 +137,49 @@ This site uses a a modified <a href="https://github.com/tomjohnson1492/documenta
 
 [See this site for documentation on creating content for this theme.](http://idratherbewriting.com/documentation-theme-jekyll/)
 
+
+## Hosting Locally for Testing
+
+You can host the web page locally for testing using Jekyll.
+This can be a bit challenging to set up the first time.
+These steps worked on an M1 Mac running macOS Monterrey
+
+1. The instructions [here](https://jekyllrb.com/docs/installation/macos/) mostly worked. They assume that you have Homebrew installed:
+    ```
+    brew install chruby ruby-install xz # install chruby
+    ruby-install ruby 3.1.3 # install updated version of ruby
+
+    # run `chruby` scripts on .zsh startup
+    # If you’re using Bash, replace .zshrc with .bash_profile.
+    echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.zshrc
+    echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.zshrc
+    echo "chruby ruby-3.1.3" >> ~/.zshrc # run 'chruby' to see actual version
+    ```
+    Open an new terminal and type:
+    ```
+    ruby -v
+    ```
+    The output should be something like `ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e)`
+    
+    Note that this didn't work for me unless I explicitly called `bash` from the command line, even after I added the `source` commands to both my `.zshrc` and `.bashrc` files.
+
+2. Run Jekyll (loosely based on instructions [here](https://jekyllrb.com)) Navigate to the root of this project in the command line.
+    ```
+    gem install bundler jekyll # can technically run this from anywhere
+    bundle exec jekyll serve
+    ```
+    If everything works, you should be able to see something like `Server address: http://127.0.0.1:4006` where you can access the website.
+    You may run into a couple issues running either of the above commands.
+
+    * `ruby_dep-1.5.0 requires ruby version >= 2.2.5, ~> 2.2, which is incompatible with the current version, ruby 3.0.1p64`
+        
+        This [stackoverflow post](https://stackoverflow.com/questions/68219465/bundle-install-error-ruby-dep-1-5-0-requires-ruby-version-2-2-5-but-i-have) helped.
+        Basically, delete the `Gemfile.lock`, run `bundle install`, then try again.
+    *  
+        ```bundler: failed to load command: jekyll (/Users/ghassler/.gem/ruby/3.1.3/bin/jekyll)
+        /Users/ghassler/.gem/ruby/3.1.3/gems/jekyll-3.9.5/lib/jekyll/commands/serve/servlet.rb:3:in `require': cannot load such file -- webrick (LoadError)
+        ```
+        This [stackoverflow post](https://stackoverflow.com/questions/69890412/bundler-failed-to-load-command-jekyll) helped.
+        Run `bundle add webrick` and try again.
+
+
