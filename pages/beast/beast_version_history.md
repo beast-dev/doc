@@ -10,10 +10,12 @@ toc: false
 folder: beast
 ---
 
-### Version 10.0.0  released 26th April 2024
+### Version 10.5.0  released 15th July 2024
 
-- New Major Version - BEAST X v10.0.0
-	
+- New Major Version - BEAST X v10.5.0
+
+
+  [Why is it called BEAST X?](faq.html#q3)
 #### New Features:
 
 #### Bug Fixes:

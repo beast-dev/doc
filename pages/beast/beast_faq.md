@@ -44,6 +44,18 @@ folder: beast
 			</div>
 		</div>
 	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#q3">Why is it called BEAST X?</a>
+			</div>
+		</div>
+		<div id="q3" class="panel-collapse collapse noCrossRef">
+			<div class="panel-body">
+				We have renamed the release that would have been called <code>BEAST v1.10.5</code> renamed as <code>BEAST X v10.5.0</code>. This is to distinguish it from the independent project called <a href="https://www.beast2.org">BEAST 2 – see: https://www.beast2.org</a>. These projects have been running in parallel for many years which have restricted BEAST to using the v1 major release version and only incrementing the minor release version. We have renamed this project <code>BEAST X</code> to denote its orthogonal axis in project-space and thus call this <code>v10.#.#</code> as the new major version. The next major version of BEAST X will be <code>v11.0.0</code>, and so on. 
+			</div>
+		</div>
+	</div>
 </div>
 <!-- /.panel-group -->
 
