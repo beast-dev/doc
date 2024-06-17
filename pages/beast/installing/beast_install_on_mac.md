@@ -1,7 +1,7 @@
 ---
 title: Installing BEAST on Mac OS X
 keywords: beast, install, download, mac
-last_updated: April 26, 2024
+last_updated: July 15, 2024
 tags: [installing]
 summary: "How to download and install BEAST on Mac OS X."
 sidebar: beast_sidebar
@@ -13,7 +13,7 @@ folder: beast/installing
 
 BEAST can be downloaded from the following link:
 
-- [BEAST v{{ site.beast_version }} - Mac OS X binary 66.1MB]({{ site.beast_mac_download_url }})
+- [BEAST X v{{ site.beast_version }} - Mac OS X binary 66.1MB]({{ site.beast_mac_download_url }})
 
 This will download a disk image (a '.dmg' file) probably into your Downloads folder. 
 
@@ -28,8 +28,6 @@ To run BEAST on Mac OS X, you will need to have [Java](http://go.java.com) insta
 To get the latest version of Java you will need to download the Java JDK from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Download and install the 'JRE' - this is the Java Runtime Environment. If you want to compile Java code you can install the JDK (Java Development Kit) instead. Once installed, you will automatically get updates to the latest version.
 
 {% include warning.html content="Do not install the Java software offered on the http://java.com website. This will install java only as a plug in to your web browser. This version of Java will not be able to run BEAST." %}
-
-The Mac version of BEAST is not yet compatible with Java 10. Please use Java 8 or 9.
 
 ## Installing BEAST
 

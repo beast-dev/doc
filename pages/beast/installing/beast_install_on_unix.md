@@ -11,11 +11,11 @@ folder: beast/installing
 
 ## Downloading BEAST
 
-{% include tip.html content="If you want to install BEAST on the Mac OS X command-line, we strongly recommend using the Homebrew package manager. [See below for instructions for this](#homebrew-package-manager-for-mac-os-x)." %}
+{% include tip.html content="If you want to install BEAST on the Mac OS X command-line, we strongly recommend using the Homebrew package manager. [See below for instructions for this](install_on_mac#homebrew-package-manager-for-mac-os-x)." %}
 
 BEAST can be downloaded from the following link:
 
-- [BEAST v{{ site.beast_version }} - UNIX/Linux version 18.9MB]({{ site.beast_linux_download_url }})
+- [BEAST X v{{ site.beast_version }} - UNIX/Linux version 18.9MB]({{ site.beast_linux_download_url }})
 
 This will download a compressed tar archive (a '.tgz' file). 
 
