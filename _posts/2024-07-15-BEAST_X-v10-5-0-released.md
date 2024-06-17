@@ -1,6 +1,5 @@
 ---
 title:  "BEAST X (v10.5.0) released"
-author: Andrew Rambaut
 categories: release
 permalink: BEAST_X_released.html
 sidebar: beast_sidebar

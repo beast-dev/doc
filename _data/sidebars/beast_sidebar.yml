@@ -262,7 +262,7 @@ entries:
       url: /parameter_priors
       output: web, pdf
 
-    - title: Summarize trees
+    - title: Summarizing trees
       url: /summarizing_trees
       output: web, pdf
 
