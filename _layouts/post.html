@@ -27,13 +27,11 @@ layout: default
 
         {% if page.author %}
         <div class="info">Written by: {{page.author}}</div>
-        {% endif %}
-
         {% if page.last_updated %}
         <div class="info">Last updated: {{page.last_updated}}</div>
         {% endif %}
-
         <hr />
+        {% endif %}
 
         {{ content }}
     </div>

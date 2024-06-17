@@ -1,6 +1,7 @@
 ---
 title: Summarizing Trees
 keywords: trees, mcc, reference
+author: Alexei Drummond & Andrew Rambaut
 last_updated: July 6, 2017
 tags: [reference, help]
 summary: "Approaches to summarizing trees."
