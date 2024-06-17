@@ -1,7 +1,7 @@
 ---
 title: "Ebola Virus Local Clock Analysis"
 author: Andrew Rambaut
-categories: release
+categories: blog
 permalink: ebov_local_clocks.html
 sidebar: beast_sidebar
 tags: [news]

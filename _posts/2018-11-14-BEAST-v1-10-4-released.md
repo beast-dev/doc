@@ -1,7 +1,7 @@
 ---
 title:  "BEAST v1.10.4 released"
 categories: release
-permalink: BEAST_v1.10.4_released.html
+permalink: 2018-11-14_BEAST_v1.10.4_released.html
 sidebar: beast_sidebar
 tags: [news]
 ---
