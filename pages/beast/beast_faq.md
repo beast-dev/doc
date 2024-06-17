@@ -52,7 +52,7 @@ folder: beast
 		</div>
 		<div id="q3" class="panel-collapse collapse noCrossRef">
 			<div class="panel-body">
-				We have renamed the release that would have been called <code>BEAST v1.10.5</code> renamed as <code>BEAST X v10.5.0</code>. This is to distinguish it from the independent project called <a href="https://www.beast2.org">BEAST 2 – see: https://www.beast2.org</a>. These projects have been running in parallel for many years which have restricted BEAST to using the v1 major release version and only incrementing the minor release version. We have renamed this project <code>BEAST X</code> to denote its orthogonal axis in project-space and thus call this <code>v10.#.#</code> as the new major version. The next major version of BEAST X will be <code>v11.0.0</code>, and so on. 
+				We have renamed the release that would have been called <code>BEAST v1.10.5</code> as <code>BEAST X v10.5.0</code>. This is to distinguish it from the independent project called <a href="https://www.beast2.org">BEAST 2 – see: https://www.beast2.org</a>. These projects have been running in parallel for many years which has restricted this BEAST project to using the v1 major release version and only incrementing the minor release version. We have renamed this project <code>BEAST X</code> to denote its orthogonal axis in project-space and thus call this <code>v10.#.#</code> as the new major version. The next major version of BEAST X will be <code>v11.0.0</code>, and so on. 
 			</div>
 		</div>
 	</div>
@@ -160,7 +160,7 @@ What is the maximum clade credibility (MCC) tree produced by TreeAnnotator?
 			<div class="panel-body">
 <p>The tree produced by TreeAnnotator (denoted the maximum clade credibility or MCC tree) is not a consensus tree such as that produced by the 'sumt' command in MrBayes. Instead, TreeAnnotator picks one of the trees actually present in the sample produced by BEAST - thus it is a tree that was actually visited by the MCMC sampler. The tree it picks is the one that has the highest product of all the clade credibilities (posterior probabilities) for all the clades in the tree. The motivation with this is to find a single 'point estimate' tree that is in some way central to the distribution of trees. This tree is then given (annotated with) summary information for the full set of trees from the sample. For example, it is given average node heights, credible intervals for the node heights, rates, etc. 
 </p>
-<p><a href="beagle">See this page for an explanation of various approaches to summarizing trees.</a></p>
+<p><a href="summarizing_trees">See this page for an explanation of various approaches to summarizing trees.</a></p>
 			</div>
 		</div>
 	</div>

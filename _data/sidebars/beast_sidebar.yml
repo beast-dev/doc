@@ -121,8 +121,20 @@ entries:
   - title: How-To Guides
     output: web, pdf
     folderitems:
+    - title: Construct a model in BEAUti
+      url: /constructing_models
+      output: web, pdf
+
     - title: Create taxon sets
       url: /taxon_sets
+      output: web, pdf
+
+    - title: Creating fixed local clocks
+      url: /fixed_local_clocks
+      output: web, pdf
+
+    - title: Use an empirical tree distribution
+      url: /empirical_trees
       output: web, pdf
 
     - title: Specify sampling dates
@@ -133,20 +145,12 @@ entries:
       url: /tip_date_sampling
       output: web, pdf
 
-    - title: Construct a model in BEAUti
-      url: /constructing_models
-      output: web, pdf
-
     - title: Analyse BEAST output
       url: /analysing_beast_output
       output: web, pdf
 
     - title: Convergence diagnostics in Tracer
       url: /tracer_convergence
-      output: web, pdf
-
-    - title: Summarize trees
-      url: /summarizing_trees
       output: web, pdf
 
     - title: Create custom substitution models
@@ -256,6 +260,10 @@ entries:
 
     - title: Parameter Priors
       url: /parameter_priors
+      output: web, pdf
+
+    - title: Summarize trees
+      url: /summarizing_trees
       output: web, pdf
 
     - title: XML Reference

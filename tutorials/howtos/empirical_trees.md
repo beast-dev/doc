@@ -1,12 +1,12 @@
 ---
-title: How to create fixed local clock models
+title: How to use empirical sets of trees
 author: Andrew Rambaut
 keywords: beauti, how-to, tutorial
 last_updated: June 16, 2024
 tags: [how-to]
-summary: "Creating a fixed local clock model using taxon sets"
+summary: "Using empirical sets of trees generated previously to sample other models over."
 sidebar: beast_sidebar
-permalink: fixed_local_clocks.html
+permalink: empirical_trees.html
 folder: beast
 ---
 

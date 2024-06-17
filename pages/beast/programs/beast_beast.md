@@ -13,7 +13,7 @@ toc: false
 folder: beast/programs
 ---
 
-{% include icon-callout.html file='icons/beast-icon.png' content='Run BEAST by double clicking on the BEAST icon in the package you downloaded.' %}
+{% include icon-callout.html file='icons/beastx-icon.png' content='Run BEAST by double-clicking on the BEAST icon in the package you downloaded.' %}
 
 When you run BEAST with a graphical user interface you will see the following dialog box appear:
 

@@ -1,8 +1,8 @@
 ---
 title: Summarizing Trees
-keywords: trees, mcc, tutorial
+keywords: trees, mcc, reference
 last_updated: July 6, 2017
-tags: [reference]
+tags: [reference, help]
 summary: "Approaches to summarizing trees."
 sidebar: beast_sidebar
 permalink: summarizing_trees.html

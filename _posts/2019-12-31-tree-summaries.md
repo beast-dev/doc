@@ -15,4 +15,3 @@ http://beast.community/summarizing_trees
 
 https://en.wikipedia.org/wiki/Maximum_clade_credibility_tree
 
-### References

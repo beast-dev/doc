@@ -1,5 +1,6 @@
 ---
 title: Construct a model in BEAUti
+author: Andrew Rambaut
 keywords: tracer, how-to
 last_updated: August 12, 2017
 tags: [how-to]

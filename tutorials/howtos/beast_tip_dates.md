@@ -1,5 +1,6 @@
 ---
 title: How to specify dates for tips
+author: Andrew Rambaut
 keywords: how-to, software, molecular clocks, tipdates, beast, beauti
 last_updated: August 2, 2017
 tags: [how-to]
