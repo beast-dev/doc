@@ -4,6 +4,7 @@ permalink: clocks.html
 sidebar: beast_sidebar
 tags: [reference, help]
 keywords: software, molecular clocks, strict, relaxed, beast
+author: Guy Baele
 last_updated: July 24, 2017
 summary: "Molecular Clocks"
 toc: true

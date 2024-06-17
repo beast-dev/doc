@@ -4,6 +4,7 @@ permalink: tree_priors.html
 sidebar: beast_sidebar
 tags: [reference, help]
 keywords: software, coalescent, tree prior, beast
+author: Luiz Max Carvalho
 last_updated: July 23, 2017
 summary: "Tree Priors"
 toc: true

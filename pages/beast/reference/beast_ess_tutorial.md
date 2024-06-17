@@ -1,6 +1,7 @@
 ---
 title: Effective Sample Size (ESS)
 keywords: ess, reference
+author: Andrew Rambaut
 last_updated: July 6, 2017
 tags: [reference, help]
 summary: "About the Effective Sample Size (ESS) and how to increase it."

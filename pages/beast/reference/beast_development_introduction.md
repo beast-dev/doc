@@ -2,7 +2,8 @@
 title: A less-than-brief, non-comprehensive, introduction to BEAST development
 keywords: beast, tutorial
 last_updated: August 8, 2023
-tags: [reference]
+author: Andy Magee
+tags: [reference, article]
 summary: 
 sidebar: 
 permalink: beast_development_introduction.html

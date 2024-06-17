@@ -1,15 +1,14 @@
 ---
 title: "Ebola Virus Local Clock Analysis"
-author: Andrew Rambaut
-categories: blog
+author: Andrew Rambaut, JT McCrone & Guy Baele
+categories: [blog]
 permalink: ebov_local_clocks.html
 sidebar: beast_sidebar
-tags: [news]
+tags: [article]
+summary: An article describing using fixed local clocks to analyse the evolution of Ebola virus in its non-human animal hosts. 
 ---
 
 {% capture root_url %}/{% endcapture %}
-
-by Andrew Rambaut, JT McCrone & Guy Baele.
 
 In 2014 there was an outbreak of Ebola virus disease in the Democratic Republic of Congo. 
 When the first genome sequences were published (Maganga *et al.* 2014) it was noticed that the amount of divergence from the earliest EBOV genomes from the 1970s was considerably less than for the West African epidemic genomes which were from the same year. 

@@ -4,6 +4,7 @@ permalink: parameter_priors.html
 sidebar: beast_sidebar
 tags: [reference, help]
 keywords: software, parameter prior, beast
+author: Andrew Rambaut
 last_updated: July 25, 2018
 summary: "Parameter Priors"
 toc: true

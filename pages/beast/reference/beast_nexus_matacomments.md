@@ -4,6 +4,7 @@ permalink: nexus_metacomments.html
 sidebar: beast_sidebar
 tags: [reference]
 keywords: nexus, beast
+author: Andrew Rambaut
 last_updated: August 2, 2017
 summary: "This is a brief description of the 'metacomment' format used by BEAST to annotate elements in the standard NEXUS format. This additional information is put in comments so that existing programs should read and ignore them. This format is used by BEAST to insert information into the sampled trees."
 toc: false

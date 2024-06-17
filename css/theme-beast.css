@@ -55,16 +55,22 @@ html {
 }
 
 .small-text {
-    font-size:12px;
+    font-size: 12px;
 }
 
 
 .summary {
     color: var(--grey-color);
     border-left: 5px solid var(--hilite-color);
-    font-size:16px;
+    font-size: 16px;
 }
 
+.info {
+    font-size: 12px;
+    font-style: italic;
+    text-indent: 1.2em;
+
+}
 
 h1 {
     font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;

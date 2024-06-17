@@ -4,6 +4,7 @@ permalink: performance.html
 sidebar: beast_sidebar
 tags: [reference, tutorial]
 keywords: software, performance, GPU, multi-core, beast
+author: Guy Baele
 last_updated: July 24, 2017
 summary: "Optimizing Performance"
 toc: true

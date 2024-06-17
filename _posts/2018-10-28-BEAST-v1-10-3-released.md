@@ -1,6 +1,6 @@
 ---
 title:  "BEAST v1.10.3 released"
-categories: release
+categories: [release]
 permalink: 2018-10-28_BEAST_v1.10.3_released.html
 sidebar: beast_sidebar
 tags: [news]

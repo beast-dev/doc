@@ -1,6 +1,6 @@
 ---
 title:  "BEAST v1.10.0 released"
-categories: release
+categories: [release]
 permalink: 2018-06-10_BEAST_v1.10.0_released.html
 sidebar: beast_sidebar
 tags: [news]

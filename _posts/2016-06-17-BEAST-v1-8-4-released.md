@@ -1,6 +1,6 @@
 ---
 title:  "BEAST v1.8.4 released"
-categories: release
+categories: [release]
 permalink: 2016-06-17_BEAST_v1.8.4_released.html
 sidebar: beast_sidebar
 tags: [news]

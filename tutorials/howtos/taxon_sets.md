@@ -1,5 +1,6 @@
 ---
 title: How to create taxon sets
+author: Andrew Rambaut
 keywords: beauti, how-to, tutorial
 last_updated: September 8, 2018
 tags: [how-to]

@@ -1,6 +1,6 @@
 ---
 title:  "BEAST X (v10.5.0) released"
-categories: release
+categories: [release]
 permalink: 2024-07-15_BEAST_X_released.html
 sidebar: beast_sidebar
 tags: [news]

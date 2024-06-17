@@ -1,10 +1,11 @@
 ---
 title: "Measuring BEAST performance"
 author: Andrew Rambaut
-categories: blog
+categories: [blog]
 permalink: measuring-beast-performance.html
 sidebar: beast_sidebar
-tags: [news]
+tags: [article]
+summary: An article about how to measure the performance of a BEAST analysis in terms of the quality of information provided in the given run time. 
 ---
 
 When running BEAST it reports the time taken to calculate a certain number of states (e.g., minutes/million states). It is obviously tempting to compare this time between runs as a measure of performance.
