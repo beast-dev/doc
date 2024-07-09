@@ -12,6 +12,8 @@ folder: beast
 
 ## Optimizing Performance
 
+{% include note.html content='This tutorial was written before the release of BEAGLE 3, which focuses on efficient evaluation of multiple data partitions in parallel on one single GPU.' %}
+
 ### Nucleotide data sets
 
 Before commencing this guide, we refer to the page on [how to use BEAGLE with BEAST](beagle).

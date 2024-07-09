@@ -11,6 +11,19 @@ folder: beast
 ---
 
 ```
+Version 1.10.4  released 11th November 2018
+
+    New command line options for BEAGLE v3.1:
+        -beagle_threading_off | Turn off CPU multithreading in BEAGLE.
+        -beagle_thread_count  | Limit how many CPU threads BEAGLE uses.
+        By default BEAGLE tries to occupy the entire CPU (i.e., all the
+        available cores). Use this option to share the CPU with other users or processes.
+
+	Bug Fixes:
+		Issue 1038: Issue specifying burnin in the command-line LogCombiner.
+```
+
+```
 Version 1.10.3 released 28th August 2018
 
 Important bug fix where performance was degraded when using BEAGLE 3 on CPUs (compared with using BEAGLE 2 or using GPUs).

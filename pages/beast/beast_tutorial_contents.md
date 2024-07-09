@@ -69,6 +69,10 @@ These tutorials tackle a range of advanced, technical, topics. They usually invo
 
 [Model Selection](model_selection_1)
 
-[Model Selection --- Advance](model_selection_2)
+[Model Selection --- Advanced](model_selection_2)
+
+[Incorporating travel history](travel_history)
+
+[Analysing datasets with tens of thousands of taxa](thorney_beast)
 
 {% include links.html %}

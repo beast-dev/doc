@@ -55,7 +55,7 @@ We need to define three separate models for each epoch, corresponding to HKY<sub
       <frequencymodel idref="freqModel">
     </frequencymodel></frequencies>
     <kappa>
-      <parameter id="kappa.1" lower="0.0" upper="100.0" value="1.0">
+      <parameter id="kappa.1" lower="0.0" value="1.0">
     </parameter></kappa>
   </hkymodel>
   
@@ -64,7 +64,7 @@ We need to define three separate models for each epoch, corresponding to HKY<sub
       <frequencymodel idref="freqModel">
     </frequencymodel></frequencies>
     <kappa>
-      <parameter id="kappa.2" lower="0.0" upper="100.0" value="1.0">
+      <parameter id="kappa.2" lower="0.0" value="1.0">
     </parameter></kappa>
   </hkymodel>
      
@@ -73,7 +73,7 @@ We need to define three separate models for each epoch, corresponding to HKY<sub
       <frequencymodel idref="freqModel">
     </frequencymodel></frequencies>
     <kappa>
-      <parameter id="kappa.3" lower="0.0" upper="100.0" value="1.0">
+      <parameter id="kappa.3" lower="0.0" value="1.0">
     </parameter></kappa>
   </hkymodel>
 ```
