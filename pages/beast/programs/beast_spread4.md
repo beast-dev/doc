@@ -3,8 +3,8 @@ title: SPREAD4
 permalink: spread4.html
 sidebar: beast_sidebar
 tags: [programs]
-keywords: software, spread4, beast
-last_updated: March 12, 2022
+keywords: software, visualisation, spread4, beast
+last_updated: July 9, 2024
 summary: "SPREAD4"
 toc: true
 folder: beast/programs
@@ -22,15 +22,9 @@ There is no need to install anything, and you only need either a Google account 
 
 SPREAD4 is compatible with popular browsers (Chrome, Firefox, Safari, Edge).
 
-### Frequently asked questions
-
-- How do I save my custom visualisation(s)?
-- How can I share my visualisations with others?
-- ...
-
 
 ### Citing SPREAD4
 
-Nahata, K. D., Bielejec, F., Monetta, J., Rambaut, A., Suchard, M. A., Baele, G., Lemey, P. SPREAD 4: 
+Nahata, K. D., Bielejec, F., Monetta, J., Rambaut, A., Suchard, M. A., Baele, G., Lemey, P. SPREAD 4: online visualisation of pathogen phylogeographic reconstructions. Virus Evol., 2022, 8(2): veac088.
 
 {% include links.html %}

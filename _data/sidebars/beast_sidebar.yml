@@ -62,8 +62,12 @@ entries:
       url: /spread
       output: web, pdf
 
-    - title: SPREAD3
-      url: /spread3
+    - title: SPREAD4
+      url: /spread4
+      output: web, pdf
+
+    - title: spread.gl
+      url: /spreadgl
       output: web, pdf
 
     - title: PiBUSS
