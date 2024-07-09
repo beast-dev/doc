@@ -59,11 +59,7 @@ entries:
       output: web, pdf
 
     - title: SPREAD
-      url: /spread
-      output: web, pdf
-
-    - title: SPREAD3
-      url: /spread3
+      url: /spread4
       output: web, pdf
 
     - title: PiBUSS

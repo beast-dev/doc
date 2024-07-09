@@ -1,7 +1,7 @@
 ---
 title: Downloading and installing BEAST on UNIX/Linux
 keywords: beast, install, download, unix, linux
-last_updated: July 12, 2017
+last_updated: July 15, 2024
 tags: [installing]
 summary: "BEAST is a software package for phylogenetic analysis with an emphasis on time-scaled trees."
 sidebar: beast_sidebar
@@ -21,7 +21,31 @@ This will download a compressed tar archive (a '.tgz' file).
 
 {% include callout.html content="The latest version of BEAST can always be found here: [https://github.com/beast-dev/beast-mcmc/releases/latest](https://github.com/beast-dev/beast-mcmc/releases/latest)" %}
 
-## Installing JAVA
+## Installing using Conda
+                   
+The simplest option for installing BEAST is to use the `anaconda` package and environment manager. We recommend installing the minimal version, `miniconda`. 
+
+[https://docs.anaconda.com/miniconda/](https://docs.anaconda.com/miniconda/)
+
+Once installed you can create an environment for running BEAST:
+```bash
+conda create -n beast
+```
+activate it:
+```bash
+conda activate beast
+```
+and then install BEAST from the `bioconda` channel:
+```
+conda install beast -c bioconda
+```
+finally test the installation:
+```
+beast -beagle_info
+```
+> This will also work in the Mac OS X command line      
+
+## Installing directly
 
 ### Installing OpenJDK 8
 

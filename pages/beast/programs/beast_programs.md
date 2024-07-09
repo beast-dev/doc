@@ -32,11 +32,12 @@ Click on the icons for more details.
 {% include image.html width="100%" indent="10%" file="icons/utility-icon.png" url="logcombiner" caption="<b>LogCombiner</b> | This is a utility program that will combine log files from different runs and reduce the sampling frequency (thin them)." %}
         </div>
     </div>
-    <div style="display: table-row">
+<!--    <div style="display: table-row">
         <div style="width: 50%; display: table-cell;">
 {% include image.html width="100%" indent="10%" file="icons/treestat-icon.png" url="treestat" caption="<b>TreeStat</b> | This is a utility program that will parse through a set of trees and extract statistics and information from them." %}
         </div>
     </div>
+-->
 </div>
 
 ### These programs are distributed independently but are important part of the BEAST toolkit.
@@ -57,10 +58,10 @@ Click on the icons for more details.
 <div style="width: 100%; display: table;">
     <div style="display: table-row">
         <div style="width: 50%; display: table-cell;">
-{% include image.html width="100%" indent="10%" file="icons/spread-icon.png" url="spread3" caption="<b>SpreaD3</b> | A package for analysis and visualisation of pathogen pylodynamic reconstructions." %}
+{% include image.html width="100%" indent="10%" file="icons/spread-icon.png" url="spread4" caption="<b>SPREAD4</b> | A package for analysis and visualisation of pathogen pylodynamic reconstructions." %}
         </div>
         <div style="width: 50%; display: table-cell;">
-{% include image.html width="40%" indent="64px" file="icons/tempest-icon.png" url="tempest" caption="<b>Tempest</b> | This is a graphical program for looking for temporal signal in trees generated from tipdated sequences." %}
+{% include image.html width="100%" indent="64px" file="icons/tempest-icon.png" url="tempest" caption="<b>Tempest</b> | This is a graphical program for looking for temporal signal in trees generated from tipdated sequences." %}
         </div>
     </div>
     <div style="display: table-row">

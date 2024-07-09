@@ -89,8 +89,8 @@ In order to identify for which parameters this would be useful, careful inspecti
 
 The recommended citation for this program is:
 
-Rambaut A, Drummond AJ, Xie D, Baele G and Suchard MA (2018) Tracer v1.7, Available from [http://beast.community/tracer](http://beast.community/tracer)
-
+Rambaut A, Drummond AJ, Xie D, Baele G and Suchard MA (2018) Posterior summarisation in Bayesian phylogenetics using Tracer 1.7. *Systematic Biology*. **syy032**.
+[doi:10.1093/sysbio/syy032](https://doi.org/10.1093/sysbio/syy032)
 
 ## References
 

@@ -35,11 +35,11 @@ Double-clicking the disk image file will open a virtual 'disk' in a Finder windo
  
 ### Mac OS X security
 
-When running any of the applications in the BEAST package for the first time you may see a security dialog box. This is Mac OS X's security  protecting your system from unknown software:
+When opening the downloaded disk image (`.dmg` file) or running any of the applications in the BEAST package for the first time you may see a security dialog box. This is Mac OS X's security  protecting your system from unknown software:
  
-{% include image.html file="installing/mac-security.png" indent="64px" width="640px" alt="beagle options" caption="The Mac OS X security dialog. By default it only allows you to run software from developers registered with Apple. For more information about this, click the question mark button." %}
- 
-Rather than double-clicking to run the application for the first time, you can control-click (or right-click) on the application icon and select ```Open```. This will bring up a similar dialog box to the one about but this time it will have an ```Open``` button which will override the security for this application only. You will only need to do this the first time you open an application but you will need to do it individually for each of the applications in the BEAST package.
+{% include image.html file="installing/mac-security.png" indent="64px" width="320px" alt="mac security" caption="The Mac OS X security dialog. By default it only allows you to run software from developers registered with Apple. For more information about this, click the question mark button." %}
+
+Rather than double-clicking to open the disk image or to run the application for the first time, you can control-click (or right-click) on the application icon and select ```Open```. This will bring up a similar dialog box to the one about but this time it will have an ```Open``` button which will override the security for this application only. You will only need to do this the first time you open an application but you will need to do it individually for each of the applications in the BEAST package.
 
 You can then drag the icons into your Dock if you want quick access to them.
 
@@ -47,7 +47,7 @@ You can then drag the icons into your Dock if you want quick access to them.
 
 We also strongly recommend that you install the BEAGLE library to accelerate BEAST's computation (indeed some analyses are not possible without BEAGLE). [For more information about BEAGLE and information about installing it, see here](beagle).
 
-### Installing a command-line version of BEAST
+## Installing a command-line version of BEAST
 
 Mac OS X is particularly popular in computational biology because it is built upon a UNIX operating system which gives it access to a wide range of scientific software. BEAST can also be installed to run within the command-line environment provided by the Mac OS X Terminal.app. [For instructions on installing BEAST for a UNIX command line see this page](install_on_unix).
 
@@ -81,5 +81,9 @@ You can also install the latest development version but this is at your own risk
 ```bash
 brew install --HEAD beast
 ```
+
+### Conda environment for Mac OS X
+
+Finally, you can install a command-line version of BEAST and BEAGLE using the `conda` environment manager. See the [UNIX installation page](install_on_unix) for details.
 
 {% include links.html %}
