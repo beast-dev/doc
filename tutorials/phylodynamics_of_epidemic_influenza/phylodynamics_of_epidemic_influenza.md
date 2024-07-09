@@ -30,7 +30,7 @@ To undertake this tutorial, you will need to download three software packages in
 
 ## Running BEAUti
 
-{% include icon-callout.html file='icons/beauti-icon.png' content='Run <a href="beauti">BEAUti</a> by double clicking on its icon. BEAUti is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis.' %}
+{% include icon-callout.html file='icons/beautix-icon.png' content='Run <a href="beauti">BEAUti</a> by double clicking on its icon. BEAUti is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis.' %}
 
 To load a NEXUS format alignment, simply select the `Import NEXUS...` option from the `File` menu.
 
@@ -106,7 +106,7 @@ We are now ready to create the BEAST XML file. Select `Generate XML...` from the
 
 Once the BEAST XML file has been created the analysis itself can be performed using BEAST. 
 
-{% include icon-callout.html file='icons/beast-icon.png' content='Run <a href="beast">BEAST</a> by double-clicking on the BEAST icon.' %}
+{% include icon-callout.html file='icons/beastx-icon.png' content='Run <a href="beast">BEAST</a> by double-clicking on the BEAST icon.' %}
 
 Once BEAST has started a dialog box will appear in which you select the XML file:
 

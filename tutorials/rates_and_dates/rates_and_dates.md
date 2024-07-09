@@ -22,7 +22,7 @@ The sequences represent a subset of the data set analyzed by Bryant et al. ([Bry
 ## Loading the data into BEAUti
 
 <div>
-<img src="images/icons/beauti-icon.png" style="max-width: 64px; float: left; margin: 0px" />
+<img src="images/icons/beautix-icon.png" style="max-width: 64px; float: left; margin: 10px 10px 10px 10px" />
 <div style="min-height: 64px; padding-top: 8px; margin-left:8px">
 Run [BEAUti](beauti) by double clicking on its icon.
 BEAUti is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis. 

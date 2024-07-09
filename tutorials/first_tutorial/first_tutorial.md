@@ -22,7 +22,7 @@ You should also be familiar with at least the basics of Bayesian inference and M
 
 ### Running BEAUti
 
-{% include icon-callout.html file='icons/beauti-icon.png' content='Run BEAUti by double clicking on its icon. <a href="beauti">BEAUti</a> is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis.' %}
+{% include icon-callout.html file='icons/beautix-icon.png' content='Run BEAUti by double clicking on its icon. <a href="beauti">BEAUti</a> is an interactive graphical application for designing your analysis and generating the control file (a BEAST XML file) which BEAST will use to run the analysis.' %}
 
 Once running, BEAUti will look similar irrespective of which computer system it is running on. For this tutorial, the Mac OS X version will be shown but the Linux & Windows versions will have exactly the same layout and functionality.
 
@@ -169,7 +169,7 @@ We are now ready to run the file through BEAST.
 
 ## Running BEAST
 
-{% include icon-callout.html file='icons/beast-icon.png' content='Run BEAST by double clicking on the BEAST icon in the package you downloaded.' %}
+{% include icon-callout.html file='icons/beastx-icon.png' content='Run BEAST by double clicking on the BEAST icon in the package you downloaded.' %}
 
 The following dialog box will appear:
 
@@ -180,7 +180,7 @@ All you need to do is to click the `Choose File...` button, select the XML file 
 When you press `Run` BEAST will load the XML file, setup the analysis and then run it with no further interaction. In the output window you will see lots of information appearing. It starts by printing the title and credits:
 
 ```
-                   BEAST v1.X, 2002-2102
+                   BEAST X v10.x, 2002-2102
        Bayesian Evolutionary Analysis Sampling Trees
                  Designed and developed by
    Alexei J. Drummond, Andrew Rambaut and Marc A. Suchard
