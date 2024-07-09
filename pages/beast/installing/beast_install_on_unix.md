@@ -15,7 +15,7 @@ folder: beast/installing
 
 BEAST can be downloaded from the following link:
 
-- [BEAST X v{{ site.beast_version }} - UNIX/Linux version 18.9MB]({{ site.beast_linux_download_url }})
+- [BEAST X v{{ site.beast_version }} - UNIX/Linux version 46.2MB]({{ site.beast_linux_download_url }})
 
 This will download a compressed tar archive (a '.tgz' file). 
 
