@@ -114,7 +114,7 @@ beast_download_url: "https://github.com/beast-dev/beast-mcmc/releases"
 beast_source_url: "https://github.com/beast-dev/beast-mcmc"
 beast_mac_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v10.5.0-beta1/BEAST.X.v10.5.0-beta1.dmg"
 beast_linux_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v10.5.0-beta1/BEAST_X_v10.5.0-beta1.tgz"
-beast_windows_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v10.5.0/BEAST.X.v10.5.0-beta1.zip"
+beast_windows_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v10.5.0-beta1/BEAST.X.v10.5.0-beta1.zip"
 
 tracer_version: "1.7.2"
 tracer_url: "https://github.com/beast-dev/tracer/"
