@@ -20,6 +20,15 @@ spread.gl (Spatial Phylogenetic Reconstruction of Evolutionary Dynamics built on
 A tutorial on how to install and use spread.gl is available here: [https://github.com/GuyBaele/SpreadGL](https://github.com/GuyBaele/SpreadGL)
 spread.gl is compatible with popular browsers (Chrome, Firefox, Safari, Edge).
 
+![](files/Porcine.epidemic.diarrhea.virus.PEDV.in.China.slidingwindow.mp4)
+
+<video src="files/Porcine.epidemic.diarrhea.virus.PEDV.in.China.slidingwindow.mp4" controls></video>
+
+<iframe src="files/Porcine.epidemic.diarrhea.virus.PEDV.in.China.slidingwindow.mp4" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+
+
+
 
 ### Citing spread.gl
 
