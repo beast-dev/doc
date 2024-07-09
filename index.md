@@ -9,7 +9,7 @@ redirect_from: "/home"
 redirect_from: "/main_page"
 ---
  
-<div><img style="max-width: 100%" src="images/beast-banner.png" /></div>
+<div><img style="max-width: 100%" src="images/beastx-banner.png" /></div>
 
 ## What is BEAST?
 

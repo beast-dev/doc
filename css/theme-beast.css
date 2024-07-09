@@ -1,10 +1,10 @@
 :root{
-    --background-color:#4388a8; /* #347DBE var(--background-color) */
-    --darker-color:#265368; /* #015CAE */
-    --lighter-color:#62b1d6;
-    --hilite-color:#adb24e; /* #ED1951 */
-    --definition-color:#4388a8; /* #248EC2 */
-    --grey-color:#707070;
+    --background-color:#3B6F84; /* #347DBE var(--background-color) */
+    --darker-color:#00424A; /* #015CAE */
+    --lighter-color:#68A3BB;
+    --hilite-color:#CBB944; /* #ED1951 */
+    --definition-color:#0D6E6F; /* #248EC2 */
+    --grey-color:#5A5F62;
 }
 
 @page {
@@ -125,7 +125,7 @@ div.navbar-collapse .dropdown-menu > li > a:hover {
 
 .nav li.thirdlevel > a {
     background-color: #FAFAFA !important;
-    color: #248EC2;
+    color: #4AAFBF;
     font-weight: bold;
 }
 
@@ -175,7 +175,7 @@ a.navbar-brand:hover {
 }
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    border-color: #248ec2 !important;
+    border-color: #4AAFBF !important;
 }
 
 .btn-primary {
