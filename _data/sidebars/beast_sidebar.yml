@@ -58,8 +58,12 @@ entries:
       url: /tempest
       output: web, pdf
 
-    - title: SPREAD
+    - title: SPREAD4
       url: /spread4
+      output: web, pdf
+
+    - title: spread.gl
+      url: /spreadgl
       output: web, pdf
 
     - title: PiBUSS

@@ -25,6 +25,6 @@ A tutorial on how to use SPREAD is available here: [https://rega.kuleuven.be/cev
 
 ### Citing SpreaD3
 
-Bielejec, F., Baele, G., Vrancken, B., Suchard, M. A., Rambaut, A., Lemey, P. SpreaD3: interactive visualisation of spatiotemporal history and trait evolutionary processes. Mol. Biol. Evol., 2016, 33 (8): 2167-2169.
+Bielejec, F., Baele, G., Vrancken, B., Suchard, M. A., Rambaut, A., Lemey, P. SpreaD3: interactive visualisation of spatiotemporal history and trait evolutionary processes. Mol. Biol. Evol., 2016, 33(8): 2167-2169.
 
 {% include links.html %}
