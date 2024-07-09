@@ -1,17 +1,15 @@
 ---
-title: "A less-than-brief, non-comprehensive, introduction to BEAST development"
+title: "Developing for BEAST"
+categories: [blog]
 keywords: beast, tutorial
 last_updated: August 8, 2023
 author: Andy Magee
-categories: [blog]
-tags: [article]
-summary: 
 sidebar: beast_sidebar
 permalink: beast_development_introduction.html
-toc: false
 folder: beast
+tags: [article]
 ---
-
+### A less-than-brief, non-comprehensive, introduction to BEAST development
 BEAST is scientific software for statistical analyses.
 This means there are many things you will eventually need to know.
 And this cannot be stressed enough, you don't need to know all this right now!
@@ -352,3 +350,5 @@ Tests are a developer's best friend.
 Write them.
 Use them.
 Love them.
+
+{% include links.html %}

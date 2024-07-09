@@ -10,16 +10,16 @@ toc: false
 folder: beast
 ---
 
-### Version 10.5.0  released 15th July 2024
+### Version 10.5.0  released 9th July 2024
 
 - New Major Version - BEAST X v10.5.0
 
-
   [Why is it called BEAST X?](faq.html#q3)
+
 #### New Features:
 
 #### Bug Fixes:
-> See [Issue List](https://github.com/beast-dev/beast-mcmc/issues?q=is%3Aissue+is%3Aclosed) for full list.	
+> See [Issue List](https://github.com/beast-dev/beast-mcmc/issues) for full list.	
 
 ### Previous versions:
 ```
