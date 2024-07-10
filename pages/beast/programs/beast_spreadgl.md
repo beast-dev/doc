@@ -4,7 +4,7 @@ permalink: spreadgl.html
 sidebar: beast_sidebar
 tags: [programs]
 keywords: software, visualisation, spread.gl, beast
-last_updated: July 9, 2024
+last_updated: July 10, 2024
 summary: "spread.gl"
 toc: true
 folder: beast/programs
@@ -15,10 +15,15 @@ folder: beast/programs
 spread.gl (Spatial Phylogenetic Reconstruction of Evolutionary Dynamics built on kepler.gl) is a major update to [SPREAD](spread) and [SpreaD3](spread3) and constitutes a package for analysis and visualisation of pathogen pylodynamic reconstructions.
 
 
+### Downloading spread.gl
+
+spread.gl is compatible with popular browsers (Chrome, Firefox, Safari, Edge).
+A tutorial on how to install spread.gl is available here: [https://github.com/GuyBaele/SpreadGL](https://github.com/GuyBaele/SpreadGL).
+
+
 ### Using spread.gl
 
-spread.gl is compatible with popular browsers (Chrome, Firefox, Safari, Edge). 
-A tutorial on how to install and use spread.gl is available here: [https://github.com/GuyBaele/SpreadGL](https://github.com/GuyBaele/SpreadGL), along with a series of visualisation examples for both discrete and continuous phylogeographic inference for different pathogens.
+A step-by-step tutorial on how to use spread.gl is available here: [https://github.com/GuyBaele/SpreadGL](https://github.com/GuyBaele/SpreadGL), along with a series of visualisation examples for both discrete and continuous phylogeographic inference for different pathogens.
 
 The example below shows the dispersal within China of porcine epidemic diarrhea virus (PEDV), as estimated using a discrete phylogeographic analysis (He et al., 2022).
 Each province is colored according to pork consumption per province, but any type of environmental data can be used (and in spread.gl you can toggle between different environmental variables). 
