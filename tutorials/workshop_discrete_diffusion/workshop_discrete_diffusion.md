@@ -195,7 +195,7 @@ Press the `Choose File...` button and select the XML file you just created and p
 
 [For more information about the other options in the BEAST dialog box see this page](beast).
 
-### Analyzing the BEAST output
+### Analyzing the BEAST output using Tracer
 
 To analyze the results of running BEAST we are going to use the program Tracer. The exact instructions for running Tracer differs depending on which computer you are using. Double click on the Tracer icon; once running, Tracer will look similar irrespective of which computer system it is running on.
 
@@ -231,9 +231,9 @@ At this point you can summarize the sampled trees using the [TreeAnnotator](tree
  
 {% include callout.html content='A detailed description of how to do this was introduced in the earlier <a href="workshop_rates_and_dates#analysing-the-beast-output">\'Estimating rates and dates from time-stamped sequences\' tutorial</a>.' %}
 
-### Visualizing MCC trees and calculating Bayes factor support for rates using SpreaD3
+### Visualizing MCC trees and calculating Bayes factor support for rates using SPREAD 4
 
-SpreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using Data-Driven Documents (D3), is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreaD3 allows to visualise spatial reconstructions on custom maps and generates HTML pages for display in modern-day browsers such as Firefox, Safari and Chrome. 
+SPREAD 4, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics version 4, is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SPREAD 4 allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome. 
 
 Some of the functions that relate to the discrete phylogeographic analysis include visualizing location-annotated MCC trees and identification of well-supported rates using a Bayes Factor test. The latter option takes as input the rate matrix file (<samp>batRABV.state.rates.log</samp> for location states and <samp>batRABV.host.rates.log</samp> for host states) generated under the analysis using the Bayesian Stochastic Search Variable Selection (BSSVS) procedure. This test aims at identifying frequently invoked rates to explain the diffusion process and, in case of locations, visualize them on a circle and on a globe or a map, which needs to be provided to SpreaD3. 
 
