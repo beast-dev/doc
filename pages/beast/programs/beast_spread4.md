@@ -25,7 +25,7 @@ SPREAD 4 is essentially an overhaul of SpreaD3 to ensure easily shareable visual
 Featuring account-based storage and easy sharing of visualisations by means of unique web addresses, SPREAD 4 is very similar in use as SpreaD3.
 To get started with SPREAD 4, browse to [https://spreadviz.org/](https://spreadviz.org/) where you will see the following login screen
 
-{% include image.html width="60%" file="installing/SPREAD4-start.png" %}
+{% include image.html width="80%" indent="10%" file="installing/SPREAD4-start.png" %}
 
 Here, you can either provide an e-mail address or directly "Continue with Google" if you have a Gmail account / e-mail address.
 Note that Google uses a 2-step verification procedure (e.g. via your smartphone) in order to log in.
