@@ -105,7 +105,7 @@ The next thing to do is to click on the `Sites` tab at the top of the main windo
 
 {% include modules/substitution_models.md %}
 
- For this tutorial, select the `3 partitions: positions 1, 2, 3` option so that each codon position has its own HKY substitution model, rate of evolution, Estimated base frequencies, and Gamma-distributed rate variation among sites:
+ For this tutorial, select the `3 partitions: positions 1, 2, 3` option so that each codon position has its own HKY substitution model, rate of evolution, Estimated base frequencies, and Gamma-distributed rate variation among sites (equal weights):
 
 {% include image.html prefix=root_url file="image6.png" %}
 
@@ -125,23 +125,18 @@ Click on the `Trees` tab at the top of the main window. We keep a default random
 
 Review the prior settings under the `Priors` panel:
 
-<!-- this image is out of date - shows allMus rather than allNus -->
 {% include image.html prefix=root_url file="image9.png" %}
 
-<!-- perhaps this should be left for model selection section? -->
-Some of the default marginal priors may be improper --- this means that the probability distribution does not integrate to a finite value. In our current default settings, the `1/x` prior on the `constant.popSize` is an example of an improper prior.
- 
-It is important to provide proper priors for all the parameters being estimated as improper priors lead to improper posteriors and improper marginal likelihoods (when performing Bayesian model selection, cfr a different workshop tutorial). To change the prior on the `constant.popSize` for example, click on the corresponding prior and a prior selection window will appear. Set the prior to a lognormal distribution with `mu = 1` and `sigma = 10`. The graphical representation of this prior distribution indicates that most prior mass is put on relatively small values, but the density remains sufficiently diffuse over larger values. <Notice that the prior setting turns black after confirming this setting by clicking ”OK”.>
-
-{% include image.html prefix=root_url file="image10.png" %}
-
+In this case, all priors on continuous parameters are proper priors (priors that integrate to 1).
 Note that the default prior on the rate of evolution (clock.rate) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). If the sequences are not associated with different sampling dates (they are contemporaneous), or when the sampling time range is trivial for the evolutionary scale of the taxa, the substitution rate can be fixed to a value based on another source, or better, a prior distribution can be specified to also incorporate the uncertainty of this ‘external’ rate. Fixing the rate to 1.0 will result in the ages of the nodes of the tree being estimated in units of substitutions per site (i.e. the normal units of branch lengths in popular packages such as MrBayes). Note that when selecting to fix the rate to a value, the transition kernel(s) on this parameter (`Operators` panel, see next section) will be  automatically unselected. 
 
 ### Setting up the operators
 
-{% include modules/operator_table.md %}
-
+Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs.
 For this analysis, no changes are required to this table.
+
+{% include image.html prefix=root_url file="image11.png" %}
+
 
 ### Setting the MCMC options
 
@@ -154,6 +149,8 @@ The next couple of options specify how often the current parameter values should
 For this dataset let's initially set the chain length to 100,000 as this will run reasonably quickly on most modern computers. Although the suggestion above would indicate a lower sampling frequency, in this case set both the sampling frequencies to 100.
 
 {% include tip.html content="You can set the screen sampling frequency something different from the main log files. Here, the analysis is going to run very fast so printing to the screen every 100 steps will cause a large amount of information to scroll up the screen. Try setting the `Echo state to screen` option to `10000` resulting in only 100 updates to the screen as the analysis runs." %}
+
+Below the parameter logging frequency, you can set the checkpointing frequency. Checkpointing is a mechanism that allows store the state of a computation in a way that allows it be continued at a later time without changing the computation's behavior. This is useful when a run is interrupted for some reason or when you would simply like to continue a run that ended, but has not provided sufficient samples. 
 
 The next option allows the user to set the File stem name; if not set to ‘YFV’ by default, you can type this in here (or add more detail about the analysis). The next two options give the file names of the log files for the parameters and the trees. These will be set to a default based on the file stem name. 
 
@@ -188,7 +185,7 @@ All you need to do is to click the `Choose File...` button, select the XML file 
 When you press `Run` BEAST will load the XML file, setup the analysis and then run it with no further interaction. In the output window you will see lots of information appearing. It starts by printing the title and credits:
 
 ```
-       BEAST v1.10.0 Prerelease #VEME2017, 2002-2017
+      BEAST X v10.5.0 Prerelease #94f74eb37, 2002-2024
        Bayesian Evolutionary Analysis Sampling Trees
                  Designed and developed by
    Alexei J. Drummond, Andrew Rambaut and Marc A. Suchard
@@ -197,7 +194,7 @@ When you press `Run` BEAST will load the XML file, setup the analysis and then r
                    University of Auckland
                   alexei@cs.auckland.ac.nz
                               
-             Institute of Evolutionary Biology
+             Institute of Ecology and Evolution
                   University of Edinburgh
                      a.rambaut@ed.ac.uk
                               
@@ -219,56 +216,63 @@ Random number seed: 1503410333443
 
 Parsing XML file: YFV.xml
 
+Taxon list 'taxa' created with 71 taxa.
+    most recent taxon date = 2009 years
+
+Taxon list 'americas' created with 50 taxa.
+    most recent taxon date = 2009 years
+
 Read alignment: alignment
   Sequences = 71
       Sites = 654
    Datatype = nucleotide
+
 Site patterns 'CP1.patterns' created from positions 1-654 of alignment 'alignment'
   only using every 3 site
-  unique pattern count = 59
+  compressed to unique site patterns
+  pattern count = 59
+
 Site patterns 'CP2.patterns' created from positions 2-654 of alignment 'alignment'
   only using every 3 site
-  unique pattern count = 33
+  compressed to unique site patterns
+  pattern count = 33
+
 Site patterns 'CP3.patterns' created from positions 3-654 of alignment 'alignment'
   only using every 3 site
-  unique pattern count = 201
+  compressed to unique site patterns
+  pattern count = 201
 
 Creating the tree model, 'treeModel'
-  initial tree topology = (...)
-  tree height = 69.38328510064179
+             taxon count = 71
+             tree height = 69.65297170860585
+          min tip height = -0.0
+          max tip height = 69.0
 
 Using strict molecular clock model.
 
-Creating state frequencies model 'frequencies': Initial frequencies = {0.25, 0.25, 0.25, 0.25}
+Creating state frequencies model 'CP1.frequencies': Initial frequencies = {0.25, 0.25, 0.25, 0.25}
 
 Creating HKY substitution model. Initial kappa = 2.0
 
-Creating state frequencies model 'frequencies': Initial frequencies = {0.25, 0.25, 0.25, 0.25}
+Creating state frequencies model 'CP2.frequencies': Initial frequencies = {0.25, 0.25, 0.25, 0.25}
 
 Creating HKY substitution model. Initial kappa = 2.0
 
-Creating state frequencies model 'frequencies': Initial frequencies = {0.25, 0.25, 0.25, 0.25}
+Creating state frequencies model 'CP3.frequencies': Initial frequencies = {0.25, 0.25, 0.25, 0.25}
 
 Creating HKY substitution model. Initial kappa = 2.0
 
 Creating site rate model: 
-  with initial relative rate = 1.0
+  with initial relative rate = 0.3333333333333333 with weight: 3.0
   4 category discrete gamma with initial shape = 0.5
-
-Creating site rate model: 
-  with initial relative rate = 1.0
-  4 category discrete gamma with initial shape = 0.5
-
-Creating site rate model: 
-  with initial relative rate = 1.0
-  4 category discrete gamma with initial shape = 0.5
+  using equal weight discretization of gamma distribution
 .
 .
 .
 Creating the MCMC chain:
-  chainLength=100000
-  autoOptimize=true
-  autoOptimize delayed for 1000 steps
+  chain length = 100000
+  operator adaption = true
+  adaptation delayed for 1000 steps
 ```
 
 Next it prints out a block of citations for BEAST and for the individual models and components selected. This is intended to help you write up the analysis, specifying and citing the models used:
@@ -278,33 +282,36 @@ Citations for this analysis:
 
 FRAMEWORK
 BEAST primary citation:
-	Drummond AJ, Suchard MA, Xie Dong, Rambaut A (2012) Bayesian phylogenetics with BEAUti and the BEAST 1.7. Mol Biol Evol. 29, 1969-1973. DOI:10.1093/molbev/mss075
+	Suchard MA, Lemey P, Baele G, Ayres DL, Drummond AJ, Rambaut A (2018) Bayesian phylogenetic and phylodynamic data integration using BEAST 1.10. Virus Evolution. vey016. DOI:10.1093/ve/vey016
+
+HIGH-PERFORMANCE COMPUTING
+BEAGLE citation:
+	Ayres DL, Cummings MP, Baele G, Darling AE, Lewis PO, Swofford DL, Huelsenbeck JP, Lemey P, Rambaut A, Suchard MA (2019) BEAGLE 3: Improved performance, scaling and usability for a high-performance computing library for statistical phylogenetics. Systematic Biology. 68, 1052-1061
 
 SUBSTITUTION MODELS
 HKY nucleotide substitution model:
-	Hasegawa M, Kishino H, Yano T (1985) Dating the human-ape splitting by a molecular clock of mitochondrial DNA. J. Mol. Evol.. 22, 160-174
+	Hasegawa M, Kishino H, Yano T (1985) Dating the human-ape splitting by a molecular clock of mitochondrial DNA. Journal of Molecular Evolution. 22, 160-174
 Discrete gamma-distributed rate heterogeneity model:
 	Yang Z (1994) Maximum likelihood phylogenetic estimation from DNA sequences with variable rates over sites: approximate methods. J. Mol. Evol.. 39, 306-314
 
 PRIOR MODELS
 CTMC Scale Reference Prior model:
-	Ferreira MAR, Suchard MA (2008) Bayesian analysis of elapsed times in continuous-time Markov chains. Canadian Journal of Statistics. 36, 355-368
-```
+	Ferreira MAR, Suchard MA (2008) Bayesian analysis of elapsed times in continuous-time Markov chains. Canadian Journal of Statistics. 36, 355-36```
 
 Finally BEAST starts to run. It prints up various pieces of information that is useful for keeping track of what is happening. The first column is the 'state' number --- in this case it is incrementing by 1000 so between each of these lines it has made 1000 operations. The screen log shows only a few of the metrics and parameters but it is also recording a log file to disk with all of the results in it (along with a '.trees' file containing the sampled trees for these states).
 
 After a few thousand states it will start to report the number of hours per million states (or if it is running very fast, per billions states). This is useful to allow you to predict how long the run is going to take and whether you have time to go and get a cup of coffee, or lunch, or a two week vacation in the Caribbean.
 
 ```
-# BEAST v1.10.0 Prerelease #VEME2017
-# Generated Tue Aug 22 14:59:04 BST 2017 [seed=1503410333443]
-# -beagle
-state	Posterior     Prior       Likelihood    rootAge   clock.rate  
-0       -17832.0434   -209.3400   -17622.7035   1939.62   1.00000     -
-100     -16759.9962   -201.5887   -16558.4075   1939.63   0.79663     -
-200     -15788.1880   -195.6302   -15592.5578   1939.63   0.74501     -
-300     -15339.8944   -201.7870   -15138.1074   1939.65   0.74501     -
-400     -14704.4588   -192.4580   -14512.0008   1939.65   0.61861     -
+# BEAST v10.5.0 Prerelease #94f74eb37
+# Generated Sat Jul 13 18:01:52 CEST 2024 [seed=1720886512099]
+# -beagle_SSE YFV.xml
+state	Joint       	Prior       	Likelihood  	age(root)   	clock.rate  
+0	-17381.4961 	-206.0977   	-17175.3984 	1939.35     	1.00000     	-
+100	-15326.6086 	-171.9104   	-15154.6982 	1939.35     	0.57696     	-
+200	-14052.2127 	-189.9906   	-13862.2221 	1939.35     	0.57696     	-
+300	-13702.5689 	-199.9729   	-13502.5960 	1939.35     	0.53924     	-
+400	-12850.5143 	-203.4899   	-12647.0244 	1939.35     	0.43245     	-
 .
 .
 ```
@@ -314,34 +321,32 @@ After waiting the expected amount of time, BEAST will finish.
 ```
 .
 .
-99500	-5947.7998   -606.3356   -5341.4642   535.003   2.06631E-4   43.95 hours/billion states
-99600	-5944.2435   -605.9852   -5338.2583   464.495   2.06631E-4   43.95 hours/billion states
-99700	-5943.2009   -606.0432   -5337.1577   471.835   1.88318E-4   43.94 hours/billion states
-99800	-5952.6018   -610.7744   -5341.8274   549.930   2.10672E-4   43.95 hours/billion states
-99900	-5944.0227   -603.4808   -5340.5419   730.490   2.08943E-4   43.95 hours/billion states
-100000	-5944.2243   -600.5219   -5343.7025   598.543   2.08943E-4   43.95 hours/billion states
+99500	-5911.2282  	-588.1611   	-5323.0671  	665.926     	2.29251E-4  	2.25 minutes/million states
+99600	-5909.1681  	-585.5062   	-5323.6618  	665.926     	2.29251E-4  	2.26 minutes/million states
+99700	-5911.1858  	-586.0916   	-5325.0942  	665.926     	2.29251E-4  	2.27 minutes/million states
+99800	-5915.6446  	-589.7219   	-5325.9227  	665.926     	2.47915E-4  	2.27 minutes/million states
+99900	-5919.6515  	-591.5561   	-5328.0954  	652.094     	2.47915E-4  	2.27 minutes/million states
+100000	-5920.5791  	-588.6710   	-5331.9081  	704.362     	2.52277E-4  	2.28 minutes/million states
 
 Operator analysis
-Operator                                          Tuning   Count      Time     Time/Op  Pr(accept) 
-scale(CP1.kappa)                                  0.357   1153       187      0.16     0.2402      
-scale(CP2.kappa)                                  0.219   1049       149      0.14     0.2479      
-scale(CP3.kappa)                                  0.55    1116       410      0.37     0.2348      
-frequencies                                       0.07    1105       438      0.4      0.2471      
-scale(CP1.alpha)                                  0.385   1109       224      0.2      0.2435      
-scale(CP2.alpha)                                  0.245   1161       189      0.16     0.2343      
-scale(CP3.alpha)                                  0.46    1158       397      0.34     0.2383      
-scale(clock.rate)                                 0.747   3406       1345     0.39     0.2372      
-up:clock.rate down:nodeHeights(treeModel)         0.905   3471       979      0.28     0.2264      
-allMus                                            0.129   3430       957      0.28     0.2423      
-subtreeSlide(treeModel)                           55.702  16910      1668     0.1      0.2367      
-Narrow Exchange(treeModel)                                17007      1449     0.09     0.1364      
-Wide Exchange(treeModel)                                  3373       184      0.05     0.0044      
-wilsonBalding(treeModel)                                  3342       466      0.14     0.0093      
-scale(treeModel.rootHeight)                       0.304   3441       324      0.09     0.2479      
-uniform(nodeHeights(treeModel))                           34356      4387     0.13     0.4551      
-scale(constant.popSize)                           0.514   3413       132      0.04     0.2429      
+Operator                                          Tuning   Count      Time     Time/Op  Pr(accept) Smoothed_Pr(accept)
+scale(CP1.kappa)                                  0.29    920        118      0.13     0.2598      0.23        
+scale(CP2.kappa)                                  0.224   1035       118      0.11     0.2473      0.22        
+scale(CP3.kappa)                                  0.525   984        245      0.25     0.2429      0.21        
+deltaExchange(CP1.frequencies)                    0.143   1041       127      0.12     0.2574      0.29        
+deltaExchange(CP2.frequencies)                    0.156   1014       110      0.11     0.2456      0.22        
+deltaExchange(CP3.frequencies)                    0.088   1016       212      0.21     0.2461      0.2         
+scale(CP1.alpha)                                  0.335   974        102      0.1      0.2577      0.13        
+scale(CP2.alpha)                                  0.117   977        109      0.11     0.2753      0.35        
+scale(CP3.alpha)                                  0.374   985        258      0.26     0.2487      0.25        
+scale(clock.rate)                                 0.715   2925       771      0.26     0.2332      0.25        
+up:nodeHeights(treeModel) down:clock.rate         0.9     2932       514      0.18     0.2384      0.21        
+deltaExchange(allNus)                             0.072   2966       573      0.19     0.236       0.29        
+subtreeLeap(treeModel)                            51.318  71159      6570     0.09     0.2384      0.19        
+subtreeJump(treeModel)                                    7036       691      0.1      0.0102      0.0         
+scale(constant.popSize)                           0.487   3036       50       0.02     0.2335      0.23        
 
-17.445 seconds
+13.526 seconds
 ```
 
 The table at the end lists each of the operators, how many times each was used, how much time they took and some other details. This information may be useful for optimising the performance of runs but generally it can be ignored.
@@ -362,7 +367,7 @@ If we select the tab on the right-hand-side labelled `Trace` we can view the raw
 
 {% include image.html prefix=root_url file="image15.png" %}
 
-Here you can see how the samples are autocorrelated --- there are 1000 samples in the trace (we ran the MCMC for 100,000 steps sampling every 100) but it is clear that adjacent samples often tend to have similar values. The ESS for the age of the root (`treeModel.rootAge`) is only about 6 so we are only getting 1 independent sample to every 167 actual samples). 
+Here you can see how the samples are autocorrelated --- there are 1000 samples in the trace (we ran the MCMC for 100,000 steps sampling every 100) but it is clear that adjacent samples often tend to have similar values. The ESS for the age of the root (`age(root)`) is only about 4 so we are only getting 1 independent sample to every 250 actual samples). 
 
 It also seems that the default burn-in of 10% of the chain length is inadequate (the posterior values are still increasing over most of the chain). Not excluding enough of the start of the chain as burn-in will bias the results and render estimates of ESS unreliable. Set the `burn-in` to 20,000 (doule-click on the number in the trace file table to edit it). You should see something like this:  
 
@@ -381,17 +386,17 @@ The file, <a href="{{ root_url }}files/YFVLongRuns.zip"><samp>YFVLongRun.zip</sa
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> 
 To continue the tutorial without having to wait for a long run to complete, you can make use of the BEAST output files provided with this tutorial (a chain length of 20,000,000 and logged every 10,000 sample). The files, <samp>YFV.log</samp> and <samp>YFV.trees</samp>, <a href="{{ root_url }}files/YFVLongRuns.zip"><samp>YFVLongRuns.zip</samp>, can be downloaded from here</a>.</div>
 
-Import the new longer log file for the strict clock run, select the `treeModel.rootAge` statistic and click on the `Trace` tab to look at the raw trace plot.
+Import the new longer log file for the strict clock run, select the `age(root)` statistic and click on the `Trace` tab to look at the raw trace plot.
 
 {% include image.html prefix=root_url file="image17.png" %}
 
-The log file provided contains 2000 samples and with an ESS of 262 for the clock.rate there is still some degree of auto-correlation between the samples but 262 effectively independent samples will now provide an reasonable estimate of the posterior distribution. There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, and there are no large-scale fluctuations in the trace which would suggest poor mixing.   
+The log file provided contains 2000 samples and with an ESS of 310 for the clock.rate there is still some degree of auto-correlation between the samples but 310 effectively independent samples will now provide an reasonable estimate of the posterior distribution. There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, and there are no large-scale fluctuations in the trace which would suggest poor mixing.   
 
 As we are happy with the behavior of posterior probability we can now move on to one of the parameters of interest: substitution rate. Select `clock.rate` in the left-hand table. This is the average substitution rate across all sites in the alignment. Now choose the density plot by selecting the tab labeled `Marginal Prob Distribution`. This plot shows a kernel density estimate (KDE) of the posterior probability density of this parameter. You should see a plot similar to this:
 
 {% include image.html prefix=root_url file="image18.png" %}
 
-As you can see the posterior probability density is nicely bell-shaped. When looking at the equivalent histogram in the `Estimates` panel, there is some sampling noise which is smoothened by the KDE; this would be reduced if we ran the chain for longer but we already have a reasonable estimate of the mean and HPD interval. You can overlay the density plots of multiple traces in order to compare them (it is up to the user to determine whether they are comparable on the the same axis or not). Select the relative substitution rates for all three codon positions in the table to the left (labelled `CP1.mu`, `CP2.mu` and `CP3.mu` and select `Top-Right` under `Legend`. This will show the posterior probability densities for the relative substitution rate at all three codon positions overlaid:
+As you can see the posterior probability density is nicely bell-shaped. When looking at the equivalent histogram in the `Estimates` panel, there is some sampling noise which is smoothened by the KDE; this would be reduced if we ran the chain for longer but we already have a reasonable estimate of the mean and HPD interval. You can overlay the density plots of multiple traces in order to compare them (it is up to the user to determine whether they are comparable on the the same axis or not). Select the relative substitution rates for all three codon positions in the table to the left (labelled `CP1.mu`, `CP2.mu` and `CP3.mu`). This will show the posterior probability densities for the relative substitution rate at all three codon positions overlaid:
 
 {% include image.html prefix=root_url file="image19.png" %}
 
@@ -403,7 +408,7 @@ Now, let’s have a look at the timescale of the tree. Select the statistics cal
 
 {% include note.html content="Negative numbers denote years as Before the Common Era (BCE) but technically the calendar goes from 1 BCE to 1 CE --- there was no year zero. So if you want to report BCE years, you should take the absolute value and add 1" %} 
 
-This indicates that the TMRCA for the Americas is significantly more recent than the entire tree and argues for a relatively recent introduction of yellow fever virus into the Americas. Note, however, that there is considerable uncertainty in these estimates. Switching to the `Estimates` panel shows that the mean date of of the TMRCA into the Americas is the year 1590 but the 95% HPD credible interval spans 1377 to 1755. Bryant et al. (2007) suggest that the introduction of YFV into the Americas is likely the result of the Atlantic slave trade which occurred from the 16th to 19th Centuries.
+This indicates that the TMRCA for the Americas is significantly more recent than the entire tree and argues for a relatively recent introduction of yellow fever virus into the Americas. Note, however, that there is considerable uncertainty in these estimates. Switching to the `Estimates` panel shows that the mean date of of the TMRCA into the Americas is the year 1635 but the 95% HPD credible interval spans 1493 to 1765. Bryant et al. (2007) suggest that the introduction of YFV into the Americas is likely the result of the Atlantic slave trade which occurred from the 16th to 19th Centuries.
 
 ## Summarizing the trees
 
