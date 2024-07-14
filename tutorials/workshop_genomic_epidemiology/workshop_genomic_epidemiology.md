@@ -32,7 +32,7 @@ To undertake this tutorial, you will need to download a number of software packa
 If you download this zipped folder, there is no need to download other files/folders linked further in the tutorial.
 </div>
 
-## TIMEPOINT 1: A cluster of cases of unknown aetiology
+## EXERCISE 1: A cluster of cases of unknown aetiology
 
 {% include sitrep.html content='As of 30th June 2024, 20 cases of acute respiratory infections have been reported with 7 deaths. A subset of patients have presented with dizziness, fatigue and some more severe neurological symptoms. The infectious agent is currently unknown, however metagenomic sequencing of reported cases has been carried out. We await results from the bioinformatics team.
 ' %}
@@ -171,7 +171,7 @@ Upload your alignment file to the server by clicking `Browse` and selecting the 
 #### Substitution model options
 We will bypass model selection for now, and just select the simple `HKY` substitution model. This is just a quick first look at the data.
 
-#### Running IQTREE2
+#### Running IQTREE
 
 All other parameters can be left as default. Scroll down and select `Submit job`. 
 
@@ -182,7 +182,7 @@ Click `QUERY STATUS` to check on the run. When the job has finished the status b
 {% include image.html file="image15.png" prefix=root_url %}
 
 
-You can examine an ASCII version of the phylogeny in the Full Result tab, but to download the result, click `DOWNLOAD SELECTED JOBS` in the bottom left. Decompress the downloaded file and you'll see the contents contain the iqtree log file, the result file and the treefile. 
+You can examine an ASCII version of the phylogeny in the Full Result tab, but to download the result, click `DOWNLOAD SELECTED JOBS` in the bottom left. Decompress the downloaded file and you'll see the contents contain the IQTREE log file, the result file and the treefile. 
 
 {% include image.html file="image16.png" prefix=root_url %}
 
@@ -227,23 +227,43 @@ in the [Rates and dates tutorial](https://beast.community/rates_and_dates). Add 
 
 When ready, click `Generate BEAST File...`. 
 
+Run BEAST with your newly generated XML (detailed instructions can be found in the [First tutorial](https://beast.community/first_tutorial)). 
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> You can also access the precomputed BEAST output for this XML at <a href="{{ root_url }}files/timepoint1.beast_out.zip">this link</a>.</div>
+
 Open `Tracer` and load the newly generated log file to assess the BEAST run (the [Rates and dates tutorial](https://beast.community/rates_and_dates) also includes some useful tips about importing into `Tracer` and interpreting the plots.). 
+
+{% include image.html file="image21.png" prefix=root_url %}
+
 
 {% include question.html content='
 Questions:<br>
-1. <br>
-2. When does Tempest estimate the origin of the outbreak?<br>
-3. Is there good temporal signal?
+1. Are the ESS values for the estimated statistics acceptable? Is the trace good? What should you set the burn in to?<br>
+2. What is the root age estimate? What is the 95 HPD interval? <br>
+3. What is the clock rate estimate (and 95 HPD interval)? Does this make sense for NiV?
+4. From the information available, what can you determine about the origin of this outbreak?
+5. What would you suggest is needed for a better estimate?
 '%}
 
-## TIMEPOINT 2: Additional human cases spurs an investigation in animal population
+## EXERCISE 2: Additional human cases spurs an investigation in animal population
+
+{% include sitrep.html content='As of 12th July 2024, 60 human cases of Nipah have been reported. In additional to new cases, retrospective investigation has revealed a number of cases that had not previously been attributed to specific infectious agent. Liasing with the National Animal Health Agency has revealed a concurrent outbreak in NiV in livestock pigs. Of the cases in humans and pigs, a subset have been sent for targeted sequencing, however the results are not yet out. 
+' %}
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The latest results from the second sequencing run can be downloaded at <a href="{{ root_url }}files/outbreak.seq_run2.fasta.zip">this link</a>. The file will need to be uncompressed.</div>
+
+Download the provided FASTA alignment file and uncompress. This FASTA file contains NiV genome sequences from both the initial sequencing run and a second sequencing run that contained both human and pig NiV samples. We will attempt to answer whether the human and animal outbreaks are linked and what is the source of these cases.
+
+### Generate a maximum likelihood tree from the alignment
+
+Using IQTREE as described above in EXERCISE 1, estimate a maximum likelihood phylogeny with the `outbreak.seq_run2.fasta` file. Inspect the phylogeny using FigTree.  
+
+
+
+## EXERCISE 3: Individual arriving into the 
 
 {% include sitrep.html content='As of 12th July 2024, 60 human cases of Nipah have been reported. The Ministry of Health of Country X has commissioned sampling of local wildlife and livestock. NiV has been detected in samples from bats and domestic pigs. 
 ' %}
-
-**HERE WILL PUT IN DTA**
-
-
 
 ## References **need to update**
 - Drummond AJ, Rambaut A (2007) BEAST: Bayesian evolutionary analysis by sampling trees. BMC Evolutionary Biology 7: 214.
