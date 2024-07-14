@@ -121,11 +121,11 @@ entries:
   - title: How-To Guides
     output: web, pdf
     folderitems:
-    - title: Construct a model in BEAUti
+    - title: Constructing a model in BEAUti
       url: /constructing_models
       output: web, pdf
 
-    - title: Create taxon sets
+    - title: Creating taxon sets
       url: /taxon_sets
       output: web, pdf
 
@@ -133,7 +133,7 @@ entries:
       url: /fixed_local_clocks
       output: web, pdf
 
-    - title: Use an empirical tree distribution
+    - title: Using an empirical tree distribution
       url: /empirical_trees
       output: web, pdf
 
@@ -145,7 +145,7 @@ entries:
       url: /tip_date_sampling
       output: web, pdf
 
-    - title: Analyse BEAST output
+    - title: Analysing BEAST output
       url: /analysing_beast_output
       output: web, pdf
 
