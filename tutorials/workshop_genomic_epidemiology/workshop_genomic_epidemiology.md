@@ -14,7 +14,9 @@ folder: beast
 
 ## Introduction
 
-Genomic epidemiology combines classical epidemiological methods with genome sequence data to track and monitor both endemic pathogens and the emergence and spread of novel pathogens. In this tutorial, we will follow an outbreak through different phases and use phylogenetic methods to answer questions pertinent to containing the outbreak.
+Genomic epidemiology combines classical epidemiological methods with genome sequence data to track and monitor both endemic pathogens and the emergence and spread of novel pathogens. In this tutorial, we will follow an outbreak through different phases and use phylogenetic methods to answer questions pertinent to understanding and controlling the outbreak.
+
+Disclaimer: this outbreak is a fictional scenario based on simulated data. It is not intended to be predictive or relate to any real-world outbreak, and any similarities are coincidental. 
 
 To undertake this tutorial, you will need to download a number of software packages in a format that is compatible with your computer system (all three are available for Mac OS X, Windows and Linux/UNIX operating systems):
 
@@ -26,20 +28,20 @@ To undertake this tutorial, you will need to download a number of software packa
 
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
-<a href="{{ root_url }}files/influenzaTutorialFiles.zip"> can be downloaded from here</a>. 
+<a href="{{ root_url }}files/outbreak.zip"> can be downloaded from here</a>. 
 If you download this zipped folder, there is no need to download other files/folders linked further in the tutorial.
 </div>
 
 ## TIMEPOINT 1: A cluster of cases of unknown aetiology
 
-{% include sitrep.html content='As of 30th June 2034, 20 cases of acute respiratory infections have been reported with 7 deaths. A subset of patients have presented with dizziness, fatigue and more severe neurological symptoms. The infectious agent is currently unknown, however metagenomic sequencing of reported cases has been carried out. We await results from the bioinformatics team.
+{% include sitrep.html content='As of 30th June 2024, 20 cases of acute respiratory infections have been reported with 7 deaths. A subset of patients have presented with dizziness, fatigue and some more severe neurological symptoms. The infectious agent is currently unknown, however metagenomic sequencing of reported cases has been carried out. We await results from the bioinformatics team.
 ' %}
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>initial_cases.fasta</samp>' and <a href="{{ root_url }}files/initial_cases.fasta">can be downloaded from here</a>.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>outbreak.seq_run_1.fasta</samp>' and <a href="{{ root_url }}files/outbreak.seq_run_1.fasta">can be downloaded from here</a>.</div>
 
 ### Quick identification of causative pathogen
 
-{% include question.html content='How many sequences are in the `initial_cases.fasta` file?' %}
+{% include question.html content='How many sequences are in the `outbreak.seq_run_1.fasta` file?' %}
 
 
 {% include tip.html content='Each sequence header in a FASTA file starts with the `>` character' %}
@@ -53,7 +55,7 @@ Click on the button for "Nucleotide BLAST". This will redirect you to the below 
 {% include image.html file="image2.png" prefix=root_url %}  <br /><br />
 
 
-To load a query sequence set, simply select the `Choose file` option, or alternatively open the `initial_cases.fasta` file and copy and paste into the box.
+To load a query sequence set, simply select the `Choose file` option, or alternatively open the `outbreak.seq_run_1.fasta` file and copy and paste into the box.
 
 Default settings should be fine in this first instance (this will search all non-redundant records on NCBI). Click `BLAST` to run the search. 
 
@@ -105,7 +107,7 @@ For the purposes of this exercise, we have already prepared all the complete rec
 For example:<br>
 `>MH523641|NiV|India|human|2018-05-21`'
  %}
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>NiV_background.with_initial_cases.fasta</samp>' and <a href="{{ root_url }}files/NiV_background.with_initial_cases.fasta.zip">can be downloaded from here</a>. It will need to be decompressed before use.<br>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>NiV_background.with_outbreak.seq_run_1.fasta</samp>' and <a href="{{ root_url }}files/outbreak_seq_run_1.NiV_background.fasta">can be downloaded from here</a>. It will need to be decompressed before use.<br>
 This file has both the initial case sequences and the background dataset combined into one file. If actually creating this dataset, you would need to combine these files yourself (either copy & paste, or through the command line).</div>
 
 However, ordinarily you can download the dataset by clicking the Download button indicated below:
@@ -131,7 +133,7 @@ Navigate to the [MAFFT web server](https://mafft.cbrc.jp/alignment/server/).
 <!-- FFT-NS-2 (Fast Fourier Transform-Normalized Similarity-2) -->
 {% include image.html file="image8.png" prefix=root_url %}
 
-We have provided the combined case genome sequences and NiV background set. Once you have decompressed the `NiV_background.with_initial_cases.fasta` file, select `Choose file` on the MAFFT web server and upload your file. We will run with the default AUTO mode (it may be useful to change the Title length field to 50, but not necessary), select `Submit`. 
+We have provided the combined case genome sequences and NiV background set. Once you have decompressed the `NiV_background.with_outbreak.seq_run_1.fasta` file, select `Choose file` on the MAFFT web server and upload your file. We will run with the default AUTO mode (it may be useful to change the Title length field to 50, but not necessary), select `Submit`. 
 
 When the alignment is complete the following screen will show:
 
@@ -208,7 +210,31 @@ Questions:<br>
 
 Even with just these few sequences it may be possible to ascertain some key information about this outbreak (such as when it likely began and how quickly it is spreading).
 
-**HERE WILL PUT IN EXP GROWTH MODEL AND ESTIMATE R0 OF THE CLUSTER**
+Use the [Tempest tutorial](https://beast.community/tempest_tutorial) as a guide to load the `outbreak.seq_run_1.fasta` file into Tempest to assess whether there is temporal signal in the data. Parse the tip dates by selecting `Parse dates` in the Sample Dates tab, and select `Best fitting root` in the top-left side of the application. 
+
+Take a look at the root-to-tip and residual tabs.  
+{% include image.html file="image19.png" prefix=root_url %}
+{% include question.html content='
+Questions:<br>
+1. What does Tempest estimate the rate to be? Does this seem sensible?<br>
+2. When does Tempest estimate the origin of the outbreak?<br>
+3. Is there good temporal signal?
+'%}
+
+Next, use BEAUTi to generate an XML file for BEAST to run. full step-by-step details can be found at 
+in the [Rates and dates tutorial](https://beast.community/rates_and_dates). Add the `outbreak.seq_run_1.fasta` as a partition, in the `Tips` tab parse the dates from the tips and set an exponential growth model. It's a small dataset, with very little temporal signal, so on the `MCMC` tab set the chain length to a little longer (perhaps 100,000,000 states) and reduce logging frequency to every 10000 states. 
+{% include image.html file="image20.png" prefix=root_url %}
+
+When ready, click `Generate BEAST File...`. 
+
+Open `Tracer` and load the newly generated log file to assess the BEAST run (the [Rates and dates tutorial](https://beast.community/rates_and_dates) also includes some useful tips about importing into `Tracer` and interpreting the plots.). 
+
+{% include question.html content='
+Questions:<br>
+1. <br>
+2. When does Tempest estimate the origin of the outbreak?<br>
+3. Is there good temporal signal?
+'%}
 
 ## TIMEPOINT 2: Additional human cases spurs an investigation in animal population
 
