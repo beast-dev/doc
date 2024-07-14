@@ -227,9 +227,9 @@ in the [Rates and dates tutorial](https://beast.community/rates_and_dates). Add 
 
 When ready, click `Generate BEAST File...`. 
 
-Run BEAST with your newly generated XML (detailed instructions can be found in the [First tutorial](https://beast.community/first_tutorial)). 
+Run BEAST with your newly generated XML (detailed instructions on how to run BEAST can be found in the [First tutorial](https://beast.community/first_tutorial)). 
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> You can also access the precomputed BEAST output for this XML at <a href="{{ root_url }}files/timepoint1.beast_out.zip">this link</a>.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> You can also access the precomputed BEAST output for this XML at <a href="{{ root_url }}files/outbreak.seq_run_1.beast_out.zip">this link</a>.</div>
 
 Open `Tracer` and load the newly generated log file to assess the BEAST run (the [Rates and dates tutorial](https://beast.community/rates_and_dates) also includes some useful tips about importing into `Tracer` and interpreting the plots.). 
 
@@ -263,7 +263,7 @@ Questions:<br>
 {% include sitrep.html content='As of 12th July 2024, 60 human cases of Nipah have been reported. In additional to new cases, retrospective investigation has revealed a number of cases that had not previously been attributed to specific infectious agent. Liasing with the National Animal Health Agency has revealed a concurrent outbreak in NiV in livestock pigs. Of the cases in humans and pigs, a subset have been sent for targeted sequencing, however the results are not yet out. 
 ' %}
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The latest results from the second sequencing run can be downloaded at <a href="{{ root_url }}files/outbreak.seq_run2.fasta.zip">this link</a>. The file will need to be decompressed.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data from the second sequencing run can be downloaded at <a href="{{ root_url }}files/outbreak.seq_run2.fasta.zip">this link</a>. The file will need to be decompressed.</div>
 
 Download the provided FASTA alignment file and decompress. This FASTA file contains NiV genome sequences from both the initial sequencing run and a second sequencing run that contained both human and pig NiV samples. We will attempt to answer whether the human and animal outbreaks are linked and what is the source of these cases.
 
@@ -281,6 +281,67 @@ Examine the root-to-tip and residual plots.
 Questions:<br>
 1. What is the estimated rate?<br>
 2. What is the estimated time of most recent common ancestor (TMRCA)?<br>'%}
+
+### Estimate a time tree and reconstruct ancestral host states
+
+Launch BEAUTi and import the `outbreak.seq_run2.fasta` alignment.
+{% include image.html file="image25.png" prefix=root_url %}<br><br>
+
+Parse the tip dates on the `Tips` tab.
+{% include image.html file="image26.png" prefix=root_url %}<br><br>
+
+Navigate to the `Traits` tab and create a new trait called `host`. 
+{% include image.html file="image27.png" prefix=root_url %}<br><br>
+
+Select `Guess trait values` and indicate it is the fourth field in the pipe(`|`)-delimited header. 
+{% include image.html file="image28.png" prefix=root_url %}<br><br>
+
+Create a new partition with that trait called `host`. 
+{% include image.html file="image29.png" prefix=root_url %}<br><br>
+
+If you navigate back to the partitions tab, you'll see `host` has now appeared beneath the nucleotide partition.
+{% include image.html file="image30.png" prefix=root_url %}<br><br>
+
+Click on `host` in the Substitution model window (`Sites` tab) and keep the `Discrete Trait Substitution Model` as `Symmetric substitution model` but select the option to perform `BSSVS` (Infer social network with BSSVS). The symmetric substitution model specifies a discrete state ancestral reconstruction using a standard continuous-time Markov chain (CTMC), in which the transition rates between locations are reversible. Selecting the BSSVS option enables the Bayesian Stochastic Search Variable Selection procedure. This procedure will attempt to limit the number of rates (at least k-1, where k is the number of states) to only those that adequately explain the phylogenetic diffusion process.
+{% include image.html file="image31.png" prefix=root_url %}<br><br>
+
+In the `Trees` tab, we will set the `Tree Prior` to an Exponential Growth coalescent model.
+{% include image.html file="image32.png" prefix=root_url %}<br><br>
+
+Ensure under the `States` tab that the host partition is set to reconstruct the states of all ancestors (should be on by default). 
+{% include image.html file="image33.png" prefix=root_url %}<br><br>
+
+We are now ready to create the BEAST XML file. `Select Generate XML...`.  
+
+Run `BEAST` using the newly generated XML as before.
+
+Examine the output logfile in `Tracer`. 
+{% include image.html file="image34.png" prefix=root_url %}<br><br>
+{% include question.html content='
+Questions:<br>
+1. Has the increased sampling improved the BEAST run output?<br>
+2. What is the estimated time of most recent common ancestor (TMRCA)?<br>
+'%}
+
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> You can also access the precomputed BEAST output for this XML at <a href="{{ root_url }}files/outbreak.seq_run_2.beast_out.zip">this link</a>.</div>
+
+
+Combine the logged trees into a MCC tree using `TreeAnnotator`, check if the default burn in of 1,000,000 states is sufficient in `Tracer`. Vizualise the MCC tree in FigTree. Set the time scale on the X axis and toggle on the Node bars showing height 95 HPD.
+{% include image.html file="image36.png" prefix=root_url %}<br><br>
+{% include image.html file="image34.png" prefix=root_url %}<br><br>
+{% include question.html content='
+Questions:<br>
+1. Has the root age HPD improved? Does it agree with the `TempEst` estimation?<br>
+'%}
+
+Colour the branches of the time tree by host. Look at the confidence values for that reconstruction.
+{% include image.html file="image35.png" prefix=root_url %}<br><br>
+{% include question.html content='
+Questions:<br>
+1. What does the reconstruction tell us?<br>
+2. Does it make sense?<br>
+3. What factors may play into how confident we are in this reconstruction?<br>
+'%}
 
 
 
