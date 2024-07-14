@@ -238,6 +238,10 @@ entries:
     - title: Phylogeographic Diffusion in Continuous Space, WNV
       url: /workshop_continuous_diffusion_wnv
       output: web, pdf
+      
+    - title: Genomic epidemiology
+      url: /workshop_genomic_epidemiology
+      output: web, pdf
 
   - title: Reference
     output: web, pdf
