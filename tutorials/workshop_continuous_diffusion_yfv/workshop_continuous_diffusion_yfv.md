@@ -88,7 +88,7 @@ To associate the sequences with the traits, we need to import a new trait under 
 		...
 	MF170971|Monkey|MinasGerais_SaoRoqueDeMinas|NA|30-01-2017	-20.177911	-46.439305
 	
-After clicking `OK`, select both the `lat` and `long` trait in the left window and click on `Create partition from trait...`. In the window that pops up, enter a name for this partitions, e.g. 'location':
+After clicking `OK`, BEAuti asks to create a traits partition. Click `Yes` and select both the `lat` and `long` and provide a name for the triat parttition, e.g. 'location' and Click `OK`.
 
 {% include image.html file="YFV_screenshot_05_traits_2.png" prefix=root_url caption="" %}
 
@@ -135,9 +135,7 @@ In the `States` panel, check that `location` partition is set to `Reconstruct st
 
 #### Setting up the priors
 
-Review the prior settings under the `Priors` tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. Priors that would not be explicitly specified would appear in red, whereas priors that are improper (and hence lead to an improper posterior and improper marginal likelihoods) appear in yellow (e.g. allMus). Click on the prior for this parameter and a prior selection window will appear. The codon position-specific relative rates (CP1.mu, CP2.mu and CP3.mu), which are constrained to have a mean of 1, still require proper priors. We here specify lognormal distributions with a log(mean) of 0.0 and a log(stdev) of 1.5 for these parameters. Notice that the prior setting turns black after confirming this setting by clicking OK. We can keep the default priors in this case:
-
-{% include image.html file="YFV_screenshot_12_priors.png" prefix=root_url caption="" %}
+Review the prior settings under the `Priors` tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each.
 
 #### Setting up the operators
 
