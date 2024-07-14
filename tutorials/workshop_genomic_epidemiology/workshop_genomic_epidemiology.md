@@ -210,14 +210,14 @@ Questions:<br>
 
 Even with just these few sequences it may be possible to ascertain some key information about this outbreak (such as when it likely began and how quickly it is spreading).
 
-Use the [Tempest tutorial](https://beast.community/tempest_tutorial) as a guide to load the `outbreak.seq_run_1.fasta` file into Tempest to assess whether there is temporal signal in the data. Parse the tip dates by selecting `Parse dates` in the Sample Dates tab, and select `Best fitting root` in the top-left side of the application. 
+Use the [TempEst tutorial](https://beast.community/tempest_tutorial) as a guide to load the `outbreak.seq_run_1.fasta` file into `TempEst` to assess whether there is temporal signal in the data. Parse the tip dates by selecting `Parse dates` in the Sample Dates tab, and select `Best fitting root` in the top-left side of the application. 
 
 Take a look at the root-to-tip and residual tabs.  
 {% include image.html file="image19.png" prefix=root_url %}
 {% include question.html content='
 Questions:<br>
-1. What does Tempest estimate the rate to be? Does this seem sensible?<br>
-2. When does Tempest estimate the origin of the outbreak?<br>
+1. What does TempEst estimate the rate to be? Does this seem sensible?<br>
+2. When does TempEst estimate the origin of the outbreak?<br>
 3. Is there good temporal signal?
 '%}
 
@@ -233,6 +233,10 @@ Run BEAST with your newly generated XML (detailed instructions can be found in t
 
 Open `Tracer` and load the newly generated log file to assess the BEAST run (the [Rates and dates tutorial](https://beast.community/rates_and_dates) also includes some useful tips about importing into `Tracer` and interpreting the plots.). 
 
+
+{% include tip.html content='If some statistics have very long tails, as is the case with the root age shown below, manually configure the range displayed in the chart by clicking `Setup...` or `Setup Chart`. The number of bins for the histogram can also be toggled.' %}
+
+
 {% include image.html file="image21.png" prefix=root_url %}
 
 
@@ -245,18 +249,38 @@ Questions:<br>
 5. What would you suggest is needed for a better estimate?
 '%}
 
+
+Use `Tree Annotator` to produce a maximum clade credibility (MCC) tree from the `.trees` file and view in `FigTree`. Using the `FigTree` tutorial, set the Time Scale and display the 95 HPD for the height estimates on the nodes as shown below.
+
+{% include image.html file="image23.png" prefix=root_url %}
+
+{% include question.html content='
+Questions:<br>
+1. What can we say about the outbreak origins?<br>'%}
+
 ## EXERCISE 2: Additional human cases spurs an investigation in animal population
 
 {% include sitrep.html content='As of 12th July 2024, 60 human cases of Nipah have been reported. In additional to new cases, retrospective investigation has revealed a number of cases that had not previously been attributed to specific infectious agent. Liasing with the National Animal Health Agency has revealed a concurrent outbreak in NiV in livestock pigs. Of the cases in humans and pigs, a subset have been sent for targeted sequencing, however the results are not yet out. 
 ' %}
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The latest results from the second sequencing run can be downloaded at <a href="{{ root_url }}files/outbreak.seq_run2.fasta.zip">this link</a>. The file will need to be uncompressed.</div>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The latest results from the second sequencing run can be downloaded at <a href="{{ root_url }}files/outbreak.seq_run2.fasta.zip">this link</a>. The file will need to be decompressed.</div>
 
-Download the provided FASTA alignment file and uncompress. This FASTA file contains NiV genome sequences from both the initial sequencing run and a second sequencing run that contained both human and pig NiV samples. We will attempt to answer whether the human and animal outbreaks are linked and what is the source of these cases.
+Download the provided FASTA alignment file and decompress. This FASTA file contains NiV genome sequences from both the initial sequencing run and a second sequencing run that contained both human and pig NiV samples. We will attempt to answer whether the human and animal outbreaks are linked and what is the source of these cases.
 
 ### Generate a maximum likelihood tree from the alignment
 
-Using IQTREE as described above in EXERCISE 1, estimate a maximum likelihood phylogeny with the `outbreak.seq_run2.fasta` file. Inspect the phylogeny using FigTree.  
+Using IQTREE as described above in EXERCISE 1, estimate a maximum likelihood phylogeny with the `outbreak.seq_run2.fasta` file. Inspect the phylogeny using `TempEst` (parse tip dates and select `best fitting root`). Note that the tips are labelled with host species. 
+{% include image.html file="image23.png" prefix=root_url %}
+{% include question.html content='
+Questions:<br>
+1. What does this phylogeny tell us about the human and pig outbreaks?<br>'%}
+
+Examine the root-to-tip and residual plots. 
+{% include image.html file="image24.png" prefix=root_url %}
+{% include question.html content='
+Questions:<br>
+1. What is the estimated rate?<br>
+2. What is the estimated time of most recent common ancestor (TMRCA)?<br>'%}
 
 
 
