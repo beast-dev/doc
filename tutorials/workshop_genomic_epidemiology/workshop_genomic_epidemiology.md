@@ -3,7 +3,7 @@ title: Practical genomic epidemiology
 keywords: phylodynamics, genomic epidemiology, nipah
 last_updated: July 11, 2024
 tags: [tutorial, workshop]
-summary: "This tutorial presents an outbreak scenario at various timepoints and provides a step-by-step explanation on how to address the various unknowns using genome sequences and phylogenetics. The outbreak scenario starts with a small number of initial cases and we will initially identify the pathogen and perform some initial characterisation of the cases. Once the pathogen is known, we will get a curate an appropriate background set to contextualise The second timepoint brings us to later in the outbreak, with more cases reported and some local wildlife sampling carried out. We will determine the mode of transmission, identify any clusters that exist and estimate the growth rate and R0 of the outbreak."
+summary: "This tutorial presents an outbreak scenario that starts with a small number of initial cases with no known infectious agent. We will initially identify the pathogen and perform some initial characterisation of the cases. Once the pathogen is known, we will get a curate an appropriate background set to contextualise the cases in the known diversity of the pathogen. The second timepoint brings us to later in the outbreak, with more human cases reported and a concurrent outbreak identified in pigs."
 sidebar: beast_sidebar
 permalink: workshop_genomic_epidemiology.html
 folder: beast
