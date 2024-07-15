@@ -109,12 +109,12 @@ url: http://github.com/beast-dev
 gems:
   - jekyll-redirect-from
 
-beast_version: "10.5.0-beta2"
+beast_version: "10.5.0-beta3"
 beast_download_url: "https://github.com/beast-dev/beast-mcmc/releases"
 beast_source_url: "https://github.com/beast-dev/beast-mcmc"
-beast_mac_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v10.5.0-beta2/BEAST.X.v10.5.0-beta2.dmg"
-beast_linux_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v10.5.0-beta2/BEAST_X_v10.5.0-beta2.tgz"
-beast_windows_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v10.5.0-beta2/BEAST.X.v10.5.0-beta2.zip"
+beast_mac_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v10.5.0-beta3/BEAST.X.v10.5.0-beta3.dmg"
+beast_linux_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v10.5.0-beta3/BEAST_X_v10.5.0-beta3.tgz"
+beast_windows_download_url: "https://github.com/beast-dev/beast-mcmc/releases/download/v10.5.0-beta3/BEAST.X.v10.5.0-beta3.zip"
 
 tracer_version: "1.7.2"
 tracer_url: "https://github.com/beast-dev/tracer/"
