@@ -112,11 +112,12 @@ Select `Import trait(s) from a mapping file` (the format of such a file can be s
 	TX3545_2004.5	Tb	Texas
 ```
 
-After clicking `OK` and `Yes` in the following window.
 
 {% include image.html file="2_importTraitsCreatePartitions.png" width="80%" prefix=root_url %}
 
-Then, select both the host and state traits, click on `New partition for each trait` and click `OK`. 
+Click `OK`, and `Yes` in the following window. Then, select both the host and state traits, click on `New partition for each trait` and click `OK`. 
+
+{% include image.html file="3_newPartitionForEachTrait.png" width="80%" prefix=root_url %}
 
 These new partitions will be shown under the `Partitions` tab, resulting in three partitions in the `Partitions` tab:
 
