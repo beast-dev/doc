@@ -25,7 +25,7 @@ To undertake this tutorial, you will need to download three software packages in
 
 {% include figtree_callout.md %}
 
-{% include spread3_callout.md %}
+{% include spread3_callout.md %} <!--NT: couldn't find the callout for spread4-->
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
 <a href="{{ root_url }}files/continuousTutorialFiles.zip"> can be downloaded from here</a>. 
@@ -88,7 +88,7 @@ To associate the sequences with the traits, we need to import a new trait under 
 		...
 	MF170971|Monkey|MinasGerais_SaoRoqueDeMinas|NA|30-01-2017	-20.177911	-46.439305
 	
-After clicking `OK`, select both the `lat` and `long` trait in the left window and click on `Create partition from trait...`. In the window that pops up, enter a name for this partitions, e.g. 'location':
+After clicking `OK`, BEAuti asks to create a traits partition. Click `Yes` and select both the `lat` and `long` and provide a name for the triat parttition, e.g. 'location' and Click `OK`.
 
 {% include image.html file="YFV_screenshot_05_traits_2.png" prefix=root_url caption="" %}
 
@@ -135,9 +135,7 @@ In the `States` panel, check that `location` partition is set to `Reconstruct st
 
 #### Setting up the priors
 
-Review the prior settings under the `Priors` tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. Priors that would not be explicitly specified would appear in red, whereas priors that are improper (and hence lead to an improper posterior and improper marginal likelihoods) appear in yellow (e.g. allMus). Click on the prior for this parameter and a prior selection window will appear. The codon position-specific relative rates (CP1.mu, CP2.mu and CP3.mu), which are constrained to have a mean of 1, still require proper priors. We here specify lognormal distributions with a log(mean) of 0.0 and a log(stdev) of 1.5 for these parameters. Notice that the prior setting turns black after confirming this setting by clicking OK. We can keep the default priors in this case:
-
-{% include image.html file="YFV_screenshot_12_priors.png" prefix=root_url caption="" %}
+Review the prior settings under the `Priors` tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each.
 
 #### Setting up the operators
 
@@ -235,9 +233,9 @@ Run FigTree and select the `Open...` command from the `File` menu. Select the tr
 
 In the `Layout` panel select the check-box `Align Tip Labels` to increase clarity. We can also plot a time scale axis for this evolutionary history (select `Scale Axis` and deselect `Scale Bar`).
 
-### Visualizing Bayesian phylogeographic reconstructions using SpreaD3
+### Visualizing Bayesian phylogeographic reconstructions using SPREAD4
 
-spreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using Data-Driven Documents (D3), is a software to visualise the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyse and visualise pathogen phylodynamic reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreaD3 allows to visualise on custom maps and generates HTML pages for display in modern-day browsers such as Firefox, Safari and Chrome. One of the functionalities of SpreaD3 that relate to the continuous phylogeographic analysis performed previously include visualizing location-annotated MCC trees. A detailed tutorial for this particular step is available [here](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourThree). 
+SPREAD4, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics version 4, is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SPREAD4 allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome. <!--A detailed tutorial for this particular step is available [here](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourThree). -->
 
 Brief instructions can be found in the quick how-to summary below.
 Compare the animated version for both the homogeneous and RRW model: do you notice any difference?
@@ -272,27 +270,24 @@ Compare the animated version for both the homogeneous and RRW model: do you noti
 
 ### visualise the tree in FigTree.
 
-### Run SpreaD3.
+### Run SPREAD4.
 
 We will first summarise an MCC tree and then summarise the information in the entire tree distribution.
 
-* Select as input type in the `Data` panel: `MCC tree with CONTINUOUS traits`, load your MCC tree file
+* Select the `Continuous MCC tree` tab, load your MCC tree file
 
-* Select ‘location1’ as `Latitute attribute` name and ‘location2’ as `Longitude attribute` name
+* Select ‘location2’ (longitude) in the `Select x coordinate` box and ‘location1’ (latitude) in the `Select y coordinate` box
 
-* Set the `most recent sampling date` to 2017-04-22
+* Set the `most recent sampling date` to 2017-04-22, and click `Start analysis`
 
-* Load a GeoJSON 'Brazil_states.geojson'
+{% include image.html file="YFV_screenshot_sprea4_1ed.png" prefix=root_url caption="" %}
 
-* Keep all other default settings and click `Output` to generate a JSON file
+* There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files --'Brazil_states.geojson'. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/5b009cff-3724-4bbe-bbe3-9efce6097056.json&maps=BR) in a new browser tab/window. 
 
-* Go to the `Rendering` panel, keep the D3 renderer as the renderer of choice, and load the generated JSON file
-
-* Click `Render to D3` to generate the HTML page and a browser window will open automatically
 
 This visualises the MCC tree an the uncertainty for its node locations:
 
-{% include image.html file="YFV_screenshot_23_spreaD3_3.png" prefix=root_url caption="" %}
+{% include image.html file="YFV_screenshot_sprea4_2.png" prefix=root_url caption="" %}
 
 ## Conclusion and Resources
 
@@ -308,4 +303,5 @@ This tutorial only scratches the surface of the analyses that are possible to un
 
 * [Bielejec, F., G. Baele, B. Vrancken, M. A. Suchard, A. Rambaut and P. Lemey. 2016. SpreaD3: interactive visualisation of spatiotemporal history and trait evolutionary processes. Mol. Biol. Evol., 33(8): 2167–2169. doi: 10.1093/molbev/msw082](https://academic.oup.com/mbe/article-lookup/doi/10.1093/molbev/msw082)
 
+* [Nahata KD, Bielejec F, Monetta J, Dellicour S, Rambaut A, Suchard MA, Baele G, Lemey P.. 2022. SPREAD 4: online visualisation of pathogen phylogeographic reconstructions. Virus Evol., 26;8(2):veac088. doi: 10.1093/ve/veac088. eCollection 2022.](https://academic.oup.com/ve/article/8/2/veac088/6717755)
 {% include links.html %}

@@ -1,7 +1,7 @@
 ---
 title: Estimating rates and dates from time-stamped sequences
 keywords: beast, tutorial, rate, date, workshop
-last_updated: August 2, 2017
+last_updated: July 14, 2024
 tags: [tutorial, workshop]
 summary: "This tutorial provides a step-by-step tutorial for analyzing a set of virus sequences which have been isolated at different points in time (heterochronous data). The most commonly cited hypothesis of the origin of yellow fever virus (YFV) in the Americas is that the virus was introduced from Africa, along with <i>Aedes aegypti</i> mosquitoes, in the bilges of sailing vessels during the slave trade. Although the hypothesis of a slave trade introduction had often been suggested, prior to paper by Bryant et al. (2007), it had not been subject to rigorous examination using gene sequence data and modern phylogenetic techniques for estimating divergence times. The aim of this exercise is to obtain an estimate of the rate of molecular evolution, an estimate of the date of the most recent common ancestor and to infer the phylogenetic relationships with appropriate measures of statistical support.
 "
@@ -174,7 +174,7 @@ We are now ready to create the BEAST XML file. Select `Generate XML...` from the
 
 We are now ready to run the file through BEAST.
 
-{% include icon-callout.html file='icons/beast-icon.png' content='Run BEAST by double clicking on the BEAST icon.' %}
+{% include icon-callout.html file='icons/beastx-icon.png' content='Run BEAST by double clicking on the BEAST icon.' %}
 
 The following dialog box will appear:
 
