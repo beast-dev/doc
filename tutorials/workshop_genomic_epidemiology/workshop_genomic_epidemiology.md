@@ -28,7 +28,7 @@ To undertake this tutorial, you will need to download a number of software packa
 
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
-<a href="{{ root_url }}files/outbreak.zip"> can be downloaded from here</a>. 
+<a href="{{ root_url }}files/all_input_files.zip"> can be downloaded from here</a>. 
 If you download this zipped folder, there is no need to download other files/folders linked further in the tutorial.
 </div>
 
