@@ -1,7 +1,7 @@
 ---
 title: Phylogeographic diffusion in discrete space
 keywords: phylogeography, rabies, bats, tutorial
-last_updated: August 9, 2017
+last_updated: July 15, 2024
 tags: [tutorial]
 summary: 'This chapter provides a step-by-step tutorial on reconstructing the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations based on a set of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353). The data set comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States 
  (<a href=\"http://science.sciencemag.org/content/329/5992/676.long\">Streicker et al., Science, 2010, 329, 676-679</a>). Following <a href=\"https://doi.org/10.1098/rstb.2012.0196\">Faria et al. (Phil. Trans. Roy. Soc. B, 2013)</a>, two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, <i>Myotis austroriparius</i> (Ma) and <i>Parastrellus hesperus</i> (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from <i>Lasiurus borealis</i>), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics.'
@@ -301,7 +301,6 @@ An example visualisation can be found below. Note that the visual aspects of the
 
 
 <!--NT: spread4 does not allow for non-geographical mapping
-
 We can obtain a similar summary for the host transition rates. Since these cannot be plotted on a map, we will organise them on a circle. Load the file containing the host rates and rate indicators (<samp>batRABV.host.rates.log</samp>). In setting up the locations, select `Generate` and enter the number of unique host states ('17' in this case). If you want the names of the locations to be drawn rather than location1, location2, …, enter the names of each of the 17 locations (Ap, Ef, Lb, Lbl, Lc, Li, Ln, Ls, Lx, Ma, Mc, Ml, My, Nh, Ph, Ps, Tb). Click done when all the information has been entered and click on output under `Generate Output` and select a file name for the JSON file to be written. Finally, go to the `Rendering` panel in SPREAD4, load the JSON file you just saved, and click `Render to D3`.
 
 {% include image.html file="24_spread3hostRates.png" prefix=root_url %}
