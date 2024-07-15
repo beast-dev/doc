@@ -123,28 +123,11 @@ We now have our combined dataset, however before any trees can be built, we need
 
 Navigate to the [MAFFT web server](https://mafft.cbrc.jp/alignment/server/). 
 
-<!-- FFT-NS-2 (Fast Fourier Transform-Normalized Similarity-2) -->
 {% include image.html file="image8.png" prefix=root_url %}
 
 We have provided the combined case genome sequences and NiV background set. Once you have decompressed the `NiV_background.with_outbreak.seq_run_1.fasta` file, select `Choose file` on the MAFFT web server and upload your file. We will run with the default AUTO mode (it may be useful to change the Title length field to 50, but not necessary), select `Submit`. 
 
 When the alignment is complete the following screen will show:
-
-{% include image.html file="image9.png" prefix=root_url %}
-
-Click `View` to see alignment viewing options:
-{% include image.html file="image10.png" prefix=root_url %}
-
-Click to start the MAFFT MSA viewer (any viewing option is also fine). 
-
-{% include image.html file="image11.png" prefix=root_url %}
-
-Toggle open the `Wheel mode` menu to select whether scrolling zooms, or pans horizontally or vertically. Explore the alignment by scrolling.
-{% include image.html file="image12.png" prefix=root_url %}
-
-{% include question.html content='Questions:<br>
-1. Is this a good quality alignment?<br>
- %}
 
 When ready, return to the results page and click on `Fasta format` to download the alignment as a FASTA file. 
 
