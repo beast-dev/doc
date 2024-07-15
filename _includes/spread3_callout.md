@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div style="width: 70%; display: table-cell; vertical-align: middle;">
-                <div style="vertical-align: middle;">SpreaD3 - this is an application for the visualization of phylogeographic analyses performed with BEAST. At the time of writing, the current version is v{{ site.spread3_version }} It is available for download from. It is available for download from <a href="{{ site.spread3_url }}">{{ site.spread3_url }}</a>.</div>
+                <div style="vertical-align: middle;">SpreaD3 - this is an application for the visualization of phylogeographic analyses performed with BEAST. At the time of writing, the current version is v{{ site.spread3_version }}. It is available for download from <a href="{{ site.spread3_url }}">{{ site.spread3_url }}</a>.</div>
             </div>
         </div>
     </div>
