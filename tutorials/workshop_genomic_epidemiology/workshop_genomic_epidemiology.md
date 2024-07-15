@@ -16,7 +16,7 @@ folder: beast
 
 Genomic epidemiology combines classical epidemiological methods with genome sequence data to track and monitor both endemic pathogens and the emergence and spread of novel pathogens. In this tutorial, we will follow an outbreak through different phases and use phylogenetic methods to answer questions pertinent to understanding and controlling the outbreak.
 
-Disclaimer: this outbreak is a fictional scenario based on simulated data. It is not intended to be predictive or relate to any real-world outbreak, and any similarities are coincidental. 
+Disclaimer: this outbreak is a fictional scenario based on simulated data. It is not intended to be predictive or relate to any real-world outbreak, and any similarities are coincidental. For details on how this outbreak was simulated see [Simulation Notes](#simulation-notes).
 
 To undertake this tutorial, you will need to download a number of software packages in a format that is compatible with your computer system (all three are available for Mac OS X, Windows and Linux/UNIX operating systems):
 
@@ -316,6 +316,17 @@ Questions:<br>
 2. Does it make sense?<br>
 3. What factors may have impacted this reconstruction?<br>
 '%}
+
+## Simulation Notes
+
+An outbreak structure was simulated using JT McCrone's [transmission simulator](https://jtmccr1.github.io/transmission-simulator/). The simulator generated an outbreak with a total of 513 cases and produces a transmission tree, a time tree and a line list with sampling time in days. 
+
+As an example case, NiV was selected because it is fast evolving and has a suitable background dataset available on Genbank that is not too large that it would require downsampling. All complete NiV genomes were downloaded from NCBI virus, aligned using MAFFT and an ML tree was computed using IQTREE2. 
+
+Ancestral reconstruction was carried out also using IQTREE and the genome sequence for the common ancestor node for MK801755 and the 1999 porcine outbreak in Malaysia. From this ancestral node, [seq-gen](http://tree.bio.ed.ac.uk/software/seqgen/) was used to simulate a branch length of 0.018 under the HKY substitution model, which represents ~40 years of NiV evolution assuming a rate of 4.5x10^-4 substitutions per site per year (as published for NiV in [Cortes-Azuero et al 2023](https://pubmed.ncbi.nlm.nih.gov/38682164/)). This provided the initial infection case from which we simulated genome sequences corresponding to the simulated outbreak time tree. The evolution was simulated with a HKY substitution model, also using seq-gen, at a rate of 7x10^-4. The time tree was manually labelled in FigTree with host annotations, creating a scenario where pig represented the majority of cases, including the earlier cases, and human clusters represented spillover events from the pig population. In total, 60 of the 513 tips were labelled as human cases and the remainder were labelled as pig. The start date of the outbreak was set to 2023-08-11. 
+
+Because this outbreak has been simulated, we know the underlying ground truth and can see the impact lack of data and sampling bias can have on inference.
+
 
 ## References & Further Reading
 - Drummond AJ, Rambaut A (2007) BEAST: Bayesian evolutionary analysis by sampling trees. BMC Evolutionary Biology 7: 214.
