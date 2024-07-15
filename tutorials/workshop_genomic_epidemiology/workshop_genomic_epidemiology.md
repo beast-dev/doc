@@ -93,13 +93,6 @@ These records can be filtered by length, completeness and a variety of other fac
 {% include image.html file="image6.png" prefix=root_url %}  <br /><br />
 
 
-{% include question.html content='<br>
-Questions<br>
-1. How many records are there? <br>
-2. Would we want to download all of them? (Hint: look at the sequence lengths)<br>
-3. How many complete records are there?'
- %}
-
 For the purposes of this exercise, we have already prepared all the complete records available for NiV that had a date and location of collection. This background dataset has been curated and headers annotated with consistent fields:
 
 {% include question.html content='<br>
@@ -151,7 +144,6 @@ Toggle open the `Wheel mode` menu to select whether scrolling zooms, or pans hor
 
 {% include question.html content='Questions:<br>
 1. Is this a good quality alignment?<br>
-2. What can you say about case5?<br>'
  %}
 
 When ready, return to the results page and click on `Fasta format` to download the alignment as a FASTA file. 
@@ -203,7 +195,7 @@ Examine the phylogeny.
 Questions:<br>
 1. What does this phylogeny tell you about the cases? Do they cluster together?<br>
 2. Is there good support for this?<br>
-3. What is your assessment of the outbreak?
+3. What can you say about the outbreak?
 '%}
 
 ### When did this outbreak arise?
@@ -217,7 +209,7 @@ Take a look at the root-to-tip and residual tabs.
 {% include question.html content='
 Questions:<br>
 1. What does TempEst estimate the rate to be? Does this seem sensible?<br>
-2. When does TempEst estimate the origin of the outbreak?<br>
+2. What is the estimated tMRCA?<br>
 3. Is there good temporal signal?
 '%}
 
@@ -242,11 +234,10 @@ Open `Tracer` and load the newly generated log file to assess the BEAST run (the
 
 {% include question.html content='
 Questions:<br>
-1. Are the ESS values for the estimated statistics acceptable? Is the trace good? What should you set the burn in to?<br>
-2. What is the root age estimate? What is the 95 HPD interval? <br>
+1. What is your assessment of the BEAST run?<br>
+2. What is the root age estimate? How confident is this estimate? <br>
 3. What is the clock rate estimate (and 95 HPD interval)? Does this make sense for NiV?
-4. From the information available, what can you determine about the origin of this outbreak?
-5. What would you suggest is needed for a better estimate?
+4. What would you suggest is needed for a better estimate?
 '%}
 
 
@@ -256,7 +247,7 @@ Use `Tree Annotator` to produce a maximum clade credibility (MCC) tree from the 
 
 {% include question.html content='
 Questions:<br>
-1. What can we say about the outbreak origins?<br>'%}
+1. From the information available, what can you say about the origin of this outbreak?<br>'%}
 
 ## EXERCISE 2: Additional human cases spurs an investigation in animal population
 
@@ -280,7 +271,7 @@ Examine the root-to-tip and residual plots.
 {% include question.html content='
 Questions:<br>
 1. What is the estimated rate?<br>
-2. What is the estimated time of most recent common ancestor (TMRCA)?<br>'%}
+2. What is the estimated tMRCA?<br>'%}
 
 ### Estimate a time tree and reconstruct ancestral host states
 
@@ -320,7 +311,7 @@ Examine the output logfile in `Tracer`.
 {% include question.html content='
 Questions:<br>
 1. Has the increased sampling improved the BEAST run output?<br>
-2. What is the estimated time of most recent common ancestor (TMRCA)?<br>
+2. What is the estimated tMRCA? Look at the 95 HPD, has the confidence in the estimate improved with additional data?<br>
 '%}
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> You can also access the precomputed BEAST output for this XML at <a href="{{ root_url }}files/outbreak.seq_run_2.beast_out.zip">this link</a>.</div>
@@ -340,14 +331,15 @@ Colour the branches of the time tree by host. Look at the confidence values for 
 Questions:<br>
 1. What does the reconstruction tell us?<br>
 2. Does it make sense?<br>
-3. What factors may play into how confident we are in this reconstruction?<br>
+3. What factors may have impacted this reconstruction?<br>
 '%}
 
-## References 
+## References & Further Reading
 - Drummond AJ, Rambaut A (2007) BEAST: Bayesian evolutionary analysis by sampling trees. BMC Evolutionary Biology 7: 214.
 - Drummond AJ, Ho SYW, Phillips MJ & Rambaut A (2006) PLoS Biology 4, e88.
 - Drummond AJ, Rambaut A & Shapiro B and Pybus OG (2005) Mol Biol Evol 22, 1185-1192.
 - Drummond AJ, Nicholls GK, Rodrigo AG & Solomon W (2002) Genetics 161, 1307-1320.
+- Dudas G, Carvalho LM, Rambaut A, Bedford T (2018) MERS-CoV spillover at the camel-human interface eLife 7:e31257.
 - Ferreira, M. A. R. and M. A. Suchard. 2008. Bayesian analysis of elapsed times in continuous-time Markov chains. Can J Statistics, 36: 355–368. doi: 10.1002/cjs.5550360302
 - Gill MS, Lemey P, Faria NR, Rambaut A, Shapiro B, and Suchard MA (2013) Improving Bayesian population dynamics inference: a coalescent-based model for multiple loci. Mol Biol Evol 30, 713-724.
 - Katoh K, Standley DM. MAFFT multiple sequence alignment software version 7: improvements in performance and usability. Mol Biol Evol. 2013 Apr;30(4):772-80. doi: 10.1093/molbev/mst010. Epub 2013 Jan 16. PMID: 23329690; PMCID: PMC3603318.
