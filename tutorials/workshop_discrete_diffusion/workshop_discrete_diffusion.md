@@ -90,7 +90,7 @@ Go back to the `Tips` tab, and in the bottom left, select the `Sampling with ind
 
 The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a specific host and geographical location to each taxa based on the trait specification for each sequence in the <samp>batRABV_hostLocation.txt</samp> file, which [downloaded from here](files/batRABV_hostLocation.txt). To associate the sequences with the traits, we need to add a new trait under the `Traits` tab (click `Add trait`). This will open a new window to Create or Import Trait(s):
 
-{% include image.html file="07_importTrait.png" width="80%" prefix=root_url %}
+{% include image.html file="1_addTrait.png" width="80%" prefix=root_url %}
 
 Select `Import trait(s) from a mapping file` (the format of such a file can be shown). Browse to and load the batRABV_hostLocation.txt tab-delimited file. Note that the host species is specified using a two-character abbreviation (e.g. Ef for *Eptesicus fuscus*, three characters for Lbl) as shown for this snippet of the file:
 
@@ -112,7 +112,13 @@ Select `Import trait(s) from a mapping file` (the format of such a file can be s
 	TX3545_2004.5	Tb	Texas
 ```
 
-After clicking `OK`, select the host trait and click on `create partition from trait..`. This new partition will be shown under the `Partitions` tab. Do the same for the location trait (state), resulting in three partitions in the `Partitions` tab:
+After clicking `OK` and `Yes` in the following window.
+
+{% include image.html file="2_importTraitsCreatePartitions.png" width="80%" prefix=root_url %}
+
+Then, select both the host and state traits, click on `New partition for each trait` and click `OK`. 
+
+These new partitions will be shown under the `Partitions` tab, resulting in three partitions in the `Partitions` tab:
 
 {% include image.html file="08_traitPartitions.png" prefix=root_url %}
 
