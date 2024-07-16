@@ -247,9 +247,11 @@ Some of the functions that relate to the discrete phylogeographic analysis inclu
 
 <!--{% include callout.html content='A detailed tutorial for this particular step <a href="https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourTwo">is available here</a>. We have also provide a PDF version of the entire SpreaD3 tutorial <a href="files/SpreaD3Tutorial.pdf">for download</a>.' %}-->
 
+<!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data files required for the analyses can be found in the shared folder:<br />
 <div style="margin: 16px"><code>Tutorials\Tutorial 4 - Discrete Phylogeography\</code></div>
 </div>
+-->
 
 To get started with SPREAD 4,follow the instructions [here](https://beast.community/spread4).
 
