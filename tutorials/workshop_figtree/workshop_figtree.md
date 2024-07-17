@@ -3,7 +3,7 @@ title: Visualizing phylogenetic trees using FigTree
 keywords: phylogeny, FigTree, tutorial
 last_updated: July 17, 2024
 tags: [tutorial]
-summary: 'This tutorial provides a step-by-step tutorial for analyzing virus sequences from various datasets. This tutorial is designed to display and summarize annotated summary trees from BEAST and prepare publication-ready figures.'
+summary: 'This tutorial provides a step-by-step tutorial for analyzing an Ebola virus timetree. This tutorial can be easily adapted to display and summarize annotated summary BEAST trees and prepare publication-ready figures for other datasets.'
 sidebar: beast_sidebar
 permalink: workshop_figtree.html
 folder: beast
@@ -29,7 +29,7 @@ Run FigTree by double-clicking on its icon. FigTree is an interactive graphical 
 ## Exercise 1 – Visualizing Cross-Border Transmission of Ebola virus during the 2014-2016 West Africa Epidemic
 
 **Summary:** This tutorial provides a step-by-step guide to visualize an Ebola virus timetree generated from 1610 sequences that have been collected at different time points. These sequences represent 5% of the known cases. The data has been used to elucidate the factors driving the spread and persistence of the Ebola epidemic in [Dudas et al. Nature 2017](https://www.nature.com/articles/nature22040).
-The aim of this exercise is to visually identify cross-border virus movement between West African countries, and identify the date of emergence of the main Ebola virus lineages in particular countries. The data files for this tutorial <a href="{{ root_url }}files/FigTree-Tutorial.zip"> can be downloaded from here</a>. This contains a timetree in newick format with 1610 tips and a corresponding metadata file. The metadata file includes:
+The aim of this exercise is to visually identify cross-border virus movement between West African countries, and identify the date of emergence of the main Ebola virus lineages in particular countries. The files for this tutorial include a timetree in newick format with 1610 tips and a corresponding metadata file. The metadata file includes:
 
 - **Taxa:** name of the taxon (identical to the timetree)
 - **Country:** country of sampling
@@ -44,7 +44,9 @@ To load a phylogenetic timetree, select the `Open...` option from the `File` men
 In this tutorial, we will investigate the cross-country movement of the Ebola virus in West Africa. In the `Tree` menu, select the “Country” attribute using `Annotated nodes from tips`.
 
 ### Tree Layouts
-The `Layout` sidebar menu on the left allows the user to select three layout options: rectangular, polar, and radial format trees. Polar layouts (or circle trees) use polar coordinates. The vertical dimension is now the angle of the circle and the horizontal dimension is the distance from the centre point. These tree formats are often used to make a big visual impact in papers but generally have reduced readability - it is difficult to compare how far nodes are from the centre. They are best avoided. Radial layouts are not commonly used and are more appropriate when the rooting of the tree is not known. This format tends to clump closely related sequences together making their precise relationships difficult to see. We strongly recommend the tutorial <a href=\"https://artic.network/how-to-read-a-tree.html\"> How to read a phylogenetic tree</a> that will guide you on how to interpret your phylogenetic tree in a rectangular format.
+The `Layout` sidebar menu on the left allows the user to select three layout options: rectangular, polar, and radial format trees. Polar layouts (or circle trees) use polar coordinates. The vertical dimension is now the angle of the circle and the horizontal dimension is the distance from the centre point. These tree formats are often used to make a big visual impact in papers but generally have reduced readability - it is difficult to compare how far nodes are from the centre. They are best avoided. Radial layouts are not commonly used and are more appropriate when the rooting of the tree is not known. This format tends to clump closely related sequences together making their precise relationships difficult to see. We strongly recommend the tutorial [How to read a phylogenetic tree](https://artic.network/how-to-read-a-tree.html) that will guide you on how to interpret your phylogenetic tree in a rectangular format.
+
+
 
 Other options on the `Layout` sidebar menu include to `Zoom` in particular clades, and `Expansion`, particularly useful for zooming in on larger trees. You can also use the option `Align Tip Labels` to improve clarity. 
 
