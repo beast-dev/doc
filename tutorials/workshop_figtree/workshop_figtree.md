@@ -1,5 +1,5 @@
 ---
-title: Visualizing phylogenetic trees using FigTree v.1.4.5
+title: Visualizing phylogenetic trees using FigTree
 keywords: phylogeny, FigTree, tutorial
 last_updated: July 17, 2024
 tags: [tutorial]
