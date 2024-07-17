@@ -1,7 +1,7 @@
 ---
 title: Phylogeographic Diffusion in Continuous Space - YFV example
 keywords: phylogeography, YFV, tutorial
-last_updated: June 12, 2019
+last_updated: July 15, 2024
 tags: [tutorial]
 summary: 'This tutorial provides a step-by-step explanation on reconstructing the spatial dynamics of the Yellow fever virus (YFV) epidemic in Brazil based on a set of viral genome sequences, which have been isolated at different points in time (Faria et al. 2018). YFV is responsible for 29,000 to 60,000 deaths annually in South America and Africa and is the most severe mosquito-borne infection in the tropics. YFV transmission occurs mainly via the sylvatic cycle, in which non-human primates are infected by mosquito vectors, but can also occur via an urban cycle, in which humans are infected by Aedes spp. mosquitoes that feed mostly on humans. Recently, Brazil has experienced its largest recorded Yellow fever outbreak in decades. In that context, Faria et al. (2018) have analysed a data set of 65 YFV genomes collected between January and April 2017 in order to characterise the dispersal history and dynamics of the virus during this recent outbreak. For this purpose, they have applied the continuous diffusion (Lemey et al. 2010, Pybus et al. 2012) to estimate the ancestral locations of the virus in continuous space. In the present tutorial, we detail how to set this continuous phylogeographic analysis and how to analyse/visualise the outputs.'
 sidebar: beast_sidebar
@@ -25,7 +25,8 @@ To undertake this tutorial, you will need to download three software packages in
 
 {% include figtree_callout.md %}
 
-{% include spread3_callout.md %}
+<!-- {% include spread3_callout.md %} -->
+{% include spread4_callout.md %}
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
 <a href="{{ root_url }}files/continuousTutorialFiles.zip"> can be downloaded from here</a>. 
@@ -171,7 +172,7 @@ Once the BEAST XML file has been created the analysis itself can be performed us
 
 Press the `Choose File` button and select the XML file you just created and press `Run`. When you have installed the BEAGLE library (https://github.com/beagle-dev/beagle-lib), you can use this in conjunction with BEAST to speed up the calculations. If not installed, unselect the use of the BEAGLE library. If the command line version of BEAST is being used then the name of the XML file is given after the name of the BEAST executable. The analysis will then be performed with detailed information about the progress of the run being written to the screen. When it has finished, the log file and the trees file will have been created in the same location as your XML file. 
 
-### analysing the BEAST output
+### Analysing the BEAST output using Tracer
 
 To analyse the results of running BEAST we are going to use the program Tracer. The exact instructions for running Tracer differs depending on which computer you are using. Double click on the Tracer icon; once running, Tracer will look similar irrespective of which computer system it is running on.
 
@@ -233,9 +234,9 @@ Run FigTree and select the `Open...` command from the `File` menu. Select the tr
 
 In the `Layout` panel select the check-box `Align Tip Labels` to increase clarity. We can also plot a time scale axis for this evolutionary history (select `Scale Axis` and deselect `Scale Bar`).
 
-### Visualizing Bayesian phylogeographic reconstructions using SpreaD3
+### Visualizing Bayesian phylogeographic reconstructions using SPREAD4
 
-spreaD3, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics using Data-Driven Documents (D3), is a software to visualise the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyse and visualise pathogen phylodynamic reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreaD3 allows to visualise on custom maps and generates HTML pages for display in modern-day browsers such as Firefox, Safari and Chrome. One of the functionalities of SpreaD3 that relate to the continuous phylogeographic analysis performed previously include visualizing location-annotated MCC trees. A detailed tutorial for this particular step is available [here](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourThree). 
+SPREAD4, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics version 4, is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SPREAD4 allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome. <!--A detailed tutorial for this particular step is available [here](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourThree). -->
 
 Brief instructions can be found in the quick how-to summary below.
 Compare the animated version for both the homogeneous and RRW model: do you notice any difference?
@@ -262,35 +263,39 @@ Compare the animated version for both the homogeneous and RRW model: do you noti
 
 * In the `MCMC` tab, set the chain length to 500,000,000 and the sampling frequencies to 50,000. Set the File name stem to 'YFV\_RRW\_cauchy' and generate the beast file ('YFV\_RRW\_cauchy.xml')
 
-### Run BEAST and load the xml file.
+### Run BEAST and monitor output using Tracer
 
-### analyse the output using Tracer. analyse the output file for the longer runs.
+Once the BEAST XML file has been created, the analysis itself can be performed using BEAST.
+A common practice is to regularly monitor how much the analysis has progressed by loading the .log file(s) into Tracer and checking the ESS values of the (continuous) parameters.
+When running BEAST for a short amount of time, you will notice that - with the exception of very small examples - most ESS values remain far below the cut-off of 200 and will hence be colored in red in Tracer.
 
-### summarise the trees for the longer run using treeAnnotator.
+### Analyse the output file for the longer runs
 
-### visualise the tree in FigTree.
+To get a good sense of what a completed analysis looks like in Tracer, load the provided output files (into Tracer).
 
-### Run SpreaD3.
+### Summarise the trees for the longer run using TreeAnnotator and visualise the result in FigTree
+
+Construct a maximum clade credibility (MCC) tree in TreeAnnotator (check the required burn-in first) and load the result into FigTree.
+Set the time axis and play around with the node order, node labels and branch labels to obtain a visualisation that best showcases the important aspects of the MCC tree.
+
+### Run SPREAD 4
 
 We will first summarise an MCC tree and then summarise the information in the entire tree distribution.
 
-* Select as input type in the `Data` panel: `MCC tree with CONTINUOUS traits`, load your MCC tree file
+* Select the `Continuous MCC tree` tab, load your MCC tree file
 
-* Select ‘location1’ as `Latitute attribute` name and ‘location2’ as `Longitude attribute` name
+* Select ‘location2’ (longitude) in the `Select x coordinate` box and ‘location1’ (latitude) in the `Select y coordinate` box
 
-* Set the `most recent sampling date` to 2017-04-22
+* Set the `most recent sampling date` to 2017-04-22, and click `Start analysis`
 
-* Load a GeoJSON 'Brazil_states.geojson'
+{% include image.html file="YFV_screenshot_sprea4_1ed.png" prefix=root_url caption="" %}
 
-* Keep all other default settings and click `Output` to generate a JSON file
+* There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files --'Brazil_states.geojson'. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/5b009cff-3724-4bbe-bbe3-9efce6097056.json&maps=BR) in a new browser tab/window. 
 
-* Go to the `Rendering` panel, keep the D3 renderer as the renderer of choice, and load the generated JSON file
-
-* Click `Render to D3` to generate the HTML page and a browser window will open automatically
 
 This visualises the MCC tree an the uncertainty for its node locations:
 
-{% include image.html file="YFV_screenshot_23_spreaD3_3.png" prefix=root_url caption="" %}
+{% include image.html file="YFV_screenshot_sprea4_2.png" prefix=root_url caption="" %}
 
 ## Conclusion and Resources
 
@@ -306,4 +311,6 @@ This tutorial only scratches the surface of the analyses that are possible to un
 
 * [Bielejec, F., G. Baele, B. Vrancken, M. A. Suchard, A. Rambaut and P. Lemey. 2016. SpreaD3: interactive visualisation of spatiotemporal history and trait evolutionary processes. Mol. Biol. Evol., 33(8): 2167–2169. doi: 10.1093/molbev/msw082](https://academic.oup.com/mbe/article-lookup/doi/10.1093/molbev/msw082)
 
-{% include links.html %}
+* [Nahata KD, Bielejec F, Monetta J, Dellicour S, Rambaut A, Suchard MA, Baele G, Lemey P.. 2022. SPREAD 4: online visualisation of pathogen phylogeographic reconstructions. Virus Evol., 26;8(2):veac088. doi: 10.1093/ve/veac088. eCollection 2022.](https://academic.oup.com/ve/article/8/2/veac088/6717755)
+
+* {% include links.html %}

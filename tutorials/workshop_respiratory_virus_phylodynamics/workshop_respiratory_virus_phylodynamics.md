@@ -64,7 +64,7 @@ The next thing to do is to click on the `Sites` tab at the top of the main windo
 
 {% include image.html file="image4.png" prefix=root_url %}
 
-For this tutorial, keep the default `HKY` model, the default `Estimated` base frequencies and select `Gamma` as `Site Heterogeneity Model` (with 4 discrete categories) before proceeding to the `Clocks` tab. 
+For this tutorial, keep the default `HKY` model, the default `Estimated` base frequencies and select `Gamma (equal rates)` as `Site Heterogeneity Model` (with 4 discrete categories) before proceeding to the `Clocks` tab. 
 
 #### Setting the molecular clock model
 
@@ -108,7 +108,7 @@ The `MCMC` tab in BEAUti provides settings to control the MCMC chain and the log
 
 {% include image.html file="image11.png" prefix=root_url %}
 
-For this dataset let's initially set the chain length to <samp>100,000</samp> and both the sampling frequencies to <samp>100</samp>. The `File name stem:` should already be set to <samp>b.1.1.7</samp> but you can adjust this (perhaps add more indications about the analysis).
+For this dataset let's initially set the chain length to <samp>100,000</samp>, both the sampling frequencies to <samp>100</samp> and the checkpointing frequency to .<samp>10000</samp> The `File name stem:` should already be set to <samp>b.1.1.7</samp> but you can adjust this (perhaps add more indications about the analysis).
 
 We are now ready to create the BEAST XML file. Select `Generate XML...` from the `File` menu (or the button at the bottom of the window). BEAUti will ask you to review the prior settings one more time before saving the file (and will indicate if any are improper). Continue and choose a name for the file --- it will offer the name you gave it in the MCMC panel and we usually end the filename with '.xml' (although on Windows machines you may want to give the file the extension '.xml.txt'). 
 
