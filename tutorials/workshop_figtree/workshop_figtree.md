@@ -28,16 +28,15 @@ Run FigTree by double-clicking on its icon. FigTree is an interactive graphical 
 
 ## Exercise 1 – Visualizing Cross-Border Transmission of Ebola virus during the 2014-2016 West Africa Epidemic
 
-**Summary:** This tutorial provides a step-by-step guide to visualize an Ebola virus timetree generated from 1610 sequences that have been collected at different time points. These sequences represent 5% of the known cases. The data has been used to elucidate the factors driving the spread and persistence of the Ebola epidemic in Dudas et al. Nature 2017. 
-(<a href=\"https://www.nature.com/articles/nature22040\">Dudas et al. Nature 2017</a>).
+**Summary:** This tutorial provides a step-by-step guide to visualize an Ebola virus timetree generated from 1610 sequences that have been collected at different time points. These sequences represent 5% of the known cases. The data has been used to elucidate the factors driving the spread and persistence of the Ebola epidemic in [Dudas et al. Nature 2017](https://www.nature.com/articles/nature22040).
 The aim of this exercise is to visually identify cross-border virus movement between West African countries, and identify the date of emergence of the main Ebola virus lineages in particular countries. The data files for this tutorial <a href="{{ root_url }}files/YFVtutorialFiles.zip"> can be downloaded from here</a>. This contains a timetree in newick format with 1610 tips and a corresponding metadata file. The metadata file includes:
 
--**Taxa:** name of the taxon (identical to the timetree)
--**Country:** country of sampling
--**Location:** province of sampling
--**Latitude:** latitude of the province centroid
--**Longitude:** longitude of the province centroid
--**Collection_date:** date of collection of the taxa (dd/mm/yyyy)
+- **Taxa:** name of the taxon (identical to the timetree)
+- **Country:** country of sampling
+- **Location:** province of sampling
+- **Latitude:** latitude of the province centroid
+- **Longitude:** longitude of the province centroid
+- **Collection_date:** date of collection of the taxa (dd/mm/yyyy)
 
 ### Loading a tree and metadata
 To load a phylogenetic timetree, select the `Open...` option from the `File` menu and browse the “west-african-ebola.tre” to load it. Alternatively, by double-clicking on phylogenetic tree files with extension .tree and .tre, these will open directly on FigTree. Once loaded, the tree will be shown in Figtree. To load metadata files (tab-delimited files), select the `Open...` option from the `File` menu, `Import Annotations`. Browse the “west-african-ebola.metadata.txt” to load the metadata file. 
@@ -78,16 +77,13 @@ The sidebar menu `Branch Labels` is similar to the `Node Labels` option and allo
 
 The sidebar menu `Legend` allows the user to include a legend for any continuous or discrete metadata attributes that have been previously selected using `Annotated nodes from tips` from the `Tree` menu. 
 
-<!--
 {% include image.html file="fig1.png" prefix=root_url caption="" %}
--->
+
 
 ### Obtaining a subtree for a clade of interest
 To select all taxa from Sierra Leone, select the `Tip Labels` option on the left sidebar menu. Using the `Find` menu at the top right-hand side, type “|SLE|”. This option will select all taxa sampled in Sierra Leone. For this exercise, we are interested in the larger SLE clade only. Click on the `Clade` option from the menu above, and select the ancestral branch leading to the larger SLE clade, as pictured below:
 
-<!--
 {% include image.html file="fig2.png" prefix=root_url caption="" %}
--->
 
 To generate a subtree of this clade for further investigation, simply press Command + C, followed by Command + N to open a new FigTree window, and Command + V to paste the subtree. You can also use the main `Edit` “Copy”, `File` “New”, and `Edit` “Paste” options. The new tree should have 1122 tips. Now repeat the steps above to add a time axis to the new tree, taking into account its most recent sampling date. 
 
