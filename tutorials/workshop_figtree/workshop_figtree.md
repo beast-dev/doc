@@ -3,7 +3,7 @@ title: Visualizing phylogenetic trees using FigTree
 keywords: phylogeny, FigTree, tutorial
 last_updated: July 17, 2024
 tags: [tutorial]
-summary: 'This tutorial provides a step-by-step tutorial for analyzing virus sequences from various datasets. This tutorial is designed to display and summarize annotated summary trees from BEAST and prepare publication-ready figures.
+summary: 'This tutorial provides a step-by-step tutorial for analyzing virus sequences from various datasets. This tutorial is designed to display and summarize annotated summary trees from BEAST and prepare publication-ready figures.'
 sidebar: beast_sidebar
 permalink: workshop_figtree.html
 folder: beast
