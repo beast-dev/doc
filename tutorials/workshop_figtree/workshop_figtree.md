@@ -17,7 +17,7 @@ folder: beast
 FigTree is a user-friendly to visualize phylogenetic trees. To undertake this tutorial, you will need to download the FigTree latest software package version that is compatible with your computer system (available for Mac OS X, Windows and Linux/UNIX operating systems). 
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
-<a href="{{ root_url }}files/YFVtutorialFiles.zip"> can be downloaded from here</a>. 
+<a href="{{ root_url }}files/FigTree-Tutorial.zip"> can be downloaded from here</a>. 
 If you download this zipped folder, there is no need to download other files/folders linked further in the tutorial.
 </div>
 
@@ -29,7 +29,7 @@ Run FigTree by double-clicking on its icon. FigTree is an interactive graphical 
 ## Exercise 1 – Visualizing Cross-Border Transmission of Ebola virus during the 2014-2016 West Africa Epidemic
 
 **Summary:** This tutorial provides a step-by-step guide to visualize an Ebola virus timetree generated from 1610 sequences that have been collected at different time points. These sequences represent 5% of the known cases. The data has been used to elucidate the factors driving the spread and persistence of the Ebola epidemic in [Dudas et al. Nature 2017](https://www.nature.com/articles/nature22040).
-The aim of this exercise is to visually identify cross-border virus movement between West African countries, and identify the date of emergence of the main Ebola virus lineages in particular countries. The data files for this tutorial <a href="{{ root_url }}files/YFVtutorialFiles.zip"> can be downloaded from here</a>. This contains a timetree in newick format with 1610 tips and a corresponding metadata file. The metadata file includes:
+The aim of this exercise is to visually identify cross-border virus movement between West African countries, and identify the date of emergence of the main Ebola virus lineages in particular countries. The data files for this tutorial <a href="{{ root_url }}files/FigTree-Tutorial.zip"> can be downloaded from here</a>. This contains a timetree in newick format with 1610 tips and a corresponding metadata file. The metadata file includes:
 
 - **Taxa:** name of the taxon (identical to the timetree)
 - **Country:** country of sampling
