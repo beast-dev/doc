@@ -243,6 +243,10 @@ entries:
       url: /workshop_genomic_epidemiology
       output: web, pdf
 
+    - title: Visualizing phylogenetic trees using FigTree
+      url: /workshop_figtree
+      output: web, pdf
+
   - title: Reference
     output: web, pdf
     folderitems:
