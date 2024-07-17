@@ -284,7 +284,7 @@ The analysis will first appear in the left-side tab `Queued` and then in the  `C
 
 {% include image.html file="spread4_2_getLink.png" prefix=root_url %}
 
-There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files  --- <samp>gz_2010_us_040_00_500k.json</samp>. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/5b009cff-3724-4bbe-bbe3-9efce6097056.json&maps=BR) in a new browser tab/window.
+There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files  --- <samp>gz_2010_us_040_00_500k.json</samp>. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/e23132db-f39d-4832-88a5-5920cdd9331e.json&maps=RU,MX,US,CA) in a new browser tab/window.
 
 {% include image.html file="spread4_3_map.png" prefix=root_url %}
 
@@ -293,7 +293,7 @@ To summarise Bayes factor support for rates, select the `Discrete Rates` tab. Lo
 {% include image.html file="spread4_4_setupRates.png" prefix=root_url %}
 
 The analysis will first appear in the left-side tab `Queued` and then in the `Completed Data Analysis`.
-There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files --- <samp>gz_2010_us_040_00_500k.json</samp>. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/5b009cff-3724-4bbe-bbe3-9efce6097056.json&maps=BR) in a new browser tab/window. Note that a comma-separated value file with a ‘.csv’ extension containing the actual Bayes Factor values can be downloaded by clicking `Export to CSV`.
+There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files --- <samp>gz_2010_us_040_00_500k.json</samp>. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/8775fac9-4cc5-4e33-98e6-d9cad676891e.json&maps=RU,MX,US,CA) in a new browser tab/window. Note that a comma-separated value file with a ‘.csv’ extension containing the actual Bayes Factor values can be downloaded by clicking `Export to CSV`.
 
 {% include image.html file="spread4_5_getLink_getCSV.png" prefix=root_url %}
 
