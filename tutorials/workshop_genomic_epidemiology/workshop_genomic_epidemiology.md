@@ -183,7 +183,7 @@ Questions:<br>
 
 Even with just these few sequences it may be possible to ascertain some key information about this outbreak (such as when it likely began and how quickly it is spreading).
 
-Use the [TempEst tutorial](https://beast.community/tempest_tutorial) as a guide to load the `outbreak.seq_run_1.fasta` file into `TempEst` to assess whether there is temporal signal in the data. Parse the tip dates by selecting `Parse dates` in the Sample Dates tab, and select `Best fitting root` in the top-left side of the application. 
+Use the [TempEst tutorial](https://beast.community/tempest_tutorial) as a guide to load the tree file into `TempEst` to assess whether there is temporal signal in the data. Parse the tip dates by selecting `Parse dates` in the Sample Dates tab, and select `Best fitting root` in the top-left side of the application. 
 
 Take a look at the root-to-tip and residual tabs.  
 {% include image.html file="image19.png" prefix=root_url %}
