@@ -225,7 +225,7 @@ Questions:<br>
 Use `Tree Annotator` to produce a maximum clade credibility (MCC) tree from the `.trees` file and view in `FigTree`. Using the `FigTree` tutorial, set the Time Scale and display the 95 HPD for the height estimates on the nodes as shown below.
 
 
-{% include tip.html content='Hint: the latest tip date is 2024.2814207650274 (this can be found in the XML, in TempEst under the dates tab, or can be calculated from your ISO-formatted dates)' %}
+{% include tip.html content='Hint: the latest tip date is 2024.2814, rounded to 4 decimal places (this can be found in the XML, in TempEst under the dates tab, or can be calculated from your ISO-formatted dates)' %}
 
 
 {% include image.html file="image23.png" prefix=root_url %}
@@ -304,7 +304,7 @@ Questions:<br>
 
 Combine the logged trees into a MCC tree using `TreeAnnotator`, check if the default burn in of 1,000,000 states is sufficient in `Tracer`. Vizualise the MCC tree in FigTree. Set the time scale on the X axis and toggle on the Node bars showing height 95 HPD.
 
-{% include tip.html content='Hint: the latest tip date is 2024.3306010928961 (this can be found in the XML, in TempEst under the dates tab, or can be calculated from your ISO-formatted dates)' %}
+{% include tip.html content='Hint: the latest tip date (rounded to 4 decimal places) is 2024.3306 (this can be found in the XML, in TempEst under the dates tab, or can be calculated from your ISO-formatted dates)' %}
 
 {% include image.html file="image36.png" prefix=root_url %}<br><br>
 {% include image.html file="image34.png" prefix=root_url %}<br><br>
