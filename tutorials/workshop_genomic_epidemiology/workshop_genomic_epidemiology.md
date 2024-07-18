@@ -100,7 +100,7 @@ For the purposes of this exercise, we have already prepared all the complete rec
 For example:<br>
 `>MH523641|NiV|India|human|2018-05-21`'
  %}
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>NiV_background.with_outbreak.seq_run_1.fasta</samp>' and <a href="{{ root_url }}files/outbreak_seq_run_1.NiV_background.fasta">can be downloaded from here</a>. It will need to be decompressed before use.<br>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>NiV_background.with_outbreak.seq_run_1.fasta</samp>' and <a href="{{ root_url }}files/outbreak.seq_run_1.NiV_background.fasta.zip">can be downloaded from here</a>. It will need to be decompressed before use.<br>
 This file has both the initial case sequences and the background dataset combined into one file. If actually creating this dataset, you would need to combine these files yourself (either copy & paste, or through the command line).</div>
 
 However, ordinarily you can download the dataset by clicking the Download button indicated below:
