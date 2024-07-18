@@ -331,7 +331,9 @@ As an example case, NiV was selected because it is fast evolving and has a suita
 
 Ancestral reconstruction was carried out also using IQTREE and the genome sequence for the common ancestor node for MK801755 and the 1999 porcine outbreak in Malaysia. From this ancestral node, [seq-gen](http://tree.bio.ed.ac.uk/software/seqgen/) was used to simulate a branch length of 0.018 under the HKY substitution model, which represents ~40 years of NiV evolution assuming a rate of 4.5x10^-4 substitutions per site per year (as published for NiV in [Cortes-Azuero et al 2023](https://pubmed.ncbi.nlm.nih.gov/38682164/)). This provided the initial infection case from which we simulated genome sequences corresponding to the simulated outbreak time tree. The evolution was simulated with a HKY substitution model, also using seq-gen, at a rate of 7x10^-4. The time tree was manually labelled in FigTree with host annotations, creating a scenario where pig represented the majority of cases, including the earlier cases, and human clusters represented spillover events from the pig population. In total, 60 of the 513 tips were labelled as human cases and the remainder were labelled as pig. The start date of the outbreak was set to 2023-08-11. 
 
-Because this outbreak has been simulated, we know the underlying ground truth and can see the impact lack of data and sampling bias can have on inference.
+Because this outbreak has been simulated, we know the underlying ground truth and can see the impact lack of data and sampling bias can have on inference. Below is the BEAST DTA inference with all of the simulated outbreak cases (so 100% of the population has been sequenced and sampled in this case).
+
+{% include image.html file="image37.png" prefix=root_url %}<br><br>
 
 
 ## References & Further Reading
