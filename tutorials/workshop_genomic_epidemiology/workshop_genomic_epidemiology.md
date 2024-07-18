@@ -127,8 +127,6 @@ Navigate to the [MAFFT web server](https://mafft.cbrc.jp/alignment/server/).
 
 We have provided the combined case genome sequences and NiV background set. Once you have decompressed the `NiV_background.with_outbreak.seq_run_1.fasta` file, select `Choose file` on the MAFFT web server and upload your file. We will run with the default AUTO mode (it may be useful to change the Title length field to 50, but not necessary), select `Submit`. 
 
-When the alignment is complete the following screen will show:
-
 When ready, return to the results page and click on `Fasta format` to download the alignment as a FASTA file. 
 
 
@@ -226,6 +224,10 @@ Questions:<br>
 
 Use `Tree Annotator` to produce a maximum clade credibility (MCC) tree from the `.trees` file and view in `FigTree`. Using the `FigTree` tutorial, set the Time Scale and display the 95 HPD for the height estimates on the nodes as shown below.
 
+
+{% include tip.html content='Hint: the latest tip date is 2024.2814207650274 (this can be found in the XML, in TempEst under the dates tab, or can be calculated from your ISO-formatted dates)' %}
+
+
 {% include image.html file="image23.png" prefix=root_url %}
 
 {% include question.html content='
@@ -301,6 +303,9 @@ Questions:<br>
 
 
 Combine the logged trees into a MCC tree using `TreeAnnotator`, check if the default burn in of 1,000,000 states is sufficient in `Tracer`. Vizualise the MCC tree in FigTree. Set the time scale on the X axis and toggle on the Node bars showing height 95 HPD.
+
+{% include tip.html content='Hint: the latest tip date is 2024.3306010928961 (this can be found in the XML, in TempEst under the dates tab, or can be calculated from your ISO-formatted dates)' %}
+
 {% include image.html file="image36.png" prefix=root_url %}<br><br>
 {% include image.html file="image34.png" prefix=root_url %}<br><br>
 {% include question.html content='
@@ -309,6 +314,7 @@ Questions:<br>
 '%}
 
 Colour the branches of the time tree by host. Look at the confidence values for that reconstruction.
+
 {% include image.html file="image35.png" prefix=root_url %}<br><br>
 {% include question.html content='
 Questions:<br>
@@ -319,13 +325,15 @@ Questions:<br>
 
 ## Simulation Notes
 
-An outbreak structure was simulated using JT McCrone's [transmission simulator](https://jtmccr1.github.io/transmission-simulator/). The simulator generated an outbreak with a total of 513 cases and produces a transmission tree, a time tree and a line list with sampling time in days. 
+An outbreak structure was simulated using JT McCrone's [transmission simulator](https://jtmccr1.github.io/transmission-simulator/). The simulator generated an outbreak with a total of 517 cases and produces a transmission tree, a time tree and a line list with sampling time in days. 
 
 As an example case, NiV was selected because it is fast evolving and has a suitable background dataset available on Genbank that is not too large that it would require downsampling. All complete NiV genomes were downloaded from NCBI virus, aligned using MAFFT and an ML tree was computed using IQTREE2. 
 
 Ancestral reconstruction was carried out also using IQTREE and the genome sequence for the common ancestor node for MK801755 and the 1999 porcine outbreak in Malaysia. From this ancestral node, [seq-gen](http://tree.bio.ed.ac.uk/software/seqgen/) was used to simulate a branch length of 0.018 under the HKY substitution model, which represents ~40 years of NiV evolution assuming a rate of 4.5x10^-4 substitutions per site per year (as published for NiV in [Cortes-Azuero et al 2023](https://pubmed.ncbi.nlm.nih.gov/38682164/)). This provided the initial infection case from which we simulated genome sequences corresponding to the simulated outbreak time tree. The evolution was simulated with a HKY substitution model, also using seq-gen, at a rate of 7x10^-4. The time tree was manually labelled in FigTree with host annotations, creating a scenario where pig represented the majority of cases, including the earlier cases, and human clusters represented spillover events from the pig population. In total, 60 of the 513 tips were labelled as human cases and the remainder were labelled as pig. The start date of the outbreak was set to 2023-08-11. 
 
-Because this outbreak has been simulated, we know the underlying ground truth and can see the impact lack of data and sampling bias can have on inference.
+Because this outbreak has been simulated, we know the underlying ground truth and can see the impact lack of data and sampling bias can have on inference. Below is the BEAST DTA inference with all of the simulated outbreak cases (so 100% of the population has been sequenced and sampled in this case).
+
+{% include image.html file="image37.png" prefix=root_url %}<br><br>
 
 
 ## References & Further Reading
