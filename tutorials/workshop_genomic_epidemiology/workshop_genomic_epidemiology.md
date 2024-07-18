@@ -127,8 +127,6 @@ Navigate to the [MAFFT web server](https://mafft.cbrc.jp/alignment/server/).
 
 We have provided the combined case genome sequences and NiV background set. Once you have decompressed the `NiV_background.with_outbreak.seq_run_1.fasta` file, select `Choose file` on the MAFFT web server and upload your file. We will run with the default AUTO mode (it may be useful to change the Title length field to 50, but not necessary), select `Submit`. 
 
-When the alignment is complete the following screen will show:
-
 When ready, return to the results page and click on `Fasta format` to download the alignment as a FASTA file. 
 
 
@@ -226,6 +224,10 @@ Questions:<br>
 
 Use `Tree Annotator` to produce a maximum clade credibility (MCC) tree from the `.trees` file and view in `FigTree`. Using the `FigTree` tutorial, set the Time Scale and display the 95 HPD for the height estimates on the nodes as shown below.
 
+
+{% include tip.html content='Hint: the latest tip date is 2024.2814207650274 (this can be found in the XML, in TempEst under the dates tab, or can be calculated from your ISO-formatted dates)' %}
+
+
 {% include image.html file="image23.png" prefix=root_url %}
 
 {% include question.html content='
@@ -301,6 +303,9 @@ Questions:<br>
 
 
 Combine the logged trees into a MCC tree using `TreeAnnotator`, check if the default burn in of 1,000,000 states is sufficient in `Tracer`. Vizualise the MCC tree in FigTree. Set the time scale on the X axis and toggle on the Node bars showing height 95 HPD.
+
+{% include tip.html content='Hint: the latest tip date is 2024.3306010928961 (this can be found in the XML, in TempEst under the dates tab, or can be calculated from your ISO-formatted dates)' %}
+
 {% include image.html file="image36.png" prefix=root_url %}<br><br>
 {% include image.html file="image34.png" prefix=root_url %}<br><br>
 {% include question.html content='
@@ -309,6 +314,7 @@ Questions:<br>
 '%}
 
 Colour the branches of the time tree by host. Look at the confidence values for that reconstruction.
+
 {% include image.html file="image35.png" prefix=root_url %}<br><br>
 {% include question.html content='
 Questions:<br>
