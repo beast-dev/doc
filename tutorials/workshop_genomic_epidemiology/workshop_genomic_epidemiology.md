@@ -325,7 +325,7 @@ Questions:<br>
 
 ## Simulation Notes
 
-An outbreak structure was simulated using JT McCrone's [transmission simulator](https://jtmccr1.github.io/transmission-simulator/). The simulator generated an outbreak with a total of 513 cases and produces a transmission tree, a time tree and a line list with sampling time in days. 
+An outbreak structure was simulated using JT McCrone's [transmission simulator](https://jtmccr1.github.io/transmission-simulator/). The simulator generated an outbreak with a total of 517 cases and produces a transmission tree, a time tree and a line list with sampling time in days. 
 
 As an example case, NiV was selected because it is fast evolving and has a suitable background dataset available on Genbank that is not too large that it would require downsampling. All complete NiV genomes were downloaded from NCBI virus, aligned using MAFFT and an ML tree was computed using IQTREE2. 
 
