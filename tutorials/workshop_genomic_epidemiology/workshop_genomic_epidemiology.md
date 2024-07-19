@@ -39,7 +39,7 @@ If you download this zipped folder, there is no need to download other files/fol
 
 ### Quick identification of causative pathogen
 
-The below sequence is a contig ~18,000 base pairs long. A similar contig was found in each of the assemblies for the initial cases. We will perform a quick BLAST search to identify a likely causative agent.
+The below sequence is a contig ~18,000 bases long. A similar contig was found in each of the assemblies for the initial cases. We will perform a quick BLAST search to identify a likely causative agent.
 
 <p style="height: 200px; white-space:wrap; word-wrap:break-word; overflow:scroll; border-width:2px; border-style:solid; padding: 1em;">
 >contig1|pathogenX<br>
