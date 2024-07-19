@@ -108,7 +108,7 @@ For the purposes of this exercise, we have already prepared all the complete rec
 For example:<br>
 `>MH523641|NiV|India|human|2018-05-21`'
  %}
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>NiV_background.with_outbreak.seq_run_1.fasta</samp>' and <a href="{{ root_url }}files/outbreak.seq_run_1.NiV_background.fasta.zip">can be downloaded from here</a>. It will need to be decompressed before use.<br>
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>outbreak.seq_run_1.NiV_background.fasta</samp>' and <a href="{{ root_url }}files/outbreak.seq_run_1.NiV_background.fasta.zip">can be downloaded from here</a>. It will need to be decompressed before use.<br>
 This file has both the initial case sequences and the background dataset combined into one file. If actually creating this dataset, you would need to combine these files yourself (either copy & paste, or through the command line).</div>
 
 However, ordinarily you can download the dataset by clicking the Download button indicated below:
@@ -133,7 +133,7 @@ Navigate to the [MAFFT web server](https://mafft.cbrc.jp/alignment/server/).
 
 {% include image.html file="image8.png" prefix=root_url %}
 
-We have provided the combined case genome sequences and NiV background set. Once you have decompressed the `NiV_background.with_outbreak.seq_run_1.fasta` file, select `Choose file` on the MAFFT web server and upload your file. We will run with the default AUTO mode (it may be useful to change the Title length field to 50, but not necessary), select `Submit`. 
+We have provided the combined case genome sequences and NiV background set. Once you have decompressed the `outbreak.seq_run_1.NiV_background.fasta` file, select `Choose file` on the MAFFT web server and upload your file. We will run with the default AUTO mode (it may be useful to change the Title length field to 50, but not necessary), select `Submit`. 
 
 When ready, return to the results page and click on `Fasta format` to download the alignment as a FASTA file. 
 
