@@ -1,7 +1,7 @@
 ---
 title: Phylogeographic diffusion in discrete space
 keywords: phylogeography, rabies, bats, tutorial
-last_updated: August 9, 2017
+last_updated: July 15, 2024
 tags: [tutorial]
 summary: 'This chapter provides a step-by-step tutorial on reconstructing the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations based on a set of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353). The data set comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States 
  (<a href=\"http://science.sciencemag.org/content/329/5992/676.long\">Streicker et al., Science, 2010, 329, 676-679</a>). Following <a href=\"https://doi.org/10.1098/rstb.2012.0196\">Faria et al. (Phil. Trans. Roy. Soc. B, 2013)</a>, two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, <i>Myotis austroriparius</i> (Ma) and <i>Parastrellus hesperus</i> (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from <i>Lasiurus borealis</i>), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics.'
@@ -247,9 +247,11 @@ Some of the functions that relate to the discrete phylogeographic analysis inclu
 
 <!--{% include callout.html content='A detailed tutorial for this particular step <a href="https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourTwo">is available here</a>. We have also provide a PDF version of the entire SpreaD3 tutorial <a href="files/SpreaD3Tutorial.pdf">for download</a>.' %}-->
 
+<!--
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data files required for the analyses can be found in the shared folder:<br />
 <div style="margin: 16px"><code>Tutorials\Tutorial 4 - Discrete Phylogeography\</code></div>
 </div>
+-->
 
 To get started with SPREAD 4,follow the instructions [here](https://beast.community/spread4).
 
@@ -282,7 +284,7 @@ The analysis will first appear in the left-side tab `Queued` and then in the  `C
 
 {% include image.html file="spread4_2_getLink.png" prefix=root_url %}
 
-There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files  --- <samp>gz_2010_us_040_00_500k.json</samp>. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/5b009cff-3724-4bbe-bbe3-9efce6097056.json&maps=BR) in a new browser tab/window.
+There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files  --- <samp>gz_2010_us_040_00_500k.json</samp>. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/e23132db-f39d-4832-88a5-5920cdd9331e.json&maps=RU,MX,US,CA) in a new browser tab/window.
 
 {% include image.html file="spread4_3_map.png" prefix=root_url %}
 
@@ -291,7 +293,7 @@ To summarise Bayes factor support for rates, select the `Discrete Rates` tab. Lo
 {% include image.html file="spread4_4_setupRates.png" prefix=root_url %}
 
 The analysis will first appear in the left-side tab `Queued` and then in the `Completed Data Analysis`.
-There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files --- <samp>gz_2010_us_040_00_500k.json</samp>. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/5b009cff-3724-4bbe-bbe3-9efce6097056.json&maps=BR) in a new browser tab/window. Note that a comma-separated value file with a ‘.csv’ extension containing the actual Bayes Factor values can be downloaded by clicking `Export to CSV`.
+There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files --- <samp>gz_2010_us_040_00_500k.json</samp>. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/8775fac9-4cc5-4e33-98e6-d9cad676891e.json&maps=RU,MX,US,CA) in a new browser tab/window. Note that a comma-separated value file with a ‘.csv’ extension containing the actual Bayes Factor values can be downloaded by clicking `Export to CSV`.
 
 {% include image.html file="spread4_5_getLink_getCSV.png" prefix=root_url %}
 
@@ -301,7 +303,6 @@ An example visualisation can be found below. Note that the visual aspects of the
 
 
 <!--NT: spread4 does not allow for non-geographical mapping
-
 We can obtain a similar summary for the host transition rates. Since these cannot be plotted on a map, we will organise them on a circle. Load the file containing the host rates and rate indicators (<samp>batRABV.host.rates.log</samp>). In setting up the locations, select `Generate` and enter the number of unique host states ('17' in this case). If you want the names of the locations to be drawn rather than location1, location2, …, enter the names of each of the 17 locations (Ap, Ef, Lb, Lbl, Lc, Li, Ln, Ls, Lx, Ma, Mc, Ml, My, Nh, Ph, Ps, Tb). Click done when all the information has been entered and click on output under `Generate Output` and select a file name for the JSON file to be written. Finally, go to the `Rendering` panel in SPREAD4, load the JSON file you just saved, and click `Render to D3`.
 
 {% include image.html file="24_spread3hostRates.png" prefix=root_url %}
