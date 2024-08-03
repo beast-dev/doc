@@ -1,12 +1,12 @@
 ---
-title:  "BEAST X (v10.5.0-beta3) released"
+title:  "BEAST X (v10.5.0-beta4) released"
 categories: [release]
 permalink: 2024-07-09_BEAST_X_released.html
 sidebar: beast_sidebar
 tags: [news]
 ---
 
-### We are pleased to announce the release of BEAST X (v10.5.0-beta3)
+### We are pleased to announce the release of BEAST X (v10.5.0-beta4)
 
 {% include icon-callout.html file='icons/beastx-icon.png' content='BEAST X is the new name for BEAST v1 project and the first release version of this is <code>v10.5.0</code> which supersedes <code>v1.10.4</code> in the old version system. From now on we will use the full major, minor, bugfix style of semantic versioning. Thus, this version is not BEAST 10 but <code>BEAST X v10.5</code> (the 10th major, 5th minor release of the original BEAST project).' %}
 
