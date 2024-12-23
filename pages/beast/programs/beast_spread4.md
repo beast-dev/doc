@@ -12,7 +12,8 @@ folder: beast/programs
 
 ## SPREAD 4
 
-Unfortunately, our funding to support the hosting of SPREAD 4 on AWS has ended and we need to discontinue this service. The infrastructure is still available at [SPREAD 4 github](https://github.com/phylogeography/spread). We refer to other SPREAD versions below. 
+>[!NOTE]
+> Unfortunately, our funding to support the hosting of SPREAD 4 on AWS has ended and we need to discontinue this service. The infrastructure is still available at [SPREAD 4 github](https://github.com/phylogeography/spread). We refer to other SPREAD versions below. 
 
 ### spread.gl
 
