@@ -166,7 +166,7 @@ Click `QUERY STATUS` to check on the run. When the job has finished the status b
 
 You can examine an ASCII version of the phylogeny in the Full Result tab, but to download the result, click `DOWNLOAD SELECTED JOBS` in the bottom left. Decompress the downloaded file and you'll see the contents contain the IQTREE log file, the result file and the treefile. 
 
-{% include image.html file="image16b.png" prefix=root_url %}
+{% include image.html file="image16b.png" width="200" prefix=root_url %}
 
 
 We will use `FigTree` to look at the treefile (the file ending in `.treefile`). 
