@@ -137,6 +137,7 @@ We have provided the combined case genome sequences and NiV background set. Once
 
 When ready, return to the results page and click on `Fasta format` to download the alignment as a FASTA file. 
 
+The downloaded file will probably have a long and uninformative name such as: `_out.2502241929466CMs0BqwdZEKASUk69JNo3lsfnormal.fasta` -- rename this file to `outbreak.seq_run_1_aligned.fasta`
 
 ### Estimate a Maximum Likelihood tree
 
@@ -147,7 +148,7 @@ To navigate to the web server, click the [W-IQTREE link](http://iqtree.cibiv.uni
 {% include image.html file="image13.png" prefix=root_url %}
 
 #### Input data
-Upload your alignment file to the server by clicking `Browse` and selecting the file. You can select DNA as the sequence type.
+Upload your alignment file to the server by clicking `Browse` and selecting the file `outbreak.seq_run_1_aligned.fasta`. You can select DNA as the sequence type but.
 
 #### Substitution model options
 We will bypass model selection for now, and just select the simple `HKY` substitution model. This is just a quick first look at the data.
@@ -165,7 +166,7 @@ Click `QUERY STATUS` to check on the run. When the job has finished the status b
 
 You can examine an ASCII version of the phylogeny in the Full Result tab, but to download the result, click `DOWNLOAD SELECTED JOBS` in the bottom left. Decompress the downloaded file and you'll see the contents contain the IQTREE log file, the result file and the treefile. 
 
-{% include image.html file="image16.png" prefix=root_url %}
+{% include image.html file="image16b.png" prefix=root_url %}
 
 
 We will use `FigTree` to look at the treefile (the file ending in `.treefile`). 
