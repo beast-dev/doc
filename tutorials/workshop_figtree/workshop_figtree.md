@@ -14,7 +14,7 @@ folder: beast
 {% include figtree_callout.md %}
 
 ## Introduction
-FigTree is a user-friendly to visualize phylogenetic trees. To undertake this tutorial, you will need to download the FigTree latest software package version that is compatible with your computer system (available for Mac OS X, Windows and Linux/UNIX operating systems). 
+FigTree is a user-friendly software to visualize phylogenetic trees. To undertake this tutorial, you will need to download the FigTree latest software package version that is compatible with your computer system (available for Mac OS X, Windows and Linux/UNIX operating systems). 
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
 <a href="{{ root_url }}files/FigTree-Tutorial.zip"> can be downloaded from here</a>. 
