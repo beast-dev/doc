@@ -1,7 +1,7 @@
 ---
 title: Practical genomic epidemiology
 keywords: phylodynamics, genomic epidemiology, nipah
-last_updated: July 11, 2024
+last_updated: February 24, 2025
 tags: [tutorial, workshop]
 summary: "This tutorial presents an outbreak scenario that starts with a small number of initial cases with no known infectious agent. We will initially identify the pathogen and perform some initial characterisation of the cases. Once the pathogen is known, we will get a curate an appropriate background set to contextualise the cases in the known diversity of the pathogen. The second timepoint brings us to later in the outbreak, with more human cases reported and a concurrent outbreak identified in pigs."
 sidebar: beast_sidebar
@@ -57,7 +57,7 @@ Click on the button for "Nucleotide BLAST". This will redirect you to the below 
 
 To load a query sequence set, simply select the `Choose file` option, or alternatively open the `outbreak.seq_run_1.fasta` file and copy and paste into the box.
 
-Default settings should be fine in this first instance (this will search all non-redundant records on NCBI). Click `BLAST` to run the search. 
+Default settings should be fine in this first instance (this will search all non-redundant records on NCBI). Click `BLAST` to run the search.
 
 You may need to wait a few minutes, but results should show up automatically.
 
@@ -72,12 +72,12 @@ Questions<br>
 
 ### Contextualising the sequences
 
-Given the BLAST hits, it seems likely that the sequences are Henipavirus nipahense (NiV) genomes. To confirm this, and to investigate how the samples fit into the context of known NiV diversity, we will need to acquire a background dataset. For this we will use the NCBI Virus resource, which is a community portal for viral data that is archived on Genbank. 
+Given the BLAST hits, it seems likely that the sequences are Henipavirus nipahense (NiV) genomes. To confirm this, and to investigate how the samples fit into the context of known NiV diversity, we will need to acquire a background dataset. For this we will use the NCBI Virus resource, which is a community portal for viral data that is archived on Genbank.
 
 Navigate to [NCBI Virus](https://www.ncbi.nlm.nih.gov/labs/virus/) and click on `Search by virus name`.
 {% include image.html file="image5.png" prefix=root_url %}  <br /><br />
 
-You can begin typing in `Nipah` and the species name should appear. 
+You can begin typing in `Nipah` and the species name should appear.
 {% include image.html file="image4.png" prefix=root_url %}  <br /><br />
 
 Click on the species name (`Henipavirus nipahense`) and this will redirect you to the NiV records.
@@ -88,10 +88,9 @@ Questions<br>
 1. How many records are there? <br>
 2. Would we want to download all of them? (Hint: look at the sequence lengths)' %}
 
-These records can be filtered by length, completeness and a variety of other factors as shown below. 
+These records can be filtered by length, completeness and a variety of other factors as shown below.
 
 {% include image.html file="image6.png" prefix=root_url %}  <br /><br />
-
 
 For the purposes of this exercise, we have already prepared all the complete records available for NiV that had a date and location of collection. This background dataset has been curated and headers annotated with consistent fields:
 
@@ -99,7 +98,7 @@ For the purposes of this exercise, we have already prepared all the complete rec
 `>Accession|Virus|Country|Host|CollectionDate`<br>
 For example:<br>
 `>MH523641|NiV|India|human|2018-05-21`'
- %}
+%}
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data file is called '<samp>NiV_background.with_outbreak.seq_run_1.fasta</samp>' and <a href="{{ root_url }}files/outbreak_seq_run_1.NiV_background.fasta">can be downloaded from here</a>. It will need to be decompressed before use.<br>
 This file has both the initial case sequences and the background dataset combined into one file. If actually creating this dataset, you would need to combine these files yourself (either copy & paste, or through the command line).</div>
 
@@ -121,14 +120,15 @@ The fields can be customised when Downloading from NCBI Virus, however it is alw
 
 We now have our combined dataset, however before any trees can be built, we need to align them. Feel free to align with your preferred method, however this tutorial will use the MAFFT online version for alignment. [MAFFT](https://mafft.cbrc.jp/alignment/software/) has a variety of different algorithms, with varying speeds and precision. Today we'll just be using the AUTO option that selects the most appropriate for your input dataset. For full details about MAFFT and its models, see [Katoh et al 2002](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC135756/).
 
-Navigate to the [MAFFT web server](https://mafft.cbrc.jp/alignment/server/). 
+Navigate to the [MAFFT web server](https://mafft.cbrc.jp/alignment/server/).
 
 {% include image.html file="image8.png" prefix=root_url %}
 
-We have provided the combined case genome sequences and NiV background set. Once you have decompressed the `NiV_background.with_outbreak.seq_run_1.fasta` file, select `Choose file` on the MAFFT web server and upload your file. We will run with the default AUTO mode (it may be useful to change the Title length field to 50, but not necessary), select `Submit`. 
+We have provided the combined case genome sequences and NiV background set. Once you have decompressed the `outbreak.seq_run_1.NiV_background.fasta` file, select `Choose file` on the MAFFT web server and upload your file. We will run with the default AUTO mode (it may be useful to change the Title length field to 50, but not necessary), select `Submit`.
 
-When ready, return to the results page and click on `Fasta format` to download the alignment as a FASTA file. 
+When ready, return to the results page and click on `Fasta format` to download the alignment as a FASTA file.
 
+The downloaded file will probably have a long and uninformative name such as: `_out.2502241929466CMs0BqwdZEKASUk69JNo3lsfnormal.fasta` -- rename this file to `outbreak.seq_run_1_aligned.fasta`
 
 ### Estimate a Maximum Likelihood tree
 
@@ -146,27 +146,27 @@ We will bypass model selection for now, and just select the simple `HKY` substit
 
 #### Running IQTREE
 
-All other parameters can be left as default. Scroll down and select `Submit job`. 
+All other parameters can be left as default. Scroll down and select `Submit job`.
 
 {% include image.html file="image14.png" prefix=root_url %}
 
-Click `QUERY STATUS` to check on the run. When the job has finished the status bar on the left will say `Success`. 
+Click `QUERY STATUS` to check on the run. When the job has finished the status bar on the left will say `Success`.
 
 {% include image.html file="image15.png" prefix=root_url %}
 
 
-You can examine an ASCII version of the phylogeny in the Full Result tab, but to download the result, click `DOWNLOAD SELECTED JOBS` in the bottom left. Decompress the downloaded file and you'll see the contents contain the IQTREE log file, the result file and the treefile. 
+You can examine an ASCII version of the phylogeny in the Full Result tab, but to download the result, click `DOWNLOAD SELECTED JOBS` in the bottom left. Decompress the downloaded file and you'll see the contents contain the IQTREE log file, the result file and the treefile.
 
-{% include image.html file="image16.png" prefix=root_url %}
+{% include image.html file="image16b.png" prefix=root_url %}
 
 
-We will use `FigTree` to look at the treefile (the file ending in `.treefile`). 
+We will use `FigTree` to look at the treefile (the file ending in `.treefile`).
 
 Open the FigTree application and select to open the treefile, it will be displayed as arbitrarily rooted because we did not specify an outgroup during the quick run. Click on the `Tree` dropdown menu on the top bar and select `Midpoint Root`.
 
 {% include image.html file="image18.png" prefix=root_url %}
 
-This will re-root the phylogeny and provide a more balanced tree view in the absense of a known outgroup.
+This will re-root the phylogeny and provide a more balanced tree view in the absence of a known outgroup.
 
 {% include tip.html content='You may notice IQTREE has modified the headers of the FASTA sequences and converted pipes (`|`) to underscores (`_`). This is fine for our exploratory purposes, but know that command-line IQTREE2 does not do this and be aware that the tip-labels in the tree will now be not exactly identical to the FASTA sequence headers.' %}
 
@@ -177,13 +177,13 @@ Questions:<br>
 1. What does this phylogeny tell you about the cases? Do they cluster together?<br>
 2. Is there good support for this?<br>
 3. What can you say about the outbreak?
-'%}
+   '%}
 
 ### When did this outbreak arise?
 
 Even with just these few sequences it may be possible to ascertain some key information about this outbreak (such as when it likely began and how quickly it is spreading).
 
-Use the [TempEst tutorial](https://beast.community/tempest_tutorial) as a guide to load the `outbreak.seq_run_1.fasta` file into `TempEst` to assess whether there is temporal signal in the data. Parse the tip dates by selecting `Parse dates` in the Sample Dates tab, and select `Best fitting root` in the top-left side of the application. 
+Use the [TempEst tutorial](https://beast.community/tempest_tutorial) as a guide to load the `outbreak.seq_run_1.fasta` file into `TempEst` to assess whether there is temporal signal in the data. Parse the tip dates by selecting `Parse dates` in the Sample Dates tab, and select `Best fitting root` in the top-left side of the application.
 
 Take a look at the root-to-tip and residual tabs.  
 {% include image.html file="image19.png" prefix=root_url %}
@@ -192,19 +192,19 @@ Questions:<br>
 1. What does TempEst estimate the rate to be? Does this seem sensible?<br>
 2. What is the estimated tMRCA?<br>
 3. Is there good temporal signal?
-'%}
+   '%}
 
-Next, use BEAUTi to generate an XML file for BEAST to run. full step-by-step details can be found at 
-in the [Rates and dates tutorial](https://beast.community/rates_and_dates). Add the `outbreak.seq_run_1.fasta` as a partition, in the `Tips` tab parse the dates from the tips and set an exponential growth model. It's a small dataset, with very little temporal signal, so on the `MCMC` tab set the chain length to a little longer (perhaps 100,000,000 states) and reduce logging frequency to every 10000 states. 
+Next, use BEAUTi to generate an XML file for BEAST to run. full step-by-step details can be found at
+in the [Rates and dates tutorial](https://beast.community/rates_and_dates). Add the `outbreak.seq_run_1.fasta` as a partition, in the `Tips` tab parse the dates from the tips and set an exponential growth model. It's a small dataset, with very little temporal signal, so on the `MCMC` tab set the chain length to a little longer (perhaps 100,000,000 states) and reduce logging frequency to every 10000 states.
 {% include image.html file="image20.png" prefix=root_url %}
 
-When ready, click `Generate BEAST File...`. 
+When ready, click `Generate BEAST File...`.
 
-Run BEAST with your newly generated XML (detailed instructions on how to run BEAST can be found in the [First tutorial](https://beast.community/first_tutorial)). 
+Run BEAST with your newly generated XML (detailed instructions on how to run BEAST can be found in the [First tutorial](https://beast.community/first_tutorial)).
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> You can also access the precomputed BEAST output for this XML at <a href="{{ root_url }}files/outbreak.seq_run_1.beast_out.zip">this link</a>.</div>
 
-Open `Tracer` and load the newly generated log file to assess the BEAST run (the [Rates and dates tutorial](https://beast.community/rates_and_dates) also includes some useful tips about importing into `Tracer` and interpreting the plots.). 
+Open `Tracer` and load the newly generated log file to assess the BEAST run (the [Rates and dates tutorial](https://beast.community/rates_and_dates) also includes some useful tips about importing into `Tracer` and interpreting the plots.).
 
 
 {% include tip.html content='If some statistics have very long tails, as is the case with the root age shown below, manually configure the range displayed in the chart by clicking `Setup...` or `Setup Chart`. The number of bins for the histogram can also be toggled.' %}
@@ -219,7 +219,7 @@ Questions:<br>
 2. What is the root age estimate? How confident is this estimate? <br>
 3. What is the clock rate estimate (and 95 HPD interval)? Does this make sense for NiV?
 4. What would you suggest is needed for a better estimate?
-'%}
+   '%}
 
 
 Use `Tree Annotator` to produce a maximum clade credibility (MCC) tree from the `.trees` file and view in `FigTree`. Using the `FigTree` tutorial, set the Time Scale and display the 95 HPD for the height estimates on the nodes as shown below.
@@ -236,7 +236,7 @@ Questions:<br>
 
 ## EXERCISE 2: Additional human cases spurs an investigation in animal population
 
-{% include sitrep.html content='As of 12th July 2024, 60 human cases of Nipah have been reported. In additional to new cases, retrospective investigation has revealed a number of cases that had not previously been attributed to specific infectious agent. Liasing with the National Animal Health Agency has revealed a concurrent outbreak in NiV in livestock pigs. Of the cases in humans and pigs, a subset have been sent for targeted sequencing, however the results are not yet out. 
+{% include sitrep.html content='As of 12th July 2024, 60 human cases of Nipah have been reported. In additional to new cases, retrospective investigation has revealed a number of cases that had not previously been attributed to specific infectious agent. Liasing with the National Animal Health Agency has revealed a concurrent outbreak in NiV in livestock pigs. Of the cases in humans and pigs, a subset have been sent for targeted sequencing, however the results are not yet out.
 ' %}
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The data from the second sequencing run can be downloaded at <a href="{{ root_url }}files/outbreak.seq_run2.fasta.zip">this link</a>. The file will need to be decompressed.</div>
@@ -245,13 +245,13 @@ Download the provided FASTA alignment file and decompress. This FASTA file conta
 
 ### Generate a maximum likelihood tree from the alignment
 
-Using IQTREE as described above in EXERCISE 1, estimate a maximum likelihood phylogeny with the `outbreak.seq_run2.fasta` file. Inspect the phylogeny using `TempEst` (parse tip dates and select `best fitting root`). Note that the tips are labelled with host species. 
+Using IQTREE as described above in EXERCISE 1, estimate a maximum likelihood phylogeny with the `outbreak.seq_run2.fasta` file. Inspect the phylogeny using `TempEst` (parse tip dates and select `best fitting root`). Note that the tips are labelled with host species.
 {% include image.html file="image23.png" prefix=root_url %}
 {% include question.html content='
 Questions:<br>
 1. What does this phylogeny tell us about the human and pig outbreaks?<br>'%}
 
-Examine the root-to-tip and residual plots. 
+Examine the root-to-tip and residual plots.
 {% include image.html file="image24.png" prefix=root_url %}
 {% include question.html content='
 Questions:<br>
@@ -266,13 +266,13 @@ Launch BEAUTi and import the `outbreak.seq_run2.fasta` alignment.
 Parse the tip dates on the `Tips` tab.
 {% include image.html file="image26.png" prefix=root_url %}<br><br>
 
-Navigate to the `Traits` tab and create a new trait called `host`. 
+Navigate to the `Traits` tab and create a new trait called `host`.
 {% include image.html file="image27.png" prefix=root_url %}<br><br>
 
-Select `Guess trait values` and indicate it is the fourth field in the pipe(`|`)-delimited header. 
+Select `Guess trait values` and indicate it is the fourth field in the pipe(`|`)-delimited header.
 {% include image.html file="image28.png" prefix=root_url %}<br><br>
 
-Create a new partition with that trait called `host`. 
+Create a new partition with that trait called `host`.
 {% include image.html file="image29.png" prefix=root_url %}<br><br>
 
 If you navigate back to the partitions tab, you'll see `host` has now appeared beneath the nucleotide partition.
@@ -284,20 +284,20 @@ Click on `host` in the Substitution model window (`Sites` tab) and keep the `Dis
 In the `Trees` tab, we will set the `Tree Prior` to an Exponential Growth coalescent model.
 {% include image.html file="image32.png" prefix=root_url %}<br><br>
 
-Ensure under the `States` tab that the host partition is set to reconstruct the states of all ancestors (should be on by default). 
+Ensure under the `States` tab that the host partition is set to reconstruct the states of all ancestors (should be on by default).
 {% include image.html file="image33.png" prefix=root_url %}<br><br>
 
-We are now ready to create the BEAST XML file. `Select Generate XML...`.  
+We are now ready to create the BEAST XML file. `Select Generate XML...`.
 
 Run `BEAST` using the newly generated XML as before.
 
-Examine the output logfile in `Tracer`. 
+Examine the output logfile in `Tracer`.
 {% include image.html file="image34.png" prefix=root_url %}<br><br>
 {% include question.html content='
 Questions:<br>
 1. Has the increased sampling improved the BEAST run output?<br>
 2. What is the estimated tMRCA? Look at the 95 HPD, has the confidence in the estimate improved with additional data?<br>
-'%}
+   '%}
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> You can also access the precomputed BEAST output for this XML at <a href="{{ root_url }}files/outbreak.seq_run_2.beast_out.zip">this link</a>.</div>
 
@@ -311,7 +311,7 @@ Combine the logged trees into a MCC tree using `TreeAnnotator`, check if the def
 {% include question.html content='
 Questions:<br>
 1. Has the root age HPD improved? Does it agree with the `TempEst` estimation?<br>
-'%}
+   '%}
 
 Colour the branches of the time tree by host. Look at the confidence values for that reconstruction.
 
@@ -321,15 +321,15 @@ Questions:<br>
 1. What does the reconstruction tell us?<br>
 2. Does it make sense?<br>
 3. What factors may have impacted this reconstruction?<br>
-'%}
+   '%}
 
 ## Simulation Notes
 
-An outbreak structure was simulated using JT McCrone's [transmission simulator](https://jtmccr1.github.io/transmission-simulator/). The simulator generated an outbreak with a total of 513 cases and produces a transmission tree, a time tree and a line list with sampling time in days. 
+An outbreak structure was simulated using JT McCrone's [transmission simulator](https://jtmccr1.github.io/transmission-simulator/). The simulator generated an outbreak with a total of 513 cases and produces a transmission tree, a time tree and a line list with sampling time in days.
 
-As an example case, NiV was selected because it is fast evolving and has a suitable background dataset available on Genbank that is not too large that it would require downsampling. All complete NiV genomes were downloaded from NCBI virus, aligned using MAFFT and an ML tree was computed using IQTREE2. 
+As an example case, NiV was selected because it is fast evolving and has a suitable background dataset available on Genbank that is not too large that it would require downsampling. All complete NiV genomes were downloaded from NCBI virus, aligned using MAFFT and an ML tree was computed using IQTREE2.
 
-Ancestral reconstruction was carried out also using IQTREE and the genome sequence for the common ancestor node for MK801755 and the 1999 porcine outbreak in Malaysia. From this ancestral node, [seq-gen](http://tree.bio.ed.ac.uk/software/seqgen/) was used to simulate a branch length of 0.018 under the HKY substitution model, which represents ~40 years of NiV evolution assuming a rate of 4.5x10^-4 substitutions per site per year (as published for NiV in [Cortes-Azuero et al 2023](https://pubmed.ncbi.nlm.nih.gov/38682164/)). This provided the initial infection case from which we simulated genome sequences corresponding to the simulated outbreak time tree. The evolution was simulated with a HKY substitution model, also using seq-gen, at a rate of 7x10^-4. The time tree was manually labelled in FigTree with host annotations, creating a scenario where pig represented the majority of cases, including the earlier cases, and human clusters represented spillover events from the pig population. In total, 60 of the 513 tips were labelled as human cases and the remainder were labelled as pig. The start date of the outbreak was set to 2023-08-11. 
+Ancestral reconstruction was carried out also using IQTREE and the genome sequence for the common ancestor node for MK801755 and the 1999 porcine outbreak in Malaysia. From this ancestral node, [seq-gen](http://tree.bio.ed.ac.uk/software/seqgen/) was used to simulate a branch length of 0.018 under the HKY substitution model, which represents ~40 years of NiV evolution assuming a rate of 4.5x10^-4 substitutions per site per year (as published for NiV in [Cortes-Azuero et al 2023](https://pubmed.ncbi.nlm.nih.gov/38682164/)). This provided the initial infection case from which we simulated genome sequences corresponding to the simulated outbreak time tree. The evolution was simulated with a HKY substitution model, also using seq-gen, at a rate of 7x10^-4. The time tree was manually labelled in FigTree with host annotations, creating a scenario where pig represented the majority of cases, including the earlier cases, and human clusters represented spillover events from the pig population. In total, 60 of the 513 tips were labelled as human cases and the remainder were labelled as pig. The start date of the outbreak was set to 2023-08-11.
 
 Because this outbreak has been simulated, we know the underlying ground truth and can see the impact lack of data and sampling bias can have on inference. Below is the BEAST DTA inference with all of the simulated outbreak cases (so 100% of the population has been sequenced and sampled in this case).
 
