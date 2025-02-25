@@ -175,7 +175,7 @@ Open the FigTree application and select to open the treefile, it will be display
 
 {% include image.html file="image18.png" prefix=root_url %}
 
-This will re-root the phylogeny and provide a more balanced tree view in the absense of a known outgroup.
+This will re-root the phylogeny and provide a more balanced tree view in the absence of a known outgroup.
 
 {% include tip.html content='You may notice IQTREE has modified the headers of the FASTA sequences and converted pipes (`|`) to underscores (`_`). This is fine for our exploratory purposes, but know that command-line IQTREE2 does not do this and be aware that the tip-labels in the tree will now be not exactly identical to the FASTA sequence headers.' %}
 
