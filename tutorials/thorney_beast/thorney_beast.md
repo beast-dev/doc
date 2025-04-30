@@ -15,7 +15,7 @@ folder: beast
 
 ## Introduction
 
-The SARS-CoV-2 pandemic has highlighted the importance and challenge of large-scale molecular epidemiology. Through 
+The SARS-CoV-2 pandemic highlighted the importance and challenge of large-scale molecular epidemiology. Through 
 Herculean effort, academic and public health labs over the world have undertaken genomic sequencing on a scale that 
 dwarfs any previous outbreak response. The magnitude of the resulting dataset makes many standard phylogenetic
 approaches impractical. Here, we highlight some recent modifications we have made to make the analysis of tens of thousand of 
@@ -27,13 +27,12 @@ suite of models already available in BEAST. While the model used here dates back
 implementation was inspired by [Didelot et al., 2018](https://doi.org/10.1093/nar/gky783).
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i>
-All the analyses described here can be performed using the <a href="https://github.com/beast-dev/beast-mcmc/releases/tag/v1.10.5pre_thorney_v0.1.1"> BEASTv.1.10.5pre_thorney_v0.1.1 </a>pre-release.
+All the analyses described here can be performed using the <a> BEASTX.5.betaXXXX </a>pre-release.
 </div>
 
-{% include warning.html content="Previous prereleases included a small bug that resulted in root height estimates that were biased towards grid points, when intervals were passed directly to the skygrid as is done with BigFastTreeIntervals below. This is fixed in pre-release v0.1.1" %}
-
 *NB: To the best of our knowledge Jeff Thorne and colleges work in [multidivtime](https://brcwebportal.cos.ncsu.edu/thorne/multidivtime.html) 
-represents the first implementation of related approaches in a Bayesian framework.*
+represents the first implementation of related approaches in a Bayesian framework.
+In recognition of that work we colloquially refer to this approach as Thorney BEAST.*
 
 ### A note about efficiency 
 
@@ -58,279 +57,63 @@ can cope with alignments of tens of thousands of sequences.
 Based on these challenges, we have implemented a more efficient likelihood based on 
 a simple Poisson model commonly used in maximum likelihood methods that scale genetic phylogenies into time trees
 (See [Didelot et al., 2020](https://doi.org/10.1093/molbev/msaa193) for a thorough discussion of these methods). 
-Instead of an alignment, this likelihood takes a pre-estimated, rooted phylogeny with branch lengths scaled to the 
-number of expected substitutions/site. This likelihood can be specified with a few xml modifications.
+Instead of an alignment, this likelihood takes a pre-estimated, rooted phylogeny with branch lengths that can be scaled to the 
+number of expected substitutions/site. 
 
-If you are starting from a standard BEAUTi-generated xml you can delete the `<alignment>` block and instead specify a 
-"data tree" and a starting tree that is topologically consistent (every clade in the data tree must be present in the starting tree).
+To get started, we will import a rooted, pre-estimated tree as a data partition in BEAUTI.
+Select `Import Data` at the bottom of the partitions panel, select the `1K_SARS-CoV-2.nexus` file included with this tutorial,
+ and when prompted to `Create tree-as-data partition` select yes. (Note this file is a nexus, but a newick tree will work as well).
 
-```xml
-<newick id="startingTree" usingDates="true">
-	((taxa1|2020-02-17,...);
-</newick>
+<img src="{{ root_url }}images/tree-as-data-partition.png"/>
 
-<newick id="dataTree" usingDates="false" usingHeights="true">
-	((taxa1|2020-02-17,...);
-</newick>
-```
-
-The new likelihood function requires a map between the number of mutations along a branch in the data tree and 
-the duration of that same branch in the estimated time tree. To ensure this mapping is never broken, we have implemented
-a  `<constrainedTreeModel>` that takes the place of the standard `<treeModel>` block. The constrained tree model allows
-for sampling different resolutions of polytomies that may be present in the data tree without violating the topological requirements
-of the tree likelihood.
-```xml
-<!-- <treeModel id="treeModel">-->
-<!--    <coalescentTree idref="startingTree"/>-->
-<!--    <rootHeight>-->
-<!--        <parameter id="treeModel.rootHeight"/>-->
-<!--    </rootHeight>-->
-<!--    <nodeHeights internalNodes="true">-->
-<!--        <parameter id="treeModel.internalNodeHeights"/>-->
-<!--    </nodeHeights>-->
-<!--    <nodeHeights internalNodes="true" rootNode="true">-->
-<!--        <parameter id="treeModel.allInternalNodeHeights"/>-->
-<!--    </nodeHeights>-->
-<!-- </treeModel>-->
-<constrainedTreeModel id = "treeModel">
-	<tree idref="startingTree"/>
-	<constraintsTree>
-		<tree idref="dataTree"/>
-	</constraintsTree>
-</constrainedTreeModel>
-        
-<!-- Statistic for root height of the tree       -->
-<treeHeightStatistic id="treeModel.rootHeight">
-    <treeModel idref="treeModel"/>
-</treeHeightStatistic>
-    --snip--
-<nodeHeightOperator type="scaleRoot" weight="3" scaleFactor="0.75" >
-    <treeModel idref="treeModel"/>
-</nodeHeightOperator>
-
-```
-Note that because of how the a `<constrainedTreeModel>` stores its root height we need a
-different root height statistic and root height operator than what is used in a standard analysis.
+We should now see our tree listed as partition.
+<img src="{{ root_url }}images/loaded-data.png"/>
 
 
+From here most of the set up follows a standard BEAST analysis.
 
-We can now replace the standard `<treeDataLikelihood>` and its components with our new likelihood as indicated by the comments
-below.
-```xml
-<!-- Likelihood for tree given sequence data                                 -->
+Under the Tips pannel, we can parse tip dates from these taxa labels.
 
-<!-- The strict clock (Uniform rates across branches)                        -->
-<!--<strictClockBranchRates id="branchRates">-->
-<!-- <rate>-->
-<!--  <parameter id="clock.rate" value="1.0"/>-->
-<!-- </rate>-->
-<!--</strictClockBranchRates>-->
+<img src="{{ root_url }}images/taxa.png"/>
 
-<!--<rateStatistic id="meanRate" name="meanRate" mode="mean" internal="true" external="true">-->
-<!--<treeModel idref="treeModel"/>-->
-<!--<strictClockBranchRates idref="branchRates"/>-->
-<!--</rateStatistic>-->
+In this initial analysis we are not including a phylogeographic component, but we could add such an analysis by
+importing trait data in the Traits pannel. Since we are just scaling a pre-estimated divergence tree  into time
+we do not need a Sites model, and can skip right to the Clocks panel. 
 
+In this case we are using a strict clock, but this approach is compatible with any non-hamiltonian clock model.
+The gradients needed for HMC operators have not yet been implemented for this data type.
 
-<!-- The HKY substitution model (Hasegawa, Kishino & Yano, 1985)             -->
-<!--<HKYModel id="hky">-->
-<!--<frequencies>-->
-<!-- <frequencyModel dataType="nucleotide">-->
-<!--  <frequencies>-->
-<!--   <parameter id="frequencies" value="0.25 0.25 0.25 0.25"/>-->
-<!--  </frequencies>-->
-<!-- </frequencyModel>-->
-<!--</frequencies>-->
-<!--<kappa>-->
-<!-- <parameter id="kappa" value="2.0" lower="0.0"/>-->
-<!--</kappa>-->
-<!--</HKYModel>-->
+<img src="{{ root_url }}images/taxa.png"/>
 
-<!-- site model                                                              -->
-<!--<siteModel id="siteModel">-->
-<!--<substitutionModel>-->
-<!-- <HKYModel idref="hky"/>-->
-<!--</substitutionModel>-->
-<!--<gammaShape gammaCategories="4">-->
-<!-- <parameter id="alpha" value="0.5" lower="0.0"/>-->
-<!--</gammaShape>-->
-<!--</siteModel>-->
+The magic happens in the next panel  - Trees. Here we select both the tree prior and Thorney tree model.
+For this analysis we will use the bayesian skygrid, with a cut off of three quarters of year, and nearly weekly gridpoints (39 parameters).
 
-<!--<statistic id="mu" name="mu">-->
-<!--<siteModel idref="siteModel"/>-->
-<!--</statistic>-->
+On the bottom half of the panel we select `ThorneyBEAST` as the 'Tree as data model', and set the scaler to 29903 - the length of the alignment used to build the tree. 
+The number of mutation on each branch will be calculated by multiplying branchlengths in the input tree by this number and rounding to the nearest whole number.
+
+<img src="{{ root_url }}images/tree.png"/>
+
+We can then adjust priors an operators as we see fit in the Priors and Operators panel. 
+
+*NB: the default ctmc reference prior for evolutionary rate can add some computational burden on large trees.
+If a gamma(0.001,1000) distribution is appropriate, it may provide some computational speed ups on large datasets.*
+
+<img src="{{ root_url }}images/priors.png"/>
+
+## Operators
+
+One of the advantages of this approach over fixed tree approach is that we are able to sample polytomy resolutions
+from the posterior. Standard tree operators are used to do this, but they are constrained to respect the clades present
+in the input tree. If the input tree is fully resolved these operators should be removed.
 
 
-<!-- Likelihood for tree given sequence data                                 -->
-<!--<treeDataLikelihood id="treeLikelihood" useAmbiguities="false">-->
-<!--<partition>-->
-<!-- <patterns idref="patterns"/>-->
-<!-- <siteModel idref="siteModel"/>-->
-<!--</partition>-->
-<!--<treeModel idref="treeModel"/>-->
-<!--<strictClockBranchRates idref="branchRates"/>-->
-<!--</treeDataLikelihood>-->
-
-<thorneyTreeLikelihood id="treeLikelihood">
-	<constrainedTreeModel idref="treeModel"/>
-			 
-    <strictClockBranchLengthLikelihood id="branchLengthLikelihood" scale="29903.0">
-		<parameter id="clock.rate" value="0.00075" lower="0.0"/>
-	</strictClockBranchLengthLikelihood>
-		
-	<constrainedBranchLengthProvider scale="29903.0"> 
-		<constrainedTreeModel idref="treeModel"/>
-		<dataTree>
-			<tree idref="dataTree"/>
-		</dataTree>
-	</constrainedBranchLengthProvider>
-</thorneyTreeLikelihood>
-```
-Here `<strictClockBranchLengthLikelihood>` replaces `<strictClockBranchRates>`. It also scales the substitution
-rate from substitutions/site/year to substitutions/year (i.e. `scale` represents the number of sites). 
-`<constrainedBranchLengthProvider>` maps the branches in the data tree to those in the time tree and provides the number 
-of mutations that occur along that branch. Similar to above, `scale` represents a multiplier to scale the branchlengths
-in the data tree. In this example the original alignment used to make the data tree had 29,903 sites.
-
-### A note about topologies
-
-Our reliance on a fixed data tree means that every clade in the data must be present in the time tree. However, if the 
-data tree is unresolved and contains polytomies, we can sample from possible resolutions without breaking that mapping.
-(In these cases we know the inserted branches have 0 mutations.) The tree operators below accept a `<constrainedTreeModel>` 
-and are compatible with these constraints. They allow us to sample node heights and polytomy resolutions within the 
-constraints imposed by the data tree.
-
-*NB: The topological operators below will exit with an error if the constraints tree is fully resolved (i.e. there are
-no polytomies over which to sample). In that case only the node height operators can be used.*
-
-```xml
-<nodeHeightOperator type="scaleRoot" weight="3" scaleFactor="0.75" >
-    <treeModel idref="treeModel"/>
-</nodeHeightOperator>           
-
-<nodeHeightOperator type="uniform" weight="10">
-    <constrainedTreeModel idref="treeModel"/>
-</nodeHeightOperator>
-		
-<uniformSubtreePruneRegraft weight="10">
-    <constrainedTreeModel idref="treeModel"/>
-</uniformSubtreePruneRegraft>
-		
-<narrowExchange weight="10">
-    <constrainedTreeModel idref="treeModel"/>
-</narrowExchange>
-		
-<wideExchange weight="10">
-    <constrainedTreeModel idref="treeModel"/>
-</wideExchange>
-		
-<wilsonBalding weight="10">
-    <constrainedTreeModel idref="treeModel"/>
-</wilsonBalding>
-```
-		
-## More efficient data structures  
-
-Without the computational cost of the tree-data-likelihood, the routine processes of collating many coalescent
-intervals and managing a large tree's internal structure become computational bottlenecks. Although these operations
-are relatively efficient they occur at every state in the MCMC chain, and so even small inefficiencies add up.
-
-To increase efficiency on large datasets we have implemented new data structures for the time tree and coalescent 
-intervals. These implementations form the basis of the `<constrainedTreeModel>` above, but they can be used in any 
-analysis and improve performance in even moderately sized datasets (a few hundred taxa).
-
-The tree class can be used by commenting out the standard treemodel and replacing it as below.
-
-```xml
-
-<!-- Generate a tree model                                                   -->
-
-<!-- <treeModel id="treeModel">-->
-<!--    <coalescentTree idref="startingTree"/>-->
-<!--    <rootHeight>-->
-<!--        <parameter id="treeModel.rootHeight"/>-->
-<!--    </rootHeight>-->
-<!--    <nodeHeights internalNodes="true">-->
-<!--        <parameter id="treeModel.internalNodeHeights"/>-->
-<!--    </nodeHeights>-->
-<!--    <nodeHeights internalNodes="true" rootNode="true">-->
-<!--        <parameter id="treeModel.allInternalNodeHeights"/>-->
-<!--    </nodeHeights>-->
-<!-- </treeModel>-->
-
-<!-- Generate a tree model                                                   -->
-<bigFastTreeModel id="treeModel">
-    <tree idref="startingTree"/>
-</bigFastTreeModel>
-<!-- Statistic for root height of the tree       -->
-<treeHeightStatistic id="treeModel.rootHeight">
-	<treeModel idref="treeModel"/>
-</treeHeightStatistic>
-	
-
---snip--
-
-<!--<scaleOperator scaleFactor="0.75" weight="3">-->
-<!--     <parameter idref="treeModel.rootHeight"/>-->
-<!-- </scaleOperator>-->
-<nodeHeightOperator type="scaleRoot" weight="3" scaleFactor="0.75" >
-	<treeModel idref="treeModel"/>
-</nodeHeightOperator>
-```
-Note: As is in the case of the `<constrainedTreeModel>`, this change affects how the root height is stored and so we need a new root height statistic and operator.
-
- 
-The new coalescent intervals can be added to any demographic model by replacing the `<populationTree>` in a coalescent model
-with `<intervals>`. The example below is for an exponential coalescent model.
-
-```xml
-<coalescentLikelihood id="coalescent">
-	<model>
-		<exponentialGrowth idref="exponential"/>
-	</model>
-<!--        <populationTree>-->
-<!--				<treeModel idref="treeModel"/>-->
-<!--        </populationTree>-->
-	<intervals>
-		<bigFastTreeIntervals>
-			<treeModel idref="treeModel"/>
-		</bigFastTreeIntervals>
-	</intervals>
-</coalescentLikelihood>
-```
-
-## Managing large xmls with beastgen
-
-These changes can be made to any xml generated by BEAUti. However, BEAUTi requires an alignment which can be very large,
-and editing large xmls is clunky and tedious. An alternative is to use [BEASTGen](http://beast.community/beastgen), a small command line
-utility that generates xmls from an Apache FreeMarker template and an input data file, which can be an alignment, a nexus tree, 
-or a BEAST xml. 
+<img src="{{ root_url }}images/operators.png"/>
 
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i>
-An example template that utilizes a skygrid coalescent prior as well as the new classes and likelihood discussed 
-above can be downloaded from <a href="{{ root_url }}files/SG-thorney.template">here</a> along with a 
-<a href="{{ root_url }}files/1K_SARS-CoV-2.nexus">nexus tree</a> containing 
-1,000 SARS-CoV-2 taxa whose genomes were downloaded from GISAID and <a href="(https://www.cogconsortium.uk/data/)">COG-UK</a>.
-An acknowledgement table for the genomes from GISAID is available
-<a href="https://github.com/beast-dev/doc/blob/master/tutorials/thorney_beast/files/%20GISAID_acknowledgements.csv">here</a>
-</div>
+We can then generate and run the xml as usual.
 
-The xml can be generated with
-```bash
-beastgen -date_order -1 -date_prefix "|" -date_precision -D "outputStem=1K-SARS-CoV-2"	SG-thorney.template 1K_SARS-CoV-2.nexus 1K_SARS-CoV-2_SG-thorney.xml
-```
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i>
-The xml file can also be downloaded directly from <a href="{{ root_url }}files/1K_SARS-CoV-2_SG-thorney.xml">here</a>
-</div>
+<img src="{{ root_url }}images/mcmc.png"/>
 
-
-The template, `SG-thorney.template`, is small and easy to edit. It can also be used to generate similar analysis on much
-larger datsets without the tedious task of editing a large xml. The operator weights are experimental and may need to be 
-adjusted. 
-
-A brief introduction to BEASTGen can be found [here](http://beast.community/beastgen). The Apache FreeMarker template
-engine is quite powerful, which makes BEASTGen a useful tool for managing large datasets and analyses. 
 
 ## References
 Zuckerkandl E , Pauling L. 1962. Molecular disease, evolution, and genic heterogeneity. In: Kasha M , Pullman B, editors. Horizons Biochem. New York: Academic Press. p. 189–222
