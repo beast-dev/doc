@@ -172,6 +172,10 @@ entries:
       url: /markov_jumps_rewards
       output: web, pdf
 
+    - title: Adjusted Bayes Factor Tutorial
+      url: /adjusted_bayes_factor
+      output: web, pdf
+
     - title: Adaptive MCMC Tutorial
       url: /adaptive_mcmc
       output: web, pdf

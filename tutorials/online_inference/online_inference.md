@@ -155,7 +155,9 @@ In anticipation of (even) more data becoming available, we suggest to keep using
 We make available [10 BEAST XML files]({{ root_url }}files/XMLs.zip) accompanying our paper on this online Bayesian phylodynamic inference framework.
 
 
+## Note
 
+The online Bayesian phylodynamic inference procedure has not been tested for all model parametrizations (e.g.: continuous phylogeography).
 
 
 ## References
