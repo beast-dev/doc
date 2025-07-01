@@ -10,7 +10,7 @@ toc: false
 folder: beast
 ---
 
-### Version 10.5.0  released 9th July 2024
+### Version 10.5.0  released 1st July 2025
 
 - New Major Version - BEAST X v10.5.0
 
@@ -18,8 +18,10 @@ folder: beast
 
 #### New Features:
 
+BEAST X (v10.5.0) significantly advances the flexibility and scalability of evolutionary models supported. Novel clock and substitution models leverage: a large variety of evolutionary processes; discrete, continuous and mixed traits with missingness and measurement errors; and fast, gradient-informed integration techniques that rapidly traverse high-dimensional parameter spaces.
+
 #### Bug Fixes:
-> See [Issue List](https://github.com/beast-dev/beast-mcmc/issues) for full list.	
+> See [Issue List](https://github.com/beast-dev/beast-mcmc/issues?q=is%3Aissue%20state%3Aclosed) for full list.	
 
 ### Previous versions:
 ```
