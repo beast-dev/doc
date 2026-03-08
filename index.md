@@ -35,6 +35,7 @@ As [an introduction to using BEAST we provide some basic introductory tutorials]
 
 > The recommended citation for this program is:
 > : Baele G, Ji X, Hassler GW, McCrone JT, Shao Y, Zhang Z, Holbrook AJ, Lemey P, Drummond AJ, Rambaut A & Suchard MA (2025) BEAST X for Bayesian phylogenetic, phylogeographic and phylodynamic inference *Nature Methods* **22**, 1653-1656. [DOI:10.1038/s41592-025-02751-x](https://doi.org/10.1038/s41592-025-02751-x)
+
 > As BEAST relies on the BEAGLE high-performance computational library, it's also appreciated to cite:
 > : Ayres DL, Cummings MP, Baele G, Darlin AE, Lewis PO, Swofford DL, Huelsenbeck JP, Lemey P, Rambaut A & Suchard MA (2019) BEAGLE 3: Improved Performance, Scaling, and Usability for a High-Performance Computing Library for Statistical Phylogenetics *Systematic Biology* **68** (6), 1052-1061. [DOI:10.1093/sysbio/syz020](https://doi.org/10.1093/sysbio/syz020)
 
