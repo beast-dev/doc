@@ -4,7 +4,7 @@ permalink: treeannotator.html
 sidebar: beast_sidebar
 tags: [programs]
 keywords: software, treeannotator, beast
-last_updated: July 13, 2017
+last_updated: August 17, 2025
 summary: "TreeAnnotator is a program to summarize the information from a sample of trees produced by BEAST onto a single “target” tree. The summary information includes the posterior probabilities of the nodes in the target tree, the posterior estimates and HPD limits of the node heights and (in the case of a relaxed molecular clock model) the rates."
 toc: true
 folder: beast/programs
