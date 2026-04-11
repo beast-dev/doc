@@ -24,7 +24,7 @@ To undertake this tutorial, you will need to download three software packages in
 
 {% include tracer_callout.md %}
 
-{% include figtree_callout.md %}
+{% include peartree_callout.md %}
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i>The data file is called '<samp>H1N1pdm_2009.nex</samp>' and <a href="{{ root_url }}files/H1N1pdm_2009.nex">can be downloaded from here</a>.</div>
 
@@ -177,13 +177,13 @@ Use the `Choose File...` button to select an input trees file, <samp>H1N1pdm_200
 
 Select a name for the output tree file (e.g., <samp>H1N1pdm_2009.MCC.tre</samp>).
 
-Once you have selected all the options, above, press the `Run` button. TreeAnnotator will analyse the input tree file and write the summary tree to the file you specified. This tree is in standard NEXUS tree file format so may be loaded into any tree drawing package that supports this. However, it also contains additional information that can only be displayed using the [FigTree](figtree) program.
+Once you have selected all the options, above, press the `Run` button. TreeAnnotator will analyse the input tree file and write the summary tree to the file you specified. This tree is in standard NEXUS tree file format so may be loaded into any tree drawing package that supports this. However, it also contains additional information that can only be displayed using the [PearTree](peartree) program.
 
 ## Viewing the annotated tree
 
-{% include icon-callout.html file='icons/figtree-icon.png' content='<a href="figtree">FigTree</a> is a user-friendly, graphical program for viewing trees and the associated information provided by BEAST. Double-click on the FigTree icon to run it.' %}
+{% include peartree-callout.html  %}
 
-Run FigTree now and select the `Open...` command from the `File` menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the FigTree window. On the left hand side of the window are the options and settings which control how the tree is displayed. In this case we want to display the posterior probabilities of each of the clades present in the tree and estimates of the age of each node. In order to do this you need to change some of the settings.
+Run PearTree now and select the `Open...` command from the `File` menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the PearTree window. On the left hand side of the window are the options and settings which control how the tree is displayed. In this case we want to display the posterior probabilities of each of the clades present in the tree and estimates of the age of each node. In order to do this you need to change some of the settings.
 
 First, re-order the node order by `Increasing Node Order` under the `Tree` menu. Switch on `Branch Labels` in the control panel on the left and open its section by clicking on the arrow on the left. Now select `posterior` under the `Display:` option. Reduce `Sig. Digits` to <samp>2</samp>.
 
@@ -195,7 +195,7 @@ Finally, open the `Appearance` panel and alter the `Line Weight` to draw the tre
 
 {% include image.html file="image18.png" prefix=root_url %}
 
-None of the options actually alter the tree's topology or branch lengths in anyway so feel free to explore the options and settings. You can also save the tree and this will save most of your settings so that when you load it into FigTree again it will be displayed almost exactly as you selected. The tree can also be exported to a graphics file (pdf, eps, etc.).
+None of the options actually alter the tree's topology or branch lengths in anyway so feel free to explore the options and settings. You can also save the tree and this will save most of your settings so that when you load it into PearTree again it will be displayed almost exactly as you selected. The tree can also be exported to a graphics file (pdf, eps, etc.).
 
 ## References
 - Smith GJD, Vijaykrishna D, Bahl J, Lycett SJ, Worobey M, Pybus OG, Ma SK, Cheung CL, Raghwani J, Bhatt S, Peiris JSM, Guan Y & Rambaut A (2009) Origins and evolutionary genomics of the 2009 swine-origin H1N1 influenza A epidemic. Nature 459, 1122-1125.

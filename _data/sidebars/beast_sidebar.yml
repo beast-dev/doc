@@ -78,8 +78,8 @@ entries:
       url: /beastgen
       output: web, pdf
 
-    - title: Older and unsupported programs
-      url: /older_programs
+    - title: Older and unsupported software
+      url: /older_software
       output: web, pdf
 
   - title: Tutorials
@@ -257,10 +257,6 @@ entries:
       
     - title: Genomic epidemiology
       url: /workshop_genomic_epidemiology
-      output: web, pdf
-
-    - title: Visualizing phylogenetic trees using FigTree
-      url: /workshop_figtree
       output: web, pdf
 
   - title: Reference

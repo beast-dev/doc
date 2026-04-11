@@ -45,7 +45,7 @@ Let’s define an “Americas” taxon set by pressing the small “plus” butt
 
 {% include image.html prefix=root_url file="image2.png" width="50%" %}<br />
 
- This will create a new taxon set. 
+This will create a new taxon set. 
 Rename it by double-clicking on the entry that appears (it will initially be called `untitled1`).
 Call it `Americas`.
 Do not enforce monophyly using the `monophyletic?` option because we will evaluate the support for this cluster.
@@ -90,14 +90,14 @@ Unlink rate heterogeneity model across codon positions:
 Unlink base frequencies across codon positions:
 : Selecting the `Unlink base frequencies across codon positions` will specify that BEAST should estimate a separate set of base frequencies for each codon position.
 
- For this tutorial, select the 3 partitions: codon positions 1, 2 & 3 option so that each codon position has its own HKY substitution model, rate of evolution, Estimated base frequencies, and Gamma-distributed rate variation among sites:
+For this tutorial, select the 3 partitions: codon positions 1, 2 & 3 option so that each codon position has its own HKY substitution model, rate of evolution, Estimated base frequencies, and Gamma-distributed rate variation among sites:
 
 {% include image.html prefix=root_url file="image6.png" %}
 
 ### Setting the clock model
 
 Click on the Clocks tab at the top of the main window. We will perform our initial run using the (default) strict molecular clock model:
- 
+
 {% include image.html prefix=root_url file="image7.png" %}
 
 ### Setting the starting tree and tree prior
@@ -114,7 +114,7 @@ Review the prior settings under the `Priors` panel:
 
 <!-- Some of the default marginal priors may be improper (e.g. indicated in yellow); priors that would not have been set would appear in red. It’s important to provide proper priors for all the parameters being estimated as improper priors lead to improper posteriors and improper marginal likelihoods (when performing Bayesian model selection, see further in this tutorial). To change the prior on the relative rates (allMus) for example, click on the corresponding prior and a prior selection window will appear. Set the prior to a gamma distribution with shape = 0.001 and scale = 1000. The graphical representation of this prior distribution indicates that most prior mass is put on small values, but the density remains sufficiently diffuse. Notice that the prior setting turns black after confirming this setting by clicking ”OK”. 
 
-Note that the default prior on the rate of evolution (clock.rate) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). If the sequences are not associated with different sampling dates (they are contemporaneous), or when the sampling time range is trivial for the evolutionary scale of the taxa, the substitution rate can be fixed to a value based on another source, or better, a prior distribution can be specified to also incorporate the uncertainty of this ‘external’ rate. Fixing the rate to 1.0 will result in the ages of the nodes of the tree being estimated in units of substitutions per site (i.e. the normal units of branch lengths in popular packages such as MrBayes). Note that when selecting to fix the rate to a value, the transition kernel(s) on this parameter (‘Operators’ panel, see next section) will be  automatically unselected.  -->
+Note that the default prior on the rate of evolution (clock.rate) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). If the sequences are not associated with different sampling dates (they are contemporaneous), or when the sampling time range is trivial for the evolutionary scale of the taxa, the substitution rate can be fixed to a value based on another source, or better, a prior distribution can be specified to also incorporate the uncertainty of this ‘external’ rate. Fixing the rate to 1.0 will result in the ages of the nodes of the tree being estimated in units of substitutions per site (i.e. the normal units of branch lengths in popular packages such as MrBayes). Note that when selecting to fix the rate to a value, the transition kernel(s) on this parameter (‘Operators’ panel, see next section) will be  automatically unselected. -->
 
 ### Setting up the operators
 

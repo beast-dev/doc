@@ -11,7 +11,7 @@ folder: beast
 
 ## Download and install BEAST
 
-The first step is to download BEAST and install it. [We provide instructions for doing this on the common operating systems](installing). We also recommend installing two additional software packages that are a critical part of BEAST analyses. These are [Tracer](tracer), for analysing the output of BEAST, and [FigTree](figtree) for viewing the resulting trees and getting them ready for publication.
+The first step is to download BEAST and install it. [We provide instructions for doing this on the common operating systems](installing). We also recommend installing two additional software packages that are a critical part of BEAST analyses. These are [Tracer](tracer), for analysing the output of BEAST, and [PearTree](peartree) for viewing the resulting trees and getting them ready for publication.
 
 ## Introductory tutorials
 

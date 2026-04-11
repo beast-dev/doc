@@ -64,7 +64,7 @@ Let’s define an “Americas” taxon set by pressing the small “plus” butt
 
 {% include image.html prefix=root_url file="image2.png" width="50%" %}<br />
 
- This will create a new taxon set. 
+This will create a new taxon set. 
 Rename it by double-clicking on the entry that appears (it will initially be called `untitled1`).
 Call it `Americas`.
 Do not enforce monophyly using the `monophyletic?` option because we will evaluate the support for this cluster.
@@ -105,14 +105,14 @@ The next thing to do is to click on the `Sites` tab at the top of the main windo
 
 {% include modules/substitution_models.md %}
 
- For this tutorial, select the `3 partitions: positions 1, 2, 3` option so that each codon position has its own HKY substitution model, rate of evolution, Estimated base frequencies, and Gamma-distributed rate variation among sites (equal weights):
+For this tutorial, select the `3 partitions: positions 1, 2, 3` option so that each codon position has its own HKY substitution model, rate of evolution, Estimated base frequencies, and Gamma-distributed rate variation among sites (equal weights):
 
 {% include image.html prefix=root_url file="image6.png" %}
 
 ### Setting the clock model
 
 Click on the `Clocks` tab at the top of the main window. We will perform our initial run using the (default) strict molecular clock model:
- 
+
 {% include image.html prefix=root_url file="image7.png" %}
 
 ### Setting the starting tree and tree prior
@@ -128,7 +128,7 @@ Review the prior settings under the `Priors` panel:
 {% include image.html prefix=root_url file="image9.png" %}
 
 In this case, all priors on continuous parameters are proper priors (priors that integrate to 1).
-Note that the default prior on the rate of evolution (clock.rate) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). If the sequences are not associated with different sampling dates (they are contemporaneous), or when the sampling time range is trivial for the evolutionary scale of the taxa, the substitution rate can be fixed to a value based on another source, or better, a prior distribution can be specified to also incorporate the uncertainty of this ‘external’ rate. Fixing the rate to 1.0 will result in the ages of the nodes of the tree being estimated in units of substitutions per site (i.e. the normal units of branch lengths in popular packages such as MrBayes). Note that when selecting to fix the rate to a value, the transition kernel(s) on this parameter (`Operators` panel, see next section) will be  automatically unselected. 
+Note that the default prior on the rate of evolution (clock.rate) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). If the sequences are not associated with different sampling dates (they are contemporaneous), or when the sampling time range is trivial for the evolutionary scale of the taxa, the substitution rate can be fixed to a value based on another source, or better, a prior distribution can be specified to also incorporate the uncertainty of this ‘external’ rate. Fixing the rate to 1.0 will result in the ages of the nodes of the tree being estimated in units of substitutions per site (i.e. the normal units of branch lengths in popular packages such as MrBayes). Note that when selecting to fix the rate to a value, the transition kernel(s) on this parameter (`Operators` panel, see next section) will be  automatically unselected.
 
 ### Setting up the operators
 

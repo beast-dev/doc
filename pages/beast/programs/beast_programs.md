@@ -48,12 +48,12 @@ Click on the icons for more details.
 {% include image.html width="100%" indent="10%" file="icons/tracer-icon.png" url="tracer" caption="<b>Tracer</b> | This is a graphical program for exploring the output of BEAST, diagnosing problems, and summarizing the results." %}
         </div>
         <div style="width: 50%; display: table-cell;">
-{% include image.html width="100%" indent="10%" file="icons/figtree-icon.png" url="figtree" caption="<b>FigTree</b> | This is a graphical program for viewing trees, displaying summary information from TreeAnnotator and generating publication-ready figures." %}
+{% include image.html width="100%" indent="10%" file="icons/peartree-icon.png" url="peartree" caption="<b>PearTree</b> | A browser-based phylogenetic tree viewer and the successor to FigTree. Runs directly in the browser with no installation, and is also available as a desktop app." %}
         </div>
     </div>
     <div style="display: table-row">
         <div style="width: 50%; display: table-cell;">
-{% include image.html width="100%" indent="10%" file="icons/peartree-icon.png" url="peartree" caption="<b>PearTree</b> | A browser-based phylogenetic tree viewer and the successor to FigTree. Runs directly in the browser with no installation, and is also available as a desktop app." %}
+{% include image.html width="100%" indent="10%" file="icons/figtree-icon.png" url="figtree" caption="<b>FigTree</b> | This is a graphical program for viewing trees, displaying summary information from TreeAnnotator and generating publication-ready figures. <b>It has been superseded by PearTree and is no longer being developed.</b>" %}
         </div>
     </div>
 </div>

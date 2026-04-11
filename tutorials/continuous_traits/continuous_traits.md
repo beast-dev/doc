@@ -104,7 +104,7 @@ Then generate the XML file and load it into BEAST to run:
 
 {% include image.html prefix="tutorials/continuous_traits/" file="image8.png" %}
 
-To analyse the results, the usual combination of Tracer and TreeAnnotator/FigTree can be used. Firstly load the log file into Tracer:
+To analyse the results, the usual combination of Tracer and TreeAnnotator/PearTree can be used. Firstly load the log file into Tracer:
 
 {% include image.html prefix="tutorials/continuous_traits/" file="image9.png" %}
 
@@ -114,7 +114,7 @@ Selecting all the precisions (i.e., col11, col22 etc.) we can see how much varia
 Looking through all the co-precisions it is clear there is a strong negative value for trait 4 and 5 (beakD and gonysW).
 This is corresponds to a strong positive correlation (the variance/covariance matrix is the inverse of the precision matrix).
 
-You can also construct a summary MCC tree using the TreeAnnotator tool and then visualise individual dimensions of the traits using FigTree (i.e., by colouring the branches). We currently don't have any multivariate visualisation tools for these analyses but we hope to provide some in the future.
+You can also construct a summary MCC tree using the TreeAnnotator tool and then visualise individual dimensions of the traits using [PearTree](peartree) (i.e., by colouring the branches). We currently don't have any multivariate visualisation tools for these analyses but we hope to provide some in the future.
 
 {% include links.html %}
 

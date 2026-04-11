@@ -21,7 +21,7 @@ To undertake this tutorial, you will need to download three software packages in
 
 {% include tracer_callout.md %}
 
-{% include figtree_callout.md %}
+{% include peartree_callout.md %}
 
 
 ## Conducting the tip-state-swap discrete phylogeographic analysis
