@@ -122,6 +122,9 @@ tracer_url: "https://github.com/beast-dev/tracer/"
 figtree_version: "1.4.4"
 figtree_url: "https://github.com/rambaut/figtree/"
 
+peartree_version: "0.3.x"
+peartree_url: "https://github.com/artic-network/peartree/"
+
 beagle_version: "3.1.1"
 beagle_url: "https://github.com/beagle-dev/beagle-lib"
 

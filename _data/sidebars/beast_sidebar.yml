@@ -54,6 +54,10 @@ entries:
       url: /figtree
       output: web, pdf
 
+    - title: PearTree
+      url: /peartree
+      output: web, pdf
+
     - title: TempEst
       url: /tempest
       output: web, pdf
@@ -74,6 +78,10 @@ entries:
       url: /beastgen
       output: web, pdf
 
+    - title: Older and unsupported programs
+      url: /older_programs
+      output: web, pdf
+
   - title: Tutorials
     output: web, pdf
     folderitems:
@@ -87,6 +95,10 @@ entries:
 
     - title: Rates and Dates
       url: /rates_and_dates
+      output: web, pdf
+
+    - title: Visualizing Trees using PearTree
+      url: /peartree_tutorial
       output: web, pdf
 
     - title: Temporal Signal using TempEst

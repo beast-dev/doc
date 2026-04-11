@@ -32,6 +32,12 @@ layout: default
 
 <div class="post-content">
 
+   {% if page.logo %}
+    <div class="logo" style="text-align: center; margin-bottom: 1em;">
+      <img src="{{page.logo}}" alt="{{page.title}} logo" style="max-height: 120px;" />
+    </div>
+   {% endif %}
+
    {% if page.summary %}
     <div class="summary">{{page.summary}}</div>
    {% endif %}

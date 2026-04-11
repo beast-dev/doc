@@ -51,6 +51,11 @@ Click on the icons for more details.
 {% include image.html width="100%" indent="10%" file="icons/figtree-icon.png" url="figtree" caption="<b>FigTree</b> | This is a graphical program for viewing trees, displaying summary information from TreeAnnotator and generating publication-ready figures." %}
         </div>
     </div>
+    <div style="display: table-row">
+        <div style="width: 50%; display: table-cell;">
+{% include image.html width="100%" indent="10%" file="icons/peartree-icon.png" url="peartree" caption="<b>PearTree</b> | A browser-based phylogenetic tree viewer and the successor to FigTree. Runs directly in the browser with no installation, and is also available as a desktop app." %}
+        </div>
+    </div>
 </div>
 
 ### These programs that will be useful for specific types of data and analysis.
