@@ -50,20 +50,12 @@ entries:
       url: /tracer
       output: web, pdf
 
-    - title: FigTree
-      url: /figtree
-      output: web, pdf
-
     - title: PearTree
       url: /peartree
       output: web, pdf
 
     - title: TempEst
       url: /tempest
-      output: web, pdf
-
-    - title: SPREAD4
-      url: /spread4
       output: web, pdf
 
     - title: spread.gl
@@ -80,6 +72,14 @@ entries:
 
     - title: Older and unsupported software
       url: /older_software
+      output: web, pdf
+
+    - title: FigTree
+      url: /figtree
+      output: web, pdf
+
+    - title: SPREAD4
+      url: /spread4
       output: web, pdf
 
   - title: Tutorials
