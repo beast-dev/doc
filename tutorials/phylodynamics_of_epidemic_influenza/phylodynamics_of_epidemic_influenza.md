@@ -181,7 +181,7 @@ Once you have selected all the options, above, press the `Run` button. TreeAnnot
 
 ## Viewing the annotated tree
 
-{% include peartree-callout.md  %}
+{% include peartree_callout.md  %}
 
 Run PearTree now and select the `Open...` command from the `File` menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the PearTree window. On the left hand side of the window are the options and settings which control how the tree is displayed. In this case we want to display the posterior probabilities of each of the clades present in the tree and estimates of the age of each node. In order to do this you need to change some of the settings.
 
