@@ -161,7 +161,7 @@ entries:
       url: /analysing_beast_output
       output: web, pdf
 
-    - title: Convergence diagnostics in Tracer
+    - title: Convergence diagnostics in (Tree)Tracer
       url: /tracer_convergence
       output: web, pdf
 
