@@ -1,9 +1,9 @@
 ---
-title: Identifying convergence problems using Tracer
+title: Identifying convergence problems using (Tree)Tracer
 keywords: tracer, tutorial
-last_updated: April 12, 2018
+last_updated: May 11, 2026
 tags: [how-to]
-summary: "Convergence diagnostics using Tracer"
+summary: "Convergence diagnostics using (Tree)Tracer"
 sidebar: beast_sidebar
 permalink: tracer_convergence.html
 folder: beast
@@ -13,12 +13,6 @@ folder: beast
 
 In a [previous tutorial](analysing_beast_output), analysing the output of a standard BEAST analysis using Tracer 1.7 was discussed.
 Here, this tutorial is extended towards analysing multiple independent runs (using the same combination of models), using different starting seeds (which leads to different random draws for all parameters involved to act as the initial estimates), in Tracer 1.7.
-
-Note also that various tree metrics are available through BEAST, in a stand-alone program called TopologyTracer, which takes a .trees file and computes tree metrics for each tree.
-TopologyTracer will generate an output .log file, which can then be loaded into Tracer 1.7.
-
-AWTY (Nylander et al., 2007) and its R counterpart RWTY (Warren et al., 2017) provide visual aids to diagnose phylogenetic MCMC convergence, focusing on convergence of the tree topology by comparing different replicates of an analysis.
-As such, these tools are considered to be complementary to Tracer's functionality.
 
 
 ### Data set information
@@ -30,7 +24,7 @@ Comparison of marginal distributions and/or traces from multiple replicate chain
 
 ### Loading output files into Tracer
 
-We start by loading the output .log files of both replicates of the same BEAST XML into Tracer 1.7.
+We start by loading the output **.log** files of both replicates of the same BEAST XML into Tracer 1.7.
 To load the log file(s), select the Open option from the File menu or drag and drop the log file into the Tracer window.
 The files will load and you will be presented with a window similar to the one below.
 
@@ -85,12 +79,25 @@ For example, a transition kernel that occasionally proposes a large jump across 
 In order to identify for which parameters this would be useful, careful inspection of the different parameter traces may be useful (to check which parameters clearly differ in their posterior estimates or if one or more parameters differ between replicate analyses).
 
 
-### Citing Tracer
+## Identifying convergence problems using TreeTracer
 
-The recommended citation for this program is:
+### Data set information
+
+### Loading output files into TreeTracer
+
+We start by loading the output **.trees** files of both replicates of the same BEAST XML into TreeTracer.
+
+
+
+## Citing Tracer and TreeTracer
+
+The recommended citation for Tracer is:
 
 Rambaut A, Drummond AJ, Xie D, Baele G and Suchard MA (2018) Posterior summarisation in Bayesian phylogenetics using Tracer 1.7. *Systematic Biology*. **syy032**.
 [doi:10.1093/sysbio/syy032](https://doi.org/10.1093/sysbio/syy032)
+
+The recommended citation for TreeTracer is:
+
 
 ## References
 

@@ -1,9 +1,9 @@
 ---
-title: Analysing BEAST output using Tracer
+title: Analysing BEAST output using (Tree)Tracer
 keywords: tracer, how-to, tutorial
-last_updated: February 17, 2018
+last_updated: May 11, 2026
 tags: [how-to]
-summary: "Analysing BEAST output files using Tracer"
+summary: "Analysing BEAST output files using (Tree)Tracer"
 sidebar: beast_sidebar
 permalink: analysing_beast_output.html
 folder: beast
@@ -199,6 +199,10 @@ RABV has successfully established itself in North American bat species, with its
 Following a rapid decline at the end of last century, we observe a recent sharp increase in size.
 
 {% include image.html file="tracer16.png" prefix="/tutorials/howtos/" %}<br />
+
+
+## Analysing BEAST output using TreeTracer
+
 
 
 ## References
