@@ -243,7 +243,8 @@ At this point you can summarize the sampled trees using the [TreeAnnotator](tree
 
 SPREAD4, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics version 4, is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SPREAD 4 allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome.
 
-Some of the functions that relate to the discrete phylogeographic analysis include visualizing location-annotated MCC trees and identification of well-supported rates using a Bayes Factor test. The latter option takes as input the rate matrix file (<samp>batRABV.state.rates.log</samp> for location states and <samp>batRABV.host.rates.log</samp> for host states) generated under the analysis using the Bayesian Stochastic Search Variable Selection (BSSVS) procedure. This test aims at identifying frequently invoked rates to explain the diffusion process and, in case of locations, visualize them on a circle and on a globe or a map, which needs to be provided to SPREAD4. 
+<!--NT: removing this while Sam helps with BF issue in spread.gl
+Some of the functions that relate to the discrete phylogeographic analysis include visualizing location-annotated MCC trees and identification of well-supported rates using a Bayes Factor test. The latter option takes as input the rate matrix file (<samp>batRABV.state.rates.log</samp> for location states and <samp>batRABV.host.rates.log</samp> for host states) generated under the analysis using the Bayesian Stochastic Search Variable Selection (BSSVS) procedure. This test aims at identifying frequently invoked rates to explain the diffusion process and, in case of locations, visualize them on a circle and on a globe or a map, which needs to be provided to SPREAD4. -->
 
 <!--{% include callout.html content='A detailed tutorial for this particular step <a href="https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourTwo">is available here</a>. We have also provide a PDF version of the entire SpreaD3 tutorial <a href="files/SpreaD3Tutorial.pdf">for download</a>.' %}-->
 
@@ -253,30 +254,31 @@ Some of the functions that relate to the discrete phylogeographic analysis inclu
 </div>
 -->
 
-To get started with SPREAD 4,follow the instructions [here](https://beast.community/spread4).
+To get started with SPREAD 4,follow the instructions [here](https://beast.community/spreadgl.html).
 
-To visualize an MCC tree, click on `Run new analysis` and select the `Discrete MCC tree` tab. Load the MCC tree and coordinates in the '<samp>locationStates.txt</samp>’ file, which should look like this:
+To visualize an MCC tree, load the MCC tree, the most recent sampling date (2005.5) to 2005-07-02, and coordinates in the '<samp>locationStates_SREADGL.txt</samp>’ file, which should look like this:
 
 ```
-	Arizona		33.7712	-111.3877
-	California	36.17	-119.7462
-	Georgia		32.9866	-83.6487
-	Iowa		42.0046	-93.214
-	Michigan	43.3504	-84.5603
-	NewJersey	40.314  -74.5089
-	Virginia	37.43157    -78.656895
-	Washington	47.3917	-121.5708
-	Florida		27.8333	-81.717
-	Tennessee	35.7449	-86.7489
-	Texas		31.106	-97.6475
-	Idaho		44.2394	-114.5103
-	Indiana		39.8647	-86.2604
-	Mississippi	32.7673	-89.6812
+location,latitude,longitude 
+Arizona,33.7712,-111.3877
+California,36.17,-119.7462
+Georgia,32.9866,-83.6487
+Iowa,42.0046,-93.214
+Michigan,43.3504,-84.5603
+NewJersey,40.314,-74.5089
+Virginia,37.43157,-78.656895
+Washington,47.3917,-121.5708
+Florida,27.8333,-81.717
+Tennessee,35.7449,-86.7489
+Texas,31.106,-97.6475
+Idaho,44.2394,-114.5103
+Indiana,39.8647,-86.2604
+Mississippi,32.7673,-89.6812
 ```
 
-The coordinates can be downloaded [here]({{ root_url }}files/locationStates.txt).
+<!-- The coordinates can be downloaded [here]({{ root_url }}files/locationStates.txt).-->
 
-This will load the locations and their lat/long coordinates. Set the most recent sampling date (2005.5) to 2006/06/30, and click `Start analysis`.
+<!--This will load the locations and their lat/long coordinates. Set the most recent sampling date (2005.5) to 2005-07-02, and click `Start analysis`.
 
 {% include image.html file="spread4_1_setupMCC.png" prefix=root_url %}
 
@@ -300,15 +302,15 @@ There is an option to load a custom map of the United States in GeoJSON format. 
 An example visualisation can be found below. Note that the visual aspects of the lines representing the rates can be modified and that the lines can also be filtered by a cut-off (under `Filters`  and `Attributes`).
 
 {% include image.html file="spread4_6_mapBF.png" prefix=root_url %}
-
+-->
 
 <!--NT: spread4 does not allow for non-geographical mapping
 We can obtain a similar summary for the host transition rates. Since these cannot be plotted on a map, we will organise them on a circle. Load the file containing the host rates and rate indicators (<samp>batRABV.host.rates.log</samp>). In setting up the locations, select `Generate` and enter the number of unique host states ('17' in this case). If you want the names of the locations to be drawn rather than location1, location2, …, enter the names of each of the 17 locations (Ap, Ef, Lb, Lbl, Lc, Li, Ln, Ls, Lx, Ma, Mc, Ml, My, Nh, Ph, Ps, Tb). Click done when all the information has been entered and click on output under `Generate Output` and select a file name for the JSON file to be written. Finally, go to the `Rendering` panel in SPREAD4, load the JSON file you just saved, and click `Render to D3`.
 
 {% include image.html file="24_spread3hostRates.png" prefix=root_url %}
--->
-{% include question.html content='Which rates receive the highest Bayes factor support?' %}
 
+{% include question.html content='Which rates receive the highest Bayes factor support?' %}
+-->
 
 ## EXERCISE 2: Identifying predictors for the host switching process
 
