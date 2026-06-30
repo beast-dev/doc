@@ -26,7 +26,7 @@ To undertake this tutorial, you will need to download three software packages in
 {% include figtree_callout.md %}
 
 <!-- {% include spread3_callout.md %} -->
-{% include spread4_callout.md %}
+{% include spreadgl_callout.md %}
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
 <a href="{{ root_url }}files/continuousTutorialFiles.zip"> can be downloaded from here</a>. 
@@ -278,8 +278,19 @@ To get a good sense of what a completed analysis looks like in Tracer, load the 
 Construct a maximum clade credibility (MCC) tree in TreeAnnotator (check the required burn-in first) and load the result into FigTree.
 Set the time axis and play around with the node order, node labels and branch labels to obtain a visualisation that best showcases the important aspects of the MCC tree.
 
-### Run SPREAD 4
+### Visualizing the MCC tree <!--and calculating Bayes factor support for rates--> using SpreadGL
+SpreadGL, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics built on kepler.gl, is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreadGL allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome.
 
+To get started with SpreadGL,follow the instructions [here](https://beast.community/spreadgl.html).
+
+To visualize an MCC tree, load the MCC tree and respective sample dates in the '<samp>YFV_dates_SREADGL.txt</samp>’ file.
+
+An example visualisation can be found below. Note that the visual aspects of the lines representing the branches and transitions can be modified. 
+
+{% include image.html file="spreadgl_yfv.png" prefix=root_url %}
+
+
+<!--NT: updating for spread.gl
 We will first summarise an MCC tree and then summarise the information in the entire tree distribution.
 
 * Select the `Continuous MCC tree` tab, load your MCC tree file
@@ -296,7 +307,7 @@ We will first summarise an MCC tree and then summarise the information in the en
 This visualises the MCC tree an the uncertainty for its node locations:
 
 {% include image.html file="YFV_screenshot_sprea4_2.png" prefix=root_url caption="" %}
-
+-->
 ## Conclusion and Resources
 
 This tutorial only scratches the surface of the analyses that are possible to undertake using BEAST. It has hopefully provided a relatively gentle introduction to the fundamental steps that will be common to all BEAST analyses and provide a basis for more challenging investigations. BEAST is an ongoing development project with new models and techniques being added on a regular basis. The BEAST website provides details of the mailing list that is used to announce new features and to discuss the use of the package. The website also contains a list of tutorials and recipes to answer particular evolutionary questions using BEAST as well as a description of the XML input format, common questions and error messages.
