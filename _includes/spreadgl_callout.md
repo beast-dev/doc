@@ -2,12 +2,15 @@
     <div style="width: 100%; display: table;">
         <div style="display: table-row">
             <div style="width: 1%; display: table-cell; text-align: right">
-                <a href="spread4">
-                    <img src="/images/icons/spreadgl2_icon.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
+                <!-- 1. Updated the link wrapper so clicking the icon goes to SpreadGL -->
+                <a href="https://hongsaml.github.io/spreadgl2/">
+                    <!-- 2. Lowered max-height from 64px to 40px to shrink the icon -->
+                    <img src="/images/icons/spreadgl2_icon.png" style="max-height: 40px; margin: 0px 10px 0px 10px;" />
                 </a>
             </div>
             <div style="width: 70%; display: table-cell; vertical-align: middle;">
-                <div style="vertical-align: middle;">SpreadGL - this is an application for the visualization of phylogeographic analyses performed with BEAST. It is available for use at [hongsaml.github.io/spreadgl2](https://hongsaml.github.io/spreadgl2/).</div>
+                <!-- 3. Swapped the Markdown link for a proper HTML link -->
+                <div style="vertical-align: middle;">SpreadGL - this is an application for the visualization of phylogeographic analyses performed with BEAST. It is available for use at <a href="https://hongsaml.github.io/spreadgl2/">hongsaml.github.io/spreadgl2</a>.</div>
             </div>
         </div>
     </div>
