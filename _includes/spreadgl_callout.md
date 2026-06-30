@@ -6,8 +6,8 @@
                     <img src="/images/icons/spreadgl2_icon.png" style="max-height: 64px; margin: 0px 10px 0px 10px;" />
                 </a>
             </div>
-            <div style="width: 30%; display: table-cell; vertical-align: middle;">
-                <div style="vertical-align: middle;">SpreadGL - this is an application for the visualization of phylogeographic analyses performed with BEAST. It is available for use at <a href="{{ site.spread4_url }}">{{ site.spread4_url }}</a>.</div>
+            <div style="width: 20%; display: table-cell; vertical-align: middle;">
+                <div style="vertical-align: middle;">SpreadGL - this is an application for the visualization of phylogeographic analyses performed with BEAST. It is available for use at [hongsaml.github.io/spreadgl2](https://hongsaml.github.io/spreadgl2/)}</a>.</div>
             </div>
         </div>
     </div>
