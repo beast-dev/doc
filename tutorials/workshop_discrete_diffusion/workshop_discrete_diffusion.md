@@ -298,11 +298,14 @@ The analysis will first appear in the left-side tab `Queued` and then in the `Co
 There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files --- <samp>gz_2010_us_040_00_500k.json</samp>. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/8775fac9-4cc5-4e33-98e6-d9cad676891e.json&maps=RU,MX,US,CA) in a new browser tab/window. Note that a comma-separated value file with a ‘.csv’ extension containing the actual Bayes Factor values can be downloaded by clicking `Export to CSV`.
 
 {% include image.html file="spread4_5_getLink_getCSV.png" prefix=root_url %}
-
-An example visualisation can be found below. Note that the visual aspects of the lines representing the rates can be modified and that the lines can also be filtered by a cut-off (under `Filters`  and `Attributes`).
-
-{% include image.html file="spread4_6_mapBF.png" prefix=root_url %}
 -->
+An example visualisation can be found below. Note that the visual aspects of the lines representing the branches and transitions can be modified. 
+
+{% include image.html file="spreadgl_batrabies.png" prefix=root_url %}
+
+<!-- and that the lines can also be filtered by a cut-off (under `Filters`  and `Attributes`).
+
+
 
 <!--NT: spread4 does not allow for non-geographical mapping
 We can obtain a similar summary for the host transition rates. Since these cannot be plotted on a map, we will organise them on a circle. Load the file containing the host rates and rate indicators (<samp>batRABV.host.rates.log</samp>). In setting up the locations, select `Generate` and enter the number of unique host states ('17' in this case). If you want the names of the locations to be drawn rather than location1, location2, …, enter the names of each of the 17 locations (Ap, Ef, Lb, Lbl, Lc, Li, Ln, Ls, Lx, Ma, Mc, Ml, My, Nh, Ph, Ps, Tb). Click done when all the information has been entered and click on output under `Generate Output` and select a file name for the JSON file to be written. Finally, go to the `Rendering` panel in SPREAD4, load the JSON file you just saved, and click `Render to D3`.
