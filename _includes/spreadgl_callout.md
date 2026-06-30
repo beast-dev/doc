@@ -4,8 +4,8 @@
             <div style="width: 1%; display: table-cell; text-align: right">
                 <!-- 1. Updated the link wrapper so clicking the icon goes to SpreadGL -->
                 <a href="https://hongsaml.github.io/spreadgl2/">
-                    <!-- 2. Lowered max-height from 64px to 40px to shrink the icon -->
-                    <img src="/images/icons/spreadgl2_icon.png" style="max-height: 40px; margin: 0px 10px 0px 10px;" />
+                    <!-- 2. Lowered max-height from 64px to 20px to shrink the icon -->
+                    <img src="/images/icons/spreadgl2_icon.png" style="max-height: 20px; margin: 0px 10px 0px 10px;" />
                 </a>
             </div>
             <div style="width: 70%; display: table-cell; vertical-align: middle;">
