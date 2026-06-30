@@ -28,7 +28,7 @@ To undertake this tutorial, you will need to download three software packages in
 {% include figtree_callout.md %}
 
 <!-- {% include spread3_callout.md %} -->
-{% include spread4_callout.md %}
+{% include spreadgl_callout.md %}
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
 <a href="{{ root_url }}files/discreteTutorialFiles.zip"> can be downloaded from here</a>. 
@@ -239,9 +239,8 @@ At this point you can summarize the sampled trees using the [TreeAnnotator](tree
  
 {% include callout.html content='A detailed description of how to do this was introduced in the earlier <a href="workshop_rates_and_dates#analysing-the-beast-output">\'Estimating rates and dates from time-stamped sequences\' tutorial</a>.' %}
 
-### Visualizing MCC trees and calculating Bayes factor support for rates using SPREAD 4
-
-SPREAD4, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics version 4, is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SPREAD 4 allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome.
+### Visualizing the MCC tree <!--and calculating Bayes factor support for rates--> using SpreadGL
+SpreadGL, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics built on kepler.gl, is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreadGL allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome.
 
 <!--NT: removing this while Sam helps with BF issue in spread.gl
 Some of the functions that relate to the discrete phylogeographic analysis include visualizing location-annotated MCC trees and identification of well-supported rates using a Bayes Factor test. The latter option takes as input the rate matrix file (<samp>batRABV.state.rates.log</samp> for location states and <samp>batRABV.host.rates.log</samp> for host states) generated under the analysis using the Bayesian Stochastic Search Variable Selection (BSSVS) procedure. This test aims at identifying frequently invoked rates to explain the diffusion process and, in case of locations, visualize them on a circle and on a globe or a map, which needs to be provided to SPREAD4. -->
@@ -254,7 +253,7 @@ Some of the functions that relate to the discrete phylogeographic analysis inclu
 </div>
 -->
 
-To get started with SPREAD 4,follow the instructions [here](https://beast.community/spreadgl.html).
+To get started with SpreadGL,follow the instructions [here](https://beast.community/spreadgl.html).
 
 To visualize an MCC tree, load the MCC tree, the most recent sampling date (2005.5) to 2005-07-02, and coordinates in the '<samp>locationStates_SREADGL.txt</samp>’ file, which should look like this:
 
