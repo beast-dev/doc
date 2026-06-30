@@ -14,6 +14,9 @@ folder: beast/programs
 
 spread.gl (Spatial Phylogenetic Reconstruction of Evolutionary Dynamics built on kepler.gl) is a major update to [SPREAD](spread) and [SpreaD3](spread3) and constitutes a package for analysis and visualisation of pathogen pylodynamic reconstructions.
 
+### Using spread.gl online
+
+Follow the prompts for data inputs [here](https://hongsaml.github.io/spreadgl2/).
 
 ### Downloading spread.gl
 
