@@ -181,7 +181,7 @@ This shows the exponential growth line for the median growth rate and the 95% HP
 
 We have seen how we can diagnose our MCMC run using Tracer and produce estimates of the marginal posterior distributions of parameters of our model. Next we can use the [TreeAnnotator](treeannotator) tool that is provided as part of the BEAST package to summarize the information contained within our sampled trees.
 
-{% include icon-callout.html file='icons/utility-icon.png' content='Run TreeAnnotator by double clicking on the icon.' %}
+{% include icon-callout.html file='icons/utility-icon.png' content='Run TreeAnnotator by double-clicking on the icon.' %}
 
 TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree.
 
@@ -191,7 +191,7 @@ Use the `Choose File...` button to select an input trees file, <samp>H1N1pdm_200
  
 {% include tip.html content='In most of the BEAST package, if there is a button to select a file, you can also simply drag the file into this area.' %}
 
-Select a name for the output tree file (e.g., <samp>H1N1pdm_2009.MCC.tre</samp>).
+Select a name for the output tree file (e.g., <samp>H1N1pdm_2009.HIPSTR.tre</samp>).
 
 Once you have selected all the options, above, press the `Run` button. TreeAnnotator will analyse the input tree file and write the summary tree to the file you specified. This tree is in standard NEXUS tree file format so may be loaded into any tree drawing package that supports this. However, it also contains additional information that can only be displayed using the [FigTree](figtree) program.
 
