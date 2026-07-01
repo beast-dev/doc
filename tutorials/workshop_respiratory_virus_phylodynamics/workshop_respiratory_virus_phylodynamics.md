@@ -82,7 +82,11 @@ To estimate the epidemic growth rate, we will change this demographic model to a
 
 {% include image.html file="image8.png" prefix=root_url %}
 
-Note that the default parameterisation of the exponential growth coalescent model uses `Growth Rate`, but we can also opt for a parameterisation in terms of a `Doubling time`, which has an intuitive interpretation. We can also explore this parameterisation as an alternative later in this exercise (cfr. below).
+Note that the default parameterisation of the exponential growth coalescent model uses `Growth Rate`, but we can also opt for a parameterisation in terms of a `Doubling time`, which has an intuitive interpretation. We can also explore this parameterisation as an alternative later in this exercise (cfr. below). In either case, we can log the alternative statistic by checking the box when setting up this parameterization. 
+
+{% include callout.html type="primary" content="Interestingly, it has been shown that the basic reproductive ratio (\\( R_{0} \\)) is related to the growth rate --- see [this page for details](/estimating_R0.html). However, the basic reproductive number is dependent not just on an estimate of (\\( r \\)), but also a good estimate of the generation time distribution, which reflects the time between successive infections in a chain of transmission. If we assume a generation time distribution that follows the gamma distribution, then $$(R_0 = (1 +  r / b) ^a)$$, where (\\( a \\))  and (\\( b \\)) are the parameters of the gamma distribution (and $$a = \mu^2 / \sigma^2$$, $$b = \mu / \sigma^2)$$. However, because infection times are not always known, the serial interval can be a reasonable proxy for generation time." %} 
+
+If the serial interval is known, we can therefore also calculate the R0 from the growth rate. Following Volz et al. (2021), we can use  $$\mu = 6.44$$ days and $$\sigma = 4.25$$ days. 
 
 #### Setting up the priors
 
@@ -90,9 +94,9 @@ Now switch to the `Priors` tab. This panel has a table showing every parameter o
 
 {% include image.html file="image9.png" prefix=root_url %}
 
-In this case, the default prior for the exponential growth rate (the Laplace distribution) prefers relatively small growth rates because the of the default scale (<samp>1.0</samp>). However, on this epidemic scale, the growth rate parameter take could take on relatively large values. Therefore, we will increase the variance of this prior distribution by setting the scale to <samp>100</samp>. A useful exercise could be to examine the sensitity of the growth rate estimates to different scale values for this prior distribution (e.g. scale = 1, 10, 100).
+On this epidemic scale, the growth rate parameter take could take on relatively large values. Therefore, we will use the default scale of <samp>100</samp>. However, depending on the analysis, a stronger prior and thus smaller variance could be preferred. A useful exercise could be to examine the sensitity of the growth rate estimates to different scale values for this prior distribution (e.g. scale = 1, 10, 100).
 
-The other priors can be left at their default options.
+All the priors here can be left at their default options.
 
 #### Setting up the operators
 
@@ -142,7 +146,7 @@ If we select the tab on the right-hand-side labelled `Trace` we can view the raw
 
 {% include image.html file="image14.png" prefix=root_url %}
 
-Here it is clear that the default burn-in of 10% of the chain length is inadequate (the posterior values are still increasing over the first part of the chain). Double-click on the `Burn-In` column in the top left and edit (in the case, above, a minimum of <samp>20,000</samp> is needed). However, it is still clear that a chain length of <samp>100,000</samp> was inadequate. Looking at the ESS values (generally in the low double-digits) suggests that a much longer chain length is needed. Running much longer chains would take a considerably longer times, but we have provided the output of a run of 500 million generations that you can use for the rest of this section. 
+Here it is clear that the default burn-in of 10% of the chain length is inadequate (the posterior values are still increasing over the first part of the chain). It is still clear that a chain length of <samp>100,000</samp> was inadequate, and even increasing the burn-in will not result in a stable estimate. Looking at the ESS values (generally in the low double-digits) suggests that a much longer chain length is needed. Running much longer chains would take a considerably longer times, but we have provided the output of a run of 500 million generations that you can use for the rest of this section. 
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The log files for long SARS-CoV-2 runs (alpha and omicron BA1) <a href="{{ root_url }}files/Long_Runs_SARS-CoV-2.zip">can be downloaded here</a>.</div>
 
@@ -168,18 +172,17 @@ Select `Demographic Model: Exponential Growth (Growth Rate)` --- note, you must 
 
 This shows the exponential growth line for the median growth rate and the 95% HPD intervals for this growth as a solid area. It is on a log scale so is a straight line. You can play with the axis settings using the `Axes...` button. The dotted vertical lines represent the 95% HPD for the date of the root of the tree. 
 
-{% include callout.html type="primary" content="The exponential.growthRate (\\( r \\)) provides an estimate of the epidemic growth of the SARS-CoV-2 alpha variant in the U.K. Interestingly, it has been shown that the basic reproductive ratio (\\( R_{0} \\)) is related to the growth rate --- see [this page for details](/estimating_R0.html). However, the basic reproductive number is dependent not just on an estimate of (\\( r \\)), but also a good estimate of the generation time distribution, which reflects the time between successive infections in a chain of transmission. If we assume a generation time distribution that follows the gamma distribution, then $$(R_0 = (1 +  r / b) ^a)$$, where (\\( a \\))  and (\\( b \\))  are the parameters of the gamma distribution (and $$a = \mu^2 / \sigma^2$$, $$b = \mu / \sigma^2)$$. " %} 
+{% include callout.html type="warning" content="How does your mean estimate of $$R_{t}$$ for alpha in the U.K. compare to the estimate by Volz et al. (2021) of 1.79 (1.22-2.49) for 1 November 2020 to 16 January 2021? <br />" %} 
 
-{% include callout.html type="warning" content="Following Volz et al. (2021), if we use  $$\mu = 6.44$$ days and $$\sigma = 4.25$$ days, what would be the mean estimate of $$R_{t}$$ for alpha in the U.K.? How does this compare to the estimate by Volz et al. (2021) of 1.79 (1.22-2.49) for 1 November 2020 to 16 January 2021 <br /><br /><br />" %} 
+An alternative way of assessing viral population growth would be through the doubling time estimate. This can be obtained based on the growth rate (how would you get this?), or it can be estimated through a coalescent growth model with a doubling time parameterisation (cfr. above). 
 
-An alternative way of assessing viral population growth would be through the doubling time estimate. This can be obtained based on the growth rate (how would you get this?), or it can be estimated through a coalescent growth model model with a doubling time parameterisation (cfr. above). Similar to the growth rate analysis, a long run has been made available for the doubling time parameterisation that you can summarise in Tracer. How does the estimate compare to a doubling time estimate based on the spike gene target failure PCR method for Oregon, U.S., of 9.54 (Smith et al., 2022) for example?
+Given the current run, how does the estimate compare to a doubling time estimate based on the spike gene target failure PCR method for Oregon, U.S., of 9.54 (Smith et al., 2022) for example?
 
 In order to compare the expansion of alpha with another SARS-CoV-2 variant in the U.K., a data set encompassing 1,000 genomes for omicron BA.1 has been made available. This is a subset of the largest transmission lineage of omicron BA.1 identified in the U.K. (Tsui et al, 2023). The subset was obtained by sampling as evenly as possible over the time period between 27 November 2021 and 25 December 2021. This  time period is too short for the genome data to contain adequate temporal signal (which you can examine using TempEst). Therefore, we will fix the rate of 0.00054 substitutions per site per year, which is the posterior mean for the rate in the alpha analyses. This can be set in the `Priors`panel, by selecting `Fixed value`and entering 0.00054:
 
 {% include image.html file="image18.png" prefix=root_url %}
  
-Also for this data set, long runs have been provided both for the growth rate and doubling time parameterisation. Based on these, and a generation distribution mean of 3 and a standard deviation of 1 day (Park et al., 2023), what would be the mean estimates for $$R_t$$ and the doubling time? How do these compare to estimates of $$R_t = 2.1$$ for South Africa (Khan et al., 2022) and a doubling time of 4.28 days for Oregon, U.S. (Smith et al., 2022)?
-
+For this data set, we will use a serial interval distribution mean of 3 and standard deviation of 1 day (Park et al., 2023) to calculate $$R_0$$. Long runs have been provided for both the growth rate and doubling time parameterisations. What are the mean estimates for $$R_0$$ and the doubling time? Note that when parameterising the exponential model using the doubling time, the doubling time is in years. However, when the doubling time is calculated based on the growth rate in the analyses that parameterise with the growth rate, the doubling time is in days. How do the $$R_0$$ and doubling time values compare to estimates of $$R_t = 2.1$$ for South Africa (Khan et al., 2022) and a doubling time of 4.28 days for Oregon, U.S. (Smith et al., 2022)?
 
 ## EXERCISE 2: reconstructing H3N2 epidemic dynamics in the New York state.
 
@@ -234,7 +237,6 @@ This clearly shows the seasonal peaks but the uncertainty represented by the cre
 {% include callout.html type="warning" content="What type of dynamics does the H3N2 skyride plot suggest? Would you expect to see the similar dynamics for H3N2 sampled in a southern hemisphere location?<br /><br /><br />" %} 
 
 {% include callout.html type="warning" content="What happened in 2001?<br /><br /><br />" %} 
-
 
 ## References
 - Drummond AJ, Rambaut A (2007) BEAST: Bayesian evolutionary analysis by sampling trees. BMC Evolutionary Biology 7: 214.
