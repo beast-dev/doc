@@ -197,9 +197,9 @@ Once you have selected all the options, above, press the `Run` button. TreeAnnot
 
 ### Viewing the annotated tree
 
-{% include tip.html content='[PearTree](https://peartree.live) is modern replacement for FigTree that is specifically designed for BEAST. The application can be run directly in the browser at [https://peartree.live](https://peartree.live) or desktop applications for Mac, Windows & Linux can be [downloaded from here](https://github.com/artic-network/peartree/releases/latest.' %}
-
 {% include icon-callout.html file='icons/figtree-icon.png' content='<a href="figtree">FigTree</a> is a user-friendly, graphical program for viewing trees and the associated information provided by BEAST. Double-click on the FigTree icon to run it.' %}
+
+{% include icon-callout.html file='icons/peartree.png' content='[PearTree](https://beast.community/peartree) is modern replacement for FigTree that is specifically designed for BEAST. The application can be run directly in the browser at [https://peartree.live](https://peartree.live) or desktop applications for Mac, Windows & Linux can be [downloaded from here](https://github.com/artic-network/peartree/releases/latest.' %}
 
 Run FigTree now and select the `Open...` command from the `File` menu. Select the tree file you created using TreeAnnotator in the previous section. The tree will be displayed in the FigTree window. On the left hand side of the window are the options and settings which control how the tree is displayed. In this case we want to display the posterior probabilities of each of the clades present in the tree and estimates of the age of each node. In order to do this you need to change some of the settings.
 
