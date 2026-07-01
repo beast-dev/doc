@@ -185,7 +185,7 @@ We have seen how we can diagnose our MCMC run using Tracer and produce estimates
 
 TreeAnnotator takes a single 'target' tree and annotates it with the summarized information from the entire sample of trees. The summarized information includes the average node ages (along with the HPD intervals), the posterior support and the average rate of evolution on each branch (for relaxed clock models where this can vary). The program calculates these values for each node or clade observed in the specified 'target' tree.
 
-Use a `Burnin (as states):` of <samp>1,000,000</samp>. This is 10% of the chain and we confirmed that this was adequate in Tracer, above. Use the defaults for the rest of the options --- `Posterior probability limit: 0`, `Target tree type: Maximum clade credibility tree`, and `Node heights: Median`.
+Use a `Burnin (as states):` of <samp>1,000,000</samp>. This is 10% of the chain and we confirmed that this was adequate in Tracer, above. Use the defaults for the rest of the options --- `Posterior probability limit: 0`, `Target tree type: Highest independent posterior subtree reconstruction (HIPSTR)`, and `Node heights: Mean heights`.
 
 Use the `Choose File...` button to select an input trees file, <samp>H1N1pdm_2009.trees</samp>.
  
