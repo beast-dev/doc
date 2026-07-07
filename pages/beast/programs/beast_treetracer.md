@@ -11,9 +11,9 @@ folder: beast/programs
 
 {% include icon-callout.html file='icons/tracer-icon.png' content='Tracer is a graphical tool for visualization and diagnostics of MCMC output.' %}
 
-TreeTracer (now at version {{ site.tracer_version }}) is a software package for visualising and analysing the MCMC tree trace files generated through Bayesian phylogenetic inference. 
+TreeTracer (now at version {{ site.treetracer_version }}) is a software package for visualising and analysing the MCMC tree trace files generated through Bayesian phylogenetic inference. 
 TreeTracer computes phylogenetic distances between posterior trees to enable projections into a multi-dimensional scaling (MDS) space, enabling the visualization of the posterior tree topology distribution to assess key topological properties, including the presence of multiple topological modes, and the convergence of multiple chains to the same regions of tree space.
-TreeTracer v{{ site.tracer_version }} can read output files from [MrBayes](http://mrbayes.csit.fsu.edu/), [BEAST](https://github.com/beast-dev/beast-mcmc), [BEAST2](https://www.beast2.org/) and possibly other MCMC programs from other domains.
+TreeTracer v{{ site.treetracer_version }} can read output files from [MrBayes](http://mrbayes.csit.fsu.edu/), [BEAST](https://github.com/beast-dev/beast-mcmc), [BEAST2](https://www.beast2.org/) and possibly other MCMC programs from other domains.
 
 ### Downloading
 
