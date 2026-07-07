@@ -17,7 +17,7 @@ TreeTracer v{{ site.treetracer_version }} can read output files from [MrBayes](h
 
 ### Downloading
 
-You can download TreeTracer v{{ site.treetracer_version }} from here: [https://github.com/beast-dev/treetracer/releases](https://github.com/beast-dev/tracer/releases/latest)
+You can download TreeTracer v{{ site.treetracer_version }} from here: [https://github.com/beast-dev/treetracer/releases](https://github.com/beast-dev/treetracer/releases)
 
 ### Using TreeTracer
 
