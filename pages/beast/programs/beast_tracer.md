@@ -13,7 +13,7 @@ folder: beast/programs
 
 Tracer (now at version {{ site.tracer_version }}) is a software package for visualising and analysing the MCMC trace files generated through Bayesian phylogenetic inference. 
 Tracer provides kernel density estimation, multivariate visualisation, demographic trajectory reconstruction, conditional posterior distribution summary and more.
-Tracer v{{ site.tracer_version }} can read output files from [MrBayes](http://mrbayes.csit.fsu.edu/), [BEAST](https://github.com/beast-dev/beast-mcmc), [BEAST2](https://www.beast2.org/), [RevBayes](https://github.com/revbayes/revbayes), [Migrate](http://popgen.sc.fsu.edu/Migrate/Migrate-n.html), [LAMARC](http://evolution.genetics.washington.edu/lamarc/index.html) and possibly other MCMC programs from other domains..
+Tracer v{{ site.tracer_version }} can read output files from [MrBayes](http://mrbayes.csit.fsu.edu/), [BEAST](https://github.com/beast-dev/beast-mcmc), [BEAST2](https://www.beast2.org/), [RevBayes](https://github.com/revbayes/revbayes), [Migrate](http://popgen.sc.fsu.edu/Migrate/Migrate-n.html), [LAMARC](http://evolution.genetics.washington.edu/lamarc/index.html) and possibly other MCMC programs from other domains.
 
 ### Downloading
 

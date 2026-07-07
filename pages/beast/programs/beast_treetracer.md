@@ -11,25 +11,22 @@ folder: beast/programs
 
 {% include icon-callout.html file='icons/tracer-icon.png' content='Tracer is a graphical tool for visualization and diagnostics of MCMC output.' %}
 
-Tracer (now at version {{ site.tracer_version }}) is a software package for visualising and analysing the MCMC trace files generated through Bayesian phylogenetic inference. 
-Tracer provides kernel density estimation, multivariate visualisation, demographic trajectory reconstruction, conditional posterior distribution summary and more.
-Tracer v{{ site.tracer_version }} can read output files from [MrBayes](http://mrbayes.csit.fsu.edu/), [BEAST](https://github.com/beast-dev/beast-mcmc), [BEAST2](https://www.beast2.org/), [RevBayes](https://github.com/revbayes/revbayes), [Migrate](http://popgen.sc.fsu.edu/Migrate/Migrate-n.html), [LAMARC](http://evolution.genetics.washington.edu/lamarc/index.html) and possibly other MCMC programs from other domains..
+TreeTracer (now at version {{ site.tracer_version }}) is a software package for visualising and analysing the MCMC tree trace files generated through Bayesian phylogenetic inference. 
+TreeTracer computes phylogenetic distances between posterior trees to enable projections into a multi-dimensional scaling (MDS) space, enabling the visualization of the posterior tree topology distribution to assess key topological properties, including the presence of multiple topological modes, and the convergence of multiple chains to the same regions of tree space.
+TreeTracer v{{ site.tracer_version }} can read output files from [MrBayes](http://mrbayes.csit.fsu.edu/), [BEAST](https://github.com/beast-dev/beast-mcmc), [BEAST2](https://www.beast2.org/) and possibly other MCMC programs from other domains.
 
 ### Downloading
 
-You can download TreeTracer v{{ site.treetracer_version }} from here: [https://github.com/beast-dev/tracer/releases/latest](https://github.com/beast-dev/tracer/releases/latest)
+You can download TreeTracer v{{ site.treetracer_version }} from here: [https://github.com/beast-dev/treetracer/releases](https://github.com/beast-dev/tracer/releases/latest)
 
-### Using Tracer
+### Using TreeTracer
 
-A tutorial is available describing [how to use Tracer to analyse the output from BEAST](analysing_beast_output).
+A tutorial is available describing [how to use (Tree)Tracer to analyse the output from BEAST](analysing_beast_output).
 
-Another tutorial focuses on [how to identify convergence problems using Tracer](tracer_convergence).
+Another tutorial focuses on [how to identify convergence problems using (Tree)Tracer](tracer_convergence).
 
-### Citing Tracer
+### Citing TreeTracer
 
-The recommended citation for this program is:
-
-Rambaut A, Drummond AJ, Xie D, Baele G and Suchard MA (2018) Posterior summarisation in Bayesian phylogenetics using Tracer 1.7. *Systematic Biology*. **syy032**. 
-[doi:10.1093/sysbio/syy032](https://doi.org/10.1093/sysbio/syy032)
+The recommended citation for this program is: TBA
 
 {% include links.html %}
