@@ -9,7 +9,7 @@ toc: false
 folder: beast/programs
 ---
 
-{% include icon-callout.html file='icons/treetracer-icon.png' content='Tracer is a graphical tool for visualization and diagnostics of MCMC output.' %}
+{% include icon-callout.html file='icons/treetracer-icon.png' content='TreeTracer is a graphical tool for visualization and diagnostics of posterior tree space.' %}
 
 TreeTracer (now at version {{ site.treetracer_version }}) is a software package for visualising and analysing the MCMC tree trace files generated through Bayesian phylogenetic inference. 
 TreeTracer computes phylogenetic distances between posterior trees to enable projections into a multi-dimensional scaling (MDS) space, enabling the visualization of the posterior tree topology distribution to assess key topological properties, including the presence of multiple topological modes, and the convergence of multiple chains to the same regions of tree space.
