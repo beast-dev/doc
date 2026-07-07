@@ -50,6 +50,10 @@ entries:
       url: /tracer
       output: web, pdf
 
+    - title: TreeTracer
+      url: /treetracer
+      output: web, pdf
+
     - title: PearTree
       url: /peartree
       output: web, pdf
