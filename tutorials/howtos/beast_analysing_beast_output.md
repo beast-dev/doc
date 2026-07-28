@@ -222,14 +222,30 @@ Following a rapid decline at the end of last century, we observe a recent sharp 
 
 {% include image.html file="treetracer6.png" prefix="/tutorials/howtos/" %}<br />
 
+Note that in this tutorial we looked into convergence and mixing of a single BEAST analysis (and hence a single .trees file).
+
 
 ## References
 
+### Software packages and analysis methods
+
 Rambaut, A., Drummond, A. J., Xie, D., Baele, G., and Suchard M. A. (2018) Posterior summarization in Bayesian phylogenetics using Tracer 1.7. Syst. Biol., 67(5), 901–904.
+
+TreeTracer
+
+Brusselmans
+
+Gao
+
+Magee
+
+### Data set information
 
 Streicker, D., Turmelle, A., Vonhof, M., Kuzmin, I., McCracken, G. F., and Rupprecht, C. (2010). Host phylogeny constrains cross-species emergence and establishment of rabies virus in bats. Science, 329, 676–679.
 
 Faria, N., Suchard, M., Rambaut, A., Streicker, D., and Lemey, P. (2013). Simultaneously reconstructing viral cross-species transmission history and identifying the underlying constraint. Phil. Trans. R. Soc. London B, Biol. Sci., 368, 20120196.
+
+### Models used
 
 Lemey, P., Rambaut, A., Drummond, A., and Suchard, M. (2009). Bayesian phylogeography finds its root. PLoS Comp. Biol., 5(9), e1000520.
 
