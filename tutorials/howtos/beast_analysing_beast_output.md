@@ -13,7 +13,8 @@ redirect_from: "/analysing-beast-output"
 
 ## Analysing BEAST output using Tracer
 
-This document provides a step-by-step tutorial to analysing the output of BEAST in a GUI application called Tracer 1.7.
+The first section of this document provides a step-by-step tutorial to analysing the output of BEAST in a GUI application called Tracer 1.7.
+In a second section, a step-by-step tutorial will show the possibilities of a release candidate of TreeTracer - also a GUI application - to inspect convergence and mixing in posterior tree space.
 
 
 ### Running Tracer
@@ -33,7 +34,7 @@ java -Xmx4096m -jar tracer.jar
 
 ### Data set information
 
-For this tutorial, if you have it available, you can use the log file that you created in the [first tutorial](first_tutorial). 
+For this tutorial, if you have it available, you can use the **log** file that you created in the [first tutorial](first_tutorial). 
 
 Here, we use Tracer 1.7 to infer the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations. 
 The data set consists of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353) and comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States (Streicker et al., Science, 2010, 329, 676-679). 
@@ -45,7 +46,7 @@ We estimate RABV ancestral locations and host-jumping history using a Bayesian d
 
 ### The main Tracer panel
 
-To load the BEAST log file(s), select the Open option from the File menu or drag and drop the log file into the Tracer window.
+To load the BEAST **log** file(s), select the Open option from the File menu or drag and drop the log file into the Tracer window.
 The file will load and you will be presented with a window similar to the one below. 
 Remember that BEAST is a stochastic program so the actual numbers will not be exactly the same.
 
@@ -202,6 +203,10 @@ Following a rapid decline at the end of last century, we observe a recent sharp 
 
 
 ## Analysing BEAST output using TreeTracer
+
+### Running TreeTracer
+
+### The main TreeTracer window
 
 {% include image.html file="treetracer0.png" prefix="/tutorials/howtos/" %}<br />
 
