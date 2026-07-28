@@ -203,9 +203,24 @@ Following a rapid decline at the end of last century, we observe a recent sharp 
 
 ## Analysing BEAST output using TreeTracer
 
+{% include image.html file="treetracer0.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer1.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer2.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer3.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer4.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer5.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer6.png" prefix="/tutorials/howtos/" %}<br />
 
 
 ## References
+
+Rambaut, A., Drummond, A. J., Xie, D., Baele, G., and Suchard M. A. (2018) Posterior summarization in Bayesian phylogenetics using Tracer 1.7. Syst. Biol., 67(5), 901–904.
 
 Streicker, D., Turmelle, A., Vonhof, M., Kuzmin, I., McCracken, G. F., and Rupprecht, C. (2010). Host phylogeny constrains cross-species emergence and establishment of rabies virus in bats. Science, 329, 676–679.
 
