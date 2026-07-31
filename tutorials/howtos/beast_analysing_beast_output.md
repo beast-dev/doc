@@ -34,7 +34,7 @@ java -Xmx4096m -jar tracer.jar
 
 ### Data set information
 
-For this tutorial, if you have it available, you can use the **log** file that you created in the [first tutorial](first_tutorial). 
+For this tutorial, if you have it available, you can use the **log** file as well as the **trees** file that you created in the [first tutorial](first_tutorial). 
 
 Here, we use Tracer 1.7 to infer the spatial dispersal and cross-species dynamics of rabies virus (RABV) in North American bat populations. 
 The data set consists of 372 nucleoprotein gene sequences (nucleotide positions: 594–1353) and comprises a total of 17 bat species sampled between 1997 and 2006 across 14 states in the United States (Streicker et al., Science, 2010, 329, 676-679). 
@@ -231,34 +231,34 @@ Note that in this tutorial we looked into convergence and mixing of a single BEA
 
 Rambaut, A., Drummond, A. J., Xie, D., Baele, G., and Suchard M. A. (2018) Posterior summarization in Bayesian phylogenetics using Tracer 1.7. Syst. Biol., 67(5), 901–904.
 
-TreeTracer
+TreeTracer (Hong et al., in preparation).
 
-Brusselmans
+Gao, J., Brusselmans, M., Carvalho, L. M., Suchard, M. A., Baele, G., Matsen IV, F. A. (2026) Biological causes and impacts of rugged tree landscapes in phylodynamic inference. Proc. Natl. Acad. Sci. USA, 123(2), e2510938123.
 
-Gao
+Brusselmans, M., Carvalho, L. M., Hong, S. L., Gao, J., Matsen IV, F. A., Rambaut, A., Lemey, P., Suchard, M. A., Dudas, G., Baele, G. (2024) On the importance of assessing topological convergence in Bayesian phylogenetic inference. Virus Evol. 10(1): veae081.
 
-Magee
-
-### Data set information
-
-Streicker, D., Turmelle, A., Vonhof, M., Kuzmin, I., McCracken, G. F., and Rupprecht, C. (2010). Host phylogeny constrains cross-species emergence and establishment of rabies virus in bats. Science, 329, 676–679.
-
-Faria, N., Suchard, M., Rambaut, A., Streicker, D., and Lemey, P. (2013). Simultaneously reconstructing viral cross-species transmission history and identifying the underlying constraint. Phil. Trans. R. Soc. London B, Biol. Sci., 368, 20120196.
-
-### Models used
-
-Lemey, P., Rambaut, A., Drummond, A., and Suchard, M. (2009). Bayesian phylogeography finds its root. PLoS Comp. Biol., 5(9), e1000520.
-
-Gill, M.S., Lemey, P., Faria, N.R., Rambaut, A., Shapiro, B. and Suchard M.A. (2013). Improving Bayesian population dynamics inference: a coalescent-based model for multiple loci. Mol. Biol. Evol. 30:713–724.
+Magee, A., Karcher, M., Matsen IV, F. A., Minin, V. (2024) How trustworthy is your tree? Bayesian phylogenetic effective sample size through the lens of Monte Carlo error. Bayesian Analysis, 19(2), 565-593.
 
 Murdoch, D. and Chow, E. (1996). A graphical display of large correlation matrices. Am. Stat., 50, 178–180.
 
-Drummond, A. J., Nicholls, G. K., Rodrigo, A. G., and Solomon, W. (2002). Estimating mutation parameters, population history and genealogy simultaneously from temporally spaced sequence data. Genetics, 161(3), 1307–1320.
+### Data set information
 
-Drummond, A. J., Rambaut, A., Shapiro, B., and Pybus, O. G. (2005). Bayesian coalescent inference of past population dynamics from molecular sequences. Mol. Biol. Evol., 22(5), 1185–1192.
+Faria, N., Suchard, M., Rambaut, A., Streicker, D., and Lemey, P. (2013). Simultaneously reconstructing viral cross-species transmission history and identifying the underlying constraint. Phil. Trans. R. Soc. London B, Biol. Sci., 368, 20120196.
+
+Streicker, D., Turmelle, A., Vonhof, M., Kuzmin, I., McCracken, G. F., and Rupprecht, C. (2010). Host phylogeny constrains cross-species emergence and establishment of rabies virus in bats. Science, 329, 676–679.
+
+### Models used
+
+Gill, M.S., Lemey, P., Faria, N.R., Rambaut, A., Shapiro, B. and Suchard M.A. (2013). Improving Bayesian population dynamics inference: a coalescent-based model for multiple loci. Mol. Biol. Evol. 30:713–724.
+
+Lemey, P., Rambaut, A., Drummond, A., and Suchard, M. (2009). Bayesian phylogeography finds its root. PLoS Comp. Biol., 5(9), e1000520.
 
 Heled, J. and Drummond, A. J. (2008). Bayesian inference of population size history from multiple loci. BMC Evol. Biol., 8, 289.
 
 Minin, V. N., Bloomquist, E. W., and Suchard, M. A. (2008). Smooth skyride through a rough skyline: Bayesian coalescent- based inference of population dynamics. Mol. Biol. Evol., 25(7), 1459–1471.
+
+Drummond, A. J., Rambaut, A., Shapiro, B., and Pybus, O. G. (2005). Bayesian coalescent inference of past population dynamics from molecular sequences. Mol. Biol. Evol., 22(5), 1185–1192.
+
+Drummond, A. J., Nicholls, G. K., Rodrigo, A. G., and Solomon, W. (2002). Estimating mutation parameters, population history and genealogy simultaneously from temporally spaced sequence data. Genetics, 161(3), 1307–1320.
 
 {% include links.html %}
