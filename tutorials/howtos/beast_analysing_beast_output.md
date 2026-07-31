@@ -222,6 +222,20 @@ Following a rapid decline at the end of last century, we observe a recent sharp 
 
 {% include image.html file="treetracer6.png" prefix="/tutorials/howtos/" %}<br />
 
+{% include image.html file="treetracer7.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer8.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer9.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer10.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer11.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer12.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer13.png" prefix="/tutorials/howtos/" %}<br />
+
 Note that in this tutorial we looked into convergence and mixing of a single BEAST analysis (and hence a single .trees file).
 
 
