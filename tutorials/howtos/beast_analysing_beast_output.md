@@ -280,7 +280,7 @@ While visual exploration of tree space is highly valuable, it remains difficult 
 
 {% include image.html file="treetracer15.png" prefix="/tutorials/howtos/" %}<br />
 
-Interpreting the tree ESS value is currently based on the work of Lanfear et al. (2016) regarding the pseudo-ESS approach, and our own evaluation regarding the performance of the minimum pseudo-ESS and the median pseudo-ESS methods (Brusselmans et al., 2024).
+Interpreting the tree ESS value is currently based on the work of Lanfear et al. (2016) regarding the pseudo-ESS approach, and our own evaluation regarding the performance of the minimum pseudo-ESS and the median pseudo-ESS methods (Brusselmans et al., 2024). 
 
 {% include image.html file="treetracer16.png" prefix="/tutorials/howtos/" %}<br />
 
