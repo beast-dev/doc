@@ -220,6 +220,8 @@ Upon launching the TreeTracer application, you will be presented with a window s
 
 {% include image.html file="treetracer0.png" prefix="/tutorials/howtos/" %}<br />
 
+### The Compute Distances panel
+
 To load the BEAST **trees** file(s), click the green button that also has a green arrow. Browse to the trees file you'd like to load and click Open in the file chooser window. We here load the trees output file from the bat rabies virus (RABV) analysis, to complement the Tracer analysis from the first part of this tutorial. The file will be loaded into TreeTracer and be presented to you in a collapsed view as can be seen below.
 
 {% include image.html file="treetracer1.png" prefix="/tutorials/howtos/" %}<br />
@@ -243,6 +245,8 @@ Given that the purpose of this tutorial is to inspect the output of a single BEA
 When the RF calculations are done (should be quick - you will see than an RF Distance Matrix of 901 by 901 trees is now available), the sidebar on the left will be automatically toggled (you can easily get it back by click the button to the left of the TreeTracer icon) and the Tree-Space MDS information will be updated, thereby activating the Compute MDS button. We can now move forward by performing the multi-dimensional scaling (MDS) calculations, by clicking the Compute MDS button. These should also be completed quickly, after which TreeTracer will show that the MDS Embedding has been completed.
 
 {% include image.html file="treetracer6.png" prefix="/tutorials/howtos/" %}<br />
+
+### The Within-run Analysis panel
 
 All required actions and calculations in the Compute Distances panel have now been done, and we can go on to inspect the Within-run Analysis panel. By default, the first 3 dimensions of the MDS (MDS1, MDS2 and MDS3) will be used to show three 2-dimensional visualisations, i.e. one for each pairwise MDS projection (MDS1 x MDS2, MDS1 x MDS3, and MDS2 x MDS3). All 901 trees are currently used for the MDS visualisation.
 
@@ -268,6 +272,8 @@ If you also compute a consensus tree for the smaller point cloud and (again) acc
 
 {% include image.html file="treetracer12.png" prefix="/tutorials/howtos/" %}<br />
 
+### The Diagnostics panel
+
 We can now transition to the Diagnostics panel, which will readily show a trace plot of the log joint density (often called the log posterior) values across the 901 posterior trees we have been working with. The main purpose of this trace plot is to double-check whether you see any patterns / jumps appear in the values shown, which is not the case here. In other words, while there are two modes in RF posterior tree space they do not have clearly different log joint density values.
 
 {% include image.html file="treetracer13.png" prefix="/tutorials/howtos/" %}<br />
@@ -279,6 +285,8 @@ We can also have TreeTracer create a trace plot of the RF distances between the 
 While visual exploration of tree space is highly valuable, it remains difficult to determine whether your BEAST analysis has run for sufficiently long. To this end and similar to what Tracer does, TreeTracer provides the possibility of computing a **tree ESS** value to determine whether your BEAST analysis has collected a sufficient number of independent samples from its posterior distribution. Click Computer Tree-ESS to start computing the tree ESS, which can take up more time than the various calculations performed so far. Interpreting the tree ESS value is currently based on the work of Lanfear et al. (2016) regarding the pseudo-ESS approach, and our own evaluation regarding the performance of the minimum pseudo-ESS and the median pseudo-ESS methods (Brusselmans et al., 2024). This was in turn based on the work of Magee et al. (2024), who found the median pseudo-ESS to have good performance properties. The minimum pseudo-ESS can be considered a (very) conservative option. Following Lanfear et al. (2016), you can use a tree ESS cut-off of 200 for the median pseudo-ESS; we hence use the same coloring scheme for the median pseudo-ESS as in Tracer.
 
 {% include image.html file="treetracer15.png" prefix="/tutorials/howtos/" %}<br />
+
+### The Compare Consensus panel
 
 Finally, we inspect the Compare Consensus panel where we find our two previously computed consensus trees. We select the two trees in order for the Group 1 (Consensus tree) and Group 2 (Consensus tree) respectively.
 
