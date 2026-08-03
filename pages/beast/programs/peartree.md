@@ -34,6 +34,10 @@ Pre-built installers for macOS (universal), Windows, and Linux are available fro
 - Drag-and-drop file loading.
 - Can be embedded in reports and dashboards as a single self-contained JavaScript bundle.
 
+### Using PearTree
+
+A tutorial is available describing [how to use PearTree to visualize BEAST trees and create publication-quality figures from a BEAST consensus tree](peartree_tutorial).
+
 ### Embedding PearTree
 
 PearTree can be embedded in any HTML page using the self-contained JavaScript bundle included with each release, or loaded directly from GitHub Pages:
