@@ -206,9 +206,17 @@ Following a rapid decline at the end of last century, we observe a recent sharp 
 
 ### Running TreeTracer
 
+The exact instructions for running TreeTracer differs depending on which computer you are using. Please see the README text file that was distributed with the version you downloaded. Once running, TreeTracer will look similar irrespective of which computer system it is running on. For this tutorial, the Mac OS X version will be shown but the Linux and Windows versions will have exactly the same layout and functionality.
+
+While we have focused TreeTracer development on computational efficiency, loading extremely large trees files into TreeTracer may cause the required calculations to become more time-consuming.
+
 ### The main TreeTracer window
 
+Upon launching the TreeTracer application, you will be presented with a window similar to the one below. There are already several options to modify the main TreeTracer window. For example, to the left of the TreeTracer icon, you can always choose to hide / show the sidebar. At the same height but on the far-right, you can toggle to dark mode by clicking the crescent moon icon.
+
 {% include image.html file="treetracer0.png" prefix="/tutorials/howtos/" %}<br />
+
+To load the BEAST **trees** file(s), click the green button that also has a green arrow. Browse to the trees file you'd like to load and click Open in the file chooser window. The file will be loaded into TreeTracer and be presented to you in a collapsed view as can be seen below.
 
 {% include image.html file="treetracer1.png" prefix="/tutorials/howtos/" %}<br />
 
