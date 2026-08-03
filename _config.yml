@@ -119,7 +119,7 @@ beast_windows_download_url: "https://github.com/beast-dev/beast-mcmc/releases/do
 tracer_version: "1.7.2"
 tracer_url: "https://github.com/beast-dev/tracer/"
 
-treetracer_version: "0.94rc"
+treetracer_version: "0.95rc"
 treetracer_url: "https://github.com/beast-dev/treetracer/"
 
 figtree_version: "1.4.4"
