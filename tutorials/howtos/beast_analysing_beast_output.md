@@ -264,7 +264,7 @@ When creating the consensus tree, a pop-up window will appear that asks for a na
 
 {% include image.html file="treetracer11.png" prefix="/tutorials/howtos/" %}<br />
 
-If you also compute a consensus tree for the smaller point cloud and (again) accept the name provided by TreeTracer, you will see the following two consensus tree summaries appear in the Within-run Analysis panel.
+If you also compute a consensus tree for the smaller point cloud and (again) accept the name provided by TreeTracer, you will see the following two consensus tree summaries appear in the Within-run Analysis panel. We will compare these two consensus trees when we discuss the Compare Consensus panel.
 
 {% include image.html file="treetracer12.png" prefix="/tutorials/howtos/" %}<br />
 
@@ -276,15 +276,19 @@ We can also have TreeTracer create a trace plot of the RF distances between the 
 
 {% include image.html file="treetracer14.png" prefix="/tutorials/howtos/" %}<br />
 
-While visual exploration of tree space is highly valuable, it remains difficult to determine whether your BEAST analysis has run for sufficiently long. To this end and similar to what Tracer does, TreeTracer provides the possibility of computing a **tree ESS** value to determine whether your BEAST analysis has collected a sufficient number of independent samples from its posterior distribution. Click Computer Tree-ESS to start computing the tree ESS, which can take up more time than the various calculations performed so far.
+While visual exploration of tree space is highly valuable, it remains difficult to determine whether your BEAST analysis has run for sufficiently long. To this end and similar to what Tracer does, TreeTracer provides the possibility of computing a **tree ESS** value to determine whether your BEAST analysis has collected a sufficient number of independent samples from its posterior distribution. Click Computer Tree-ESS to start computing the tree ESS, which can take up more time than the various calculations performed so far. Interpreting the tree ESS value is currently based on the work of Lanfear et al. (2016) regarding the pseudo-ESS approach, and our own evaluation regarding the performance of the minimum pseudo-ESS and the median pseudo-ESS methods (Brusselmans et al., 2024). This was in turn based on the work of Magee et al. (2024), who found the median pseudo-ESS to have good performance properties. The minimum pseudo-ESS can be considered a (very) conservative option. Following Lanfear et al. (2016), you can use a tree ESS cut-off of 200 for the median pseudo-ESS; we hence use the same coloring scheme for the median pseudo-ESS as in Tracer.
 
 {% include image.html file="treetracer15.png" prefix="/tutorials/howtos/" %}<br />
 
-Interpreting the tree ESS value is currently based on the work of Lanfear et al. (2016) regarding the pseudo-ESS approach, and our own evaluation regarding the performance of the minimum pseudo-ESS and the median pseudo-ESS methods (Brusselmans et al., 2024). 
+Finally, we inspect the Compare Consensus panel where we find our two previously computed consensus trees. We select the two trees in order for the Group 1 (Consensus tree) and Group 2 (Consensus tree) respectively.
 
 {% include image.html file="treetracer16.png" prefix="/tutorials/howtos/" %}<br />
 
+This will enable clicking the Compare Clade Frequencies button to construct a scatter plot of the clade frequencies in both trees.
+
 {% include image.html file="treetracer17.png" prefix="/tutorials/howtos/" %}<br />
+
+We can now compare the consensus trees - with highlighted clades in both trees - for each point in the scatter plot, simply by clicking one of the points. Of main interest are those clades that appear often in the sampled posterior trees that make up one mode, but rarely in the sampled posterior trees that make up the other mode. To this end, we can select any point close to the X-axis or the Y-axis. The figure below shows such a clade (made up of 6 tips / sequences) that almost always clusters together in the large mode, but never in the smaller mode. These sequences could hence warrant further inspection (e.g. for reassortment, recombination, specific mutations, ...); we refer to Gao et al. (2026) for examples of such inspections.
 
 {% include image.html file="treetracer18.png" prefix="/tutorials/howtos/" %}<br />
 
