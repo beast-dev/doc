@@ -226,23 +226,35 @@ TreeTracer indicates that 1,001 trees were detected and will by default use all 
 
 {% include image.html file="treetracer2.png" prefix="/tutorials/howtos/" %}<br />
 
-After applying the burn-in, we hence have 901 trees available as can be seen both in the left-hand panel but also in the information in the Robinson-Foulds (RF) Distances summary.
+Enter 100 in the corresponding text box and click Apply Burn-in button. There is no need to downsample.
 
 {% include image.html file="treetracer3.png" prefix="/tutorials/howtos/" %}<br />
 
-Given that the purpose of this tutorial is to inspect the output of a single BEAST run, 
+After applying the burn-in, we hence have 901 trees available as can be seen both in the left-hand panel but also in the information in the Robinson-Foulds (RF) Distances summary.
 
 {% include image.html file="treetracer4.png" prefix="/tutorials/howtos/" %}<br />
 
+Given that the purpose of this tutorial is to inspect the output of a single BEAST run, we now clock the Compute RF Distances button to start the required calculations in TreeTracer.
+
 {% include image.html file="treetracer5.png" prefix="/tutorials/howtos/" %}<br />
+
+When the RF calculations are done (should be quick - you will see than an RF Distance Matrix of 901 by 901 trees is now available), the sidebar on the left will be automatically toggled (you can easily get it back by click the button to the left of the TreeTracer icon) and the Tree-Space MDS information will be updated, thereby activating the Compute MDS button. We can now move forward by performing the multi-dimensional scaling (MDS) calculations, by clicking the Compute MDS button. These should also be completed quickly, after which TreeTracer will show that the MDS Embedding has been completed.
 
 {% include image.html file="treetracer6.png" prefix="/tutorials/howtos/" %}<br />
 
+All required actions and calculations in the Compute Distances panel have now been done, and we can go on to inspect the Within-run Analysis panel. By default, the first 3 dimensions of the MDS (MDS1, MDS2 and MDS3) will be used to show three 2-dimensional visualisations, i.e. one for each pairwise MDS projection (MDS1 x MDS2, MDS1 x MDS3, and MDS2 x MDS3). All 901 trees are currently used for the MDS visualisation.
+
 {% include image.html file="treetracer7.png" prefix="/tutorials/howtos/" %}<br />
+
+The MDS visualisations above - particularly the first two that involve MDS1 - point to bimodality in the posterior tree distribution based on the RF distance / metric. However, we first need to make sure that the smaller point cloud (on the right in the first two visualisations) does not merely constitute burn-in in tree space. We can easily move the slider to approximately half of the available MDS point to inspect this.  
 
 {% include image.html file="treetracer8.png" prefix="/tutorials/howtos/" %}<br />
 
+The number of points in both point clouds seem to decrease proportionally but the smaller point cloud does not disappear. The bimodality in RF space is hence not the result of burn-in, but both modes in RF posterior tree space are being sampled regularly, i.e. the Markov chain keeps going back and forth between both modes which is what you want to see. You can easily visualise a consensus tree corresponding to each mode. To do so, first draw a rectangle around the majority of points that make up the first mode.
+
 {% include image.html file="treetracer9.png" prefix="/tutorials/howtos/" %}<br />
+
+You can now click View Consensus Tree to have TreeTracer compute a consensus tree and visualise the result in a pop-up window that uses [peartree](../../pages/beast/programs/peartree).
 
 {% include image.html file="treetracer10.png" prefix="/tutorials/howtos/" %}<br />
 
