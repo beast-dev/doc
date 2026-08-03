@@ -248,7 +248,7 @@ All required actions and calculations in the Compute Distances panel have now be
 
 {% include image.html file="treetracer7.png" prefix="/tutorials/howtos/" %}<br />
 
-The MDS visualisations above - particularly the first two that involve MDS1 - point to bimodality in the posterior tree distribution based on the RF distance / metric. However, we first need to make sure that the smaller point cloud (on the right in the first two visualisations) does not merely constitute burn-in in tree space. We can easily move the slider to approximately half of the available MDS point to inspect this.  
+The MDS visualisations above - particularly the first two that involve MDS1 - point to bimodality in the posterior tree distribution based on the RF distance / metric. However, we first need to make sure that the smaller point cloud (on the right in the first two visualisations) does not merely constitute burn-in in tree space. We can easily move the slider to approximately half of the available MDS points (to 449 out of 901 in the figure below) to inspect this.  
 
 {% include image.html file="treetracer8.png" prefix="/tutorials/howtos/" %}<br />
 
@@ -256,7 +256,7 @@ The number of points in both point clouds seem to decrease proportionally but th
 
 {% include image.html file="treetracer9.png" prefix="/tutorials/howtos/" %}<br />
 
-You can now click View Consensus Tree to have TreeTracer compute a consensus tree and visualise the result in a pop-up window that uses [peartree](peartree).
+You can now click View Consensus Tree to have TreeTracer compute a consensus tree and visualise the result in a pop-up window that uses [peartree](peartree); [a tutorial on how to use peartree can be found here](peartree_tutorial).
 
 {% include image.html file="treetracer10.png" prefix="/tutorials/howtos/" %}<br />
 
