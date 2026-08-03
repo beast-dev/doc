@@ -256,7 +256,7 @@ The number of points in both point clouds seem to decrease proportionally but th
 
 {% include image.html file="treetracer9.png" prefix="/tutorials/howtos/" %}<br />
 
-You can now click View Consensus Tree to have TreeTracer compute a consensus tree and visualise the result in a pop-up window that uses [peartree](peartree); [a tutorial on how to use peartree can be found here](peartree_tutorial).
+You can now click View Consensus Tree to have TreeTracer compute a consensus tree and visualise the result in a pop-up window that uses [PearTree](peartree); [a tutorial on how to use PearTree can be found here](peartree_tutorial).
 
 {% include image.html file="treetracer10.png" prefix="/tutorials/howtos/" %}<br />
 
