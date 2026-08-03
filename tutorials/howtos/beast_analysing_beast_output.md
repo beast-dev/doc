@@ -266,6 +266,10 @@ You can now click View Consensus Tree to have TreeTracer compute a consensus tre
 
 {% include image.html file="treetracer13.png" prefix="/tutorials/howtos/" %}<br />
 
+{% include image.html file="treetracer14.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer15.png" prefix="/tutorials/howtos/" %}<br />
+
 Note that in this tutorial we looked into convergence and mixing of a single BEAST analysis (and hence a single .trees file).
 
 
