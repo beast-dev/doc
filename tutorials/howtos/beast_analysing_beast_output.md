@@ -204,6 +204,8 @@ Following a rapid decline at the end of last century, we observe a recent sharp 
 
 ## Analysing BEAST output using TreeTracer
 
+We here analyse a single **trees** file from a BEAST analysis in TreeTracer to inspect convergence and mixing. A [follow-up tutorial](tracer_convergence) will focus on comparing multiple analysis replicates to one another to check whether running the same analysis multiple times lead to consistent results.
+
 ### Running TreeTracer
 
 The exact instructions for running TreeTracer differs depending on which computer you are using. Please see the README text file that was distributed with the version you downloaded. Once running, TreeTracer will look similar irrespective of which computer system it is running on. For this tutorial, the Mac OS X version will be shown but the Linux and Windows versions will have exactly the same layout and functionality.
@@ -216,13 +218,19 @@ Upon launching the TreeTracer application, you will be presented with a window s
 
 {% include image.html file="treetracer0.png" prefix="/tutorials/howtos/" %}<br />
 
-To load the BEAST **trees** file(s), click the green button that also has a green arrow. Browse to the trees file you'd like to load and click Open in the file chooser window. The file will be loaded into TreeTracer and be presented to you in a collapsed view as can be seen below.
+To load the BEAST **trees** file(s), click the green button that also has a green arrow. Browse to the trees file you'd like to load and click Open in the file chooser window. We here load the trees output file from the bat rabies virus (RABV) analysis, to complement the Tracer analysis from the first part of this tutorial. The file will be loaded into TreeTracer and be presented to you in a collapsed view as can be seen below.
 
 {% include image.html file="treetracer1.png" prefix="/tutorials/howtos/" %}<br />
 
+TreeTracer indicates that 1,001 trees were detected and will by default use all of these trees in subsequent calculations. As with Tracer, it's common to make sure you inspect samples from the posterior, i.e. when the Markov chain has moved past the burn-in part of the analysis. We will start by setting a burn-in of 10% - i.e. 100 trees - by clicking the downward arrow next to the trees file that we loaded. Doing so will also reveal the possibility to downsample the number of trees in case too many were loaded. To ensure manageable computation times in TreeTracer, we suggest 1,000 trees per analysis replicate.
+
 {% include image.html file="treetracer2.png" prefix="/tutorials/howtos/" %}<br />
 
+After applying the burn-in, we hence have 901 trees available as can be seen both in the left-hand panel but also in the information in the Robinson-Foulds (RF) Distances summary.
+
 {% include image.html file="treetracer3.png" prefix="/tutorials/howtos/" %}<br />
+
+Given that the purpose of this tutorial is to inspect the output of a single BEAST run, 
 
 {% include image.html file="treetracer4.png" prefix="/tutorials/howtos/" %}<br />
 
