@@ -39,6 +39,6 @@ For more visualisation examples, we refer to [https://github.com/GuyBaele/Spread
 
 ### Citing spread.gl
 
-Li, Y., Bollen, N., Hong, S. L., Brusselmans, M. Gambaro, F., Suchard, M. A., Rambaut, A., Lemey, P., Dellicour, S., Baele, G. spread.gl: visualising pathogen dispersal in a high-performance browser application. medRxiv [https://doi.org/10.1101/2024.06.04.24308447](https://doi.org/10.1101/2024.06.04.24308447).
+Li, Y., Bollen, N., Hong, S. L., Brusselmans, M. Gambaro, F., Suchard, M. A., Rambaut, A., Lemey, P., Dellicour, S., Baele, G. spread.gl: visualising pathogen dispersal in a high-performance browser application. Virus Evol. 40(12): btae721 [https://doi.org/10.1093/bioinformatics/btae721](https://doi.org/10.1093/bioinformatics/btae721).
 
 {% include links.html %}
