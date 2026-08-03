@@ -212,7 +212,7 @@ The exact instructions for running TreeTracer differs depending on which compute
 
 While we have focused TreeTracer development on computational efficiency, loading extremely large trees files into TreeTracer may cause the required calculations to become more time-consuming.
 
-Note that the first time you start / run TreeTracer, it may take a bit of time as TreeTracer is setting up its environment on your computer; subsequent times you wish to use TreeTracer will have a faster start-up process.
+Note that the first time you start / run TreeTracer, it may take a bit of time as TreeTracer sets up its environment on your computer; subsequent times you wish to use TreeTracer will have a faster start-up process.
 
 ### The main TreeTracer window
 
