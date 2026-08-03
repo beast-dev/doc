@@ -212,6 +212,8 @@ The exact instructions for running TreeTracer differs depending on which compute
 
 While we have focused TreeTracer development on computational efficiency, loading extremely large trees files into TreeTracer may cause the required calculations to become more time-consuming.
 
+Note that the first time you start / run TreeTracer, it may take a bit of time as TreeTracer is setting up its environment on your computer; subsequent times you wish to use TreeTracer will have a faster start-up process.
+
 ### The main TreeTracer window
 
 Upon launching the TreeTracer application, you will be presented with a window similar to the one below. There are already several options to modify the main TreeTracer window. For example, to the left of the TreeTracer icon, you can always choose to hide / show the sidebar. At the same height but on the far-right, you can toggle to dark mode by clicking the crescent moon icon.
@@ -254,7 +256,7 @@ The number of points in both point clouds seem to decrease proportionally but th
 
 {% include image.html file="treetracer9.png" prefix="/tutorials/howtos/" %}<br />
 
-You can now click View Consensus Tree to have TreeTracer compute a consensus tree and visualise the result in a pop-up window that uses [peartree](../../pages/beast/programs/peartree).
+You can now click View Consensus Tree to have TreeTracer compute a consensus tree and visualise the result in a pop-up window that uses [peartree](peartree).
 
 {% include image.html file="treetracer10.png" prefix="/tutorials/howtos/" %}<br />
 
