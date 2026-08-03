@@ -204,7 +204,7 @@ Following a rapid decline at the end of last century, we observe a recent sharp 
 
 ## Analysing BEAST output using TreeTracer
 
-We here analyse a single **trees** file from a BEAST analysis in TreeTracer to inspect convergence and mixing. A [follow-up tutorial](tracer_convergence) will focus on comparing multiple analysis replicates to one another to check whether running the same analysis multiple times lead to consistent results.
+We here analyse a single **trees** file from a BEAST analysis in TreeTracer to inspect convergence and mixing. A [follow-up tutorial](tracer_convergence) will focus on comparing multiple analysis replicates to one another to check whether running the same analysis multiple times leads to consistent results.
 
 ### Running TreeTracer
 
@@ -260,17 +260,35 @@ You can now click View Consensus Tree to have TreeTracer compute a consensus tre
 
 {% include image.html file="treetracer10.png" prefix="/tutorials/howtos/" %}<br />
 
+When creating the consensus tree, a pop-up window will appear that asks for a name to assign to the consensus tree for the points you have selected. You can provide a custom name or choose to accept the name suggested by TreeTracer.
+
 {% include image.html file="treetracer11.png" prefix="/tutorials/howtos/" %}<br />
+
+If you also compute a consensus tree for the smaller point cloud and (again) accept the name provided by TreeTracer, you will see the following two consensus tree summaries appear in the Within-run Analysis panel.
 
 {% include image.html file="treetracer12.png" prefix="/tutorials/howtos/" %}<br />
 
+We can now transition to the Diagnostics panel, which will readily show a trace plot of the log joint density (often called the log posterior) values across the 901 posterior trees we have been working with. The main purpose of this trace plot is to double-check whether you see any patterns / jumps appear in the values shown, which is not the case here. In other words, while there are two modes in RF posterior tree space they do not have clearly different log joint density values.
+
 {% include image.html file="treetracer13.png" prefix="/tutorials/howtos/" %}<br />
+
+We can also have TreeTracer create a trace plot of the RF distances between the 901 trees and a reference tree of choice. Choosing the first tree sampled from the Markov chain may be a poor choice (especially if the burn-in has not been removed), and we hence keep the default choice of using the last tree sampled from the Markov chain as the reference tree. Click the Compute RF Trace button, and the RF Distance trace plot should immediately appear.
 
 {% include image.html file="treetracer14.png" prefix="/tutorials/howtos/" %}<br />
 
+While visual exploration of tree space is highly valuable, it remains difficult to determine whether your BEAST analysis has run for sufficiently long. To this end and similar to what Tracer does, TreeTracer provides the possibility of computing a **tree ESS** value to determine whether your BEAST analysis has collected a sufficient number of independent samples from its posterior distribution. Click Computer Tree-ESS to start computing the tree ESS, which can take up more time than the various calculations performed so far.
+
 {% include image.html file="treetracer15.png" prefix="/tutorials/howtos/" %}<br />
 
-Note that in this tutorial we looked into convergence and mixing of a single BEAST analysis (and hence a single .trees file).
+Interpreting the tree ESS value is currently based on the work of Lanfear et al. (2016) regarding the pseudo-ESS approach, and our own evaluation regarding the performance of the minimum pseudo-ESS and the median pseudo-ESS methods (Brusselmans et al., 2024).
+
+{% include image.html file="treetracer16.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer17.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer18.png" prefix="/tutorials/howtos/" %}<br />
+
+Concluding, in this tutorial we looked into convergence and mixing of the output of a single BEAST analysis (and hence a single .trees file). In a [follow-up tutorial](tracer_convergence), we will focus on comparing multiple analysis replicates to one another to check whether running the same analysis multiple times leads to consistent results.
 
 
 ## References
@@ -286,6 +304,8 @@ Gao, J., Brusselmans, M., Carvalho, L. M., Suchard, M. A., Baele, G., Matsen IV,
 Brusselmans, M., Carvalho, L. M., Hong, S. L., Gao, J., Matsen IV, F. A., Rambaut, A., Lemey, P., Suchard, M. A., Dudas, G., Baele, G. (2024) On the importance of assessing topological convergence in Bayesian phylogenetic inference. Virus Evol. 10(1): veae081.
 
 Magee, A., Karcher, M., Matsen IV, F. A., Minin, V. (2024) How trustworthy is your tree? Bayesian phylogenetic effective sample size through the lens of Monte Carlo error. Bayesian Analysis, 19(2), 565-593.
+
+Lanfear, R., Hua, X., Warren, D. L. (2016) Estimating the effective sample size of tree topologies from Bayesian phylogenetic analyses. Genome Biol. Evol., 8(8), 2319–2332.
 
 Murdoch, D. and Chow, E. (1996). A graphical display of large correlation matrices. Am. Stat., 50, 178–180.
 
