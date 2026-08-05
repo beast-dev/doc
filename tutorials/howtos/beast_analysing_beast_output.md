@@ -309,15 +309,15 @@ Concluding, in this tutorial we looked into convergence and mixing of the output
 
 Rambaut, A., Drummond, A. J., Xie, D., Baele, G., and Suchard M. A. (2018) Posterior summarization in Bayesian phylogenetics using Tracer 1.7. Syst. Biol., 67(5), 901–904.
 
-TreeTracer (Hong et al., in preparation).
+Hong, S. L., Brusselmans, M., Klaps, J., Carvalho, L. M., Magee, A. F., Suchard, M. A., Rambaut, A., and Baele G. (2026) Tree convergence and mixing in Bayesian phylogenetics Using TreeTracer. In preparation.
 
-Gao, J., Brusselmans, M., Carvalho, L. M., Suchard, M. A., Baele, G., Matsen IV, F. A. (2026) Biological causes and impacts of rugged tree landscapes in phylodynamic inference. Proc. Natl. Acad. Sci. USA, 123(2), e2510938123.
+Gao, J., Brusselmans, M., Carvalho, L. M., Suchard, M. A., Baele, G., and Matsen IV, F. A. (2026) Biological causes and impacts of rugged tree landscapes in phylodynamic inference. Proc. Natl. Acad. Sci. USA, 123(2), e2510938123.
 
-Brusselmans, M., Carvalho, L. M., Hong, S. L., Gao, J., Matsen IV, F. A., Rambaut, A., Lemey, P., Suchard, M. A., Dudas, G., Baele, G. (2024) On the importance of assessing topological convergence in Bayesian phylogenetic inference. Virus Evol. 10(1): veae081.
+Brusselmans, M., Carvalho, L. M., Hong, S. L., Gao, J., Matsen IV, F. A., Rambaut, A., Lemey, P., Suchard, M. A., Dudas, G., and Baele, G. (2024) On the importance of assessing topological convergence in Bayesian phylogenetic inference. Virus Evol. 10(1): veae081.
 
-Magee, A., Karcher, M., Matsen IV, F. A., Minin, V. (2024) How trustworthy is your tree? Bayesian phylogenetic effective sample size through the lens of Monte Carlo error. Bayesian Analysis, 19(2), 565-593.
+Magee, A., Karcher, M., Matsen IV, F. A., and Minin, V. (2024) How trustworthy is your tree? Bayesian phylogenetic effective sample size through the lens of Monte Carlo error. Bayesian Analysis, 19(2), 565-593.
 
-Lanfear, R., Hua, X., Warren, D. L. (2016) Estimating the effective sample size of tree topologies from Bayesian phylogenetic analyses. Genome Biol. Evol., 8(8), 2319–2332.
+Lanfear, R., Hua, X., and Warren, D. L. (2016) Estimating the effective sample size of tree topologies from Bayesian phylogenetic analyses. Genome Biol. Evol., 8(8), 2319–2332.
 
 Murdoch, D. and Chow, E. (1996). A graphical display of large correlation matrices. Am. Stat., 50, 178–180.
 

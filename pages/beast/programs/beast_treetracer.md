@@ -27,6 +27,8 @@ Another tutorial focuses on [how to identify convergence problems using (Tree)Tr
 
 ### Citing TreeTracer
 
-The recommended citation for this program is: TBA
+The recommended citation for this program is:
+
+Hong SL, Brusselmans M, Klaps J, Carvalho LM, Magee AF, Suchard MA, Rambaut A and Baele G (2026) Tree convergence and mixing in Bayesian phylogenetics Using TreeTracer. *In preparation*.
 
 {% include links.html %}
