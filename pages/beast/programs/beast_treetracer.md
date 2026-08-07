@@ -4,7 +4,7 @@ permalink: treetracer.html
 sidebar: beast_sidebar
 tags: [programs]
 keywords: software, treetracer, beast
-last_updated: July 7, 2026
+last_updated: August 7, 2026
 toc: false
 folder: beast/programs
 ---
@@ -18,6 +18,8 @@ TreeTracer v{{ site.treetracer_version }} can read output files from [MrBayes](h
 ### Downloading
 
 You can download TreeTracer v{{ site.treetracer_version }} from here: [https://github.com/beast-dev/treetracer/releases](https://github.com/beast-dev/treetracer/releases)
+
+We are currently in the process of obtaining a digital certificate signature for TreeTracer on **macOS** and **Windows**. Until that time, you may receive a notification / warning upon downloading and / or running TreeTracer. On **Windows**, you may have to bypass Smart App Control or run in developer mode; on **macOS**, you may have to go to System Settings and choose "Open Anyway" or clear quarantine flags via Terminal.
 
 ### Using TreeTracer
 
