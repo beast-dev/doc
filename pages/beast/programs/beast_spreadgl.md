@@ -4,7 +4,7 @@ permalink: spreadgl.html
 sidebar: beast_sidebar
 tags: [programs]
 keywords: software, visualisation, spread.gl, beast
-last_updated: July 10, 2024
+last_updated: August 8, 2026
 summary: "spread.gl"
 toc: true
 folder: beast/programs
@@ -14,9 +14,6 @@ folder: beast/programs
 
 spread.gl (Spatial Phylogenetic Reconstruction of Evolutionary Dynamics built on kepler.gl) is a major update to [SPREAD](spread) and [SpreaD3](spread3) and constitutes a package for analysis and visualisation of pathogen pylodynamic reconstructions.
 
-### Using spread.gl online
-
-Follow the prompts for data inputs [here](https://hongsaml.github.io/spreadgl2/).
 
 ### Downloading spread.gl
 
@@ -39,6 +36,11 @@ For more visualisation examples, we refer to [https://github.com/GuyBaele/Spread
 
 ### Citing spread.gl
 
-Li, Y., Bollen, N., Hong, S. L., Brusselmans, M. Gambaro, F., Suchard, M. A., Rambaut, A., Lemey, P., Dellicour, S., Baele, G. spread.gl: visualising pathogen dispersal in a high-performance browser application. Virus Evol. 40(12): btae721 [https://doi.org/10.1093/bioinformatics/btae721](https://doi.org/10.1093/bioinformatics/btae721).
+Li, Y., Bollen, N., Hong, S. L., Brusselmans, M. Gambaro, F., Suchard, M. A., Rambaut, A., Lemey, P., Dellicour, S., Baele, G. (2024) spread.gl: visualising pathogen dispersal in a high-performance browser application. Virus Evol. 40(12): btae721 [https://doi.org/10.1093/bioinformatics/btae721](https://doi.org/10.1093/bioinformatics/btae721).
+
+
+### References
+
+He, W.-T., Li, D., Baele, G., Zhao, J., Jiang, Z., Ji, X., Veit, M., Suchard, M. A., Holmes, E. C., Lemey, P., Boni, M. F., Su, S. (2023) Newly identified lineages of porcine hemagglutinating encephalomyelitis virus exhibit respiratory phenotype. Virus Evol. 9(2): vead051.
 
 {% include links.html %}

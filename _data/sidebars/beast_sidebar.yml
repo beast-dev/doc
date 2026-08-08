@@ -66,6 +66,10 @@ entries:
       url: /spreadgl
       output: web, pdf
 
+    - title: SpreadGL2
+      url: /spreadgl2
+      output: web, pdf
+
     - title: PiBUSS
       url: /pibuss
       output: web, pdf
