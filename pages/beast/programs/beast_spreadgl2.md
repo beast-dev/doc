@@ -3,7 +3,7 @@ title: SpreadGL2
 permalink: spreadgl2.html
 sidebar: beast_sidebar
 tags: [programs]
-keywords: software, visualisation, spread.gl, beast
+keywords: software, visualisation, SpreadGL2, beast
 last_updated: August 8, 2026
 summary: "SpreadGL2"
 toc: true
