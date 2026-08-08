@@ -25,7 +25,7 @@ Tree, log, overlay, and project files are all processed locally. SpreadGL2 has n
 
 ### Loading SpreadGL2 (online)
 
-Follow the prompts for data inputs [here](https://hongsaml.github.io/spreadgl2/).
+Follow the prompts for data inputs [here](https://spreadgl2.github.io).
 
 
 ### Using SpreadGL2
