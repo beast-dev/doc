@@ -12,7 +12,7 @@ folder: beast/programs
 
 ## SpreadGL2
 
-SpreadGL2 (Spatial Phylogenetic Reconstruction of Evolutionary Dynamics built on deck.gl, version 2) is a major update to [spread.gl](beast_spreadgl) and is a client-side browser-based application for visualizing time-scaled phylogenies alongside their inferred geographic spread in linked tree and map views.
+SpreadGL2 (Spatial Phylogenetic Reconstruction of Evolutionary Dynamics built on deck.gl, version 2) is a rewrite of [spread.gl](beast_spreadgl) and is a client-side browser-based application for visualizing time-scaled phylogenies alongside their inferred geographic spread in linked tree and map views.
 
 SpreadGL2 supports:
 - Discrete and continuous phylogeography, including geographic highest posterior density (HPD) regions
@@ -33,7 +33,7 @@ Follow the prompts for data inputs [here](https://spreadgl2.github.io).
 A stepwise overview on how to use SpreadGL2 is available here: [https://github.com/spreadgl2/spreadgl2.github.io#readme](https://github.com/spreadgl2/spreadgl2.github.io#readme).
 
 The example below shows the dispersal within the United Kingdom of SARS-CoV-2 Delta, as estimated using a continuous phylogeographic analysis (McCrone et al., 2022).
-Note that the visualisation makes use of an incremental time window, but that a sliding time window can easily be set as well.
+Note that the visualisation makes use of an expanding time window, but that a sliding time window can easily be set as well.
 
 <video src="files/SpreadGL2-SARSCoV2-UK.mp4" width="800" controls></video>
 
