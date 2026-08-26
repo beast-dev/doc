@@ -252,7 +252,7 @@ entries:
       output: web, pdf
 
     - title: Phylogeographic Diffusion in Discrete Space
-      url: /workshop_discrete_diffusion
+      url: /workshop_discrete_diffusion_rabv
       output: web, pdf
 
     - title: Phylogeographic Diffusion in Continuous Space, YFV

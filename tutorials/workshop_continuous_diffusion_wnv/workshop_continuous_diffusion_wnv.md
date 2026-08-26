@@ -374,7 +374,7 @@ We will first summarise an MCC tree and then summarise the information in the en
 
 * Set the `most recent sampling date` to 2007-07-15.
 
-* Load a GeoJSON [file](../workshop_discrete_diffusion/files/gz_2010_us_040_00_500k.json) of the United States.
+* Load a GeoJSON [file](../workshop_discrete_diffusion_rabv/files/gz_2010_us_040_00_500k.json) of the United States.
 
 * Keep all other default settings and click `Output` to generate a JSON file.
 

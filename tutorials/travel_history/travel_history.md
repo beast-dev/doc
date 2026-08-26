@@ -51,7 +51,7 @@ The default prior on the growth rate of the coalescent model has been replaced b
 
 
 Note that in order to visualize the complete transition history throughout a phylogeny, we are required to reconstruct the complete state change history of the location trait along the trees.
-This can be easily set up in BEAUti by following the [phylogeographic diffusion in discrete space](workshop_discrete_diffusion) tutorial.
+This can be easily set up in BEAUti by following the [phylogeographic diffusion in discrete space](workshop_discrete_diffusion_rabv) tutorial.
 By default, BEAUti will create a separate `logTree` output file that only includes the Markov jump histories.
 To visualize these Markov jump trajectories, we must add the state node annotations into this file as follows:
 
@@ -87,7 +87,7 @@ As a result, only the 3 sampling locations are part of the location data type in
 ```
 
 Such an analysis can be completely specified using the current version of BEAUti without requiring any manual XML editing.
-We refer to the following tutorial for more information on how to set up this type of analysis: [phylogeographic diffusion in discrete space](workshop_discrete_diffusion).
+We refer to the following tutorial for more information on how to set up this type of analysis: [phylogeographic diffusion in discrete space](workshop_discrete_diffusion_rabv).
 
 
 {% include image.html file="sampling_location.png" width="75%" prefix=root_url %}

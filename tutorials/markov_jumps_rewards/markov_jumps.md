@@ -18,7 +18,7 @@ Fitting a CMTC model to discrete data results yields model parameter estimates, 
 This realisation includes all the transitions (Markov jumps) between states along phylogenetic branches and the time (Markov rewards) spent in the states between two transitions.
 This tutorial discusses how to estimate such quantities using stochastic mapping techniques implemented in BEAST. 
 It builds on the discrete diffusion analysis of bat rabies in the Americas that is set up as part of the workshop tutorial on discrete phylogeographic diffusion.
-{% include callout.html content='The tutorial builds on the discrete diffusion analysis of bat rabies in the Americas that is set up as part of the workshop tutorial on discrete phylogeographic diffusion. <a href="workshop_discrete_diffusion">\'Phylogeographic diffusion in discrete space\' tutorial</a>.' %}
+{% include callout.html content='The tutorial builds on the discrete diffusion analysis of bat rabies in the Americas that is set up as part of the workshop tutorial on discrete phylogeographic diffusion. <a href="workshop_discrete_diffusion_rabv">\'Phylogeographic diffusion in discrete space\' tutorial</a>.' %}
 
 
 In the first part of the bat rabies tutorial, a CTMC model is specified for both the host and the location states associated with the viral sequences.

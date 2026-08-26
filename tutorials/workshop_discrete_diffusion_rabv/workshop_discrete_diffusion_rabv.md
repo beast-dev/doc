@@ -7,11 +7,14 @@ summary: 'This chapter provides a step-by-step tutorial on reconstructing the sp
  (<a href=\"http://science.sciencemag.org/content/329/5992/676.long\">Streicker et al., Science, 2010, 329, 676-679</a>). Following <a href=\"https://doi.org/10.1098/rstb.2012.0196\">Faria et al. (Phil. Trans. Roy. Soc. B, 2013)</a>, two additional species that had been excluded from the original analysis owing to a limited amount of available sequences, <i>Myotis austroriparius</i> (Ma) and <i>Parastrellus hesperus</i> (Ph), are also included here. We also include a viral sequence with an unknown sampling date (accession no. TX5275, sampled in Texas from <i>Lasiurus borealis</i>), which will be adequately accommodated in our inference. The aim of this tutorial is to estimate the ancestral locations of the virus using a Bayesian discrete phylogeographic approach  and, at the same time, infer the history of host jumping using the same model approach. Using an extension of the discrete diffusion model, we will then test the factors that underly the host transition dynamics.'
 
 sidebar: beast_sidebar
-permalink: workshop_discrete_diffusion.html
+permalink: workshop_discrete_diffusion_rabv.html
+redirect_from:
+  - "/workshop_discrete_diffusion"
+  - "/workshop_discrete_diffusion.html"
 folder: beast
 ---
 
-{% capture root_url %}{{ site.tutorials_root_url }}/workshop_discrete_diffusion/{% endcapture %}
+{% capture root_url %}{{ site.tutorials_root_url }}/workshop_discrete_diffusion_rabv/{% endcapture %}
 
 ## Introduction
 
