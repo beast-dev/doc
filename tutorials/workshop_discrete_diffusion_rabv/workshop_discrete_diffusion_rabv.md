@@ -1,5 +1,5 @@
 ---
-title: Phylogeographic diffusion in discrete space
+title: Phylogeographic diffusion in discrete space, RABV
 keywords: phylogeography, rabies, bats, tutorial
 last_updated: July 15, 2024
 tags: [tutorial]

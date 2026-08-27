@@ -10,3 +10,7 @@ _site/*
 .idea
 
 .DS_Store
+
+# Full posterior tree sample (563 MB); distributed to users via discreteTutorialFilesEBOV.zip
+tutorials/workshop_discrete_diffusion_ebov/files/longRuns/SYM_BSSVS/EBOV_DRC_18-20.trees
+tutorials/workshop_discrete_diffusion_ebov/files/discreteTutorialFilesEBOV.ORIGINAL.zip

@@ -251,8 +251,12 @@ entries:
       url: /workshop_model_selection
       output: web, pdf
 
-    - title: Phylogeographic Diffusion in Discrete Space
+    - title: 'Phylogeographic Diffusion in Discrete Space: RABV'
       url: /workshop_discrete_diffusion_rabv
+      output: web, pdf
+
+    - title: 'Phylogeographic Diffusion in Discrete Space: EBOV'
+      url: /workshop_discrete_diffusion_ebov
       output: web, pdf
 
     - title: Phylogeographic Diffusion in Continuous Space, YFV
