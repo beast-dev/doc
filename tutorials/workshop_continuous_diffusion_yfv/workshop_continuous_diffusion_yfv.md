@@ -265,9 +265,7 @@ Compare the animated version for both the homogeneous and RRW model: do you noti
 
 ### Run BEAST and monitor output using Tracer
 
-Once the BEAST XML file has been created, the analysis itself can be performed using BEAST.
-A common practice is to regularly monitor how much the analysis has progressed by loading the .log file(s) into Tracer and checking the ESS values of the (continuous) parameters.
-When running BEAST for a short amount of time, you will notice that - with the exception of very small examples - most ESS values remain far below the cut-off of 200 and will hence be colored in red in Tracer.
+Once the BEAST XML file has been created, the analysis itself can be performed using BEAST. A common practice is to regularly monitor how much the analysis has progressed by loading the .log file(s) into Tracer and checking the ESS values of the (continuous) parameters. When running BEAST for a short amount of time, you will notice that - with the exception of very small examples - most ESS values remain far below the cut-off of 200 and will hence be colored in red in Tracer.
 
 ### Analyse the output file for the longer runs
 
@@ -278,8 +276,9 @@ To get a good sense of what a completed analysis looks like in Tracer, load the 
 Construct a maximum clade credibility (MCC) tree in TreeAnnotator (check the required burn-in first) and load the result into FigTree.
 Set the time axis and play around with the node order, node labels and branch labels to obtain a visualisation that best showcases the important aspects of the MCC tree.
 
-### Visualizing the MCC tree <!--and calculating Bayes factor support for rates--> using SpreadGL
-SpreadGL, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics built on kepler.gl, is an online platform to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreadGL allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome.
+### Visualising the MCC tree <!--and calculating Bayes factor support for rates--> using SpreadGL
+
+SpreadGL (Li et al. 2024), i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics built on kepler.gl, is an online platform to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreadGL allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome.
 
 To get started with SpreadGL,follow the instructions [here](https://beast.community/spreadgl.html).
 
@@ -287,8 +286,7 @@ To visualize an MCC tree, load the MCC tree and respective sample dates in the '
 
 An example visualisation can be found below. Note that the visual aspects of the lines representing the branches and transitions can be modified. 
 
-{% include image.html file="spreadgl_yfv.png" prefix=root_url %}
-
+{% include image.html file="YFV_screenshot_26_spreadgl2.png" prefix=root_url %}
 
 <!--NT: updating for spread.gl
 We will first summarise an MCC tree and then summarise the information in the entire tree distribution.
@@ -299,15 +297,15 @@ We will first summarise an MCC tree and then summarise the information in the en
 
 * Set the `most recent sampling date` to 2017-04-22, and click `Start analysis`
 
-{% include image.html file="YFV_screenshot_sprea4_1ed.png" prefix=root_url caption="" %}
+{% include image.html file="YFV_screenshot_24_spread4_1.png" prefix=root_url caption="" %}
 
 * There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files --'Brazil_states.geojson'. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/5b009cff-3724-4bbe-bbe3-9efce6097056.json&maps=BR) in a new browser tab/window. 
 
-
 This visualises the MCC tree an the uncertainty for its node locations:
 
-{% include image.html file="YFV_screenshot_sprea4_2.png" prefix=root_url caption="" %}
+{% include image.html file="YFV_screenshot_24_spread4_2.png" prefix=root_url caption="" %}
 -->
+
 ## Conclusion and Resources
 
 This tutorial only scratches the surface of the analyses that are possible to undertake using BEAST. It has hopefully provided a relatively gentle introduction to the fundamental steps that will be common to all BEAST analyses and provide a basis for more challenging investigations. BEAST is an ongoing development project with new models and techniques being added on a regular basis. The BEAST website provides details of the mailing list that is used to announce new features and to discuss the use of the package. The website also contains a list of tutorials and recipes to answer particular evolutionary questions using BEAST as well as a description of the XML input format, common questions and error messages.
