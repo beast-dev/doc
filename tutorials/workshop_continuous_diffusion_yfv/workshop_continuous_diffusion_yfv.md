@@ -236,7 +236,7 @@ In the `Layout` panel select the check-box `Align Tip Labels` to increase clarit
 
 ### Visualizing Bayesian phylogeographic reconstructions using SPREAD4
 
-SPREAD4, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics version 4, is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SPREAD4 allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome. <!--A detailed tutorial for this particular step is available [here](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourThree). -->
+SPREAD4, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics version 4, is a software to visualise the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualise reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SPREAD4 allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome. <!--A detailed tutorial for this particular step is available [here](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourThree). -->
 
 Brief instructions can be found in the quick how-to summary below.
 Compare the animated version for both the homogeneous and RRW model: do you notice any difference?
@@ -278,11 +278,11 @@ Set the time axis and play around with the node order, node labels and branch la
 
 ### Visualising the MCC tree <!--and calculating Bayes factor support for rates--> using SpreadGL
 
-SpreadGL (Li et al. 2024), i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics built on kepler.gl, is an online platform to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreadGL allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome.
+SpreadGL (Li et al. 2024), i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics built on kepler.gl, is an online platform to visualise the output from Bayesian phylogeographic analyses and constitutes a user-friendly application to analyse and visualise reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreadGL allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari, and Chrome.
 
 To get started with SpreadGL,follow the instructions [here](https://beast.community/spreadgl.html).
 
-To visualize an MCC tree, load the MCC tree and respective sample dates in the '<samp>YFV_dates_SREADGL.txt</samp>’ file.
+To visualise an MCC tree, load the MCC tree and respective sample dates in the `YFV_dates_spreadgl.txt` file.
 
 An example visualisation can be found below. Note that the visual aspects of the lines representing the branches and transitions can be modified. 
 
@@ -299,12 +299,16 @@ We will first summarise an MCC tree and then summarise the information in the en
 
 {% include image.html file="YFV_screenshot_24_spread4_1.png" prefix=root_url caption="" %}
 
-* There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files --'Brazil_states.geojson'. However, a default map is provided to visualize the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/5b009cff-3724-4bbe-bbe3-9efce6097056.json&maps=BR) in a new browser tab/window. 
+* There is an option to load a custom map of the United States in GeoJSON format. Such a map is provided amongst the data files --'Brazil_states.geojson'. However, a default map is provided to visualise the results. Click `Copy` and open the [link](https://view.spreadviz.org/?output=fffe6230-51af-4413-99fc-11d7fcbdcda7/5b009cff-3724-4bbe-bbe3-9efce6097056.json&maps=BR) in a new browser tab/window. 
 
 This visualises the MCC tree an the uncertainty for its node locations:
 
 {% include image.html file="YFV_screenshot_24_spread4_2.png" prefix=root_url caption="" %}
 -->
+
+### Visualising the MCC tree using the `R` package `seraphim`
+
+XXXX
 
 ## Conclusion and Resources
 
