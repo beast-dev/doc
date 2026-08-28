@@ -278,13 +278,9 @@ Set the time axis and play around with the node order, node labels and branch la
 
 ### Visualising the MCC tree <!--and calculating Bayes factor support for rates--> using SpreadGL
 
-SpreadGL (Li et al. 2024), i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics built on kepler.gl, is an online platform to visualise the output from Bayesian phylogeographic analyses and constitutes a user-friendly application to analyse and visualise reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreadGL allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari, and Chrome.
+SpreadGL (Li et al. 2024), i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics built on kepler.gl, is an online platform to visualise the output from Bayesian phylogeographic analyses and constitutes a user-friendly application to analyse and visualise reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreadGL allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari, and Chrome. To get started with SpreadGL,follow the instructions [here](https://beast.community/spreadgl.html).
 
-To get started with SpreadGL,follow the instructions [here](https://beast.community/spreadgl.html).
-
-To visualise an MCC tree, load the MCC tree and respective sample dates in the `YFV_dates_spreadgl.txt` file.
-
-An example visualisation can be found below. Note that the visual aspects of the lines representing the branches and transitions can be modified. 
+To visualise an MCC tree, load the MCC tree and respective sample dates in the `YFV_dates_spreadgl.txt` file. An example visualisation can be found below. Note that the visual aspects of the lines representing the branches and transitions can be modified. 
 
 {% include image.html file="YFV_screenshot_26_spreadgl2.png" prefix=root_url %}
 
@@ -306,9 +302,9 @@ This visualises the MCC tree an the uncertainty for its node locations:
 {% include image.html file="YFV_screenshot_24_spread4_2.png" prefix=root_url caption="" %}
 -->
 
-### Visualising and post hoc analyses using the `R` package `seraphim`
+### Visualising and post hoc analyses using the R package "seraphim"
 
-XXXX
+The R package "seraphim" 2.0 (Dellicour et al. 2026), dedicated to the study of phylogenetically-informed movements, can be used to: (i) extract the spatio-temporal information embedded in the posterior and MCC trees obtain through continuous phylogeographic inference; (ii) generate custom mapping of the resulting dispersal history of viral lineages; (iii) estimate lineage dispersal statistics from continuous phylogeographic reconstructions, such as lineages diffusion coefficients and isolation-by-distance signals (Dellicour et al. 2024); and (iv) conduct landscape phylogeographic analyses, i.e. investigate the impact of environmental factors on the dispersal dynamics of viral lineages (e.g., Dellicour et al. 2025). The package, together with its installation instructions, dependencies, and a set of dedicated tutorials, is available on its GitHub repository: [https://github.com/sdellicour/seraphim](https://github.com/sdellicour/seraphim).
 
 ## Conclusion and Resources
 
@@ -318,14 +314,18 @@ This tutorial only scratches the surface of the analyses that are possible to un
 
 * [Bielejec, F., G. Baele, B. Vrancken, M. A. Suchard, A. Rambaut, and P. Lemey. 2016. SpreaD3: interactive visualisation of spatiotemporal history and trait evolutionary processes. Mol. Biol. Evol., 33: 2167–2169](https://academic.oup.com/mbe/article-lookup/doi/10.1093/molbev/msw082)
 
+* [Dellicour, S., P. Bastide, P. Rocu, D. Fargette, O. J. Hardy OJ, M. A. Suchard, S. Guindon, and P. Lemey. 2024. How fast are viruses spreading in the wild? PLoS Biol., 22: e3002914](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3002914)
+
+* [Dellicour, S., F. Gámbaro, M. Jacquot, S. Lequime, G. Baele, M. Gilbert, O. G. Pybus, M. A. Suchard, and P. Lemey. 2025. Comparative performance of viral landscape phylogeography approaches. PNAS, 122: e2506743122](https://www.pnas.org/doi/10.1073/pnas.2506743122)
+
 * [Dellicour, S., N. R. Faria, R. Rose, P. Lemey, and O. G. Pybus (2026). SERAPHIM 2.0: an extended toolbox for studying phylogenetically informed movements. Bioinformatics 42: btag093](https://academic.oup.com/bioinformatics/article/42/3/btag093/8496268)
 
 * [Faria, N. R., M. U. G. Kraemer, S. C. Hill, J. Goes de Jesus,  R. S. Aguiar, F. C. M. Iani, J. Xavier, J. Quick, L. du Plessis, S. Dellicour, J. Thézé, R. D. O. Carvalho, G. Baele, C.-H. Wu, P. P. Silveira, M. B. Arruda, M. A. Pereira, G. C. Pereira, J. Lourenço, U. Obolski, L. Abade, T. I. Vasylyeva, M. Giovanetti, D. Yi, D. J. Weiss, G. R. W. Wint, F. M.  Shearer, S. Funk, B. Nikolay, V. Fonseca, T. E. R. Adelino, M. A. A. Oliveira, M. V. F. Silva, L. Sacchetto, P. O. Figueiredo, I. M. Rezende, E. M. Mello, R. F. C. Said, D. A. Santos, M. L. Ferraz, M. G. Brito, L. F. Santana, M. T. Menezes, R. M. Brindeiro, A. Tanuri, F. C. P. dos Santos, M. S. Cunha, J. S. Nogueira, I. M. Rocco, A. C. da Costa, S. C. V. Komninakis, V. Azevedo, A. O. Chieppe, E. S. M. Araujo, M. C. L. Mendonça, C. C. dos Santos, C. D. dos Santos, A. M. Mares-Guia, R. M. R. Nogueira, P. C. Sequeira, R.G. Abreu, M. H. O. Garcia, A. L. Abreu, O. Okumoto, E. G. Kroon, C. F. C. de Albuquerque, K.  Lewandowski, S. T. Pullan, M. Carroll, T. de Oliveira, E. C. Sabino, R. P. Souza, M. A. Suchard, P. Lemey, G. S. Trindade, B. P. Drumond, A. M. B. Filippis, N. J. Loman, S. Cauchemez, L. C. J. Alcantara, and O. G. Pybus. 2018. Genomic and epidemiological monitoring of yellow fever virus transmission potential. Science 361: 894-899](https://https://science.sciencemag.org/content/361/6405/894.long)
 
 * [Lemey, P., A. Rambaut, J. J. Welch, and M. A. Suchard. 2010. Phylogeography takes a relaxed random walk in continuous space and time. Molecular biology and evolution  :1877-1885](https://academic.oup.com/mbe/article-lookup/doi/10.1093/molbev/msq067)
 
-* [Li, Y., N. Bollen, S. L. Hong, M. Brusselmans, F. Gambaro, M. A. Suchard, A. Rambaut, P. Lemey, S. Dellicour, and G. Baele. 2024. spread.gl: visualising pathogen dispersal in a high-performance browser application. Virus Evol., 40(12): btae721](https://doi.org/10.1093/bioinformatics/btae721)
+* [Li, Y., N. Bollen, S. L. Hong, M. Brusselmans, F. Gámbaro, M. A. Suchard, A. Rambaut, P. Lemey, S. Dellicour, and G. Baele. 2024. spread.gl: visualising pathogen dispersal in a high-performance browser application. Virus Evol., 40(12): btae721](https://doi.org/10.1093/bioinformatics/btae721)
 
 * [Nahata, K.D., Bielejec, F., Monetta, J., Dellicour, S., Rambaut, A., Suchard, M.A., Baele, G., and Lemey, P. 2022. SPREAD 4: online visualisation of pathogen phylogeographic reconstructions. Virus Evol., 26: veac088](https://academic.oup.com/ve/article/8/2/veac088/6717755)
 
-* [Pybus, O. G., M. A. Suchard, P. Lemey, F. J. Bernardin, A. Rambaut, F. W. Crawford, R. R. Gray, N. Arinaminpathy, S. L. Stramer, M. P. Busch, and E. L. Delwart. 2012. Unifying the spatial epidemiology and molecular evolution of emerging epidemics. Proceedings of the National Academy of Sciences of the United States of America 109: 15066-15071](http://www.pnas.org/content/109/37/15066.short)
+* [Pybus, O. G., M. A. Suchard, P. Lemey, F. J. Bernardin, A. Rambaut, F. W. Crawford, R. R. Gray, N. Arinaminpathy, S. L. Stramer, M. P. Busch, and E. L. Delwart. 2012. Unifying the spatial epidemiology and molecular evolution of emerging epidemics. PNAS, 109: 15066-15071](http://www.pnas.org/content/109/37/15066.short)
