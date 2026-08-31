@@ -286,6 +286,8 @@ While visual exploration of tree space is highly valuable, it remains difficult 
 
 {% include image.html file="treetracer15.png" prefix="/tutorials/howtos/" %}<br />
 
+The Fréchet correlation ESS here confirms what we saw for the continuous parameters in Tracer, i.e. that our analysis needs to run for a while longer to yield a sufficiently large number of independent samples from the posterior.
+
 ### The Compare Consensus panel
 
 Finally, we inspect the Compare Consensus panel where we find our two previously computed consensus trees. We select the two trees in order for the Group 1 (Consensus tree) and Group 2 (Consensus tree) respectively.
