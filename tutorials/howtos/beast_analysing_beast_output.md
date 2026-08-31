@@ -282,7 +282,7 @@ We can also have TreeTracer create a trace plot of the RF distances between the 
 
 {% include image.html file="treetracer14.png" prefix="/tutorials/howtos/" %}<br />
 
-While visual exploration of tree space is highly valuable, it remains difficult to determine whether your BEAST analysis has run for sufficiently long. To this end and similar to what Tracer does, TreeTracer provides the possibility of computing a **tree ESS** value to determine whether your BEAST analysis has collected a sufficient number of independent samples from its posterior distribution. Click Computer Tree-ESS to start computing the tree ESS, which can take up more time than the various calculations performed so far. Interpreting the tree ESS value is currently based on the work of Lanfear et al. (2016) regarding the pseudo-ESS approach, and our own evaluation regarding the performance of the minimum pseudo-ESS and the median pseudo-ESS methods (Brusselmans et al., 2024). This was in turn based on the work of Magee et al. (2024), who found the median pseudo-ESS to have good performance properties. The minimum pseudo-ESS can be considered a (very) conservative option. Following Lanfear et al. (2016), you can use a tree ESS cut-off of 200 for the median pseudo-ESS; we hence use the same coloring scheme for the median pseudo-ESS as in Tracer.
+While visual exploration of tree space is highly valuable, it remains difficult to determine whether your BEAST analysis has run for sufficiently long. To this end and similar to what Tracer does, TreeTracer provides the possibility to compute a **tree ESS** value to determine whether your BEAST analysis has collected a sufficient number of independent samples from its posterior distribution. Click Compute Tree-ESS to start computing the tree ESS, which should be calculated relatively quickly. Interpreting the tree ESS value is currently based on the work of Magee et al. (2024) regarding the **Fréchet correlation ESS** approach, and our own evaluation regarding the performance of this method (Brusselmans et al., 2024). Following Magee et al. (2016), you can use a tree ESS cut-off of 500 for the Fréchet correlation ESS; TreeTracer will hence color the ESS value in black when it exceeds 500, in orange when it is between 500 and 250, and in red (indicating that you should really run your analysis for longer) when it is below 250.
 
 {% include image.html file="treetracer15.png" prefix="/tutorials/howtos/" %}<br />
 
@@ -316,8 +316,6 @@ Gao, J., Brusselmans, M., Carvalho, L. M., Suchard, M. A., Baele, G., and Matsen
 Brusselmans, M., Carvalho, L. M., Hong, S. L., Gao, J., Matsen IV, F. A., Rambaut, A., Lemey, P., Suchard, M. A., Dudas, G., and Baele, G. (2024) On the importance of assessing topological convergence in Bayesian phylogenetic inference. Virus Evol. 10(1): veae081.
 
 Magee, A., Karcher, M., Matsen IV, F. A., and Minin, V. (2024) How trustworthy is your tree? Bayesian phylogenetic effective sample size through the lens of Monte Carlo error. Bayesian Analysis, 19(2), 565-593.
-
-Lanfear, R., Hua, X., and Warren, D. L. (2016) Estimating the effective sample size of tree topologies from Bayesian phylogenetic analyses. Genome Biol. Evol., 8(8), 2319–2332.
 
 Murdoch, D. and Chow, E. (1996). A graphical display of large correlation matrices. Am. Stat., 50, 178–180.
 
