@@ -208,10 +208,6 @@ entries:
       url: /model_selection_2
       output: web, pdf
 
-    - title: Model Selection Examples
-      url: /model_selection_examples
-      output: web, pdf
-
     - title: Clock Model Averaging Tutorial
       url: /model_averaging_clocks
       output: web, pdf

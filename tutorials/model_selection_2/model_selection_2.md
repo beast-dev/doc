@@ -1,7 +1,7 @@
 ---
 title: Model Selection Advanced Tutorial
 keywords: model selection, marginal likelihood, generalized stepping-stone sampling, tutorial
-last_updated: July 10, 2017
+last_updated: September 1, 2026
 tags: [tutorial]
 summary: "Model selection using generalized stepping-stone sampling in BEAST."
 sidebar: beast_sidebar
@@ -14,8 +14,6 @@ folder: beast
 Recent years have seen the development of several new approaches to perform model selection in the field of phylogenetics, such as path sampling (under the term 'thermodynamic integration'; Lartillot and Philippe, 2006), stepping-stone sampling (Xie et al., 2011) and generalized stepping-stone sampling (Fan et al., 2011), with the latter approach currently only applicable on a fixed underlying topology. 
 We aim to relax this latter assumption by providing two working distributions in a genealogical framework (Baele et al., 2016, Syst. Biol.), showing that a generalized stepping-stone sampling approach which accommodates phylogenetic uncertainty avoids possible numerical issues that may plague path sampling and stepping-stone sampling. 
 Further, our proposed approach also has lower variance and yields accurate estimates of the (log) marginal likelihood, whereas PS and SS tend to overestimate the (log) marginal likelihood when vague priors are used (which is almost always the case).
-
-Note that there is [a page with specific examples for setting up generalized stepping-stone sampling analyses](model_selection_examples), which deals with use cases that are difficult to set up using BEAUti (for example because the model is not available in BEAUti yet).
 
 ### Coalescent models {#coalescent}
 
