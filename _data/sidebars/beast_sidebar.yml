@@ -267,6 +267,10 @@ entries:
       url: /workshop_genomic_epidemiology
       output: web, pdf
 
+    - title: Episodic birth-death-sampling
+      url: /workshop_episodic_birth_death_sampling
+      output: web, pdf
+
   - title: Reference
     output: web, pdf
     folderitems:
