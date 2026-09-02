@@ -203,23 +203,23 @@ You can use either [FigTree](figtree) or [PearTree](peartree) to visualize a sum
 Here, we will use PearTree to show a tree colored according to the annotated health zone location estimate for each node and tip. 
 Under `BRANCHES`, select `HZ` as `Colour by` and keep the default `Tableau` as `Palette`.
 
-{% include image.html file="pearTree_branches.png" prefix=root_url width="80%" align="center" %}
+{% include image.html file="pearTree_branches.png" prefix=root_url width="50%" indent="25%" %}
 
 Select the same `HZ` attribute for `Colour by` under `NODE SHAPES`: 
 
-{% include image.html file="pearTree_nodes.png" prefix=root_url width="80%" align="center" %}
+{% include image.html file="pearTree_nodes.png" prefix=root_url width="50%" indent="25%" %}
 
 and under `TIP SHAPES`: 
 
-{% include image.html file="pearTree_tips.png" prefix=root_url width="80%" align="center" %}
+{% include image.html file="pearTree_tips.png" prefix=root_url width="50%" indent="25%" %}
 
 Finally, also show `HZ` under `LEGEND`:
 
-{% include image.html file="pearTree_legend.png" prefix=root_url width="80%" align="center" %}
+{% include image.html file="pearTree_legend.png" prefix=root_url width="50%" indent="25%" %}
 
 This should result in a similar visualization as this one:
 
-{% include image.html file="pearTree_coloredTree.png" prefix=root_url width="80%" align="center" %}
+{% include image.html file="pearTree_coloredTree.png" prefix=root_url width="100%" align="center" %}
 
 
 ### Visualizing the MCC tree <!--and calculating Bayes factor support for rates--> using SpreadGL
