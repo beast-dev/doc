@@ -471,13 +471,30 @@ Finally, delete or comment out the reference to the `coalescentLikelihood` in fi
 <coalescentLikelihood idref="coalescent"/>
 ```
 
-A version of the xml in which the necessary elements have been commented out and all the new ones added can be found [here]({{ root_url }}files/b.1.1.7.xml), which can be useful for checking.
+A version of the xml in which the necessary elements have been commented out and all the new ones added can be found [here]({{ root_url }}files/b.1.1.7.xml), which can be useful for checking. The same file is included in the tutorial archive as <samp>b.1.1.7.xml</samp>. The archive also contains <samp>B.1.1.7_EBDS.xml</samp>, the XML that generated the long-run log analysed below; it was produced with BEAUti v10.5.0 and draws its starting tree from a constant-size rather than an exponential growth model.
 
 ### Running BEAST
 
 {% include icon-callout.html file='icons/beast-icon.png' content='Run <a href="beast">BEAST</a> on the edited XML file.' %}
 
-As with the coalescent analysis, a converged run requires far longer than a practical session allows; the log file of a run of 100 million states, sampled every 1000, is provided as <samp>B.1.1.7_EBDS.log</samp> and can be loaded into Tracer.
+As with the coalescent analysis, a converged run requires far longer than a practical session allows; the log file of a run of 100 million states, sampled every 10,000, is provided as <samp>B.1.1.7_EBDS.log</samp>, generated from <samp>B.1.1.7_EBDS.xml</samp> in the archive, and can be loaded into Tracer.
+
+### Plotting the results in R
+
+Tracer summarizes one parameter at a time, whereas the quantity of interest here is a trajectory: the value of each rate in each epoch, in order. The R script [`plot_EBDS.R`]({{ root_url }}files/plot_EBDS.R) reads the epoch columns from the log file and draws the birth rate, death rate, sampling rate and effective reproductive number as four stacked panels on a shared time axis, each epoch shown as its posterior mean with a shaded 95% HPD interval.
+
+Open it in RStudio, edit the settings block at the top, and source the file:
+
+```r
+log_file  <- "B.1.1.7_EBDS.log"  # path to the log file
+cut_off   <- 0.35                # the <cutOff> value used in the XML
+mrsd      <- "2020-12-31"        # most recent sampling date; NULL to plot in height
+burnin    <- 0.10                # proportion of samples discarded as burn-in
+log_scale <- TRUE                # log axis for the rates and R
+```
+
+Only base R is used, so nothing needs to be installed. The number of epochs is taken from the log file itself rather than declared, so the same script serves Exercise 2: point `log_file` at <samp>all_h3n2_hmc_1.log</samp> and set `cut_off` to <samp>6</samp> and `mrsd` to <samp>2003.98</samp> (a decimal year is accepted in place of a date). Supplying `mrsd` rescales the axis to calendar time; leaving it as `NULL` plots time before the most recent sample. Because the oldest epoch is unbounded in the model, it is drawn back to the posterior mean of `ebds.origin`.
+
 
 {% include question.html content='<br>
 Questions<br>
@@ -540,7 +557,7 @@ The origin prior is rescaled to the longer timescale, and the starting tree heig
 </normalPrior>
 ```
 
-The chain length should be increased substantially; the reference run used 700 million states and is provided as <samp>all_h3n2_hmc_1.log</samp>.
+The chain length should be increased substantially; the reference run used 700 million states and is provided as <samp>all_h3n2_hmc_1.log</samp>, generated from <samp>Influenza_joint_HMC.xml</samp> in the archive.
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The completed influenza XML and the log file of a long run are included in the <a href="{{ root_url }}files/EBDS_tutorial.zip">archive for this tutorial</a>.</div>
 
