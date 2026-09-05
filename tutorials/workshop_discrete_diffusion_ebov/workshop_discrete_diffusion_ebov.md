@@ -69,7 +69,6 @@ You can now check these dates (as fractional years) and edit them manually if th
 
 The `Height` column lists the ages of the tips relative to time 0 (in our case, the most recent sampling date: 2019-08-03 or 2019.5863013698631). You can change the 'time 0' date by clicking the `Specify origin date:` option and specifying it in the respective window. 
 
-
 #### Specifying the trait information
 
 The next thing to do is to click on the `Traits` tab at the top of the main window. A trait can be any characteristic that is inherent to the specific taxon, for example, geographical location or host species. This step will assign a geographical location to each taxa based on the trait specification for each sequence in the <samp>taxa_HZ.txt</samp> file, which can be [downloaded from here]({{ root_url }}files/taxa_HZ.txt). To associate the sequences with the traits, we need to add a new trait under the `Traits` tab (click `Add trait`). This will open a new window to Create or Import Trait(s):
@@ -354,7 +353,47 @@ This may complicate the interpretation of coefficient estimates for predictors w
 
 For geographic distance ('HZ.coefficientsTimesIndicators3'), the posterior density for this statistic is the same as for the actual coefficient ('HZ.coefficients3') because the associated indicator is always 1 for this predictor. The negative coefficient provides evidence for a higher intensity of dispersal  between nearby health zones. The posterior distribution for the statistic for destination population size ('HZ.coefficientsTimesIndicators2') shows most of its density on positive values but also a small density at 0, as expected for its inclusion probability. So, although this predictor does not yield maximum support as the geographic distances, it does suggest more intense dispersal towards more populated health zones.
 
+## EXERCISE 3: discrete ancestral reconstruction using the BASTA structured coalescent approximation (SCA)
 
+### Running BEAUti
+
+If your BEAUti window is still open from going through Exercise 1 above, you can go back to the `Sites` panel; if not, you can repeat the BEAUti steps from Exercise 1 until you reach the `Sites` panel. Select the trait `HZ`(for health zone) on the left-hand side and select the Backward-in-time CTMC model that is used in the BASTA SCA (see De Maio et al., 2015; Shao et al., 2026).
+
+#### Specifying the trait information
+
+
+
+{% include image.html file="beautiBASTABIT.png" prefix=root_url %}
+
+#### Setting the ‘molecular clock’ model
+
+#### Setting the tree prior
+
+{% include image.html file="beautiTreePriorSet.png" prefix=root_url %}
+
+#### The ancestral states settings
+
+In the `States` panel, check that for HZ partition the option to Reconstruct states at all ancestors is selected (by default).
+
+{% include image.html file="beautiBASTAancestral.png" prefix=root_url %}
+
+#### Setting up the priors
+
+{% include image.html file="beautiBASTApriors.png" prefix=root_url %}
+
+#### Setting up the operators
+
+{% include image.html file="beautiBASTAoperators.png" prefix=root_url %}
+
+#### Setting the MCMC options
+
+{% include image.html file="beautiBASTAmcmc.png" prefix=root_url %}
+
+### Running BEAST
+
+### Analyzing the BEAST output using Tracer
+
+### Analyzing the BEAST output using TreeTracer
 
 ## References
 
@@ -363,7 +402,9 @@ For geographic distance ('HZ.coefficientsTimesIndicators3'), the posterior densi
 * [Lemey, P., A. Rambaut, A. J. Drummond, and M. A. Suchard. 2009. Bayesian phylogeography finds its roots. PLoS computational biology 5:e1000520.](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000520)
 * [Lemey, P., A. Rambaut, T. Bedford, N. Faria, F. Bielejec, G. Baele, C. A. Russell, D. J. Smith, O. G. Pybus, D. Brockmann, and M. A. Suchard. 2014. Unifying Viral Genetics and Human Transportation Data to Predict the Global Transmission Dynamics of Human Influenza H3N2. PLoS pathogens 10:e1003932.](http://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1003932)
 * [Bloomquist, E. W., P. Lemey, and M. A. Suchard. 2010. Three roads diverged? Routes to phylogeographic inference. Trends Ecol Evol 25:626-632.## Help and documentation.](https://www.ncbi.nlm.nih.gov/pubmed/20863591)
-* [Nahata KD, Bielejec F, Monetta J, Dellicour S, Rambaut A, Suchard MA, Baele G, Lemey P.. 2022. SPREAD 4: online visualisation of pathogen phylogeographic reconstructions. Virus Evol., 26;8(2):veac088. doi: 10.1093/ve/veac088. eCollection 2022.](https://academic.oup.com/ve/article/8/2/veac088/6717755)
+* [Nahata KD, Bielejec F, Monetta J, Dellicour S, Rambaut A, Suchard MA, Baele G, Lemey P. 2022. SPREAD 4: online visualisation of pathogen phylogeographic reconstructions. Virus Evol., 26;8(2):veac088. doi: 10.1093/ve/veac088. eCollection 2022.](https://academic.oup.com/ve/article/8/2/veac088/6717755)
+* [De Maio N, Wu C.-H., O'Reilly K. M., Wilson D. 2015. New Routes to Phylogeography: A Bayesian Structured Coalescent Approximation. PLOS Genet. 11(8): e1005421.](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005421)
+* [Shao Y., Suchard M. A., Rambaut A., Ji X, Lemey P, Vasylyeva T. I., Baele G. 2026. Parallel algorithms for phylogenetic inference under a structured coalescent approximation. Proc. Natl. Acad. Sci. USA 123 (18) e2602412123.](https://www.pnas.org/doi/10.1073/pnas.2602412123)
 
 ## Help and documentation
 
