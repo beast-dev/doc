@@ -192,9 +192,34 @@ We can continue to summarize the annotated phylogeographic tree inferred with th
 
 ### Summarizing and visualizing the trees
 
-At this point you can summarize the sampled trees using the [TreeAnnotator](treeannotator) utility and then visualize the resulting tree using the [FigTree](figtree) application. Note that the trees file provided in the zipped folder has been thinned to every 3rd sample (1,167 trees) to keep the download manageable, so TreeAnnotator will report fewer trees than the 3,500 samples in the log file.
+At this point you can summarize the sampled trees using the [TreeAnnotator](treeannotator) utility. Note that the trees file provided in the zipped folder has been thinned to every 3rd sample (1,167 trees) to keep the download manageable, so TreeAnnotator will report fewer trees than the 3,500 samples in the log file.
  
 {% include callout.html content='A detailed description of how to do this was introduced in the earlier <a href="workshop_rates_and_dates#analysing-the-beast-output">\'Estimating rates and dates from time-stamped sequences\' tutorial</a>.' %}
+
+You can use either [FigTree](figtree) or [PearTree](peartree) to visualize a summary tree like a HIPSTR tree obtained with TreeAnnotator. 
+{% include callout.html content='Separate tutorials are available for both <a href="workshop_figtree">FigTree</a> and <a href="peartree_tutorial">PearTree</a>.' %}
+
+Here, we will use PearTree to show a tree colored according to the annotated health zone location estimate for each node and tip. 
+Under `BRANCHES`, select `HZ` as `Colour by` and keep the default `Tableau` as `Palette`.
+
+{% include image.html file="pearTree_branches.png" prefix=root_url width="50%" indent="25%" %}
+
+Select the same `HZ` attribute for `Colour by` under `NODE SHAPES`: 
+
+{% include image.html file="pearTree_nodes.png" prefix=root_url width="50%" indent="25%" %}
+
+and under `TIP SHAPES`: 
+
+{% include image.html file="pearTree_tips.png" prefix=root_url width="50%" indent="25%" %}
+
+Finally, also show `HZ` under `LEGEND`:
+
+{% include image.html file="pearTree_legend.png" prefix=root_url width="50%" indent="25%" %}
+
+This should result in a similar visualization as this one:
+
+{% include image.html file="pearTree_coloredTree.png" prefix=root_url width="100%" align="center" %}
+
 
 ### Visualizing the MCC tree <!--and calculating Bayes factor support for rates--> using SpreadGL
 SpreadGL, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics built on kepler.gl, is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreadGL allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome.

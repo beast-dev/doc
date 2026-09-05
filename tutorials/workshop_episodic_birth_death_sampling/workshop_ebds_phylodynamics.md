@@ -3,7 +3,7 @@ title: Phylodynamic inference under the episodic birth-death-sampling model
 keywords: phylodynamics, birth-death, EBDS, SARS-CoV-2, influenza, reproductive number, tutorial
 last_updated: August 24, 2026
 tags: [tutorial, workshop]
-summary: "This tutorial describes how to specify an episodic birth-death-sampling (EBDS) tree prior in a BEAST XML file. The EBDS model treats sampling times as data and estimates piecewise-constant birth, death and sampling rates, from which the effective reproductive number is obtained directly as a function of time. BEAUti does not currently generate this tree prior, so the relevant XML elements are constructed by hand from a BEAUti-generated coalescent analysis. The first exercise applies the model to the SARS-CoV-2 alpha (B.1.1.7) data set of the respiratory virus phylodynamics tutorial using three epochs; the second applies it to the influenza A/H3N2 data set of the same tutorial using seventy-two epochs, and illustrates how the epoch configuration and its priors are adapted to a longer time series."
+summary: "This tutorial describes how to specify an episodic birth-death-sampling (EBDS) tree prior in a BEAST XML file. The EBDS model treats sampling times as data and estimates piecewise-constant birth, death and sampling rates, from which the effective reproductive number is obtained directly as a function of time. BEAUti does not currently generate this tree prior, so the relevant XML elements are constructed by hand from a BEAUti-generated coalescent analysis. The first exercise applies the model to the SARS-CoV-2 alpha (B.1.1.7) data set of the <a href=\"workshop_respiratory_virus_phylodynamics\">respiratory virus phylodynamics tutorial</a> using three epochs; the second applies it to the influenza A/H3N2 data set of the same tutorial using seventy-two epochs, and illustrates how the epoch configuration and its priors are adapted to a longer time series."
 sidebar: beast_sidebar
 permalink: workshop_episodic_birth_death_sampling.html
 folder: beast
@@ -51,13 +51,14 @@ To undertake this tutorial you will need the following software:
 
 The first exercise uses the SARS-CoV-2 alpha (B.1.1.7) data set of the [respiratory virus tutorial](workshop_respiratory_virus_phylodynamics), a set of 976 genomes sampled in England during the emergence of the lineage (Hill et al., 2022).
 
-Load `b.1.1.7.fasta` into BEAUti and configure the `Tips`, `Sites`, `Clocks` and `MCMC` panels exactly as described there. The tree prior selected in the `Trees` panel is immaterial, since it will be replaced; leaving it at `Coalescent: Exponential Growth` means that the elements to be deleted are the ones listed below. Set the `File name stem:` to <samp>B.1.1.7_EBDS</samp> and generate the XML.
+Load [`b.1.1.7.fasta`]({{ site.tutorials_root_url }}/workshop_respiratory_virus_phylodynamics/files/b.1.1.7.fasta) into BEAUti and configure the `Tips`, `Sites`, `Clocks` and `MCMC` panels exactly as described there. The tree prior selected in the `Trees` panel is immaterial, since it will be replaced; leaving it at `Coalescent: Exponential Growth` means that the elements to be deleted are the ones listed below. Set the `File name stem:` to <samp>B.1.1.7_EBDS</samp> and generate the XML.
 
 {% include callout.html type="warning" content="Parsing the tip dates is not optional under this model. Under a coalescent tree prior, unparsed dates produce a poorly calibrated but internally consistent analysis. Under EBDS the sampling times are part of the likelihood, and collapsing all tips to the present removes the information that identifies the sampling rate. Verify the <code>Date</code> column in the <code>Tips</code> panel before generating the XML.<br /><br />" %}
 
-### Removing the coalescent tree prior
+### Removing the coalescent tree prior and adjusting the starting tree
 
-Delete the following elements, which together constitute the coalescent tree prior:
+We need to replace the coalescent prior by the EBDS prior.
+We could consider deleting or commenting out the exponentialGrowth model, 
 
 ```xml
 <exponentialGrowth id="exponential" units="years"> 
@@ -65,21 +66,76 @@ Delete the following elements, which together constitute the coalescent tree pri
 </exponentialGrowth>
 ```
 
+but this model is still used to generate a starting tree, so we will keep it just for this. 
+Concerning the starting tree, we note that the tree likelihood is invalid whenever the origin of the birth-death process (`ebds.origin`) is younger than the root height. Proposals that violate the constraint are rejected, but the initial state must nonetheless be valid. To have the chain begin from a valid initial state, the randomly generated starting tree must be constrained by enforcing a `height` that is smaller than initial `ebds.origin` of 0.5 (which is specified in `episodicBirthDeathSamplingModel` in the next section):
+
+```xml
+<coalescentSimulator id="startingTree" height="0.3">
+    <taxa idref="taxa"/>
+    <exponentialGrowth idref="exponential"/>
+</coalescentSimulator>
+```
+
+An invalid initial likelihood on startup usually indicates either that this constraint is missing or that the tip dates were not parsed.
+
+In case you selected to log the doubling time and R0 when constructing the exponential growth xml, delete or comment out these elements as they are not useful anymore:
+
+```xml
+<doublingTime id="doublingTime" timeUnits="days"> 
+    ... 
+</doublingTime>
+```
+
+```xml
+<R0 id="R0">
+    ... 
+</R0>
+```
+
+Delete or comment out the coalescent likelihood associated with the coalescent tree prior:
+
 ```xml
 <coalescentLikelihood id="coalescent"> 
     ... 
 </coalescentLikelihood>
 ```
 
-Then, delete the two operators acting on `exponential.popSize` and `exponential.growthRate` (likely a `scaleOperator` and a `randomWalkOperator`, respectively), the two priors for `exponential.popSize` and `exponential.growthRate` (likely a `oneOnXPrior` and the `laplacePrior`, respectively) and the `<coalescentLikelihood idref="coalescent"/>` entries within the `<prior>` element, and any corresponding `parameter` entries in `<log id="fileLog">` and `<log id="screenLog">`.
+Next, delete the two operators acting on `exponential.popSize` and `exponential.growthRate` (likely a `scaleOperator` and a `randomWalkOperator`, respectively), the two priors for `exponential.popSize` and `exponential.growthRate` (likely a `gammaPrior` and the `laplacePrior`, respectively) and the `<coalescentLikelihood idref="coalescent"/>` entries within the `<prior>` element, and any corresponding `parameter` entries in `<log id="fileLog">` and `<log id="screenLog">`, including for `doublingTime` and `R0` if those are present.
 
-Retain the `constantSize` and `coalescentSimulator` elements, which supply a starting tree rather than a tree prior; they are modified under [Starting tree](#starting-tree) below. All remaining elements generated by BEAUti are unaffected.
+All remaining elements generated by BEAUti are unaffected.
 
 ### The tree prior
 
-The tree prior consists of two elements. The first specifies the model:
+The tree prior consists of two elements. The first specifies the model (`episodicBirthDeathSamplingModel`) and is preceded by parameter specifications for the model:
 
 ```xml
+<compoundParameter id="birthRate.increments">
+    <parameter id="birthRateAtPresent" value="-2.0"/>
+    <parameter id="birthRateDelta" dimension="2" value="0.01"/>
+</compoundParameter>
+
+<transformedVectorSumTransform id="ebds.birthRate" incrementTransformType="log">
+    <compoundParameter idref="birthRate.increments"/>
+</transformedVectorSumTransform>
+
+<compoundParameter id="deathRate.increments">
+    <parameter id="deathRateAtPresent" value="-2.0"/>
+    <parameter id="deathRateDelta" dimension="2" value="0"/>
+</compoundParameter>
+
+<transformedVectorSumTransform id="ebds.deathRate" incrementTransformType="log">
+    <compoundParameter idref="deathRate.increments"/>
+</transformedVectorSumTransform>
+
+<compoundParameter id="samplingRate.increments">
+    <parameter id="samplingRateAtPresent" value="-2.0"/>
+    <parameter id="samplingRateDelta" dimension="2" value="0.01"/>
+</compoundParameter>
+
+<transformedVectorSumTransform id="ebds.samplingRate" incrementTransformType="log">
+    <compoundParameter idref="samplingRate.increments"/>
+</transformedVectorSumTransform>
+
 <episodicBirthDeathSamplingModel id="ebds" units="years" conditionOnSurvival="false">
     <birthRate>
         <parameter idref="ebds.birthRate"/>
@@ -111,8 +167,8 @@ The tree prior consists of two elements. The first specifies the model:
     </numGridPoints>
 </episodicBirthDeathSamplingModel>
 ```
-
-and the second computes the likelihood of the tree under it, replacing the deleted `coalescentLikelihood`:
+These xml elements can be put after the `coalescentSimulator`.
+The second computes the likelihood of the tree under it, replacing the deleted `coalescentLikelihood`:
 
 ```xml
 <birthDeathLikelihood id="birthDeathLikelihood" useNewLoop="true">
@@ -161,7 +217,7 @@ Holding μ constant is also the natural epidemiological choice, since the durati
 
 ### Parameterizing the rates
 
-Each rate vector is parameterized as a value in the most recent epoch followed by increments on the log scale:
+According to the parameter specifications before the `episodicBirthDeathSamplingModel`, each rate vector is parameterized as a value in the most recent epoch followed by increments on the log scale:
 
 ```xml
 <compoundParameter id="birthRate.increments">
@@ -184,7 +240,7 @@ This parameterization places a rate on the positive half-line (*i.e.*, is always
 
 ### Setting up the priors
 
-A tree alone identifies the three rates only weakly, and it is their combinations rather than their individual values that the data constrain, so the priors on λ, μ and ψ do a substantial amount of work. Each of the three anchor parameters, the log-rate in the most recent epoch, receives a normal prior, which is equivalient to a lognormal prior on the rate itself. Following Magee et al. (2020), these are constructed by an empirical Bayes recipe of three steps: derive a point estimate of the rate from a quantity that is known or can be guessed before the analysis, take its logarithm as the prior mean, and set the standard deviation from the width of the interval one is willing to entertain around it. A standard deviation of log(10)/(2 × 1.96) ≈ 0.587405 gives a 95% prior interval spanning one order of magnitude, and twice that value, 1.17481, spans two orders of magnitude.
+A tree alone identifies the three rates only weakly, and it is their combinations rather than their individual values that the data constrain, so the priors on λ, μ and ψ do a substantial amount of work. Each of the three anchor parameters, the log-rate in the most recent epoch, receives a normal prior, which is equivalent to a lognormal prior on the rate itself. Following Magee et al. (2020), these are constructed by an empirical Bayes recipe of three steps: derive a point estimate of the rate from a quantity that is known or can be guessed before the analysis, take its logarithm as the prior mean, and set the standard deviation from the width of the interval one is willing to entertain around it. A standard deviation of log(10)/(2 × 1.96) ≈ 0.587405 gives a 95% prior interval spanning one order of magnitude, and twice that value, 1.17481, spans two orders of magnitude.
 
 The **birth rate** is anchored on the size of the tree. Under a pure birth process started from the two lineages present at the root, the expected number of lineages after time *t* is 2e<sup>λ*t*</sup>; equating this to the observed number of tips *n* and solving for the rate gives [log(*n* + 2) − log 2] / *t*, the offset in *n* being a small-sample correction. Preliminary estimates of *t* = 0.331 years and *n* = 976 tips give 18.7 yr<sup>-1</sup>, so the prior on the log birth rate is centered on log(18.7) and is therefore Normal(2.928936, 1.17481). Because the derivation ignores death and sampling altogether, it is a crude estimate, which is why the interval is deliberately allowed to span two orders of magnitude.
 
@@ -208,9 +264,46 @@ Each prior is declared as a `distributionLikelihood`, which is the form required
 </distributionLikelihood>
 ```
 
-with `deathRateAtPresentPrior` and `samplingRateAtPresentPrior` following the same pattern and taking the values derived above.
+with `deathRateAtPresentPrior` and `samplingRateAtPresentPrior` following the same pattern and taking the values derived above:
 
-The increments receive a Bayesian bridge prior (Nishimura and Suchard, 2023) with exponent 2, which is equivalent to a Gaussian Markov random field on the log-rates, together with a `Gamma(1,1)` prior on its global scale:
+```xml
+<distributionLikelihood id="deathRateAtPresentPrior">
+    <data>
+        <parameter idref="deathRateAtPresent"/>
+    </data>
+	<distribution>
+		<normalDistributionModel id="deathRateAtPresentPriorDistribution">
+			<mean>
+				<parameter value="3.362995"/>
+			</mean>
+			<stdev>
+				<parameter value="0.1198989" lower="0.0"/>
+			</stdev>
+		</normalDistributionModel>
+	</distribution>
+</distributionLikelihood>
+```
+
+```xml
+<distributionLikelihood id="samplingRateAtPresentPrior">
+	<data>
+		<parameter idref="samplingRateAtPresent"/>
+	</data>
+	<distribution>
+		<normalDistributionModel id="samplingRateAtPresentPriorDistribution">
+			<mean>
+				<parameter value="-3.137794"/>
+			</mean>
+			<stdev>
+				<parameter value="0.587405" lower="0.0"/>
+			</stdev>
+		</normalDistributionModel>
+	</distribution>
+</distributionLikelihood>
+```
+
+These three `distributionLikelihood` blocks can be put after the `birthDeathLikelihood`.
+Next, paste the following prior specifications after the `distributionLikelihood` blocks:
 
 ```xml
 <bayesianBridge id="birthRateDeltaPrior">
@@ -229,23 +322,31 @@ The increments receive a Bayesian bridge prior (Nishimura and Suchard, 2023) wit
 <gammaPrior id="birthRateDeltaGlobalScalePrior" shape="1" scale="1">
     <parameter idref="birthRateDeltaPrior.globalScale"/>
 </gammaPrior>
+
+<bayesianBridge id="samplingRateDeltaPrior">
+    <parameter idref="samplingRateDelta"/>
+    <globalScale>
+        <parameter id="samplingRateDeltaPrior.globalScale" value="0.1" lower="0.0"/>
+    </globalScale>
+    <localScale>
+        <parameter id="samplingRateDeltaPrior.localScale" value="1" dimension="2"/>
+    </localScale>
+    <exponent>
+        <parameter value="2.0"/>
+    </exponent>
+</bayesianBridge>
+
+<gammaPrior id="samplingRateDeltaGlobalScalePrior" shape="1" scale="1">
+    <parameter idref="samplingRateDeltaPrior.globalScale"/>
+</gammaPrior>
 ```
+According to these specifications, the increments receive a Bayesian bridge prior (Nishimura and Suchard, 2023) with exponent 2, which is equivalent to a Gaussian Markov random field on the log-rates, together with a `Gamma(1,1)` prior on its global scale.
+An equivalent pair is specified for `samplingRateDelta`. The global scale governs the magnitude of change permitted between adjacent epochs and is estimated. Reducing the exponent below 2 yields heavier-tailed shrinkage, which admits occasional abrupt shifts against an otherwise flat trajectory. No bridge is applied to `deathRateDelta`, whose elements remain at their initial value of zero.
+We note that these Bayesian bridge priors are already specified here because they are incorporated in the gradient specifications (next section), which in turn are used in the HMC operator (also next section). 
 
-with an equivalent pair for `samplingRateDelta`. The global scale governs the magnitude of change permitted between adjacent epochs and is estimated. Reducing the exponent below 2 yields heavier-tailed shrinkage, which admits occasional abrupt shifts against an otherwise flat trajectory. No bridge is applied to `deathRateDelta`, whose elements remain at their initial value of zero.
+### Gradients and operators
 
-The origin receives a weakly informative normal prior:
-
-```xml
-<normalPrior mean="0.3" stdev="0.1">
-    <parameter idref="ebds.origin"/>
-</normalPrior>
-```
-
-The tree likelihood is invalid whenever the origin falls below the root height, so proposals that violate the constraint are rejected. The initial state must nonetheless be valid, which is the subject of the [Starting tree](#starting-tree) section below.
-
-### Gradients and the HMC operator
-
-Two `compoundGradient` elements assemble the gradient of the log posterior with respect to the increment parameters, the first from the priors and the second from the tree likelihood:
+Next, paste the following `compoundGradient` elements after the previous prior additions:
 
 ```xml
 <compoundGradient id="grad.ebds.prior">
@@ -279,7 +380,11 @@ Two `compoundGradient` elements assemble the gradient of the log posterior with 
 </compoundGradient>
 ```
 
+Two `compoundGradient` elements assemble the gradient of the log posterior with respect to the increment parameters, the first from the priors and the second from the tree likelihood.
+
 `birthDeathLikelihoodGradient` differentiates the tree likelihood with respect to the rate named in `wrtParameter`, and `gradientWrtIncrements1D` applies the chain rule to convert that gradient to the increment scale. Each `incrementTransformType` must match the corresponding `transformedVectorSumTransform`.
+
+In the operator block, add the following HMC operator:
 
 ```xml
 <hamiltonianMonteCarloOperator weight="1" nSteps="15" stepSize="0.01" mode="vanilla"
@@ -303,7 +408,7 @@ Two `compoundGradient` elements assemble the gradient of the log posterior with 
 
 The operator concatenates the gradients into a single parameter vector, so the two `compoundGradient` elements and the components of the preconditioner must all be listed in the same order. The preconditioner rescales the parameters by their prior variances, so that a common step size is appropriate across parameters that differ substantially in scale.
 
-Parameters excluded from HMC require conventional operators:
+Also add the following conventional operators for parameters excluded from HMC:
 
 ```xml
 <randomWalkOperator windowSize="1.0" weight="1.0">
@@ -320,31 +425,9 @@ Parameters excluded from HMC require conventional operators:
 </randomWalkOperator>
 ```
 
-### Starting tree
+### Assembling the prior element
 
-The likelihood is undefined when the origin is younger than the root, so the chain cannot begin from a tree taller than the initial value of `ebds.origin`. The randomly generated starting tree must therefore be constrained, using a value below that initial origin of 0.5:
-
-```xml
-<coalescentSimulator id="startingTree" height="0.3">
-    <taxa idref="taxa"/>
-    <constantSize idref="initialDemo"/>
-</coalescentSimulator>
-```
-
-An invalid initial likelihood on startup usually indicates either that this constraint is missing or that the tip dates were not parsed.
-
-### Logging
-
-The effective reproductive number is computed from the sampled rates by a dedicated logger, which requires no prior or operator of its own:
-
-```xml
-<birthDeathCompoundParameterLogger id="effectiveReproductiveNumber"
-                                  compoundParameterType="effectiveReproductiveNumber">
-    <episodicBirthDeathSamplingModel idref="ebds"/>
-</birthDeathCompoundParameterLogger>
-```
-
-The following entries are added to the `<prior>` element:
+The following entries need to be added to the `<prior>` element:
 
 ```xml
 <distributionLikelihood idref="birthRateAtPresentPrior"/>
@@ -360,7 +443,13 @@ The following entries are added to the `<prior>` element:
 <birthDeathLikelihood idref="birthDeathLikelihood"/>
 ```
 
-and to `<log id="fileLog">`:
+Except for the normal prior, these have already been defined so we are referring to their specification.
+The origin (`ebds.origin`) receives a weakly informative normal prior.
+
+
+### Logging
+
+Add the following elements to `<log id="fileLog">`: 
 
 ```xml
 <parameter idref="ebds.birthRate"/>
@@ -369,17 +458,43 @@ and to `<log id="fileLog">`:
 <parameter idref="ebds.origin"/>
 <parameter idref="birthRateDeltaPrior.globalScale"/>
 <parameter idref="samplingRateDeltaPrior.globalScale"/>
-<birthDeathCompoundParameterLogger idref="effectiveReproductiveNumber"/>
+<birthDeathCompoundParameterLogger id="effectiveReproductiveNumber" compoundParameterType = "effectiveReproductiveNumber">
+	<episodicBirthDeathSamplingModel idref="ebds"/>
+</birthDeathCompoundParameterLogger>
 <birthDeathLikelihood idref="birthDeathLikelihood"/>
 ```
 
-The rate vectors rather than the increments are the quantities to be summarized, and the reproductive number is a useful addition to the screen log.
+The rate vectors rather than the increments are the quantities useful to summarize.  The effective reproductive number is computed from the sampled rates by a dedicated logger, which requires no prior or operator of its own.
+
+Finally, delete or comment out the reference to the `coalescentLikelihood` in file log:
+```xml
+<coalescentLikelihood idref="coalescent"/>
+```
+
+A version of the xml in which the necessary elements have been commented out and all the new ones added can be found [here]({{ root_url }}files/b.1.1.7.xml), which can be useful for checking. The same file is included in the tutorial archive as <samp>b.1.1.7.xml</samp>. The archive also contains <samp>B.1.1.7_EBDS.xml</samp>, the XML that generated the long-run log analysed below; it was produced with BEAUti v10.5.0 and draws its starting tree from a constant-size rather than an exponential growth model.
 
 ### Running BEAST
 
 {% include icon-callout.html file='icons/beast-icon.png' content='Run <a href="beast">BEAST</a> on the edited XML file.' %}
 
-As with the coalescent analysis, a converged run requires far longer than a practical session allows; the log file of a run of 100 million states, sampled every 1000, is provided as <samp>B.1.1.7_EBDS.log</samp> and can be loaded into Tracer.
+As with the coalescent analysis, a converged run requires far longer than a practical session allows; the log file of a run of 100 million states, sampled every 10,000, is provided as <samp>B.1.1.7_EBDS.log</samp>, generated from <samp>B.1.1.7_EBDS.xml</samp> in the archive, and can be loaded into Tracer.
+
+### Plotting the results in R
+
+Tracer summarizes one parameter at a time, whereas the quantity of interest here is a trajectory: the value of each rate in each epoch, in order. The R script [`plot_EBDS.R`]({{ root_url }}files/plot_EBDS.R) reads the epoch columns from the log file and draws the birth rate, death rate, sampling rate and effective reproductive number as four stacked panels on a shared time axis, each epoch shown as its posterior mean with a shaded 95% HPD interval.
+
+Open it in RStudio, edit the settings block at the top, and source the file:
+
+```r
+log_file  <- "B.1.1.7_EBDS.log"  # path to the log file
+cut_off   <- 0.35                # the <cutOff> value used in the XML
+mrsd      <- "2020-12-31"        # most recent sampling date; NULL to plot in height
+burnin    <- 0.10                # proportion of samples discarded as burn-in
+log_scale <- TRUE                # log axis for the rates and R
+```
+
+Only base R is used, so nothing needs to be installed. The number of epochs is taken from the log file itself rather than declared, so the same script serves Exercise 2: point `log_file` at <samp>all_h3n2_hmc_1.log</samp> and set `cut_off` to <samp>6</samp> and `mrsd` to <samp>2003.98</samp> (a decimal year is accepted in place of a date). Supplying `mrsd` rescales the axis to calendar time; leaving it as `NULL` plots time before the most recent sample. Because the oldest epoch is unbounded in the model, it is drawn back to the posterior mean of `ebds.origin`.
+
 
 {% include question.html content='<br>
 Questions<br>
@@ -387,7 +502,7 @@ Questions<br>
 2. How does the posterior death rate compare to the prior death rate? <br>
 3. How does the effective reproductive number relate to the birth rate? <br> 
 4. How do you interpret the origin value compared to the age(root) value? <br>
-5. If you look at the previous tutorial on respiratory viruses, how do the effective reproductive numbers compare? What about the clock rate? What do you think is causing these differences?'%}
+5. If you look at the previous <a href="workshop_respiratory_virus_phylodynamics">tutorial on respiratory viruses</a>, how do the effective reproductive numbers compare? What about the clock rate? What do you think is causing these differences?'%}
 
 
 ## EXERCISE 2: Influenza A/H3N2 in New York State
@@ -442,14 +557,14 @@ The origin prior is rescaled to the longer timescale, and the starting tree heig
 </normalPrior>
 ```
 
-The chain length should be increased substantially; the reference run used 700 million states and is provided as <samp>all_h3n2_hmc_1.log</samp>.
+The chain length should be increased substantially; the reference run used 700 million states and is provided as <samp>all_h3n2_hmc_1.log</samp>, generated from <samp>Influenza_joint_HMC.xml</samp> in the archive.
 
 <div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The completed influenza XML and the log file of a long run are included in the <a href="{{ root_url }}files/EBDS_tutorial.zip">archive for this tutorial</a>.</div>
 
 {% include question.html content='<br>
 Questions<br>
 1. How do the birth rate and sampling rate trajectories compare? <br> 
-2. How does the trajectory of the effective reproductive number compare to that of the effective population size from the H3N2 Bayesian SkyGrid reconstruction in the tutorial on respiratory viruses?'%}
+2. How does the trajectory of the effective reproductive number compare to that of the effective population size from the H3N2 Bayesian SkyGrid reconstruction in the <a href="workshop_respiratory_virus_phylodynamics">tutorial on respiratory viruses</a>?'%}
 
 
 ## References
