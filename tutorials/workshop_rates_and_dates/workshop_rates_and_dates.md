@@ -411,6 +411,28 @@ Now, let’s have a look at the timescale of the tree. Select the statistics cal
 
 This indicates that the TMRCA for the Americas is significantly more recent than the entire tree and argues for a relatively recent introduction of yellow fever virus into the Americas. Note, however, that there is considerable uncertainty in these estimates. Switching to the `Estimates` panel shows that the mean date of of the TMRCA into the Americas is the year 1635 but the 95% HPD credible interval spans 1493 to 1765. Bryant et al. (2007) suggest that the introduction of YFV into the Americas is likely the result of the Atlantic slave trade which occurred from the 16th to 19th Centuries.
 
+## Visualizing the sampled posterior trees
+
+{% include image.html prefix=root_url file="treetracer-image1.png" %}
+
+{% include image.html prefix=root_url file="treetracer-image2.png" %}
+
+{% include image.html prefix=root_url file="treetracer-image3.png" %}
+
+{% include image.html prefix=root_url file="treetracer-image4.png" %}
+
+{% include image.html prefix=root_url file="treetracer-image5.png" %}
+
+{% include image.html prefix=root_url file="treetracer-image6.png" %}
+
+{% include image.html prefix=root_url file="treetracer-image7.png" %}
+
+{% include image.html prefix=root_url file="treetracer-image8.png" %}
+
+{% include image.html prefix=root_url file="treetracer-image9.png" %}
+
+{% include image.html prefix=root_url file="treetracer-image10.png" %}
+
 ## Summarizing the trees
 
 We have seen how we can diagnose our MCMC run using Tracer and produce estimates of the marginal posterior distributions of parameters of our model. However, BEAST also samples trees (either phylogenies or genealogies) at the same time as the other parameters of the model. These are written to a separate file called the `YFV.trees` file. This file is a standard NEXUS format file. As such it can easily be loaded into other software in order to examine the trees it contains. One possibility is to load the trees into a program such as PAUP* and construct a consensus tree in a similar manner to summarizing a set of bootstrap trees. In this case, the support values reported for the resolved nodes in the consensus tree will be the posterior probability of those clades.
