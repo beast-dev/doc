@@ -235,6 +235,7 @@ Some of the functions that relate to the discrete phylogeographic analysis inclu
 </div>
 -->
 
+<!-- 
 To get started with SpreadGL, follow the instructions [here](https://beast.community/spreadgl.html).
 
 To visualize an MCC tree, load the MCC tree, the most recent sampling date (2005.5) to 2005-07-02, and coordinates in the ‘<samp>locationStates_SPREADGL.txt</samp>’ file, which should look like this:
@@ -256,6 +257,7 @@ Idaho,44.2394,-114.5103
 Indiana,39.8647,-86.2604
 Mississippi,32.7673,-89.6812
 ```
+ -->
 
 <!-- The coordinates can be downloaded [here]({{ root_url }}files/locationStates.txt).-->
 
@@ -280,7 +282,9 @@ There is an option to load a custom map of the United States in GeoJSON format. 
 
 {% include image.html file="spread4_5_getLink_getCSV.png" prefix=root_url %}
 -->
+<!-- 
 An example visualisation can be found below. Note that the visual aspects of the lines representing the branches and transitions can be modified. 
+ -->
 
 <!-- 
 {% include image.html file="spreadgl_batrabies.png" prefix=root_url %}
