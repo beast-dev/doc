@@ -413,13 +413,23 @@ This indicates that the TMRCA for the Americas is significantly more recent than
 
 ## Visualizing the sampled posterior trees
 
+After checking the posterior samples for the continuous parameters in Tracer, we now move on to checking the posterior tree samples for convergence and proper mixing in TreeTracer. For convenience, we can rename the `YFV.trees` files from the `strict` and `relaxed` directories in the `.zip` file to `YFV_strict.trees` and `YFV_relaxed.trees` respectively. We first load the `YFV_strict.trees` file and set a 10% burn-in, by removing the first 200 sampled trees in the panel on the left-hand side:
+
 {% include image.html prefix=root_url file="treetracer-image1.png" %}
+
+We now need to compute the phylogenetic distances between our posterior trees, followed by the MDS projection by subsequently clicking `Compute RF distances` and `Compute MDS`. When these have been computed, the left-hand panel will automatically collapse (but you can make it visible again by clicking the button to the left of the TreeTracer icon) and we move over to the `Within-run Analysis` panel to inspect the MDS projection:
 
 {% include image.html prefix=root_url file="treetracer-image2.png" %}
 
+By inspecting the different 2D plots of the MDS projection performed, we notice that each pair of dimensions (MDS1 x MDS2, MDS1 x MDS3, MDS2 x MDS3) shows bimodality in posterior tree space: 
+
 {% include image.html prefix=root_url file="treetracer-image3.png" %}
 
+As long as our Markov chain switches between both modes sufficiently often, this is not problematic. We can confirm this is the case for this analysis, by looking at the colors of the points (corresponding to the tree sample numbers; see the legend on the right-hand side) in both modes. While such a visual assessment is informative, a more objective decision can be made by computing a `Tree ESS` value. This can be done in the `Diagnostics` panel, where you can click `Compute Tree-ESS` to compute the Fréchet correlation ESS which ideally sits above 500 (Magee et al., 2024). We here obtain a Tree ESS value far above this threshold, confirming that we have run our BEAST X analysis to completion.
+
 {% include image.html prefix=root_url file="treetracer-image4.png" %}
+
+
 
 {% include image.html prefix=root_url file="treetracer-image5.png" %}
 
