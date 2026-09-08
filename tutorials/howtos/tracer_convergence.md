@@ -1,13 +1,15 @@
 ---
 title: Identifying convergence problems using (Tree)Tracer
 keywords: tracer, tutorial
-last_updated: May 11, 2026
+last_updated: September 8, 2026
 tags: [how-to]
 summary: "Convergence diagnostics using (Tree)Tracer"
 sidebar: beast_sidebar
 permalink: tracer_convergence.html
 folder: beast
 ---
+
+{% capture root_url %}{{ site.tutorials_root_url }}/howtos/{% endcapture %}
 
 ## Identifying convergence problems using Tracer
 
@@ -81,11 +83,18 @@ In order to identify for which parameters this would be useful, careful inspecti
 
 ## Identifying convergence problems using TreeTracer
 
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
+<a href="{{ root_url }}files/HIVLongRuns.zip"> can be downloaded from here</a>. 
+If you download this zipped folder, there is no need to download other files/folders linked further in the tutorial.
+</div>
+
 ### Data set information
+
+We here take a look at the BEAST output of a 2020 phylogeographic study of the spread of HIV-1 subtype B in the USA (Hong et al., 2020). We focus on a data set consisting of 500 sequences that was constructed with the aim of maximizing phylogenetic diversity. The output of the original analysis consists of 1000 posterior sample trees, resulting from concatenating and downsampling two analysis replicates (i.e., the same BEAST XML was run twice, each time with a different starting seed).
 
 ### Loading output files into TreeTracer
 
-We start by loading the output **.trees** files of both replicates of the same BEAST XML into TreeTracer.
+We start by loading the output **.trees** files of both replicates (i.e. files `HIV_USA_replicate_1.trees` and `HIV_USA_replicate_2.trees`) of the same BEAST XML into TreeTracer.
 
 
 
@@ -97,7 +106,7 @@ Rambaut A, Drummond AJ, Xie D, Baele G and Suchard MA (2018) Posterior summarisa
 [doi:10.1093/sysbio/syy032](https://doi.org/10.1093/sysbio/syy032)
 
 The recommended citation for TreeTracer is:
-
+Hong SL, Brusselmans M, Klaps J, Carvalho LM, Magee AF, Suchard MA, Rambaut A and Baele G (2026) Tree convergence and mixing in Bayesian phylogenetics using TreeTracer. *(in preparation)*.
 
 ## References
 
