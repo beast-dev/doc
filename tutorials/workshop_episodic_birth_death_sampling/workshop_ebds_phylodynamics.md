@@ -20,15 +20,35 @@ The **episodic birth-death-sampling (EBDS)** model is the piecewise-constant mem
 
 ### The model
 
-The process begins at the origin, at which a single lineage is infectious, and runs forwards to the present. While infectious, each lineage independently transmits at rate λ, producing a second infectious lineage; becomes uninfectious without being observed at rate μ; and is sampled at rate ψ, upon which it is removed from the infectious population with probability r, the treatment probability, and remains infectious otherwise. At each epoch boundary, every lineage still infectious may in addition be sampled with probability ρ, representing a cross-sectional survey rather than continuous surveillance.
+The process begins at the origin, at which a single lineage is infectious, and runs forwards to the present. While infectious, each lineage independently transmits at rate λ, producing a second infectious lineage; becomes uninfectious without being sampled at rate μ; and is sampled at rate ψ, upon which it is removed from the infectious population with probability r, the treatment probability, and remains infectious otherwise. This sampling occurs continuously through time. Separately, at each epoch boundary, every lineage still infectious may in addition be sampled with probability ρ, representing a cross-sectional survey.
+
+Each of these quantities takes a separate value in every epoch:
+
+{% include table.html content="
+| Symbol | Quantity | Meaning |
+|:--|:--|:--|
+| λ | birth rate | rate at which an infectious lineage transmits, producing a second infectious lineage |
+| μ | death rate | rate at which a lineage becomes uninfectious without being sampled |
+| ψ | sampling rate (through time) | rate at which an infectious lineage is sampled |
+| *r* | treatment probability | probability that a sampled lineage is removed from the infectious population; *r* = 1 in both exercises below |
+| ρ | sampling probability (at epoch boundaries) | probability that a lineage still infectious at an epoch boundary is sampled there; ρ = 0 in both exercises below |
+" %}
 
 The observed phylogeny is the tree connecting the sampled lineages; its likelihood is available in closed form and can be evaluated in time linear in both the number of sequences and the number of epochs.
 
 Two consequences matter in practice. The sampling times enter the likelihood directly rather than only calibrating the tree, so the distribution of tips through time carries information about the rate at which lineages leave the infectious population. And the epidemiological quantities of interest are functions of the three rates, so they are estimated within the chain rather than derived afterwards. BEAST parameterizes them as
 
-$$ R_0 = \frac{\lambda}{\mu + \psi}, \qquad D = \mu + \psi, \qquad S = \frac{\psi}{\mu + \psi}, $$
+$$ R_e = \frac{\lambda}{\mu + \psi}, \qquad D = \mu + \psi, \qquad S = \frac{\psi}{\mu + \psi}, $$
 
-representing the reproductive number, the total removal rate and the proportion of removals that are sampled; either triple may serve as the primary parameterization. The exercises below sample λ, μ and ψ, and log the first of these quantities epoch by epoch as the effective reproductive number.
+{% include table.html content="
+| Symbol | Quantity | Definition |
+|:--|:--|:--|
+| R<sub>e</sub> | effective reproductive number | λ / (μ + ψ) — expected secondary infections per infectious lineage |
+| D | total removal rate | μ + ψ — rate at which lineages leave the infectious population |
+| S | sampling proportion | ψ / (μ + ψ) — fraction of removals that are sampled |
+" %}
+
+Either triple may serve as the primary parameterization. The exercises below sample λ, μ and ψ, and log the first of these quantities epoch by epoch as the effective reproductive number.
 
 Each epoch carries its own λ, μ and ψ, and these are strongly correlated, so the parameter space is high-dimensional and poorly conditioned. BEAST supplies analytic gradients of the tree likelihood with respect to the rate parameters and uses them to drive a Hamiltonian Monte Carlo (HMC) transition kernel, which is what makes joint estimation tractable (Shao et al., 2024).
 
@@ -42,7 +62,7 @@ To undertake this tutorial you will need the following software:
 
 {% include note.html content='This tutorial assumes that the <a href="workshop_respiratory_virus_phylodynamics">Phylodynamic inference of respiratory viruses</a> tutorial has been completed. Both exercises reuse its data sets and its BEAUti settings, and the exercises here present replacements for the coalescent tree priors used in the previous tutorial.' %}
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The completed XML files and the log files of long runs for both exercises <a href="{{ root_url }}files/EBDS_tutorial.zip">can be downloaded here</a>.
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> The sequence alignments, the completed XML files and the log files of long runs for both exercises <a href="{{ root_url }}files/EBDS_tutorial.zip">can be downloaded here</a>.
 </div>
 
 ## EXERCISE 1: The effective reproductive number of SARS-CoV-2 alpha through time
@@ -187,25 +207,35 @@ The `birthRate`, `deathRate` and `samplingRate` elements hold λ, μ and ψ, and
 
 The `samplingProbability` and `treatmentProbability` elements hold ρ and *r* and are always required. Both exercises analyze genomes collected continuously through time (rather than having large sampling events at epoch boundaries), which are described entirely by ψ, so ρ = 0 in every epoch; and both set *r* = 1, meaning that sampling always removes an individual from the infectious population, so that no sampled tip may be the direct ancestor of another. Values of *r* below 1 admit **sampled ancestors** (Gavryushkina et al., 2014). Having ρ = 0 and *r* = 1 is typically a reasonable assumption and also helps with identifiability. Here *N* = 3, so both vectors have three elements; the sampling probability is assembled from a `compoundParameter` only so that its present-day element can be given its own identifier.
 
-The remaining elements describe the timeline. `origin` is the time at which the process starts and must exceed the root height. `numGridPoints` gives the number of epochs *N*, which defaults to 1, and `cutOff` sets their spacing as described below; alternatively a `grids` element may supply the boundaries explicitly. Finally, setting `conditionOnSurvival` to `true` conditions the likelihood on the process having yielded at least one sample.
+The remaining elements describe the timeline. `origin` is the time at which the process starts; it is estimated, receives its own prior, and must exceed the root height. `numGridPoints` gives the number of epochs *N*, which defaults to 1, and `cutOff` is a fixed value, never estimated, that sets only where the boundaries between those epochs fall; alternatively a `grids` element may supply the boundaries explicitly. Finally, setting `conditionOnSurvival` to `true` conditions the likelihood on the process having yielded at least one sample.
 
 #### The epoch grid
 
-Times are measured backwards from the most recent sample, in the units of the clock. Given *N* epochs and a cut-off *C*, the epoch boundaries are placed at 0, *C*/*N*, 2*C*/*N*, … , (*N*−1)*C*/*N*, and the final epoch extends from (*N*−1)*C*/*N* back to infinity. Two points here are easily overlooked: *C* itself is never a boundary, and the last epoch is not bounded by the cut-off, so the extent of the process is set by the origin alone.
+Times are measured backwards from the most recent sample, in the units of the clock. Given *N* epochs and a cut-off *C*, the epoch boundaries are placed at 0, *C*/*N*, 2*C*/*N*, … , (*N*−1)*C*/*N*, and the final epoch extends from (*N*−1)*C*/*N* back to infinity. Two points here are easily overlooked: *C* itself is never a boundary, and the last epoch is not bounded by the cut-off.
+
+It is worth being explicit about how the cut-off differs from the origin, since both are times measured backwards from the most recent sample. The cut-off is a fixed value you choose, and its only role is to space the epoch boundaries; it is not estimated and it does not limit how far back the process extends. The origin is a parameter of the model: it is estimated, receives a prior, and marks the start of the process. The oldest epoch therefore runs from (*N*−1)*C*/*N* back to the origin, and the two need not coincide — in this exercise the cut-off is 0.35 while the origin starts at 0.5.
 
 With *N* = 3 and *C* = 0.35 the boundaries fall at 0.1167 and 0.2333 years before the most recent sample, which was collected on 31 December 2020. The three epochs therefore cover 18 November to 31 December 2020, 7 October to 18 November 2020, and everything from the origin up to 7 October 2020. Roughly six weeks of the epidemic is resolved by each of the two younger epochs, with the third absorbing the remainder.
 
 {% include callout.html type="warning" content="Epoch 1 is the <b>most recent</b> epoch. Every rate vector, and every logged column, is indexed in this order.<br /><br />" %}
 
-Boundaries may alternatively be given explicitly, which is useful when they should fall on dated events, such as the introduction of a control measure, rather than on a regular grid. The following places them at 0.08 and 0.15 years before the most recent sample, giving a short middle epoch bracketed by a recent and an older one:
+Boundaries may alternatively be given explicitly, which is useful when they should fall on dated events, such as the introduction of a control measure, rather than on a regular grid. The following places them at 0.08 and 0.15 years before the most recent sample, giving a short middle epoch bracketed by a recent and an older one.
+
+`grids` is a child of `episodicBirthDeathSamplingModel`, and takes the place of `cutOff` between `origin` and `numGridPoints`:
 
 ```xml
+<origin>
+    <parameter id="ebds.origin" value="0.5" lower="0.0"/>
+</origin>
 <grids>
     <parameter value="0.0 0.08 0.15"/>
 </grids>
+<numGridPoints>
+    <parameter value="3"/>
+</numGridPoints>
 ```
 
-The vector gives the start of each epoch measured backwards from the present, so its first element is 0 and its length must equal `numGridPoints`, which is still required. When a `grids` element is present the `cutOff` value is ignored.
+The vector gives the start of each epoch measured backwards from the present, so its first element is 0 and its length must equal `numGridPoints`, which is still required. When a `grids` element is present the `cutOff` value is ignored, so it can equally be left in place.
 
 #### Gradient flags
 
@@ -242,13 +272,13 @@ This parameterization places a rate on the positive half-line (*i.e.*, is always
 
 A tree alone identifies the three rates only weakly, and it is their combinations rather than their individual values that the data constrain, so the priors on λ, μ and ψ do a substantial amount of work. Each of the three anchor parameters, the log-rate in the most recent epoch, receives a normal prior, which is equivalent to a lognormal prior on the rate itself. Following Magee et al. (2020), these are constructed by an empirical Bayes recipe of three steps: derive a point estimate of the rate from a quantity that is known or can be guessed before the analysis, take its logarithm as the prior mean, and set the standard deviation from the width of the interval one is willing to entertain around it. A standard deviation of log(10)/(2 × 1.96) ≈ 0.587405 gives a 95% prior interval spanning one order of magnitude, and twice that value, 1.17481, spans two orders of magnitude.
 
-The **birth rate** is anchored on the size of the tree. Under a pure birth process started from the two lineages present at the root, the expected number of lineages after time *t* is 2e<sup>λ*t*</sup>; equating this to the observed number of tips *n* and solving for the rate gives [log(*n* + 2) − log 2] / *t*, the offset in *n* being a small-sample correction. Preliminary estimates of *t* = 0.331 years and *n* = 976 tips give 18.7 yr<sup>-1</sup>, so the prior on the log birth rate is centered on log(18.7) and is therefore Normal(2.928936, 1.17481). Because the derivation ignores death and sampling altogether, it is a crude estimate, which is why the interval is deliberately allowed to span two orders of magnitude.
+The **birth rate** is anchored on the size of the tree. Under a pure birth process started from the two lineages present at the root, the expected number of lineages after time *t* is 2e<sup>λ*t*</sup>; equating this to the observed number of tips *n* and solving for the rate gives [log(*n* + 2) − log 2] / *t*, the offset in *n* being a small-sample correction. Preliminary estimates of *t* = 0.331 years and *n* = 976 tips give about 18.7 yr<sup>-1</sup>. The prior mean is the logarithm of that estimate before rounding, 2.928936, and the standard deviation is the two-orders-of-magnitude value introduced above, 2 × log(10)/(2 × 1.96) = 1.17481. The prior on the log birth rate is therefore Normal(2.928936, 1.17481). Because the derivation ignores death and sampling altogether, it is a crude estimate, which is why the interval is deliberately allowed to span two orders of magnitude.
 
 The **death rate** is anchored on the infectious period, of which it is the reciprocal. Rather than a single guess, a plausible range of durations is treated as a 95% interval: the prior mean is the average of the two implied log-rates and the standard deviation is their difference divided by 2 × 1.96. Taking 10 to 16 days, that is 22.8 to 36.5 yr<sup>-1</sup>, gives Normal(3.362995, 0.1198989). This prior is far tighter than the other two, by design: it is the assumption that fixes the removal timescale.
 
 The **sampling rate** is anchored on the sampling proportion. Inverting *s* = ψ / (μ + ψ) gives ψ = μ*s* / (1 − *s*), so a guess at the fraction of infections that were sequenced translates into a rate. Taking *s* = 0.0015 with the death rate (note that this is the exponentiated average of the two log-rates, exp([log(22.8) + log(36.5)]/2) ≈ 28.8 yr<sup>-1</sup>, rather than the arithmetic average of the two absolute rates) above gives ψ = 28.8 × 0.0015 / (1 − 0.0015) ≈ 0.043 yr<sup>-1</sup> and a prior of Normal(−3.137794, 0.587405), spanning one order of magnitude.
 
-Each prior is declared as a `distributionLikelihood`, which is the form required by the gradient elements that follow:
+Each prior is declared as a `distributionLikelihood`, which is the form required by the gradient elements that follow. All three blocks below can be placed after the `birthDeathLikelihood` element:
 
 ```xml
 <distributionLikelihood id="birthRateAtPresentPrior">
@@ -302,7 +332,6 @@ with `deathRateAtPresentPrior` and `samplingRateAtPresentPrior` following the sa
 </distributionLikelihood>
 ```
 
-These three `distributionLikelihood` blocks can be put after the `birthDeathLikelihood`.
 Next, paste the following prior specifications after the `distributionLikelihood` blocks:
 
 ```xml
@@ -507,7 +536,7 @@ Questions<br>
 
 ## EXERCISE 2: Influenza A/H3N2 in New York State
 
-The second exercise applies the same tree prior to the 165 haemagglutinin sequences of `NewYork.HA.2000-2003.nex` (Rambaut et al., 2008), spanning three northern hemisphere epidemic seasons. It is presented as an alternative to the Bayesian SkyGrid tree prior of the second exercise of the [respiratory virus tutorial](workshop_respiratory_virus_phylodynamics).
+The second exercise applies the same tree prior to the 165 haemagglutinin sequences of [`NewYork.HA.2000-2003.nex`]({{ site.tutorials_root_url }}/workshop_respiratory_virus_phylodynamics/files/NewYork.HA.2000-2003.nex) (Rambaut et al., 2008), spanning three northern hemisphere epidemic seasons. It is presented as an alternative to the Bayesian SkyGrid tree prior of the second exercise of the [respiratory virus tutorial](workshop_respiratory_virus_phylodynamics).
 
 Configure BEAUti as described there, including gamma-distributed rate variation among sites, and generate the XML with any coalescent tree prior. Remove that tree prior as in Exercise 1, and insert the same elements with the modifications below.
 
