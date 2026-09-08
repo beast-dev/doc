@@ -13,7 +13,7 @@
 
 log_file  <- "EBDS_tutorial/B.1.1.7/B.1.1.7_EBDS.log"  # path to the BEAST log
 cut_off   <- 0.35          # the <cutOff> value from the XML
-mrsd      <- "2020-12-31"  # most recent sampling date; NULL to plot in height
+mrsd      <- "2020-12-31"  # date, or a decimal year like 2003.98; NULL to plot in height
 burnin    <- 0.10          # proportion of samples discarded as burn-in
 log_scale <- TRUE          # log axis for the rates and R (recommended)
 
@@ -38,10 +38,15 @@ hpd_interval <- function(x, prob = 0.95) {
   c(x[i], x[i + gap])
 }
 
-# Calendar date -> decimal year (leap years handled)
+# Calendar date -> decimal year (leap years handled).
+# Accepts a number (2003.98), a numeric string ("2003.98") or a date ("2020-12-31").
 to_decimal_year <- function(d) {
   if (is.numeric(d)) return(d)
-  d <- as.Date(d)
+  d <- trimws(as.character(d))
+  if (grepl("^[0-9]{4}(\\.[0-9]+)?$", d)) return(as.numeric(d))   # bare decimal year
+  d <- tryCatch(as.Date(d), error = function(e)
+         stop("mrsd should be a date such as \"2020-12-31\", a decimal year such as ",
+              "2003.98, or NULL; got: ", d, call. = FALSE))
   y <- as.numeric(format(d, "%Y"))
   y + as.numeric(d - as.Date(paste0(y, "-01-01"))) /
       as.numeric(as.Date(paste0(y + 1, "-01-01")) - as.Date(paste0(y, "-01-01")))
