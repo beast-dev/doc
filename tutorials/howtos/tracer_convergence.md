@@ -120,9 +120,11 @@ Switching to the second replicate in the same panel, we also see a burn-in still
 
 {% include image.html file="treetracer-convergence4.png" prefix="/tutorials/howtos/" %}<br />
 
-This is confirmed by the Fréchet correlation ESS values of the individual replicates and the combined samples. Note how the trace plot of the RF distance to the last sampled tree for the second replicate is showing a downward trend:
+This is confirmed by the Fréchet correlation ESS values (Magee et al., 2024) of the individual replicates and the combined samples. Note how the trace plot of the RF distance to the last sampled tree for the second replicate is showing a downward trend:
 
 {% include image.html file="treetracer-convergence5.png" prefix="/tutorials/howtos/" %}<br />
+
+
 
 {% include image.html file="treetracer-convergence6.png" prefix="/tutorials/howtos/" %}<br />
 
@@ -152,5 +154,11 @@ Nylander, J. A. A., Wilgenbusch, J. C., Warren D. L., Swofford, D. L. (2007) AWT
 Warren, D. L, Geneva, A. J., Lanfear, R. (2017) RWTY (R We There Yet): an R package for examining convergence of Bayesian phylogenetic analyses. Mol. Biol. Evol. 34(4):1016-1020.
 
 Hong, S. L., Dellicour, S., Vrancken, B., Suchard, M. A., Pyne, M. T., Hillyard, D. R., Lemey, P., Baele, G. (2020) In search of covariates of HIV-1 subtype B spread in the United States - A cautionary tale of large-scale Bayesian phylogeography. Viruses 12(2), 182.
+
+Magee, A., Karcher, M., Matsen IV, F. A., and Minin, V. (2024) How trustworthy is your tree? Bayesian phylogenetic effective sample size through the lens of Monte Carlo error. Bayesian Analysis, 19(2), 565-593.
+
+Brusselmans, M., Carvalho, L. M., Hong, S. L., Gao, J., Matsen IV, F. A., Rambaut, A., Lemey, P., Suchard, M. A., Dudas, G., and Baele, G. (2024) On the importance of assessing topological convergence in Bayesian phylogenetic inference. Virus Evol. 10(1): veae081.
+
+Gao, J., Brusselmans, M., Carvalho, L. M., Suchard, M. A., Baele, G., and Matsen IV, F. A. (2026) Biological causes and impacts of rugged tree landscapes in phylodynamic inference. Proc. Natl. Acad. Sci. USA, 123(2), e2510938123.
 
 {% include links.html %}
