@@ -124,17 +124,33 @@ This is confirmed by the Fréchet correlation ESS values (Magee et al., 2024) of
 
 {% include image.html file="treetracer-convergence5.png" prefix="/tutorials/howtos/" %}<br />
 
+Note that these are the same ESS values as in Brusselmans et al. (2024).
 
+### Increasing the burn-in
+
+Given that we saw clear signs of (phylogenetic) burn-in still being present in both .trees files, we can go back to the `Compute Distances` panel and provide a burn-in for each analysis replicate:
 
 {% include image.html file="treetracer-convergence6.png" prefix="/tutorials/howtos/" %}<br />
 
+After computing the RF distances and the MDS again, the `Between-run Analysis` panel looks somewhat better:
+
 {% include image.html file="treetracer-convergence7.png" prefix="/tutorials/howtos/" %}<br />
+
+In the `Within-run Analysis` panel, the first analysis replicate does however still show signs of not all burn-in having been removed:
 
 {% include image.html file="treetracer-convergence8.png" prefix="/tutorials/howtos/" %}<br />
 
+and the same holds for the second analysis replicate:
+
 {% include image.html file="treetracer-convergence9.png" prefix="/tutorials/howtos/" %}<br />
 
+
+
 {% include image.html file="treetracer-convergence10.png" prefix="/tutorials/howtos/" %}<br />
+
+### Conclusion
+
+
 
 ## Citing Tracer and TreeTracer
 
