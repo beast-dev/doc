@@ -144,13 +144,13 @@ and the same holds for the second analysis replicate:
 
 {% include image.html file="treetracer-convergence9.png" prefix="/tutorials/howtos/" %}<br />
 
-
+However, increasing the burn-in for both analysis replicates barely increases their Fréchet correlation ESS, and even decreases the Fréchet correlation ESS of the combined sample. This shows (i) that many more samples need to be collected from the posterior and (ii) that the analyses need to be run for longer so as to increase the possibility that they will end up converging to the same posterior, or (iii) a modified analysis with different / additional (tree) transition kernels needs to be run so that different analysis replicates converge to the same posterior.
 
 {% include image.html file="treetracer-convergence10.png" prefix="/tutorials/howtos/" %}<br />
 
 ### Conclusion
 
-
+Many phylogenetic and phylodynamic analyses assess convergence and mixing solely on the sampled continuous parameters and densities. This is clearly insufficient and should be accompanied by inspection of the sampled posterior phylogenies, and ideally a sufficiently high (>500; Magee et al., 2024) Fréchet correlation tree ESS. While there are many different phylogenetic distances metrics than the Robinson-Foulds (RF) metric, it serves at the very least as a good starting point to look for (and potentially remove) rogue taxa in your data set (Gao et al., 2026)
 
 ## Citing Tracer and TreeTracer
 
