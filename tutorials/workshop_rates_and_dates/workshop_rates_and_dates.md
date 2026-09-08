@@ -411,6 +411,50 @@ Now, let’s have a look at the timescale of the tree. Select the statistics cal
 
 This indicates that the TMRCA for the Americas is significantly more recent than the entire tree and argues for a relatively recent introduction of yellow fever virus into the Americas. Note, however, that there is considerable uncertainty in these estimates. Switching to the `Estimates` panel shows that the mean date of of the TMRCA into the Americas is the year 1635 but the 95% HPD credible interval spans 1493 to 1765. Bryant et al. (2007) suggest that the introduction of YFV into the Americas is likely the result of the Atlantic slave trade which occurred from the 16th to 19th Centuries.
 
+## Assessing convergence and mixing of the sampled posterior trees
+
+After checking the posterior samples for the continuous parameters in Tracer, we now move on to checking the posterior tree samples for convergence and proper mixing in TreeTracer. For convenience, we can rename the `YFV.trees` files from the `strict` and `relaxed` directories in the `.zip` file to `YFV_strict.trees` and `YFV_relaxed.trees` respectively. We first load the `YFV_strict.trees` file and set a 10% burn-in, by removing the first 200 sampled trees in the panel on the left-hand side:
+
+{% include image.html prefix=root_url file="treetracer-image1.png" %}
+
+We now need to compute the phylogenetic distances between our posterior trees, followed by the MDS projection by subsequently clicking `Compute RF distances` and `Compute MDS`. When these have been computed, the left-hand panel will automatically collapse (but you can make it visible again by clicking the button to the left of the TreeTracer icon) and we move over to the `Within-run Analysis` panel for the results of the MDS projection. By inspecting the different 2D plots of the MDS projection performed, we notice that each pair of dimensions (MDS1 x MDS2, MDS1 x MDS3, MDS2 x MDS3) shows bimodality in posterior tree space:
+
+{% include image.html prefix=root_url file="treetracer-image2.png" %}
+
+As long as our Markov chain switches between both modes sufficiently often, this is not problematic. We can confirm this is the case for this analysis, by looking at the colors of the points (corresponding to the tree sample numbers; see the legend on the right-hand side) in both modes. While such a visual assessment is informative, a more objective decision can be made by computing a `Tree ESS` value. This can be done in the `Diagnostics` panel, where you can click `Compute Tree-ESS` to compute the Fréchet correlation ESS which ideally sits above 500 (Magee et al., 2024). We here obtain a Tree ESS value far above this threshold, confirming that we have run our BEAST X analysis to completion.
+
+{% include image.html prefix=root_url file="treetracer-image3.png" %}
+
+We can now follow the same steps in TreeTracer for the `YFV_relaxed.trees` file, again setting a burn-in of 10% and computing the RF distances and the MDS projection:
+
+{% include image.html prefix=root_url file="treetracer-image4.png" %}
+
+When we now inspect the `Within-run Analysis` panel for the results of the MDS calculations, we observe a shift in the point colors for MDS1 x MDS2 and MDS1 x MDS3 2D projections from right to left. In other words, the remaining tree samples after removing 10% burn-in are still moving towards the posterior and the burn-in has hence been set too low:
+
+{% include image.html prefix=root_url file="treetracer-image5.png" %}
+
+This is confirmed by the Fréchet correlation ESS value in the `Diagnostics` panel, which is far below the desired threshold of 500 (Magee et al., 2024):
+
+{% include image.html prefix=root_url file="treetracer-image6.png" %}
+
+We hence go back to the `Compute Distances panel` and increase the burn-in to 20%, corresponding to removing the first 400 out of the 2001 collected tree samples. We again click `Compute RF distances` followed by `Compute MDS`:
+
+{% include image.html prefix=root_url file="treetracer-image7.png" %}
+
+Now when we inspect the 2D projections of the MDS in the `Within-run Analysis` panel, we're unable to detect any pattern(s) and can hence visually conclude that our Markov chain has converged and is mixing well in posterior tree space:
+
+{% include image.html prefix=root_url file="treetracer-image8.png" %}
+
+We can confirm this by computing the Fréchet correlation ESS in the `Diagnostics` panel, which now exceeds the desired threshold of 500 (Magee et al., 2024):
+
+{% include image.html prefix=root_url file="treetracer-image9.png" %}
+
+Note that rather than going through these steps for the `YFV_strict.trees` and `YFV_relaxed.trees` separately, you can do this in a single TreeTracer analysis by loading both files and going through the different steps and panels. This has the added advantage that you'll be able to assess whether the two analyses yields different posterior tree distributions (which they do):
+
+{% include image.html prefix=root_url file="treetracer-image10.png" %}
+
+This illustrates the impact that (molecular clock) model choice can have on the phylogenies you're interested in estimating. A different set of tutorials on Bayesian model selection are available to perform the required (log) marginal likelihood estimations to objectively decide which model(s) fit your data best: [model selection tutorial 1](model_selection_1) and [model selection tutorial 2](model_selection_2). 
+
 ## Summarizing the trees
 
 We have seen how we can diagnose our MCMC run using Tracer and produce estimates of the marginal posterior distributions of parameters of our model. However, BEAST also samples trees (either phylogenies or genealogies) at the same time as the other parameters of the model. These are written to a separate file called the `YFV.trees` file. This file is a standard NEXUS format file. As such it can easily be loaded into other software in order to examine the trees it contains. One possibility is to load the trees into a program such as PAUP* and construct a consensus tree in a similar manner to summarizing a set of bootstrap trees. In this case, the support values reported for the resolved nodes in the consensus tree will be the posterior probability of those clades.
@@ -463,7 +507,9 @@ You can make use of the BEAST output files provided with this tutorial (a chain 
 
 ## References
 
-Bryant JE, Holmes EC and Barrett ADT (2007) Out of Africa: A Molecular Perspective on the Introduction of Yellow Fever Virus into the Americas. *PLoS Pathogens*, **3**: e75. [doi: 10.1371/journal.ppat.0030075](https://doi.org/10.1371/journal.ppat.0030075)
+Bryant, J. E., Holmes, E. C., and Barrett, A. D. T. (2007) Out of Africa: A Molecular Perspective on the Introduction of Yellow Fever Virus into the Americas. *PLoS Pathogens*, **3**: e75. [doi: 10.1371/journal.ppat.0030075](https://doi.org/10.1371/journal.ppat.0030075)
+
+Magee, A., Karcher, M., Matsen IV, F. A., and Minin, V. (2024) How trustworthy is your tree? Bayesian phylogenetic effective sample size through the lens of Monte Carlo error. Bayesian Analysis, 19(2), 565-593. [doi: 10.1214/22-BA1339](https://doi.org/10.1214/22-BA1339)
 
 ## Help and documentation
 
