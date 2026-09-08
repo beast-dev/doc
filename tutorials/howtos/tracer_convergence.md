@@ -104,17 +104,35 @@ Inspecting the `Marginal Density` panel does point to a somewhat different poste
 
 ### Loading output files into TreeTracer
 
-We continue with loading the output **.trees** files of both replicates (i.e. files `HIV_USA_replicate_1.trees` and `HIV_USA_replicate_2.trees`) of the same BEAST XML into TreeTracer. Note that far fewer samples were kept in these files compared to the .log files, as .trees file quickly take up a lot of storage space.
+We continue with loading the output **.trees** files of both replicates (i.e. files `HIV_USA_replicate_1.trees` and `HIV_USA_replicate_2.trees`) of the same BEAST XML into TreeTracer. Note that far fewer samples were kept in these files compared to the .log files, as .trees files can quickly take up a lot of storage space. Given that previous publications (Hong et al., 2020; Brusselmans et al., 2024) mention that the burn-in was already discarded from the posterior sample trees files, we start our assessment in TreeTracer without any burn-in, and click the `Computer RF distances` and `Compute MDS` buttons one after the other:
 
 {% include image.html file="treetracer-convergence1.png" prefix="/tutorials/howtos/" %}<br />
 
+Switching over to the `Between-run Analysis panel` reveals two distinct point clouds corresponding to our two .trees files in the 3D visualisation but also in two out of the three 2D projections. The point cloud of replicate 1 (in blue) seems to have a tail, warranting further inspection:
+
 {% include image.html file="treetracer-convergence2.png" prefix="/tutorials/howtos/" %}<br />
+
+In the `Within-run Analysis` panel, we immediately see a rather lengthy burn-in present in the sampled trees (the white - very light blue points):
 
 {% include image.html file="treetracer-convergence3.png" prefix="/tutorials/howtos/" %}<br />
 
+Switching to the second replicate in the same panel, we also see a burn-in still present among the sampled trees:
+
 {% include image.html file="treetracer-convergence4.png" prefix="/tutorials/howtos/" %}<br />
 
+This is confirmed by the Fréchet correlation ESS values of the individual replicates and the combined samples. Note how the trace plot of the RF distance to the last sampled tree for the second replicate is showing a downward trend:
+
 {% include image.html file="treetracer-convergence5.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer-convergence6.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer-convergence7.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer-convergence8.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer-convergence9.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer-convergence10.png" prefix="/tutorials/howtos/" %}<br />
 
 ## Citing Tracer and TreeTracer
 
