@@ -16,6 +16,11 @@ cut_off   <- 0.35          # the <cutOff> value from the XML
 mrsd      <- "2020-12-31"  # date, or a decimal year like 2003.98; NULL to plot in height
 burnin    <- 0.10          # proportion of samples discarded as burn-in
 log_scale <- TRUE          # log axis for the rates and R (recommended)
+summary   <- "median"      # central line: "median" (robust) or "mean"
+ylim_clip <- 0             # 0 = show the full HPD range; e.g. 0.05 trims the
+                           # axis to the 5th-95th percentile of the interval
+                           # bounds, so a few unconstrained epochs cannot
+                           # flatten the rest (bands are clipped, not hidden)
 
 ## Exercise 2 (influenza) would instead use:
 ##   log_file <- "EBDS_tutorial/Influenza/all_h3n2_hmc_1.log"
@@ -60,25 +65,32 @@ epoch_columns <- function(dat, prefix) {
 }
 
 # Posterior mean and 95% HPD for each epoch of one quantity
-summarise_epochs <- function(dat, prefix) {
+summarise_epochs <- function(dat, prefix, summary = "median") {
   cols <- epoch_columns(dat, prefix)
   if (!length(cols)) return(NULL)
+  centre <- switch(summary, median = stats::median, mean = base::mean,
+                   stop("summary must be \"median\" or \"mean\""))
   out <- t(sapply(cols, function(cl) {
     x <- dat[[cl]]
-    c(mean = mean(x), hpd_interval(x))
+    c(centre = centre(x), hpd_interval(x))
   }))
-  data.frame(epoch = seq_along(cols), mean = out[, 1],
+  data.frame(epoch = seq_along(cols), centre = out[, 1],
              lower = out[, 2], upper = out[, 3])
 }
 
 # One panel: a step line through the epoch means over shaded HPD blocks
 draw_panel <- function(est, left, right, ylab, xlim, log_scale,
-                       hline = NA, show_axis = FALSE, xlab = "") {
-  ylim <- range(c(est$lower, est$upper), finite = TRUE)
-  if (log_scale) {
-    pos <- c(est$lower, est$upper, est$mean)
-    pos <- pos[is.finite(pos) & pos > 0]
-    ylim <- range(pos)
+                       hline = NA, show_axis = FALSE, xlab = "",
+                       ylim_clip = 0) {
+  vals <- c(est$lower, est$upper, est$centre)
+  if (log_scale) vals <- vals[is.finite(vals) & vals > 0] else vals <- vals[is.finite(vals)]
+  if (ylim_clip > 0) {
+    # keep the central line fully visible; trim only the interval extremes
+    ctr  <- est$centre[is.finite(est$centre) & (!log_scale | est$centre > 0)]
+    ylim <- range(c(ctr, stats::quantile(vals, c(ylim_clip, 1 - ylim_clip),
+                                         names = FALSE)))
+  } else {
+    ylim <- range(vals)
   }
   if (!is.na(hline)) ylim <- range(c(ylim, hline))
   plot(NA, xlim = xlim, ylim = ylim, log = if (log_scale) "y" else "",
@@ -88,10 +100,10 @@ draw_panel <- function(est, left, right, ylab, xlim, log_scale,
        col = rgb(1, 0.65, 0, 0.30), border = NA)
   if (!is.na(hline)) abline(h = hline, lty = 2)
 
-  segments(left, est$mean, right, est$mean, col = "darkorange", lwd = 2)
+  segments(left, est$centre, right, est$centre, col = "darkorange", lwd = 2)
   if (nrow(est) > 1) {                       # vertical risers between epochs
     n <- nrow(est)                             # epoch k and k+1 share left[k]
-    segments(left[-n], est$mean[-n], left[-n], est$mean[-1],
+    segments(left[-n], est$centre[-n], left[-n], est$centre[-1],
              col = "darkorange", lwd = 2)
   }
   if (show_axis) {
@@ -103,7 +115,8 @@ draw_panel <- function(est, left, right, ylab, xlim, log_scale,
 ## --- main ------------------------------------------------------------------
 
 plot_ebds <- function(log_file, cut_off, mrsd = NULL,
-                      burnin = 0.10, log_scale = TRUE) {
+                      burnin = 0.10, log_scale = TRUE,
+                      summary = "median", ylim_clip = 0) {
 
   dat <- read.table(log_file, header = TRUE, sep = "\t",
                     comment.char = "#", check.names = FALSE)
@@ -113,6 +126,7 @@ plot_ebds <- function(log_file, cut_off, mrsd = NULL,
     dat  <- dat[keep, , drop = FALSE]
   }
   message(nrow(dat), " samples retained after ", 100 * burnin, "% burn-in")
+  message("central line: posterior ", summary)
 
   quantities <- list(
     list(prefix = "ebds.birthRate",              lab = "Birth rate",    hline = NA),
@@ -121,7 +135,7 @@ plot_ebds <- function(log_file, cut_off, mrsd = NULL,
     list(prefix = "effectiveReproductiveNumber", lab = "Effective R",   hline = 1)
   )
 
-  ests <- lapply(quantities, function(q) summarise_epochs(dat, q$prefix))
+  ests <- lapply(quantities, function(q) summarise_epochs(dat, q$prefix, summary))
   missing <- vapply(ests, is.null, logical(1))
   if (any(missing)) {
     stop("no columns found for: ",
@@ -162,7 +176,8 @@ plot_ebds <- function(log_file, cut_off, mrsd = NULL,
 
   for (i in seq_along(quantities)) {
     draw_panel(ests[[i]], left, right, quantities[[i]]$lab, xlim, log_scale,
-               hline = quantities[[i]]$hline, show_axis = FALSE)
+               hline = quantities[[i]]$hline, show_axis = FALSE,
+               ylim_clip = ylim_clip)
   }
   axis(1, at = at, labels = labs)          # single shared axis under panel 4
   title(xlab = xlab, outer = TRUE, line = 3)
@@ -173,7 +188,8 @@ plot_ebds <- function(log_file, cut_off, mrsd = NULL,
 
 ## --- run -------------------------------------------------------------------
 
-results <- plot_ebds(log_file, cut_off, mrsd, burnin, log_scale)
+results <- plot_ebds(log_file, cut_off, mrsd, burnin, log_scale,
+                     summary, ylim_clip)
 
 # `results` holds the plotted numbers, e.g.:
 #   results[["Effective R"]]
