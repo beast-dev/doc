@@ -83,7 +83,7 @@ In order to identify for which parameters this would be useful, careful inspecti
 
 ## Identifying convergence problems using TreeTracer
 
-<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for this tutorial
+<div class="alert alert-success" role="alert"><i class="fa fa-download fa-lg"></i> All the files needed for the remaining part of this tutorial
 <a href="{{ root_url }}files/HIVLongRuns.zip"> can be downloaded from here</a>. 
 If you download this zipped folder, there is no need to download other files/folders linked further in the tutorial.
 </div>
@@ -92,11 +92,29 @@ If you download this zipped folder, there is no need to download other files/fol
 
 We here take a look at the BEAST output of a 2020 phylogeographic study of the spread of HIV-1 subtype B in the USA (Hong et al., 2020). We focus on a data set consisting of 500 sequences that was constructed with the aim of maximizing phylogenetic diversity. The output of the original analysis consists of 1000 posterior sample trees, resulting from concatenating and downsampling two analysis replicates (i.e., the same BEAST XML was run twice, each time with a different starting seed).
 
+### What the output looks like in Tracer
+
+We start by loading the output **.log** files of both replicates (i.e. files `HIV_USA_replicate_1.log` and `HIV_USA_replicate_2.log`) of the same BEAST XML into Tracer. Inspecting the `Trace` panel seems to indicate that both replicates have converged to the same posterior: 
+
+{% include image.html file="tracer-convergence1.png" prefix="/tutorials/howtos/" %}<br />
+
+Inspecting the `Marginal Density` panel does point to a somewhat different posterior region being reached by both replicates. However, if you were to look at the ESS values for the combined traces, you would see that the combined ESS values are higher than for the individual replicates. Hence, when it comes to inspecting the continuous parameters in Tracer, we are likely to conclude that our two replicate analyses have converged to the same posterior.
+
+{% include image.html file="tracer-convergence2.png" prefix="/tutorials/howtos/" %}<br />
+
 ### Loading output files into TreeTracer
 
-We start by loading the output **.trees** files of both replicates (i.e. files `HIV_USA_replicate_1.trees` and `HIV_USA_replicate_2.trees`) of the same BEAST XML into TreeTracer.
+We continue with loading the output **.trees** files of both replicates (i.e. files `HIV_USA_replicate_1.trees` and `HIV_USA_replicate_2.trees`) of the same BEAST XML into TreeTracer. Note that far fewer samples were kept in these files compared to the .log files, as .trees file quickly take up a lot of storage space.
 
+{% include image.html file="treetracer-convergence1.png" prefix="/tutorials/howtos/" %}<br />
 
+{% include image.html file="treetracer-convergence2.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer-convergence3.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer-convergence4.png" prefix="/tutorials/howtos/" %}<br />
+
+{% include image.html file="treetracer-convergence5.png" prefix="/tutorials/howtos/" %}<br />
 
 ## Citing Tracer and TreeTracer
 
@@ -106,6 +124,7 @@ Rambaut A, Drummond AJ, Xie D, Baele G and Suchard MA (2018) Posterior summarisa
 [doi:10.1093/sysbio/syy032](https://doi.org/10.1093/sysbio/syy032)
 
 The recommended citation for TreeTracer is:
+
 Hong SL, Brusselmans M, Klaps J, Carvalho LM, Magee AF, Suchard MA, Rambaut A and Baele G (2026) Tree convergence and mixing in Bayesian phylogenetics using TreeTracer. *(in preparation)*.
 
 ## References
@@ -113,5 +132,7 @@ Hong SL, Brusselmans M, Klaps J, Carvalho LM, Magee AF, Suchard MA, Rambaut A an
 Nylander, J. A. A., Wilgenbusch, J. C., Warren D. L., Swofford, D. L. (2007) AWTY (Are We There Yet?): a system for graphical exploration of MCMC convergence in Bayesian phylogenetics. Bioinformatics 24(4):581-583.
 
 Warren, D. L, Geneva, A. J., Lanfear, R. (2017) RWTY (R We There Yet): an R package for examining convergence of Bayesian phylogenetic analyses. Mol. Biol. Evol. 34(4):1016-1020.
+
+Hong, S. L., Dellicour, S., Vrancken, B., Suchard, M. A., Pyne, M. T., Hillyard, D. R., Lemey, P., Baele, G. (2020) In search of covariates of HIV-1 subtype B spread in the United States - A cautionary tale of large-scale Bayesian phylogeography. Viruses 12(2), 182.
 
 {% include links.html %}
