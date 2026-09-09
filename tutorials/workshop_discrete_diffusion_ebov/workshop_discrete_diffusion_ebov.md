@@ -437,7 +437,7 @@ In the `MCMC` tab, we keep the initial chain length to <samp>100,000</samp> (alt
 
 We are now ready to create the BEAST XML file. Select `Generate XML...` from the `File` menu (or the button at the bottom of the window). BEAUti will ask you to review the prior settings one more time before saving the file (and will indicate if any are improper). Continue and choose a name for the file --- it will offer the name you gave it in the MCMC panel and we usually end the filename with '.xml' (although on Windows machines you may want to give the file the extension '.xml.txt').
 
-{% include tip.html content="For convenience, leave the BEAUti window open so that you can change the values and re-generate the BEAST file as required later in this tutorial." %}
+{% include tip.html content="For convenience, leave the BEAUti window open so that you can change the models and their settings to re-generate the BEAST file in case you'd like to compare the results under different models." %}
 
 ### Running BEAST
 
