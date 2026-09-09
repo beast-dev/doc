@@ -120,7 +120,7 @@ In the `States` panel, check that for HZ partition the option to Reconstruct sta
 
 Now switch to the `Priors` tab. This panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. A strong prior allows the user to ‘inform’ the analysis by selecting a particular distribution with a small variance. Alternatively we can select a weak (diffuse) prior to try to minimise the effect on the analysis. Note that a prior distribution must be specified for every parameter and whilst BEAUti provides default options these are not necessarily tailored to the problem and data being analyzed. 
 
-The default prior on the rate of evolution (default.ucld.mean) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). The same is applied to the discrete location state (HZ) rate. Note the Poisson prior specification for the BSSVS procedure.
+The default prior on the rate of evolution (default.ucld.mean) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). The same is applied to the discrete location state (HZ) rate. Note the Poisson prior specification for the BSSVS procedure (Gao et al., 2023).
 
 {% include image.html file="priorPanel.png" prefix=root_url %}
 
@@ -398,27 +398,45 @@ In the `Sites` panel, Click on 'HZ' in the `Substitution model` window and choos
 
 #### Setting the ‘molecular clock’ model
 
+We keep a `Strict clock` for the location partition, as it only contains a single column of data and hence more complicated clock models may lead to overfitting the data.
+
 #### Setting the tree prior
+
+Structured coalescent approximations make a direct link between the migration process and the population size dynamics at the demes, and hence there is no possibility to make a choice in this panel:
 
 {% include image.html file="beautiTreePriorSet.png" prefix=root_url %}
 
 #### The ancestral states settings
 
-In the `States` panel, check that for HZ partition the option to Reconstruct states at all ancestors is selected (by default).
+In the `States` panel, check that for HZ partition the option to Reconstruct states at all ancestors is selected (by default). Note that there are fewer options than for the forward-in-time model in EXERCISE 1, but this will change in due time when Markov jumps for the BASTA model are developed.
 
 {% include image.html file="beautiBASTAancestral.png" prefix=root_url %}
 
 #### Setting up the priors
 
+The `Priors` panel has a table showing every parameter of the currently selected model and what the prior distribution is for each. A prior distribution must be specified for every parameter and whilst BEAUti provides default options these are not necessarily tailored to the problem and data being analyzed.
+
+The default prior on the rate of evolution (default.ucld.mean) is an approximation of a conditional reference prior (Approx. Reference Prior) (Ferreira and Suchard, 2008). The same is applied to the discrete location state (HZ) rate. We here keep the prior specification of Lemey et al. (2009) for the BSSVS procedure.
+
 {% include image.html file="beautiBASTApriors.png" prefix=root_url %}
 
 #### Setting up the operators
 
+Each parameter in the model has one or more “operators” (these are variously called moves, proposals or transition kernels by other MCMC software packages such as MrBayes and LAMARC). The operators specify how the parameters change as the MCMC runs. The `Operators` tab in BEAUti has a table that lists the parameters, their operators and the tuning settings for these operators:
+
 {% include image.html file="beautiBASTAoperators.png" prefix=root_url %}
+
+We can keep the default operator settings for the current analysis.
 
 #### Setting the MCMC options
 
+In the `MCMC` tab, we keep the initial chain length to <samp>100,000</samp> (although for the BASTA model on this data set, ), both the sampling frequencies to <samp>100</samp> and checkpointing frequency to <samp>10000</samp>. The `File name stem:` will still be set to <samp>EBOV_DRC_18-20</samp> but you can easily adjust it to (for example): <samp>EBOV_DRC_18-20_BASTA</samp>.
+
 {% include image.html file="beautiBASTAmcmc.png" prefix=root_url %}
+
+We are now ready to create the BEAST XML file. Select `Generate XML...` from the `File` menu (or the button at the bottom of the window). BEAUti will ask you to review the prior settings one more time before saving the file (and will indicate if any are improper). Continue and choose a name for the file --- it will offer the name you gave it in the MCMC panel and we usually end the filename with '.xml' (although on Windows machines you may want to give the file the extension '.xml.txt').
+
+{% include tip.html content="For convenience, leave the BEAUti window open so that you can change the values and re-generate the BEAST file as required later in this tutorial." %}
 
 ### Running BEAST
 
@@ -436,6 +454,7 @@ In the `States` panel, check that for HZ partition the option to Reconstruct sta
 * [Nahata KD, Bielejec F, Monetta J, Dellicour S, Rambaut A, Suchard MA, Baele G, Lemey P. 2022. SPREAD 4: online visualisation of pathogen phylogeographic reconstructions. Virus Evol., 26;8(2):veac088. doi: 10.1093/ve/veac088. eCollection 2022.](https://academic.oup.com/ve/article/8/2/veac088/6717755)
 * [De Maio N, Wu C.-H., O'Reilly K. M., Wilson D. 2015. New Routes to Phylogeography: A Bayesian Structured Coalescent Approximation. PLOS Genet. 11(8): e1005421.](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005421)
 * [Shao Y., Suchard M. A., Rambaut A., Ji X, Lemey P, Vasylyeva T. I., Baele G. 2026. Parallel algorithms for phylogenetic inference under a structured coalescent approximation. Proc. Natl. Acad. Sci. USA 123 (18) e2602412123.](https://www.pnas.org/doi/10.1073/pnas.2602412123)
+* [Gao J., May M. R., Rannala B., Moore B. R. 2023. Model misspecification misleads inference of the spatial dynamics of disease outbreaks. Proc. Natl. Acad. Sci. USA 120 (11) e2213913120.](https://doi.org/10.1073/pnas.2213913120)
 
 ## Help and documentation
 
