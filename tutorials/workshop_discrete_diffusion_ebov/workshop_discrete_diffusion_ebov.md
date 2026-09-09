@@ -222,6 +222,7 @@ This should result in a similar visualization as this one:
 
 
 ### Visualizing the MCC tree <!--and calculating Bayes factor support for rates--> using SpreadGL
+
 SpreadGL, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics built on kepler.gl, is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreadGL allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome.
 
 <!--NT: removing this while Sam helps with BF issue in spread.gl
@@ -440,9 +441,37 @@ We are now ready to create the BEAST XML file. Select `Generate XML...` from the
 
 ### Running BEAST
 
+Now that you have created another BEAST XML file, you can run the corresponding analysis in BEAST.
+
+{% include icon-callout.html file='icons/beast-icon.png' content='Run <a href="beast">BEAST</a> by double-clicking on the BEAST icon.' %}
+
+Once BEAST has started a dialog box will appear in which you select the XML file:
+
+{% include image.html file="beastGUIbasta.png" prefix=root_url  width="80%" align="center" %}
+
+Press the `Choose File...` button and select the XML file you just created and press `Run`. The analysis will then be performed with detailed information about the progress of the run being written to the screen. When it has finished, the log file and the trees file will have been created in the same location as your XML file.
+
+[For more information about the other options in the BEAST dialog box see this page](beast).
+
 ### Analyzing the BEAST output using Tracer
 
+{% include image.html file="bastatracer1.png" prefix=root_url %}
+
+{% include image.html file="bastatracer2.png" prefix=root_url %}
+
 ### Analyzing the BEAST output using TreeTracer
+
+{% include image.html file="bastatreetracer1.png" prefix=root_url %}
+
+{% include image.html file="bastatreetracer2.png" prefix=root_url %}
+
+{% include image.html file="bastatreetracer3.png" prefix=root_url %}
+
+{% include image.html file="bastatreetracer4.png" prefix=root_url %}
+
+{% include image.html file="bastatreetracer5.png" prefix=root_url %}
+
+{% include image.html file="bastatreetracer6.png" prefix=root_url %}
 
 ## References
 
