@@ -384,13 +384,15 @@ For geographic distance ('HZ.coefficientsTimesIndicators3'), the posterior densi
 
 ## EXERCISE 3: discrete ancestral reconstruction using the BASTA structured coalescent approximation (SCA)
 
+In this exercise, we aim to perform a similar discrete ancestral reconstruction as in EXERCISE 1 but with a different model, i.e. a structured coalescent approximation known as BASTA (De Maio et al., 2015). Recent developments in computational efficiency for this model (Shao et al., 2026) now enable employing BASTA on moderately-sized data sets. Note however that, due to its design, a BASTA analysis using a backward-in-time model will run markedly slower compared to using the model in EXERCISE 1. 
+
 ### Running BEAUti
 
 If your BEAUti window is still open from going through Exercise 1 above, you can go back to the `Sites` panel; if not, you can repeat the BEAUti steps from Exercise 1 until you reach the `Sites` panel. Select the trait `HZ`(for health zone) on the left-hand side and select the Backward-in-time CTMC model that is used in the BASTA SCA (see De Maio et al., 2015; Shao et al., 2026).
 
 #### Specifying the trait information
 
-
+In the `Sites` panel, Click on 'HZ' in the `Substitution model` window and choose the `Backward-in-time CTMC` model as `Discrete Trait Substitution Model`, `Constant population size` as the `Backward-in-time Coalescent Model` (currently the only option), and the `Asymmetric substitution model` as `Backward-in-time Model Structure`. Select the option to perform BSSVS (`Infer social network with BSSVS`), which enables the Bayesian Stochastic Search Variable Selection procedure, and also select `Share coalescent model across demes` which reduces the number of free parameters in the model to ensure identifiability (see e.g. De Maio et al., 2015; Shao et al., 2026).
 
 {% include image.html file="beautiBASTABIT.png" prefix=root_url %}
 
