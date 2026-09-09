@@ -455,11 +455,22 @@ Press the `Choose File...` button and select the XML file you just created and p
 
 ### Analyzing the BEAST output using Tracer
 
+While the analysis in the provided .log file has only run for 10 million iterations, it's already interesting to take a look at what can be seen in Tracer.
+
+Select the `Import Trace File...` option from the `File` menu. If you have the log file that you created in the previous section available, you could select this (<samp>EBOV_DRC_18-20_BASTA.log</samp>). However, due to the data set size and the choice of the BASTA structured coalescent model, even the short chain will take some time to complete. So, if you do not wish to wait for this, you can go straight to selecting the log file from the longer run that has been made available (also <samp>EBOV_DRC_18-20_BASTA_10m.log</samp>).  
+Instead of importing trace files, you can also drag and drop your log file into the Tracer window. The file will load and you will be presented with a window similar to the one below. Remember that MCMC is a stochastic algorithm so the actual numbers will not be exactly the same.
+
+Tracer by default uses a burn-in of 10%, which here translates to 1 million iterations. This is clearly not enough, but we get an indication that an increased burn-in of 4 million iterations - based solely on the trace plot of the joint density - could be a reasonable first choice:
+
 {% include image.html file="bastatracer1.png" prefix=root_url %}
+
+However, when we take a look at the traces for different parameters (e.g. the tree length) we note a clear downward trend, meaning that the analysis is likely still converging to the posterior:
 
 {% include image.html file="bastatracer2.png" prefix=root_url %}
 
 ### Analyzing the BEAST output using TreeTracer
+
+It's interesting that the trace plot of the joint density in Tracer already seemed fairly stable after only 4 million iterations.
 
 {% include image.html file="bastatreetracer1.png" prefix=root_url %}
 
