@@ -470,15 +470,19 @@ However, when we take a look at the traces for different parameters (e.g. the tr
 
 ### Analyzing the BEAST output using TreeTracer
 
-It's interesting that the trace plot of the joint density in Tracer already seemed fairly stable after only 4 million iterations. Let's have a look in `TreeTracer` (Hong et al., 2026) if the chain has already converged in phylogenetic tree space. There are two tutorials on TreeTracer readily available: [TreeTracer tutorial 1](beast_analysing_beast_output) and [TreeTracer tutorial 2](tracer_convergence). Launch `TreeTracer`, load the <samp>EBOV_DRC_18-20_BASTA_10m.trees</samp> file, and click the `Compute RF distances` and `Compute MDS` buttons: 
+It's interesting that the trace plot of the joint density in Tracer already seemed fairly stable after only 4 million iterations. Let's have a look in `TreeTracer` (Hong et al., 2026) if the chain has already converged in phylogenetic tree space. There are two tutorials on TreeTracer readily available: [TreeTracer tutorial 1](analysing-beast-output) and [TreeTracer tutorial 2](tracer_convergence). Launch `TreeTracer`, load the <samp>EBOV_DRC_18-20_BASTA_10m.trees</samp> file, and click the `Compute RF distances` and `Compute MDS` buttons: 
 
 {% include image.html file="bastatreetracer1.png" prefix=root_url %}
 
-
+Moving over to the `Within-run Analysis` panel confirms the burn-in of at least a few million iterations we observed in `Tracer`, and this in each pairwise 2D projection (MDS1 x MDS2, MDS1 x MDS3, MDS2 x MDS3) of the MDS; (very) light blue dots represent tree samples from the start of the analysis, whereas dark blue samples represent the latest trees sampled from the Markov chain:
 
 {% include image.html file="bastatreetracer2.png" prefix=root_url %}
 
+We can obtain a more objective confirmation of a lack of tree convergence and mixing with the sample and its current burn-in setting by checking the `Diagnostics` panel. First click the `Compute RF Trace` button, followed by the `Compute Tree-ESS` button. The different trace plots that will appear confirm that we need to modify the burn-in when inspecting the stored tree samples. Further, the `tree ESS` - similar to the ESS values in Tracer for continuous parameters, but for phylogenetic trees - is colored red (indicating a Fréchet correlation ESS far below the threshold of 500) and hence indicates that we need to reassess our current burn-in setting and (very likely) the current chain length:
+
 {% include image.html file="bastatreetracer3.png" prefix=root_url %}
+
+It's hence a good idea to go back to the `Compute Distances` panel and set a burn-in of 400 tree samples, leaving 601 tree samples to be analysed. You don't have to restart the TreeTracer application to do this, but you can if you find this to be easier. Click the `Compute RF distances` and `Compute MDS` buttons to recompute all metrics and visualisations with this updated burn-in setting:
 
 {% include image.html file="bastatreetracer4.png" prefix=root_url %}
 
@@ -498,6 +502,7 @@ It's interesting that the trace plot of the joint density in Tracer already seem
 * [Shao Y., Suchard M. A., Rambaut A., Ji X, Lemey P, Vasylyeva T. I., Baele G. 2026. Parallel algorithms for phylogenetic inference under a structured coalescent approximation. Proc. Natl. Acad. Sci. USA 123 (18) e2602412123.](https://www.pnas.org/doi/10.1073/pnas.2602412123)
 * [Gao J., May M. R., Rannala B., Moore B. R. 2023. Model misspecification misleads inference of the spatial dynamics of disease outbreaks. Proc. Natl. Acad. Sci. USA 120 (11) e2213913120.](https://doi.org/10.1073/pnas.2213913120)
 * Hong S. L., Brusselmans M., Klaps J., Carvalho L. M., Magee A. F., Suchard M. A., Rambaut A., Baele G. (2026) Tree convergence and mixing in Bayesian phylogenetics Using TreeTracer. In preparation.
+* [Magee A., Karcher M., Matsen IV F. A., Minin V. (2024) How trustworthy is your tree? Bayesian phylogenetic effective sample size through the lens of Monte Carlo error. Bayesian Analysis, 19(2), 565-593.](https://projecteuclid.org/journals/bayesian-analysis/volume-19/issue-2/How-Trustworthy-Is-Your-Tree-Bayesian-Phylogenetic-Effective-Sample-Size/10.1214/22-BA1339.full)
 
 ## Help and documentation
 
