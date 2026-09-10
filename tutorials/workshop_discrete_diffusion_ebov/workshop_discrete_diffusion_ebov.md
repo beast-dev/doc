@@ -478,7 +478,7 @@ Moving over to the `Within-run Analysis` panel confirms the burn-in of at least 
 
 {% include image.html file="bastatreetracer2.png" prefix=root_url %}
 
-We can obtain a more objective confirmation of a lack of tree convergence and mixing with the sample and its current burn-in setting by checking the `Diagnostics` panel. First click the `Compute RF Trace` button, followed by the `Compute Tree-ESS` button. The different trace plots that will appear confirm that we need to modify the burn-in when inspecting the stored tree samples. Further, the `tree ESS` - similar to the ESS values in Tracer for continuous parameters, but for phylogenetic trees - is colored red (indicating a Fréchet correlation ESS far below the threshold of 500) and hence indicates that we need to reassess our current burn-in setting and (very likely) the current chain length:
+We can obtain a more objective confirmation of a lack of tree convergence and mixing with the sample and its current burn-in setting by checking the `Diagnostics` panel. First click the `Compute RF Trace` button, followed by the `Compute Tree-ESS` button. The different trace plots that will appear confirm that we need to modify the burn-in when inspecting the stored tree samples. Further, the `tree ESS` - similar to the ESS values in Tracer for continuous parameters, but for phylogenetic trees - is colored red (indicating a Fréchet correlation ESS far below the threshold of 500; Magee et al., 2024) and hence indicates that we need to reassess our current burn-in setting and (very likely) the current chain length:
 
 {% include image.html file="bastatreetracer3.png" prefix=root_url %}
 
@@ -486,9 +486,15 @@ It's hence a good idea to go back to the `Compute Distances` panel and set a bur
 
 {% include image.html file="bastatreetracer4.png" prefix=root_url %}
 
+When we now inspect the `Within-run Analysis` panel, we no longer observe the initial convergence in the different 2D projections of the MDS. However, we can still clearly see a pattern in the first two projections (MDS1 x MDS2 and MDS1 x MDS3) that may indicate the burn-in setting was not set sufficiently high:
+
 {% include image.html file="bastatreetracer5.png" prefix=root_url %}
 
+This is more clearly visible in the 3D visualisation of the MDS, which you can find in the `Between-run Analysis` panel:
+
 {% include image.html file="bastatreetracer6.png" prefix=root_url %}
+
+In conclusion, this BASTA phylogeographic analysis needs to be run for (much) longer to be able to perform a more in-depth assessment of convergence and mixing in phylogenetic tree space. Based on what Tracer and TreeTracer show for the initial 10 million iterations, it would seem that at least 50 or 100 million iterations will be required to perform a more informative inspection of convergence and mixing for the continuous model parameters (in Tracer) and the sampled phylogenetic trees (in TreeTracer).
 
 ## References
 
