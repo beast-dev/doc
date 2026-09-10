@@ -470,7 +470,7 @@ However, when we take a look at the traces for different parameters (e.g. the tr
 
 ### Analyzing the BEAST output using TreeTracer
 
-It's interesting that the trace plot of the joint density in Tracer already seemed fairly stable after only 4 million iterations. Let's have a look in `TreeTracer` (Hong et al., 2026) if the chain has already converged in phylogenetic tree space. There are two tutorials on TreeTracer readily available: [TreeTracer tutorial 1](analysing-beast-output) and [TreeTracer tutorial 2](tracer_convergence). Launch `TreeTracer`, load the <samp>EBOV_DRC_18-20_BASTA_10m.trees</samp> file, and click the `Compute RF distances` and `Compute MDS` buttons: 
+It's interesting that the trace plot of the joint density in Tracer already seemed fairly stable after only 4 million iterations. Let's have a look in `TreeTracer` (Hong et al., 2026) if the chain has already converged in phylogenetic tree space. There are two tutorials on TreeTracer readily available: [TreeTracer tutorial 1](analysing_beast_output) and [TreeTracer tutorial 2](tracer_convergence). Launch `TreeTracer`, load the <samp>EBOV_DRC_18-20_BASTA_10m.trees</samp> file, and click the `Compute RF distances` and `Compute MDS` buttons: 
 
 {% include image.html file="bastatreetracer1.png" prefix=root_url %}
 
