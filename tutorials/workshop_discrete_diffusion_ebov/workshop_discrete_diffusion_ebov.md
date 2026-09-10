@@ -470,9 +470,11 @@ However, when we take a look at the traces for different parameters (e.g. the tr
 
 ### Analyzing the BEAST output using TreeTracer
 
-It's interesting that the trace plot of the joint density in Tracer already seemed fairly stable after only 4 million iterations.
+It's interesting that the trace plot of the joint density in Tracer already seemed fairly stable after only 4 million iterations. Let's have a look in `TreeTracer` (Hong et al., 2026) if the chain has already converged in phylogenetic tree space. There are two tutorials on TreeTracer readily available: [TreeTracer tutorial 1](beast_analysing_beast_output) and [TreeTracer tutorial 2](tracer_convergence). Launch `TreeTracer`, load the <samp>EBOV_DRC_18-20_BASTA_10m.trees</samp> file, and click the `Compute RF distances` and `Compute MDS` buttons: 
 
 {% include image.html file="bastatreetracer1.png" prefix=root_url %}
+
+
 
 {% include image.html file="bastatreetracer2.png" prefix=root_url %}
 
@@ -495,6 +497,7 @@ It's interesting that the trace plot of the joint density in Tracer already seem
 * [De Maio N, Wu C.-H., O'Reilly K. M., Wilson D. 2015. New Routes to Phylogeography: A Bayesian Structured Coalescent Approximation. PLOS Genet. 11(8): e1005421.](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005421)
 * [Shao Y., Suchard M. A., Rambaut A., Ji X, Lemey P, Vasylyeva T. I., Baele G. 2026. Parallel algorithms for phylogenetic inference under a structured coalescent approximation. Proc. Natl. Acad. Sci. USA 123 (18) e2602412123.](https://www.pnas.org/doi/10.1073/pnas.2602412123)
 * [Gao J., May M. R., Rannala B., Moore B. R. 2023. Model misspecification misleads inference of the spatial dynamics of disease outbreaks. Proc. Natl. Acad. Sci. USA 120 (11) e2213913120.](https://doi.org/10.1073/pnas.2213913120)
+* Hong S. L., Brusselmans M., Klaps J., Carvalho L. M., Magee A. F., Suchard M. A., Rambaut A., Baele G. (2026) Tree convergence and mixing in Bayesian phylogenetics Using TreeTracer. In preparation.
 
 ## Help and documentation
 
