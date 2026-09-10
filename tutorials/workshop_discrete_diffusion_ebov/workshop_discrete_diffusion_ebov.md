@@ -225,6 +225,8 @@ This should result in a similar visualization as this one:
 
 SpreadGL, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics built on kepler.gl, is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreadGL allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome.
 
+To place the health zones on a map, SpreadGL needs a coordinate for each of them. The centroid of every health zone in the analysis is provided in [`healthzone_centroids.csv`]({{ root_url }}files/healthzone_centroids.csv), a comma-separated file with one row per health zone and the columns `health_zone`, `longitude` and `latitude`.
+
 <!--NT: removing this while Sam helps with BF issue in spread.gl
 Some of the functions that relate to the discrete phylogeographic analysis include visualizing location-annotated MCC trees and identification of well-supported rates using a Bayes Factor test. The latter option takes as input the rate matrix file (<samp>batEBOV.state.rates.log</samp> for location states and <samp>batEBOV.host.rates.log</samp> for host states) generated under the analysis using the Bayesian Stochastic Search Variable Selection (BSSVS) procedure. This test aims at identifying frequently invoked rates to explain the diffusion process and, in case of locations, visualize them on a circle and on a globe or a map, which needs to be provided to SPREAD4. -->
 
