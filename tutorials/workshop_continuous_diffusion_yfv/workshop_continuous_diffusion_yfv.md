@@ -238,6 +238,8 @@ In the `Layout` panel select the check-box `Align Tip Labels` to increase clarit
 
 ### Visualizing Bayesian phylogeographic reconstructions using SPREAD4
 
+{% include image.html file="sam.png" prefix=root_url width="50%" %}
+
 SPREAD4, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics version 4, is a software to visualise the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualise reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SPREAD4 allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome. <!--A detailed tutorial for this particular step is available [here](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourThree). -->
 
 Brief instructions can be found in the quick how-to summary below.
