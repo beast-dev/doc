@@ -11,6 +11,8 @@ folder: beast
 
 {% capture root_url %}{{ site.tutorials_root_url }}/workshop_continuous_diffusion_yfv/{% endcapture %}
 
+{% include image.html file="maxresdefault.jpg" prefix=root_url %}
+
 ## Introduction
 
 The first step is to convert an alignment file in FASTA format into a BEAST XML input file. This is done using the program BEAUti (which stands for Bayesian Evolutionary Analysis Utility). This is a user-friendly program for setting the evolutionary model and options for the MCMC analysis. The second step is to run BEAST using the input file that contains the data, model and settings. The final step is to explore the output of BEAST in order to diagnose potential problems and to summarise the results.
