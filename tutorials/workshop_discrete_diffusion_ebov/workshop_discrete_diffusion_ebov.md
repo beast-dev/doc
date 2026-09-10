@@ -221,7 +221,7 @@ This should result in a similar visualization as this one:
 {% include image.html file="pearTree_coloredTree.png" prefix=root_url width="100%" align="center" %}
 
 
-### Visualizing the MCC tree <!--and calculating Bayes factor support for rates--> using SpreadGL
+### Visualizing the consensus tree <!--and calculating Bayes factor support for rates--> using SpreadGL
 
 SpreadGL, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics built on kepler.gl, is a software to visualize the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualize reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SpreadGL allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome.
 
@@ -498,6 +498,8 @@ This is more clearly visible in the 3D visualisation of the MDS, which you can f
 
 In conclusion, this BASTA phylogeographic analysis needs to be run for (much) longer to be able to perform a more in-depth assessment of convergence and mixing in phylogenetic tree space. Based on what Tracer and TreeTracer show for the initial 10 million iterations, it would seem that at least 50 or 100 million iterations will be required to perform a more informative inspection of convergence and mixing for the continuous model parameters (in Tracer) and the sampled phylogenetic trees (in TreeTracer).
 
+Once such an analysis for possibly hundreds of millions of iterations has been completed, the same steps as in EXERCISE 1 (`Summarizing and visualizing the trees` and `Visualizing the consensus tree using SpreadGL`) can then be followed to compare the consensus tree obtained under the BASTA model to the one obtained in EXERCISE 1 under a forward-in-time (FIT) CTMC model. Note that the `Compare Consensus` panel in TreeTracer offers the possibility to compare consensus trees through a tanglegram, but see  [TreeTracer tutorial 1](analysing_beast_output) for more information on how to do this. Finally, we refer to Baele et al. (2025) for a comparison of consensus tree methods, all of which are available in TreeAnnotator X.
+
 ## References
 
 * [Kinganda-Lusamaki, E., Black, A., Mukadi, D.B. et al. 2021. Integration of genomic sequencing into the response to the Ebola virus outbreak in Nord Kivu, Democratic Republic of the Congo. Nat Med 27, 710–716. doi: 10.1038/s41591-021-01302-z](https://doi.org/10.1038/s41591-021-01302-z)
@@ -511,6 +513,7 @@ In conclusion, this BASTA phylogeographic analysis needs to be run for (much) lo
 * [Gao J., May M. R., Rannala B., Moore B. R. 2023. Model misspecification misleads inference of the spatial dynamics of disease outbreaks. Proc. Natl. Acad. Sci. USA 120 (11) e2213913120.](https://doi.org/10.1073/pnas.2213913120)
 * Hong S. L., Brusselmans M., Klaps J., Carvalho L. M., Magee A. F., Suchard M. A., Rambaut A., Baele G. (2026) Tree convergence and mixing in Bayesian phylogenetics Using TreeTracer. In preparation.
 * [Magee A., Karcher M., Matsen IV F. A., Minin V. (2024) How trustworthy is your tree? Bayesian phylogenetic effective sample size through the lens of Monte Carlo error. Bayesian Analysis, 19(2), 565-593.](https://projecteuclid.org/journals/bayesian-analysis/volume-19/issue-2/How-Trustworthy-Is-Your-Tree-Bayesian-Phylogenetic-Effective-Sample-Size/10.1214/22-BA1339.full)
+* [Baele G., Carvalho L. M., Brusselmans M., Dudas G., Ji X, McCrone J. T., Lemey P., Suchard M. A., Rambaut A. (2025) HIPSTR: highest independent posterior subtree reconstruction in TreeAnnotator X. Bioinformatics 41(10): btaf488.](https://doi.org/10.1093/bioinformatics/btaf488)
 
 ## Help and documentation
 
