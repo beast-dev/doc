@@ -11,8 +11,6 @@ folder: beast
 
 {% capture root_url %}{{ site.tutorials_root_url }}/workshop_continuous_diffusion_yfv/{% endcapture %}
 
-{% include image.html file="maxresdefault.jpg" prefix=root_url %}
-
 ## Introduction
 
 The first step is to convert an alignment file in FASTA format into a BEAST XML input file. This is done using the program BEAUti (which stands for Bayesian Evolutionary Analysis Utility). This is a user-friendly program for setting the evolutionary model and options for the MCMC analysis. The second step is to run BEAST using the input file that contains the data, model and settings. The final step is to explore the output of BEAST in order to diagnose potential problems and to summarise the results.
@@ -237,8 +235,6 @@ Run FigTree and select the `Open...` command from the `File` menu. Select the tr
 In the `Layout` panel select the check-box `Align Tip Labels` to increase clarity. We can also plot a time scale axis for this evolutionary history (select `Scale Axis` and deselect `Scale Bar`).
 
 ### Visualizing Bayesian phylogeographic reconstructions using SPREAD4
-
-{% include image.html file="sam.png" prefix=root_url width="50%" %}
 
 SPREAD4, i.e. Spatial Phylogenetic Reconstruction of EvolutionAry Dynamics version 4, is a software to visualise the output from Bayesian phylogeographic analysis and constitutes a user-friendly application to analyze and visualise reconstructions resulting from Bayesian inference of sequence and trait evolutionary processes. SPREAD4 allows to visualise spatial reconstructions on custom maps and is run entirely online in browsers such as Firefox, Safari and Chrome. <!--A detailed tutorial for this particular step is available [here](https://rega.kuleuven.be/cev/ecv/software/SpreaD3_tutorial#sectionFourThree). -->
 
