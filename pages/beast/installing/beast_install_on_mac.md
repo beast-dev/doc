@@ -13,35 +13,23 @@ folder: beast/installing
 
 BEAST can be downloaded from the following link:
 
-- [BEAST X v{{ site.beast_version }} - Mac OS X binary 114MB]({{ site.beast_mac_download_url }})
+- [BEAST X v{{ site.beast_version }} - Mac OS X binary 228MB]({{ site.beast_mac_download_url }})
 
 This will download a disk image (a '.dmg' file) probably into your Downloads folder. 
 
 {% include callout.html content="The latest version of BEAST can always be found here: [https://github.com/beast-dev/beast-mcmc/releases/latest](https://github.com/beast-dev/beast-mcmc/releases/latest)" %}
 
-## Installing JAVA
+This version includes a Java virtual machine (JVM) and the BEAGLE library so no additional installation is required.
 
-To run BEAST on Mac OS X, you will need to have [Java](http://go.java.com) installed. Older versions of Mac OS had Java installed by default but this is no longer the case. You can install the latest version of Java which is distributed free by [Oracle](http://java.com). BEAST currently requires at least version 8 of Java.
-  
-### Installing Oracle Java 8
+Note - this version will only work on Macs with Apple Silicon (ARM64 cpus). To run on older Intel powered Macs use the Universal version:
 
-To get the latest version of Java you will need to download the Java JDK from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Download and install the 'JRE' - this is the Java Runtime Environment. If you want to compile Java code you can install the JDK (Java Development Kit) instead. Once installed, you will automatically get updates to the latest version.
+- [BEAST X v{{ site.beast_version }} - Mac OS X binary 228MB]({{ site.beast_mac_universal_download_url }})
 
-{% include warning.html content="Do not install the Java software offered on the http://java.com website. This will install java only as a plug in to your web browser. This version of Java will not be able to run BEAST." %}
+This version will require an independent installation of Java and the BEAGLE library.
 
 ## Installing BEAST
 
 Double-clicking the disk image file will open a virtual 'disk' in a Finder window. At this point the applications are still on the 'disk' created by the disk image. We suggest that you drag the entire folder into your ```Applications``` folder (either the main Applications folder or the one in your user folder). You can drag the folder by clicking, holding and then dragging the little white icon at the top of the disk image finder window.
- 
-### Mac OS X security
-
-When opening the downloaded disk image (`.dmg` file) or running any of the applications in the BEAST package for the first time you may see a security dialog box. This is Mac OS X's security  protecting your system from unknown software:
- 
-{% include image.html file="installing/mac-security.png" indent="64px" width="320px" alt="mac security" caption="The Mac OS X security dialog. This prevents software from outside the App Store being run unless explicily overruled." %}
-
-For Mac OS X 15 (Sequoia) and later, you will need to allow the application to run by clicking "Done" and then going to `System Preferences` > `Security & Privacy` and clicking the `Open Anyway` button next to the message about BEAST. This will allow you to run the application. Unfortunately you will have to do this for each application in the BEAST package.
-
-{% include image.html file="installing/mac-security-2.png" indent="64px" width="320px" alt="mac security" caption="The security restrictions on running this software can be overruled in the Security & Privacy section of System Preferences." %}
 
 ### Older Max OS X versions
 
@@ -60,7 +48,6 @@ Mac OS X is particularly popular in computational biology because it is built up
 ### Homebrew package manager for Mac OS X
 
 The above instructions will also work to install BEAST as a command-line tool in Mac OS X. However, the recommended way of installing BEAST for use in the Mac OS X Terminal is to use the Homebrew package manager.
-
 
 If you use the Mac OS X command-line you are probably familiar with [Homebrew](https://brew.sh). This is a simple and convenient way of installing and updating command-line software on the Mac. [Homebrew](https://brew.sh) provides a huge range of science and bioinformatics software [and a list of packages can be found here](https://github.com/Homebrew/homebrew-science/wiki/List-of-homebrew-science-formulae). [See the Homebrew website to get it installed](https://brew.sh).
 
